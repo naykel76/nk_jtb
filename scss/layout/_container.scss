@@ -1,0 +1,39 @@
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative; // just make it so!
+}
+
+@media screen and (min-width: $tablet) {
+  .container {
+    max-width: $container-tablet;
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  .container {
+    max-width: $container-desktop;
+  }
+}
+
+@media screen and (min-width: $widescreen) {
+  .container {
+    max-width: $container-widescreen;
+  }
+}
+
+// // .container {
+// //     flex-grow: 1;
+// //     margin: 0 auto;
+// //     position: relative;
+// //     width: auto;
+// //   }
+
+// //   .container.is-fluid {
+// //     max-width: none;
+// //     padding-left: 32px;
+// //     padding-right: 32px;
+// //     width: 100%;
+// //   }
+

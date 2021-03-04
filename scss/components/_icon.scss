@@ -1,0 +1,47 @@
+$icon-xy-sm: 1em !default;
+$icon-xy: 1.5em !default;
+$icon-xy-md: 2em !default;
+$icon-xy-lg: 3em !default;
+$icon-color: inherit !default;
+
+// for each icon size
+
+// $icon-sizes-map: () !default;
+// $icon-sizes-map: (
+//     (
+//         // "-sm": $margin-sm,
+//         // "": $content-gap,
+//         // "-lg": $margin-lg,
+//         "-1": 1rem,
+//         "-2": 2rem,
+//         "-3": 3rem,
+//         "-4": 4rem,
+//         "-5": 5rem
+//     ),
+//     $icon-sizes-map
+// );
+
+// .icon is the container
+// 1. aligns to the text
+.icon {
+    width: $icon-xy;
+    height: $icon-xy;
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    vertical-align: bottom; // 1
+    color: $icon-color;
+
+    &.sm {
+        height: $icon-xy-sm;
+        width: $icon-xy-sm;
+    }
+    &.md {
+        height: $icon-xy-md;
+        width: $icon-xy-md;
+    }
+    &.lg {
+        height: $icon-xy-lg;
+        width: $icon-xy-lg;
+    }
+}

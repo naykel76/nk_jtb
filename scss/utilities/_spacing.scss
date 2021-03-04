@@ -1,0 +1,165 @@
+// ==========================================================================
+// Range of margin and padding classes to separate your content
+// ==========================================================================
+// |--\0/-- Margins --\0/--|
+// |--\0/-- Padding --\0/--|
+// |--\0/-- Margin Positioning --\0/--|
+// |--\0/-- Remove Margin --\0/--|
+// |--\0/-- Remove Padding --\0/--|
+
+// responsive padding
+.pxyr {
+    padding: 1rem;
+    @include from-tablet {
+        padding: $content-gap;
+
+    }
+    @include from-desktop {
+
+    }
+    @include from-widescreen {
+
+    }
+}
+
+$spacing-sizes: () !default;
+$spacing-sizes: map-merge(
+    (
+        "-sm": $margin-sm,
+        "": $content-gap,
+        // default content gap
+        "-lg": $margin-lg,
+        "-1": 1rem,
+        "-2": 2rem,
+        "-3": 3rem,
+        "-4": 4rem,
+        "-5": 5rem,
+    ),
+    $spacing-sizes
+);
+
+// |--\0/-- Margins --\0/--|
+@each $key, $value in $spacing-sizes {
+    .mt#{$key} {
+        margin-top: $value !important;
+    }
+    .mb#{$key} {
+        margin-bottom: $value !important;
+    }
+    .ml#{$key} {
+        margin-left: $value !important;
+    }
+    .mr#{$key} {
+        margin-right: $value !important;
+    }
+    .my#{$key} {
+        margin-top: $value !important;
+        margin-bottom: $value !important;
+    }
+    .mx#{$key} {
+        margin-left: $value !important;
+        margin-right: $value !important;
+    }
+    .mxy#{$key} {
+        margin: $value !important;
+    }
+}
+
+// |--\0/-- Padding --\0/--|
+@each $key, $value in $spacing-sizes {
+    .pt#{$key} {
+        padding-top: $value !important;
+    }
+    .pb#{$key} {
+        padding-bottom: $value !important;
+    }
+    .pl#{$key} {
+        padding-left: $value !important;
+    }
+    .pr#{$key} {
+        padding-right: $value !important;
+    }
+    .py#{$key} {
+        padding-top: $value !important;
+        padding-bottom: $value !important;
+    }
+    .px#{$key} {
+        padding-left: $value !important;
+        padding-right: $value !important;
+    }
+    .pxy#{$key} {
+        padding: $value !important;
+    }
+}
+
+// |--\0/-- Margin Positioning --\0/--|
+.max {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.may {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+}
+.mat {
+    margin-top: auto !important;
+}
+.mat {
+    margin-bottom: auto !important;
+}
+.mal {
+    margin-left: auto !important;
+}
+.mar {
+    margin-left: auto !important;
+}
+
+// |--\0/-- Remove Margin --\0/--|
+.nm {
+    margin: 0 !important;
+}
+.nmt {
+    margin-top: 0 !important;
+}
+.nmb {
+    margin-bottom: 0 !important;
+}
+.nml {
+    margin-left: 0 !important;
+}
+.nmr {
+    margin-right: 0 !important;
+}
+.nmy {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+.nmx {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+// |--\0/-- Remove Padding --\0/--|
+.np {
+    padding: 0 !important;
+}
+.npt {
+    padding-top: 0 !important;
+}
+.npb {
+    padding-bottom: 0 !important;
+}
+.npl {
+    padding-left: 0 !important;
+}
+.npr {
+    padding-right: 0 !important;
+}
+.npy {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+.npx {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}

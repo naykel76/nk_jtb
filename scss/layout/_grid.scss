@@ -1,0 +1,95 @@
+$grid-gutter: 0.75rem;
+$stack-on-device: $mobile;
+
+// |--\0/-- Column Width Map --\0/--|
+$col-widths: (
+    10: 10%,
+    15: 15%,
+    20: 20%,
+    25: 25%,
+    30: 30%,
+    33: 33.3333%,
+    40: 40%,
+    50: 50%,
+    60: 60%,
+    66: 66.6666%,
+    70: 70%,
+    75: 75%,
+    80: 80%,
+    85: 85%,
+    90: 90%,
+    100: 100%,
+);
+
+.row {
+    margin-left: -$grid-gutter;
+    margin-right: -$grid-gutter;
+    // margin-top: -$grid-gutter;
+
+    &.mm{
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+// columns stack and will not flex until min-size
+// 1. columns will wrap when past 100%
+@media screen and (min-width: $stack-on-device), print {
+    .row {
+        display: flex;
+        flex-wrap: wrap; // 1
+    }
+}
+
+.col {
+    display: block;
+    flex-basis: 0; // initial width
+    flex-grow: 1; // can grow
+    flex-shrink: 1; // can shrink
+}
+
+// apply gutter to all column classes
+[class*="col"] {
+    padding: $grid-gutter;
+}
+
+// 1. columns will be 100% after the smallest col class this removes the
+//    requirement to explicitly state each viewport colum width. for example if
+//    you want the screen to be 100% wide on a tablet but 75% wide from above
+//    the only class you need is col-lg-75 this could be a stroke of genius or a
+//    nightmare to come!
+
+[class*="col-"] { // '-' on the end to only target class with view port
+    flex: 0 0 100%; // 1
+}
+
+// |--\0/-- Create Columns including Media Queries --\0/--|
+//
+
+// Base classes (non responsive)
+// for each width in col-widths
+@each $column, $width in $col-widths {
+    // create class .col-breakpoint-width
+    .col-#{$column} {
+        flex: 0 0 $width;
+        max-width: $width;
+    }
+}
+
+// |--\0/-- Responsive classes --\0/--|
+//
+
+// for each breakpoint (xs, sm, etc ...) in breakpoints
+@each $breakpoint, $size in $breakpoints {
+    // create a media query with min-width of $size
+    @media (min-width: $size) {
+        // for each width in col-widths
+        @each $column, $width in $col-widths {
+            // create class .col-breakpoint-width
+            .col-#{$breakpoint}-#{$column} {
+                flex: 0 0 $width;
+                max-width: $width;
+            }
+        }
+    }
+}

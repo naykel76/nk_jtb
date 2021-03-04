@@ -1,0 +1,15 @@
+@mixin hover($bg: darken($value, 3%)) {
+    &:hover {
+        @content;
+        background-color: $bg;
+        transition: color .3s ease-in-out;
+        transition: background-color .3s ease-in-out;
+    }
+}
+
+@mixin active($bg: lighten($value, 5%)) {
+    &:active {
+        @content;
+        background-color: $bg;
+    }
+}

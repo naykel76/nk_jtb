@@ -1,0 +1,95 @@
+// |--\o/-- Generic Elements --\o/--|
+// |--\o/-- frm-row --\o/--|
+// ==========================================================================
+
+$placeholder-color: #bbbbbb !default;
+
+// |--\o/-- Generic Elements --\o/--|
+// ==========================================================================
+button,
+textarea,
+select,
+input:not([type="checkbox"]):not([type="radio"]) {
+    max-width: 100%;
+    @extend %control;
+}
+textarea,
+select,
+input:not([type="checkbox"]):not([type="radio"]) {
+    padding-left: 0.75em;
+}
+button,
+select {
+    cursor: pointer;
+}
+
+::placeholder {
+    color: $placeholder-color;
+    opacity: 1;
+}
+
+//
+.checkbox,
+.radio {
+    cursor: pointer;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+// |--\o/-- frm-row --\o/--|
+// ==========================================================================
+.frm-row {
+    // |--\o/-- Generic Elements --\o/--|
+    label {
+        margin-bottom: 3px;
+    }
+
+    input:not([type="checkbox"]):not([type="radio"]),
+    select,
+    textarea {
+        width: 100%;
+    }
+
+    // if first child gutter will be automatically removed
+    &:not(:first-child) {
+        margin-top: $content-gap;
+    }
+
+    // remove the padding from any column class and let the frm-row do its job.
+    // This seems a little convoluted but it works!
+    > [class*="col"] {
+        padding-top: 0;
+        padding-bottom: 0;
+        &:first-child {
+            padding-left: 0;
+        }
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+}
+
+// // Icons
+// // ======================================================================= ->
+
+// // container for icon, can be used on frm-row or by itself
+// .has-icon {
+//     position: relative;
+
+//     input{
+//         padding-left: $ctrl-height !important;
+//     }
+
+//     .icon {
+//         z-index: 100; // keep on top of input
+//         height: $ctrl-height; // use control height so always in center
+//         left: 8px;
+//         position: absolute;
+//         color: $placeholder-color;
+//     }
+// }
+
+// &.req:after {
+//   content: "*";
+//   color: #de2424;
+// }

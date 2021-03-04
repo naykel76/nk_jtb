@@ -1,0 +1,128 @@
+// --------------------------------------------------------------------------
+// Variables
+// --------------------------------------------------------------------------
+
+$bx-bg: #fff !default;
+$bx-color: $base-color !default;
+$bx-padding: $content-gap !default;
+$bx-border-radius: 0.25rem !default;
+
+$bx-header-bg: rgb(250, 250, 250) !default;
+$bx-title-font-weight: 600 !default;
+$bx-title-font-size: 1.2rem !default;
+
+$boxes-map: (
+    primary: (
+        bg: $primary,
+        color: #fff,
+    ),
+    secondary: (
+        bg: $secondary,
+        color: #fff,
+    ),
+    // danger: $danger,
+    // success: $success,
+    // info: $info,,,
+);
+
+
+// --------------------------------------------------------------------------
+// Base Class
+// --------------------------------------------------------------------------
+// The base class adds colour to the entire box
+
+.bx {
+    padding: $bx-padding;
+    border-radius: $bx-border-radius;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    background: $bx-bg;
+    color: $bx-color;
+    margin-top: $content-gap;
+
+    & > *:first-child {
+        margin-top: 0;
+    }
+
+    &-title {
+        font-size: $bx-title-font-size;
+        font-weight: $bx-title-font-weight;
+        line-height: 1.2;
+    }
+}
+
+// 1. remove side margins to align content to the outer bx. This allows
+//    different bg colours can be applied to individual sections
+.bx-content,
+.bx-header,
+.bx-footer {
+    margin-left: -$bx-padding; // 1
+    margin-right: -$bx-padding; // 1
+    padding: 0.75rem $bx-padding;
+}
+
+// .bx-content {
+//     padding: $bx-padding;
+
+//     // remove margin and radius from the box content when there is no footer
+//     // &:first-of-type {
+//     //     margin-top: -$bx-padding;
+//     //     border-radius: $bx-border-radius $bx-border-radius 0 0;
+//     // }
+//     // &:last-of-type {
+//     //     margin-bottom: -$bx-padding;
+//     //     border-radius: 0 0 $bx-border-radius $bx-border-radius;
+//     // }
+// }
+
+.bx-header {
+    margin-top: -$bx-padding !important;
+    background: $bx-header-bg;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: $bx-border-radius $bx-border-radius 0 0;
+}
+
+.bx-footer {
+    margin-bottom: -$bx-padding !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0 0 $bx-border-radius $bx-border-radius;
+}
+
+// // .bx-shadow {
+// //   box-shadow: 0 1px 2px rgba(10, 10, 10, 0.1);
+// // }
+
+// // // special box with large padding and shaddow
+// // .bx-shaddow {
+// //   // @include box-shadow();
+// //   padding: $gutter-sm;
+// //   border: 1px solid #ddd;
+
+// //   @include mobile {
+// //     padding: $gutter;
+// //   }
+
+// //   @include from-desktop {
+// //     padding: $gutter-lg;
+// //   }
+// // }
+
+@each $key, $map in $boxes-map {
+    .bx-#{$key} {
+        @extend .bx;
+        background: map-get($map, bg);
+        color: map-get($map, color);
+    }
+
+    // .bx-#{$key} {
+    //     // border: 1px solid rgba(0, 0, 0, 0.15);
+    //     background-color: $value;
+    //     // color: $fontcolor;
+    //     // transition: background-color 0.3s;
+
+    //     // &.hover:hover{
+    //     //   background-color: darken($bgcolor, 10);
+    //     // }
+    // }
+}
+

@@ -1,0 +1,319 @@
+/* nk_jtb 2.0.0 */
+
+// |--\0/-- Content Spacing --\0/--|
+// ==========================================================================
+// remove the top margins from all first elements and deal with on a case by
+// case. DO NOT CHANGE! ..... again! DO NOT add !important as predicted it in
+// earlier attempts it becomes a pain in the ass!
+
+// :not(section > *) allow any first element is a section to do it job
+
+* > :first-child:not(h1):not(h2) {
+    margin-top: 0;
+}
+
+* {
+    // remove the lot and allow component control
+    margin: 0;
+    padding: 0;
+}
+
+// NK::!! Do not add DIV to this list because it works against removing the
+// margin in the first place. use utility classes if need be!
+p, pre, ul, ol, table, nav,// elements
+p + *, h1 + *, h2 + *, h3 + *, h4 + *, h5 + *, h6 + *, ul + * // common patterns
+{
+    margin-top: $content-gap;
+}
+
+// :is(h1, h2, h3, h4, h5, h6) + * {
+//     background: #000;
+// }
+// 1. Change from `box-sizing: content-box` so that `width` is not affected by `padding` or `border`.
+*,
+*::before,
+*::after {
+    box-sizing: border-box; // 1
+}
+
+html {
+    font-family: $base-font-family;
+    line-height: $base-line-height;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    min-width: 300px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    text-rendering: optimizeLegibility;
+    text-size-adjust: 100%;
+}
+
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+    display: block;
+}
+
+body {
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    font-weight: $base-font-weight;
+    line-height: $base-line-height;
+    color: $base-color;
+    background-color: $base-bg;
+    text-align: left; // 2
+}
+
+hr {
+    background-color: rgb(245, 245, 245);
+    border: none; // allow height to do the work
+    display: block;
+    height: 2px;
+    margin: 1.5rem 0;
+}
+small {
+    font-size: 80%;
+}
+b,
+strong {
+    font-weight: 700;
+}
+
+em {
+    font-weight: 500;
+}
+// |--\0/-- Typography --\0/--|
+// ==========================================================================
+// 1. set the default top-margin to the default spacing except for H1
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: $heading-font-weight;
+    line-height: 1.125;
+    color: $heading-color;
+    margin-top: 2rem; // 1
+}
+
+// let element do the work ????
+// h1 {
+//     margin-top: 0;
+// }
+
+@for $size from 1 through length($heading-sizes) {
+    h#{$size} {
+        font-size: nth($heading-sizes, $size);
+    }
+}
+
+// |--\0/-- Lists --\0/--|
+// ==========================================================================
+
+// 1. Because the bullet is outside of the list’s container, indent the list entirely
+ul,
+ol {
+    margin-left: 1em; // 1
+}
+
+// li ul, li ol are nested lists
+li + li,
+li ul,
+li ol {
+    margin-top: 0.5em;
+}
+
+// blockquote {
+//   margin: 0 0 1rem;
+// }
+
+// b,
+// strong {
+//   font-weight: $font-weight-bolder; // Add the correct font weight in Chrome, Edge, and Safari
+// }
+
+// small {
+//   @include font-size(80%); // Add the correct font size in all browsers
+// }
+
+// //
+// // Prevent `sub` and `sup` elements from affecting the line height in
+// // all browsers.
+// //
+
+// sub,
+// sup {
+//   position: relative;
+//   @include font-size(75%);
+//   line-height: 0;
+//   vertical-align: baseline;
+// }
+
+// sub { bottom: -.25em; }
+// sup { top: -.5em; }
+
+// |--\0/-- Links --\0/--|
+// ==========================================================================
+
+a {
+    color: $link-color;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover {
+    color: $link-hover-color;
+    text-decoration: none;
+}
+
+// |--\0/-- Code --\0/--|
+// ==========================================================================
+
+pre,
+code {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 1em;
+}
+
+// code only, excludes <pre><code> </pre></code>
+:not(pre) > code {
+    white-space: nowrap;
+    padding: 1px 4px;
+    background: #f8f8f8;
+    border-radius: 0.2rem;
+    color: #e83e8c;
+}
+
+pre {
+    overflow: auto;
+    -ms-overflow-style: scrollbar;
+    padding: 1rem;
+    border-left: 5px solid #e65e5e;
+    background: #333;
+}
+
+// //
+// // Figures
+// //
+
+// figure {
+//   // Apply a consistent margin strategy (matches our type styles).
+//   margin: 0 0 1rem;
+// }
+
+// |--\0/-- Image and Video --\0/--|
+// ==========================================================================
+// 1. make image responsive, can't expand past parent element
+// 2. get rid of the gap on the bottom (or make block)
+//    https://stackoverflow.com/questions/31444891/mystery-white-space-underneath-image-tag/31445364#31445364
+img,
+video {
+    // height: auto; MESSES WITH SVG WHEN SETTING HEIGHT ATTRIBUTE??? LOGO
+    max-width: 100%; // 1
+    max-height: 100%;
+    border-style: none;
+    vertical-align: middle; // 2
+}
+
+// this will only work if there is no width or height properties set in the svg file
+// 1. pass font color through to svg
+svg {
+    fill: currentcolor; // 1
+}
+
+// |--\0/-- Tables --\0/--|
+// ==========================================================================
+
+caption {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    color: #6c757d;
+    text-align: left;
+    caption-side: bottom;
+}
+
+table {
+    border-collapse: collapse;
+    background-color: transparent;
+    overflow-x: auto;
+}
+
+th {
+    font-weight: bold;
+    background: rgb(235, 235, 235);
+}
+
+th,
+td {
+    padding: 0.5em;
+    border: 1px solid #c7c5c5;
+    text-align: left;
+    vertical-align: top;
+}
+
+table {
+    border-collapse: collapse; // Prevent double borders
+}
+
+// caption {
+//   padding-top: $table-cell-padding;
+//   padding-bottom: $table-cell-padding;
+//   color: $table-caption-color;
+//   text-align: left;
+//   caption-side: bottom;
+// }
+
+// |--\0/-- Forms --\0/--|
+// ==========================================================================
+
+// 1. align to inputs
+label {
+    display: inline-block;
+    margin-right: 0.5rem;
+    font-weight: 600;
+    margin-top: 6px; // 1
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    vertical-align: baseline;
+}
+
+input,
+button,
+select,
+optgroup,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+fieldset {
+    border: none;
+}
+
+// input[type="file"] {
+//     height: 100%; // vertical align chrome
+// }
+// textarea {
+// do not set as min for easy override
+// height: 8rem;
+// overflow: auto;
+// resize: vertical;
+// }
+
+// Always hide an element with the `hidden` HTML attribute (from PureCSS).
+// Needed for proper display in IE 10-.
+[hidden] {
+    display: none !important;
+}

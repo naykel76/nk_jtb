@@ -1,0 +1,160 @@
+// |--- \o/ Base Class --\o/--|
+// |--- \o/ Button Variations --\o/--|
+// |--- \o/ Button Variations - Outline --\o/--|
+// |--- \o/ Button Container --\o/--|
+
+$btn-color: #363636 !default;
+$btn-bg: rgb(248, 248, 248) !default;
+
+$buttons-map: (
+    primary: $primary,
+    secondary: $secondary,
+    danger: $danger,
+    success: $success,
+    info: $info,
+);
+
+// if a custom map exists then merge it
+@if variable-exists(custom-buttons-map) {
+    $buttons-map: map-merge($buttons-map, $custom-buttons-map);
+}
+
+// ==========================================================================
+// |--- \o/ Base Class --\o/--|
+// ==========================================================================
+
+[class*="btn"] {
+    &.focus,
+    &:focus {
+        outline: none;
+    }
+}
+
+.btn {
+    @extend %control; // core from _control.scss
+    background: $btn-bg;
+    color: $btn-color;
+    transition: color .3s ease-in-out;
+    transition: background-color .3s ease-in-out;
+    user-select: none; // prevents selectable text
+    justify-content: center;
+
+    &:hover {
+        color: $btn-color;
+        text-decoration: none;
+        background-color: darken($btn-bg, 5%);
+    }
+
+    &:not(:disabled):not(.disabled) {
+        cursor: pointer;
+    }
+}
+
+// ==========================================================================
+// |--- \o/ Button Variations --\o/--|
+// ==========================================================================
+// create button variations based on buttons-map ** has custom map
+@each $key, $value in $buttons-map {
+    .btn-#{$key} {
+        @extend .btn;
+        background-color: $value;
+        color: setTextColor($value);
+
+        // add bg colour parameter or leave blank for transparent
+        // 1. override default btn color
+        @include hover(lighten($value, 5%)) {
+            color: setTextColor($value); // 1
+        }
+
+        @include active(darken($value, 5%));
+
+        // |--- \o/ Button Variations - Outline --\o/--|
+        &.outline {
+            border-color: $value;
+            color: $value;
+            // add bg colour parameter or leave blank for transparent
+            @include hover(lighten($value, 5%)) {
+                color: setTextColor($value); // 1
+            }
+            @include active(darken($value, 5%));
+        }
+    }
+}
+
+.btn.outline {
+    background: transparent;
+}
+
+// |--- \o/ Button Container --\o/--|
+// ==========================================================================
+.buttons {
+    .btn {
+        margin-right: 1rem;
+    }
+    // &[class*=".btn"] {
+    //     margin-right: 0.5rem;
+    // }
+}
+
+// ==========================================================================
+// override base element for basic style
+// ==========================================================================
+// input[type="submit"],
+// input[type="reset"],
+// button {
+//     @extend .btn;
+// }
+
+// ==========================================================================
+// -- Base Class --
+// ==========================================================================
+
+// -- Buttons Icons --
+// ==========================================================================
+.icon {
+    + span {
+        margin-left: 0.25rem;
+    }
+}
+
+//     // if only the icon add negative margin to overide padding
+//     // .icon:first-child:last-child {
+//     //     margin-left: calc(-0.5em + 3px);
+//     //     margin-right: calc(-0.5em + 3px);
+//     // }
+
+//     // -- Button and Icon size modifiers --
+//     // ==========================================================================
+//     // &.sm {
+//     //     .icon:first-child:last-child {
+//     //         margin-left: -10px;
+//     //         margin-right: -10px;
+//     //     }
+//     // }
+
+//     // &.md {
+//     //     .icon:first-child:last-child {
+//     //         margin-left: calc(-0.5em + 8px);
+//     //         margin-right: calc(-0.5em + 8px);
+//     //     }
+//     // }
+
+//     // &.lg {
+//     //     .icon:first-child:last-child {
+//     //         margin-left: calc(-0.5em + 13px);
+//     //         margin-right: calc(-0.5em + 13px);
+//     //     }
+//     // }
+// }
+
+// show outline when hover
+// .btn.suprise{
+//   background: transparent;
+//   border: $btn-border-width solid transparent;
+
+//   &:hover {
+//     color: $btn-color;
+//     border: $btn-border-width solid rgba(0, 0, 0, 0.15);
+//     background-color: darken($btn-bg, 5%);
+//   }
+// }

@@ -1,0 +1,100 @@
+// |--\o/-- Configuration Settings --\o/--|
+// |--\o/-- Base Styles --\o/--|
+// |--\o/-- Typography --\o/--|
+// |--\o/-- Controls --\o/--|
+// |--\o/-- Spacings --\o/--|
+// |--\o/-- Responsive Sizes --\o/--|
+
+$img-path: "/assets/images" !default;
+
+// ==========================================================================
+// |--\o/-- Configuration Settings --\o/--|
+// ==========================================================================
+$include-shades: true; // include color shades
+$base-extended: true; // include extra base features e.g. hr.mm
+// $grid-has-gap: true;
+
+// ==========================================================================
+// |--\o/-- Base Styles --\o/--|
+// ==========================================================================
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
+
+$base-color: #333 !default;
+$base-bg: #fff !default;
+$base-font-family: Poppins, sans-serif;;
+// $base-font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+// $base-font-family: open sans, helvetica neue, Helvetica, Arial, sans-serif !default;
+$base-font-weight: normal !default;
+$base-font-size: 1rem !default;
+// $base-font-size: 1.125rem !default;
+$base-line-height: 1.5 !default;
+$base-border: #ddd !default;
+
+// ==========================================================================
+// |--\o/-- Typography --\o/--|
+// ==========================================================================
+$font-size-sm: ($base-font-size * 0.875) !default;
+$font-size-md: ($base-font-size * 1.25) !default;
+$font-size-lg: ($base-font-size * 1.5) !default;
+
+$heading-sizes: 2.25em, 1.75em, 1.5em, 1.25em, 1.125em, 1em;
+// $heading-color: $base-color !default;
+$heading-color: inherit !default;
+$heading-font-weight: 700;
+
+$link-color: #007bff !default;
+$link-hover-color: #0056b3 !default;
+
+// ==========================================================================
+// |--\o/-- Spacings --\o/--|
+// ==========================================================================
+
+$content-gap: 1.5rem !default; // space between page elements
+// $content-padding: 1rem !default; // used to keep consistent padding inside page elements
+
+// Used to add padding to components
+// $padding-xs: 0.3rem !default;
+// $padding-sm: 0.5rem !default;
+// $padding: 1rem !default;
+// $padding-md: 2rem !default;
+// $padding-lg: 4rem !default;
+// $padding-xl: 10rem !default;
+
+// used to separate elements
+$margin-sm: 0.5rem !default;
+$margin: $content-gap !default;
+$margin-lg: 3rem !default;
+
+// ==========================================================================
+// |--\o/-- Responsive Sizes --\o/--|
+// ==========================================================================
+
+$breakpoints: (
+    xs: 320px,
+    sm: 556px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+);
+
+$deviceSizes: (
+    small: map-get($breakpoints, xs),
+    mobile: map-get($breakpoints, sm),
+    tablet: map-get($breakpoints, md),
+    desktop: map-get($breakpoints, lg),
+    widescreen: map-get($breakpoints, xl),
+);
+
+// translate breakpoints into user friendly names for easy reference
+// these could be referred to as 'display when' sizes, display when (min-width: $tablet)
+$small: map-get($breakpoints, xs);
+$mobile: map-get($breakpoints, sm);
+$tablet: map-get($breakpoints, md);
+$desktop: map-get($breakpoints, lg);
+$widescreen: map-get($breakpoints, xl);
+
+$container-tablet: 720px !default;
+$container-desktop: 960px !default;
+$container-widescreen: 75rem !default;
+// $container-widescreen:      84rem !default;

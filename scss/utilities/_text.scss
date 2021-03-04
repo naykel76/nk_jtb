@@ -1,0 +1,123 @@
+$lead-font-size: 1.3rem !default;
+$lead-font-weight: 400 !default;
+
+$title-color: $primary !default;
+$title-font-family: $base-font-family !default;
+$title-font-size: 3.75rem !default;
+$title-font-weight: 700 !default;
+$title-line-height: 1.125;
+
+$subtitle-color: $primary !default;
+$subtitle-font-family: $base-font-family !default;
+$subtitle-font-size: 2rem !default;
+$subtitle-font-weight: 700 !default;
+
+$font-weights: (
+    4: 400,
+    6: 600,
+    7: 700,
+    9: 900,
+);
+
+.lead {
+    font-size: $lead-font-size;
+    font-weight: $lead-font-weight;
+}
+
+h1.title {
+    font-size: 2.25rem;
+}
+.title {
+    color: $title-color;
+    font-size: $title-font-size;
+    font-weight: $title-font-weight;
+    font-family: $title-font-family;
+    line-height: $title-line-height;
+}
+
+.subtitle {
+    color: $subtitle-color;
+    font-size: $subtitle-font-size;
+    font-weight: $subtitle-font-weight;
+    font-family: $subtitle-font-family;
+    line-height: $title-line-height;
+}
+
+// |--\0/-- Text Alignment --\0/--|
+//
+.tal {
+    text-align: left !important;
+}
+.tar {
+    text-align: right !important;
+}
+.tac {
+    text-align: center !important;
+}
+
+// |--\0/-- Text Modifiers --\0/--|
+.txt {
+    // -- Alignment (alternative classes) --
+    &-l {
+        text-align: left;
+    }
+    &-r {
+        text-align: right;
+    }
+    &-j {
+        text-align: justify;
+    }
+    &-ctr {
+        text-align: center;
+    }
+
+    // size modifiers
+    &-sm {
+        font-size: 0.75rem;
+    }
+    &-lg {
+        font-size: 1.25rem;
+    }
+
+    // colour modifiers
+    &-green {
+        color: $green;
+    }
+    &-red {
+        color: $red;
+    }
+    &-orange {
+        color: $orange;
+    }
+    &-blue {
+        color: $blue;
+    }
+    &-white {
+        color: #fff;
+    }
+    &-muted {
+        color: $muted;
+    }
+    &-primary {
+        color: $primary;
+    }
+    &-secondary {
+        color: $secondary;
+    }
+
+    // decorations
+    &-strike {
+        text-decoration: line-through;
+    }
+    &-underline {
+        text-decoration: underline;
+    }
+}
+
+// |--\0/-- Font Weights --\0/--|
+//
+@each $key, $value in $font-weights {
+    .fw#{$key} {
+        font-weight: $value !important;
+    }
+}

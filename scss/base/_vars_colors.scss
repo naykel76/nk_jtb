@@ -1,0 +1,103 @@
+// Colours
+// ==========================================================================
+// |--\0/-- Color Maps --\0/--|
+// |--\0/-- Gradient Maps --\0/--|
+
+
+// $link:  #007bff  !default;
+
+$red: hsl(354, 70%, 54%) !default;
+$green: hsl(134, 61%, 41%) !default;
+$blue: hsl(204, 83%, 53%) !default;
+$yellow: hsl(48, 100%, 67%) !default;
+$orange: hsl(14, 100%, 50%) !default;
+
+$cyan: hsl(180, 100%, 50%);
+$teal: hsl(180, 100%, 25%) !default;
+$turquoise: #00d1b2 !default;
+
+$turquoise: hsl(171, 100%, 41%);
+$purple: hsl(271, 100%, 71%);
+
+$darkblue: hsl(201, 100%, 14%) !default;
+$indigo: #6610f2 !default;
+$pink: #e83e8c !default;
+$purple: #6b0fb2 !default;
+
+$primary: $darkblue !default;
+$secondary: #f77f00 !default;
+
+$light: #fafafa !default;
+$dark: #222222 !default;
+$muted: #867d7d !default;
+
+$danger: $red !default;
+$info: $blue !default;
+$success: $green !default;
+$warning: $yellow !default;
+
+$danger-light: hsl(347, 90%, 96%);
+$info-light: hsl(206, 70%, 96%);
+$success-light: hsl(142, 52%, 96%);
+$warning-light: hsl(48, 100%, 96%);
+
+// |--\0/-- Color Maps --\0/--|
+// ==========================================================================
+// Colour maps are used to create color themes based on a single color
+// create colour variable -> create color map -> create map of
+// background color, light background color, light text color
+// --------------------------------------------------------------------------
+$danger-map: ("bg": $danger, "bg-light": $danger-light, "color-light": $danger);
+$success-map: ("bg": $success, "bg-light": $success-light, "color-light": $success);
+$info-map: ("bg": $info, "bg-light": $info-light, "color-light": $info);
+$warning-map: ("bg": $warning, "bg-light": $warning-light, "color-light": $warning);
+
+$color-maps: () !default;
+$color-maps: map-merge(
+    (
+        // "primary": $primary-map,
+        // "secondary": $secondary-map,
+        "danger": $danger-map,
+        "info": $info-map,
+        "success": $success-map,
+        "warning": $warning-map,
+    ),
+    $color-maps
+);
+// --------------------------------------------------------------------------
+
+$colors-map: () !default;
+$colors-map: map-merge(
+    (
+        "blue": $blue,
+        "cyan": $cyan,
+        "darkblue": $darkblue,
+        "green": $green,
+        "indigo": $indigo,
+        "orange": $orange,
+        "pink": $pink,
+        "purple": $purple,
+        "red": $red,
+        "teal": $teal,
+        "turquoise": $turquoise,
+        "yellow": $yellow,
+        "primary": $primary,
+        "secondary": $secondary,
+        "light": $light,
+        "dark": $dark,
+    ),
+    $colors-map
+);
+
+// prettier-ignore
+@include createShades("grey", hsl(0, 0%, 0%), 9, 10);
+@include createShades("orange", hsl(14, 100%, 50%));
+@include createShades("yellow", hsl(48, 100%, 70%), 9, 3);
+
+
+// |--\0/-- Gradient Maps --\0/--|
+$bg-gradient: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7)) !default;
+
+.gradient{
+    background: $bg-gradient;
+}

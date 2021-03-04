@@ -1,0 +1,29 @@
+// |--\0/-- Colour Themes --\0/--|
+// ==========================================================================
+// Create color themes including light versions if available
+// 1. use setTextColor() to set colour based on background (light or dark)
+// $color-map: ("bg": $color, "bg-light": $color-light, "color-light": $color);
+// --------------------------------------------------------------------------
+
+@each $color, $map in $color-maps {
+    .#{$color} {
+        background: map-deep-get($color-maps, #{$color}, "bg");
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        color: setTextColor(map-deep-get($color-maps, #{$color}, "bg")); // 1
+
+        &-light {
+            background: map-deep-get($color-maps, #{$color}, "bg-light");
+            color: map-deep-get($color-maps, #{$color}, "color-light");
+            border: 1px solid map-deep-get($color-maps, #{$color}, "color-light");
+        }
+    }
+}
+
+// basic colors without light versions
+@each $key, $value in $colors-map {
+    .#{$key} {
+        background: $value;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        color: setTextColor($value); // 1
+    }
+}

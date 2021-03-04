@@ -1,0 +1,98 @@
+// $positions: (
+//     "-t": top,
+//     "-b": bottom,
+//     "-l": left,
+//     "-r": right,
+//     "-tl": top-left,
+//     "-tr": top-right,
+//     "-bl": bottom-left,
+//     "-br": bottom-right,
+// );
+// @mixin position($top,  $bottom, $left, $right) { }
+
+// only stick while parent is in view
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+// ==========================================================================
+// Element Position
+// ==========================================================================
+
+.pull-right{float: right;}
+.pull-left{float: left;}
+
+.posa {
+    position: absolute !important;
+}
+.posr {
+    position: relative !important;
+}
+
+[class*="pos-"] {
+    position: absolute !important;
+}
+
+.pos {
+    &-t {
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+    &-tl {
+        top: 0;
+        left: 0;
+    }
+    &-tr {
+        top: 0;
+        right: 0;
+    }
+    &-b {
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    &-bl {
+        bottom: 0;
+        left: 0;
+    }
+    &-br {
+        bottom: 0;
+        right: 0;
+    }
+}
+
+// // THIS SECTION IS NOT DOCUMENTED, AS I AM NOT SURE WHERE IT FITS!
+// .posr,
+// .pos-rel {
+//
+//   .ctr {
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//   }
+//   .bl {
+//     position: absolute;
+//     bottom: 0.5rem;
+//     left: 1rem;
+//   }
+//   .br {
+//     position: absolute;
+//     bottom: 0.5rem;
+//     right: 1rem;
+//   }
+//   .tl {
+//     position: absolute;
+//     top: 0.5rem;
+//     left: 1rem;
+//   }
+//   .tr {
+//     position: absolute;
+//     top: 0.5rem;
+//     right: 1rem;
+//   }
+// }

@@ -1,0 +1,91 @@
+// Media Mixins
+// ==========================================================================
+
+// // |--\0/-- device-only --\0/--|
+// // --------------------------------------------------------------------------
+// @include mobile-only { }
+// @include tablet-only { }
+// @include desktop-only { }
+// @include widescreen-only { }
+
+// // |--\0/-- from-device (device and larger) --\0/--|
+// // --------------------------------------------------------------------------
+// @include from-mobile { }
+// @include from-tablet { }
+// @include from-desktop { }
+// @include from-widescreen { }
+
+// // |--\0/-- excludeFrom-device (exclude device and larger) --\0/--|
+// // --------------------------------------------------------------------------
+// @include excludeFrom-tablet { }
+// @include excludeFrom-desktop { }
+
+
+
+
+
+// |--\0/-- device-only --\0/--|
+// --------------------------------------------------------------------------
+@mixin mobile-only {
+    @media (max-width: $tablet - 1px) {
+        @content;
+    }
+}
+@mixin tablet-only {
+    @media (min-width: $tablet) and (max-width: $desktop - 1px) {
+        @content;
+    }
+}
+@mixin desktop-only {
+    @media (min-width: $desktop) and (max-width: $widescreen - 1px) {
+        @content;
+    }
+}
+@mixin widescreen-only {
+    @media (min-width: $widescreen) {
+        @content;
+    }
+}
+
+// |--\0/-- from-device (device and larger) --\0/--|
+// --------------------------------------------------------------------------
+@mixin from-mobile {
+    @media (min-width: $mobile) {
+        @content;
+    }
+}
+@mixin from-tablet {
+    @media (min-width: $tablet) {
+        @content;
+    }
+}
+@mixin from-desktop {
+    @media (min-width: $desktop) {
+        @content;
+    }
+}
+@mixin from-widescreen {
+    @media (min-width: $widescreen) {
+        @content;
+    }
+}
+
+// |--\0/-- up-to-device (up-to but not including) --\0/--|
+// --------------------------------------------------------------------------
+@mixin up-to-tablet {
+    @media (max-width: $tablet - 1px) {
+        @content;
+    }
+}
+@mixin up-to-desktop {
+    @media (max-width: $desktop - 1px) {
+        @content;
+    }
+}
+@mixin up-to-widescreen {
+    @media (max-width: $widescreen - 1px) {
+        @content;
+    }
+}
+
+

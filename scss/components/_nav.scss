@@ -1,0 +1,61 @@
+$nav-padding-y: 0.5rem !default;
+$nav-padding-x: 0.75rem !default;
+
+$nav-color: $base-color !default;
+$nav-bg: white !default;
+$nav-hover-bg: #efefef !default;
+
+// $navbar-nav-font-color: setTextColor($navbar-bg) !default;
+// $navbar-nav-font-size: 1rem !default;
+// // $navbar-nav-bg: transparent !default; // 1.
+// $navbar-nav-bg: $navbar-bg !default; // 1.
+// $navbar-nav-border: 1px solid lighten($navbar-nav-bg, 4%);
+// $navbar-nav-hover-bg: lighten($navbar-nav-bg, 5%) !default;
+// $navbar-nav-hover-color: darken($navbar-nav-font-color, 15%);
+
+// |--\0/-- nav and nav-items --\0/--|
+nav {
+    display: flex;
+
+    // :not(.btn) is to let btn classes look after styling if used
+    a:not([class*="btn"]) {
+        // color: $navbar-nav-font-color;
+        // font-size: $navbar-nav-font-size;
+        // background: $navbar-nav-bg;
+        padding: $nav-padding-y $nav-padding-x;
+        // border: $navbar-nav-border;
+        &:hover {
+            // color: $navbar-nav-hover-color;
+            // background: $navbar-nav-hover-bg;
+        }
+    }
+}
+
+// ====================================================================== -->
+// Base nav class - basis for all `<nav>`s or `<ul>`s navigation's
+// ====================================================================== -->
+.nav {
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    flex-direction: column;
+
+    // nav items
+    a {
+        padding: $nav-padding-y $nav-padding-x;
+        display: block;
+        color: setTextColor($nav-bg);
+
+        &:hover {
+            color: setTextColor($nav-hover-bg);
+            background: $nav-hover-bg;
+        }
+    }
+
+    .heading {
+        margin-top: 1rem;
+        font-weight: 600;
+        color: #7a7a7a;
+    }
+}

@@ -1,0 +1,57 @@
+// ==========================================================================
+// |--\o/-- Controls --\o/--|
+// ==========================================================================
+$ctrl-border-width: 1px !default;
+$ctrl-border-radius: 0.2rem !default;
+
+$ctrl-font-size-sm: 0.75rem !default;
+$ctrl-font-size: 1rem !default;
+$ctrl-font-size-md: 1.25rem !default;
+$ctrl-font-size-lg: 1.5rem !default;
+
+$ctrl-padding-x: 1em !default;
+$ctrl-padding-y: .375em !default;
+// $ctrl-padding-y: calc(0.5em - #{$ctrl-border-width}) !default;
+
+// Control and Button sizes use em making them relative to the font-size
+
+$control-sizes: (
+    sm: $ctrl-font-size-sm,
+    md: $ctrl-font-size-md,
+    lg: $ctrl-font-size-lg,
+);
+
+$ctrl-line-height: 1.5 !default;
+
+// The control placeholder is the basis for all inputs, buttons and controls
+
+// 1. line height is required to get consistent heights
+// 2. creates control and button sizes sm, md, lg
+%control {
+    border: $ctrl-border-width solid rgba(0, 0, 0, 0.15);
+    border-radius: $ctrl-border-radius;
+    font-size: $ctrl-font-size;
+    padding: $ctrl-padding-y $ctrl-padding-x;
+    // -webkit-appearance: none;
+    cursor: text;
+    line-height: $ctrl-line-height; // 1
+    align-items: center;
+    display: inline-flex;
+    justify-content: flex-start;
+    position: relative;
+    vertical-align: top;
+    @include createControlSizes($control-sizes); // 2
+}
+
+:disabled{
+    // keep separate to allow more use cases for .disabled
+    cursor: not-allowed;
+}
+
+:disabled,
+.disabled{
+    background-color: #fff;
+    border-color: #dbdbdb;
+    opacity: 0.5;
+}
+

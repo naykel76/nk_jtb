@@ -1,0 +1,64 @@
+// Range of height and width utility classes
+// ==========================================================================
+
+
+// add heights and access with 'h' eg. class="h40"
+$heights:(
+  40: 40px,
+  60: 60px,
+  100: 100px,
+  200: 200px,
+  400: 400px,
+  600: 600px
+);
+
+$v-heights:(
+  40: 40vh,
+  50: 50vh,
+  60: 60vh,
+  100: 100vh,
+);
+
+$widths:(
+  40: 40px,
+  100: 100px,
+  150: 150px,
+  200: 200px,
+  300: 300px,
+  400: 400px,
+);
+
+
+// ==========================================================================
+// Height Classes
+// ==========================================================================
+@each $key, $value in $heights {
+  .h#{$key} {
+    height: $value !important;
+  }
+}
+@each $key, $value in $v-heights {
+  .vh#{$key} {
+    height: $value !important;
+  }
+}
+
+// ==========================================================================
+// Width Classes
+// ==========================================================================
+@each $key, $value in $widths {
+  .w#{$key} {
+    width: $value !important;
+  }
+  // max-widths
+  .mw#{$key} {
+    max-width: $value !important;
+  }
+  // width height classes (square)
+  .wh#{$key} {
+    height: $value !important;
+    width: $value !important;
+  }
+}
+
+

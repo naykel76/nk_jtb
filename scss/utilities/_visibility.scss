@@ -1,0 +1,161 @@
+// ==========================================================================
+// VISIBILITY UTILITY CLASSES
+// ==========================================================================
+// |--\o/-- Display and Hidden--\o/--|
+//
+// ==========================================================================
+// |--\o/-- Display and Hidden--\o/--|
+// ==========================================================================
+
+$display-types-map: (
+    blk: block,
+    il: inline,
+    ilb: inline-block,
+    flx: flex,
+    ilf: inline-flex,
+);
+
+// create all display classes
+@each $key, $value in $display-types-map {
+    .d#{$key} {
+        display: $value !important;
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+// ==========================================================================
+// |--\0/-- device-only --\0/--|
+// --------------------------------------------------------------------------
+@include mobile-only {
+    .hide-on-mobile {
+        display: none !important;
+    }
+    .block-on-mobile {
+        display: block !important;
+    }
+    .flex-on-mobile {
+        display: flex !important;
+    }
+}
+@include tablet-only {
+    .hide-on-tablet {
+        display: none !important;
+    }
+    .block-on-tablet {
+        display: block !important;
+    }
+    .flex-on-tablet {
+        display: flex !important;
+    }
+}
+@include desktop-only {
+    .hide-on-desktop {
+        display: none !important;
+    }
+    .block-on-desktop {
+        display: block !important;
+    }
+    .flex-on-desktop {
+        display: flex !important;
+    }
+}
+@include widescreen-only {
+    .hide-on-widescreen {
+        display: none !important;
+    }
+    .block-on-widescreen {
+        display: block !important;
+    }
+    .flex-on-widescreen {
+        display: flex !important;
+    }
+}
+
+// // ==========================================================================
+// // |--\0/-- from-device (device and larger) --\0/--|
+// // --------------------------------------------------------------------------
+@include from-mobile {
+    // .hide-from-mobile {
+    //     display: none !important;
+    // }
+    .block-from-mobile {
+        display: block !important;
+    }
+    .flex-from-mobile {
+        display: flex !important;
+    }
+}
+@include from-tablet {
+    .hide-from-tablet {
+        display: none !important;
+    }
+    .block-from-tablet {
+        display: block !important;
+    }
+    .flex-from-tablet {
+        display: flex !important;
+    }
+}
+@include from-desktop {
+    .hide-from-desktop {
+        display: none !important;
+    }
+    .block-from-desktop {
+        display: block !important;
+    }
+    .flex-from-desktop {
+        display: flex !important;
+    }
+}
+@include from-widescreen {
+    .hide-from-widescreen {
+        display: none !important;
+    }
+    .block-from-widescreen {
+        display: block !important;
+    }
+    .flex-from-widescreen {
+        display: flex !important;
+    }
+}
+// // ==========================================================================
+// // |--\0/-- up-to-device (up to but not including) --\0/--|
+// // --------------------------------------------------------------------------
+@include up-to-tablet {
+    .hide-up-to-tablet {
+        display: none !important;
+    }
+    .block-up-to-tablet {
+        display: block !important;
+    }
+    .flex-up-to-tablet {
+        display: flex !important;
+    }
+}
+@include up-to-desktop {
+    .hide-up-to-desktop {
+        display: none !important;
+    }
+    .block-up-to-desktop {
+        display: block !important;
+    }
+    .flex-up-to-desktop {
+        display: flex !important;
+    }
+}
+@include up-to-widescreen {
+    .hide-up-to-widescreen {
+        display: none !important;
+    }
+    .block-up-to-widescreen {
+        display: block !important;
+    }
+    .flex-up-to-widescreen {
+        display: flex !important;
+    }
+}
+
+

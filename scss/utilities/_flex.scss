@@ -1,0 +1,115 @@
+// ==========================================================================
+// FLEX UTILITY CLASSES
+// ==========================================================================
+// maps and functions are found throughout the scss file in their respective
+// areas to keep them grouped together. All custom maps should be put into
+// _custom_vars.scss or the will be overridden on update
+// --------------------------------------------------------------------------
+// |--\o/-- Maps --\o/--|
+// $flex-direction-map
+// $flex-justify-map: ** changeable prefix
+// $flex-align-items-map: ** changeable prefix
+// $flex-grow-map: ** has custom
+//
+// |--\o/-- Flex Parent--\o/--|
+// |--\o/-- Flex Children --\o/--|
+// --------------------------------------------------------------------------
+$flex-direction-map: (
+    column: column,
+    column-reverse: column-reverse,
+    row: row,
+    row-reverse: row-reverse,
+);
+// --------------------------------------------------------------------------
+$prefix-flex-justify: 'ha';
+$flex-justify-map: (
+    l: flex-start,
+    r: flex-end,
+    c: center,
+    between: space-between,
+    around: space-around,
+    even: space-evenly,
+);
+// --------------------------------------------------------------------------
+// align-items: stretch | flex-start | flex-end | center | baseline | first baseline | last baseline | start | end | self-start | self-end + ... safe | unsafe;
+$prefix-align-items: 'va';
+$flex-align-items-map: (
+    t: flex-start,
+    b: flex-end,
+    c: center,
+    stretch: stretch,
+    baseline: baseline
+);
+// --------------------------------------------------------------------------
+$flex-grow-map: (
+    "0": 0,
+    "1": 1,
+    "2": 2,
+);
+// if a custom map exists then merge it
+@if variable-exists(custom-flex-grow-map) {
+    $flex-grow-map: map-merge($flex-grow-map, $custom-flex-grow-map);
+}
+// --------------------------------------------------------------------------
+
+// ==========================================================================
+// |--\o/-- Flex Parent--\o/--|
+// ==========================================================================
+
+// parent class options must be nested in master class for specificity
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    &.nowrap {
+        flex-wrap: nowrap;
+    }
+    @each $key, $value in $flex-direction-map {
+        .#{$key} {
+            flex-direction: $value;
+        }
+    }
+}
+
+.flexCol{
+    display: flex;
+    flex-direction: column;
+}
+
+//  Add to flex-parent to align children horizontally setting justify-content:
+@each $key, $value in $flex-justify-map {
+    .#{$prefix-flex-justify}-#{$key} {
+        justify-content: $value;
+    }
+}
+
+//  Add to flex-parent to align children vertically setting align-items:
+@each $key, $value in $flex-align-items-map {
+    .#{$prefix-align-items}-#{$key} {
+        align-items: $value;
+    }
+}
+
+// ==========================================================================
+// |--\o/-- Flex Children --\o/--|
+// ==========================================================================
+// keep outside of parent class for less specificity (not dependant on parent)
+@each $key, $value in $flex-grow-map {
+    .fg#{$key} {
+        flex-grow: $value;
+    }
+}
+
+
+
+
+
+
+
+
+// // flex shrink on or off
+// .fs0 {
+//     flex-shrink: 0 !important;
+// }
+// .fs1 {
+//     flex-shrink: 1 !important;
+// }

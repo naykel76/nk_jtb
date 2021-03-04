@@ -1,0 +1,91 @@
+$border: 1px solid rgba(0, 0, 0, 0.15) !default;
+$border-radius: 8px !default;
+
+$positions_tblr: t, b, l, r; // top, bottom, left, right
+$positions_xyz: x, y, xy; // left and right, top and bottom, all
+
+$border-widths-map: (
+    1: 1px,
+    3: 3px,
+    5: 5px,
+);
+
+$border-colors-map: (
+    'orange': $orange,
+    'red': $red,
+);
+
+// make border utility classes (top, bottom, left, right)
+@include makePositionUtilityClasses($positions_tblr, ".bdr", "border", $border);
+// make remove border utility classes (top, bottom, left, right)
+@include makePositionUtilityClasses($positions_tblr, ".nbdr", "border", none);
+// make remove border 'PLACEHOLDER' utility classes (top, bottom, left, right)
+@include makePositionUtilityClasses($positions_tblr, "%nbdr", "border", none);
+
+
+// border colors
+@each $key, $value in $border-colors-map {
+    // create class
+    .bdr-#{$key} {
+        border: 1px solid $value !important;
+    }
+}
+
+// border widths
+// MUST RUN AFTER bdr-colors to override
+@each $key, $value in $border-widths-map {
+    // create class
+    .bdr#{$key} {
+        border-width: $value !important;
+    }
+}
+
+
+
+
+// border radius (bdrr)
+// --------------------------------------------------------------------------
+.bdrr {
+    border: $border;
+    border-radius: $border-radius;
+    // positions
+    &-t {
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+    }
+    &-b {
+        border-bottom-left-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+    }
+    &-l {
+        border-top-left-radius: $border-radius;
+        border-bottom-left-radius: $border-radius;
+    }
+    &-r {
+        border-top-right-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+    }
+}
+
+
+// remove border radius
+%nbr,
+.nbr {
+    border-radius: 0;
+    &-t {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+    &-b {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    &-l {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    &-r {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}

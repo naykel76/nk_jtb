@@ -1,0 +1,55 @@
+// Input Type="File"
+// ======================================================================= ->
+
+.file {
+    user-select: none;
+    align-items: stretch;
+    display: inline-flex;
+    justify-content: flex-start;
+    position: relative;
+    cursor: pointer;
+
+    //   bring to front and hide default input
+    input[type="file"] {
+        left: 0;
+        opacity: 0;
+        outline: none;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1000; // allow parent cursor to use pointer
+        cursor: pointer;
+    }
+
+    &.btn {
+        display: inline-flex;
+    }
+
+    .icon {
+        margin-right: 5px;
+    }
+
+    .cta {
+        // DO NOT put .file-name in here because it is a next element, not a sibling
+        &.btn {
+            @extend %nbr-r; // remover border radius
+            @extend %nbdr-r; // remove right border
+        }
+    }
+
+    // file-name sites outside of the call to action, this is so btn styling can be
+    // used eliminating the need to create specific styling
+    &-name {
+        border: $ctrl-border-width solid rgba(0, 0, 0, 0.15);
+        border-radius: $ctrl-border-radius;
+        font-size: $ctrl-font-size;
+        padding: $ctrl-padding-y $ctrl-padding-x;
+        display: block;
+        overflow: hidden;
+        text-align: inherit;
+        text-overflow: ellipsis; // represent clipped text ...
+        white-space: nowrap;
+        width: 15rem;
+        @extend %nbr-l;
+    }
+}

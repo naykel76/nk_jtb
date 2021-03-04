@@ -1,0 +1,78 @@
+// load first to make sure overrides any default variables
+@import "custom_vars";
+
+// |--\o/-- Functions --\o/--|
+// functions need to load as they are required to build core styles
+@import "functions/createColorShades";
+
+// |--\o/-- Reset --\o/--|
+@import "base/vars_base"; // base, spacing, type variables ** must load first **
+@import "base/vars_colors"; // colour variables
+@import "base/functions";
+@import "base/base";
+@import "base/base_ext"; // has config
+
+// |--\o/-- Mixins --\o/--|
+@import "mixins/_media.scss";
+@import "mixins/_sizes.scss";
+@import "mixins/_state.scss";
+
+// |--\o/-- Layout --\o/--|
+@import "layout/grid";
+@import "layout/container";
+@import "layout/hero";
+
+// |--\o/-- Forms --\o/--|
+@import "forms/all";
+
+// |--\o/-- Components --\o/--|
+@import "components/accordion";
+@import "components/box";
+@import "components/button";
+@import "components/icon";
+@import "components/nav";
+@import "components/navbar";
+
+// |--\o/-- Utilities --\o/--|
+@import "utilities/border";
+@import "utilities/color";
+@import "utilities/dropdown";
+@import "utilities/flex";
+@import "utilities/other";
+@import "utilities/position";
+@import "utilities/sizes";
+@import "utilities/spacing";
+@import "utilities/text";
+@import "utilities/visibility";
+
+@import "extra/code";
+
+@import "main";
+// load last to make sure styles override any defaults (no variables)
+@import "custom";
+
+
+// These styles are for JTB document and can be removed!
+.nk-docs {
+    margin-bottom: 5rem;
+    .container {
+        margin-bottom: 5rem;
+    }
+}
+
+.icon-box {
+    border: 1px solid #ccc;
+    padding: .5rem 0;
+    svg {
+        height: 72px !important;
+    }
+    .icon {
+        width: 150px; // icon container width
+    }
+    .icon-title {
+        display: block;
+        text-align: center;
+        font-size: 0.875rem;
+        margin-top: -0.5rem;
+    }
+}

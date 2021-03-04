@@ -1,0 +1,83 @@
+// $header-height: 500px;
+$header-bg: #efefef !default;
+
+// $main-bg: #fff !default;
+
+// $header-bg: rgb(250, 250, 250) !default;
+// $header-text-color: #fff !default;
+
+$footer-bg: rgb(25, 28, 29) !default;
+$footer-text-color: #47788c !default;
+
+$copyright-bg: darken($footer-bg, 2%) !default;
+$copyright-text-color: $footer-text-color !default;
+
+// set the primary #app element height to push footer to the bottom
+// NOTE: this may not be the best method because it depends on having an #app element!
+#app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+// need to set height for image to display
+header {
+    background: $header-bg;
+}
+
+footer {
+    background: $footer-bg;
+    margin-top: auto; // forces footer to the bottom
+    nav {
+        text-align: center;
+        a {
+            padding: 0 1rem;
+            color: #ccc;
+            font-size: 0.8rem;
+            &:hover {
+                color: #ddd;
+                background: #444;
+            }
+        }
+    }
+}
+
+// set the logo image in css so it can change on mobile, or use the picture
+// element, or just change the height in the css
+.navbar {
+    .logo img {
+        // height: 40px;
+        // width: auto;
+    }
+}
+
+#nk-header {
+}
+
+#nk-footer {
+}
+
+.copyright {
+    color: $copyright-text-color;
+    background: $copyright-bg;
+    // padding: $gutter-sm 0;
+    text-align: center;
+    font-size: 0.9rem;
+    border: 0; // remove border from colour scheme
+    width: 100%;
+}
+
+
+#logo{
+    text-align: center;
+    height: 40px;
+
+    @include from-tablet {
+        height: 60px;
+        text-align: left;
+    }
+
+    @include from-desktop {
+        height: auto;
+    }
+}
