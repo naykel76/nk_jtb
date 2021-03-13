@@ -4,7 +4,7 @@ JTB (Just The Basics) utility based framework based on flex-box.
 
 ## Why?
 
-> Because without reinventing the wheel we wouldn’t have racing types!
+> Because without reinventing the wheel we wouldn’t have racing wheels!
 > -- Nathan Watts
 
 
