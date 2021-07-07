@@ -1,96 +1,254 @@
-// |--\0/-- Content Spacing --\0/--|
-// ==========================================================================
+/*! NayKel base reset built on modern-normalize and opinionated naykel requirements  */
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+// 1. remove margin and padding from everything to allow component control
+
+* {
+    margin: 0; // 1
+    padding: 0; // 1
+}
+
+// 1. Correct the line height in all browsers.
+// 2. Prevent adjustments of font size after orientation changes in iOS.
+// 3. Use a more readable tab size (opinionated).
+// 4. hide scrollbar from row negative margin at full screen
+
+html {
+    font-family: $base-font-family;
+    line-height: $base-line-height; // 1
+    -webkit-text-size-adjust: 100%; // 2
+    -moz-tab-size: 4; // 3
+    tab-size: 4; // 3
+    overflow-x: hidden; // 4
+    overflow-y: scroll;
+    //     min-width: 300px;
+    //     text-rendering: optimizeLegibility;
+    //     text-size-adjust: 100%;
+}
+
+body {
+    font-family: inherit;
+    line-height: inherit;
+    font-size: $base-font-size;
+    font-weight: $base-font-weight;
+    color: $base-color;
+}
+
+// 1. use content-gap for consistent space between elements (NK opinionated)
+
+hr {
+    margin: $content-gap 0; // 1
+    border: 1px solid rgb(230, 230, 235);
+}
+
+abbr[title] {
+    text-decoration: underline dotted;
+}
+
+small {
+    font-size: 80%;
+}
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+sup {
+    top: -0.5em;
+}
+
+// Tables
+// ==================
+
+// 1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+// 2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+
+table {
+    text-indent: 0; // 1
+    border-color: inherit; // 2
+}
+
+// Forms
+// ==================
+
+input,
+button,
+select,
+optgroup,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+// // 1. align to inputs
+label {
+    //     display: inline-block;
+    margin-right: 0.5rem;
+    font-weight: 600;
+    margin-top: 6px; // 1
+}
+
+// input[type="checkbox"],
+// input[type="radio"] {
+//     vertical-align: baseline;
+// }
+
+
+
+// fieldset {
+//     border: none;
+// }
+
+
+// Remove the inheritance of text transform in Edge and Firefox.
+
+button,
+select {
+    text-transform: none;
+}
+
+// Correct the inability to style clickable types in iOS and Safari.
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+    -webkit-appearance: button;
+}
+
+// Remove the inner border and padding in Firefox.
+
+::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+}
+
+// Restore the focus styles unset by the previous rule.
+
+:-moz-focusring {
+    outline: 1px dotted ButtonText;
+}
+
+// Remove the additional ':invalid' styles in Firefox.
+// See: https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737
+
+:-moz-ui-invalid {
+    box-shadow: none;
+}
+
+// Remove the padding so developers are not caught out when they zero out 'fieldset' elements in all browsers.
+
+legend {
+    padding: 0;
+}
+
+// Add the correct vertical alignment in Chrome and Firefox.
+
+progress {
+    vertical-align: baseline;
+}
+
+// Correct the cursor style of increment and decrement buttons in Safari.
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+    height: auto;
+}
+
+// 1. Correct the odd appearance in Chrome and Safari.
+// 2. Correct the outline style in Safari.
+
+[type='search'] {
+    -webkit-appearance: textfield; // 1 
+    outline-offset: -2px; // 2 
+}
+
+// Remove the inner padding in Chrome and Safari on macOS.
+
+::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+// 1. Correct the inability to style clickable types in iOS and Safari.
+// 2. Change font properties to 'inherit' in Safari.
+
+::-webkit-file-upload-button {
+    -webkit-appearance: button; // 1 
+    font: inherit; // 2 
+}
+
+// Add the correct display in Chrome and Safari.
+
+summary {
+    display: list-item;
+}
+
+
+// Content Spacing
+// ===================
+
 // remove the top margins from all first elements and deal with on a case by
 // case. DO NOT CHANGE! ..... again! DO NOT add !important as predicted it in
 // earlier attempts it becomes a pain in the ass!
 
-// :not(section > *) allow any first element is a section to do it job
-
-* > :first-child:not(h1):not(h2) {
+*> :first-child:not(h1):not(h2) {
     margin-top: 0;
-}
-
-// remove margin and padding to allow component control
-* {
-    margin: 0;
-    padding: 0;
 }
 
 // NK::!! Do not add DIV to this list because it works against removing the
 // margin in the first place. use utility classes if need be!
-p, pre, ul, ol, table, nav,// elements
-p + *, h1 + *, h2 + *, h3 + *, h4 + *, h5 + *, h6 + *, ul + *, // common patterns
-.bx + * // common patterns
-{
+p,
+pre,
+ul,
+ol,
+table,
+nav,
+// elements
+p+*,
+h1+*,
+h2+*,
+h3+*,
+h4+*,
+h5+*,
+h6+*,
+ul+*,
+// common patterns
+.bx+* // common patterns
+
+    {
     margin-top: $content-gap;
 }
 
-// :is(h1, h2, h3, h4, h5, h6) + * {
-//     background: #000;
-// }
-// 1. Change from `box-sizing: content-box` so that `width` is not affected by `padding` or `border`.
-*,
-*::before,
-*::after {
-    box-sizing: border-box; // 1
-}
 
-html {
-    font-family: $base-font-family;
-    line-height: $base-line-height;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    min-width: 300px;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    text-rendering: optimizeLegibility;
-    text-size-adjust: 100%;
-}
+// Typography
+// ====================
 
-article,
-aside,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-nav,
-section {
-    display: block;
-}
-
-body {
-    font-family: $base-font-family;
-    font-size: $base-font-size;
-    font-weight: $base-font-weight;
-    line-height: $base-line-height;
-    color: $base-color;
-    background-color: $base-bg;
-    text-align: left; // 2
-}
-
-hr {
-    background-color: rgb(245, 245, 245);
-    border: none; // allow height to do the work
-    display: block;
-    height: 2px;
-    margin: 1.5rem 0;
-}
-small {
-    font-size: 80%;
-}
 b,
 strong {
     font-weight: 700;
 }
 
-em {
-    font-weight: 500;
+@for $size from 1 through length($heading-sizes) {
+    h#{$size} {
+        font-size: nth($heading-sizes, $size);
+    }
 }
-// |--\0/-- Typography --\0/--|
-// ==========================================================================
-// 1. set the default top-margin to the default spacing except for H1
+
+// 1. set the default top-margin to the default spacing except for H1 (NK opinionated)
 
 h1,
 h2,
@@ -104,19 +262,23 @@ h6 {
     margin-top: 2rem; // 1
 }
 
-// let element do the work ????
-// h1 {
-//     margin-top: 0;
-// }
-
-@for $size from 1 through length($heading-sizes) {
-    h#{$size} {
-        font-size: nth($heading-sizes, $size);
-    }
+// 1. let element do the work 
+h1 {
+    margin-top: 0; // 1
 }
 
-// |--\0/-- Lists --\0/--|
-// ==========================================================================
+// Lists
+// ====================
+
+// ol,
+// ul {
+//     list-style: none;
+// }
+
+// ul{
+//     list-style: disc outside;
+//     margin-left: 2em;
+// }
 
 // 1. Because the bullet is outside of the list’s container, indent the list entirely
 ul,
@@ -124,94 +286,100 @@ ol {
     margin-left: 1em; // 1
 }
 
-// li ul, li ol are nested lists
-li + li,
+// nested lists
 li ul,
 li ol {
     margin-top: 0.5em;
+    margin-top: 0;
+    margin-left: 1rem;
 }
 
-// |--\0/-- Links --\0/--|
-// ==========================================================================
+// Links
+// ====================
 
+// 1. inherit to remove underline. color and hover effects
 a {
-    color: $link-color;
-    text-decoration: none;
-    cursor: pointer;
-
-    :not([class]) {
-        text-decoration-skip-ink: auto;
-    }
-
-    :hover {
-        color: $link-hover-color;
-        text-decoration: none;
-    }
+    color: inherit; // 1
+    text-decoration: inherit; // 1
 }
 
 
-// |--\0/-- Code --\0/--|
-// ==========================================================================
+// Code
+// ====================
 
-pre,
-code {
-    font-family: SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-size: 1em;
+// 1. Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
+// 2. Correct the odd 'em' font sizing in all browsers.
+
+code,
+kbd,
+samp,
+pre {
+    font-family: Menlo, ui-monospace, SFMono-Regular, Monaco, Consolas,
+        Liberation Mono, Courier New, monospace; // 1 
+    font-size: 1em; // 2 
 }
 
 // code only, excludes <pre><code> </pre></code>
-:not(pre) > code {
-    white-space: nowrap;
-    padding: 1px 4px;
-    background: #f8f8f8;
-    border-radius: 0.2rem;
+:not(pre)>code,
+:not(pre)>kbd,
+:not(pre)>samp {
     color: #e83e8c;
 }
 
 pre {
-    overflow: auto;
-    -ms-overflow-style: scrollbar;
-    padding: 1rem;
     border-left: 5px solid #e65e5e;
-    background: #333;
+    //     overflow: auto;
+    //     -ms-overflow-style: scrollbar;
+    //     background: #333;
 }
 
-// |--\0/-- Image and Video --\0/--|
-// ==========================================================================
+// Image and Video
+// ====================
 // 1. make image responsive, can't expand past parent element
 // 2. get rid of the gap on the bottom (or make block)
 //    https://stackoverflow.com/questions/31444891/mystery-white-space-underneath-image-tag/31445364#31445364
+
 img,
 picture,
 video {
-    // height: auto; MESSES WITH SVG WHEN SETTING HEIGHT ATTRIBUTE??? LOGO
+    // height: auto; MESSES WITH SVG WHEN SETTING HEIGHT ATTRIBUTE ?? LOGO
     max-width: 100%; // 1
     max-height: 100%;
     border-style: none;
     vertical-align: middle; // 2
 }
 
-// this will only work if there is no width or height properties set in the svg file
-// 1. pass font color through to svg
+// 1. pass color through to svg
+
 svg {
     fill: currentcolor; // 1
 }
 
-// |--\0/-- Tables --\0/--|
-// ==========================================================================
+// Tables
+// ====================
 
-caption {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-    color: #6c757d;
-    text-align: left;
-    caption-side: bottom;
-}
+// caption {
+//     padding-top: $table-cell-padding;
+//     padding-bottom: $table-cell-padding;
+//     color: $table-caption-color;
+//     text-align: left;
+//     caption-side: bottom;
+//     padding-top: 0.75rem;
+//     padding-bottom: 0.75rem;
+//     color: #6c757d;
+//     text-align: left;
+//     caption-side: bottom;
+// }
+
+// 1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+// 2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
 
 table {
-    border-collapse: collapse;
-    background-color: transparent;
-    overflow-x: auto;
+    text-indent: 0; // 1
+    border-color: inherit; // 2
+    border-collapse: collapse; // Prevent double borders
+    // background-color: transparent;
+    // overflow-x: auto;
 }
 
 th {
@@ -225,46 +393,4 @@ td {
     border: 1px solid #c7c5c5;
     text-align: left;
     vertical-align: top;
-}
-
-table {
-    border-collapse: collapse; // Prevent double borders
-}
-
-// caption {
-//   padding-top: $table-cell-padding;
-//   padding-bottom: $table-cell-padding;
-//   color: $table-caption-color;
-//   text-align: left;
-//   caption-side: bottom;
-// }
-
-// |--\0/-- Forms --\0/--|
-// ==========================================================================
-
-// 1. align to inputs
-label {
-    display: inline-block;
-    margin-right: 0.5rem;
-    font-weight: 600;
-    margin-top: 6px; // 1
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-    vertical-align: baseline;
-}
-
-input,
-button,
-select,
-optgroup,
-textarea {
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-}
-
-fieldset {
-    border: none;
 }

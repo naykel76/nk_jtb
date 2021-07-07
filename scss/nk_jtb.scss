@@ -1,39 +1,41 @@
 // load first to make sure overrides any default variables
 @import "custom_vars";
 
-// |--\o/-- Functions --\o/--|
+// -- Functions --
 // functions need to load as they are required to build core styles
 @import "functions/createColorShades";
 
-// |--\o/-- Reset --\o/--|
+// -- Reset --
 @import "base/vars_base"; // base, spacing, type variables ** must load first **
 @import "base/vars_colors"; // colour variables
 @import "base/functions";
 @import "base/base";
 @import "base/base_ext"; // has config
 
-// |--\o/-- Mixins --\o/--|
+// -- Mixins --
 @import "mixins/_media.scss";
 @import "mixins/_sizes.scss";
 @import "mixins/_state.scss";
 
-// |--\o/-- Layout --\o/--|
+// -- Layout --
 @import "layout/grid";
 @import "layout/container";
 @import "layout/hero";
 
-// |--\o/-- Forms --\o/--|
+// -- Forms --
 @import "forms/all";
 
-// |--\o/-- Components --\o/--|
+// -- Components --
 @import "components/accordion";
 @import "components/box";
 @import "components/button";
 @import "components/icon";
 @import "components/nav";
 @import "components/navbar";
+@import "components/table";
 
-// |--\o/-- Utilities --\o/--|
+
+// -- Utilities --
 @import "utilities/border";
 @import "utilities/color";
 @import "utilities/dropdown";
@@ -55,8 +57,10 @@
 // These styles are for JTB document and can be removed!
 .nk-docs {
     margin-bottom: 5rem;
-    .container {
+    .container,
+    &.container {
         margin-bottom: 5rem;
+        max-width: 1000px;
     }
 }
 

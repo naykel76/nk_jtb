@@ -73,8 +73,10 @@ h1.title {
 
     // size modifiers
     &-sm {
-        font-size: 0.75rem;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
     }
+
     &-lg {
         font-size: 1.25rem;
     }

@@ -9,13 +9,14 @@ $ctrl-font-size: 1rem !default;
 $ctrl-font-size-md: 1.25rem !default;
 $ctrl-font-size-lg: 1.5rem !default;
 
+// Control and Button padding use em making them relative to the font-size
 $ctrl-padding-x: 1em !default;
 $ctrl-padding-y: .375em !default;
 // $ctrl-padding-y: calc(0.5em - #{$ctrl-border-width}) !default;
 
-// Control and Button sizes use em making them relative to the font-size
 
 $control-sizes: (
+    xs: 0.6rem,
     sm: $ctrl-font-size-sm,
     md: $ctrl-font-size-md,
     lg: $ctrl-font-size-lg,

@@ -17,6 +17,9 @@ $nav-hover-bg: #efefef !default;
 nav {
     display: flex;
 
+    a{
+        text-decoration: none;
+    }
     // :not(.btn) is to let btn classes look after styling if used
     a:not([class*="btn"]) {
         // color: $navbar-nav-font-color;
@@ -24,10 +27,10 @@ nav {
         // background: $navbar-nav-bg;
         padding: $nav-padding-y $nav-padding-x;
         // border: $navbar-nav-border;
-        &:hover {
+        // &:hover {
             // color: $navbar-nav-hover-color;
             // background: $navbar-nav-hover-bg;
-        }
+        // }
     }
 }
 

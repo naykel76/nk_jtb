@@ -13,33 +13,90 @@
 
 <body>
 
-    <div id="app">
-        <div class="navbar">
-            <div class="logo"><a href="//localhost:3000"><img src="//localhost:3000/images/nk/logo-alt.svg" alt="NAYKEL"></a></div>
-            <nav class="hide-up-to-tablet">
-                <nav><a href="//localhost:3000">Home</a><a href="//localhost:3000/jtb/container">Container</a><a href="//localhost:3000/jtb/grid">Grid</a><a href="//localhost:3000/jtb/hero">Hero</a><a href="//localhost:3000/jtb/jtb">JTB</a><a href="//localhost:3000/contact">Contact Us</a></nav>
-            </nav>
-            <div class="block-up-to-tablet hidden"><svg class="icon txt-white wh40">
-                    <use xlink:href="/svg/nk_icon-defs.svg#icon-menu"></use>
-                </svg></div>
-        </div>
 
-        <footer id="nk-footer">
+    <br><br><br><br><br>
+
+
+    <hr>
+
+    <br><br><br>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. <strong>Voluptatum</strong> iste expedita quos delectus neque aperiam harum officia iure, porro alias.</p>
+<hr>
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel autem minus at velit quis labore assumenda ratione quibusdam eius porro.</p>
+
+    <main id="nk-main" class="py">
+        <div class="container">
+            <nav><a href="//localhost:3000/md?filePath=docs/laravel/create-nk-laravel-web-app.md">NayKel Application Walkthrough</a><a href="//localhost:3000/md?filePath=docs/laravel/markdown.md">Markdown</a></nav>
             <div class="container">
-                <nav class="ha-c my">
-                    <a href="https://factsoflife.com.au/privacy-policy">Privacy Policy</a>
-                    <a href="https://factsoflife.com.au/terms-of-use">Terms of Use</a>
-                    <a href="https://factsoflife.com.au/about">About</a>
-                    <a href="https://factsoflife.com.au/contact">Contact</a>
-                </nav>
+                <h1>Creating a NayKel Laravel Application</h1><!-- MarkdownTOC -->
+                <ul>
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li><a href="#create-new-project">Create New Project</a>
+                        <ul>
+                            <li><a href="#install-npm-dependencies">Install NPM Dependencies</a></li>
+                            <li><a href="#install-gotime-starter-package">Install Gotime Starter Package</a></li>
+                            <li><a href="#publish-gotime-resources">Publish Gotime Resources</a></li>
+                            <li><a href="#install-additional-npm-packages">Install Additional NPM Packages</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#install-authit-package">Install Authit Package</a>
+                        <ul>
+                            <li><a href="#publish-authit-and-fortify-resources">Publish Authit and Fortify Resources</a></li>
+                            <li><a href="#register-fortify-service-provider">Register Fortify Service Provider</a></li>
+                            <li><a href="#add-views-to-fortifyserviceproviderphp">Add Views to FortifyServiceProvider.php</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#other-noteworthy-stuff">Other Noteworthy Stuff</a></li>
+                </ul><!-- /MarkdownTOC -->
+                <p><a id="introduction"></a></p>
+                <h2>Introduction</h2>
+                <p>This document walks through the process of creating a new NayKel Laravel Application including packages and other requirements.</p>
+                <p><a id="create-new-project"></a></p>
+                <h2>Create New Project</h2>
+                <pre><code class="hljs language-lua">composer <span class="hljs-built_in">create</span>-project <span class="hljs-comment">--prefer-dist laravel/laravel my_project</span></code></pre>
+                <p><a id="install-npm-dependencies"></a></p>
+                <h3>Install NPM Dependencies</h3>
+                <pre><code class="hljs language-undefined">npm install</code></pre>
+                <p><a id="install-gotime-starter-package"></a></p>
+                <h3>Install Gotime Starter Package</h3>
+                <pre><code class="hljs language-javascript">composer <span class="hljs-built_in">require</span> naykel/gotime</code></pre>
+                <p><a id="publish-gotime-resources"></a></p>
+                <h3>Publish Gotime Resources</h3>
+                <p>After initial package installation, publishing the required assets using the <code>--force</code> flag to override key files.</p>
+                <pre><code class="hljs language-bash">php artisan vendor:publish --tag=<span class="hljs-string">"nkr"</span> --force</code></pre>
+                <p><a id="install-additional-npm-packages"></a></p>
+                <h3>Install Additional NPM Packages</h3>
+                <pre><code class="hljs language-css">npm <span class="hljs-selector-tag">i</span> -d vue<span class="hljs-keyword">@next</span> vue3-datepicker nk_jtb --save-dev</code></pre>
+                <div class="bx info-light"><strong>NOTE:</strong> when running <code>npm watch</code> for the first time additional dependencies will be installed, if the process fails run again and it should work fine. </div>
+                <p><a id="install-authit-package"></a></p>
+                <h2>Install Authit Package</h2>
+                <p>To streamline the process <code>laravel/fortify</code> will be installed automatically with this package.</p>
+                <p>Fortify registers the routes and controllers needed to implement all of Laravel's authentication features, including login, registration, password reset, email verification, and more.</p>
+                <p><a href="https://laravel.com/docs/8.x/fortify#installation">https://laravel.com/docs/8.x/fortify#installation</a></p>
+                <pre><code class="hljs language-javascript">composer <span class="hljs-built_in">require</span> naykel/authit</code></pre>
+                <p><a id="publish-authit-and-fortify-resources"></a></p>
+                <h4>Publish Authit and Fortify Resources</h4>
+                <p><strong>NOTE</strong> <code>fortify</code> resources must be published first then publish <code>authit</code> resources using the <code>--force</code> to make sure key files are overridden.</p>
+                <pre><code class="hljs language-bash">php artisan vendor:publish --provider=<span class="hljs-string">"Laravel\Fortify\FortifyServiceProvider"</span>
+php artisan vendor:publish --provider=<span class="hljs-string">"Naykel\Authit\AuthitServiceProvider"</span> --force
+php artisan migrate</code></pre>
+                <p><a id="register-fortify-service-provider"></a></p>
+                <h4>Register Fortify Service Provider</h4>
+                <p>Register <code>App\Providers\FortifyServiceProvider::class,</code> within the <code>providers</code> array of your application's <code>config/app.php</code> configuration file.</p>
+                <p><a id="add-views-to-fortifyserviceproviderphp"></a></p>
+                <h4>Add Views to FortifyServiceProvider.php</h4>
+                <p>We need to instruct Fortify how to return our view's. </p>
+                <p>All of the authentication view's rendering logic may be customized using the appropriate methods available via the <code>Laravel\Fortify\Fortify</code> class. Typically, you should call the methods from the <code>boot</code> method of the <code>App\Providers\FortifyServiceProvider</code> class. Fortify will take care of defining the /login route that returns this view:</p>
+                <p><a id="other-noteworthy-stuff"></a></p>
+                <h2>Other Noteworthy Stuff</h2>
+                <p><code>authit</code> will publish/override the <code>RouteServiceProvider.php</code> file, which is used to change the redirect after login path.</p>
+                <p><code>authit</code> will publish/override the <code>FortifyServiceProvider.php</code> file, which is used to instruct Fortify how to return views.</p>
+                <p><code>authit</code> will publish/override an updated <code>fortify</code> configuration file contains a <code>features</code> configuration array. This array defines the backend routes / features Fortify will expose by default. Laravel recommends that you only enable certain Fortify features, which are the basic authentication features provided by most Laravel applications. <a href="https://laravel.com/docs/8.x/fortify#fortify-features">more information</a></p>
             </div>
-            <p class="copyright tac py-1 nm txt-white"> <small>Facts of Life&trade; Copyright © 2021 | Managed and Hosted by <a href="https://naykel.com.au" target="_blank">NAYKEL</a></small></p>
-        </footer>
-    </div>
+        </div>
+    </main>
+
 
 <script type="text/javascript" src="bundle.js"></script></body>
-
-
-</body>
 
 </html>

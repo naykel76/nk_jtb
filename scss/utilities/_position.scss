@@ -41,6 +41,17 @@
         left: 0;
         right: 0;
     }
+    &-b {
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    &-l {
+        left: 0;
+    }
+    &-r {
+        right: 0;
+    }
     &-tl {
         top: 0;
         left: 0;
@@ -49,12 +60,7 @@
         top: 0;
         right: 0;
     }
-    &-b {
-        bottom: 0;
-        left: 0;
-        right: 0;
-    }
-
+  
     &-bl {
         bottom: 0;
         left: 0;

@@ -3,6 +3,10 @@
     "description": "JTB (Just The Basics) utility based framework based on flex-box.",
     "version": "0.0.1",
     "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/naykel76/nk_jtb.git"
+      },
     "scripts": {
         "watch": "webpack --watch --mode=development",
         "build": "set NODE_ENV=development&&webpack --progress",

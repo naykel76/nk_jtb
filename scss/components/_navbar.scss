@@ -1,6 +1,6 @@
-// |--\0/-- logo --\0/--|
-// |--\0/-- nav and nav-items --\0/--|
-// |--\0/-- burger menu --\0/--|
+// logo
+// nav and nav-items
+// burger menu
 
 // 1. requires a navbar-nav-bg to work out colors for borders and state
 //    initially this is set to the navbar-bg so the nav-items look transparent
@@ -20,10 +20,12 @@ $navbar-nav-border: 1px solid lighten($navbar-nav-bg, 4%);
 $navbar-nav-hover-bg: lighten($navbar-nav-bg, 5%) !default;
 $navbar-nav-hover-color: darken($navbar-nav-font-color, 15%);
 
+
+// aligning navbar items in the center makes senses until you want
 .navbar,
 .navbar > .container {
     display: flex;
-    align-items: center; // vertical center
+    // align-items: center; // vertical center
     justify-content: space-between;
 }
 
@@ -33,13 +35,15 @@ $navbar-nav-hover-color: darken($navbar-nav-font-color, 15%);
     position: relative;
     z-index: 999;
 
-    // |--\0/-- logo --\0/--|
+    // logo
     // 1. keep consistent spacing
+    // 2. remove gap to keep logo in the middle
     .logo {
         margin-right: $navbar-padding-x; // 1
+        line-height: 0; // 2
     }
 
-    // |--\0/-- nav and nav-items --\0/--|
+    // nav and nav-items
     nav {
         margin-top: 0;
 
