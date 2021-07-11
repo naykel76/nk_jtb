@@ -12,8 +12,7 @@ $subtitle-font-family: $base-font-family !default;
 $subtitle-font-size: 2rem !default;
 $subtitle-font-weight: 700 !default;
 
-$font-weights: (
-    4: 400,
+$font-weights: (4: 400,
     6: 600,
     7: 700,
     9: 900,
@@ -27,6 +26,7 @@ $font-weights: (
 h1.title {
     font-size: 2.25rem;
 }
+
 .title {
     color: $title-color;
     font-size: $title-font-size;
@@ -48,25 +48,31 @@ h1.title {
 .tal {
     text-align: left !important;
 }
+
 .tar {
     text-align: right !important;
 }
+
 .tac {
     text-align: center !important;
 }
 
 // |--\0/-- Text Modifiers --\0/--|
 .txt {
+
     // -- Alignment (alternative classes) --
     &-l {
         text-align: left;
     }
+
     &-r {
         text-align: right;
     }
+
     &-j {
         text-align: justify;
     }
+
     &-ctr {
         text-align: center;
     }
@@ -81,44 +87,69 @@ h1.title {
         font-size: 1.25rem;
     }
 
+    &-xl {
+        font-size: 3.5rem;
+    }
+
     // colour modifiers
     &-green {
         color: $green;
     }
+
     &-red {
         color: $red;
     }
+
     &-orange {
         color: $orange;
     }
+
     &-blue {
         color: $blue;
     }
+
     &-white {
         color: #fff;
     }
+
     &-muted {
         color: $muted;
     }
+
     &-primary {
         color: $primary;
     }
+
     &-secondary {
         color: $secondary;
     }
 
-    // decorations
+    // decorations and transformations
     &-strike {
         text-decoration: line-through;
     }
+
     &-underline {
         text-decoration: underline;
+    }
+
+    &-upper {
+        text-transform: uppercase;
+    }
+
+    &-lower {
+        text-transform: lowercase;
+    }
+
+    &-capitalize {
+        text-transform: capitalize;
     }
 }
 
 // |--\0/-- Font Weights --\0/--|
 //
-@each $key, $value in $font-weights {
+@each $key,
+$value in $font-weights {
     .fw#{$key} {
         font-weight: $value !important;
     }

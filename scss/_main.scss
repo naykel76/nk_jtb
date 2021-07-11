@@ -2,7 +2,6 @@ $header-bg: #efefef !default;
 
 $main-bg: rgb(243, 244, 246) !default;
 
-
 $footer-bg: rgb(25, 28, 29) !default;
 $footer-text-color: rgb(204, 204, 204) !default;
 
@@ -71,5 +70,48 @@ footer {
 
     @include from-desktop {
         height: auto;
+    }
+}
+
+
+.content {
+    max-width: 120em;
+    margin: auto;
+}
+
+// NK Documentation Styles
+// --------------------------------------------------------------------------
+
+.nk-docs {
+    
+    section {
+        // manually deal with padding
+        padding: 0;
+    }
+
+    &.container {
+        // background: white;
+        // padding: $content-gap-lg 0;
+        max-width: 68em;
+    }
+}
+
+.icon-box {
+    border: 1px solid #ccc;
+    padding: .5rem 0;
+
+    svg {
+        height: 72px !important;
+    }
+
+    .icon {
+        width: 150px; // icon container width
+    }
+
+    .icon-title {
+        display: block;
+        text-align: center;
+        font-size: 0.875rem;
+        margin-top: -0.5rem;
     }
 }

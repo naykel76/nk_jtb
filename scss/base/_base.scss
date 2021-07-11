@@ -1,4 +1,4 @@
-/*! NayKel base reset built on modern-normalize and opinionated naykel requirements  */
+/*! v0.0.2 NayKel base reset built on modern-normalize and opinionated naykel requirements  */
 
 *,
 ::before,
@@ -393,4 +393,22 @@ td {
     border: 1px solid #c7c5c5;
     text-align: left;
     vertical-align: top;
+}
+
+
+section{
+
+    padding-top: $content-gap;
+    padding-bottom: $content-gap;
+
+    @include from-tablet {
+        padding-top: $content-gap-lg;
+        padding-bottom: $content-gap-lg;
+
+    }
+
+    @include from-desktop {
+        padding-top: $content-gap-xl;
+        padding-bottom: $content-gap-xl;
+    }
 }

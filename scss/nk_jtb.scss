@@ -1,9 +1,12 @@
 // load first to make sure overrides any default variables
 @import "custom_vars";
 
-// -- Functions --
+// -- Functions and Mixins--
 // functions need to load as they are required to build core styles
 @import "functions/createColorShades";
+@import "mixins/_media.scss";
+@import "mixins/_sizes.scss";
+@import "mixins/_state.scss";
 
 // -- Reset --
 @import "base/vars_base"; // base, spacing, type variables ** must load first **
@@ -12,10 +15,6 @@
 @import "base/base";
 @import "base/base_ext"; // has config
 
-// -- Mixins --
-@import "mixins/_media.scss";
-@import "mixins/_sizes.scss";
-@import "mixins/_state.scss";
 
 // -- Layout --
 @import "layout/grid";
@@ -52,31 +51,3 @@
 @import "main";
 // load last to make sure styles override any defaults (no variables)
 @import "custom";
-
-
-// These styles are for JTB document and can be removed!
-.nk-docs {
-    margin-bottom: 5rem;
-    .container,
-    &.container {
-        margin-bottom: 5rem;
-        max-width: 1000px;
-    }
-}
-
-.icon-box {
-    border: 1px solid #ccc;
-    padding: .5rem 0;
-    svg {
-        height: 72px !important;
-    }
-    .icon {
-        width: 150px; // icon container width
-    }
-    .icon-title {
-        display: block;
-        text-align: center;
-        font-size: 0.875rem;
-        margin-top: -0.5rem;
-    }
-}

@@ -47,16 +47,9 @@ $link-hover-color: #0056b3 !default;
 // |--\o/-- Spacings --\o/--|
 // ==========================================================================
 
-$content-gap: 1.5rem !default; // space between page elements
-// $content-padding: 1rem !default; // used to keep consistent padding inside page elements
-
-// Used to add padding to components
-// $padding-xs: 0.3rem !default;
-// $padding-sm: 0.5rem !default;
-// $padding: 1rem !default;
-// $padding-md: 2rem !default;
-// $padding-lg: 4rem !default;
-// $padding-xl: 10rem !default;
+$content-gap: 1.25rem !default; // space between page elements
+$content-gap-lg: 3rem !default; // space between page elements
+$content-gap-xl: 5rem !default; // space between page elements
 
 // used to separate elements
 $margin-sm: 0.5rem !default;
@@ -93,5 +86,21 @@ $widescreen: map-get($breakpoints, xl);
 
 $container-tablet: 720px !default;
 $container-desktop: 960px !default;
-$container-widescreen: 75rem !default;
+$container-widescreen: 100em !default; //1600px
 // $container-widescreen:      84rem !default;
+
+
+// Breakpoints
+// $bp-small: 48em; // 768px
+// $bp-medium: 64em; // 1024px
+// $bp-large: 85.375em; // 1366px
+// $bp-xlarge: 120em; // 1920px
+// $bp-xxlarge: 160em; // 2560px
+
+// // Media Queries
+// $mq-small: "(min-width: #{$bp-small})";
+// $mq-medium: "(min-width: #{$bp-medium})";
+// $mq-large: "(min-width: #{$bp-large})";
+// $mq-xlarge: "(min-width: #{$bp-xlarge})";
+// $mq-xxlarge: "(min-width: #{$bp-xxlarge})";
+// $mq-retina: "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)";

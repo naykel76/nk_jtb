@@ -1,6 +1,6 @@
 {
     "name": "nk_jtb",
-    "description": "JTB (Just The Basics) utility based framework based on flex-box.",
+    "description": "Yet another utility based framework based on flex-box.",
     "version": "0.0.2",
     "main": "index.js",
     "repository": {

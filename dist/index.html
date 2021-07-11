@@ -5,98 +5,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="./assets/images/favicon.ico">
-    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <link rel="icon" href="./images/favicon.ico">
     <title>NAYKEL Just The Basic's</title>
 <link href="css/nk_jtb.css" rel="stylesheet"></head>
 
 <body>
 
+    <div id="app">
 
-    <br><br><br><br><br>
+        <header id="nk-header">
 
+            <img src="./images/header-bg.jpg" alt="">
 
-    <hr>
-
-    <br><br><br>
-<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. <strong>Voluptatum</strong> iste expedita quos delectus neque aperiam harum officia iure, porro alias.</p>
-<hr>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel autem minus at velit quis labore assumenda ratione quibusdam eius porro.</p>
-
-    <main id="nk-main" class="py">
-        <div class="container">
-            <nav><a href="//localhost:3000/md?filePath=docs/laravel/create-nk-laravel-web-app.md">NayKel Application Walkthrough</a><a href="//localhost:3000/md?filePath=docs/laravel/markdown.md">Markdown</a></nav>
-            <div class="container">
-                <h1>Creating a NayKel Laravel Application</h1><!-- MarkdownTOC -->
-                <ul>
-                    <li><a href="#introduction">Introduction</a></li>
-                    <li><a href="#create-new-project">Create New Project</a>
-                        <ul>
-                            <li><a href="#install-npm-dependencies">Install NPM Dependencies</a></li>
-                            <li><a href="#install-gotime-starter-package">Install Gotime Starter Package</a></li>
-                            <li><a href="#publish-gotime-resources">Publish Gotime Resources</a></li>
-                            <li><a href="#install-additional-npm-packages">Install Additional NPM Packages</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#install-authit-package">Install Authit Package</a>
-                        <ul>
-                            <li><a href="#publish-authit-and-fortify-resources">Publish Authit and Fortify Resources</a></li>
-                            <li><a href="#register-fortify-service-provider">Register Fortify Service Provider</a></li>
-                            <li><a href="#add-views-to-fortifyserviceproviderphp">Add Views to FortifyServiceProvider.php</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#other-noteworthy-stuff">Other Noteworthy Stuff</a></li>
-                </ul><!-- /MarkdownTOC -->
-                <p><a id="introduction"></a></p>
-                <h2>Introduction</h2>
-                <p>This document walks through the process of creating a new NayKel Laravel Application including packages and other requirements.</p>
-                <p><a id="create-new-project"></a></p>
-                <h2>Create New Project</h2>
-                <pre><code class="hljs language-lua">composer <span class="hljs-built_in">create</span>-project <span class="hljs-comment">--prefer-dist laravel/laravel my_project</span></code></pre>
-                <p><a id="install-npm-dependencies"></a></p>
-                <h3>Install NPM Dependencies</h3>
-                <pre><code class="hljs language-undefined">npm install</code></pre>
-                <p><a id="install-gotime-starter-package"></a></p>
-                <h3>Install Gotime Starter Package</h3>
-                <pre><code class="hljs language-javascript">composer <span class="hljs-built_in">require</span> naykel/gotime</code></pre>
-                <p><a id="publish-gotime-resources"></a></p>
-                <h3>Publish Gotime Resources</h3>
-                <p>After initial package installation, publishing the required assets using the <code>--force</code> flag to override key files.</p>
-                <pre><code class="hljs language-bash">php artisan vendor:publish --tag=<span class="hljs-string">"nkr"</span> --force</code></pre>
-                <p><a id="install-additional-npm-packages"></a></p>
-                <h3>Install Additional NPM Packages</h3>
-                <pre><code class="hljs language-css">npm <span class="hljs-selector-tag">i</span> -d vue<span class="hljs-keyword">@next</span> vue3-datepicker nk_jtb --save-dev</code></pre>
-                <div class="bx info-light"><strong>NOTE:</strong> when running <code>npm watch</code> for the first time additional dependencies will be installed, if the process fails run again and it should work fine. </div>
-                <p><a id="install-authit-package"></a></p>
-                <h2>Install Authit Package</h2>
-                <p>To streamline the process <code>laravel/fortify</code> will be installed automatically with this package.</p>
-                <p>Fortify registers the routes and controllers needed to implement all of Laravel's authentication features, including login, registration, password reset, email verification, and more.</p>
-                <p><a href="https://laravel.com/docs/8.x/fortify#installation">https://laravel.com/docs/8.x/fortify#installation</a></p>
-                <pre><code class="hljs language-javascript">composer <span class="hljs-built_in">require</span> naykel/authit</code></pre>
-                <p><a id="publish-authit-and-fortify-resources"></a></p>
-                <h4>Publish Authit and Fortify Resources</h4>
-                <p><strong>NOTE</strong> <code>fortify</code> resources must be published first then publish <code>authit</code> resources using the <code>--force</code> to make sure key files are overridden.</p>
-                <pre><code class="hljs language-bash">php artisan vendor:publish --provider=<span class="hljs-string">"Laravel\Fortify\FortifyServiceProvider"</span>
-php artisan vendor:publish --provider=<span class="hljs-string">"Naykel\Authit\AuthitServiceProvider"</span> --force
-php artisan migrate</code></pre>
-                <p><a id="register-fortify-service-provider"></a></p>
-                <h4>Register Fortify Service Provider</h4>
-                <p>Register <code>App\Providers\FortifyServiceProvider::class,</code> within the <code>providers</code> array of your application's <code>config/app.php</code> configuration file.</p>
-                <p><a id="add-views-to-fortifyserviceproviderphp"></a></p>
-                <h4>Add Views to FortifyServiceProvider.php</h4>
-                <p>We need to instruct Fortify how to return our view's. </p>
-                <p>All of the authentication view's rendering logic may be customized using the appropriate methods available via the <code>Laravel\Fortify\Fortify</code> class. Typically, you should call the methods from the <code>boot</code> method of the <code>App\Providers\FortifyServiceProvider</code> class. Fortify will take care of defining the /login route that returns this view:</p>
-                <p><a id="other-noteworthy-stuff"></a></p>
-                <h2>Other Noteworthy Stuff</h2>
-                <p><code>authit</code> will publish/override the <code>RouteServiceProvider.php</code> file, which is used to change the redirect after login path.</p>
-                <p><code>authit</code> will publish/override the <code>FortifyServiceProvider.php</code> file, which is used to instruct Fortify how to return views.</p>
-                <p><code>authit</code> will publish/override an updated <code>fortify</code> configuration file contains a <code>features</code> configuration array. This array defines the backend routes / features Fortify will expose by default. Laravel recommends that you only enable certain Fortify features, which are the basic authentication features provided by most Laravel applications. <a href="https://laravel.com/docs/8.x/fortify#fortify-features">more information</a></p>
+            <div class="navbar">
+                <div class="container va-t">
+                    <div class="logo">
+                        <a href="">
+                            <img src="/images/naykel-400.png" alt="">
+                        </a>
+                    </div>
+                    <div class="flex">
+                        <nav class="hide-up-to-tablet"><a href="">Home</a><a href="/contact">Contact</a></nav>
+                        <div class="">
+                            <a class="btn-secondary outline" href="">Login</a>
+                            <a class="btn-secondary ml-05" href="">Register</a>
+                        </div>
+                    </div>
+                    <div class="hide-from-tablet">
+                        <svg class="icon burger txt-white wh40">
+                            <use xlink:href="/svg/nk_icon-defs.svg#icon-menu"></use>
+                        </svg>
+                    </div>
+                </div>
             </div>
-        </div>
-    </main>
 
+        </header>
+
+    </div>
 
 <script type="text/javascript" src="bundle.js"></script></body>
+
+
+</body>
 
 </html>

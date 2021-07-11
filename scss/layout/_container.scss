@@ -3,6 +3,11 @@
   margin-right: auto;
   margin-left: auto;
   position: relative; // just make it so!
+
+  @include mobile-only {
+    padding: $content-gap;
+  }
+  
 }
 
 @media screen and (min-width: $tablet) {
