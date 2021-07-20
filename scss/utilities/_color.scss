@@ -5,7 +5,8 @@
 // $color-map: ("bg": $color, "bg-light": $color-light, "color-light": $color);
 // --------------------------------------------------------------------------
 
-@each $color, $map in $color-maps {
+@each $color,
+$map in $color-maps {
     .#{$color} {
         background: map-deep-get($color-maps, #{$color}, "bg");
         border: 1px solid rgba(0, 0, 0, 0.15);
@@ -20,10 +21,22 @@
 }
 
 // basic colors without light versions
-@each $key, $value in $colors-map {
+@each $key,
+$value in $colors-map {
     .#{$key} {
         background: $value;
         border: 1px solid rgba(0, 0, 0, 0.15);
         color: setTextColor($value); // 1
     }
+}
+
+
+
+
+.bg-tp-dark {
+    background: rgba(0, 0, 0, .8);
+}
+
+.bg-tp-light {
+    background: rgba(255,255,255, .8);
 }

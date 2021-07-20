@@ -1,30 +1,8 @@
 // Media Mixins
 // ==========================================================================
 
-// // |--\0/-- device-only --\0/--|
-// // --------------------------------------------------------------------------
-// @include mobile-only { }
-// @include tablet-only { }
-// @include desktop-only { }
-// @include widescreen-only { }
 
-// // |--\0/-- from-device (device and larger) --\0/--|
-// // --------------------------------------------------------------------------
-// @include from-mobile { }
-// @include from-tablet { }
-// @include from-desktop { }
-// @include from-widescreen { }
-
-// // |--\0/-- excludeFrom-device (exclude device and larger) --\0/--|
-// // --------------------------------------------------------------------------
-// @include excludeFrom-tablet { }
-// @include excludeFrom-desktop { }
-
-
-
-
-
-// |--\0/-- device-only --\0/--|
+// |-- device-only --|
 // --------------------------------------------------------------------------
 @mixin mobile-only {
     @media (max-width: $tablet - 1px) {
@@ -47,7 +25,7 @@
     }
 }
 
-// |--\0/-- from-device (device and larger) --\0/--|
+// |-- from-device (device and larger) --|
 // --------------------------------------------------------------------------
 @mixin from-mobile {
     @media (min-width: $mobile) {
@@ -70,7 +48,7 @@
     }
 }
 
-// |--\0/-- up-to-device (up-to but not including) --\0/--|
+// |-- up-to-device (up-to but not including) --|
 // --------------------------------------------------------------------------
 @mixin up-to-tablet {
     @media (max-width: $tablet - 1px) {

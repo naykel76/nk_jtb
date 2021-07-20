@@ -1,4 +1,4 @@
-$header-bg: #efefef !default;
+$header-bg: #074464 !default;
 
 $main-bg: rgb(243, 244, 246) !default;
 
@@ -7,6 +7,9 @@ $footer-text-color: rgb(204, 204, 204) !default;
 
 $copyright-bg: darken($footer-bg, 2%) !default;
 $copyright-text-color: $footer-text-color !default;
+
+
+
 
 // set the primary #app element height to push footer to the bottom
 // NOTE: this may not be the best method because it depends on having an #app element!
@@ -41,10 +44,32 @@ footer {
 }
 
 
-// #nk-header { }
+#nk-header {
+    background: $header-bg;
 
+    @include up-to-tablet{
+        padding-left: $content-gap;
+        padding-right: $content-gap;
+    }
+}
+
+// 1. allow to grow to fill height
 #nk-main {
-    background: $main-bg;
+
+    // background: $main-bg;
+    flex: 1; // 1
+
+    // have padding but not when there is a section on the top or bottom???
+    // @extend %gap;
+
+
+    @include up-to-tablet {
+        // no need to specify top and bottom, should be looked after by the element???
+        padding-left: $content-gap;
+        padding-right: $content-gap;
+    }
+
+
 }
 
 // #nk-footer { }
@@ -73,17 +98,20 @@ footer {
     }
 }
 
-
-.content {
-    max-width: 120em;
-    margin: auto;
+// NK Admin Styles
+// --------------------------------------------------------------------------
+.nk-admin {
+    .navbar {
+        background-image: linear-gradient(to right top, #20242a, #1e1f27, #1e1a23, #1f141d, #1f0e16, #250e15, #2c0e12, #310f0c, #40140e, #4e1a0e, #5c210c, #692906);
+    }
 }
+
 
 // NK Documentation Styles
 // --------------------------------------------------------------------------
 
 .nk-docs {
-    
+
     section {
         // manually deal with padding
         padding: 0;

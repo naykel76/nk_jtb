@@ -205,9 +205,12 @@ summary {
 // case. DO NOT CHANGE! ..... again! DO NOT add !important as predicted it in
 // earlier attempts it becomes a pain in the ass!
 
-*> :first-child:not(h1):not(h2) {
-    margin-top: 0;
-}
+// Do not remove all margins with the wild card because it is a pain in the ass!
+// *> :first-child:not(h1):not(h2) {
+//     margin-top: 0;
+// }
+
+
 
 // NK::!! Do not add DIV to this list because it works against removing the
 // margin in the first place. use utility classes if need be!
@@ -226,12 +229,11 @@ h4+*,
 h5+*,
 h6+*,
 ul+*,
-// common patterns
-.bx+* // common patterns
-
-    {
+*[class^='bx'] + *
+ {
     margin-top: $content-gap;
 }
+
 
 
 // Typography
@@ -297,12 +299,21 @@ li ol {
 // Links
 // ====================
 
+// Reset links to optimize for opt-in styling instead of opt-out.
 // 1. inherit to remove underline. color and hover effects
+
 a {
     color: inherit; // 1
     text-decoration: inherit; // 1
 }
 
+main a{
+    color: $link-color;
+    text-decoration: underline;
+    &:hover{
+        color: $link-hover-color;
+    }
+}
 
 // Code
 // ====================
@@ -396,7 +407,7 @@ td {
 }
 
 
-section{
+section {
 
     padding-top: $content-gap;
     padding-bottom: $content-gap;

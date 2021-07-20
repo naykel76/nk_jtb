@@ -31,6 +31,14 @@ $boxes-map: (
 // --------------------------------------------------------------------------
 // The base class adds colour to the entire box
 
+
+
+// * > :is(.bx:not(:first-child)){
+//     margin-top: $content-gap;
+// }
+
+
+// is bx not first child
 .bx {
     padding: $bx-padding;
     border-radius: $bx-border-radius;
@@ -38,8 +46,8 @@ $boxes-map: (
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
     background: $bx-bg;
     color: $bx-color;
-    margin-top: $content-gap;
-
+    
+    // remove margin from any first element in a box to allow box padding to do the work
     & > *:first-child {
         margin-top: 0;
     }
@@ -49,6 +57,7 @@ $boxes-map: (
         font-weight: $bx-title-font-weight;
         line-height: 1.2;
     }
+
 }
 
 // 1. remove side margins to align content to the outer bx. This allows
@@ -61,19 +70,6 @@ $boxes-map: (
     padding: 0.75rem $bx-padding;
 }
 
-// .bx-content {
-//     padding: $bx-padding;
-
-//     // remove margin and radius from the box content when there is no footer
-//     // &:first-of-type {
-//     //     margin-top: -$bx-padding;
-//     //     border-radius: $bx-border-radius $bx-border-radius 0 0;
-//     // }
-//     // &:last-of-type {
-//     //     margin-bottom: -$bx-padding;
-//     //     border-radius: 0 0 $bx-border-radius $bx-border-radius;
-//     // }
-// }
 
 .bx-header {
     margin-top: -$bx-padding !important;
@@ -88,24 +84,6 @@ $boxes-map: (
     border-radius: 0 0 $bx-border-radius $bx-border-radius;
 }
 
-// // .bx-shadow {
-// //   box-shadow: 0 1px 2px rgba(10, 10, 10, 0.1);
-// // }
-
-// // // special box with large padding and shaddow
-// // .bx-shaddow {
-// //   // @include box-shadow();
-// //   padding: $gutter-sm;
-// //   border: 1px solid #ddd;
-
-// //   @include mobile {
-// //     padding: $gutter;
-// //   }
-
-// //   @include from-desktop {
-// //     padding: $gutter-lg;
-// //   }
-// // }
 
 @each $key, $map in $boxes-map {
     .bx-#{$key} {
@@ -114,15 +92,6 @@ $boxes-map: (
         color: map-get($map, color);
     }
 
-    // .bx-#{$key} {
-    //     // border: 1px solid rgba(0, 0, 0, 0.15);
-    //     background-color: $value;
-    //     // color: $fontcolor;
-    //     // transition: background-color 0.3s;
 
-    //     // &.hover:hover{
-    //     //   background-color: darken($bgcolor, 10);
-    //     // }
-    // }
 }
 

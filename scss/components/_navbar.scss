@@ -46,6 +46,7 @@ $navbar-nav-hover-color: darken($navbar-nav-font-color, 15%);
     // nav and nav-items
     nav {
         margin-top: 0;
+        text-transform: uppercase;
 
         // :not(.btn) is to let btn classes look after styling if used
         a:not([class*="btn"]) {
