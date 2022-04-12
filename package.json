@@ -1,6 +1,6 @@
 {
     "name": "nk_jtb",
-    "description": "Yet another utility based framework based on flex-box.",
+    "description": "Yet another utility based framework.",
     "version": "0.0.2",
     "main": "index.js",
     "repository": {
@@ -8,7 +8,7 @@
         "url": "https://github.com/naykel76/nk_jtb.git"
     },
     "scripts": {
-        "watch": "sass --watch --no-source-map scss/jtb.scss:dist/css/jtb.css scss/dev.scss:dist/css/dev.css scss/layout/_css_grid.scss:dist/css/css_grid.css scss/layout/_grid.scss:dist/css/old_grid.css scss/jtb_utilities.scss:dist/css/jtb_utilities.css",
+        "watch": "sass --watch --no-source-map scss/jtb.scss:dist/css/jtb.css scss/dev.scss:dist/css/dev.css scss/layout/_css_grid.scss:dist/css/css_grid.css scss/jtb_utilities.scss:dist/css/jtb_utilities.css",
         "dev": "parcel index.html",
         "build": "parcel build index.html"
     },
