@@ -1,0 +1,12 @@
+@use "../base/vars_base" as *;
+
+// return text colour based on the background
+// --------------------------------------------------------------------------
+
+@function setTextColor($bg-color) {
+    @if (lightness($bg-color) > 55) {
+        @return $base-color;
+    } @else {
+        @return #fff;
+    }
+}

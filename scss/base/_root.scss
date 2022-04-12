@@ -1,0 +1,8 @@
+@use "../base/vars_colors" as *;
+
+:root {
+    // create css variables
+    @each $color, $value in $color-map {
+        --#{$color}: #{$value};
+    }
+}

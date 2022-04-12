@@ -1,64 +1,117 @@
-// Range of height and width utility classes
-// ==========================================================================
+@use '../base/vars_base' as *;
+@use "sass:map";
 
+// ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
+//
+// the !important flag is used top make sure utility overrides
+// class specificity.
+//
+// ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
 
-// add heights and access with 'h' eg. class="h40"
-$heights:(
-  40: 40px,
-  60: 60px,
-  100: 100px,
-  200: 200px,
-  400: 400px,
-  600: 600px
+// width utilities w-{n}rem or w-{n}px
+
+// --------------------------------------------------------------------------
+// -- WIDTH UTILITY CLASSES --
+// --------------------------------------------------------------------------
+
+$width-utilities: (
+    "width": (
+        "property": "width",
+        "prefix": "w-",
+        "values": (
+            fc: fit-content,
+        ),
+    ),
 );
 
-$v-heights:(
-  40: 40vh,
-  50: 50vh,
-  60: 60vh,
-  100: 100vh,
-);
+@each $property, $map in $width-utilities {
+    $property: map-get($map, "property");
+    $utility-prefix: map-get($map, "prefix");
+    $values: map-get($map, "values");
 
-$widths:(
-  40: 40px,
-  100: 100px,
-  150: 150px,
-  200: 200px,
-  300: 300px,
-  400: 400px,
-);
-
-
-// ==========================================================================
-// Height Classes
-// ==========================================================================
-@each $key, $value in $heights {
-  .h#{$key} {
-    height: $value !important;
-  }
-}
-@each $key, $value in $v-heights {
-  .vh#{$key} {
-    height: $value !important;
-  }
+    @each $key, $v in $values {
+        .#{$utility-prefix}#{$key} {
+            #{$property}: $v;
+        }
+    }
 }
 
-// ==========================================================================
-// Width Classes
-// ==========================================================================
-@each $key, $value in $widths {
-  .w#{$key} {
-    width: $value !important;
-  }
-  // max-widths
-  .mw#{$key} {
-    max-width: $value !important;
-  }
-  // width height classes (square)
-  .wh#{$key} {
-    height: $value !important;
-    width: $value !important;
-  }
+// --------------------------------------------------------------------------
+// -- MAKE UTILITY SIZE CLASSES --
+// --------------------------------------------------------------------------
+
+@mixin makeSizeUtilities($sizes, $unit: "rem") {
+    @each $size in $sizes {
+        .w-#{$size} {
+            width: #{$size}#{$unit} !important;
+        }
+        .h-#{$size} {
+            height: #{$size}#{$unit} !important;
+        }
+        .wh-#{$size} {
+            width: #{$size}#{$unit} !important;
+            height: #{$size}#{$unit} !important;
+        }
+    }
 }
 
+$rem-sizes: (1, 2, 3, 4, 95);
+@include makeSizeUtilities($rem-sizes);
 
+$pixel-sizes: (16, 24, 32, 40, 64, 100, 150, 200, 300, 400, 600);
+@include makeSizeUtilities($pixel-sizes, "px");
+
+// // --------------------------------------------------------------------------
+// // -- FRACTIONAL SIZES --
+// // --------------------------------------------------------------------------
+
+// \ is needed to escape the forward slash
+$fractional-sizes: (1\/4: 25%, 1\/3: 33.33%, 1\/2: 50%, 3\/4: 75%);
+
+@each $key, $value in $fractional-sizes {
+    .w-#{$key} {
+        width: $value;
+    }
+}
+
+// //     // max-widths
+// //     .minw#{$key} {
+// //         min-width: $value !important;
+// //     }
+// //     // max-widths
+// //     .maxw#{$key} {
+// //         max-width: $value !important;
+// //     }
+
+// $v-heights: (
+//     40: 40vh,
+//     50: 50vh,
+//     60: 60vh,
+//     100: 100vh,
+// );
+
+// // vertical heights
+// // ----------------------------
+// @each $key, $value in $v-heights {
+//     .vh#{$key} {
+//         height: $value !important;
+//     }
+// }
+
+// $sizes: (
+//     200: 200px,
+//     300: 300px,
+//     400: 400px,
+//     600: 600px,
+// );
+
+// @each $key, $value in $sizes {
+//     // max-widths
+//     .minw#{$key} {
+//         min-width: $value !important;
+//     }
+//     // max-widths
+//     .maxw#{$key} {
+//         max-width: $value !important;
+//     }
+// }

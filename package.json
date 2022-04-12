@@ -6,29 +6,17 @@
     "repository": {
         "type": "git",
         "url": "https://github.com/naykel76/nk_jtb.git"
-      },
+    },
     "scripts": {
-        "watch": "webpack --watch --mode=development",
-        "build": "set NODE_ENV=development&&webpack --progress",
-        "build-sass": "node-sass --output-style expanded --source-map true scss/nk_jtb.scss css/app.css",
-        "build-reset": "node-sass --output-style expanded scss/reset.scss css/reset.css",
-        "serve": "webpack-dev-server --open"
+        "watch": "sass --watch --no-source-map scss/jtb.scss:dist/css/jtb.css scss/dev.scss:dist/css/dev.css scss/layout/_css_grid.scss:dist/css/css_grid.css scss/layout/_grid.scss:dist/css/old_grid.css scss/jtb_utilities.scss:dist/css/jtb_utilities.css",
+        "dev": "parcel index.html",
+        "build": "parcel build index.html"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "devDependencies": {
-        "autoprefixer": "^9.8.6",
-        "clean-webpack-plugin": "^2.0.2",
-        "css-loader": "^2.1.1",
-        "html-webpack-plugin": "^3.2.0",
-        "mini-css-extract-plugin": "^0.6.0",
-        "node-sass": "^4.14.1",
-        "postcss-loader": "^3.0.0",
-        "sass-loader": "^7.3.1",
-        "style-loader": "^0.23.1",
-        "webpack": "^4.46.0",
-        "webpack-cli": "^3.3.12",
-        "webpack-dev-server": "^3.11.2"
+        "parcel-bundler": "^1.12.5",
+        "sass": "^1.49.7"
     }
 }

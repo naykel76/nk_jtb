@@ -1,8 +1,0 @@
-// Use to create control sizes base on 'em'
-@mixin createControlSizes($map) {
-    @each $size, $value in $map {
-        &.#{$size} {
-            font-size: $value;
-        }
-    }
-}

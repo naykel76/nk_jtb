@@ -1,2 +1,5 @@
 node_modules
+.cache
 nk_tasks.md
+
+dist

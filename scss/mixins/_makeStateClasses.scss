@@ -1,0 +1,17 @@
+@use "../functions/setTextColor" as *;
+
+@mixin hover($bg, $darkenBy: 4%, $color: setTextColor($bg),) {
+    &:hover {
+        @content;
+        background-color: darken($bg, $darkenBy);
+        color: $color;
+    }
+}
+
+@mixin active($bg, $lightenBy: 7%, $color: setTextColor($bg)) {
+    &:active {
+        @content;
+        background-color: lighten($bg, $lightenBy);
+        color: $color;
+    }
+}

@@ -1,0 +1,29 @@
+@use 'sass:math';
+
+// $class - the name of the class (myClass1, myClass2)
+// $color - create shades based on this color
+// $numShades - specified the number of shades to create
+// $lightenBy - the percentage to reduce each shade by on each iteration.
+// Leave blank or 0 for evenly distributed shades.
+
+@mixin makeColorShades($class, $color, $numShades: 9, $lightenBy: 0) {
+    $lightenBy: $lightenBy; // % value to lighten color or equal distribution
+    $numShades: $numShades; // number of shades to create
+
+    // if 0 then evenly distribute lightness based on the shades over the numShades
+    @if $lightenBy==0 {
+        $lightenBy: math.div(lightness($color), $numShades + 1); // +1 to include actual color
+    } @else {
+        // lighten by specified amount
+        $lightenBy: $lightenBy;
+    }
+
+    @for $i from $numShades through 1 {
+        $newColor: lighten($color, $lightenBy);
+
+        .#{$class}#{$i} {
+            background: $newColor;
+            $color: $newColor; // set color to the new color
+        }
+    }
+}

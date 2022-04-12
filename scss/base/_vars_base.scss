@@ -1,38 +1,29 @@
-// |--\o/-- Configuration Settings --\o/--|
-// |--\o/-- Base Styles --\o/--|
-// |--\o/-- Typography --\o/--|
-// |--\o/-- Controls --\o/--|
-// |--\o/-- Spacings --\o/--|
-// |--\o/-- Responsive Sizes --\o/--|
-
-$img-path: "/assets/images" !default;
+$prefix: "FISH" !default; // prefix can be used to prevent conflicts, leave blank for none
 
 // ==========================================================================
-// |--\o/-- Configuration Settings --\o/--|
+// -- GENERAL STYLES --
 // ==========================================================================
-$include-shades: true; // include color shades
-$base-extended: true; // include extra base features e.g. hr.mm
-// $grid-has-gap: true;
+$border: 1px solid rgba(0, 0, 0, 0.15) !default;
+$border-radius: 8px !default;
+
+$img-path: "/images" !default;
 
 // ==========================================================================
-// |--\o/-- Base Styles --\o/--|
+// -- Base Styles --
 // ==========================================================================
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap');
 
 $base-color: #333 !default;
 $base-bg: #fff !default;
 // $base-font-family: Poppins, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji' !important;
-$base-font-family: "Montserrat", sans-serif;
-// $base-font-family: scandia-web,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji!important;
+// $base-font-family: "Montserrat", sans-serif;
+$base-font-family: scandia-web, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji !important;
 $base-font-weight: normal !default;
 $base-font-size: 1rem !default;
 $base-line-height: 1.5 !default;
-$base-border: #ddd !default;
+$base-border-color: #ddd !default;
 
 // ==========================================================================
-// |--\o/-- Typography --\o/--|
+// -- Typography --
 // ==========================================================================
 $font-size-sm: ($base-font-size * 0.875) !default;
 $font-size-md: ($base-font-size * 1.25) !default;
@@ -43,28 +34,31 @@ $heading-sizes: 2.25em, 1.75em, 1.5em, 1.25em, 1.125em, 1em;
 $heading-color: inherit !default;
 $heading-font-weight: 700;
 
-$link-color: #007bff !default;
-$link-hover-color: #0056b3 !default;
+$link-color: #5850ec !default;
+$link-hover-color: indianred !default;
+// $link-color: #007bff !default;
+// $link-hover-color: #0056b3 !default;
 
 // ==========================================================================
-// |--\o/-- Spacings --\o/--|
+// -- Spacing Sizes --
 // ==========================================================================
 
-$content-gap: 1.25rem !default; // space between page elements
-$content-gap-lg: 3rem !default; // space between page elements
-$content-gap-xl: 5rem !default; // space between page elements
+// grid-gap, is the space used to separate grid elements, page sections or components
+// content-gap, is the padding or margin that separates content. For example, <p>
 
-// used to separate elements
-$margin-sm: 0.5rem !default;
-$margin: $content-gap !default;
-$margin-lg: 3rem !default;
+$grid-gap: 1.25rem;
+
+// use em so gap relative to font size, this means h2 gap will be larger than p
+$content-gap-sm: 0.75em;
+$content-gap: 1.25em;
+$content-gap-lg: 3em;
+$content-gap-xl: 5em;
 
 // ==========================================================================
-// |--\o/-- Responsive Sizes --\o/--|
+// -- Responsive Sizes and Breakpoints --
 // ==========================================================================
-
 $breakpoints: (
-    xs: 320px,
+    xs: 0,
     sm: 576px,
     md: 768px,
     lg: 992px,
@@ -72,22 +66,31 @@ $breakpoints: (
     xxl: 1600px,
 );
 
-$device-size-map: (
-    small: map-get($breakpoints, xs),
-    mobile: map-get($breakpoints, sm),
-    tablet: map-get($breakpoints, md),
-    desktop: map-get($breakpoints, lg),
-    widescreen: map-get($breakpoints, xl),
-    ultra-wide: map-get($breakpoints, xxl),
-);
-
 // translate breakpoints into user friendly names for easy reference
-// these could be referred to as 'display when' sizes, display when (min-width: $tablet)
-$small: map-get($breakpoints, xs);
-$mobile: map-get($breakpoints, sm);
+// IMPORTANT: in terms of device-only, mobile is anything under 767px
+
+$xs: map-get($breakpoints, xs);
+$sm: map-get($breakpoints, sm);
+$mobile-portrait: map-get($breakpoints, xs);
+$mobile-landscape: map-get($breakpoints, sm);
 $tablet: map-get($breakpoints, md);
-$desktop: map-get($breakpoints, lg);
-$widescreen: map-get($breakpoints, xl);
-$ultra-wide: map-get($breakpoints, xxl);
+$laptop: map-get($breakpoints, lg);
+$desktop: map-get($breakpoints, xl);
+$widescreen: map-get($breakpoints, xxl);
+
+// ==========================================================================
+// -- Grid --
+// ==========================================================================
+$num-grid-cols: 6 !default; // number of classes to make
+
+// ==========================================================================
+// -- Container --
+// ==========================================================================
+// To make it easy, everything under desktop just uses max width
+$container-max-width: 90%;
+// $container-tablet: 45rem !default; // 720px
+// $container-laptop: 60em !default; // 960px
+$container-desktop: 75em !default; // 1200px
+// $container-widescreen: 75em !default; // 1344px
 
 

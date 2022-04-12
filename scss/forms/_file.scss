@@ -1,6 +1,3 @@
-// Input Type="File"
-// ======================================================================= ->
-
 .file {
     user-select: none;
     align-items: stretch;
@@ -21,35 +18,4 @@
         cursor: pointer;
     }
 
-    &.btn {
-        display: inline-flex;
-    }
-
-    .icon {
-        margin-right: 5px;
-    }
-
-    .cta {
-        // DO NOT put .file-name in here because it is a next element, not a sibling
-        &.btn {
-            @extend %nbr-r; // remover border radius
-            @extend %nbdr-r; // remove right border
-        }
-    }
-
-    // file-name sites outside of the call to action, this is so btn styling can be
-    // used eliminating the need to create specific styling
-    &-name {
-        border: $ctrl-border-width solid rgba(0, 0, 0, 0.15);
-        border-radius: $ctrl-border-radius;
-        font-size: $ctrl-font-size;
-        padding: $ctrl-padding-y $ctrl-padding-x;
-        display: block;
-        overflow: hidden;
-        text-align: inherit;
-        text-overflow: ellipsis; // represent clipped text ...
-        white-space: nowrap;
-        width: 15rem;
-        @extend %nbr-l;
-    }
 }

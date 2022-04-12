@@ -1,0 +1,28 @@
+// --------------------------------------------------------------
+// -- CREATE POSITION BASED CSS PROPERTIES --
+// --------------------------------------------------------------
+// iterates through a list of positions creating the appropriate
+// property (top, bottom, left, right)
+
+@mixin makeCssPositionProperty($property, $value, $positions) {
+    @each $position in $positions {
+        #{$property}-#{$position}: $value;
+    }
+}
+
+// --------------------------------------------------------------
+// -- CREATE SINGLE CSS PROPERTY --
+// --------------------------------------------------------------
+
+@mixin makeCssProperty($property, $value) {
+    #{$property}: $value;
+}
+
+// --------------------------------------------------------------
+// -- CREATE SINGLE PROPERTY CLASS --
+// --------------------------------------------------------------
+@mixin makeClassSingleProperty($class, $property, $value) {
+    .#{$class} {
+        #{$property}: $value;
+    }
+}

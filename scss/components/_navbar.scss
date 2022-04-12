@@ -1,74 +1,51 @@
-// logo
-// nav and nav-items
-// burger menu
-
-// 1. requires a navbar-nav-bg to work out colors for borders and state
-//    initially this is set to the navbar-bg so the nav-items look transparent
-//    but the states will work. To remove colors just set $navbar-nav-bg to
-//    transparent
-
-$navbar-bg: $primary !default;
-$navbar-padding-x: 1em;
-$navbar-padding-y: 0.5em;
-
-$navbar-nav-font-color: setTextColor($navbar-bg) !default;
-// $navbar-nav-font-size: 1rem !default;
-$navbar-nav-padding: $navbar-padding-y $navbar-padding-x !default;
-// $navbar-nav-bg: transparent !default; // 1.
-$navbar-nav-bg: $navbar-bg !default; // 1.
-$navbar-nav-border: 1px solid lighten($navbar-nav-bg, 4%);
-$navbar-nav-hover-bg: lighten($navbar-nav-bg, 5%) !default;
-$navbar-nav-hover-color: darken($navbar-nav-font-color, 15%);
+@use "../base/vars_base" as *;
+@use "../base/vars_class_names" as *;
+@use "../base/vars_components" as *;
 
 
-// aligning navbar items in the center makes senses until you want
-.navbar,
-.navbar > .container {
+.#{$navbar-class},
+.#{$navbar-class} > .#{$container-class} {
     display: flex;
-    // align-items: center; // vertical center
     justify-content: space-between;
+    align-items: center;
 }
 
-.navbar {
+.#{$navbar-class} {
     background: $navbar-bg;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
     padding: $navbar-padding-y $navbar-padding-x;
     position: relative;
-    z-index: 999;
 
-    // logo
     // 1. keep consistent spacing
     // 2. remove gap to keep logo in the middle
     .logo {
-        margin-right: $navbar-padding-x; // 1
+        margin-right: $navbar-nav-padding-x; // 1
         line-height: 0; // 2
     }
 
-    // nav and nav-items
     nav {
-        margin-top: 0;
-        text-transform: uppercase;
+        display: flex;
+        gap: $nav-item-gap;
 
-        // :not(.btn) is to let btn classes look after styling if used
-        a:not([class*="btn"]) {
+        // the assumption is that all links in the navbar will be for the main navigation, however
+        // exclude the 'menu' class and buttons which is likely used in a dropdowns such as cart items
+        // or user navigation. This will prevent the need for complex overrides.
+
+        a:not(.menu a):not([class*="btn"]):not(.logo a) {
+            padding: $navbar-nav-padding-y $navbar-nav-padding-x;
+            background: $navbar-nav-item-bg;
+            border-radius: 0.25rem;
             color: $navbar-nav-font-color;
-            // font-size: $navbar-nav-font-size;
-            // background: $navbar-nav-bg;
-            padding: $navbar-nav-padding;
-            // border: $navbar-nav-border;
+            line-height: 1.2rem;
+
             &:hover {
                 color: $navbar-nav-hover-color;
                 background: $navbar-nav-hover-bg;
             }
+
+            &.active {
+                background: $navbar-nav-active-bg;
+            }
         }
-    }
-}
-
-.burger {
-    // color: $navbar-nav-font-color;
-    margin-left: auto; // 1
-    cursor: pointer;
-
-    &:hover {
-        color: $navbar-nav-hover-color;
     }
 }

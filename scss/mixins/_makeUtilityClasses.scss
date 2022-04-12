@@ -1,0 +1,56 @@
+@use "./makeCssPropertyMixins" as *;
+@use "../functions/helpers" as *;
+// --------------------------------------------------------------
+// -- CREATES BASE AND POSITION BASED UTILITY CLASSES FROM MAP --
+// --------------------------------------------------------------
+//
+//
+// Example Usage:
+//
+
+// add a dash between class and position (bdr-xy)
+@function setPositionKeySeparator($base-class, $axis-or-position, $exclusions: ("m", "p")) {
+    // if class is in exclusions
+    @each $class in $exclusions {
+        @if ($base-class == $class) {
+            // return without a dash
+            @return #{$axis-or-position};
+        }
+    }
+    @return -#{$axis-or-position};
+}
+
+@mixin makeUtilityClasses($utility-map) {
+    @each $property, $map in $utility-map {
+        $base-class: map-get($map, "base-class");
+        $value: map-get($map, "value");
+        $values-map: map-get($map, "values-map");
+
+        // each $direction (x, y ...) in map, has positions-list (top, bottom ...)
+        @each $axis-or-position, $positions in map-get($map, "axis-position-map") {
+            // 1: 1rem or default: 1px solid red
+            @each $key, $value in $values-map {
+                // remove (size) key for default size
+                $size-key: if($key == "default", "", -#{$key});
+
+                // add or remove dash separator between class and position (bdr-x or mx)
+                // exclusions can be added in the setPositionKeySeparator() function
+                $position-key: setPositionKeySeparator($base-class, $axis-or-position);
+
+                // // remove optional xy suffix as position key (bdr or bdr-xy)
+                @if ($axis-or-position == "xy") {
+                    $position-key: if(map-has-key($map, "xy-suffix"), "xy", "");
+                }
+
+                .#{$base-class}#{$position-key}#{$size-key} {
+                    // use shorthand for 'xy'
+                    @if ($axis-or-position == "xy") {
+                        #{$property}: #{$value};
+                    } @else {
+                        @include makeCssPositionProperty($property, #{$value}, $positions);
+                    }
+                }
+            }
+        }
+    }
+}

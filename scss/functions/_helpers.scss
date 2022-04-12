@@ -1,0 +1,14 @@
+// --------------------------------------------------------------
+// -- STRIPS DASH IF LAST CHARACTER IN A STRING --
+// --------------------------------------------------------------
+//
+// Example Usage: $class: stripDash("bdr-");
+// Outputs $class: 'bdr';
+
+@function stripDash($string) {
+    @if str-slice($string, -1) == "-" {
+        @return str-slice($string, 1, -2);
+    }
+
+    @return $string;
+}

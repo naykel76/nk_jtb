@@ -1,160 +1,90 @@
-// |--- \o/ Base Class --\o/--|
-// |--- \o/ Button Variations --\o/--|
-// |--- \o/ Button Variations - Outline --\o/--|
-// |--- \o/ Button Container --\o/--|
+@use "../base/vars_colors" as *;
+@use "../base/vars_class_names" as *;
+@use "../forms/control" as *;
+@use "../functions/setTextColor" as *;
+@use "../mixins/makeStateClasses" as *;
+@use "../base/vars_base" as *;
 
-$btn-color: #363636 !default;
 $btn-bg: rgb(248, 248, 248) !default;
+$btn-color: setTextColor($btn-bg) !default;
 
-$buttons-map: (
-    primary: $primary,
-    secondary: $secondary,
-    danger: $danger,
-    success: $success,
-    info: $info,
-);
+$btn-link-color: $link-color;
+$btn-link-hover-color: $link-hover-color;
 
-// if a custom map exists then merge it
-@if variable-exists(custom-buttons-map) {
-    $buttons-map: map-merge($buttons-map, $custom-buttons-map);
-}
+$btn-text-transform: capitalize;
 
-// ==========================================================================
-// |--- \o/ Base Class --\o/--|
-// ==========================================================================
+// base class
+// ----------------------------
 
-[class*="btn"] {
+[class*="#{$button-class}"] {
     &.focus,
     &:focus {
         outline: none;
     }
 }
 
-.btn {
-    @extend %control; // core from _control.scss
-    background: $btn-bg;
-    color: $btn-color;
-    transition: color .3s ease-in-out;
-    transition: background-color .3s ease-in-out;
-    user-select: none; // prevents selectable text
-    justify-content: center;
-
-    &:hover {
-        color: $btn-color;
-        text-decoration: none;
-        background-color: darken($btn-bg, 5%);
-    }
+.#{$button-class} {
+    // &:hover {
+    //     color: $btn-color;
+    //     text-decoration: none;
+    //     background-color: darken($btn-bg, 5%);
+    // }
 
     &:not(:disabled):not(.disabled) {
         cursor: pointer;
     }
 }
 
-// ==========================================================================
-// |--- \o/ Button Variations --\o/--|
-// ==========================================================================
-// create button variations based on buttons-map ** has custom map
-@each $key, $value in $buttons-map {
-    .btn-#{$key} {
-        @extend .btn;
-        background-color: $value;
-        color: setTextColor($value);
+// order matters, leave below .btn
+button,
+.#{$button-class} {
+    @extend %control; // core from _control.scss
+    background: $btn-bg;
+    color: $btn-color;
+    transition-duration: 150ms;
+    transition-property: background-color, color, border;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: $btn-text-transform;
+    text-align: center;
+    justify-content: center;
 
-        // add bg colour parameter or leave blank for transparent
-        // 1. override default btn color
-        @include hover(lighten($value, 5%)) {
-            color: setTextColor($value); // 1
-        }
+    // @include hover(background-color, text-color (optional));
+    @include hover($btn-bg);
+    @include active($btn-bg);
 
-        @include active(darken($value, 5%));
+    &.link {
+        background-color: transparent;
+        background-image: none;
+        border: none;
+        color: $btn-link-color;
 
-        // |--- \o/ Button Variations - Outline --\o/--|
-        &.outline {
-            border-color: $value;
-            color: $value;
-            // add bg colour parameter or leave blank for transparent
-            @include hover(lighten($value, 5%)) {
-                color: setTextColor($value); // 1
-            }
-            @include active(darken($value, 5%));
-        }
+        // &:hover {
+        //     color: $btn-link-hover-color;
+        //     // @include active(darken($btn-color, 5%));
+        //     // text-decoration: none;
+        // }
+    }
+
+    .icon {
+        height: 1.25em;
     }
 }
 
-.btn.outline {
-    background: transparent;
-}
 
-// |--- \o/ Button Container --\o/--|
-// ==========================================================================
-.buttons {
-    .btn {
-        margin-right: 1rem;
-    }
-    // &[class*=".btn"] {
-    //     margin-right: 0.5rem;
-    // }
-}
+// themes and variations
+// ----------------------------
+//
+// **! must explicitly state theme values to override base 'btn' class !**
+//
 
-// ==========================================================================
-// override base element for basic style
-// ==========================================================================
-// input[type="submit"],
-// input[type="reset"],
-// button {
-//     @extend .btn;
-// }
+@each $key, $color in $color-map {
+    .#{$button-class}.#{$key} {
+        background: $color;
+        color: setTextColor($color);
 
-// ==========================================================================
-// -- Base Class --
-// ==========================================================================
+        @include hover($color);
+        @include active($color);
 
-// -- Buttons Icons --
-// ==========================================================================
-.icon {
-    + span {
-        margin-left: 0.25rem;
+        // there is no need to include outline here, it is handles by the theme
     }
 }
-
-//     // if only the icon add negative margin to overide padding
-//     // .icon:first-child:last-child {
-//     //     margin-left: calc(-0.5em + 3px);
-//     //     margin-right: calc(-0.5em + 3px);
-//     // }
-
-//     // -- Button and Icon size modifiers --
-//     // ==========================================================================
-//     // &.sm {
-//     //     .icon:first-child:last-child {
-//     //         margin-left: -10px;
-//     //         margin-right: -10px;
-//     //     }
-//     // }
-
-//     // &.md {
-//     //     .icon:first-child:last-child {
-//     //         margin-left: calc(-0.5em + 8px);
-//     //         margin-right: calc(-0.5em + 8px);
-//     //     }
-//     // }
-
-//     // &.lg {
-//     //     .icon:first-child:last-child {
-//     //         margin-left: calc(-0.5em + 13px);
-//     //         margin-right: calc(-0.5em + 13px);
-//     //     }
-//     // }
-// }
-
-// show outline when hover
-// .btn.suprise{
-//   background: transparent;
-//   border: $btn-border-width solid transparent;
-
-//   &:hover {
-//     color: $btn-color;
-//     border: $btn-border-width solid rgba(0, 0, 0, 0.15);
-//     background-color: darken($btn-bg, 5%);
-//   }
-// }

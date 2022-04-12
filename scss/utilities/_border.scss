@@ -1,92 +1,96 @@
-$border: 1px solid rgba(0, 0, 0, 0.15) !default;
-$border-radius: 8px !default;
+@use "../base/vars_all" as *;
+@use "../mixins/makeUtilityClasses" as *;
 
-$positions_tblr: t, b, l, r; // top, bottom, left, right
-$positions_xyz: x, y, xy; // left and right, top and bottom, all
+// Add border radius to map???
+$border-utilities-map: (
+    "border": (
+        "base-class": "bdr",
+        "values-map": (
+            "default": $border,
+        ),
+        "axis-position-map": $axis-position-map,
+    ),
+);
 
 $border-widths-map: (
     1: 1px,
     3: 3px,
     5: 5px,
-);
+    10: 10px,
+) !default;
 
 $border-colors-map: (
-    'orange': $orange,
-    'red': $red,
-    'blue': $blue,
-);
+    "orange": var(--orange),
+    "red": map-get($color-map, "red"),
+    "green": var(--green),
+    "blue": var(--blue),
+    "primary": $primary,
+    "secondary": var(--secondary),
+    "success": var(--success),
+    "danger": var(--danger),
+    "info": var(--info),
+) !default;
 
-// make border utility classes (top, bottom, left, right)
-@include makePositionUtilityClasses($positions_tblr, ".bdr", "border", $border);
-// make remove border utility classes (top, bottom, left, right)
-@include makePositionUtilityClasses($positions_tblr, ".nbdr", "border", none);
-// make remove border 'PLACEHOLDER' utility classes (top, bottom, left, right)
-@include makePositionUtilityClasses($positions_tblr, "%nbdr", "border", none);
+@include makeUtilityClasses($border-utilities-map);
 
-
-// border colors
-@each $key, $value in $border-colors-map {
-    // create class
-    .bdr-#{$key} {
-        border: 1px solid $value !important;
-    }
+.divide-y > :not([hidden]) ~ :not([hidden]) {
+    border-top: $border;
 }
 
-// border widths
-// MUST RUN AFTER bdr-colors to override
+
 @each $key, $value in $border-widths-map {
-    // create class
     .bdr#{$key} {
-        border-width: $value !important;
+        border-width: $value;
     }
 }
 
-
-
-
-// border radius (bdrr)
-// --------------------------------------------------------------------------
-.bdrr {
-    border: $border;
-    border-radius: $border-radius;
-    // positions
-    &-t {
-        border-top-left-radius: $border-radius;
-        border-top-right-radius: $border-radius;
-    }
-    &-b {
-        border-bottom-left-radius: $border-radius;
-        border-bottom-right-radius: $border-radius;
-    }
-    &-l {
-        border-top-left-radius: $border-radius;
-        border-bottom-left-radius: $border-radius;
-    }
-    &-r {
-        border-top-right-radius: $border-radius;
-        border-bottom-right-radius: $border-radius;
+@each $key, $value in $border-colors-map {
+    .bdr-#{$key} {
+        border: 1px solid $value;
     }
 }
 
+// // // border radius
+// // // --------------------------------------------------------------------------
+// // .bdrr {
+// //     border: $border;
+// //     border-radius: $border-radius;
+// //     // positions
+// //     &-t {
+// //         border-top-left-radius: $border-radius;
+// //         border-top-right-radius: $border-radius;
+// //     }
+// //     &-b {
+// //         border-bottom-left-radius: $border-radius;
+// //         border-bottom-right-radius: $border-radius;
+// //     }
+// //     &-l {
+// //         border-top-left-radius: $border-radius;
+// //         border-bottom-left-radius: $border-radius;
+// //     }
+// //     &-r {
+// //         border-top-right-radius: $border-radius;
+// //         border-bottom-right-radius: $border-radius;
+// //     }
+// // }
 
-// remove border radius
-%nbr,
-.nbr {
-    border-radius: 0;
-    &-t {
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-    }
-    &-b {
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-    }
-    &-l {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-    }
-    &-r {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-    }
-}
+// // // remove border radius
+// // .nbr {
+// //     border-radius: 0;
+// //     &-t {
+// //         border-top-left-radius: 0;
+// //         border-top-right-radius: 0;
+// //     }
+// //     &-b {
+// //         border-bottom-left-radius: 0;
+// //         border-bottom-right-radius: 0;
+// //     }
+// //     &-l {
+// //         border-top-left-radius: 0;
+// //         border-bottom-left-radius: 0;
+// //     }
+// //     &-r {
+// //         border-top-right-radius: 0;
+// //         border-bottom-right-radius: 0;
+// //     }
+// // }

@@ -1,6 +1,4 @@
-// Media Mixins
-// ==========================================================================
-
+@use '../base/vars_base' as *;
 
 // |-- device-only --|
 // --------------------------------------------------------------------------
@@ -9,16 +7,25 @@
         @content;
     }
 }
+
 @mixin tablet-only {
-    @media (min-width: $tablet) and (max-width: $desktop - 1px) {
+    @media (min-width: $tablet) and (max-width: $laptop - 1px) {
         @content;
     }
 }
+
+@mixin laptop-only {
+    @media (min-width: $laptop) and (max-width: $desktop - 1px) {
+        @content;
+    }
+}
+
 @mixin desktop-only {
-    @media (min-width: $desktop) and (max-width: $widescreen - 1px) {
+    @media (min-width: $desktop) and (max-width: $desktop - 1px) {
         @content;
     }
 }
+
 @mixin widescreen-only {
     @media (min-width: $widescreen) {
         @content;
@@ -27,8 +34,9 @@
 
 // |-- from-device (device and larger) --|
 // --------------------------------------------------------------------------
-@mixin from-mobile {
-    @media (min-width: $mobile) {
+
+@mixin from-mobile-landscape {
+    @media (min-width: $mobile-landscape) {
         @content;
     }
 }
@@ -37,11 +45,19 @@
         @content;
     }
 }
+
+@mixin from-laptop {
+    @media (min-width: $laptop) {
+        @content;
+    }
+}
+
 @mixin from-desktop {
     @media (min-width: $desktop) {
         @content;
     }
 }
+
 @mixin from-widescreen {
     @media (min-width: $widescreen) {
         @content;
@@ -50,20 +66,33 @@
 
 // |-- up-to-device (up-to but not including) --|
 // --------------------------------------------------------------------------
+@mixin up-to-mobile-landscape {
+    @media (max-width: $mobile-landscape - 1px) {
+        @content;
+    }
+}
+
 @mixin up-to-tablet {
     @media (max-width: $tablet - 1px) {
         @content;
     }
 }
+
+@mixin up-to-laptop {
+    @media (max-width: $laptop - 1px) {
+        @content;
+    }
+}
+
 @mixin up-to-desktop {
     @media (max-width: $desktop - 1px) {
         @content;
     }
 }
+
 @mixin up-to-widescreen {
     @media (max-width: $widescreen - 1px) {
         @content;
     }
 }
-
 

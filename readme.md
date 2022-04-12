@@ -2,16 +2,38 @@
 
 Yet another utility based framework based on flex-box.
 
-> Because without reinventing the wheel we wouldn’t have racing wheels!
+> Because without reinventing the wheel we wouldn’t have race cars.
 > -- Nathan Watts
 
 
 
-## Webpack Scripts
 
-| Script               | Description                                                       |
-| -------------------- | ----------------------------------------------------------------- |
-| `npm run serve`      | Run dev-server for live-view and compile css                      |
-| `npm run watch`      |                                                                   |
-| `npm run build`      |                                                                   |
-| `npm run build-sass` | Builds separate css and css map for easy reference in development |
+``` scss
+$utilities-map: (
+    "margin": (
+        "className": "mxy",
+        "values-map": (
+            1: 1rem,
+            2: 2rem,
+        ),
+    )
+);
+
+@each $property, $map in $utilities-map {
+    $className: map-get($map, "className");
+    $valuesMap: map-get($map, "values-map");
+
+    // if the 'value' key exists, create base/default class
+    @if map-has-key($map, "value") {
+        .#{$className} {
+            #{$property}: map-get($map, "value");
+        }
+    }
+
+    @each $key, $v in $valuesMap {
+        .#{$className}#{$key} {
+            #{$property}: $v;
+        }
+    }
+}
+```

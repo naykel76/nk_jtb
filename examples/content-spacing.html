@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="./images/favicon.ico">
+    <link rel="stylesheet" href="scss/jtb.scss">
+    <link rel="stylesheet" href="scss/nk_jtb.scss">
+    <title>NAYKEL Just The Basic's</title>
+    <style></style>
+</head>
+
+
+
+
+<body class="pxy-5">
+
+<div class="overlay"></div>
+
+    <div class="bx container">sdfsdf</div>
+
+    <input type="number" id="tentacles" name="tentacles"
+       min="10" max="100">
+
+    <section class="grid cols-3" style="align-items: start;">
+        <div class="bx">
+            <div class="bx-title">Box with title</div>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores nihil numquam, dicta non iure officia facilis provident sed ratione sint!</p>
+        </div>
+        <div class="bx">
+            <div class="bx-header">
+                <div class="bx-title">Box with header and no footer</div>
+            </div>
+            <div class="bx-content">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores nihil numquam, dicta non iure officia facilis provident sed ratione sint!</p>
+            </div>
+        </div>
+        <div class="bx">
+            <div class="bx-header">
+                <div class="bx-title">Box with header and footer</div>
+            </div>
+            <div class="bx-content">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores nihil numquam, dicta non iure officia facilis provident sed ratione sint!</p>
+            </div>
+            <div class="bx-footer">
+                <button class="primary">Do Something</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="bdr-blue">
+
+        <div class="grid cols-2 bdr-red bdr3">
+            <div class="blue">First Grid Item</div>
+            <div class="blue">Second Grid Item</div>
+        </div>
+        <div class="grid cols-2 bdr-red bdr3">
+            <div class="blue">First Grid Item</div>
+            <div class="blue">Second Grid Item</div>
+        </div>
+
+    </section>
+
+
+    <section class="pxy bdr-blue">
+        <h2>Adjacent Sibling Selector (+)</h2>
+        <ul>
+            <li><code>element</code> + <code>*</code> best used for top level elements like table or ul, and class like .bx</li>
+            <li><code>div</code> + <code>div</code> does not have any gap because it is too generic</li>
+        </ul>
+        <div>
+            <div class="bdr-red bdr3">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate officiis suscipit vero ab ipsa, rerum voluptatibus harum delectus nesciunt tempore?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate officiis suscipit vero ab ipsa, rerum voluptatibus harum delectus nesciunt tempore?</p>
+            </div>
+            <div class="bdr-red bdr3">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate officiis suscipit vero ab ipsa, rerum voluptatibus harum delectus nesciunt tempore?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate officiis suscipit vero ab ipsa, rerum voluptatibus harum delectus nesciunt tempore?</p>
+            </div>
+        </div>
+
+        <!-- this section will have margin top * + .grid -->
+        <div class="grid cols-2 bdr-red bdr3">
+            <div class="blue">First Grid Item</div>
+            <div class="blue">Second Grid Item</div>
+        </div>
+
+    </section>
+
+
+
+
+    <section class="pxy bdr-blue">
+        <h2>General Sibling Selector (~)</h2>
+        <p>The general sibling selector selects all elements that are next siblings of a specified element.</p>
+    </section>
+
+
+    <section class="bx bdr-blue">
+        <h2>Flex and Grid Element Spacing</h2>
+        <div class="bdr-red">
+            <div class="flex">
+                <div class="bx danger">
+                    First Item
+                </div>
+                <div class="bx danger">
+                    Second Item
+                </div>
+            </div>
+        </div>
+        <div class="bdr-red mt">
+            <div class="grid cols-2">
+                <div class="bx danger">
+                    First Item
+                </div>
+                <div class="bx danger">
+                    Second Item
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bx bdr-blue">
+        <h2>Flex Columns</h2>
+        <!-- use gap ?? -->
+        <div class="flex-col">
+            <div class="pxy danger">
+                First Item
+            </div>
+            <div class="pxy danger">
+                Second Item
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+
+</html>

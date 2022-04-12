@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../dist/css/jtb.css">
+    <link rel="stylesheet" href="../dist/css/nk_jtb.css">
+    <title>NAYKEL Just The Basic's</title>
+
+
+    <style>
+        .table {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr 80%;
+            /* max-width: 480px; */
+        }
+
+        .table>div {
+            margin: 2px;
+            background: powderblue;
+            padding: 5px;
+        }
+
+        .table>div:nth-child(4n+2) {
+            background: lemonchiffon;
+        }
+
+        .table>div:nth-child(4n+3) {
+            background: palegreen;
+        }
+        .table>div:nth-child(4n+4) {
+            background: plum;
+        }
+    </style>
+</head>
+
+<body class="pxy-5">
+    <div class="table">
+        <div class="fw9">ID</div>
+        <div class="fw9">Chapter Title</div>
+        <div class="fw9">Order</div>
+        <div class="fw9">Actions</div>
+
+        <div>ID</div>
+        <div>Chapter Title</div>
+        <div>Order</div>
+        <div>Actions</div>
+
+        <!-- <div>1.00</div>
+        <div>Description</div>
+
+        <div>2.00</div>
+        <div>A description</div>
+
+        <div>3.00</div>
+        <div>Very long description that will wrap over to the next line without affecting the width of other columns in the table.</div>
+
+        <div>4.00</div>
+        <div>Longer description</div> -->
+
+
+</body>
+
+</html>

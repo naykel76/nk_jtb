@@ -1,0 +1,28 @@
+@use "../mixins/media" as *;
+@use "../base/vars_base" as *;
+
+// ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
+//
+// You may be tempted to add html elements like section, div, ul
+// ... etc here. DON'T! or think very hard about it.
+//
+// ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
+
+// ==========================================================================
+// -- CONTENT SPACING --
+// ==========================================================================
+//
+// select any element that follows immediately after this element
+// unless the element is a direct child of a 'grid' or 'flexbox'
+//
+
+:is(.bx) + *:not(.flex > *)*:not(.grid > *):not(hr) {
+    margin-top: $content-gap;
+}
+
+:is(.frm-row:not(* > :first-child):not(input[type="hidden"] + .frm-row)), // 1
+    :is(p, h1, h2, h3, h4, h5, h6, pre, form, table, ul, .grid, .frm-row) + *:not(hr):not(.overlay):not(.bx-content),
+    :is(.menu) + *,
+    * + :is(p, pre):not(:first-child) {
+    margin-top: $content-gap;
+}

@@ -1,0 +1,32 @@
+@use "../base/vars_colors" as *;
+@use "../functions/setTextColor" as *;
+
+// navbar
+// --------------------------------
+$navbar-bg: rgb(31,41,55) !default;
+$nav-item-gap: 1rem;
+$navbar-padding-x: 1rem !default;
+$navbar-padding-y: .5rem !default;
+
+// navbar nav
+// --------------------------------
+$navbar-nav-font-color: setTextColor($navbar-bg) !default;
+$navbar-nav-item-bg: $navbar-bg !default;
+$navbar-nav-padding-x: 1em !default;
+$navbar-nav-padding-y: 0.75em !default;
+
+$navbar-nav-hover-bg: lighten($navbar-nav-item-bg, 10%);
+$navbar-nav-hover-color: $navbar-nav-font-color !default;
+$navbar-nav-active-bg: rgb(17, 24, 39) !default;
+
+// icons
+// --------------------------------
+$icon-xy-sm: 1em !default;
+$icon-xy: 1.5em !default;
+$icon-xy-md: 2em !default;
+$icon-xy-lg: 3em !default;
+$icon-color: inherit !default;
+
+
+// lists
+// --------------------------------

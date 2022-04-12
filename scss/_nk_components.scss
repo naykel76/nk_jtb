@@ -1,0 +1,45 @@
+@use "./base/vars_all" as *;
+@use "./mixins/media" as *;
+
+//
+// These are NayKel custom components that do't really fit under
+// the general components category
+//
+
+// --------------------------------------------------------------
+// -- ICON BUTTON --
+// --------------------------------------------------------------
+// NK::TD this is a shit class name because it will not always be
+// an icon, come up with something better!
+
+.fancy-icon-button {
+    text-align: center;
+    position: relative;
+    display: inline-block;
+
+    .#{$icon-class} {
+        height: 32px;
+        width: 32px;
+        padding: 0;
+        // add margin to push the qty badge away
+        margin: 0.5rem 0.5rem 0;
+    }
+
+    .badge {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        height: 20px;
+        min-width: 20px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        background: hsl(354, 70%, 54%);
+        border: 1px solid hsl(354, 70%, 44%);
+        color: rgb(255, 255, 255);
+    }
+}
+
+

@@ -1,0 +1,72 @@
+@use '../base/vars_base' as *;
+@use '../base/vars_colors' as *;
+@use '../mixins' as *;
+@use '../functions' as *;
+
+
+$menu-padding-y: 0.5rem !default;
+$menu-padding-x: 0.75rem !default;
+
+$menu-color: #eee !default;
+$menu-bg: white !default;
+$menu-hover-bg: #efefef !default;
+
+
+
+ul.menu{
+    margin-left: 0; // remove margin from bullets
+}
+
+.menu {
+    flex-wrap: wrap;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+
+
+    a {
+        padding: $menu-padding-y $menu-padding-x;
+        display: block;
+        color: setTextColor($menu-bg);
+
+        &:hover {
+            color: setTextColor($menu-hover-bg);
+            background: $menu-hover-bg;
+        }
+    }
+
+    .heading {
+        margin-top: 1rem;
+        font-weight: 600;
+        color: #7a7a7a;
+    }
+}
+
+
+// themes and variations
+// ----------------------------
+//
+// **! must explicitly state theme values to override base class !**
+//
+// NK::TD add include or exclude map to opt-in or opt-out
+// to prevent every theme from being created
+
+
+// THIS SEEMS REDUNDANT???
+
+// @each $key, $color in $color-map {
+
+//     .menu.#{$key} {
+
+//         background: $color;
+
+//         a{
+//             color: setTextColor($color);
+//             @include hover(lighten($color, 10%));
+
+//         }
+
+//         @include active(darken($color, 5%));
+
+//     }
+// }

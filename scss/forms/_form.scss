@@ -1,22 +1,20 @@
-// -- Generic Elements --
-// -- frm-row --
-// ==========================================================================
+@use "../mixins/media" as *;
+@use "../forms/control" as *;
+
+// @use "../base/vars_base" as *;
 
 $placeholder-color: #bbbbbb !default;
 
-// 1. workaround for vue removing whitespace on inline elements
-input[type="checkbox"],
-input[type="radio"] {
-    margin-right: 10px; // 1.
+
+// -- Base Elements --
+// ==========================================================================
+label {
+    font-weight: 600;
 }
 
-// -- Generic Elements --
-// ==========================================================================
-button,
 textarea,
 select,
 input:not([type="checkbox"]):not([type="radio"]) {
-    // max-width: 100%;
     @extend %control;
 }
 
@@ -44,24 +42,27 @@ select {
     margin-bottom: 0;
 }
 
+// input:focus {
+//     // border-color: green;
+//     outline: 0;
+//     // -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+//     // box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+//   }
+
 // -- form --
 // ==========================================================================
 
 form {
-
     &.condensed {
         .frm-row {
             &:not(:first-child) {
-                margin-top: .5rem;
+                margin-top: 0.5rem;
             }
         }
     }
 
     // horizontal style form
     &.inline {
-
-
-
         @include from-tablet {
             .frm-row {
                 display: flex;
@@ -76,7 +77,6 @@ form {
                 text-align: right;
             }
 
-          
             .group,
             input:not([type="checkbox"]):not([type="radio"]),
             select,
@@ -86,15 +86,13 @@ form {
                 flex-shrink: 0;
             }
         }
-
-        @include from-desktop {}
     }
 }
 
 // -- frm-row --
 // ==========================================================================
 .frm-row {
-
+    position: relative;
 
     // -- Generic Elements --
     label {
@@ -107,19 +105,9 @@ form {
         width: 100%;
     }
 
-    &:not(:first-child) {
-        margin-top: $content-gap;
-    }
-
-
-
-    &:not(:first-child) {
-        margin-top: $content-gap;
-    }
-
     // remove the padding from any column class and let the frm-row do its job.
     // This seems a little convoluted but it works!
-    >[class*="col"] {
+    > [class*="col"] {
         padding-top: 0;
         padding-bottom: 0;
 
@@ -130,5 +118,27 @@ form {
         &:last-child {
             padding-right: 0;
         }
+    }
+}
+
+// this may become a problem if this class is required on other elements!!!
+.with-icon {
+    position: relative;
+
+    input {
+        padding-left: 2rem !important; // icon width plus ??
+        &:focus ~ .icon {
+            color: rgb(73, 73, 73);
+        }
+    }
+
+    .icon {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        left: 4px;
+        bottom: 0;
+        color: $placeholder-color;
+        height: 1.25rem;
     }
 }

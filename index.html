@@ -2,54 +2,73 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="./images/favicon.ico">
-    <title>NAYKEL Just The Basic's</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="icon" href="./images/favicon.ico">
+	<link rel="stylesheet" href="scss/jtb.scss">
+	<link rel="stylesheet" href="scss/dev.scss">
+	<!-- <script src="https://cdn.tailwindcss.com"></script> -->
+	<title>NAYKEL - JTB</title>
 </head>
 
 <body>
+	<div class="flex space-between">
 
-    <div id="app">
+		<div class="danger">here</div>
+		<div class="danger">here</div>
 
-       <div class="dark">
-        <div class="bx">here</div>
-        <div class="bx">here</div>
+	</div>
+	<div class="grid cols-3">
+		<div class="bx">
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae dolor cupiditate ad ullam dolore, recusandae natus nostrum velit placeat.
+		</div>
+		<div class="bx">
+			<div class="bx-title">Box Title</div>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae dolor cupiditate ad ullam dolore, recusandae natus nostrum velit placeat.
+		</div>
+		<div class="bx">
+			<div class="bx-header"></div>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae dolor cupiditate ad ullam dolore, recusandae natus nostrum velit placeat.
+		</div>
+	</div>
+	<div class="py-5">
+		<footer id="nk-footer">
 
-       </div>
-        <header id="nk-header">
+			<div class="container">
+				<div class="grid cols-4">
 
-            <img src="./images/header-bg.jpg" alt="">
 
-            <div class="navbar">
-                <div class="container va-t">
-                    <div class="logo">
-                        <a href="">
-                            <img src="/images/naykel-400.png" alt="">
-                        </a>
-                    </div>
-                    <div class="flex">
-                        <nav class="hide-up-to-tablet"><a href="">Home</a><a href="/contact">Contact</a></nav>
-                        <div class="">
-                            <a class="btn-secondary outline" href="">Login</a>
-                            <a class="btn-secondary ml-05" href="">Register</a>
-                        </div>
-                    </div>
-                    <div class="hide-from-tablet">
-                        <svg class="icon burger txt-white wh40">
-                            <use xlink:href="/svg/nk_icon-defs.svg#icon-menu"></use>
-                        </svg>
-                    </div>
-                </div>
-            </div>
+					<nav class="flex-col">
+						<div class="bx-title">CUSTOMER SERVICE</div>
+						<a href="">Help and Support</a>
+						<a href="">Delivery Information</a>
+						<a href="">Terms and Condition</a>
+						<a href="">Privacy Policy</a>
+						<a href="">Sitemap</a>
+					</nav>
 
-        </header>
+					<nav class="flex-col">
+						<div class="bx-title">CONNECT</div>
+						<a href="">Contact Us</a>
+						<div class="social">
+							<a href="https://www.facebook.com/PeachCraftglass" target="blank">
+								<svg class="nk-icon wh-2">
+									<use xlink:href="svg/naykel-ui-SVG-sprite.svg#facebook-round"></use>
+								</svg>
+							</a>
+							<a href="https://www.facebook.com/PeachCraftglass" target="blank">
+								<svg class="nk-icon wh-2">
+									<use xlink:href="svg/naykel-ui-SVG-sprite.svg#instagram"></use>
+								</svg>
+							</a>
+						</div>
+					</nav>
+				</div>
+			</div>
 
-    </div>
-
-</body>
-
+		</footer>
+	</div>
 
 </body>
 
