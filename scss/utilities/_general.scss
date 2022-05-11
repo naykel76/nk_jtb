@@ -28,6 +28,10 @@
     cursor: pointer;
 }
 
+.cursor-default {
+    cursor: default;
+}
+
 .no-click {
     pointer-events: none;
 }

@@ -1,45 +1,47 @@
 @use "../mixins/media" as *;
 @use "../base/vars_base" as *;
+@use '../functions/helpers' as *;
 @use "sass:map";
 
+
 // --------------------------------------------------------------------------
-// -- GRID --
+// -- GRID AND GRID GAP --
 // --------------------------------------------------------------------------
+
+$grid-gap-sizes: (0, 1, 1.5, 2);
 
 .grid {
     display: grid;
     gap: $grid-gap;
 }
 
-// --------------------------------------------------------------------------
-// -- GRID GAP --
-// --------------------------------------------------------------------------
-
-// default grid gap does not play well wen placed inside the map
 .gg {
     gap: $grid-gap;
 }
 
-// responsive grid gap
+
+@each $size in $grid-gap-sizes {
+    $class: escapeDecimal($size);
+
+    .grid-#{$class} {
+        display: grid;
+        gap: #{$size}rem;
+    }
+
+    .gg-#{$class} {
+        display: grid;
+        gap: #{$size}rem;
+    }
+}
+
+// --------------------------------------------------------------------------
+// -- RESPONSIVE GRID GAP --
+// --------------------------------------------------------------------------
+
 .gg-3-1-1 {
     gap: 1rem !important;
     @include from-desktop {
         gap: 3rem !important;
-    }
-}
-
-$grid-gaps-map: (
-    "0": 0,
-    "1": 1,
-    "2": 2,
-    "3": 3,
-    "4": 4,
-    "5": 5,
-);
-
-@each $key, $value in $grid-gaps-map {
-    .gg-#{$key} {
-        gap: #{$value}rem;
     }
 }
 
@@ -52,8 +54,26 @@ $grid-gaps-map: (
     }
 }
 
+// --------------------------------------------------------------------------
+// -- MAGIC FIXED WIDTHS --
+// --------------------------------------------------------------------------
+.cols-20\:80 {
+    grid-template-columns: 1fr 4fr;
+}
+.cols-25\:75 {
+    grid-template-columns: 1fr 3fr;
+}
 .cols-30\:70 {
-    grid-template-columns: 3fr 7fr; // 30% 70%;
+    grid-template-columns: 3fr 7fr;
+}
+.cols-40\:60 {
+    grid-template-columns: 2fr 3fr;
+}
+.cols-75\:25 {
+    grid-template-columns: 3fr 1fr;
+}
+.cols-80\:20 {
+    grid-template-columns: 4fr 1fr;
 }
 
 // --------------------------------------------------------------------------

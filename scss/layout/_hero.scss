@@ -15,22 +15,24 @@ $hero-gradient: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4));
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
 
 .hero {
-
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/images/hero-sm.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 
-    @include from-tablet {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/images/hero-md.jpg");
-    }
+    &.fp-hero {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/images/hero-sm.jpg");
 
-    @include from-desktop {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/images/hero-lg.jpg");
-    }
+        @include from-tablet {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/images/hero-md.jpg");
+        }
 
-    @include from-widescreen {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/images/hero-xl.jpg");
+        @include from-desktop {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/images/hero-lg.jpg");
+        }
+
+        @include from-widescreen {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/images/hero-xl.jpg");
+        }
     }
 
     .title {
@@ -54,4 +56,3 @@ $hero-gradient: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4));
         }
     }
 }
-

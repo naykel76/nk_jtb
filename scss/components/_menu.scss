@@ -41,32 +41,3 @@ ul.menu{
         color: #7a7a7a;
     }
 }
-
-
-// themes and variations
-// ----------------------------
-//
-// **! must explicitly state theme values to override base class !**
-//
-// NK::TD add include or exclude map to opt-in or opt-out
-// to prevent every theme from being created
-
-
-// THIS SEEMS REDUNDANT???
-
-// @each $key, $color in $color-map {
-
-//     .menu.#{$key} {
-
-//         background: $color;
-
-//         a{
-//             color: setTextColor($color);
-//             @include hover(lighten($color, 10%));
-
-//         }
-
-//         @include active(darken($color, 5%));
-
-//     }
-// }

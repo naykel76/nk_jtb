@@ -25,16 +25,10 @@
 
     nav {
         display: flex;
-        gap: $nav-item-gap;
-
-        // the assumption is that all links in the navbar will be for the main navigation, however
-        // exclude the 'menu' class and buttons which is likely used in a dropdowns such as cart items
-        // or user navigation. This will prevent the need for complex overrides.
 
         a:not(.menu a):not([class*="btn"]):not(.logo a) {
             padding: $navbar-nav-padding-y $navbar-nav-padding-x;
             background: $navbar-nav-item-bg;
-            border-radius: 0.25rem;
             color: $navbar-nav-font-color;
             line-height: 1.2rem;
 

@@ -1,9 +1,7 @@
-@use "../base/vars_colors" as *;
-@use "../base/vars_class_names" as *;
+@use "../base/vars_all" as *;
 @use "../forms/control" as *;
 @use "../functions/setTextColor" as *;
 @use "../mixins/makeStateClasses" as *;
-@use "../base/vars_base" as *;
 
 $btn-bg: rgb(248, 248, 248) !default;
 $btn-color: setTextColor($btn-bg) !default;
@@ -24,12 +22,6 @@ $btn-text-transform: capitalize;
 }
 
 .#{$button-class} {
-    // &:hover {
-    //     color: $btn-color;
-    //     text-decoration: none;
-    //     background-color: darken($btn-bg, 5%);
-    // }
-
     &:not(:disabled):not(.disabled) {
         cursor: pointer;
     }
@@ -48,6 +40,10 @@ button,
     text-align: center;
     justify-content: center;
 
+    // !-WARNING-! changing the vertical alignment affects buttons with icons
+    //
+    vertical-align: bottom; // keep buttons aligned to inputs
+
     // @include hover(background-color, text-color (optional));
     @include hover($btn-bg);
     @include active($btn-bg);
@@ -57,19 +53,16 @@ button,
         background-image: none;
         border: none;
         color: $btn-link-color;
-
-        // &:hover {
-        //     color: $btn-link-hover-color;
-        //     // @include active(darken($btn-color, 5%));
-        //     // text-decoration: none;
-        // }
     }
 
-    .icon {
-        height: 1.25em;
-    }
+    // need to give some thought here, setting size
+    // the default icon size (1.5em) will make the button higher than the inputs
+    // so padding se
+    // .icon {
+        // height: 1.25em;
+        // padding: 2px;
+    // }
 }
-
 
 // themes and variations
 // ----------------------------
@@ -79,12 +72,15 @@ button,
 
 @each $key, $color in $color-map {
     .#{$button-class}.#{$key} {
-        background: $color;
-        color: setTextColor($color);
+        // background-color: $color;
+        // color: setTextColor($color);
 
         @include hover($color);
         @include active($color);
 
-        // there is no need to include outline here, it is handles by the theme
+        // there is no need to include outline here, it is handled by the theme
     }
 }
+
+
+

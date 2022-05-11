@@ -1,4 +1,5 @@
-@use '../base/vars_base' as *;
+@use "../base/vars_base" as *;
+@use "../functions/helpers" as *;
 @use "sass:map";
 
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
@@ -41,21 +42,28 @@ $width-utilities: (
 // --------------------------------------------------------------------------
 
 @mixin makeSizeUtilities($sizes, $unit: "rem") {
+    $suffix: if($unit!= "rem", $unit, "");
+
     @each $size in $sizes {
-        .w-#{$size} {
+        // wrap size in quotes to convert to string
+        $class: "#{$size}";
+        // search and escape decimals
+        $class: strReplace($class, ".", "\\.");
+
+        .w-#{$class}#{$suffix} {
             width: #{$size}#{$unit} !important;
         }
-        .h-#{$size} {
+        .h-#{$class}#{$suffix} {
             height: #{$size}#{$unit} !important;
         }
-        .wh-#{$size} {
+        .wh-#{$class}#{$suffix} {
             width: #{$size}#{$unit} !important;
             height: #{$size}#{$unit} !important;
         }
     }
 }
 
-$rem-sizes: (1, 2, 3, 4, 95);
+$rem-sizes: (1, 1.5, 2, 3, 4, 5, 10, 95);
 @include makeSizeUtilities($rem-sizes);
 
 $pixel-sizes: (16, 24, 32, 40, 64, 100, 150, 200, 300, 400, 600);

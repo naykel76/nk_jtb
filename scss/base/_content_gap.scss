@@ -14,15 +14,32 @@
 //
 // select any element that follows immediately after this element
 // unless the element is a direct child of a 'grid' or 'flexbox'
-//
+// :is(.???) + :not(.flex > *):not(.grid > *)
 
-:is(.bx) + *:not(.flex > *)*:not(.grid > *):not(hr) {
+// wild is omitted before :not
+:is(.bx) + :not(.flex > *):not(.grid > *):not(hr):not(.dd > *) {
     margin-top: $content-gap;
 }
 
-:is(.frm-row:not(* > :first-child):not(input[type="hidden"] + .frm-row)), // 1
-    :is(p, h1, h2, h3, h4, h5, h6, pre, form, table, ul, .grid, .frm-row) + *:not(hr):not(.overlay):not(.bx-content),
-    :is(.menu) + *,
-    * + :is(p, pre):not(:first-child) {
+:is(.bx-title, .bx-content) + * {
     margin-top: $content-gap;
 }
+
+:is(.frm-row) + :not(.flex > *):not(.grid > *) {
+    margin-top: $content-gap;
+}
+
+:is(.flex) + * {
+    margin-top: $content-gap;
+}
+
+:is(p, pre, form, table, ul, h1, h2, h3, h4, h5, h6) + * {
+    margin-top: $content-gap;
+}
+
+// :is(.frm-row:not(* > :first-child):not(input[type="hidden"] + .frm-row)), // 1
+// :is(p, pre, form, table, ul) + *:not(hr):not(.overlay):not(.bx-content),
+// :is(.menu) + *,
+// * + :is(p, pre):not(:first-child) {
+//     margin-top: $content-gap;
+// }

@@ -1,5 +1,4 @@
-@use "../base/vars_base" as *;
-@use "../base/vars_class_names" as *;
+@use "../base/vars_all" as *;
 
 .#{$dropdown-class} {
     position: relative;
@@ -10,11 +9,13 @@
         position: absolute;
         top: 100%; // push to bottom of toggle element
         min-width: 12rem;
-        padding-top: 4px;
-        padding: 1rem;
         z-index: 1000;
-        background-color: #f9f9f9;
-        box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+        // padding-top: 4px;
+        padding: $dropdown-padding;
+        background-color: $dropdown-bg;
+        // box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+
+        // $dropdown-border-radius: 0.25rem !default;
     }
 
     // why?
@@ -29,3 +30,5 @@
 .#{$dropdown-class}:hover .#{$dropdown-class}-content {
     display: block;
 }
+
+

@@ -1,0 +1,52 @@
+@use "../base/vars_all" as *; // required to set defaults
+@use "../mixins/makeColorSchemeSimple" as *;
+@use "../functions/setTextColor" as *;
+
+// The minimum requirement for creating a theme-map is the $base
+// color, all other properties can be created intuitively.
+//
+// $new-theme: (
+//     "theme-name": (
+//         "base": $primary,
+//         "color": green,
+//         "border-color": blue,
+//         "hover-bg": #ffebd1,
+//         "hover-color": purple,
+//         "link-color": red,
+//         "link-hover-color": blue,
+//     ),
+// );
+
+@mixin makeColorSchemeAdvanced($theme-name, $theme-map) {
+    $base: map-get($theme-map, "base");
+
+    $color: if(map-get($theme-map, "color"), map-get($theme-map, "color"), setTextColor($base));
+    $border-color: if(map-get($theme-map, "border-color"), map-get($theme-map, "border-color"), rgba(0, 0, 0, 0.1));
+
+    $hover-bg: if(map-get($theme-map, "hover-bg"), map-get($theme-map, "hover-bg"), lighten($base, 7%));
+    $hover-color: if(map-get($theme-map, "hover-color"), map-get($theme-map, "hover-color"), setTextColor($hover-bg));
+
+    .#{$theme-name} {
+        background-color: $base;
+        border: 1px solid $border-color;
+        color: $color;
+
+        // only create theme link styles if $link-color exists in map, else fall back to default
+        @if (map-get($theme-map, "link-color")) {
+            $link-color: map-get($theme-map, "link-color");
+            $link-hover-color: if(map-get($theme-map, "link-hover-color"), map-get($theme-map, "link-hover-color"), $link-hover-color);
+
+            a {
+                color: $link-color;
+                &:hover {
+                    color: $link-hover-color;
+                }
+            }
+        }
+
+        &.withState:hover {
+            background-color: $hover-bg;
+            color: $hover-color;
+        }
+    }
+}

@@ -12,9 +12,12 @@ label {
     font-weight: 600;
 }
 
+
+// input:not([type="checkbox"]):not([type="radio"])
+//  this create problems as it prevents overrides due to the specificity!!!
 textarea,
 select,
-input:not([type="checkbox"]):not([type="radio"]) {
+input {
     @extend %control;
 }
 

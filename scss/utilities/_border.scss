@@ -31,12 +31,22 @@ $border-colors-map: (
     "info": var(--info),
 ) !default;
 
-@include makeUtilityClasses($border-utilities-map);
 
 .divide-y > :not([hidden]) ~ :not([hidden]) {
     border-top: $border;
 }
 
+
+@include makeUtilityClasses($border-utilities-map);
+
+
+@each $key, $value in $border-colors-map {
+    .bdr-#{$key} {
+        border: 1px solid $value;
+    }
+}
+
+// make sure overrides come after base class
 
 @each $key, $value in $border-widths-map {
     .bdr#{$key} {
@@ -44,11 +54,6 @@ $border-colors-map: (
     }
 }
 
-@each $key, $value in $border-colors-map {
-    .bdr-#{$key} {
-        border: 1px solid $value;
-    }
-}
 
 // // // border radius
 // // // --------------------------------------------------------------------------

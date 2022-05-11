@@ -4,7 +4,7 @@
 // --------------------------------------------------------------------------
 
 @function setTextColor($bg-color) {
-    @if (lightness($bg-color) > 55) {
+    @if (lightness($bg-color) > 60) {
         @return $base-color;
     } @else {
         @return #fff;

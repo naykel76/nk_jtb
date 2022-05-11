@@ -8,8 +8,8 @@
 // ==========================================================================
 //
 .children-py-5-3-2 > * {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 
     @include from-tablet {
         padding-top: 3rem;
@@ -21,6 +21,22 @@
         padding-bottom: 5rem;
     }
 }
+
+.c-pxy > * {
+    padding: 1rem;
+}
+
+
+
+.space-x > *:not(:first-child) {
+    margin-left: 1rem;
+}
+
+.space-y > *:not(:first-child) {
+    margin-top: 1rem;
+}
+
+
 
 .space-mx > * + * {
     margin-left: 1rem;
@@ -39,6 +55,21 @@
 .children-px-1 > * {
     padding-left: 1rem;
     padding-right: 1rem;
+}
+
+.py-5-3-2 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    @include from-tablet {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    @include from-desktop {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
 }
 
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------

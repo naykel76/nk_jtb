@@ -9,67 +9,366 @@
 	<link rel="stylesheet" href="scss/jtb.scss">
 	<link rel="stylesheet" href="scss/dev.scss">
 	<!-- <script src="https://cdn.tailwindcss.com"></script> -->
-	<title>NAYKEL - JTB</title>
+	<title>NAYKEL - Navigation and Menu Examples</title>
 </head>
 
 <body>
-	<div class="flex space-between">
 
-		<div class="danger">here</div>
-		<div class="danger">here</div>
+
+	<div class="container my-2">
+
+		<a href="" class="btn primary">Primary</a>
+		<a href="" class="btn secondary">Secondary</a>
+
+		<div class="bx primary">
+			<div class="bx-title">Primary Theme</div>
+			<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae, aliquam?</p>
+			<div><a href="">link</a></div>
+		</div>
+
+		<div class="bx primary withState">
+			<div class="bx-title">Primary Theme - With State</div>
+			<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae, aliquam?</p>
+			<div><a href="">link</a></div>
+		</div>
+		<div class="bx secondary">
+			<div class="bx-title">Secondary Theme</div>
+			<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae, aliquam?</p>
+			<div><a href="">link</a></div>
+		</div>
+
+		<div class="bx secondary withState">
+			<div class="bx-title">Secondary Theme - With State</div>
+			<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae, aliquam?</p>
+			<div><a href="">link</a></div>
+		</div>
+
 
 	</div>
-	<div class="grid cols-3">
-		<div class="bx">
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae dolor cupiditate ad ullam dolore, recusandae natus nostrum velit placeat.
-		</div>
-		<div class="bx">
-			<div class="bx-title">Box Title</div>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae dolor cupiditate ad ullam dolore, recusandae natus nostrum velit placeat.
-		</div>
-		<div class="bx">
-			<div class="bx-header"></div>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae dolor cupiditate ad ullam dolore, recusandae natus nostrum velit placeat.
-		</div>
-	</div>
-	<div class="py-5">
-		<footer id="nk-footer">
+	<section class="secondary py-3">
 
-			<div class="container">
-				<div class="grid cols-4">
+		<div class="container">
 
+			<div class="flex space-x">
 
-					<nav class="flex-col">
-						<div class="bx-title">CUSTOMER SERVICE</div>
-						<a href="">Help and Support</a>
-						<a href="">Delivery Information</a>
-						<a href="">Terms and Condition</a>
-						<a href="">Privacy Policy</a>
-						<a href="">Sitemap</a>
-					</nav>
+				<a href="" class="icon-button secondary-theme withState">
+					<svg class="icon">
+						<use xlink:href="/svg/naykel-ui-SVG-sprite.svg#phone"></use>
+					</svg>
+					<div class="mt-025 lh-1">Contact</div>
+				</a>
 
-					<nav class="flex-col">
-						<div class="bx-title">CONNECT</div>
-						<a href="">Contact Us</a>
-						<div class="social">
-							<a href="https://www.facebook.com/PeachCraftglass" target="blank">
-								<svg class="nk-icon wh-2">
-									<use xlink:href="svg/naykel-ui-SVG-sprite.svg#facebook-round"></use>
-								</svg>
-							</a>
-							<a href="https://www.facebook.com/PeachCraftglass" target="blank">
-								<svg class="nk-icon wh-2">
-									<use xlink:href="svg/naykel-ui-SVG-sprite.svg#instagram"></use>
-								</svg>
-							</a>
-						</div>
-					</nav>
+				<div class="dd secondary-theme withState">
+					<div class="icon-button">
+						<svg class="icon">
+							<use xlink:href="/svg/naykel-ui-SVG-sprite.svg#user"></use>
+						</svg>
+						<div class="mt-025 lh-1">Login</div>
+					</div>
+					<div class="dd-content pos-r">
+						here
+					</div>
 				</div>
+
 			</div>
 
-		</footer>
+			<hr>
+
+			<div class="flex space-x">
+
+				<a href="" class="icon-button">
+					<svg class="icon">
+						<use xlink:href="/svg/naykel-ui-SVG-sprite.svg#phone"></use>
+					</svg>
+					<div class="mt-025 lh-1">Contact</div>
+				</a>
+
+				<div class="dd">
+					<div class="icon-button">
+						<svg class="icon">
+							<use xlink:href="/svg/naykel-ui-SVG-sprite.svg#cart"></use>
+						</svg>
+						<div class="mt-025 lh-1">Cart</div>
+						<div class="badge">28</div>
+					</div>
+					<div class="dd-content pos-r">
+						cart info
+					</div>
+				</div>
+
+				<div class="dd">
+					<div class="icon-button">
+						<svg class="icon">
+							<use xlink:href="/svg/naykel-ui-SVG-sprite.svg#user"></use>
+						</svg>
+						<div class="mt-025 lh-1">Login</div>
+					</div>
+					<div class="dd-content pos-r">
+						here
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+
+	<hr>
+
+
+
+	<div class="primary withState">here</div>
+	<div class="secondary withState">here</div>
+	<div class="apple withState">here</div>
+
+	<div class="flex hide-up-to-tablet space-x icon-buttons">
+
+		<div>
+			<a href="{{ route('contact') }}">
+				<svg class="wh-1.5">
+					<use xlink:href="/svg/naykel-ui-SVG-sprite.svg#phone"></use>
+				</svg>
+				<span class="block mt-025 lh-1">Contact</span>
+			</a>
+		</div>
+		<div>
+			<svg class="wh-1.5">
+				<use xlink:href="/svg/naykel-ui-SVG-sprite.svg#cart"></use>
+			</svg>
+			<div class="mt-025 lh-1">Cart</div>
+		</div>
+		<div class="dd">
+			<div>
+				<svg class="wh-1.5">
+					<use xlink:href="/svg/naykel-ui-SVG-sprite.svg#user"></use>
+				</svg>
+				<div class="mt-025 lh-1">Login</div>
+			</div>
+			<div class="dd-content">
+				nav items
+			</div>
+		</div>
 	</div>
 
+	<hr>
+	<hr>
+	<hr>
+	<div class="flex space-x">
+		<div class="btn flex-col pxy-1 px-1.5 primary">
+			<svg class="wh-1.5">
+				<use xlink:href="/svg/naykel-ui-SVG-sprite.svg#phone"></use>
+			</svg>
+			<div class="mt-025 lh-1">Cart</div>
+		</div>
+		<div class="btn flex-col pxy-1 px-1.5 primary">
+			<svg class="wh-1.5">
+				<use xlink:href="/svg/naykel-ui-SVG-sprite.svg#cart"></use>
+			</svg>
+			<div class="mt-025 lh-1">Cart</div>
+		</div>
+		<div class="btn flex-col pxy-1 px-1.5 primary">
+			<svg class="wh-1.5">
+				<use xlink:href="/svg/naykel-ui-SVG-sprite.svg#user"></use>
+			</svg>
+			<div class="mt-025 lh-1">Login</div>
+		</div>
+	</div>
+
+	<hr class="my-1">
+
+
+
+	<div class="container">
+		<div class="bx grid cols-2">
+			<div class="h-10 blue bdr">
+				<div class="wh-2 yellow"></div>
+			</div>
+			<div class="h-10 blue bdr">
+				<div class="wh-2 yellow"></div>
+			</div>
+		</div>
+		<div class="bx grid cols-2">
+			<div class="h-10 blue bdr">
+				<div class="wh-2 yellow"></div>
+				<div class="wh-2 yellow"></div>
+				<div class="wh-2 yellow"></div>
+				<div class="wh-2 yellow"></div>
+			</div>
+			<div class="h-10 blue bdr">
+				<div class="wh-2 yellow"></div>
+				<div class="wh-2 yellow"></div>
+				<div class="wh-2 yellow"></div>
+				<div class="wh-2 yellow"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="bx grid cols-2">
+
+		<div class="grid-1 cols-2 wh-5 blue bdr" style="place-items: center;">
+			<div class="wh-1 yellow"></div>
+		</div>
+
+		<div class="grid-1 cols-2 wh-5 blue bdr" style="place-items: center;">
+			<div class="wh-1 yellow"></div>
+			<div class="wh-1 yellow"></div>
+			<div class="wh-1 yellow"></div>
+			<div class="wh-1 yellow"></div>
+		</div>
+
+		<div class="grid-1 cols-2 wh-5 blue bdr" style="place-content: center;">
+			<div class="wh-1 yellow"></div>
+			<div class="wh-1 yellow"></div>
+			<div class="wh-1 yellow"></div>
+			<div class="wh-1 yellow"></div>
+		</div>
+
+	</div>
+
+	<div class="bx flex gg">
+		<div class="wh-5 blue bdr" style="display:flex; place-items: center;">
+			here
+		</div>
+		<div class="wh-5 blue bdr" style="display:flex; place-content: center;">
+			here
+		</div>
+	</div>
+
+
+	<div class="bx flex space-x">
+		<div class="flex wh-10 red mxy-0">
+			<div class="wh-2 blue"> </div>
+		</div>
+
+		<div class="flex va-c ha-c wh-10 red mxy-0">
+			<div class="wh-2 blue"> </div>
+		</div>
+
+		<div class="flex items-center wh-10 red mxy-0">
+			<div class="wh-2 blue"> c </div>
+		</div>
+
+		<div class="flex content-center wh-10 red mxy-0">
+			<div class="wh-2 blue"> c </div>
+		</div>
+
+
+
+	</div>
+
+	<div class="container space-y">
+
+		<p>Add space using magic utilities.</p>
+		<div class="bdr-red bdr5 x">
+			<div class="flex-col space-y">
+				<div class="h-3 green"></div>
+				<div class="h-3 green"></div>
+				<div class="h-3 green"></div>
+			</div>
+		</div>
+
+		<div class="bdr-red bdr5 x">
+			<div class="flex space-x">
+				<div class="h-3 green fg1"></div>
+				<div class="h-3 green fg1"></div>
+				<div class="h-3 green fg1"></div>
+			</div>
+		</div>
+
+
+
+		<!-- Inline -->
+		<div class="bx space-y">
+			<p>Add padding using magic utilities.</p>
+			<nav class="bdr tac">
+				<a href="">Privacy Policy</a>
+				<a href="">Terms of Use</a>
+				<a href="">About</a>
+				<a href="">Contact</a>
+				<a href="">FAQ's</a>
+			</nav>
+			<nav class="bdr tac c-pxy">
+				<a href="">Privacy Policy</a>
+				<a href="">Terms of Use</a>
+				<a href="">About</a>
+				<a href="">Contact</a>
+				<a href="">FAQ's</a>
+			</nav>
+		</div>
+
+		<nav class="bx tac">
+			<a class="pxy-1 bdr" href="">Privacy Policy</a>
+			<a class="pxy-1 bdr" href="">Terms of Use</a>
+			<a class="pxy-1 bdr" href="">About</a>
+			<a class="pxy-1 bdr" href="">Contact</a>
+			<a class="pxy-1 bdr" href="">FAQ's</a>
+		</nav>
+
+		<nav class="bx tac c-pxy-1">
+			<a class="pxy-1 bdr" href="">Privacy Policy</a>
+			<a class="pxy-1 bdr" href="">Terms of Use</a>
+			<a class="pxy-1 bdr" href="">About</a>
+			<a class="pxy-1 bdr" href="">Contact</a>
+			<a class="pxy-1 bdr" href="">FAQ's</a>
+		</nav>
+
+
+		<!-- Inline -->
+		<!-- <nav class="bdr mt tac children-py-5-3-2">
+				<a href="" class="red">Privacy Policy</a>
+				<a href="" class="red">Terms of Use</a>
+				<a href="" class="red">About</a>
+				<a href="" class="red">Contact</a>
+				<a href="" class="red">FAQ's</a>
+			</nav> -->
+
+		<nav class="bdr mt">
+			<a href="" class="btn">Privacy Policy</a>
+			<a href="" class="btn">Terms of Use</a>
+			<a href="" class="btn">About</a>
+			<a href="" class="btn">Contact</a>
+			<a href="" class="btn">FAQ's</a>
+		</nav>
+
+
+	</div>
+
+	<hr>
+
+	<div class="flex">
+
+
+		<nav class="menu bdr">
+			<a href="">Privacy Policy</a>
+			<a href="">Terms of Use</a>
+			<a href="">About</a>
+			<a href="">Contact</a>
+			<a href="">FAQ's</a>
+		</nav>
+		<nav class="menu bdr">
+			<a href="">Privacy Policy</a>
+			<a href="">Terms of Use</a>
+			<a href="">About</a>
+			<a href="">Contact</a>
+			<a href="">FAQ's</a>
+		</nav>
+	</div>
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+	</nav>
 </body>
 
 </html>

@@ -27,7 +27,7 @@ $copyright-text-color: $footer-text-color !default;
 // could be a common pattern. Another example would be the navbar
 
 #nk-header {
-    background: $header-bg;
+    background-color: $header-bg;
     // When is adding padding here not a good idea?
     // Why do I keep changing my mind?
     // Should I just use a utility class?
@@ -60,7 +60,7 @@ $copyright-text-color: $footer-text-color !default;
 
 #nk-main {
     flex: 1; // 1. allow to grow to fill height
-    background: $main-bg;
+    background-color: $main-bg;
     margin: 0;
 }
 

@@ -24,6 +24,26 @@ $flex-utilities: (
             space-even: space-evenly,
         ),
     ),
+    "place-items": (
+        "property": "place-items",
+        "prefix": "items-",
+        "values": (
+            start: start,
+            end: end,
+            center: center,
+            stretch: stretch,
+        ),
+    ),
+    // "place-content": (
+    //     "property": "place-content",
+    //     "prefix": "content-",
+    //     "values": (
+    //         start: start,
+    //         end: end,
+    //         center: center,
+    //         stretch: stretch,
+    //     ),
+    // ),
     "align-items": (
         "property": "align-items",
         "prefix": "va-",
