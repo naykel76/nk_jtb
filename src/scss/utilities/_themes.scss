@@ -1,8 +1,7 @@
-@use "../../src/scss/base/vars_base" as *;
-@use "../../src/scss/base/vars_colors" as *;
+@use "../base/vars_all" as *;
 @use "../mixins/makeColorSchemeAdvanced" as *;
-@use "../mixins/makeColorSchemeSimple" as *;
-@use "../mixins/makeColorShades" as *;
+@use "../mixins/colorSchemeSimple" as *;
+@use "../mixins/colorShades" as *;
 @use "sass:map";
 
 // ----------------------------------
@@ -67,11 +66,11 @@ $themes-map: map.merge($new-theme, $default-themes);
     @if (not map-has-key($themes-map, $key)) {
         // create a color class
         .#{$key} {
-            @include makeColorSchemeSimple($value);
+            @include colorSchemeSimple($value);
         }
     }
 }
 
-// @include makeColorShades("grey", hsl(0, 0%, 7%), 9, 10);
-// @include makeColorShades("orange", hsl(14, 100%, 50%));
-// @include makeColorShades("yellow", hsl(48, 100%, 70%), 9, 3);
+@include colorShades("grey", hsl(0, 0%, 7%), 9, 10);
+@include colorShades("orange", hsl(14, 100%, 50%));
+@include colorShades("yellow", hsl(48, 100%, 70%), 9, 3);

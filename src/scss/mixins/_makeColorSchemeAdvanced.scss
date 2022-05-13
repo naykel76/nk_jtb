@@ -1,22 +1,9 @@
 @use "../base/vars_all" as *; // required to set defaults
-@use "../mixins/makeColorSchemeSimple" as *;
+@use "../mixins/colorSchemeSimple" as *;
 @use "../functions/setTextColor" as *;
 
 // The minimum requirement for creating a theme-map is the $base
 // color, all other properties can be created intuitively.
-//
-// $new-theme: (
-//     "theme-name": (
-//         "base": grey,
-//         "color": white,
-//         "border-color": blue,
-//         "hover-bg": #ffebd1,
-//         "hover-color": purple,
-//         "link-color": red,
-//         "link-hover-color": blue,
-//         "default-link": true,
-//     ),
-// );
 
 @mixin makeColorSchemeAdvanced($theme-name, $theme-map) {
     $base: map-get($theme-map, "base");
@@ -39,12 +26,6 @@
             $link-color: if(map-get($theme-map, "link-color"), map-get($theme-map, "link-color"), $link-color);
             $link-hover-color: if(map-get($theme-map, "link-hover-color"), map-get($theme-map, "link-hover-color"), $link-hover-color);
 
-            // is .primary .dd-content
-            // not .primary.dd-content
-            // prevent theme overriding dropdown styles this seems
-            // like a good idea at this time, but we will see!
-
-            // :not(.btn) is to allow the btn class to do its job
             a:not(a.btn){
                 color: $link-color;
                 &.hover,
@@ -68,11 +49,3 @@
     }
 }
 
-// // only creates light theme if light-base is in map
-// @if (map-get($themes-map, $map, "base-light")) {
-//     &-light {
-//         background-color: map-get($themes-map, $map, "base-light");
-//         color: map-get($themes-map, $map, "color-light");
-//         border: 1px solid map-get($themes-map, $map, "color-light");
-//     }
-// }

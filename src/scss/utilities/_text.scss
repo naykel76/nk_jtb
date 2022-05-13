@@ -1,5 +1,4 @@
-@use "../../src/scss/base/vars_base" as *;
-@use "../../src/scss/base/vars_colors" as *;
+@use "../base/vars_all" as *;
 
 $text-utilities: (
     "font-weight": (
@@ -77,22 +76,6 @@ h1.title {
 //
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
 
-// nav-header is breaking the JTB philosophy but until I find a better place to put it here it is!
-
-$nav-header-color: #333 !default;
-$nav-header-font-size: 1.25rem !default;
-
-// $nav-header-bg: #fff !default;
-// $nav-header-font-family: Poppins, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji' !important;
-// $nav-header-font-weight: normal !default;
-// $nav-header-font-size: 1rem !default;
-// $nav-header-line-height: 1.5 !default;
-
-.nav-header {
-    font-size: $nav-header-font-size;
-    color: $nav-header-color;
-}
-
 .txt {
     // size modifiers
     &-sm {
@@ -142,7 +125,7 @@ $nav-header-font-size: 1.25rem !default;
     }
 }
 
-//
+// create text utility classes
 @each $property, $map in $text-utilities {
     $utility-prefix: map-get($map, "prefix");
     $values: map-get($map, "values");

@@ -1,17 +1,15 @@
 @use '../base/vars_all' as *;
+@use "../mixins/media" as *;
 
 // -- CONTAINER --
 // -----------------------------------
 // there is no need to add a tonne of media queries for the
 // container because the min() width does a pretty good job!
+// think of container size as maximum-width up to a maximum-size.
 
-// .#{$container-class} {
-//     // width: min($container-max-width);
-//     margin-right: auto;
-//     margin-left: auto;
-//     position: relative;
-
-//     // @include from-desktop {
-//     //     width: $container-desktop;
-//     // }
-// }
+.#{$container-class} {
+    width: min($container-max, $container-max-widescreen);
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+}

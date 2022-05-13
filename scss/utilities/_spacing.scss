@@ -26,8 +26,6 @@
     padding: 1rem;
 }
 
-
-
 .space-x > *:not(:first-child) {
     margin-left: 1rem;
 }
@@ -35,8 +33,6 @@
 .space-y > *:not(:first-child) {
     margin-top: 1rem;
 }
-
-
 
 .space-mx > * + * {
     margin-left: 1rem;
@@ -71,54 +67,3 @@
         padding-bottom: 5rem;
     }
 }
-
-// ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
-//
-// Order Matters! basic and responsive utility classes need to
-// come after the magic classes to allow them to be overridden
-//
-// --------------------------------------------------------------
-
-$spacing-utilities-map: (
-    "margin": (
-        "base-class": "m",
-        "values-map":
-            map-merge(
-                $rem-sizes-map,
-                (
-                    "auto": auto,
-                    "default": 1.25rem,
-                )
-            ),
-        "xy-suffix": true,
-        "axis-position-map": $axis-position-map,
-    ),
-    "padding": (
-        "base-class": "p",
-        "values-map":
-            map-merge(
-                $rem-sizes-map,
-                (
-                    "default": $content-gap,
-                )
-            ),
-        "xy-suffix": true,
-        "axis-position-map": $axis-position-map,
-    ),
-);
-
-@include makeUtilityClasses($spacing-utilities-map);
-
-// -- RESPONSIVE SPACING UTILITIES --
-$padding-x-responsive-sizes: (2, 2, 1), "";
-$padding-y-responsive-sizes: (10, 6, 2), "";
-@include makeResponsivePositionUtilities("padding", "p", "y", $padding-y-responsive-sizes);
-@include makeResponsivePositionUtilities("padding", "p", "x", $padding-x-responsive-sizes);
-
-// @include allTheChildren('children-py-05', p , )
-// // apply single property to direct descendant
-// // @mixin allTheChildren($className, $property, $value) {
-// //     .#{$className} > * {
-// //         #{$property}: $value;
-// //     }
-// // }

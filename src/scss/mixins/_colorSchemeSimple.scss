@@ -1,9 +1,9 @@
 @use '../functions/setTextColor' as *;
 
 // $base, $border-color (optional), $font-color (optional)
-// call with - @include makeColorSchemeSimple($base-color)
+// call with - @include colorSchemeSimple($base-color)
 
-@mixin makeColorSchemeSimple($base, $border-color: rgba(0, 0, 0, 0.15), $font-color: setTextColor($base)) {
+@mixin colorSchemeSimple($base, $border-color: rgba(0, 0, 0, 0.15), $font-color: setTextColor($base)) {
     background-color: $base;
     border: 1px solid $border-color;
     color: $font-color;

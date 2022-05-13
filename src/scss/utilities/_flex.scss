@@ -1,4 +1,4 @@
-@use '../../src/scss/base/vars_base' as *;
+@use "../base/vars_base" as *;
 @use "../mixins/media" as *;
 
 // there are two maps for 'flex-justify' this is by design. I prefer to use shorthand for
@@ -24,16 +24,16 @@ $flex-utilities: (
             space-even: space-evenly,
         ),
     ),
-    "place-items": (
-        "property": "place-items",
-        "prefix": "items-",
-        "values": (
-            start: start,
-            end: end,
-            center: center,
-            stretch: stretch,
-        ),
-    ),
+    // "place-items": (
+    //     "property": "place-items",
+    //     "prefix": "items-",
+    //     "values": (
+    //         start: start,
+    //         end: end,
+    //         center: center,
+    //         stretch: stretch,
+    //     ),
+    // ),
     // "place-content": (
     //     "property": "place-content",
     //     "prefix": "content-",
@@ -44,18 +44,19 @@ $flex-utilities: (
     //         stretch: stretch,
     //     ),
     // ),
-    "align-items": (
-        "property": "align-items",
-        "prefix": "va-",
-        "values": (
-            t: flex-start,
-            b: flex-end,
-            c: center,
-            start: flex-start,
-            stretch: stretch,
-            baseline: baseline,
+    "align-items":
+        (
+            "property": "align-items",
+            "prefix": "va-",
+            "values": (
+                t: flex-start,
+                b: flex-end,
+                c: center,
+                start: flex-start,
+                stretch: stretch,
+                baseline: baseline,
+            ),
         ),
-    ),
     "align-self": (
         "property": "align-self",
         "prefix": "align-self-",

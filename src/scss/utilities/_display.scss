@@ -1,4 +1,4 @@
-@use "../../src/scss/base/vars_base" as *;
+@use "../base/vars_base" as *;
 @use "../mixins/media" as *;
 
 $visibility-utilities: (
@@ -72,17 +72,6 @@ $visibility-utilities: (
         display: flex !important;
     }
 }
-// @include widescreen-only {
-//     .hide-on-widescreen {
-//         display: none !important;
-//     }
-//     .block-on-widescreen {
-//         display: block !important;
-//     }
-//     .flex-on-widescreen {
-//         display: flex !important;
-//     }
-// }
 
 // ==========================================================================
 // |--\0/-- from-device (device and larger) --\0/--|
