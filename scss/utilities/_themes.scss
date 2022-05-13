@@ -1,57 +1,10 @@
-@use "../base/vars_base" as *;
-@use "../base/vars_colors" as *;
+@use "../../src/scss/base/vars_base" as *;
+@use "../../src/scss/base/vars_colors" as *;
 @use "../mixins/makeColorSchemeAdvanced" as *;
 @use "../mixins/makeColorSchemeSimple" as *;
 @use "../mixins/makeColorShades" as *;
 @use "sass:map";
 
-$new-theme: (
-    "contrast": (
-        "base": red,
-        "color": white,
-        "link-color": yellow,
-    ),
-);
-
-$default-themes: (
-    "primary": (
-        "base": $primary,
-    ),
-    "secondary": (
-        "base": $secondary,
-    ),
-);
-
-$themes-map: map.merge($new-theme, $default-themes);
-
-// $key is the theme name, $map is the theme map
-@each $key, $map in $themes-map {
-    @include makeColorSchemeAdvanced($key, $map);
-}
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 // ----------------------------------
 // $themes-map: (
 //     "danger": (
@@ -76,47 +29,45 @@ $themes-map: map.merge($new-theme, $default-themes);
 //     ),
 // );
 
-// // ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
-// //
-// // So far this system works well but there are issues when it comes
-// // to components like buttons and boxes. The main problem is that
-// // the themes will not override their base styles.
-// //
-// // don't just change blindly!
-// //
-// // ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
+$new-theme: (
+    "contrast": (
+        "base": red,
+        "color": white,
+        "link-color": grey,
+    ),
+);
 
-// @each $map, $properties in $themes-map {
-//     $base: map-get($themes-map, $map, "base");
+$default-themes: (
+    "primary": (
+        "base": $primary,
+        "link-color": white,
+    ),
+    "secondary": (
+        "base": $secondary,
+        "color": $primary,
+        "link-color": $primary,
+        "hover-color": $primary,
+    ),
+    "white": (
+        "base": #fff,
+        "default-links": true,
+    ),
+) !default;
 
-//     .#{$map} {
-//         @include makeColorSchemeSimple($base, $border-color: $base);
+$themes-map: map.merge($new-theme, $default-themes);
 
-//         // only creates light theme if light-base is in map
-//         @if (map-get($themes-map, $map, "base-light")) {
-//             &-light {
-//                 background-color: map-get($themes-map, $map, "base-light");
-//                 color: map-get($themes-map, $map, "color-light");
-//                 border: 1px solid map-get($themes-map, $map, "color-light");
-//             }
-//         }
-
-//         // do not apply to :hover let component look after it
-//         &.outline:not(:hover) {
-//             background-color: transparent;
-//             border-color: $base;
-//             color: $base;
-//         }
-//     }
-// }
+// $key is the theme name, $map is the theme map
+@each $key, $map in $themes-map {
+    @include makeColorSchemeAdvanced($key, $map);
+}
 
 @each $key, $value in $color-map {
     // if the $key NOT in $themes-map
+    // exclude if already in the $themes-map
     @if (not map-has-key($themes-map, $key)) {
         // create a color class
         .#{$key} {
             @include makeColorSchemeSimple($value);
-            // background: $value;
         }
     }
 }

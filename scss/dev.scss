@@ -1,31 +1,6 @@
-// @use "./base/vars_all" as *; // required to set defaults
-// @use "./mixins/makeColorSchemeAdvanced" as *;
-// @use "./functions/setTextColor" as *;
-// @use "sass:map";
-
-
-// $new-theme: (
-//     "contrast": (
-//         "base": red,
-//         "color": white,
-//         "link-color": yellow,
-//     ),
-// );
-
-// $default-themes: (
-//     "primary": (
-//         "base": $primary,
-//     ),
-//     "secondary": (
-//         "base": $secondary,
-//     ),
-// );
-
-// $themes-map: map.merge($new-theme, $default-themes);
-
-// // $key is the theme name, $map is the theme map
-// @each $key, $map in $themes-map {
-//     @include makeColorSchemeAdvanced($key, $map);
-// }
-
-
+// "autoprefixer": "^10.4.4",
+.x{
+    background: #000;
+    // background: image-set(url(logo.png) 2x, url(logo.png) 1x);
+    display: flex;
+}

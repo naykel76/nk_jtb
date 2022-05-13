@@ -7,13 +7,14 @@
 //
 // $new-theme: (
 //     "theme-name": (
-//         "base": $primary,
-//         "color": green,
+//         "base": grey,
+//         "color": white,
 //         "border-color": blue,
 //         "hover-bg": #ffebd1,
 //         "hover-color": purple,
 //         "link-color": red,
 //         "link-hover-color": blue,
+//         "default-link": true,
 //     ),
 // );
 
@@ -23,7 +24,7 @@
     $color: if(map-get($theme-map, "color"), map-get($theme-map, "color"), setTextColor($base));
     $border-color: if(map-get($theme-map, "border-color"), map-get($theme-map, "border-color"), rgba(0, 0, 0, 0.1));
 
-    $hover-bg: if(map-get($theme-map, "hover-bg"), map-get($theme-map, "hover-bg"), lighten($base, 7%));
+    $hover-bg: if(map-get($theme-map, "hover-bg"), map-get($theme-map, "hover-bg"), darken($base, 4%));
     $hover-color: if(map-get($theme-map, "hover-color"), map-get($theme-map, "hover-color"), setTextColor($hover-bg));
 
     .#{$theme-name} {
@@ -31,13 +32,22 @@
         border: 1px solid $border-color;
         color: $color;
 
+        // if there is no link color then force the default??? extra for no reason???
         // only create theme link styles if $link-color exists in map, else fall back to default
-        @if (map-get($theme-map, "link-color")) {
-            $link-color: map-get($theme-map, "link-color");
+        @if (map-get($theme-map, "link-color") or map-get($theme-map, "default-links")) {
+            // $link-color: map-get($theme-map, "link-color");
+            $link-color: if(map-get($theme-map, "link-color"), map-get($theme-map, "link-color"), $link-color);
             $link-hover-color: if(map-get($theme-map, "link-hover-color"), map-get($theme-map, "link-hover-color"), $link-hover-color);
 
-            a {
+            // is .primary .dd-content
+            // not .primary.dd-content
+            // prevent theme overriding dropdown styles this seems
+            // like a good idea at this time, but we will see!
+
+            // :not(.btn) is to allow the btn class to do its job
+            a:not(a.btn){
                 color: $link-color;
+                &.hover,
                 &:hover {
                     color: $link-hover-color;
                 }
@@ -48,5 +58,21 @@
             background-color: $hover-bg;
             color: $hover-color;
         }
+
+        // do not apply to :hover let component look after it
+        &.outline:not(:hover) {
+            background-color: transparent;
+            border-color: $base;
+            color: $base;
+        }
     }
 }
+
+// // only creates light theme if light-base is in map
+// @if (map-get($themes-map, $map, "base-light")) {
+//     &-light {
+//         background-color: map-get($themes-map, $map, "base-light");
+//         color: map-get($themes-map, $map, "color-light");
+//         border: 1px solid map-get($themes-map, $map, "color-light");
+//     }
+// }

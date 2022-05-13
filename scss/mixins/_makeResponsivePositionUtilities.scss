@@ -1,4 +1,4 @@
-@use "../base" as *;
+@use '../base/vars_all' as *;
 @use "./makeCssPropertyMixins" as *;
 @use "./media" as *;
 @use "sass:list";

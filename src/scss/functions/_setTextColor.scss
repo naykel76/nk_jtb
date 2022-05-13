@@ -1,6 +1,6 @@
 @use "../base/vars_base" as *;
 
-// return text colour based on the background
+// set text colour based on the background
 // --------------------------------------------------------------------------
 
 @function setTextColor($bg-color) {

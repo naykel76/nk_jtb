@@ -1,5 +1,5 @@
 @use "../mixins/media" as *;
-@use "../base/vars_base" as *;
+@use "../../src/scss/base/vars_base" as *;
 @use '../functions/helpers' as *;
 @use "sass:map";
 

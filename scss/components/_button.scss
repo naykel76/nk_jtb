@@ -44,7 +44,6 @@ button,
     //
     vertical-align: bottom; // keep buttons aligned to inputs
 
-    // @include hover(background-color, text-color (optional));
     @include hover($btn-bg);
     @include active($btn-bg);
 
@@ -59,28 +58,23 @@ button,
     // the default icon size (1.5em) will make the button higher than the inputs
     // so padding se
     // .icon {
-        // height: 1.25em;
-        // padding: 2px;
+    // height: 1.25em;
+    // padding: 2px;
     // }
 }
 
 // themes and variations
 // ----------------------------
 //
-// **! must explicitly state theme values to override base 'btn' class !**
+// **! must explicitly create btn state override base class !**
 //
 
+// create btn state
+// need to remove surplus classes
+// map.remove ?? or just create from theme-map
 @each $key, $color in $color-map {
     .#{$button-class}.#{$key} {
-        // background-color: $color;
-        // color: setTextColor($color);
-
         @include hover($color);
         @include active($color);
-
-        // there is no need to include outline here, it is handled by the theme
     }
 }
-
-
-

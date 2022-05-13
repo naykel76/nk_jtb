@@ -1,5 +1,3 @@
-$prefix: "FISH" !default; // prefix can be used to prevent conflicts, leave blank for none
-
 // ==========================================================================
 // -- GENERAL STYLES --
 // ==========================================================================
@@ -12,11 +10,12 @@ $img-path: "/images" !default;
 // -- Base Styles --
 // ==========================================================================
 
-$base-color: #333 !default;
-$base-bg: #fff !default;
-// $base-font-family: Poppins, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji' !important;
-// $base-font-family: "Montserrat", sans-serif;
-$base-font-family: scandia-web, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji !important;
+$base-color: teal !default;
+// $base-bg: #efef44 !default;
+// $base-color: #333 !default;
+// $base-bg: #fff !default;
+
+$base-font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 $base-font-weight: normal !default;
 $base-font-size: 1rem !default;
 $base-line-height: 1.5 !default;
@@ -36,8 +35,6 @@ $heading-font-weight: 700;
 
 $link-color: #5850ec !default;
 $link-hover-color: indianred !default;
-// $link-color: #007bff !default;
-// $link-hover-color: #0056b3 !default;
 
 // ==========================================================================
 // -- Spacing Sizes --
@@ -88,9 +85,11 @@ $num-grid-cols: 6 !default; // number of classes to make
 // ==========================================================================
 // To make it easy, everything under desktop just uses max width
 $container-max-width: 90%;
+$container-desktop: 75em !default; // 1200px
+
+
 // $container-tablet: 45rem !default; // 720px
 // $container-laptop: 60em !default; // 960px
-$container-desktop: 75em !default; // 1200px
 // $container-widescreen: 75em !default; // 1344px
 
 

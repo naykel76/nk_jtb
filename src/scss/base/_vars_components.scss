@@ -1,12 +1,10 @@
-@use "../base/vars_base" as *;
-@use "../base/vars_colors" as *;
+@use "vars_base" as *;
+@use "vars_colors" as *;
 @use "../functions/setTextColor" as *;
 
 // dropdown
 // --------------------------------
-$dropdown-bg: #fff !default;
-$dropdown-padding: $content-gap !default;
-$dropdown-border-radius: 0.25rem !default;
+$dropdown-toggle-gap: 0.25rem !default; // gap between toggle and content
 
 // icons
 // --------------------------------
@@ -36,3 +34,14 @@ $navbar-nav-active-bg: rgb(17, 24, 39) !default;
 
 // lists
 // --------------------------------
+// $base: ;
+// $color: ;
+// $border-color: ;
+$list-font-size: .875rem !default;
+$list-color: rgb(44,82,130) !default;
+
+$list-link-color: rgb(44,82,130) !default;
+$list-link-hover-color: rgb(49,130,206) !default;
+
+// $hover-bg: ;
+// $hover-color: ;

@@ -5,7 +5,6 @@
 //
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
 
-@use "./base/root";
 @use "./base/base";
 @use "./base/content_gap";
 
@@ -22,6 +21,7 @@
 @forward "./utilities/position";
 @forward "./utilities/sizes";
 @forward "./utilities/spacing";
+@forward "./utilities/state";
 @forward "./utilities/text";
 @forward "./utilities/themes";
 @forward "./utilities/visibility";

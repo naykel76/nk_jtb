@@ -1,5 +1,5 @@
 @use "../mixins/media" as *;
-@use "../base/vars_base" as *;
+@use "../../src/scss/base/vars_base" as *;
 
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
 //
@@ -37,6 +37,9 @@
     margin-top: $content-gap;
 }
 
+* + pre {
+    margin-top: $content-gap;
+}
 // :is(.frm-row:not(* > :first-child):not(input[type="hidden"] + .frm-row)), // 1
 // :is(p, pre, form, table, ul) + *:not(hr):not(.overlay):not(.bx-content),
 // :is(.menu) + *,

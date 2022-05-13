@@ -31,14 +31,11 @@ $border-colors-map: (
     "info": var(--info),
 ) !default;
 
-
 .divide-y > :not([hidden]) ~ :not([hidden]) {
     border-top: $border;
 }
 
-
 @include makeUtilityClasses($border-utilities-map);
-
 
 @each $key, $value in $border-colors-map {
     .bdr-#{$key} {
@@ -54,6 +51,9 @@ $border-colors-map: (
     }
 }
 
+.nbdr {
+    border: none;
+}
 
 // // // border radius
 // // // --------------------------------------------------------------------------

@@ -1,10 +1,22 @@
-@use '../base/vars_base' as *;
-@use '../base/vars_class_names' as *;
+@use "../base/vars_all" as *;
+@use "../../src/scss/vars_class_names" as *;
 
 .#{$list-class} {
     list-style: none;
     margin: 0; // remove indent
+    // color: $list-color;
+    // font-size: $list-font-size;
 
+    a {
+        color: $list-link-color;
+        &:where(:hover) {
+            // $list-hover-color;
+            color: $list-link-hover-color;
+        }
+
+        // $hover-bg: ;
+        // $hover-color: ;
+    }
     // li {
     //     margin-top: 0.75rem;
     // }

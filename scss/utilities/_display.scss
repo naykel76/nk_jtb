@@ -1,5 +1,5 @@
-@use '../base/vars_base' as *;
-@use '../mixins/media' as *;
+@use "../../src/scss/base/vars_base" as *;
+@use "../mixins/media" as *;
 
 $visibility-utilities: (
     "display": (
@@ -12,6 +12,14 @@ $visibility-utilities: (
             flex: flex,
             inline-flex: inline-flex,
             hidden: none,
+        ),
+    ),
+    "visibility": (
+        "property": "visibility",
+        "prefix": "",
+        "values": (
+            visible: visible,
+            invisible: hidden,
         ),
     ),
 );
@@ -27,7 +35,6 @@ $visibility-utilities: (
         }
     }
 }
-
 
 // ==========================================================================
 // |--\0/-- device-only --\0/--|
@@ -80,7 +87,6 @@ $visibility-utilities: (
 // ==========================================================================
 // |--\0/-- from-device (device and larger) --\0/--|
 // --------------------------------------------------------------------------
-
 
 @include from-tablet {
     .hide-from-tablet {

@@ -8,3 +8,21 @@ Yet another utility based framework based on flex-box and grid.
 > -- Nathan Watts
 
 
+
+
+   "autoprefixer": "^10.4.2",
+    "browser-sync": "^2.27.7",
+    "copyfiles": "^2.4.1",
+    "cssnano": "^5.0.17",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "postcss-cli": "^9.1.0",
+    "sass": "^1.49.8"
+
+Update components for opt-in styling
+
+
+"scripts": {
+    "dev": "parcel src/*.html --open",
+    "build": "parcel build client/index.html --no-optimize --no-cache --public-url ./"
+  }

@@ -1,7 +1,7 @@
 @use "../mixins/media" as *;
 @use "../forms/control" as *;
 
-// @use "../base/vars_base" as *;
+// @use "../../src/scss/base/vars_base" as *;
 
 $placeholder-color: #bbbbbb !default;
 

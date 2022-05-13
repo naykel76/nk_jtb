@@ -1,4 +1,4 @@
-@use "../base/vars_base" as *;
+@use "../../src/scss/base/vars_base" as *;
 
 // only stick while parent is in view
 .sticky {
@@ -42,9 +42,11 @@
     }
     &-l {
         left: 0;
+        right: auto; // reset to allow opposite to be overridden
     }
     &-r {
         right: 0;
+        left: auto; // reset to allow opposite to be overridden
     }
     &-tl {
         top: 0;
