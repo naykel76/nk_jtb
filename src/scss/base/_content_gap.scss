@@ -11,31 +11,41 @@
 // -- CONTENT SPACING --
 // ==========================================================================
 //
-// select any element that follows immediately after this element
 // unless the element is a direct child of a 'grid' or 'flexbox'
 // :is(.???) + :not(.flex > *):not(.grid > *)
 
-// wild is omitted before :not
-:is(.bx) + :not(.flex > *):not(.grid > *):not(hr):not(.dd > *) {
-    margin-top: $content-gap;
-}
+// // wild is omitted before :not
+// :is(.bx) + :not(.flex > *):not(.grid > *):not(hr):not(.dd > *) {
+//     margin-top: $content-gap;
+// }
 
-:is(.bx-title, .bx-content) + * {
-    margin-top: $content-gap;
-}
+// :is(.bx-title, .bx-content) + * {
+//     margin-top: $content-gap;
+// }
 
-:is(.frm-row) + :not(.flex > *):not(.grid > *) {
-    margin-top: $content-gap;
-}
+// :is(.frm-row) + :not(.flex > *):not(.grid > *) {
+//     margin-top: $content-gap;
+// }
 
 :is(.flex) + * {
     margin-top: $content-gap;
 }
 
-:is(p, pre, form, table, ul, h1, h2, h3, h4, h5, h6) + * {
+
+// * > :is() AND :is() > * are apposing selectors
+//
+// * > :is() select (this) element if it follows any element
+// :is() > * select any element that follows (this) element
+
+* > :is(p, pre, h2, h3, h4, h5, h6) {
     margin-top: $content-gap;
 }
 
-* + pre {
+:is(p, pre, form, table, ol, ul, h1, h2, h3, h4, h5, h6) + * {
     margin-top: $content-gap;
 }
+
+// .flow > * + * { } looks at direct children (excludes parent)
+// use instead of :first-child so specificity is not raised
+//
+

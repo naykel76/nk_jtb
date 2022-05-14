@@ -1,14 +1,6 @@
 @use "../../src/scss/base/vars_base" as *;
 
-// Lists
-// ====================
 
-// 1. Because the bullet is outside of the list’s container, indent the list entirely
-ul,
-ol {
-    // list-style: none;
-    margin-left: 1em; // 1
-}
 
 
 img {

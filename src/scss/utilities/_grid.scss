@@ -1,14 +1,82 @@
 @use "../mixins/media" as *;
 @use "../base/vars_base" as *;
-@use '../functions/helpers' as *;
+@use "../functions/helpers" as *;
 @use "sass:map";
+@use "sass:string";
 
+// --------------------------------------------------------------------------
+// -- MAPS --
+// --------------------------------------------------------------------------
+
+$grid-fr-map: (
+    // first-col-%: (col1 fr, col2 fr)
+    20: (1fr, 4fr),
+    25: (1fr, 3fr),
+    30: (3fr, 7fr),
+    40: (2fr, 3fr),
+    50: (1fr, 1fr),
+    60: (3fr, 2fr),
+    70: (7fr, 3fr),
+    75: (3fr 1fr),
+    80: (4fr, 1fr)
+);
+
+// add the first two sizes, third will be calculated
+$two-column-magic-grid: ((30, 50), (40, 50), (60, 50), (70, 60));
+
+$grid-gap-sizes: (0, 1, 1.5, 2);
+// --------------------------------------------------------------------------
+// -- TWO COLUMN DIFFERENT WIDTHS GRID (FIXED) --
+// --------------------------------------------------------------------------
+
+@each $key, $fr-units in $grid-fr-map {
+    // calculate the second column width
+    $class: #{$key}\:#{(100 - $key)};
+    .cols-#{$class} {
+        grid-template-columns: nth($fr-units, 1) nth($fr-units, 2);
+    }
+}
+
+// --------------------------------------------------------------------------
+// -- TWO COLUMN MAGIC GRID (RESPONSIVE) --
+// --------------------------------------------------------------------------
+
+@each $widths in $two-column-magic-grid {
+    $large-width: nth($widths, 1);
+    $medium-width: nth($widths, 2);
+
+    // second column width is calculated from first column
+    // outputs simple class name. eg.
+    // used for simple class name where only the first column sizes is displayed e.g. cols-60_50_100
+    $class: #{$large-width}_#{$medium-width}_100;
+
+    // used for more concise class name with both column sizes displayed in the class e.g. cols-60:40_50:50_100
+    // $class: #{$large-width}\:#{(100 - $large-width)}_#{$medium-width}\:#{(100 - $medium-width)}_100;
+
+    // do not need to exclusively add small size, it will automatically be 100%
+    .cols-#{$class} {
+        @include from-tablet {
+            grid-template-columns: nth(map-get($grid-fr-map, $medium-width), 1) nth(map-get($grid-fr-map, $medium-width), 2);
+        }
+        @include from-desktop {
+            grid-template-columns: nth(map-get($grid-fr-map, $large-width), 1) nth(map-get($grid-fr-map, $large-width), 2);
+        }
+    }
+}
+
+// --------------------------------------------------------------------------
+// -- FIXED NUMBER COLUMN GRID (FIXED) --
+// --------------------------------------------------------------------------
+
+@for $i from 1 through $num-grid-cols {
+    .cols-#{$i} {
+        grid-template-columns: repeat($i, minmax(0, 1fr));
+    }
+}
 
 // --------------------------------------------------------------------------
 // -- GRID AND GRID GAP --
 // --------------------------------------------------------------------------
-
-$grid-gap-sizes: (0, 1, 1.5, 2);
 
 .grid {
     display: grid;
@@ -18,7 +86,6 @@ $grid-gap-sizes: (0, 1, 1.5, 2);
 .gg {
     gap: $grid-gap;
 }
-
 
 @each $size in $grid-gap-sizes {
     $class: escapeDecimal($size);
@@ -34,6 +101,21 @@ $grid-gap-sizes: (0, 1, 1.5, 2);
     }
 }
 
+//  UNDER REVIEW
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // --------------------------------------------------------------------------
 // -- RESPONSIVE GRID GAP --
 // --------------------------------------------------------------------------
@@ -43,37 +125,6 @@ $grid-gap-sizes: (0, 1, 1.5, 2);
     @include from-desktop {
         gap: 3rem !important;
     }
-}
-
-// --------------------------------------------------------------------------
-// -- FIXED WIDTHS --
-// --------------------------------------------------------------------------
-@for $i from 1 through $num-grid-cols {
-    .cols-#{$i} {
-        grid-template-columns: repeat($i, minmax(0, 1fr));
-    }
-}
-
-// --------------------------------------------------------------------------
-// -- MAGIC FIXED WIDTHS --
-// --------------------------------------------------------------------------
-.cols-20\:80 {
-    grid-template-columns: 1fr 4fr;
-}
-.cols-25\:75 {
-    grid-template-columns: 1fr 3fr;
-}
-.cols-30\:70 {
-    grid-template-columns: 3fr 7fr;
-}
-.cols-40\:60 {
-    grid-template-columns: 2fr 3fr;
-}
-.cols-75\:25 {
-    grid-template-columns: 3fr 1fr;
-}
-.cols-80\:20 {
-    grid-template-columns: 4fr 1fr;
 }
 
 // --------------------------------------------------------------------------
@@ -92,30 +143,6 @@ $fixed-width-columns-map: ((2, 2, 1), (3, 1, 1), (3, 2, 1), (3, 3, 1), (4, 2, 1)
         @include from-desktop {
             grid-template-columns: repeat(nth($grid-list, 1), 1fr);
         }
-    }
-}
-
-// --------------------------------------------------------------------------
-// -- MAGIC GRID CLASSES --
-// --------------------------------------------------------------------------
-// -- DO NOT -- use px or % or shit gets real! use 'fr' units
-
-// these back slash is to escape the colon
-.cols-60\:40-50\:50-100 {
-    @include from-tablet {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    @include from-desktop {
-        grid-template-columns: 3fr 2fr; // 60% 40%;
-    }
-}
-.cols-40\:60-50\:50-100 {
-    @include from-tablet {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    @include from-desktop {
-        grid-template-columns: 2fr 3fr; // 40% 60%;
     }
 }
 

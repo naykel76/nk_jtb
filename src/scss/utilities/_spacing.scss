@@ -49,3 +49,17 @@ $padding-x-responsive-sizes: (2, 2, 1), "";
 $padding-y-responsive-sizes: (10, 6, 2), "";
 @include makeResponsivePositionUtilities("padding", "p", "y", $padding-y-responsive-sizes);
 @include makeResponsivePositionUtilities("padding", "p", "x", $padding-x-responsive-sizes);
+
+// --------------------------------------------------------------
+// -- MAGIC UTILITIES --
+// --------------------------------------------------------------
+//
+
+.c-pxy > * {
+    padding: 1rem;
+}
+
+.c-px-1 > * {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}

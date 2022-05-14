@@ -8,9 +8,8 @@
     },
     "scripts": {
         "watch": "sass --watch --no-source-map src/scss/jtb.scss:dist/css/jtb.css",
-        "watcho": "sass --watch --no-source-map scss/jtb.scss:dist/css/jtb.css scss/dev.scss:dist/css/dev.css",
-        "dev": "parcel index.html",
-        "devNew": "parcel ./src/index.html --open",
+        "grid": "sass --watch --no-source-map src/scss/utilities/_grid.scss:dist/css/grid.css",
+        "dev": "parcel ./src/index.html --open",
         "build": "parcel build index.html"
     },
     "keywords": [],

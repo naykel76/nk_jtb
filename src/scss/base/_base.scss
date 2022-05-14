@@ -72,14 +72,14 @@ abbr:where([title]) {
     color: $heading-color;
     line-height: 1.125;
     margin-top: 2em; // 1
+    // margin-bottom: 1em; // 1
+    // margin-bottom: $content-gap; // 1
 }
 
-// /*
 // Reset links to optimize for opt-in styling instead of opt-out.
-// */
 
-:where(a) {
-    color: red;
+a {
+    color: $link-color;
     text-decoration: inherit;
     cursor: pointer;
 
@@ -87,18 +87,6 @@ abbr:where([title]) {
         color: $link-hover-color;
     }
 }
-
-// Reset links to optimize for opt-in styling instead of opt-out.
-// 1. inherit to remove underline. color and hover effects
-// a {
-//     color: $link-color;
-//     text-decoration: inherit; // 1
-//     cursor: pointer;
-
-//     &:hover {
-//         color: $link-hover-color;
-//     }
-// }
 
 // Add the correct font weight in Edge and Safari.
 
@@ -124,17 +112,13 @@ pre {
     overflow: auto;
 }
 
-/*
-Add the correct font size in all browsers.
-*/
+// Add the correct font size in all browsers.
 
 small {
     font-size: 80%;
 }
 
-/*
-Prevent `sub` and `sup` elements from affecting the line height in all browsers.
-*/
+// Prevent `sub` and `sup` elements from affecting the line height in all browsers.
 
 sub,
 sup {
@@ -253,7 +237,11 @@ summary {
 // Lists
 // ====================
 
-ol,
+// 1. Because the bullet is outside of the list’s container, indent the list entirely
+ol {
+    margin-left: 1em; // 1
+}
+
 ul,
 menu {
     list-style: none;

@@ -7,8 +7,11 @@
 // container because the min() width does a pretty good job!
 // think of container size as maximum-width up to a maximum-size.
 
+// 1. Use capital M in min() function to prevent clash between
+//    sass and css. This works because sass is case-sensitive, but
+//    CSS is not.
 .#{$container-class} {
-    width: min($container-max, $container-max-widescreen);
+    width: Min($container-max, $container-max-widescreen); // 1.
     margin-right: auto;
     margin-left: auto;
     position: relative;
