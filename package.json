@@ -2,21 +2,26 @@
     "name": "nk_jtb",
     "description": "Yet another utility based framework.",
     "version": "0.0.2",
-    "main": "index.js",
     "repository": {
         "type": "git",
         "url": "https://github.com/naykel76/nk_jtb.git"
     },
     "scripts": {
-        "watch": "sass --watch --no-source-map scss/jtb.scss:dist/css/jtb.css scss/dev.scss:dist/css/dev.css scss/layout/_css_grid.scss:dist/css/css_grid.css scss/jtb_utilities.scss:dist/css/jtb_utilities.css",
-        "dev": "parcel index.html",
+        "watch": "sass --watch --no-source-map src/scss/jtb.scss:dist/css/jtb.css",
+        "border": "sass --watch --no-source-map src/scss/utilities/_border.scss:dist/css/border.css",
+        "flex": "sass --watch --no-source-map src/scss/utilities/_flex.scss:dist/css/flex.css",
+        "grid": "sass --watch --no-source-map src/scss/utilities/_grid.scss:dist/css/grid.css",
+        "spacing": "sass --watch --no-source-map src/scss/utilities/_spacing.scss:dist/css/spacing.css",
+        "themes": "sass --watch --no-source-map src/scss/utilities/_themes.scss:dist/css/themes.css",
+        "dev": "parcel ./src/index.html --open",
         "build": "parcel build index.html"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "devDependencies": {
-        "parcel-bundler": "^1.12.5",
-        "sass": "^1.49.7"
+        "@parcel/transformer-sass": "^2.5.0",
+        "parcel": "^2.5.0",
+        "sass": "^1.51.0"
     }
 }

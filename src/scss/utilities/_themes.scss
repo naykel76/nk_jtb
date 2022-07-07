@@ -1,0 +1,95 @@
+@use "../base/vars_all" as *;
+@use "../mixins/makeColorSchemeAdvanced" as *;
+@use "../mixins/colorSchemeSimple" as *;
+@use "../mixins/colorShades" as *;
+@use "../functions/setTextColor" as *;
+@use "sass:map";
+
+// ----------------------------------
+
+
+$new-theme: (
+    "danger-light": (
+        "base": #ffe6e6,
+        "border-color": #ff9d9d,
+        "color": #4d0000,
+        "title-color": #900,
+        // no state,
+    ),
+    "complement": (
+        "base": #ffbfd1,
+    ),
+);
+
+$default-themes: (
+    "primary": (
+        "base": $primary,
+        "link-color": white,
+    ),
+    "secondary": (
+        "base": $secondary,
+        "color": setTextColor($secondary),
+        "link-color": $primary,
+        "hover-color": $primary,
+    ),
+    "contrast": (
+        "base": $contrast,
+    ),
+    "white": (
+        "base": #fff,
+        "default-links": true,
+    ),
+) !default;
+
+$themes-map: map.merge($new-theme, $default-themes);
+
+// $key is the theme name, $map is the theme map
+@each $key, $map in $themes-map {
+    @include makeColorSchemeAdvanced($key, $map);
+}
+
+@each $key, $value in $color-map {
+    // if the $key NOT in $themes-map, exclude if already in the $themes-map
+    @if (not map-has-key($themes-map, $key)) {
+        // straight forward color scheme
+        .#{$key} {
+            @include colorSchemeSimple($value);
+        }
+
+        // background only
+        .bg-#{$key} {
+            background-color: $value;
+        }
+    }
+}
+
+@include colorShades("bg-grey-", hsl(0, 0%, 7%), 9, 10);
+@include colorShades("bg-orange-", hsl(14, 100%, 50%));
+@include colorShades("bg-yellow-", hsl(48, 100%, 70%), 9, 3);
+@include colorShades("bg-blue-", hsl(204, 83%, 53%), 9, 3);
+@include colorShades("bg-green-", hsl(134, 61%, 41%), 9, 3);
+
+
+
+// $themes-map: (
+//     "danger": (
+//         "base": map-get($color-map, "danger"),
+//         "base-light": map-get($color-map, "danger-light"),
+//         "color-light": map-get($color-map, "danger"),
+//     ),
+//     "success": (
+//         "base": map-get($color-map, "success"),
+//         "base-light": map-get($color-map, "success-light"),
+//         "color-light": map-get($color-map, "success"),
+//     ),
+//     "info": (
+//         "base": map-get($color-map, "info"),
+//         "base-light": map-get($color-map, "info-light"),
+//         "color-light": map-get($color-map, "info"),
+//     ),
+//     "warning": (
+//         "base": map-get($color-map, "warning"),
+//         "base-light": map-get($color-map, "warning-light"),
+//         "color-light": map-get($color-map, "warning"),
+//     ),
+// );

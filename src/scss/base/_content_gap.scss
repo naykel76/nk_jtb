@@ -1,0 +1,17 @@
+@use "vars_base" as *;
+
+// any adjacent (excludes first child)
+:where(p, pre, form, table, ol, ul, h1, h2, h3, h4, h5, h6) + * {
+    margin-top: $content-gap;
+}
+
+:where(.flex, .grid, .bx, .bx-title, .bx-content, .frm-row, .container) + :where(*) {
+    margin-top: $content-gap;
+}
+
+// opt-out
+:is(.flex, .grid) > * {
+    margin: 0;
+}
+
+// :is(.frm-row:not(* > :first-child):not(input[type="hidden"] + *)),

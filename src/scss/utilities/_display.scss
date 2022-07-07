@@ -1,0 +1,127 @@
+@use "../base/vars_base" as *;
+@use "../mixins/media" as *;
+
+$visibility-utilities: (
+    "display": (
+        "property": "display",
+        "prefix": "",
+        "values": (
+            block: block,
+            inline: inline,
+            inline-block: inline-block,
+            flex: flex,
+            inline-flex: inline-flex,
+            hidden: none,
+        ),
+    ),
+    "visibility": (
+        "property": "visibility",
+        "prefix": "",
+        "values": (
+            visible: visible,
+            invisible: hidden,
+        ),
+    ),
+);
+
+@each $property, $map in $visibility-utilities {
+    $property: map-get($map, "property");
+    $utility-prefix: map-get($map, "prefix");
+    $values: map-get($map, "values");
+
+    @each $key, $v in $values {
+        .#{$utility-prefix}#{$key} {
+            #{$property}: $v;
+        }
+    }
+}
+
+// ==========================================================================
+// |--\0/-- device-only --\0/--|
+// --------------------------------------------------------------------------
+@include mobile-only {
+    .hide-on-mobile {
+        display: none !important;
+    }
+    .block-on-mobile {
+        display: block !important;
+    }
+    .flex-on-mobile {
+        display: flex !important;
+    }
+}
+@include tablet-only {
+    .hide-on-tablet {
+        display: none !important;
+    }
+    .block-on-tablet {
+        display: block !important;
+    }
+    .flex-on-tablet {
+        display: flex !important;
+    }
+}
+@include desktop-only {
+    .hide-on-desktop {
+        display: none !important;
+    }
+    .block-on-desktop {
+        display: block !important;
+    }
+    .flex-on-desktop {
+        display: flex !important;
+    }
+}
+
+// ==========================================================================
+// |--\0/-- from-device (device and larger) --\0/--|
+// --------------------------------------------------------------------------
+
+@include from-tablet {
+    .hide-from-tablet {
+        display: none !important;
+    }
+    .block-from-tablet {
+        display: block !important;
+    }
+    .flex-from-tablet {
+        display: flex !important;
+    }
+}
+@include from-desktop {
+    .hide-from-desktop {
+        display: none !important;
+    }
+    .block-from-desktop {
+        display: block !important;
+    }
+    .flex-from-desktop {
+        display: flex !important;
+    }
+}
+
+// // ==========================================================================
+// // |--\0/-- up-to-device (up to but not including) --\0/--|
+// // --------------------------------------------------------------------------
+@include up-to-tablet {
+    .hide-up-to-tablet {
+        display: none !important;
+    }
+    .block-up-to-tablet {
+        display: block !important;
+    }
+    .flex-up-to-tablet {
+        display: flex !important;
+    }
+}
+@include up-to-desktop {
+    .hide-up-to-desktop {
+        display: none !important;
+    }
+    .block-up-to-desktop {
+        display: block !important;
+    }
+    .flex-up-to-desktop {
+        display: flex !important;
+    }
+}

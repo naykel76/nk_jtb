@@ -1,0 +1,194 @@
+@use "../mixins/media" as *;
+@use "../base/vars_base" as *;
+@use "../functions/helpers" as *;
+@use "sass:map";
+@use "sass:string";
+
+// --------------------------------------------------------------------------
+// -- MAPS --
+// --------------------------------------------------------------------------
+
+$grid-fr-map: (
+    // first-col-%: (col1 fr, col2 fr)
+    20: (1fr, 4fr),
+    25: (1fr, 3fr),
+    30: (3fr, 7fr),
+    40: (2fr, 3fr),
+    50: (1fr, 1fr),
+    60: (3fr, 2fr),
+    70: (7fr, 3fr),
+    75: (3fr 1fr),
+    80: (4fr, 1fr)
+);
+
+// only need to add 1st column percentage, 2nd is calculated
+// no need to add small size here, it is set to 100 in the create function
+// (25, 25) is shorthand for {25:75}_{25:75}_{100}
+$two-column-magic-grid: ((25, 25), (25, 40), (30, 50), (40, 50), (50, 50), (60, 50), (70, 60), (70, 70));
+
+$grid-gap-sizes: (0, 1, 1.5, 2, 3, 4, 5);
+
+// --------------------------------------------------------------------------
+// -- TWO COLUMN NON-RESPONSIVE GRIDS --
+// --------------------------------------------------------------------------
+
+// -- TWO COLUMN EQUAL WIDTHS (NON-RESPONSIVE) --
+@for $i from 1 through $num-grid-cols {
+    .cols-#{$i} {
+        grid-template-columns: repeat($i, minmax(0, 1fr));
+    }
+}
+
+// -- TWO COLUMN UN-EQUAL WIDTHS (NON-RESPONSIVE) --
+@each $key, $fr-units in $grid-fr-map {
+    // specify the first column size,then calculate the second column width
+    $class: #{$key}\:#{(100 - $key)};
+    .cols-#{$class} {
+        grid-template-columns: nth($fr-units, 1) nth($fr-units, 2);
+    }
+}
+
+// --------------------------------------------------------------------------
+// -- TWO COLUMN MAGIC GRID (RESPONSIVE) --
+// --------------------------------------------------------------------------
+
+@each $widths in $two-column-magic-grid {
+    $large-width: nth($widths, 1);
+    $medium-width: nth($widths, 2);
+
+    // second column width is calculated from first column
+    // outputs simple class name. eg.
+    // used for simple class name where only the first column sizes is displayed e.g. cols-60_50_100
+    $class: #{$large-width}_#{$medium-width}_100;
+
+    // used for more concise class name with both column sizes displayed in the class e.g. cols-60:40_50:50_100
+    // $class: #{$large-width}\:#{(100 - $large-width)}_#{$medium-width}\:#{(100 - $medium-width)}_100;
+
+    // do not need to exclusively add small size, it will automatically be 100%
+    .cols-#{$class} {
+        @include from-tablet {
+            grid-template-columns: nth(map-get($grid-fr-map, $medium-width), 1) nth(map-get($grid-fr-map, $medium-width), 2);
+        }
+        @include from-desktop {
+            grid-template-columns: nth(map-get($grid-fr-map, $large-width), 1) nth(map-get($grid-fr-map, $large-width), 2);
+        }
+    }
+}
+
+// --------------------------------------------------------------------------
+// -- GRID AND GRID GAP --
+// --------------------------------------------------------------------------
+
+.grid {
+    display: grid;
+    gap: $grid-gap;
+}
+
+.gg {
+    gap: $grid-gap;
+}
+
+@each $size in $grid-gap-sizes {
+    $class: escapeDecimal($size);
+
+    .grid-#{$class} {
+        display: grid;
+        gap: #{$size}rem;
+    }
+
+    .gg-#{$class} {
+        gap: #{$size}rem;
+    }
+}
+
+//  UNDER REVIEW
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+// --------------------------------------------------------------------------
+// -- RESPONSIVE GRID GAP --
+// --------------------------------------------------------------------------
+
+.gg-3-1-1 {
+    gap: 1rem !important;
+    @include from-desktop {
+        gap: 3rem !important;
+    }
+}
+
+// --------------------------------------------------------------------------
+// -- RESPONSIVE GRID FIXED WIDTH COLUMNS --
+// --------------------------------------------------------------------------
+// simply add the amount of columns you want a each break point
+$fixed-width-columns-map: ((2, 2, 1), (3, 1, 1), (3, 2, 1), (3, 3, 1), (4, 2, 1), (6, 3, 1));
+
+@each $grid-list in $fixed-width-columns-map {
+    // create the class based on the items in each grid map
+    .cols-#{nth($grid-list, 1)}-#{nth($grid-list, 2)}-#{nth($grid-list, 3)} {
+        grid-template-columns: repeat(nth($grid-list, 3), 1fr);
+        @include from-tablet {
+            grid-template-columns: repeat(nth($grid-list, 2), 1fr);
+        }
+        @include from-desktop {
+            grid-template-columns: repeat(nth($grid-list, 1), 1fr);
+        }
+    }
+}
+
+// --------------------------------------------------------------------------
+// --  --
+// --------------------------------------------------------------------------
+
+.cols-4-4-2-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+
+    @include from-tablet {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include from-laptop {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+.cols-4-3-2-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+
+    @include from-tablet {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include from-laptop {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    @include from-desktop {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+// responsive grid
+// -------------------------
+// for each breakpoint (xs, sm, etc ...) in breakpoints
+// @each $breakpoint, $size in map.remove($breakpoints, "xs") {
+//     // create a media query with min-width of $size
+//     @media (min-width: $size) {
+//         // create num-cols + 1 for 0 index
+//         @for $i from 1 to $num-grid-cols + 1 {
+//             .cols-#{$breakpoint}-#{$i} {
+//                 grid-template-columns: repeat($i, minmax(0, 1fr));
+//             }
+//         }
+//     }
+// }

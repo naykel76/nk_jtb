@@ -1,11 +1,18 @@
-@use '../base/vars_base' as *;
-@use '../base/vars_class_names' as *;
+@use "../base/vars_all" as *;
+@use "../vars_class_names" as *;
 
 .#{$list-class} {
     list-style: none;
     margin: 0; // remove indent
 
-    // li {
-    //     margin-top: 0.75rem;
-    // }
+    a {
+        color: $list-link-color;
+        &:where(:hover) {
+            // $list-hover-color;
+            color: $list-link-hover-color;
+        }
+
+
+    }
+
 }

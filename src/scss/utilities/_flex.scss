@@ -1,0 +1,155 @@
+@use "../base/vars_base" as *;
+@use "../mixins/media" as *;
+
+// there are two maps for 'flex-justify' this is by design. I prefer to use shorthand for
+// simple left, right and center alignment but the full property name for everything else
+// $utilities: (
+
+$flex-utilities: (
+    "justify-content": (
+        "property": "justify-content",
+        "prefix": "",
+        "values": (
+            ha-l: flex-start,
+            ha-r: flex-end,
+            ha-c: center,
+            justify-start: flex-start,
+            justify-end: flex-end,
+            justify-center: center,
+            space-between: space-between,
+            space-around: space-around,
+            space-evenly: space-evenly,
+        ),
+    ),
+    "align-items": (
+        "property": "align-items",
+        "prefix": "",
+        "values": (
+            va-t: flex-start,
+            va-b: flex-end,
+            va-c: center,
+            items-start: flex-start,
+            items-end: flex-end,
+            items-center: center,
+            items-stretch: stretch,
+            items-baseline: baseline,
+        ),
+    ),
+    "align-self": (
+        "property": "align-self",
+        "prefix": "align-self-",
+        "values": (
+            auto: auto,
+            baseline: baseline,
+            center: center,
+            flex-end: flex-end,
+            flex-start: flex-start,
+            stretch: stretch,
+        ),
+    ),
+    "place-items": (
+        "property": "place-items",
+        "prefix": "place-items-",
+        "values": (
+            start: start,
+            end: end,
+            center: center,
+            stretch: stretch,
+        ),
+    ),
+    "place-content": (
+        "property": "place-content",
+        "prefix": "place-content-",
+        "values": (
+            center: center,
+            // start: start,
+            // end: end,
+            // stretch: stretch,
+            // between: space-between,
+            // around: space-around,
+            // evenly: space-evenly,
+        ),
+    ),
+    "flex-direction": (
+        "property": "flex-direction",
+        "prefix": "",
+        "values": (
+            flex-column: column,
+            flex-column-reverse: column-reverse,
+            flex-row: row,
+            flex-row-reverse: row-reverse,
+        ),
+    ),
+    "flex-wrap": (
+        "property": "flex-wrap",
+        "prefix": "",
+        "values": (
+            wrap: wrap,
+            nowrap: nowrap,
+            wrap-reverse: wrap-reverse,
+        ),
+    ),
+    "flex": (
+        "property": "flex",
+        "prefix": "",
+        "values": (
+            fsg1: 1 1 0%,
+            fs-auto: 0 1 auto,
+            fsg-auto: 1 1 auto,
+            flex-none: none,
+        ),
+    ),
+);
+
+@each $property, $map in $flex-utilities {
+    $property: map-get($map, "property");
+    $utility-prefix: map-get($map, "prefix");
+    $values: map-get($map, "values");
+
+    @each $key, $v in $values {
+        .#{$utility-prefix}#{$key} {
+            #{$property}: $v;
+        }
+    }
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+// this seems redundant but it easier to use for overriding
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+$flex-grow-map: (
+    "0": 0,
+    "1": 1,
+    "2": 2,
+);
+
+// covers both grow and shrink
+@each $key, $value in $flex-grow-map {
+    .fg#{$key} {
+        flex-grow: $value;
+    }
+    .fs#{$key} {
+        flex-shrink: $value;
+    }
+}
+
+@include from-laptop {
+    @each $property, $map in $flex-utilities {
+        $property: map-get($map, "property");
+        $utility-prefix: map-get($map, "prefix");
+        $values: map-get($map, "values");
+
+        @each $key, $v in $values {
+            .md-#{$utility-prefix}#{$key} {
+                #{$property}: $v;
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+@use "../base/vars_all" as *;
+@use "../functions/setTextColor" as *;
+
+%box {
+    padding: $bx-padding;
+    border-radius: $bx-border-radius;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    background-color: $bx-bg;
+    color: $base-color;
+}
+
+.bx {
+    @extend %box;
+
+    // remove margin from any first element in a box to allow box padding to do the work
+    & > *:first-child {
+        margin-top: 0;
+    }
+
+    &-title {
+        font-size: $bx-title-font-size;
+        font-weight: $bx-title-font-weight;
+        line-height: 1.2;
+    }
+}

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="./images/favicon.ico">
+    <link rel="stylesheet" href="../dist/css/jtb.css">
+    <title>NAYKEL - JTB</title>
+</head>
+
+
+<body class="py-3">
+
+    <div class="bx fw6">
+        <a href="">This is a link. There is not hover state!</a> <br>
+        <a class="hover:secondary" href="">This is a link with a hover utility class</a>
+    </div>
+    <div class="bx hover:secondary">
+        <a href="">This is a link. There is not hover state!</a> <br>
+        <a class="" href="">This is a link with a hover utility class</a>
+    </div>
+
+
+    <div class="px-5 grid cols-50:50">
+
+        <!-- use flex-basis to override default width -->
+        <div class="bx">
+            <div class="frm-row inline va-t">
+                <label>First Name</label>
+                <div class="flex-col fg1">
+                    <input type="text" placeholder="First Name">
+                    <div class="help"> <small>This is the help text!</small> </div>
+                </div>
+            </div>
+            <div class="frm-row inline">
+                <label>Email</label>
+                <input type="email" placeholder="Email">
+            </div>
+
+            <!-- with form row and with label -->
+            <div class="frm-row inline">
+                <label for="">Birthday</label>
+                <div class="with-icon fg1">
+                    <input placeholder="Placeholder...">
+                    <svg class="icon">
+                        <use xlink:href="/src/svg/naykel-ui-SVG-sprite.svg#save"></use>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="frm-row inline">
+                <label>Phone</label>
+                <input type="tel" placeholder="Your phone number">
+            </div>
+
+            <div class="frm-row inline">
+                <label class="w-2">Department</label>
+                <select>
+                    <option>Business development</option>
+                    <option>Marketing</option>
+                    <option>Sales</option>
+                </select>
+            </div>
+
+            <div class="frm-row inline">
+                <label>Question?</label>
+                <div class="space-x">
+                    <label>
+                        <input type="radio" name="member"> Yes
+                    </label>
+                    <label>
+                        <input type="radio" name="member"> No
+                    </label>
+                </div>
+            </div>
+            <div class="frm-row inline">
+                <label>Another Question?</label>
+                <div class="space-x">
+                    <label>
+                        <input type="radio" name="member"> Yes
+                    </label>
+                    <label>
+                        <input type="radio" name="member"> No
+                    </label>
+                    <div class="help"> <small>This is the help text!</small> </div>
+                </div>
+            </div>
+
+            <div class="frm-row">
+                <label>Subject</label>
+                <input type="text" placeholder="e.g. Partnership opportunity">
+            </div>
+            <div class="frm-row">
+                <label>Question</label>
+                <textarea class="textarea" placeholder="Explain how we can help you"></textarea>
+            </div>
+            <div class="frm-row">
+                <label class="checkbox">
+                    <input type="checkbox">
+                    I agree to the <a href="#">terms and conditions</a>
+                </label>
+            </div>
+            <div class="frm-row items-end">
+                <button type="submit" class="btn">Submit</button>
+            </div>
+        </div>
+
+        <!-- horizontal form -->
+        <div class="bx">
+            <div class="grid cols-2">
+                <div class="frm-row">
+                    <label>First Name</label>
+                    <input type="text" placeholder="First Name">
+                    <div class="help"> <small>This is the help text!</small> </div>
+                </div>
+                <div class="frm-row">
+                    <label>Email</label>
+                    <input type="email" placeholder="Email">
+                </div>
+            </div>
+            <div class="frm-row">
+                <label>Phone</label>
+                <input type="tel" placeholder="Your phone number">
+            </div>
+            <div class="frm-row">
+                <label>Department</label>
+                <select>
+                    <option>Business development</option>
+                    <option>Marketing</option>
+                    <option>Sales</option>
+                </select>
+            </div>
+            <div class="frm-row">
+                <label>Question?</label>
+                <div class="space-x">
+                    <label>
+                        <input type="radio" name="member"> Yes
+                    </label>
+                    <label>
+                        <input type="radio" name="member"> No
+                    </label>
+                </div>
+            </div>
+            <div class="frm-row">
+                <label>Question?</label>
+                <!-- remove div for vertical -->
+                <label>
+                    <input type="radio" name="member"> Yes
+                </label>
+                <label>
+                    <input type="radio" name="member"> No
+                </label>
+            </div>
+            <div class="frm-row">
+                <label>Subject</label>
+                <input type="text" placeholder="e.g. Partnership opportunity">
+            </div>
+            <div class="frm-row">
+                <label>Question</label>
+                <textarea class="textarea" placeholder="Explain how we can help you"></textarea>
+            </div>
+            <div class="frm-row">
+                <label class="checkbox">
+                    <input type="checkbox">
+                    I agree to the <a href="#">terms and conditions</a>
+                </label>
+            </div>
+            <div class="frm-row items-end">
+                <button type="submit" class="btn">Submit</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia consectetur laudantium natus nesciunt eligendi obcaecati, aliquam optio. Doloremque nostrum architecto harum quas, delectus ipsum hic nisi dicta natus corrupti reprehenderit repellendus voluptate optio sapiente sunt tenetur accusantium. Amet nihil nam inventore aspernatur aut. Ducimus tempora dignissimos minus obcaecati laudantium culpa? Earum error libero pariatur ea neque minima voluptas et omnis corrupti! Corrupti optio dolore, quod molestias praesentium ducimus perspiciatis beatae tempora. Veritatis error rerum sint praesentium temporibus sit aliquid. Ut sit quo vero. Dolores, esse ipsam! Libero voluptas quo iusto cupiditate cum vero inventore sint tenetur sapiente nesciunt! Excepturi, velit.</p>
+
+        <div class="grid cols-3-3-1">
+            <div class="bx">
+                <div class="bx-title">Box Title</div>
+                <p class="mt-2">Lorem ipsum dolor sit amet dipso consectetur adipisicing elit. Tempore, quibusdam.</p>
+            </div>
+            <div class="bx">
+                <div class="bx-title">Box Title</div>
+                <p class="mt-2">Lorem ipsum dolor sit amet dipso consectetur adipisicing elit. Tempore, quibusdam.</p>
+            </div>
+            <div class="bx">
+                <div class="bx-title">Box Title</div>
+                <p class="mt-2">Lorem ipsum dolor sit amet dipso consectetur adipisicing elit. Tempore, quibusdam.</p>
+            </div>
+        </div>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero architecto repudiandae, ab esse voluptatem animi, rem earum omnis ducimus dicta qui deleniti? Eligendi iusto iste inventore consequuntur eveniet tempora, neque exercitationem fuga assumenda a corrupti sint ducimus. Delectus ratione temporibus ea, nemo aperiam soluta quod inventore totam voluptatibus odio deleniti. Ea nobis delectus necessitatibus facere unde vero quam aliquam, quidem fugit laborum ut voluptatum nulla iure ratione natus provident voluptatem.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, dignissimos consectetur. Vel, itaque eligendi reprehenderit iure quidem consequuntur commodi dolorem, adipisci asperiores pariatur nisi assumenda architecto, maxime possimus cumque error ratione odio voluptatum dicta. Fuga, laudantium! Modi saepe debitis ducimus cupiditate sit labore id animi!</p>
+
+        <div class="grid cols-3-3-1">
+            <div class="bx">
+                <div class="bx-title">Box Title</div>
+                <p>Lorem ipsum dolor sit amet dipso consectetur adipisicing elit. Tempore, quibusdam.</p>
+            </div>
+            <div class="bx">
+                <div class="bx-title">Box Title</div>
+                <p>Lorem ipsum dolor sit amet dipso consectetur adipisicing elit. Tempore, quibusdam.</p>
+            </div>
+            <div class="bx">
+                <div class="bx-title">Box Title</div>
+                <p>Lorem ipsum dolor sit amet dipso consectetur adipisicing elit. Tempore, quibusdam.</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Page Heading</h1>
+        <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut quisquam maiores, sint officia soluta placeat, quia ipsa quam pariatur ipsam facilis fugiat cum deserunt eum. Voluptatibus velit et temporibus. Magni?</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia consectetur laudantium natus nesciunt eligendi obcaecati, aliquam optio. Doloremque nostrum architecto harum quas, delectus ipsum hic nisi dicta natus corrupti reprehenderit repellendus voluptate optio sapiente sunt tenetur accusantium. Amet nihil nam inventore aspernatur aut. Ducimus tempora dignissimos minus obcaecati laudantium culpa? Earum error libero pariatur ea neque minima voluptas et omnis corrupti! Corrupti optio dolore, quod molestias praesentium ducimus perspiciatis beatae tempora. Veritatis error rerum sint praesentium temporibus sit aliquid. Ut sit quo vero. Dolores, esse ipsam! Libero voluptas quo iusto cupiditate cum vero inventore sint tenetur sapiente nesciunt! Excepturi, velit.</p>
+
+        <div class="grid cols-3-3-1">
+            <div class="bx">
+                <div class="bx-title">Box Title</div>
+                <p class="mt-2">Lorem ipsum dolor sit amet dipso consectetur adipisicing elit. Tempore, quibusdam.</p>
+            </div>
+            <div class="bx">
+                <div class="bx-title">Box Title</div>
+                <p class="mt-2">Lorem ipsum dolor sit amet dipso consectetur adipisicing elit. Tempore, quibusdam.</p>
+            </div>
+            <div class="bx">
+                <div class="bx-title">Box Title</div>
+                <p class="mt-2">Lorem ipsum dolor sit amet dipso consectetur adipisicing elit. Tempore, quibusdam.</p>
+            </div>
+        </div>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero architecto repudiandae, ab esse voluptatem animi, rem earum omnis ducimus dicta qui deleniti? Eligendi iusto iste inventore consequuntur eveniet tempora, neque exercitationem fuga assumenda a corrupti sint ducimus. Delectus ratione temporibus ea, nemo aperiam soluta quod inventore totam voluptatibus odio deleniti. Ea nobis delectus necessitatibus facere unde vero quam aliquam, quidem fugit laborum ut voluptatum nulla iure ratione natus provident voluptatem.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, dignissimos consectetur. Vel, itaque eligendi reprehenderit iure quidem consequuntur commodi dolorem, adipisci asperiores pariatur nisi assumenda architecto, maxime possimus cumque error ratione odio voluptatum dicta. Fuga, laudantium! Modi saepe debitis ducimus cupiditate sit labore id animi!</p>
+
+        <div class="grid cols-3-3-1">
+            <div class="bx">
+                <div class="bx-title">Box Title</div>
+                <p>Lorem ipsum dolor sit amet dipso consectetur adipisicing elit. Tempore, quibusdam.</p>
+            </div>
+            <div class="bx">
+                <div class="bx-title">Box Title</div>
+                <p>Lorem ipsum dolor sit amet dipso consectetur adipisicing elit. Tempore, quibusdam.</p>
+            </div>
+            <div class="bx">
+                <div class="bx-title">Box Title</div>
+                <p>Lorem ipsum dolor sit amet dipso consectetur adipisicing elit. Tempore, quibusdam.</p>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+</body>

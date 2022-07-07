@@ -1,0 +1,79 @@
+@use "../base/vars_base" as *;
+
+// only stick while parent is in view
+.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+// ==========================================================================
+// Element Position
+// ==========================================================================
+
+.pull-right {
+    float: right;
+}
+.pull-left {
+    float: left;
+}
+
+.abs-tr {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.relative {
+    position: relative;
+}
+
+.pos-y {
+    top: 0;
+    bottom: 0;
+}
+
+.pos {
+    &-t {
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+    &-b {
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    &-l {
+        left: 0;
+        right: auto; // reset for flex ?? dd requires to shrink ??
+    }
+    &-r {
+        right: 0;
+        left: auto; // reset for flex ?? dd requires to shrink ??
+    }
+    &-tl {
+        top: 0;
+        left: 0;
+    }
+    &-tr {
+        top: 0;
+        right: 0;
+    }
+    &-bl {
+        bottom: 0;
+        left: 0;
+    }
+    &-br {
+        bottom: 0;
+        right: 0;
+    }
+}

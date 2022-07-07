@@ -1,0 +1,44 @@
+@use "../base/vars_all" as *;
+
+// ==========================================================================
+// -- Icon Button --
+// ==========================================================================
+
+.icon-button {
+    text-align: center;
+    position: relative;
+    padding: 1rem 1.5rem;
+
+    &:not(a) {
+        cursor: default;
+    }
+
+    .#{$icon-class} {
+        height: 1.5rem;
+        width: 1.5rem;
+        padding: 0;
+    }
+
+    .dd-content {
+        text-align: left;
+    }
+}
+
+// ==========================================================================
+// -- Badge --
+// ==========================================================================
+.badge {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    height: 20px;
+    min-width: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    background-color: hsl(354, 70%, 54%);
+    border: 1px solid hsl(354, 70%, 44%);
+    color: rgb(255, 255, 255);
+}

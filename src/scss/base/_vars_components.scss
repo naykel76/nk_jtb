@@ -1,0 +1,80 @@
+@use "vars_base" as *;
+@use "vars_colors" as *;
+@use "../functions/setTextColor" as *;
+
+// box
+// --------------------------------
+$bx-bg: #fff !default;
+$bx-padding: $content-gap !default;
+$bx-border-radius: 0.25rem !default;
+
+$bx-header-bg: rgb(250, 250, 250) !default;
+$bx-title-font-weight: 600 !default;
+$bx-title-font-size: 1.2rem !default;
+
+// button
+// --------------------------------
+$btn-bg: rgb(248, 248, 248) !default;
+$btn-color: setTextColor($btn-bg) !default;
+
+$btn-link-color: $link-color;
+$btn-link-hover-color: $link-hover-color;
+
+$btn-text-transform: capitalize;
+
+// dropdown
+// --------------------------------
+$dropdown-toggle-gap: 0.25rem !default; // gap between toggle and content
+
+// icons
+// --------------------------------
+$icon-xy-sm: 1em !default;
+$icon-xy: 1.5em !default;
+$icon-xy-md: 2em !default;
+$icon-xy-lg: 3em !default;
+$icon-color: inherit !default;
+
+// menu
+// --------------------------------
+$menu-padding-y: 0.5rem !default;
+$menu-padding-x: 0.75rem !default;
+
+$menu-hover-bg: #efefef !default;
+
+$menu-link-color: $base-color !default;
+$menu-link-hover-color: $base-color !default;
+
+
+
+// navbar
+// --------------------------------
+$navbar-bg: hsl(215, 28%, 17%) !default;
+$navbar-padding-x: 1rem !default;
+$navbar-padding-y: .5rem !default;
+
+$navbar-nav-font-color: setTextColor($navbar-bg) !default;
+// $navbar-nav-item-bg: transparent !default;
+$navbar-nav-item-bg: hsl(215, 28%, 21%) !default;
+$navbar-nav-padding-x: 1em !default;
+$navbar-nav-padding-y: 0.75em !default;
+
+$navbar-nav-hover-bg: lighten($navbar-nav-item-bg, 10%) !default;
+$navbar-nav-hover-color: $secondary !default;
+// $navbar-nav-hover-color: $navbar-nav-font-color !default;
+$navbar-nav-active-bg: rgba(0,0,0,.1) !default;
+
+
+
+// lists
+// --------------------------------
+// $base: ;
+// $color: ;
+// $border-color: ;
+$list-font-size: .875rem !default;
+$list-color: rgb(44,82,130) !default;
+
+$list-link-color: rgb(44,82,130) !default;
+$list-link-hover-color: rgb(49,130,206) !default;
+
+// $hover-bg: ;
+// $hover-color: ;

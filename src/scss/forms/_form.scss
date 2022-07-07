@@ -1,0 +1,115 @@
+@use "../mixins/media" as *;
+@use "../forms/control" as *;
+
+// @use "../base/vars_base" as *;
+
+$placeholder-color: #bbbbbb !default;
+
+// -- Base Elements --
+// ==========================================================================
+label {
+    font-weight: 600;
+}
+
+textarea,
+select,
+input {
+    @extend %control;
+}
+
+:where(textarea, select, input:not([type="checkbox"]):not([type="radio"])) {
+    padding-left: 0.75em;
+}
+
+button,
+select {
+    cursor: pointer;
+}
+
+::placeholder {
+    color: $placeholder-color;
+    opacity: 1;
+}
+
+//
+.checkbox,
+.radio {
+    cursor: pointer;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+// -- frm-row --
+// ==========================================================================
+.frm-row {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    // -- Generic Elements --
+    label {
+        margin-bottom: 3px;
+    }
+
+    &.inline {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+
+        label {
+            width: 9rem; // use flex-basis to override
+            flex-shrink: 0; // prevent shrink for 100%
+            margin-top: 4px; // better alignment
+        }
+    }
+}
+
+// ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
+//
+// You will be tempted to use the with-addons class directly on
+// the frm-row DON'T DO IT! Just create a new element which gives
+// you greater control with much less frustration.
+//
+// ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
+
+$addOn-inset-distance: 0.25rem; // distance from edge of input
+
+// 1. flex for easy alignment
+// 2. allow everything to align vertically
+// 3. inputs using trailing icons must be 100%
+
+.with-addons {
+    position: relative;
+    display: flex; // 1.
+    align-items: center; // 1.
+
+    .leadingAddon,
+    .trailingAddon {
+        position: absolute;
+        pointer-events: none;
+        // z-index: 10;
+        color: $placeholder-color;
+        line-height: 1; // 2.
+    }
+
+    .leadingAddon {
+        left: $addOn-inset-distance;
+    }
+
+    .trailingAddon {
+        right: $addOn-inset-distance;
+    }
+
+    // the width of the addon will vary depending on the content
+    :where(input) {
+        padding-left: 2rem;
+        width: 100%; // 3.
+        &:focus ~ * {
+            color: rgb(73, 73, 73);
+        }
+    }
+
+    .icon {
+        height: 1.25rem;
+    }
+}

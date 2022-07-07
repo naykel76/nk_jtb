@@ -1,0 +1,36 @@
+@use "../base/vars_all" as *;
+
+.#{$navbar-class},
+.#{$navbar-class} > .#{$container-class} {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.#{$navbar-class} {
+    background: $navbar-bg;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    padding: $navbar-padding-y $navbar-padding-x;
+    position: relative;
+
+    nav {
+        display: flex;
+    }
+
+    .nav-item:not(.menu a) {
+        padding: $navbar-nav-padding-y $navbar-nav-padding-x;
+        display: block; // 1. allowing the navbar to grow in height
+        background: $navbar-nav-item-bg;
+        color: $navbar-nav-font-color;
+        line-height: 1.2rem;
+
+        &:hover {
+            color: $navbar-nav-hover-color;
+            background: $navbar-nav-hover-bg;
+        }
+
+        &.active {
+            background: $navbar-nav-active-bg;
+        }
+    }
+}

@@ -6,13 +6,7 @@
 // Variables
 // --------------------------------------------------------------------------
 
-$bx-bg: #fff !default;
-$bx-padding: $content-gap !default;
-$bx-border-radius: 0.25rem !default;
 
-$bx-header-bg: rgb(250, 250, 250) !default;
-$bx-title-font-weight: 600 !default;
-$bx-title-font-size: 1.2rem !default;
 
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
 //
@@ -21,25 +15,7 @@ $bx-title-font-size: 1.2rem !default;
 //
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
 
-.bx {
-    padding: $bx-padding;
-    border-radius: $bx-border-radius;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
-    background: $bx-bg;
-    color: $base-color;
 
-    // remove margin from any first element in a box to allow box padding to do the work
-    & > *:first-child {
-        margin-top: 0;
-    }
-
-    &-title {
-        font-size: $bx-title-font-size;
-        font-weight: $bx-title-font-weight;
-        line-height: 1.2;
-    }
-}
 
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
 //
@@ -72,11 +48,6 @@ $bx-title-font-size: 1.2rem !default;
     border-radius: 0 0 $bx-border-radius $bx-border-radius;
 }
 
-:is(.bx-title + .bx-content),
-:is(.bx-content + .bx-footer) {
-    margin-top: $bx-padding;
-}
-
 :is(.bx-header + .bx-content) {
     padding: $bx-padding;
     margin-bottom: -$bx-padding;
@@ -84,17 +55,3 @@ $bx-title-font-size: 1.2rem !default;
     margin-right: -$bx-padding;
 }
 
-// ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
-//
-// the function is required to make sure theme colors override
-// base values, this is the compromise between having default
-// properties like background and font-color.
-//
-// ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
-
-@each $key, $color in $color-map {
-    .bx.#{$key} {
-        background: $color;
-        color: setTextColor($color);
-    }
-}

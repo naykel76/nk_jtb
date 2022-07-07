@@ -1,0 +1,33 @@
+@use '../base/vars_all' as *;
+
+
+// 1. aligns better inline to text text
+// 2. better alignment rather than changing size
+
+.#{$icon-class} {
+    width: $icon-xy;
+    height: $icon-xy;
+    // align-items: center;
+    // display: inline-flex;
+    // justify-content: center;
+    vertical-align: bottom; // 1
+    color: $icon-color;
+    padding: 2px; // 2
+
+    &.sm {
+        height: $icon-xy-sm;
+        width: $icon-xy-sm;
+    }
+    &.md {
+        height: $icon-xy-md;
+        width: $icon-xy-md;
+    }
+    &.lg {
+        height: $icon-xy-lg;
+        width: $icon-xy-lg;
+    }
+
+    + span {
+        margin-left: 0.5rem;
+    }
+}
