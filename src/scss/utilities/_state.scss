@@ -12,15 +12,15 @@
 // -- HOVER STATE --
 // -----------------------------------
 
-// ROMOVE ME!!
+.hover\:txt-primary:hover {
+    color: $primary;
+}
+
 .hover\:txt-secondary:hover {
     color: $secondary;
 }
 
-// just the text
-.hover\:secondary:hover {
-    color: $secondary;
-}
+
 
 // all aspects of state???
 // .state\:secondary {

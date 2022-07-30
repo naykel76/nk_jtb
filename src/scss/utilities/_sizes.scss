@@ -69,9 +69,9 @@ $rem-sizes: (1, 1.5, 2, 3, 4, 5, 10, 12, 95);
 $pixel-sizes: (16, 24, 32, 40, 64, 100, 150, 200, 300, 400, 600);
 @include makeSizeUtilities($pixel-sizes, "px");
 
-// // --------------------------------------------------------------------------
-// // -- FRACTIONAL SIZES --
-// // --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+// -- FRACTIONAL SIZES --
+// --------------------------------------------------------------------------
 
 // \ is needed to escape the forward slash
 $fractional-sizes: (1\/4: 25%, 1\/3: 33.33%, 1\/2: 50%, 3\/4: 75%);
@@ -82,14 +82,7 @@ $fractional-sizes: (1\/4: 25%, 1\/3: 33.33%, 1\/2: 50%, 3\/4: 75%);
     }
 }
 
-// //     // max-widths
-// //     .minw#{$key} {
-// //         min-width: $value;
-// //     }
-// //     // max-widths
-// //     .maxw#{$key} {
-// //         max-width: $value;
-// //     }
+
 
 $v-heights: (
     // 40: 40vh,
@@ -114,13 +107,20 @@ $max-min-sizes: (
     800: 800px,
 );
 
+
+// 1. use capital so sass does not throw an error
+
 @each $key, $value in $max-min-sizes {
     .minw#{$key} {
-        width: Min($value, 95%); // use capital to sass does not throw an error
+        // this seems very redundant!!
+        // width: Max($value, 1%); // 1.
+        min-width: $value; // 1.
     }
-    // max-widths
+    // max-width, up to max of n%
     .maxw#{$key} {
-        max-width: $value;
+        // Think of the min() value as providing the maximum value
+        // a property can have. chooses the minimum of the two
+        width: Min($value, 95%); // 1.
     }
 }
 

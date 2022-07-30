@@ -24,3 +24,38 @@
         line-height: 1.2;
     }
 }
+
+// 1. remove side margins to align content to the outer bx. This allows
+//    different bg colours can be applied to individual sections
+
+
+.bx-header,
+.bx-footer {
+    margin-left: -$bx-padding; // 1
+    margin-right: -$bx-padding; // 1
+    margin-right: -$bx-padding; // 1
+    padding: 0.75rem $bx-padding;
+}
+
+.bx-header {
+    margin-top: -$bx-padding !important;
+    border-bottom: 1px solid;
+    border-color: rgba(0, 0, 0, 0.15);
+    border-radius: $bx-border-radius $bx-border-radius 0 0;
+    border-left: none;
+}
+
+.bx-footer {
+    margin-bottom: -$bx-padding !important;
+    border-top: 1px solid;
+    border-color: rgba(0, 0, 0, 0.15);
+    border-radius: 0 0 $bx-border-radius $bx-border-radius;
+}
+
+:is(.bx-header + .bx-content) {
+    padding: $bx-padding;
+    margin-bottom: -$bx-padding;
+    margin-left: -$bx-padding;
+    margin-right: -$bx-padding;
+}
+

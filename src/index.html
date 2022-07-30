@@ -13,19 +13,11 @@
 
 <body class="py-3">
 
-    <div class="bx fw6">
-        <a href="">This is a link. There is not hover state!</a> <br>
-        <a class="hover:secondary" href="">This is a link with a hover utility class</a>
-    </div>
-    <div class="bx hover:secondary">
-        <a href="">This is a link. There is not hover state!</a> <br>
-        <a class="" href="">This is a link with a hover utility class</a>
-    </div>
 
 
     <div class="px-5 grid cols-50:50">
 
-        <!-- use flex-basis to override default width -->
+
         <div class="bx">
             <div class="frm-row inline va-t">
                 <label>First Name</label>
@@ -45,7 +37,7 @@
                 <div class="with-icon fg1">
                     <input placeholder="Placeholder...">
                     <svg class="icon">
-                        <use xlink:href="/src/svg/naykel-ui-SVG-sprite.svg#save"></use>
+                        <!-- <use xlink:href="/src/svg/naykel-ui-SVG-sprite.svg#save"></use> -->
                     </svg>
                 </div>
             </div>
@@ -161,12 +153,15 @@
                 <label>Question</label>
                 <textarea class="textarea" placeholder="Explain how we can help you"></textarea>
             </div>
+
             <div class="frm-row">
                 <label class="checkbox">
                     <input type="checkbox">
                     I agree to the <a href="#">terms and conditions</a>
                 </label>
+
             </div>
+
             <div class="frm-row items-end">
                 <button type="submit" class="btn">Submit</button>
             </div>

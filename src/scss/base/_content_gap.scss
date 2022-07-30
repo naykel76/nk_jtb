@@ -5,7 +5,8 @@
     margin-top: $content-gap;
 }
 
-:where(.flex, .grid, .bx, .bx-title, .bx-content, .frm-row, .container) + :where(*) {
+
+:where(.flex, .grid, .bx, .bx-title, .bx-content, .frm-row, .container) + :where(*):not(.dd-content) {
     margin-top: $content-gap;
 }
 
