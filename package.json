@@ -14,7 +14,7 @@
         "spacing": "sass --watch --no-source-map src/scss/utilities/_spacing.scss:dist/css/spacing.css",
         "themes": "sass --watch --no-source-map src/scss/utilities/_themes.scss:dist/css/themes.css",
         "dev": "parcel ./src/index.html --open",
-        "build": "parcel build index.html"
+        "build": "parcel build ./src/index.html"
     },
     "keywords": [],
     "author": "",
@@ -23,5 +23,6 @@
         "@parcel/transformer-sass": "^2.5.0",
         "parcel": "^2.5.0",
         "sass": "^1.51.0"
-    }
+    },
+    "dependencies": {}
 }

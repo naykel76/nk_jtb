@@ -15,7 +15,8 @@
         visibility: hidden;
         opacity: 0;
         transform: translateY(-2em);
-        top: calc(100% + $dropdown-toggle-gap); // push to bottom of toggle element
+        top: calc(100% + 4px); // push to bottom of toggle element
+        // top: calc(100% + $dropdown-toggle-gap); // push to bottom of toggle element
         left: 0;
         transition: all 0.1s ease-in-out 1s, visibility 0s linear 0.1s, z-index 0s linear 0.01s;
         z-index: 1000;
