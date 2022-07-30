@@ -7,28 +7,3 @@ insert_final_newline = true
 indent_style = space
 indent_size = 4
 trim_trailing_whitespace = true
-
-# [*.php]
-# indent_size = 4
-
-# [*.vue]
-# indent_size = 2
-
-# [*.json]
-# indent_size = 4
-
-# [*.blade.php]
-# indent_size = 4
-
-# [*.scss]
-# indent_size = 4
-
-# [*.html]
-# indent_size = 4
-
-# [*.md]
-# indent_size = 4
-# trim_trailing_whitespace = false
-
-# [*.yml]
-# indent_size = 2

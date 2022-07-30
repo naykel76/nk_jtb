@@ -1,28 +1,28 @@
 {
-    "name": "nk_jtb",
-    "description": "Yet another utility based framework.",
-    "version": "0.0.5",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/naykel76/nk_jtb.git"
-    },
-    "scripts": {
-        "watch": "sass --watch --no-source-map src/scss/jtb.scss:dist/css/jtb.css",
-        "border": "sass --watch --no-source-map src/scss/utilities/_border.scss:dist/css/border.css",
-        "flex": "sass --watch --no-source-map src/scss/utilities/_flex.scss:dist/css/flex.css",
-        "grid": "sass --watch --no-source-map src/scss/utilities/_grid.scss:dist/css/grid.css",
-        "spacing": "sass --watch --no-source-map src/scss/utilities/_spacing.scss:dist/css/spacing.css",
-        "themes": "sass --watch --no-source-map src/scss/utilities/_themes.scss:dist/css/themes.css",
-        "dev": "parcel ./src/index.html --open",
-        "build": "parcel build ./src/index.html"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "@parcel/transformer-sass": "^2.5.0",
-        "parcel": "^2.5.0",
-        "sass": "^1.51.0"
-    },
-    "dependencies": {}
+  "name": "nk_jtb",
+  "description": "Yet another utility based framework.",
+  "version": "0.1.0",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/naykel76/nk_jtb.git"
+  },
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "watch": "sass --watch --no-source-map ./scss/jtb.scss:dist/css/jtb.css",
+    "border": "sass --watch --no-source-map ./scss/utilities/_border.scss:dist/css/border.css",
+    "flex": "sass --watch --no-source-map ./scss/utilities/_flex.scss:dist/css/flex.css",
+    "grid": "sass --watch --no-source-map ./scss/utilities/_grid.scss:dist/css/grid.css",
+    "spacing": "sass --watch --no-source-map ./scss/utilities/_spacing.scss:dist/css/spacing.css",
+    "themes": "sass --watch --no-source-map ./scss/utilities/_themes.scss:dist/css/themes.css",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "sass": "^1.54.0",
+    "vite": "^3.0.0"
+  }
 }
+
+
