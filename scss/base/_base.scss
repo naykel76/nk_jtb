@@ -1,4 +1,5 @@
 @use "../base/vars_base" as *;
+@use "../base/vars_colors" as *;
 
 // 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 // 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
@@ -77,12 +78,16 @@ abbr:where([title]) {
     margin-top: 2em; // 1
 }
 
-// DO NOT DEFINE STYLES!  Reset links to optimize for opt-in
-// styling instead of opt-out making it easier to override.
-a {
-    color: inherit;
+// DO NOT reset for opt-in unless you want to keep adding and
+// overriding classes. Use :is() makes it easier to override
+:is(a) {
+    color: $link-color;
     text-decoration: inherit;
     cursor: pointer;
+
+    &:hover {
+        color: $link-hover-color;
+    }
 }
 
 // Add the correct font weight in Edge and Safari.
@@ -257,14 +262,16 @@ summary {
 // Lists
 // ====================
 
-// 1. Because the bullet is outside of the list’s container, indent the list entirely
+ul,
 ol {
-    margin-left: 1em; // 1
+    list-style-position: inside;
 }
 
-ul,
-menu {
-    list-style: none;
+// default lists have bullets. assumption is lists that do not
+// require bullets will be removed in some other class
+
+ul {
+    list-style-type: disc;
 }
 
 // nested lists
@@ -276,6 +283,16 @@ li ol {
     margin-top: 0;
     margin-left: 1rem;
 }
+
+// .list-none {
+//     list-style-type: none;
+// }
+// .list-disc {
+//     list-style-type: disc;
+// }
+// .list-decimal {
+//     list-style-type: decimal;
+// }
 
 // Prevent resizing text areas horizontally by default.
 

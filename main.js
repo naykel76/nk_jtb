@@ -1,4 +1,4 @@
 import './scss/jtb.scss'
 
-document.querySelector('#app').innerHTML = `Hello`
+// document.querySelector('#app').innerHTML = `Hello`
 

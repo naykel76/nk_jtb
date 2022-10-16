@@ -61,6 +61,17 @@ $visibility-utilities: (
         display: flex !important;
     }
 }
+@include laptop-only {
+    .hide-on-laptop {
+        display: none !important;
+    }
+    .block-on-laptop {
+        display: block !important;
+    }
+    .flex-on-laptop {
+        display: flex !important;
+    }
+}
 @include desktop-only {
     .hide-on-desktop {
         display: none !important;
@@ -69,6 +80,17 @@ $visibility-utilities: (
         display: block !important;
     }
     .flex-on-desktop {
+        display: flex !important;
+    }
+}
+@include widescreen-only {
+    .hide-on-widescreen {
+        display: none !important;
+    }
+    .block-on-widescreen {
+        display: block !important;
+    }
+    .flex-on-widescreen {
         display: flex !important;
     }
 }
@@ -88,6 +110,17 @@ $visibility-utilities: (
         display: flex !important;
     }
 }
+@include from-laptop {
+    .hide-from-laptop {
+        display: none !important;
+    }
+    .block-from-laptop {
+        display: block !important;
+    }
+    .flex-from-laptop {
+        display: flex !important;
+    }
+}
 @include from-desktop {
     .hide-from-desktop {
         display: none !important;
@@ -96,6 +129,17 @@ $visibility-utilities: (
         display: block !important;
     }
     .flex-from-desktop {
+        display: flex !important;
+    }
+}
+@include from-widescreen {
+    .hide-from-widescreen {
+        display: none !important;
+    }
+    .block-from-widescreen {
+        display: block !important;
+    }
+    .flex-from-widescreen {
         display: flex !important;
     }
 }
@@ -114,6 +158,17 @@ $visibility-utilities: (
         display: flex !important;
     }
 }
+@include up-to-laptop {
+    .hide-up-to-laptop {
+        display: none !important;
+    }
+    .block-up-to-laptop {
+        display: block !important;
+    }
+    .flex-up-to-laptop {
+        display: flex !important;
+    }
+}
 @include up-to-desktop {
     .hide-up-to-desktop {
         display: none !important;
@@ -122,6 +177,17 @@ $visibility-utilities: (
         display: block !important;
     }
     .flex-up-to-desktop {
+        display: flex !important;
+    }
+}
+@include up-to-widescreen {
+    .hide-up-to-widescreen {
+        display: none !important;
+    }
+    .block-up-to-widescreen {
+        display: block !important;
+    }
+    .flex-up-to-widescreen {
         display: flex !important;
     }
 }

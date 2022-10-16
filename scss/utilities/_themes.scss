@@ -7,14 +7,31 @@
 
 // ----------------------------------
 
-
-$new-theme: (
+// get this to fall back to the base colors???
+$alert-theme: (
     "danger-light": (
-        "base": #ffe6e6,
-        "border-color": #ff9d9d,
-        "color": #4d0000,
-        "title-color": #900,
-        // no state,
+        "base": hsl(0, 100%, 95%),
+        "border-color": hsl(0, 100%, 81%),
+        "color": hsl(0, 100%, 15%),
+        "title-color": hsl(0, 100%, 30%),
+    ),
+    "info-light": (
+        "base": hsl(211, 94%, 94%),
+        "border-color": hsl(211, 94%, 81%),
+        "color": hsl(211, 94%, 15%),
+        "title-color": hsl(211, 94%, 30%),
+    ),
+    "warning-light": (
+        "base": hsl(50, 92%, 95%),
+        "border-color": hsl(50, 92%, 60%),
+        "color": hsl(50, 92%, 21%),
+        "title-color": hsl(50, 92%, 35%),
+    ),
+    "success-light": (
+        "base": hsl(142, 61%, 92%),
+        "border-color": hsl(142, 61%, 81%),
+        "color": hsl(142, 61%, 15%),
+        "title-color": hsl(142, 62%, 25%),
     ),
     "complement": (
         "base": #ffbfd1,
@@ -41,7 +58,7 @@ $default-themes: (
     ),
 ) !default;
 
-$themes-map: map.merge($new-theme, $default-themes);
+$themes-map: map.merge($alert-theme, $default-themes);
 
 // $key is the theme name, $map is the theme map
 @each $key, $map in $themes-map {
@@ -68,8 +85,6 @@ $themes-map: map.merge($new-theme, $default-themes);
 @include colorShades("bg-yellow-", hsl(48, 100%, 70%), 9, 3);
 @include colorShades("bg-blue-", hsl(204, 83%, 53%), 9, 3);
 @include colorShades("bg-green-", hsl(134, 61%, 41%), 9, 3);
-
-
 
 // $themes-map: (
 //     "danger": (

@@ -96,10 +96,9 @@ h1.title {
 //
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
 
-
-
 .txt {
     // size modifiers
+    // check line heights as the may not be correct!
     &-sm {
         font-size: 0.875rem;
         line-height: 1.25rem;
@@ -111,6 +110,11 @@ h1.title {
     &-xl {
         font-size: 1.5rem;
         line-height: 1.75rem;
+    }
+
+    &-2 {
+        font-size: 2rem;
+        line-height: 1;
     }
 
     // colour modifiers

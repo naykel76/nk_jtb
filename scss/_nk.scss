@@ -1,21 +1,6 @@
 @use "./base/vars_all" as *;
 @use "./mixins/media" as *;
 
-// ==========================================================================
-// -- NAYKEL STYLES --
-// ==========================================================================
-// These styles are specific to naykel template layouts
-
-$header-bg: #074464 !default;
-
-$main-bg: transparent !default;
-
-$footer-bg: #303030 !default;
-$footer-text-color: rgb(204, 204, 204) !default;
-
-$copyright-bg: darken($footer-bg, 2%) !default;
-$copyright-text-color: $footer-text-color !default;
-
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
 //
 // It is best not to add padding to the main mk-elements, as it
@@ -28,10 +13,6 @@ $copyright-text-color: $footer-text-color !default;
 
 #nk-header {
     // background-color: $header-bg;
-    // When is adding padding here not a good idea?
-    // Why do I keep changing my mind?
-    // Should I just use a utility class?
-    padding: 2rem;
 }
 
 #nk-header,
@@ -87,6 +68,7 @@ $copyright-text-color: $footer-text-color !default;
     font-size: 0.9rem;
     border: 0; // remove border from colour scheme
     width: 100%;
+    margin-top: 0;
 }
 
 .logo a:hover {
@@ -102,3 +84,4 @@ $copyright-text-color: $footer-text-color !default;
         background-image: linear-gradient(to right top, #20242a, #1e1f27, #1e1a23, #1f141d, #1f0e16, #250e15, #2c0e12, #310f0c, #40140e, #4e1a0e, #5c210c, #692906);
     }
 }
+

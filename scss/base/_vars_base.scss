@@ -13,7 +13,7 @@ $img-path: "/src/images" !default;
 $base-bg: hsl(64, 100%, 99%) !default;
 $base-color: #333 !default;
 
-$base-font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$base-font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 // $base-font-family: 'Nunito', sans-serif;
 // $base-font-family: Montserrat, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 $base-font-weight: normal !default;
@@ -34,6 +34,7 @@ $heading-color: inherit !default;
 $heading-font-weight: 700;
 
 $link-color: #5850ec !default;
+//     color: blueviolet;
 $link-hover-color: indianred !default;
 
 // ==========================================================================
@@ -61,7 +62,15 @@ $breakpoints: (
     lg: 992px,
     xl: 1200px,
     xxl: 1600px,
-);
+) !default;
+
+
+
+// 'sm': '640px', // => @media (min-width: 640px) { ... }
+// 'md': '768px', // => @media (min-width: 768px) { ... }
+// 'lg': '1024px', // => @media (min-width: 1024px) { ... }
+// 'xl': '1280px', // => @media (min-width: 1280px) { ... }
+// '2xl': '1536px', // => @media (min-width: 1536px) { ... }
 
 // translate breakpoints into user friendly names for easy reference
 // IMPORTANT: in terms of device-only, mobile is anything under 767px
@@ -88,5 +97,21 @@ $num-grid-cols: 6 !default; // number of classes to make
 // alway be a gap on smaller devices removing the need to media
 // queries based on the defaults the container will be a maximum
 // of 90% up to a maximum of 1200px
-$container-max: 90%;
+$container-max: 95%;
 $container-max-widescreen: 75rem !default; // 1200px
+
+
+// ==========================================================================
+// -- NAYKEL STYLES --
+// ==========================================================================
+// These styles are specific to naykel template layouts
+
+$header-bg: #074464 !default;
+
+$main-bg: transparent !default;
+
+$footer-bg: #1D1D1C !default;
+$footer-text-color: rgb(204, 204, 204) !default;
+
+$copyright-bg: darken($footer-bg, 2%) !default;
+$copyright-text-color: $footer-text-color !default;

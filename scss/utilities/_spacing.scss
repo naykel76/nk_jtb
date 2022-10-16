@@ -8,6 +8,10 @@
 // Order Matters! basic and responsive utility classes need to
 // come after the magic classes to allow them to be overridden
 //
+// There is no winning here!!! Do you want parent magic classes to
+// override utilities or visa versa
+//
+// put remove at the top???
 // --------------------------------------------------------------
 
 $spacing-utilities-map: (
@@ -113,6 +117,9 @@ $padding-y-responsive-sizes: (10, 6, 2), "";
     margin-top: $content-gap;
 }
 
+.space-y-0 > *:not(:first-child) {
+    margin-top: 0;
+}
 .space-y-05 > *:not(:first-child) {
     margin-top: 0.5rem;
 }

@@ -6,7 +6,7 @@
     "type": "git",
     "url": "https://github.com/naykel76/nk_jtb.git"
   },
-  "private": true,
+  "private": false,
   "type": "module",
   "scripts": {
     "watch": "sass --watch --no-source-map ./scss/jtb.scss:dist/css/jtb.css",
@@ -15,7 +15,7 @@
     "grid": "sass --watch --no-source-map ./scss/utilities/_grid.scss:dist/css/grid.css",
     "spacing": "sass --watch --no-source-map ./scss/utilities/_spacing.scss:dist/css/spacing.css",
     "themes": "sass --watch --no-source-map ./scss/utilities/_themes.scss:dist/css/themes.css",
-    "dev": "vite",
+    "dev": "vite --open",
     "build": "vite build",
     "preview": "vite preview"
   },

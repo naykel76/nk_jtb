@@ -21,7 +21,7 @@
 }
 
 @mixin desktop-only {
-    @media (min-width: $desktop) and (max-width: $desktop - 1px) {
+    @media (min-width: $desktop) and (max-width: $widescreen - 1px) {
         @content;
     }
 }
