@@ -43,9 +43,12 @@
                 }
 
                 .#{$base-class}#{$position-key}#{$size-key} {
-                    // use shorthand for 'xy'
+                    // do not use shorthand to allow for easier override
                     @if ($axis-or-position == "xy") {
-                        #{$property}: #{$value};
+                        #{$property}-top: #{$value};
+                        #{$property}-bottom: #{$value};
+                        #{$property}-left: #{$value};
+                        #{$property}-right: #{$value};
                     } @else {
                         @include makeCssPositionProperty($property, #{$value}, $positions);
                     }

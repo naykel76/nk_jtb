@@ -2,65 +2,91 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/nk.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NayKel JTB</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/nk.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NayKel JTB</title>
 </head>
 
-<body>
+<body class="py" style="vh: 500px;">
 
+    <div class="pxy-5">
 
+        <div class="bx">
+            <div class="frm-row inline">
+                <label>Label</label>
+                <div class="flex-col">
+                    <input id="input" name="input" type="text" placeholder="Text Input">
+                </div>
+            </div>
 
+            <div class="frm-row  inline">
+                <label for="input">Input</label>
+                <div class="flex-col fullwidth">
 
-
-  <section class="py-5-3-2">
-
-
-    <style>
-      .x {
-        grid-template-columns: 2fr minmax(100px, 1fr);
-      }
-
-    </style>
-
-
-    <article>
-      <div class="container">
-        <div class="grid">
-         <div>
-          <h1>Page Title</h1>
-         </div>
-         <div></div>
+                    <input name="input" id="input" class="fg1 bdr-red" for="input" label="input" inline="inline" help-text="Add some help text to guide the user!">
+                    <div class="help mb-025 txt-muted">
+                        <small>Add some help text to guide the user!</small>
+                    </div>
+                    <small class="txt-red" role="alert"> The input field is required. </small>
+                </div>
+            </div>
         </div>
-      </div>
-    </article>
 
-
-
-  </section>
-
-  <section class="py-5-3-2">
-
-    <div class="container px-5">
-
-      <div class="grid cols-2-2-1 gg-4">
-        <div>
-          <div class="bx-title" style="font-size: 1.5rem">Awesome Box Title</div>
-          <p class="txt-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse eum, tenetur suscipit velit uem sunt eaque autem. Sed temporibus ad veritatis assumenda!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse eum, tenetur suscipit velit unde nihil itaque odit molestias incidunt ratione error rem sunt eaque autem. Sed temporibus ad veritatis assumenda!
-          </p>
-          <div><a href="">Find Out More</a></div>
+        <div class="frm-row">
+            <div class="withAddons">
+                <div class="leadingAddon dark">leading</div>
+                <input type="text">
+                <div class="trailingAddon blue">trailing</div>
+            </div>
         </div>
-        <img src="/images/painting.jpg" alt="">
-      </div>
+
+        <div class="frm-row">
+            <div class="withAddons">
+                <div class="leadingAddon dark">leading</div>
+                <input type="text">
+            </div>
+        </div>
+
+        <div class="frm-row">
+            <div class="withAddons">
+                <input type="text">
+                <div class="trailingAddon blue">trailing</div>
+            </div>
+        </div>
+
+
+        <svg class="icon trailingAddon">
+            <use xlink:href="/svg/naykel-ui-SVG-sprite.svg#checked-1"></use>
+        </svg>
+        <div class="frm-row">
+            <div class="withAddons ">
+                <div class="leadingAddon ">
+                    <svg class="icon">
+                        <use xlink:href="/svg/naykel-ui-SVG-sprite.svg#save"></use>
+                    </svg>
+
+                </div>
+                <input type="text">
+                <div class="trailingAddon blue">trailing</div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="frm-row inline">
+            <label for="">Inline</label>
+            <div class="withAddons">
+                <div class="leadingAddon">leading</div>
+                <input type="text">
+                <div class="trailingAddon">trailing</div>
+            </div>
+        </div>
+
     </div>
 
-  </section>
-
-  <div id="app" class="pxy-5"></div>
-  <script type="module" src="/main.js"></script>
+    <div id="app" class="pxy-5"></div>
+    <script type="module" src="/main.js"></script>
 
 
 </body>

@@ -107,13 +107,13 @@ pre {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; // 1
     font-size: 0.85em; // 2
     color: #f0506e;
-    padding: 1px 0.25rem;
     border-radius: 0.25rem;
 }
 
-code {
-    background-color: rgb(226, 232, 240);
-}
+// this gets in the way o code highlighters
+// code {
+//     background-color: rgb(226, 232, 240);
+// }
 
 pre {
     line-height: 1.6;
@@ -262,9 +262,13 @@ summary {
 // Lists
 // ====================
 
+// 1. set style-position outside to align text on second line
+// 2. align to other content
+
 ul,
 ol {
-    list-style-position: inside;
+    list-style-position: outside;
+    margin-left: 1rem;
 }
 
 // default lists have bullets. assumption is lists that do not
@@ -363,13 +367,15 @@ svg {
 // 1. Constrain images and videos to the parent width and preserve
 //    their intrinsic aspect ratio.
 //    (https://github.com/mozdevs/cssremedy/issues/14)
-// 2. allow heights to be set
+// 2. use height:auto instead of max-heigh:100% to prevent scaling
+//    issues.
 
 img,
 video {
     max-width: 100%; // 1.
-    max-height: 100%; // 2.
+    height: auto; // 2
 }
+
 
 // Ensure the default browser behavior of the `hidden` attribute.
 

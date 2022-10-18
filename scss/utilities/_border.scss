@@ -1,36 +1,25 @@
 @use "../base/vars_all" as *;
 @use "../mixins/positionUtilityClasses" as *;
 
-// Add border radius to map???
 $border-utilities-map: (
     "border": (
         "base-class": "bdr",
         "values-map": (
             "default": $border,
+            "0": none !important,
         ),
         "axis-position-map": $axis-position-map,
     ),
 );
 
 $border-widths-map: (
-    1: 1px,
+    0: 0px,
+    2: 2px,
     3: 3px,
     5: 5px,
-    10: 10px,
 ) !default;
 
-$border-colors-map: (
-    "orange": var(--orange),
-    "red": map-get($color-map, "red"),
-    "green": var(--green),
-    "blue": var(--blue),
-    "primary": $primary,
-    "secondary": var(--secondary),
-    "success": var(--success),
-    "danger": var(--danger),
-    "info": var(--info),
-) !default;
-
+$border-colors-map: ($color-map) !default;
 
 // --------------------------------------------------------------------------
 // -- POSITION BASED BORDERS --
@@ -38,13 +27,13 @@ $border-colors-map: (
 
 @include positionUtilityClasses($border-utilities-map);
 
-
 // --------------------------------------------------------------------------
 // -- BORDER COLORS --
 // --------------------------------------------------------------------------
+
 @each $key, $value in $border-colors-map {
     .bdr-#{$key} {
-        border: 1px solid $value;
+        border-color: $value;
     }
 }
 
@@ -54,58 +43,57 @@ $border-colors-map: (
 // make sure overrides come after base class
 
 @each $key, $value in $border-widths-map {
-    .bdr#{$key} {
+    .bdr-#{$key} {
         border-width: $value;
     }
 }
 
-
-
-.nbdr {
-    border: none !important;
+// --------------------------------------------------------------------------
+// -- BORDER RADIUS --
+// --------------------------------------------------------------------------
+.bdrr {
+    border: $border;
+    border-radius: $border-radius;
+    &-t {
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+    }
+    &-b {
+        border-bottom-left-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+    }
+    &-l {
+        border-top-left-radius: $border-radius;
+        border-bottom-left-radius: $border-radius;
+    }
+    &-r {
+        border-top-right-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+    }
 }
 
-// // // border radius
-// // // --------------------------------------------------------------------------
-// // .bdrr {
-// //     border: $border;
-// //     border-radius: $border-radius;
-// //     // positions
-// //     &-t {
-// //         border-top-left-radius: $border-radius;
-// //         border-top-right-radius: $border-radius;
-// //     }
-// //     &-b {
-// //         border-bottom-left-radius: $border-radius;
-// //         border-bottom-right-radius: $border-radius;
-// //     }
-// //     &-l {
-// //         border-top-left-radius: $border-radius;
-// //         border-bottom-left-radius: $border-radius;
-// //     }
-// //     &-r {
-// //         border-top-right-radius: $border-radius;
-// //         border-bottom-right-radius: $border-radius;
-// //     }
-// // }
+// --------------------------------------------------------------------------
+// -- REMOVE BORDER --
+// --------------------------------------------------------------------------
 
-// // // remove border radius
-// // .nbr {
-// //     border-radius: 0;
-// //     &-t {
-// //         border-top-left-radius: 0;
-// //         border-top-right-radius: 0;
-// //     }
-// //     &-b {
-// //         border-bottom-left-radius: 0;
-// //         border-bottom-right-radius: 0;
-// //     }
-// //     &-l {
-// //         border-top-left-radius: 0;
-// //         border-bottom-left-radius: 0;
-// //     }
-// //     &-r {
-// //         border-top-right-radius: 0;
-// //         border-bottom-right-radius: 0;
-// //     }
-// // }
+.bdrr {
+    &-0 {
+        border-radius: 0;
+    }
+    &-t-0 {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+    &-b-0 {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    &-l-0 {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    &-r-0 {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}

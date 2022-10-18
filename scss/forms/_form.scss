@@ -57,59 +57,56 @@ select {
         gap: 1rem;
 
         label {
-            width: 9rem; // use flex-basis to override
+            width: 10rem; // use flex-basis to override
             flex-shrink: 0; // prevent shrink for 100%
             margin-top: 4px; // better alignment
         }
     }
 }
 
-// ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
-//
-// You will be tempted to use the with-addons class directly on
-// the frm-row DON'T DO IT! Just create a new element which gives
-// you greater control with much less frustration.
-//
-// ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
+.withAddons {
+    display: flex;
+    align-items: center;
+    flex: 1 1 0%;
 
-$addOn-inset-distance: 0.25rem; // distance from edge of input
-
-// 1. flex for easy alignment
-// 2. allow everything to align vertically
-// 3. inputs using trailing icons must be 100%
-
-.with-addons {
-    position: relative;
-    display: flex; // 1.
-    align-items: center; // 1.
-
-    .leadingAddon,
-    .trailingAddon {
-        position: absolute;
-        pointer-events: none;
-        // z-index: 10;
-        color: $placeholder-color;
-        line-height: 1; // 2.
+    input {
+        flex-grow: 1;
+        // border-top-left-radius: 0;
+        // border-bottom-left-radius: 0;
+        // border-top-right-radius: 0;
+        // border-bottom-right-radius: 0;
     }
 
     .leadingAddon {
-        left: $addOn-inset-distance;
+        border-top-left-radius: $ctrl-border-radius;
+        border-bottom-left-radius: $ctrl-border-radius;
     }
 
     .trailingAddon {
-        right: $addOn-inset-distance;
+        border-top-right-radius: $ctrl-border-radius;
+        border-bottom-right-radius: $ctrl-border-radius;
     }
 
-    // the width of the addon will vary depending on the content
-    :where(input) {
-        padding-left: 2rem;
-        width: 100%; // 3.
-        &:focus ~ * {
-            color: rgb(73, 73, 73);
-        }
-    }
-
-    .icon {
-        height: 1.25rem;
+    // style addons the same as the control
+    .leadingAddon,
+    .trailingAddon {
+        border: $ctrl-border;
+        font-size: $ctrl-font-size;
+        padding: $ctrl-padding-y $ctrl-padding-x;
+        line-height: $ctrl-line-height; // 1
+        display: inline-flex;
     }
 }
+
+
+.withAddons:has(.leadingAddon){
+    background: green;
+}
+// the width of the addon will vary depending on the content
+// :where(input) {
+//     padding-left: 2rem;
+//     width: 100%; // 3.
+//     &:focus ~ * {
+//         color: rgb(73, 73, 73);
+//     }
+// }

@@ -15,13 +15,16 @@
     // background-color: $header-bg;
 }
 
+// This needs to be reviewed because it is too specific and causes problems
+// for some layouts I have removed because of the QMH site but I am not sure
+// what else it affects
 #nk-header,
 #nk-header > .#{$container-class} {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    grid-gap: 2.5rem;
-    flex-wrap: wrap;
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: flex-start;
+    // grid-gap: 2.5rem;
+    // flex-wrap: wrap;
 
     #search {
         display: flex;
@@ -85,3 +88,21 @@
     }
 }
 
+// ==========================================================================
+// -- BITS AND BOB'S --
+// ==========================================================================
+
+// make code block comments stand out
+.hljs-comment {
+    color: hsl(120, 98%, 35%) !important;
+}
+
+pre code.hljs{
+    padding: 1.5em !important;
+    line-height: 2;
+}
+
+trix-editor {
+    background: white !important;
+    min-height: 100px !important;
+}

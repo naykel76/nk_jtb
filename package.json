@@ -1,7 +1,7 @@
 {
   "name": "nk_jtb",
   "description": "Yet another utility based framework.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/naykel76/nk_jtb.git"
@@ -9,12 +9,10 @@
   "private": false,
   "type": "module",
   "scripts": {
-    "watch": "sass --watch --no-source-map ./scss/jtb.scss:dist/css/jtb.css",
     "border": "sass --watch --no-source-map ./scss/utilities/_border.scss:dist/css/border.css",
-    "flex": "sass --watch --no-source-map ./scss/utilities/_flex.scss:dist/css/flex.css",
-    "grid": "sass --watch --no-source-map ./scss/utilities/_grid.scss:dist/css/grid.css",
     "spacing": "sass --watch --no-source-map ./scss/utilities/_spacing.scss:dist/css/spacing.css",
-    "themes": "sass --watch --no-source-map ./scss/utilities/_themes.scss:dist/css/themes.css",
+    "grid": "sass --watch --no-source-map ./scss/utilities/_grid.scss:dist/css/grid.css",
+    "play": "sass --watch --no-source-map ./scss/_play.scss:dist/css/play.css",
     "dev": "vite --open",
     "build": "vite build",
     "preview": "vite preview"

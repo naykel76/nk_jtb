@@ -14,6 +14,13 @@
 // put remove at the top???
 // --------------------------------------------------------------
 
+// for testing only to override default list
+// $rem-sizes-map: (
+//     "1": 1rem,
+//     "3": 3rem,
+//     "5": 5rem,
+// );
+
 $spacing-utilities-map: (
     "margin": (
         "base-class": "m",
@@ -42,8 +49,6 @@ $spacing-utilities-map: (
     ),
 );
 
-@include positionUtilityClasses($spacing-utilities-map);
-
 // --------------------------------------------------------------
 // -- RESPONSIVE SPACING UTILITIES --
 // --------------------------------------------------------------
@@ -69,7 +74,7 @@ $padding-y-responsive-sizes: (10, 6, 2), "";
 }
 
 // --------------------------------------------------------------
-// -- RESPONSIVE PADDING --
+// -- RESPONSIVE PADDING / MARGIN--
 // --------------------------------------------------------------
 //
 .py-5-3-2 {
@@ -84,6 +89,21 @@ $padding-y-responsive-sizes: (10, 6, 2), "";
     @include from-desktop {
         padding-top: 5rem;
         padding-bottom: 5rem;
+    }
+}
+
+.my-5-3-2 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+    @include from-tablet {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    @include from-desktop {
+        margin-top: 5rem;
+        margin-bottom: 5rem;
     }
 }
 
@@ -181,3 +201,20 @@ $padding-y-responsive-sizes: (10, 6, 2), "";
     padding-left: 1rem;
     padding-right: 1rem;
 }
+
+//
+//
+//
+// ORDER ABOVE IN REVIEW
+//
+//
+//
+//
+
+// --------------------------------------------------------------
+// -- POSITION BASED UTILITIES --
+// --------------------------------------------------------------
+// Must built last to ensure override
+//
+
+@include positionUtilityClasses($spacing-utilities-map);

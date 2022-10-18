@@ -8,11 +8,11 @@
     line-height: 1.25;
     list-style: none;
 
-    :where(a) {
-        // do not add padding here as it is harder to override
+    // add div to
+    :where(a, li a, .menu-item) {
         color: $menu-link-color;
         padding: $menu-padding-y $menu-padding-x;
-        // display: block;
+        display: block;
 
         &:hover {
             color: $menu-link-hover-color;

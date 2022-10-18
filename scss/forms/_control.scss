@@ -28,7 +28,10 @@ $ctrl-line-height: 1.5 !default;
 // 1. line height is required to get consistent heights
 // 2. creates control and button sizes sm, md, lg
 %control {
-    border: $ctrl-border;
+    border-top: $ctrl-border;
+    border-bottom: $ctrl-border;
+    border-left: $ctrl-border;
+    border-right: $ctrl-border;
     border-radius: $ctrl-border-radius;
     font-size: $ctrl-font-size;
     padding: $ctrl-padding-y $ctrl-padding-x;
@@ -37,7 +40,6 @@ $ctrl-line-height: 1.5 !default;
     align-items: center;
     position: relative;
     background-color: $ctrl-bg-color;
-    // cursor: text;
 
     // create control sizes
     @each $size, $value in $control-sizes {
@@ -47,4 +49,3 @@ $ctrl-line-height: 1.5 !default;
     }
 }
 
-// use button hover styles?

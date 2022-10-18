@@ -8,14 +8,17 @@
 // -- MAPS --
 // --------------------------------------------------------------------------
 
+// percentage to fr conversion for two column layouts
 $grid-fr-map: (
     // first-col-%: (col1 fr, col2 fr)
     20: (1fr, 4fr),
     25: (1fr, 3fr),
     30: (3fr, 7fr),
+    33: (1fr, 2fr),
     40: (2fr, 3fr),
     50: (1fr, 1fr),
     60: (3fr, 2fr),
+    67: (2fr, 1fr),
     70: (7fr, 3fr),
     75: (3fr 1fr),
     80: (4fr, 1fr)
@@ -24,7 +27,9 @@ $grid-fr-map: (
 // only need to add 1st column percentage, 2nd is calculated
 // no need to add small size here, it is set to 100 in the create function
 // (25, 25) is shorthand for {25:75}_{25:75}_{100}
-$two-column-magic-grid: ((25, 25), (25, 40), (30, 50), (40, 50), (50, 50), (60, 50), (70, 50), (70, 60), (70, 70));
+
+// 33.33, 66.66
+$two-column-magic-grid: ((25, 25), (25, 40), (30, 50), (40, 50), (50, 50), (60, 50), (67, 50), (70, 50), (70, 60), (70, 70)) !default;
 
 $grid-gap-sizes: (0, 1, 1.5, 2, 3, 4, 5);
 
@@ -40,11 +45,12 @@ $grid-gap-sizes: (0, 1, 1.5, 2, 3, 4, 5);
 }
 
 // -- TWO COLUMN UN-EQUAL WIDTHS (NON-RESPONSIVE) --
+// minmax prevents blowout
 @each $key, $fr-units in $grid-fr-map {
     // specify the first column size,then calculate the second column width
     $class: #{$key}\:#{(100 - $key)};
     .cols-#{$class} {
-        grid-template-columns: nth($fr-units, 1) nth($fr-units, 2);
+        grid-template-columns: minmax(0, nth($fr-units, 1)) minmax(0, nth($fr-units, 2));
     }
 }
 
@@ -131,7 +137,7 @@ $grid-gap-sizes: (0, 1, 1.5, 2, 3, 4, 5);
 // -- RESPONSIVE GRID FIXED WIDTH COLUMNS --
 // --------------------------------------------------------------------------
 // simply add the amount of columns you want a each break point
-$fixed-width-columns-map: ((2, 2, 1), (3, 1, 1), (3, 2, 1), (3, 3, 1), (4, 2, 1), (6, 3, 1));
+$fixed-width-columns-map: ((2, 2, 1), (3, 1, 1), (3, 2, 1), (3, 3, 1), (4, 2, 1), (4, 2, 2), (6, 3, 1));
 
 @each $grid-list in $fixed-width-columns-map {
     // create the class based on the items in each grid map

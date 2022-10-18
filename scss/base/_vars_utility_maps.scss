@@ -2,13 +2,24 @@
 @use "vars_colors" as *;
 
 // ==========================================================================
-// -- axis and positions map for creating position based utility classes --
+// -- axis and positions map for creating position based utility
+// classes --
 // ==========================================================================
-// uses 'direction' or 'axis' for the key and lists the required
-// css 'positions'.
-// NOTE: DO NOT include 'tb' or 'lr'  Use 'x' and 'y' instead.
+// uses 'direction' or 'axis' for the key and lists the css
+// 'positions' required to build
+
+
+
+// !--IMPORTANT--!
+// The order of this map matters
 
 $axis-position-map: (
+    "xy": (
+        "top",
+        "bottom",
+        "left",
+        "right",
+    ),
     "x": (
         "left",
         "right",
@@ -16,12 +27,6 @@ $axis-position-map: (
     "y": (
         "top",
         "bottom",
-    ),
-    "xy": (
-        "top",
-        "bottom",
-        "left",
-        "right",
     ),
     "t": "top",
     "b": "bottom",
@@ -31,7 +36,6 @@ $axis-position-map: (
 
 $tblr-positions-map: map-remove($axis-position-map, "x", "y");
 $xy-positions-map: map-remove($axis-position-map, "t", "b", "l", "r");
-
 
 // --------------------------------------------------------------
 // rem sizes map commonly used (but not limited) for creating
@@ -50,4 +54,5 @@ $rem-sizes-map: (
     "3": 3rem,
     "4": 4rem,
     "5": 5rem,
+    "10": 10rem,
 );

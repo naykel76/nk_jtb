@@ -35,11 +35,6 @@
 // |-- from-device (device and larger) --|
 // --------------------------------------------------------------------------
 
-@mixin from-mobile-landscape {
-    @media (min-width: $mobile-landscape) {
-        @content;
-    }
-}
 @mixin from-tablet {
     @media (min-width: $tablet) {
         @content;

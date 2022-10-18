@@ -67,7 +67,7 @@ $flex-utilities: (
             // stretch: stretch,
             // between: space-between,
             // around: space-around,
-            // evenly: space-evenly,
+            // evenly: space-evenly,,,
         ),
     ),
     "flex-direction": (
@@ -93,10 +93,18 @@ $flex-utilities: (
         "property": "flex",
         "prefix": "",
         "values": (
-            fsg1: 1 1 0%,
+            flex-1: 1 1 0%,
             fs-auto: 0 1 auto,
             fsg-auto: 1 1 auto,
             flex-none: none,
+        ),
+    ),
+    "order": (
+        "property": "order",
+        "prefix": "order-",
+        "values": (
+            1: 1,
+            2: 2,
         ),
     ),
 );

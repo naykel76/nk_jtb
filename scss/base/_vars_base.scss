@@ -56,7 +56,6 @@ $content-gap-xl: 5em;
 // -- Responsive Sizes and Breakpoints --
 // ==========================================================================
 $breakpoints: (
-    xs: 0,
     sm: 576px,
     md: 768px,
     lg: 992px,
@@ -64,21 +63,16 @@ $breakpoints: (
     xxl: 1600px,
 ) !default;
 
+// create an empty map to update or add defaults
+$breakpoints-custom: () !default;
 
-
-// 'sm': '640px', // => @media (min-width: 640px) { ... }
-// 'md': '768px', // => @media (min-width: 768px) { ... }
-// 'lg': '1024px', // => @media (min-width: 1024px) { ... }
-// 'xl': '1280px', // => @media (min-width: 1280px) { ... }
-// '2xl': '1536px', // => @media (min-width: 1536px) { ... }
+// merge together
+$breakpoints: map-merge($breakpoints, $breakpoints-custom);
 
 // translate breakpoints into user friendly names for easy reference
 // IMPORTANT: in terms of device-only, mobile is anything under 767px
 
-$xs: map-get($breakpoints, xs);
 $sm: map-get($breakpoints, sm);
-$mobile-portrait: map-get($breakpoints, xs);
-$mobile-landscape: map-get($breakpoints, sm);
 $tablet: map-get($breakpoints, md);
 $laptop: map-get($breakpoints, lg);
 $desktop: map-get($breakpoints, xl);

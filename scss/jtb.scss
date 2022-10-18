@@ -12,8 +12,6 @@
 // @use "nk_components";
 @forward "nk";
 @forward "forms";
-@forward "layout/grid_old";
-
 
 
 @forward "components/accordion";
@@ -28,9 +26,6 @@
 @forward "components/sidebar";
 
 
-
-// @forward "utilities/visibility";
-// why forward???
 @forward "utilities/border";
 @forward "utilities/display_visibility";
 @forward "utilities/flex";
