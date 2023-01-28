@@ -20,7 +20,14 @@
     color: $secondary;
 }
 
+.hover\:txt-white:hover {
+    color: #fff;
+}
 
+.hover\:text-white:hover {
+    --tw-text-opacity: 1;
+    color: rgb(15 23 42 / var(--tw-text-opacity));
+}
 
 // all aspects of state???
 // .state\:secondary {

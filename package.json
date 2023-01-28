@@ -20,5 +20,8 @@
   "devDependencies": {
     "sass": "^1.54.0",
     "vite": "^3.0.0"
+  },
+  "dependencies": {
+    "alpinejs": "^3.10.5"
   }
 }

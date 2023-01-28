@@ -132,6 +132,12 @@ $grid-gap-sizes: (0, 1, 1.5, 2, 3, 4, 5);
         gap: 3rem !important;
     }
 }
+.gg-5-3-1 {
+    gap: 3rem !important;
+    @include from-desktop {
+        gap: 5rem !important;
+    }
+}
 
 // --------------------------------------------------------------------------
 // -- RESPONSIVE GRID FIXED WIDTH COLUMNS --

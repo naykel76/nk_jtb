@@ -1,0 +1,59 @@
+@use "../utilities/display_visibility" as *;
+
+$toggle-body-height: 1.5rem;
+$toggle-body-width: 3rem;
+$toggle-gap: 0.25rem;
+
+.transition {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 450ms;
+}
+
+.toggle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+
+    input[type="checkbox"] {
+        @extend .sr-only;
+    }
+
+    // toggle body
+    div {
+        border-radius: 9999px;
+        width: $toggle-body-width;
+        height: $toggle-body-height;
+        background-color: hsl(0deg, 0%, 90%);
+
+        // toggle off
+        &::after {
+            position: absolute;
+            content: "";
+            height: calc($toggle-body-height - $toggle-gap);
+            width: calc($toggle-body-height - $toggle-gap);
+            top: calc($toggle-gap / 2);
+            left: calc($toggle-gap / 2);
+            background-color: hsl(0, 0%, 100%);
+            border-color: rgba(0, 0, 0, 0.15);
+            border-radius: 9999px;
+            border-width: 1px;
+            @extend .transition;
+        }
+    }
+}
+
+input[type="checkbox"]:checked {
+    // toggle body on (checked)
+    ~ div {
+        background-color: hsl(100, 70%, 40%);
+        @extend .transition;
+        // toggle when checked
+        &::after {
+            // background-color: hsl(50, 10%, 10%);
+            transform: translateX(calc($toggle-body-width - $toggle-body-height));
+            @extend .transition;
+        }
+    }
+}

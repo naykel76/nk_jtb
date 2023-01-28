@@ -6,89 +6,30 @@
     <link rel="icon" type="image/svg+xml" href="/nk.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NayKel JTB</title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <!-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> -->
 </head>
 
-<body class="py" style="vh: 500px;">
-
-    <div class="pxy-5">
-
-        <div class="bx">
-            <div class="frm-row inline">
-                <label>Label</label>
-                <div class="flex-col">
-                    <input id="input" name="input" type="text" placeholder="Text Input">
-                </div>
-            </div>
-
-            <div class="frm-row  inline">
-                <label for="input">Input</label>
-                <div class="flex-col fullwidth">
-
-                    <input name="input" id="input" class="fg1 bdr-red" for="input" label="input" inline="inline" help-text="Add some help text to guide the user!">
-                    <div class="help mb-025 txt-muted">
-                        <small>Add some help text to guide the user!</small>
-                    </div>
-                    <small class="txt-red" role="alert"> The input field is required. </small>
-                </div>
-            </div>
-        </div>
-
-        <div class="frm-row">
-            <div class="withAddons">
-                <div class="leadingAddon dark">leading</div>
-                <input type="text">
-                <div class="trailingAddon blue">trailing</div>
-            </div>
-        </div>
-
-        <div class="frm-row">
-            <div class="withAddons">
-                <div class="leadingAddon dark">leading</div>
-                <input type="text">
-            </div>
-        </div>
-
-        <div class="frm-row">
-            <div class="withAddons">
-                <input type="text">
-                <div class="trailingAddon blue">trailing</div>
-            </div>
-        </div>
+<body>
+    <div class="pxy-5 container space-x">
 
 
-        <svg class="icon trailingAddon">
-            <use xlink:href="/svg/naykel-ui-SVG-sprite.svg#checked-1"></use>
-        </svg>
-        <div class="frm-row">
-            <div class="withAddons ">
-                <div class="leadingAddon ">
-                    <svg class="icon">
-                        <use xlink:href="/svg/naykel-ui-SVG-sprite.svg#save"></use>
-                    </svg>
 
-                </div>
-                <input type="text">
-                <div class="trailingAddon blue">trailing</div>
-            </div>
-        </div>
+        <!-- <div class="bx round"> -->
 
-        <hr>
+        <label class="toggle">
+            <input type="checkbox">
+            <div></div>
+            <span class="ml">Toggle me</span>
+        </label>
+        <!-- </div> -->
 
-        <div class="frm-row inline">
-            <label for="">Inline</label>
-            <div class="withAddons">
-                <div class="leadingAddon">leading</div>
-                <input type="text">
-                <div class="trailingAddon">trailing</div>
-            </div>
-        </div>
+
 
     </div>
 
     <div id="app" class="pxy-5"></div>
     <script type="module" src="/main.js"></script>
-
-
 </body>
 
 </html>

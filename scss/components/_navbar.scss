@@ -12,7 +12,13 @@
     padding: $navbar-padding-y $navbar-padding-x;
     position: relative;
 
-    nav {
+    li {
+        list-style: none;
+    }
+
+    nav,
+    ul {
+        margin: 0; // this may be a problem for nested elements
         display: flex;
     }
 

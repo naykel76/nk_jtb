@@ -2,18 +2,27 @@
 
 $text-utilities: (
     "font-weight": (
-        "prefix": "fw",
+        "prefix": "fw-",
         "values": (
+            2: 200,
             4: 400,
+            5: 500,
             6: 600,
             7: 700,
             9: 900,
+        ),
+    ),
+    "font-style": (
+        "prefix": "txt-",
+        "values": (
+            italic: italic,
         ),
     ),
     "line-height": (
         "prefix": "lh-",
         "values": (
             1: 1,
+            // 1: 1,
         ),
     ),
     "text-align": (
@@ -31,6 +40,7 @@ $text-utilities: (
             "upper": uppercase,
             "lower": lowercase,
             "capitalize": capitalize,
+            "normal-case": none,
         ),
     ),
     "text-decoration": (
@@ -86,22 +96,36 @@ h1.title {
         color: $link-hover-color;
     }
 }
-// ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
-//
-// it is important that utility classes come after more specific
-// modifier classes to make sure utilities can be used to override
-// styles if required.
-//
-// For example, the line-height utility class must come after txt-sm
-//
-// ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
+
+// text-2xl	font-size: 1.5rem; /* 24px */
+// line-height: 2rem; /* 32px */
+// text-3xl	font-size: 1.875rem; /* 30px */
+// line-height: 2.25rem; /* 36px */
+// text-4xl	font-size: 2.25rem; /* 36px */
+// line-height: 2.5rem; /* 40px */
+// text-5xl	font-size: 3rem; /* 48px */
+// line-height: 1;
+// text-6xl	font-size: 3.75rem; /* 60px */
+// line-height: 1;
+// text-7xl	font-size: 4.5rem; /* 72px */
+// line-height: 1;
+// text-8xl	font-size: 6rem; /* 96px */
+// line-height: 1;
+// text-9xl	font-size: 8rem; /* 128px */
+// line-height: 1;
 
 .txt {
-    // size modifiers
-    // check line heights as the may not be correct!
+    &-xs {
+        font-size: 0.75rem;
+        line-height: 1rem;
+    }
     &-sm {
         font-size: 0.875rem;
         line-height: 1.25rem;
+    }
+    &-base {
+        font-size: 1rem;
+        line-height: 1.5rem;
     }
     &-lg {
         font-size: 1.25rem;
@@ -114,6 +138,14 @@ h1.title {
 
     &-2 {
         font-size: 2rem;
+        line-height: 1;
+    }
+    &-3 {
+        font-size: 3rem;
+        line-height: 1;
+    }
+    &-4 {
+        font-size: 4rem;
         line-height: 1;
     }
 

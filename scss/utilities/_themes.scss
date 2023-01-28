@@ -80,31 +80,10 @@ $themes-map: map.merge($alert-theme, $default-themes);
     }
 }
 
+.bg-white {background-color: #fff;}
 @include colorShades("bg-grey-", hsl(0, 0%, 7%), 9, 10);
 @include colorShades("bg-orange-", hsl(14, 100%, 50%));
 @include colorShades("bg-yellow-", hsl(48, 100%, 70%), 9, 3);
 @include colorShades("bg-blue-", hsl(204, 83%, 53%), 9, 3);
 @include colorShades("bg-green-", hsl(134, 61%, 41%), 9, 3);
 
-// $themes-map: (
-//     "danger": (
-//         "base": map-get($color-map, "danger"),
-//         "base-light": map-get($color-map, "danger-light"),
-//         "color-light": map-get($color-map, "danger"),
-//     ),
-//     "success": (
-//         "base": map-get($color-map, "success"),
-//         "base-light": map-get($color-map, "success-light"),
-//         "color-light": map-get($color-map, "success"),
-//     ),
-//     "info": (
-//         "base": map-get($color-map, "info"),
-//         "base-light": map-get($color-map, "info-light"),
-//         "color-light": map-get($color-map, "info"),
-//     ),
-//     "warning": (
-//         "base": map-get($color-map, "warning"),
-//         "base-light": map-get($color-map, "warning-light"),
-//         "color-light": map-get($color-map, "warning"),
-//     ),
-// );

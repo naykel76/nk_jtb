@@ -14,16 +14,19 @@
         padding: $menu-padding-y $menu-padding-x;
         display: block;
 
+        &.active,
         &:hover {
             color: $menu-link-hover-color;
-            background: $menu-hover-bg;
+            background-color: $menu-hover-bg;
         }
     }
 
     .menu-title {
         font-weight: 600;
-        color: #7a7a7a;
+        color: #696969;
         letter-spacing: 0.05em;
+        margin-left: $menu-padding-x;
+        margin-bottom: 0.5em;
 
         &:not(:first-child) {
             margin-top: $content-gap;
