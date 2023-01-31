@@ -1,0 +1,60 @@
+@use "../base/vars_utility_maps" as *;
+@use "../mixins/media" as *;
+@use "sass:list";
+
+// only need to add 1st column percentage, 2nd is calculated
+// no need to add small size here, it is set to 100 in the create function
+// (25, 25) is shorthand for {25:75}_{25:75}_{100}
+
+// The numbers is this list represent the first colum width of the largest breakpoint as a percentage of a two colum layout at a certain breakpoint.
+
+// The more sizes you add will cover more breakpoints.
+
+// There is no need to specify a size for the smallest breakpoint as it will be automatically set to 100 percent in the make function.
+
+// For example, if there are 2 sizes in the list there will be 3 breakpoints lg, md, and sm.
+
+// In this example, only the first column width has been set as the second column width will be calculate and included automatically.
+
+// Grid will display in rows by default, size are min-size so you do not need to worry about adding the smallest size as it will be 100% by default
+
+
+@mixin makeMagicGrid2Cols($grid-cols-map) {
+    @each $cols-map in $grid-cols-map {
+        // count the number of elements in each map to determine how many
+        // break points. 2 sizes = 3 breakpoints lg, md, sm (small is
+        // calculated so there is no need to pass it in)
+        $numBreakPoints: list.length($cols-map);
+
+        $md-width: nth($cols-map, -1);
+        $lg-width: nth($cols-map, -2);
+
+        $class: ""; // initialize to prevent error
+
+        @if ($numBreakPoints == 3) {
+            $xl-width: nth($cols-map, -3);
+            $class: #{$xl-width}_#{$lg-width}_#{$md-width}_100;
+        } @else {
+            $class: #{$lg-width}_#{$md-width}_100;
+        }
+
+        // used for more concise class name with both column sizes displayed in the class e.g. cols-60:40_50:50_100
+        // $class: #{$large-width}\:#{(100 - $large-width)}_#{$medium-width}\:#{(100 - $medium-width)}_100;
+
+        .cols-#{$class} {
+            @include from-tablet {
+                grid-template-columns: nth(map-get($fr-map-2-col, $md-width), 1) nth(map-get($fr-map-2-col, $md-width), 2);
+            }
+            @include from-desktop {
+                grid-template-columns: nth(map-get($fr-map-2-col, $lg-width), 1) nth(map-get($fr-map-2-col, $lg-width), 2);
+            }
+
+            @if ($numBreakPoints == 3) {
+                $xl-width: nth($cols-map, -3); // this is to prevent undefined variable error
+                @include from-widescreen {
+                    grid-template-columns: nth(map-get($fr-map-2-col, $xl-width), 1) nth(map-get($fr-map-2-col, $xl-width), 2);
+                }
+            }
+        }
+    }
+}
