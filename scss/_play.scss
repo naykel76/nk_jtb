@@ -1,34 +1,72 @@
-// @use "base/root";
-// @use "base/base";
-// @use "base/content_gap";
+@use "./base/vars_base" as *;
+@use "./base/vars_utility_maps" as *;
+@use "./functions/helpers" as *;
+@use "./mixins/makeMagicGrid2Cols" as *;
+@use "./mixins/media" as *;
+@use "sass:list";
+@use "sass:map";
+@use "sass:string";
 
-// // @use "nk_components";
-// @forward "nk";
-// @forward "forms";
-// @forward "layout/grid_old";
+@mixin makeMagicGrid2Cols($grid-cols-map) {
+    @each $cols-map in $grid-cols-map {
+        // count the number of elements in each map to determine how many
+        // break points. 2 sizes = 3 breakpoints lg, md, sm (small is
+        // calculated so there is no need to pass it in)
+        $numBreakPoints: list.length($cols-map);
 
+        $md-width: nth($cols-map, -1);
+        $lg-width: nth($cols-map, -2);
 
-// @forward "components/accordion";
-// @forward "components/box";
-// @forward "components/button";
-// @forward "components/dropdown";
-// @forward "components/hero"; // has problems with img
-// @forward "components/icon";
-// @forward "components/menu";
-// @forward "components/navbar";
-// @forward "components/other";
-// @forward "components/sidebar";
+        $class: #{$lg-width}_#{$md-width}_100;
 
+        @if ($numBreakPoints == 4) {
+            $xxl-width: nth($cols-map, -3);
+            $class: #{$xxl-width}_#{$xl-width}_#{$lg-width}_#{$md-width}_100;
+        } @else if ($numBreakPoints == 3) {
+            $xl-width: nth($cols-map, -3);
+            $class: #{$xl-width}_#{$lg-width}_#{$md-width}_100;
+        }
 
-// @forward "utilities/border";
-// @forward "utilities/display_visibility";
-// @forward "utilities/flex";
-// @forward "utilities/general";
-// @forward "utilities/grid";
-// @forward "utilities/position";
-// @forward "utilities/sizes";
-@forward "utilities/spacing";
-// @forward "utilities/state";
-// @forward "utilities/text";
-// @forward "utilities/themes";
+        // used for more concise class name with both column sizes displayed in the class e.g. cols-60:40_50:50_100
+        // $class: #{$large-width}\:#{(100 - $large-width)}_#{$medium-width}\:#{(100 - $medium-width)}_100;
 
+        .cols-#{$class} {
+            @include from-tablet {
+                grid-template-columns: nth(map-get($fr-map-2-col, $md-width), 1) nth(map-get($fr-map-2-col, $md-width), 2);
+            }
+            @include from-laptop {
+                grid-template-columns: nth(map-get($fr-map-2-col, $md-width), 1) nth(map-get($fr-map-2-col, $md-width), 2);
+            }
+
+            @if ($numBreakPoints == 3) {
+                $xl-width: nth($cols-map, -3); // this is to prevent undefined variable error
+                @include from-desktop {
+                    grid-template-columns: nth(map-get($fr-map-2-col, $lg-width), 1) nth(map-get($fr-map-2-col, $lg-width), 2);
+                }
+            }
+
+            @if ($numBreakPoints == 4) {
+                $xl-width: nth($cols-map, -3); // this is to prevent undefined variable error
+                @include from-desktop {
+                    grid-template-columns: nth(map-get($fr-map-2-col, $lg-width), 1) nth(map-get($fr-map-2-col, $lg-width), 2);
+                }
+            }
+        }
+    }
+}
+
+// $two-column-3pb: ((50, 60), (50, 50)) !default;
+// @include makeMagicGrid2Cols($two-column-3pb);
+
+$two-column-3pb: ((20, 40), (20, 20));
+@include makeMagicGrid2Cols($two-column-3pb);
+
+// $two-column-4pb: ((20, 40, 60), (20, 20, 20));
+// @include makeMagicGrid2Cols($two-column-4pb);
+
+// $two-column-5bp: ((20, 40, 60, 80), (20, 40, 60, 80));
+// @include makeMagicGrid2Cols($two-column-5bp);
+
+// $two-column-4pb: ((50, 60, 60), (60, 50, 50)) !default;
+// $two-column-5pb: ((50, 60, 60), (60, 50, 50)) !default;
+// @include makeMagicGrid2Cols($two-column-4pb);

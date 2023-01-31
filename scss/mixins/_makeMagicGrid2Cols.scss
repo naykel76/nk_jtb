@@ -18,7 +18,6 @@
 
 // Grid will display in rows by default, size are min-size so you do not need to worry about adding the smallest size as it will be 100% by default
 
-
 @mixin makeMagicGrid2Cols($grid-cols-map) {
     @each $cols-map in $grid-cols-map {
         // count the number of elements in each map to determine how many
@@ -28,31 +27,35 @@
 
         $md-width: nth($cols-map, -1);
         $lg-width: nth($cols-map, -2);
+        $xl-width: if($numBreakPoints >= 3, nth($cols-map, -3), null);
+        $xxl-width: if($numBreakPoints >= 4, nth($cols-map, -4), null);
 
-        $class: ""; // initialize to prevent error
+        $class: #{$lg-width}_#{$md-width}_100;
 
         @if ($numBreakPoints == 3) {
-            $xl-width: nth($cols-map, -3);
             $class: #{$xl-width}_#{$lg-width}_#{$md-width}_100;
-        } @else {
-            $class: #{$lg-width}_#{$md-width}_100;
+        } @else if ($numBreakPoints == 4) {
+            $class: #{$xxl-width}_#{$xl-width}_#{$lg-width}_#{$md-width}_100;
         }
-
-        // used for more concise class name with both column sizes displayed in the class e.g. cols-60:40_50:50_100
-        // $class: #{$large-width}\:#{(100 - $large-width)}_#{$medium-width}\:#{(100 - $medium-width)}_100;
 
         .cols-#{$class} {
             @include from-tablet {
                 grid-template-columns: nth(map-get($fr-map-2-col, $md-width), 1) nth(map-get($fr-map-2-col, $md-width), 2);
             }
-            @include from-desktop {
+
+            @include from-laptop {
                 grid-template-columns: nth(map-get($fr-map-2-col, $lg-width), 1) nth(map-get($fr-map-2-col, $lg-width), 2);
             }
 
-            @if ($numBreakPoints == 3) {
-                $xl-width: nth($cols-map, -3); // this is to prevent undefined variable error
-                @include from-widescreen {
+            @if ($numBreakPoints >= 3) {
+                @include from-desktop {
                     grid-template-columns: nth(map-get($fr-map-2-col, $xl-width), 1) nth(map-get($fr-map-2-col, $xl-width), 2);
+                }
+            }
+
+            @if ($numBreakPoints >= 4) {
+                @include from-widescreen {
+                    grid-template-columns: nth(map-get($fr-map-2-col, $xxl-width), 1) nth(map-get($fr-map-2-col, $xxl-width), 2);
                 }
             }
         }

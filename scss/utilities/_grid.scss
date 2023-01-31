@@ -1,8 +1,10 @@
-@use "../mixins/media" as *;
 @use "../base/vars_base" as *;
-@use "../base/vars_utility_maps" as *; // remove??
-@use "../mixins/makeMagicGrid2Cols" as *;
+@use "../base/vars_base" as *;
+@use "../base/vars_utility_maps" as *;
 @use "../functions/helpers" as *;
+@use "../mixins/makeMagicGrid2Cols" as *;
+@use "../mixins/media" as *;
+@use "sass:list";
 @use "sass:map";
 @use "sass:string";
 
@@ -38,15 +40,32 @@ $grid-gap-sizes: (0, 1, 1.25, 1.5, 2, 3, 4, 5);
 // -- TWO COLUMN RESPONSIVE MAGIC GRID --
 // --------------------------------------------------------------------------
 
-$two-column-magic-grid: ((25, 25), (25, 40), (30, 50), (40, 50), (40, 60), (50, 50), (50, 60), (60, 50), (67, 50), (70, 50), (70, 60), (70, 70)) !default;
+// !! IMPORTANT !! ALL MAGIC MIXINS MUST HAVE AT LEAST TWO MAPS OR YOU WILL
+// GET AN AN 'UNDEFINED' ERROR BECAUSE IT TREATS A SIBLE MAP AS A LIST
 
-@include makeMagicGrid2Cols($two-column-magic-grid);
+$magic-grid-sizes: ((60, 80), (40, 60, 80), (20, 40, 60, 80));
+@include makeMagicGrid2Cols($magic-grid-sizes);
 
-$two-column-3-sizes: ((50,50,60)) !default;
-@include makeMagicGrid2Cols($two-column-3-sizes);
+$magic-grid-sizes: ((80, 60), (80, 60, 40), (80, 60, 40, 20));
+@include makeMagicGrid2Cols($magic-grid-sizes);
 
+// $two-column-3pb: ((25, 25), (25, 40), (30, 50), (40, 50), (40, 60), (50, 50), (50, 60), (60, 50), (67, 50), (70, 50), (70, 60), (70, 70)) !default;
 
+// @include makeMagicGrid2Cols($two-column-3pb);
 
+// $two-column-4pb: ((50, 60, 60), (60, 50, 50)) !default;
+// @include makeMagicGrid2Cols($two-column-4pb);
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //  ANYTHING UNDER HERE SHOULD BE DOCUMENTED THE MOVED
@@ -55,28 +74,26 @@ $two-column-3-sizes: ((50,50,60)) !default;
 //
 //
 
-// // --------------------------------------------------------------------------
-// // -- TWO COLUMN NON-RESPONSIVE GRIDS --
-// // --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+// -- TWO COLUMN NON-RESPONSIVE GRIDS --
+// --------------------------------------------------------------------------
 
-// // -- TWO COLUMN EQUAL WIDTHS (NON-RESPONSIVE) --
-// @for $i from 1 through $num-grid-cols {
-//     .cols-#{$i} {
-//         grid-template-columns: repeat($i, minmax(0, 1fr));
-//     }
-// }
+// -- TWO COLUMN EQUAL WIDTHS (NON-RESPONSIVE) --
+@for $i from 1 through $num-grid-cols {
+    .cols-#{$i} {
+        grid-template-columns: repeat($i, minmax(0, 1fr));
+    }
+}
 
-// // -- TWO COLUMN UN-EQUAL WIDTHS (NON-RESPONSIVE) --
-// // minmax prevents blowout
-// @each $key, $fr-units in $fr-map-2-col {
-//     // specify the first column size,then calculate the second column width
-//     $class: #{$key}\:#{(100 - $key)};
-//     .cols-#{$class} {
-//         grid-template-columns: minmax(0, nth($fr-units, 1)) minmax(0, nth($fr-units, 2));
-//     }
-// }
-
-
+// -- TWO COLUMN UN-EQUAL WIDTHS (NON-RESPONSIVE) --
+// minmax prevents blowout
+@each $key, $fr-units in $fr-map-2-col {
+    // specify the first column size,then calculate the second column width
+    $class: #{$key}\:#{(100 - $key)};
+    .cols-#{$class} {
+        grid-template-columns: minmax(0, nth($fr-units, 1)) minmax(0, nth($fr-units, 2));
+    }
+}
 
 //  UNDER REVIEW
 //
@@ -97,66 +114,66 @@ $two-column-3-sizes: ((50,50,60)) !default;
 // -- RESPONSIVE GRID GAP --
 // --------------------------------------------------------------------------
 
-// .gg-3-1-1 {
-//     gap: 1rem !important;
-//     @include from-desktop {
-//         gap: 3rem !important;
-//     }
-// }
-// .gg-5-3-1 {
-//     gap: 3rem !important;
-//     @include from-desktop {
-//         gap: 5rem !important;
-//     }
-// }
+.gg-3-1-1 {
+    gap: 1rem !important;
+    @include from-desktop {
+        gap: 3rem !important;
+    }
+}
+.gg-5-3-1 {
+    gap: 3rem !important;
+    @include from-desktop {
+        gap: 5rem !important;
+    }
+}
 
-// // --------------------------------------------------------------------------
-// // -- RESPONSIVE GRID FIXED WIDTH COLUMNS --
-// // --------------------------------------------------------------------------
-// // simply add the amount of columns you want a each break point
-// $fixed-width-columns-map: ((2, 2, 1), (3, 1, 1), (3, 2, 1), (3, 3, 1), (4, 2, 1), (4, 2, 2), (6, 3, 1));
+// --------------------------------------------------------------------------
+// -- RESPONSIVE GRID FIXED WIDTH COLUMNS --
+// --------------------------------------------------------------------------
+// simply add the amount of columns you want a each break point
+$fixed-width-columns-map: ((2, 2, 1), (3, 1, 1), (3, 2, 1), (3, 3, 1), (4, 2, 1), (4, 2, 2), (6, 3, 1));
 
-// @each $grid-list in $fixed-width-columns-map {
-//     // create the class based on the items in each grid map
-//     .cols-#{nth($grid-list, 1)}-#{nth($grid-list, 2)}-#{nth($grid-list, 3)} {
-//         grid-template-columns: repeat(nth($grid-list, 3), 1fr);
-//         @include from-tablet {
-//             grid-template-columns: repeat(nth($grid-list, 2), 1fr);
-//         }
-//         @include from-desktop {
-//             grid-template-columns: repeat(nth($grid-list, 1), 1fr);
-//         }
-//     }
-// }
+@each $grid-list in $fixed-width-columns-map {
+    // create the class based on the items in each grid map
+    .cols-#{nth($grid-list, 1)}-#{nth($grid-list, 2)}-#{nth($grid-list, 3)} {
+        grid-template-columns: repeat(nth($grid-list, 3), 1fr);
+        @include from-tablet {
+            grid-template-columns: repeat(nth($grid-list, 2), 1fr);
+        }
+        @include from-desktop {
+            grid-template-columns: repeat(nth($grid-list, 1), 1fr);
+        }
+    }
+}
 
-// // --------------------------------------------------------------------------
-// // --  --
-// // --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+// --  --
+// --------------------------------------------------------------------------
 
-// .cols-4-4-2-1 {
-//     grid-template-columns: repeat(1, minmax(0, 1fr));
+.cols-4-4-2-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
 
-//     @include from-tablet {
-//         grid-template-columns: repeat(2, minmax(0, 1fr));
-//     }
+    @include from-tablet {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
-//     @include from-laptop {
-//         grid-template-columns: repeat(4, minmax(0, 1fr));
-//     }
-// }
+    @include from-laptop {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
 
-// .cols-4-3-2-1 {
-//     grid-template-columns: repeat(1, minmax(0, 1fr));
+.cols-4-3-2-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
 
-//     @include from-tablet {
-//         grid-template-columns: repeat(2, minmax(0, 1fr));
-//     }
+    @include from-tablet {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
-//     @include from-laptop {
-//         grid-template-columns: repeat(3, minmax(0, 1fr));
-//     }
+    @include from-laptop {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 
-//     @include from-desktop {
-//         grid-template-columns: repeat(4, minmax(0, 1fr));
-//     }
-// }
+    @include from-desktop {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
