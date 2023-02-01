@@ -72,7 +72,7 @@ $breakpoints: map-merge($breakpoints, $breakpoints-custom);
 // translate breakpoints into user friendly names for easy reference
 // IMPORTANT: in terms of device-only, mobile is anything under 767px
 
-$sm: map-get($breakpoints, sm);
+$small: map-get($breakpoints, sm);
 $tablet: map-get($breakpoints, md);
 $laptop: map-get($breakpoints, lg);
 $desktop: map-get($breakpoints, xl);

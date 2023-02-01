@@ -18,44 +18,48 @@
 
 // Grid will display in rows by default, size are min-size so you do not need to worry about adding the smallest size as it will be 100% by default
 
-@mixin makeMagicGrid2Cols($grid-cols-map) {
-    @each $cols-map in $grid-cols-map {
-        // count the number of elements in each map to determine how many
-        // break points. 2 sizes = 3 breakpoints lg, md, sm (small is
-        // calculated so there is no need to pass it in)
-        $numBreakPoints: list.length($cols-map);
+@mixin makeMagicGrid2Cols($list-of-lists) {
+    // must have at least two list
+    @each $list in $list-of-lists {
+        // exclude empty list when creating single list
+        @if ($list != ()) {
+            $numBreakPoints: list.length($list);
 
-        $md-width: nth($cols-map, -1);
-        $lg-width: nth($cols-map, -2);
-        $xl-width: if($numBreakPoints >= 3, nth($cols-map, -3), null);
-        $xxl-width: if($numBreakPoints >= 4, nth($cols-map, -4), null);
+            $sm: nth($list, -1);
+            $md: nth($list, -2);
+            $lg: if($numBreakPoints >= 3, nth($list, -3), null);
+            $xl: if($numBreakPoints >= 4, nth($list, -4), null);
+            $xxl: if($numBreakPoints >= 5, nth($list, -5), null);
 
-        $class: #{$lg-width}_#{$md-width}_100;
+            $class: #{$md}_#{$sm};
 
-        @if ($numBreakPoints == 3) {
-            $class: #{$xl-width}_#{$lg-width}_#{$md-width}_100;
-        } @else if ($numBreakPoints == 4) {
-            $class: #{$xxl-width}_#{$xl-width}_#{$lg-width}_#{$md-width}_100;
-        }
-
-        .cols-#{$class} {
-            @include from-tablet {
-                grid-template-columns: nth(map-get($fr-map-2-col, $md-width), 1) nth(map-get($fr-map-2-col, $md-width), 2);
+            @if ($numBreakPoints == 3) {
+                $class: #{$lg}_#{$md}_#{$sm};
+            } @else if ($numBreakPoints == 4) {
+                $class: #{$xl}_#{$lg}_#{$md}_#{$sm};
+            } @else if ($numBreakPoints == 5) {
+                $class: #{$xxl}_#{$xl}_#{$lg}_#{$md}_#{$sm};
             }
 
-            @include from-laptop {
-                grid-template-columns: nth(map-get($fr-map-2-col, $lg-width), 1) nth(map-get($fr-map-2-col, $lg-width), 2);
-            }
-
-            @if ($numBreakPoints >= 3) {
-                @include from-desktop {
-                    grid-template-columns: nth(map-get($fr-map-2-col, $xl-width), 1) nth(map-get($fr-map-2-col, $xl-width), 2);
+            .cols-#{$class} {
+                @include from-small {
+                    grid-template-columns: nth(map-get($fr-map-2-col, $sm), 1) nth(map-get($fr-map-2-col, $sm), 2);
                 }
-            }
 
-            @if ($numBreakPoints >= 4) {
-                @include from-widescreen {
-                    grid-template-columns: nth(map-get($fr-map-2-col, $xxl-width), 1) nth(map-get($fr-map-2-col, $xxl-width), 2);
+                @include from-tablet {
+                    grid-template-columns: nth(map-get($fr-map-2-col, $md), 1) nth(map-get($fr-map-2-col, $md), 2);
+                }
+
+                @if ($numBreakPoints >= 3) {
+                    @include from-laptop {
+                        grid-template-columns: nth(map-get($fr-map-2-col, $lg), 1) nth(map-get($fr-map-2-col, $lg), 2);
+                    }
+                }
+
+                @if ($numBreakPoints >= 4) {
+                    @include from-desktop {
+                        grid-template-columns: nth(map-get($fr-map-2-col, $xl), 1) nth(map-get($fr-map-2-col, $xl), 2);
+                    }
                 }
             }
         }

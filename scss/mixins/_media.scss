@@ -35,6 +35,12 @@
 // |-- from-device (device and larger) --|
 // --------------------------------------------------------------------------
 
+@mixin from-small {
+    @media (min-width: $small) {
+        @content;
+    }
+}
+
 @mixin from-tablet {
     @media (min-width: $tablet) {
         @content;

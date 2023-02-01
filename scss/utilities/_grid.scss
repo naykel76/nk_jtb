@@ -49,12 +49,9 @@ $magic-grid-sizes: ((60, 80), (40, 60, 80), (20, 40, 60, 80));
 $magic-grid-sizes: ((80, 60), (80, 60, 40), (80, 60, 40, 20));
 @include makeMagicGrid2Cols($magic-grid-sizes);
 
+@include makeMagicGrid2Cols(((20, 20, 20, 20), ()));
+
 // $two-column-3pb: ((25, 25), (25, 40), (30, 50), (40, 50), (40, 60), (50, 50), (50, 60), (60, 50), (67, 50), (70, 50), (70, 60), (70, 70)) !default;
-
-// @include makeMagicGrid2Cols($two-column-3pb);
-
-// $two-column-4pb: ((50, 60, 60), (60, 50, 50)) !default;
-// @include makeMagicGrid2Cols($two-column-4pb);
 
 //
 //
