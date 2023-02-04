@@ -1,32 +1,32 @@
-@use '../base/vars_base' as *;
+@use "../base/vars_base" as *;
 
-// |-- device-only --|
+// |-- on-device --|
 // --------------------------------------------------------------------------
-@mixin mobile-only {
-    @media (max-width: $tablet - 1px) {
+@mixin on-small {
+    @media (min-width: $small) and (max-width: $tablet - 1px) {
         @content;
     }
 }
 
-@mixin tablet-only {
+@mixin on-tablet {
     @media (min-width: $tablet) and (max-width: $laptop - 1px) {
         @content;
     }
 }
 
-@mixin laptop-only {
+@mixin on-laptop {
     @media (min-width: $laptop) and (max-width: $desktop - 1px) {
         @content;
     }
 }
 
-@mixin desktop-only {
+@mixin on-desktop {
     @media (min-width: $desktop) and (max-width: $widescreen - 1px) {
         @content;
     }
 }
 
-@mixin widescreen-only {
+@mixin on-widescreen {
     @media (min-width: $widescreen) {
         @content;
     }
@@ -65,35 +65,30 @@
     }
 }
 
-// |-- up-to-device (up-to but not including) --|
+// |-- to-device (up-to but not including) --|
 // --------------------------------------------------------------------------
-@mixin up-to-mobile-landscape {
-    @media (max-width: $mobile-landscape - 1px) {
+@mixin to-small {
+    @media (max-width: $small - 1px) {
         @content;
     }
 }
 
-@mixin up-to-tablet {
+@mixin to-tablet {
     @media (max-width: $tablet - 1px) {
         @content;
     }
 }
 
-@mixin up-to-laptop {
+@mixin to-laptop {
     @media (max-width: $laptop - 1px) {
         @content;
     }
 }
 
-@mixin up-to-desktop {
+@mixin to-desktop {
     @media (max-width: $desktop - 1px) {
         @content;
     }
 }
 
-@mixin up-to-widescreen {
-    @media (max-width: $widescreen - 1px) {
-        @content;
-    }
-}
-
+// widescreen is pointless here!

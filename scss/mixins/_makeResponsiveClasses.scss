@@ -1,0 +1,87 @@
+@use "./media" as *;
+
+// At first glance it seems really dumb to create mixins full of if-else
+// statements and that is because it is! SCSS will not allow interpolation for
+// includes so there is no other way.
+
+@mixin makeFromDevice($prefix, $property, $value, $args...) {
+    @each $device in $args {
+        .#{$prefix}#{$device} {
+            @if ($device == "sm") {
+                @include from-small {
+                    #{$property}: $value;
+                }
+            } @else if($device == "md") {
+                @include from-tablet {
+                    #{$property}: $value;
+                }
+            } @else if($device == "lg") {
+                @include from-laptop {
+                    #{$property}: $value;
+                }
+            } @else if($device == "xl") {
+                @include from-desktop {
+                    #{$property}: $value;
+                }
+            } @else if($device == "xxl") {
+                @include from-widescreen {
+                    #{$property}: $value;
+                }
+            }
+        }
+    }
+}
+
+@mixin makeToDevice($prefix, $property, $value, $args...) {
+    @each $device in $args {
+        .#{$prefix}#{$device} {
+            @if ($device == "sm") {
+                @include to-small {
+                    #{$property}: $value;
+                }
+            } @else if($device == "md") {
+                @include to-tablet {
+                    #{$property}: $value;
+                }
+            } @else if($device == "lg") {
+                @include to-laptop {
+                    #{$property}: $value;
+                }
+            } @else if($device == "xl") {
+                @include to-desktop {
+                    #{$property}: $value;
+                }
+            } @else {
+                @error 'The device '#{$device}' is not available for this mixin, you need to remove it from the args list.';
+            }
+        }
+    }
+}
+
+@mixin makeOnDevice($prefix, $property, $value, $args...) {
+    @each $device in $args {
+        .#{$prefix}#{$device} {
+            @if ($device == "sm") {
+                @include on-small {
+                    #{$property}: $value;
+                }
+            } @else if($device == "md") {
+                @include on-tablet {
+                    #{$property}: $value;
+                }
+            } @else if($device == "lg") {
+                @include on-laptop {
+                    #{$property}: $value;
+                }
+            } @else if($device == "xl") {
+                @include on-desktop {
+                    #{$property}: $value;
+                }
+            } @else if($device == "xxl") {
+                @include on-widescreen {
+                    #{$property}: $value;
+                }
+            }
+        }
+    }
+}

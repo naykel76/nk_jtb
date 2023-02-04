@@ -35,7 +35,7 @@
             margin-right: 4px;
         }
 
-        @include up-to-desktop {
+        @include to-desktop {
             flex: 1 1 100%;
             order: 3;
         }
