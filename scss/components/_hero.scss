@@ -16,7 +16,7 @@ $hero-gradient: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4));
         font-size: 2.25rem;
 
         // font size never is or will be a one size fits all! STOP changing!!!
-        @include from-tablet {
+        @include from-md {
             font-size: 3rem;
         }
     }

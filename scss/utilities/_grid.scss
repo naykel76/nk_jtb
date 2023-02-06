@@ -148,7 +148,7 @@ $fixed-width-columns-map: ((2, 2, 1), (3, 1, 1), (3, 2, 1), (3, 3, 1), (4, 2, 1)
     // create the class based on the items in each grid map
     .cols-#{nth($grid-list, 1)}-#{nth($grid-list, 2)}-#{nth($grid-list, 3)} {
         grid-template-columns: repeat(nth($grid-list, 3), 1fr);
-        @include from-tablet {
+        @include from-md {
             grid-template-columns: repeat(nth($grid-list, 2), 1fr);
         }
         @include from-desktop {
@@ -164,11 +164,11 @@ $fixed-width-columns-map: ((2, 2, 1), (3, 1, 1), (3, 2, 1), (3, 3, 1), (4, 2, 1)
 .cols-4-4-2-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
 
-    @include from-tablet {
+    @include from-md {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    @include from-laptop {
+    @include from-lg {
         grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 }
@@ -176,11 +176,11 @@ $fixed-width-columns-map: ((2, 2, 1), (3, 1, 1), (3, 2, 1), (3, 3, 1), (4, 2, 1)
 .cols-4-3-2-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
 
-    @include from-tablet {
+    @include from-md {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    @include from-laptop {
+    @include from-lg {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 

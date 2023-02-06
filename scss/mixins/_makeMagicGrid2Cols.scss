@@ -42,16 +42,16 @@
             }
 
             .cols-#{$class} {
-                @include from-small {
+                @include from-sm {
                     grid-template-columns: nth(map-get($fr-map-2-col, $sm), 1) nth(map-get($fr-map-2-col, $sm), 2);
                 }
 
-                @include from-tablet {
+                @include from-md {
                     grid-template-columns: nth(map-get($fr-map-2-col, $md), 1) nth(map-get($fr-map-2-col, $md), 2);
                 }
 
                 @if ($numBreakPoints >= 3) {
-                    @include from-laptop {
+                    @include from-lg {
                         grid-template-columns: nth(map-get($fr-map-2-col, $lg), 1) nth(map-get($fr-map-2-col, $lg), 2);
                     }
                 }

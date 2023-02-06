@@ -6,60 +6,39 @@
     <link rel="icon" type="image/svg+xml" href="/nk.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NayKel JTB</title>
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-    <!-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
 
 <body>
-    <div class="pxy-5 container">
 
-        <div class="bx">
-            <p class="my">Display the element 'from' the device.</p>
-            <div class="block-from-sm bg-yellow-1"><code>block-from-sm</code> {576+}</div>
-            <div class="block-from-md bg-yellow-3"><code>block-from-md</code> {768+}</div>
-            <div class="block-from-lg bg-yellow-5"><code>block-from-lg</code> {992+}</div>
-            <div class="block-from-xl bg-yellow-7"><code>block-from-xl</code> {1200+}</div>
-            <div class="block-from-xxl bg-yellow-9"><code>block-from-xxl</code> {1600+}</div>
-            <hr>
-            <p class="my">Display the element 'on' the device only.</p>
-            <div class="block-on-sm bg-yellow-1"><code>block-on-sm</code> {576 - 767}</div>
-            <div class="block-on-md bg-yellow-3"><code>block-on-md</code> {768 - 991}</div>
-            <div class="block-on-lg bg-yellow-5"><code>block-on-lg</code> {992 - 1199}</div>
-            <div class="block-on-xl bg-yellow-7"><code>block-on-xl</code> {1200 - 1599}</div>
-            <div class="block-on-xxl bg-yellow-9"><code>block-on-xxl</code> {1600+}</div>
-            <p class="my">Display the element up 'to' (not-including) the device.</p>
-            <div class="block-to-sm bg-yellow-1"><code>block-to-sm</code> {767-}</div>
-            <div class="block-to-md bg-yellow-3"><code>block-to-md</code> {991-}</div>
-            <div class="block-to-lg bg-yellow-5"><code>block-to-lg</code> {1199-}</div>
-            <div class="block-to-xl bg-yellow-7"><code>block-to-xl</code> {1599-}</div>
+    <div x-cloak x-data="sidebar()" class="relative flex items-start ">
+
+        <!--  -->
+        <div class="container pxy">
+            <button x-on:click="open = !open" :class="{'primary': !open, 'secondary': open}" class="btn">Toggle</button>
         </div>
 
-        <div class="bx">
-            <p class="my">Hide the element 'from' the device.</p>
-            <div class="hide-from-sm bg-yellow-1"><code>hide-from-sm</code> {576+}</div>
-            <div class="hide-from-md bg-yellow-3"><code>hide-from-md</code> {768+}</div>
-            <div class="hide-from-lg bg-yellow-5"><code>hide-from-lg</code> {992+}</div>
-            <div class="hide-from-xl bg-yellow-7"><code>hide-from-xl</code> {1200+}</div>
-            <div class="hide-from-xxl bg-yellow-9"><code>hide-from-xxl</code> {1600+}</div>
-            <hr>
-            <p class="my">Hide the element 'on' the device only.</p>
-            <div class="hide-on-sm bg-yellow-1"><code>hide-on-sm</code> {576 - 767}</div>
-            <div class="hide-on-md bg-yellow-3"><code>hide-on-md</code> {768 - 991}</div>
-            <div class="hide-on-lg bg-yellow-5"><code>hide-on-lg</code> {992 - 1199}</div>
-            <div class="hide-on-xl bg-yellow-7"><code>hide-on-xl</code> {1200 - 1599}</div>
-            <div class="hide-on-xxl bg-yellow-9"><code>hide-on-xxl</code> {1600+}</div>
-            <p class="my">Hide the element up 'to' (not-including) the device.</p>
-            <div class="hide-to-sm bg-yellow-1"><code>hide-to-sm</code> {767-}</div>
-            <div class="hide-to-md bg-yellow-3"><code>hide-to-md</code> {991-}</div>
-            <div class="hide-to-lg bg-yellow-5"><code>hide-to-lg</code> {1199-}</div>
-            <div class="hide-to-xl bg-yellow-7"><code>hide-to-xl</code> {1599-}</div>
+        <!-- sidebar -->
+        <div x-cloak wire:ignore
+            :class="{'w-56': open, 'w-0': !open}"
+            class="fixed top-0 bottom-0 left-0 z-30 block w-56 h-full min-h-screen transition-all duration-300 ease-in-out dark">
+
+            <script>
+                function sidebar() {
+                    return {
+                        open: true,
+                        openSidebar() {
+                            this.open = true
+                        },
+                        closeSidebar() {
+                            this.open = false
+                        }
+                    }
+                }
+            </script>
         </div>
-
-
-
-
-
 
     </div>
 

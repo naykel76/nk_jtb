@@ -2,19 +2,19 @@
 
 // |-- on-device --|
 // --------------------------------------------------------------------------
-@mixin on-small {
+@mixin on-sm {
     @media (min-width: $small) and (max-width: $tablet - 1px) {
         @content;
     }
 }
 
-@mixin on-tablet {
+@mixin on-md {
     @media (min-width: $tablet) and (max-width: $laptop - 1px) {
         @content;
     }
 }
 
-@mixin on-laptop {
+@mixin on-lg {
     @media (min-width: $laptop) and (max-width: $desktop - 1px) {
         @content;
     }
@@ -35,19 +35,19 @@
 // |-- from-device (device and larger) --|
 // --------------------------------------------------------------------------
 
-@mixin from-small {
+@mixin from-sm {
     @media (min-width: $small) {
         @content;
     }
 }
 
-@mixin from-tablet {
+@mixin from-md {
     @media (min-width: $tablet) {
         @content;
     }
 }
 
-@mixin from-laptop {
+@mixin from-lg {
     @media (min-width: $laptop) {
         @content;
     }
@@ -67,19 +67,19 @@
 
 // |-- to-device (up-to but not including) --|
 // --------------------------------------------------------------------------
-@mixin to-small {
+@mixin to-sm {
     @media (max-width: $small - 1px) {
         @content;
     }
 }
 
-@mixin to-tablet {
+@mixin to-md {
     @media (max-width: $tablet - 1px) {
         @content;
     }
 }
 
-@mixin to-laptop {
+@mixin to-lg {
     @media (max-width: $laptop - 1px) {
         @content;
     }

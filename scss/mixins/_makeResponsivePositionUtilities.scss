@@ -40,7 +40,7 @@
             .#{$class} {
                 @include makeCssPositionProperty($property, #{nth($sizes-list, -1)}rem, $positions);
 
-                @include from-tablet {
+                @include from-md {
                     @include makeCssPositionProperty($property, #{nth($sizes-list, -2)}rem, $positions);
                 }
 

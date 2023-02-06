@@ -148,7 +148,7 @@ $flex-grow-map: (
     }
 }
 
-@include from-laptop {
+@include from-lg {
     @each $property, $map in $flex-utilities {
         $property: map-get($map, "property");
         $utility-prefix: map-get($map, "prefix");

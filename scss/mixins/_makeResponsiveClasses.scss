@@ -8,15 +8,15 @@
     @each $device in $args {
         .#{$prefix}#{$device} {
             @if ($device == "sm") {
-                @include from-small {
+                @include from-sm {
                     #{$property}: $value;
                 }
             } @else if($device == "md") {
-                @include from-tablet {
+                @include from-md {
                     #{$property}: $value;
                 }
             } @else if($device == "lg") {
-                @include from-laptop {
+                @include from-lg {
                     #{$property}: $value;
                 }
             } @else if($device == "xl") {
@@ -36,15 +36,15 @@
     @each $device in $args {
         .#{$prefix}#{$device} {
             @if ($device == "sm") {
-                @include to-small {
+                @include to-sm {
                     #{$property}: $value;
                 }
             } @else if($device == "md") {
-                @include to-tablet {
+                @include to-md {
                     #{$property}: $value;
                 }
             } @else if($device == "lg") {
-                @include to-laptop {
+                @include to-lg {
                     #{$property}: $value;
                 }
             } @else if($device == "xl") {
@@ -62,15 +62,15 @@
     @each $device in $args {
         .#{$prefix}#{$device} {
             @if ($device == "sm") {
-                @include on-small {
+                @include on-sm {
                     #{$property}: $value;
                 }
             } @else if($device == "md") {
-                @include on-tablet {
+                @include on-md {
                     #{$property}: $value;
                 }
             } @else if($device == "lg") {
-                @include on-laptop {
+                @include on-lg {
                     #{$property}: $value;
                 }
             } @else if($device == "xl") {
