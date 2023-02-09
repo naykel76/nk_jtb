@@ -20,13 +20,13 @@
     }
 }
 
-@mixin on-desktop {
+@mixin on-xl {
     @media (min-width: $desktop) and (max-width: $widescreen - 1px) {
         @content;
     }
 }
 
-@mixin on-widescreen {
+@mixin on-xxl {
     @media (min-width: $widescreen) {
         @content;
     }
@@ -53,13 +53,13 @@
     }
 }
 
-@mixin from-desktop {
+@mixin from-xl {
     @media (min-width: $desktop) {
         @content;
     }
 }
 
-@mixin from-widescreen {
+@mixin from-xxl {
     @media (min-width: $widescreen) {
         @content;
     }
@@ -85,7 +85,7 @@
     }
 }
 
-@mixin to-desktop {
+@mixin to-xl {
     @media (max-width: $desktop - 1px) {
         @content;
     }

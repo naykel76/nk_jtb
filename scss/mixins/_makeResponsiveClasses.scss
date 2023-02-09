@@ -20,11 +20,11 @@
                     #{$property}: $value;
                 }
             } @else if($device == "xl") {
-                @include from-desktop {
+                @include from-xl {
                     #{$property}: $value;
                 }
             } @else if($device == "xxl") {
-                @include from-widescreen {
+                @include from-xxl {
                     #{$property}: $value;
                 }
             }
@@ -48,7 +48,7 @@
                     #{$property}: $value;
                 }
             } @else if($device == "xl") {
-                @include to-desktop {
+                @include to-xl {
                     #{$property}: $value;
                 }
             } @else {
@@ -74,11 +74,11 @@
                     #{$property}: $value;
                 }
             } @else if($device == "xl") {
-                @include on-desktop {
+                @include on-xl {
                     #{$property}: $value;
                 }
             } @else if($device == "xxl") {
-                @include on-widescreen {
+                @include on-xxl {
                     #{$property}: $value;
                 }
             }

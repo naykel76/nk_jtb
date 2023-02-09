@@ -62,7 +62,7 @@ $width-utilities: (
     }
 }
 
-$rem-sizes: (1, 1.5, 2, 3, 4, 5, 10, 12, 14, 16, 18, 20, 22, 24);
+$rem-sizes: (0, 1, 1.5, 2, 3, 4, 5, 10, 12, 14, 16, 18, 20, 22, 24);
 @include makeSizeUtilities($rem-sizes);
 
 $pixel-sizes: (16, 24, 32, 40, 64, 100, 150, 200, 300, 400, 600);

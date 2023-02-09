@@ -127,13 +127,13 @@ $magic-grid-sizes: ((80, 60), (80, 60, 40), (80, 60, 40, 20));
 
 .gg-3-1-1 {
     gap: 1rem !important;
-    @include from-desktop {
+    @include from-xl {
         gap: 3rem !important;
     }
 }
 .gg-5-3-1 {
     gap: 3rem !important;
-    @include from-desktop {
+    @include from-xl {
         gap: 5rem !important;
     }
 }
@@ -151,7 +151,7 @@ $fixed-width-columns-map: ((2, 2, 1), (3, 1, 1), (3, 2, 1), (3, 3, 1), (4, 2, 1)
         @include from-md {
             grid-template-columns: repeat(nth($grid-list, 2), 1fr);
         }
-        @include from-desktop {
+        @include from-xl {
             grid-template-columns: repeat(nth($grid-list, 1), 1fr);
         }
     }
@@ -184,7 +184,7 @@ $fixed-width-columns-map: ((2, 2, 1), (3, 1, 1), (3, 2, 1), (3, 3, 1), (4, 2, 1)
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    @include from-desktop {
+    @include from-xl {
         grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 }

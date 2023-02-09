@@ -29,12 +29,6 @@
     float: left;
 }
 
-.abs-tr {
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
 .absolute {
     position: absolute;
 }
@@ -47,12 +41,6 @@
     position: relative;
 }
 
-.pos-y {
-    top: 0;
-    bottom: 0;
-}
-
-// DO NOT ADD TL, TR, BL, BR, JUST USE MULTIPLE CLASSES???
 
 .pos {
     &-xy {
@@ -74,8 +62,6 @@
 
     &-t {
         top: 0;
-        left: 0;
-        right: 0;
     }
 
     &-b {

@@ -2,6 +2,7 @@
 @use "../mixins/positionUtilityClasses" as *;
 @use "../mixins/makeResponsivePositionUtilities" as *;
 @use "../mixins/media" as *;
+@use "../functions/helpers" as *;
 
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
 //
@@ -86,7 +87,7 @@ $padding-y-responsive-sizes: (10, 6, 2), "";
         padding-bottom: 3rem;
     }
 
-    @include from-desktop {
+    @include from-xl {
         padding-top: 5rem;
         padding-bottom: 5rem;
     }
@@ -101,7 +102,7 @@ $padding-y-responsive-sizes: (10, 6, 2), "";
         margin-bottom: 3rem;
     }
 
-    @include from-desktop {
+    @include from-xl {
         margin-top: 5rem;
         margin-bottom: 5rem;
     }
@@ -120,7 +121,7 @@ $padding-y-responsive-sizes: (10, 6, 2), "";
         padding-bottom: 3rem;
     }
 
-    @include from-desktop {
+    @include from-xl {
         padding-top: 5rem;
         padding-bottom: 5rem;
     }
@@ -131,24 +132,30 @@ $padding-y-responsive-sizes: (10, 6, 2), "";
 // --------------------------------------------------------------
 //
 
-// Padding uses c-p-
-// Margin uses space-
-.space-y > *:not(:first-child) {
-    margin-top: $content-gap;
+$space-y-sizes: (0, 1, 1.5, 2, 3);
+
+@each $size in $space-y-sizes {
+    // wrap size in quotes to convert to string
+    $class: "#{$size}";
+    // search and escape decimals
+    $class: strReplace($class, ".", "\\.");
+
+    .space-y-#{$class} > *:not(:first-child) {
+        margin-top: #{$size}rem;
+    }
 }
 
-.space-y-0 > *:not(:first-child) {
-    margin-top: 0;
+// these do not play well in a loop!
+.space-y-025 > *:not(:first-child) {
+    margin-top: 0.25rem;
 }
 .space-y-05 > *:not(:first-child) {
     margin-top: 0.5rem;
 }
-.space-y-1 > *:not(:first-child) {
-    margin-top: 1rem;
+.space-y-075 > *:not(:first-child) {
+    margin-top: 0.75rem;
 }
-.space-y-2 > *:not(:first-child) {
-    margin-top: 2rem;
-}
+
 //
 //
 //
@@ -169,7 +176,7 @@ $padding-y-responsive-sizes: (10, 6, 2), "";
 //
 //
 
-@include from-desktop {
+@include from-xl {
     .lg\:space-x > *:not(:first-child) {
         margin-left: 1rem;
     }

@@ -10,7 +10,7 @@ $img-path: "/src/images" !default;
 // -- Base Styles --
 // ==========================================================================
 
-$base-bg: hsl(64, 100%, 99%) !default;
+$base-bg: hsl(0, 0%, 100%) !default;
 $base-color: #333 !default;
 
 $base-font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
@@ -92,7 +92,7 @@ $num-grid-cols: 6 !default; // number of classes to make
 // queries based on the defaults the container will be a maximum
 // of 90% up to a maximum of 1200px
 $container-max: 95%;
-$container-max-widescreen: 75rem !default; // 1200px
+$container-max-xxl: 75rem !default; // 1200px
 
 
 // ==========================================================================

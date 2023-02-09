@@ -57,7 +57,7 @@
                 }
 
                 @if ($numBreakPoints >= 4) {
-                    @include from-desktop {
+                    @include from-xl {
                         grid-template-columns: nth(map-get($fr-map-2-col, $xl), 1) nth(map-get($fr-map-2-col, $xl), 2);
                     }
                 }

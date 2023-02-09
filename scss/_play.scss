@@ -1,5 +1,27 @@
 @use "./base/vars_all" as *;
 @use "./mixins/positionUtilityClasses" as *;
+@use "./mixins/makeResponsivePositionUtilities" as *;
+@use "./mixins/media" as *;
+@use "./functions/helpers" as *;
 
-@use './mixins/makeResponsiveClasses' as *;
-@include makeOnDevice("block-on-", display, block, "sm", "md", "lg", "xl", "xxl");
+// --------------------------------------------------------------
+// -- CONTENT SPACING --
+// --------------------------------------------------------------
+//
+
+.space-y > *:not(:first-child) {
+    margin-top: $content-gap;
+}
+
+$space-y-sizes: (0, 0.25, 0.5, 0.75, 1, 1.5, 2, 3);
+
+@each $size in $space-y-sizes {
+    // wrap size in quotes to convert to string
+    $class: "#{$size}";
+    // search and escape decimals
+    $class: strReplace($class, ".", "\\.");
+
+    .space-y-#{$class} > *:not(:first-child) {
+        margin-top: $size;
+    }
+}

@@ -20,11 +20,6 @@
 // what else it affects
 #nk-header,
 #nk-header > .#{$container-class} {
-    // display: flex;
-    // justify-content: space-between;
-    // align-items: flex-start;
-    // grid-gap: 2.5rem;
-    // flex-wrap: wrap;
 
     #search {
         display: flex;
@@ -35,7 +30,7 @@
             margin-right: 4px;
         }
 
-        @include to-desktop {
+        @include to-xl {
             flex: 1 1 100%;
             order: 3;
         }
@@ -52,15 +47,6 @@
     background-color: $footer-bg;
     margin-top: auto; // forces footer to the bottom
     color: #ccc;
-
-    // a {
-    //     color: #ccc;
-    //     font-size: 0.8rem;
-
-    //     &:hover {
-    //         color: #ddd;
-    //     }
-    // }
 }
 
 .copyright {

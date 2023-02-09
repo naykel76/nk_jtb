@@ -6,42 +6,197 @@
     <link rel="icon" type="image/svg+xml" href="/nk.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NayKel JTB</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
+
+<!-- rgb(30 58 138 / var(--tw-bg-opacity)); -->
 
 
 <body>
 
-    <div x-cloak x-data="sidebar()" class="relative flex items-start ">
+    <div class="container">
 
-        <!--  -->
-        <div class="container pxy">
-            <button x-on:click="open = !open" :class="{'primary': !open, 'secondary': open}" class="btn">Toggle</button>
+
+
+        <div class="bx dark">
+            <a class="txt-green" href="">this is a link in the dark theme which can be overridden by setting a `txt-class`</a>
+        </div>
+        if you apply a theme to the menu, you may need to override the anchor text color
+
+        <div class="bx grid cols-4-2-1">
+
+            <div class="menu">
+                <div class="menu-title"><code>&lt;div class=&quot;menu&quot;&gt;</code></div>
+                <a href="">Item</a>
+                <a href="">Parent</a>
+                <a href="" class="active">Active</a>
+            </div>
+
+            <nav class="menu">
+                <div class="menu-title"><code>&lt;nav class=&quot;menu&quot;&gt;</code></div>
+                <a href="">Item</a>
+                <a href="">Parent</a>
+                <a href="" class="active">Active</a>
+            </nav>
+
+            <ul class="menu">
+                <div class="menu-title"><code>&lt;ul class=&quot;menu&quot;&gt;</code></div>
+                <li><a href="">Item</a></li>
+                <li><a href="">Parent</a></li>
+                <li><a href="" class="active">Active</a></li>
+            </ul>
+
         </div>
 
-        <!-- sidebar -->
-        <div x-cloak wire:ignore
-            :class="{'w-56': open, 'w-0': !open}"
-            class="fixed top-0 bottom-0 left-0 z-30 block w-56 h-full min-h-screen transition-all duration-300 ease-in-out dark">
 
-            <script>
-                function sidebar() {
-                    return {
-                        open: true,
-                        openSidebar() {
-                            this.open = true
-                        },
-                        closeSidebar() {
-                            this.open = false
-                        }
-                    }
-                }
-            </script>
+        <p>You can apply a theme directly to the parent section, or on the menu itself.</p>
+
+
+        <div class="bx grid cols-4-2-1 dark">
+            <div class="menu">
+                <div class="menu-title">Company</div>
+                <a href="#">About Us</a>
+                <a href="#">Products</a>
+                <a href="#">Pricing</a>
+            </div>
+            <nav class="menu">
+                <div class="menu-title">Legal</div>
+                <a href="#">Privacy</a>
+                <a href="#">Security</a>
+            </nav>
+            <ul class="menu light pxy-05 rounded-05 space-y-025">
+                <div class="menu-title">Contact</div>
+                <li><a href="#">Book an appointment</a></li>
+                <li><a href="#">Location</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
         </div>
+
+        <ul class="light pxy-05 rounded-05 space-y-025">
+            <div class="menu-title">Contact</div>
+            <li><a href="#">Book an appointment</a></li>
+            <li><a href="#">Location</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+
+        <ul class="flex-row menu">
+            <li class="txt-red"> <a href="#">Home</a> </li>
+            <li class="txt-green"> <a href="#">About</a> </li>
+            <li class="txt-blue"> <a href="#">Products</a> </li>
+            <li class="txt-orange"> <a href="#">Pricing</a> </li>
+            <li class="txt-black"> <a href="#">Contact</a> </li>
+        </ul>
+
+        <div class="flex-row menu">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Products</a>
+            <a href="#">Pricing</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <div class="flex-row menu">
+            <a class="txt-red" href="#">Home</a>
+            <a class="txt-green" href="#">About</a>
+            <a class="txt-blue" href="#">Products</a>
+            <a class="txt-orange" href="#">Pricing</a>
+            <a class="txt-red" href="#">Contact</a>
+        </div>
+
+        <!-- the color is overridden on the link or child -->
+        <div class="flex-row dark menu">
+            <a class="txt-red" href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Products</a>
+            <a href="#">Pricing</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="flex-row pink menu">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Products</a>
+            <a href="#">Pricing</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="flex-row menu">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Products</a>
+            <a href="#">Pricing</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <p> you need to add the text class to the parent not the link?</p>
+
+        <div class="flex-row menu txt-red">
+            <a class="txt-red" href="#">Home</a>
+            <a class="txt-red" href="#">About</a>
+            <a class="txt-red" href="#">Products</a>
+            <a class="txt-red" href="#">Pricing</a>
+            <a class="txt-red" href="#">Contact</a>
+        </div>
+
+        set color on parent, override on anchor
+        <div class="flex-row menu txt-red">
+            <a class="txt-green" href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Products</a>
+            <a href="#">Pricing</a>
+            <a href="#">Contact</a>
+        </div>
+
+
 
     </div>
 
+    <!-- <div x-data="{ isOpen: true }" @keydown.escape.window="isOpen = false">
+        <div class="fixed pos-xy transition z-100 w-20 blue"
+            :class="{'-translate-x-full opacity-0':isOpen === false, 'translate-x-0 opacity-100': isOpen === true}">
+
+            <div class="flex justify-between va-c">
+                <span class="fw-7 txt-2">Sidebar</span>
+                <button class="btn" x-on:click="isOpen = false"> close </button>
+            </div>
+
+            <div class="pxy-05">
+                <div class="pxy-05 ">
+                    <ul class="menu space-y-05">
+                        <li class="rounded-025"> <a class="txt-red" href="#">Home</a> </li>
+                        <li class="rounded-025"> <a href="#">About</a> </li>
+                        <li class="rounded-025"> <a href="#">Products</a> </li>
+                        <li class="rounded-025"> <a href="#">Pricing</a> </li>
+                        <li class="rounded-025"> <a href="#">Contact</a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class=" navbar">
+
+            <div class="container flex space-between">
+                <div></div>
+                <button class="btn pxy-05" x-on:click="isOpen = true">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+
+        <div class="flex gg">
+            <div class="wh-5 bg-blue-1"></div>
+            <div class="wh-5 bg-blue-2"></div>
+            <div class="wh-5 bg-blue-3"></div>
+            <div class="wh-5 bg-blue-4"></div>
+            <div class="wh-5 bg-blue-5"></div>
+            <div class="wh-5 bg-blue-6"></div>
+            <div class="wh-5 bg-blue-7"></div>
+            <div class="wh-5 bg-blue-8"></div>
+            <div class="wh-5 bg-blue-9"></div>
+        </div>
+    </div> -->
     <div id="app" class="pxy-5"></div>
     <script type="module" src="/main.js"></script>
 </body>

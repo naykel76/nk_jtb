@@ -44,12 +44,12 @@
                     @include makeCssPositionProperty($property, #{nth($sizes-list, -2)}rem, $positions);
                 }
 
-                @include from-desktop {
+                @include from-xl {
                     @include makeCssPositionProperty($property, #{nth($sizes-list, -3)}rem, $positions);
                 }
 
                 @if ($numSizes==4) {
-                    @include from-widescreen {
+                    @include from-xxl {
                         @include makeCssPositionProperty($property, #{nth($sizes-list, -4)}rem, $positions);
                     }
                 }
