@@ -16,7 +16,6 @@
         opacity: 0;
         transform: translateY(-2em);
         top: calc(100% + 4px); // push to bottom of toggle element
-        // top: calc(100% + $dropdown-toggle-gap); // push to bottom of toggle element
         left: 0;
         transition: all 0.1s ease-in-out 1s, visibility 0s linear 0.1s, z-index 0s linear 0.01s;
         z-index: 1000;
@@ -32,15 +31,4 @@
         transform: translateY(0%);
         transition-delay: 0s, 0s, 0.1s; // this removes the transition delay so the menu will be visible while the other styles transition
     }
-}
-
-// ?????????????
-.dd-item {
-    letter-spacing: -0.025em;
-    line-height: 1.25rem;
-    padding: 0.25rem 0.75rem;
-}
-
-.dd-item:hover {
-    background-color: rgb(243, 244, 246);
 }

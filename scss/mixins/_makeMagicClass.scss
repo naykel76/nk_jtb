@@ -1,20 +1,13 @@
-@use "./base/vars_all" as *;
-@use "./base/vars_base" as *;
-@use "./base/vars_utility_maps" as *;
-@use "./functions/colorFunctions" as *;
-@use "./functions/helpers" as *;
-@use "./mixins/makeMagicClass" as *;
-@use "./mixins/makeMagicGrid2Cols" as *;
-@use "./mixins/makeResponsivePositionUtilities" as *;
-@use "./mixins/media" as *;
-@use "./mixins/positionUtilityClasses" as *;
-@use "./utilities/themes" as *;
+@use "./media" as *;
 @use "sass:list";
 @use "sass:map";
 @use "sass:string";
 
+// Make magic responsive class for a single css property.
+//
+// accepts single css property with list of lists with responsive sizes
 
-@mixin makeMagicGridFixedWidths($property, $prefix, $list-of-lists, $unit: rem) {
+@mixin makeMagicClass($property, $prefix, $list-of-lists, $unit: rem) {
     // must have at least two list
     @each $list in $list-of-lists {
         // exclude empty list when creating single list

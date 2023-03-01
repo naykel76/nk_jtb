@@ -3,7 +3,6 @@
 
 $primary: hsl(201, 100%, 14%) !default;
 $secondary: hsl(31, 100%, 48%) !default;
-$contrast: hsl(329, 92%, 47%) !default;
 $primary-light: lighten($primary, 10) !default;
 
 
@@ -38,10 +37,4 @@ $color-map: (
     "success-light": hsl(142, 52%, 96%),
     "warning-light": hsl(48, 100%, 96%),
 )!default;
-
-// create an empty map to update or add colors
-$color-map-custom: () !default;
-
-// merge together
-$color-map: map-merge($color-map, $color-map-custom);
 

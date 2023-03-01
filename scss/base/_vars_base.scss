@@ -78,10 +78,16 @@ $laptop: map-get($breakpoints, lg);
 $desktop: map-get($breakpoints, xl);
 $widescreen: map-get($breakpoints, xxl);
 
+$sm: map-get($breakpoints, sm);
+$md: map-get($breakpoints, md);
+$lg: map-get($breakpoints, lg);
+$xl: map-get($breakpoints, xl);
+$xxl: map-get($breakpoints, xxl);
+
 // ==========================================================================
 // -- Grid --
 // ==========================================================================
-$num-grid-cols: 6 !default; // number of classes to make
+$num-grid-cols: 8 !default; // number of classes to make
 
 // ==========================================================================
 // -- Container --
@@ -92,7 +98,12 @@ $num-grid-cols: 6 !default; // number of classes to make
 // queries based on the defaults the container will be a maximum
 // of 90% up to a maximum of 1200px
 $container-max: 95%;
+
+$container-max-lg: $lg !default; // 1200px
 $container-max-xxl: 75rem !default; // 1200px
+
+
+
 
 
 // ==========================================================================

@@ -1,4 +1,4 @@
-@use "../functions/setTextColor" as *;
+@use "../functions/colorFunctions" as *;
 
 @mixin hover($bg, $lightenBy: 10%, $color: setTextColor($bg),) {
     &:hover {

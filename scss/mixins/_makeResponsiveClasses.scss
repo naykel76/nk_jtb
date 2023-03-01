@@ -2,30 +2,34 @@
 
 // At first glance it seems really dumb to create mixins full of if-else
 // statements and that is because it is! SCSS will not allow interpolation for
-// includes so there is no other way.
+// @include so there is no other way.
+
+// ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
+// must be marked !important to ensure override default property
+// ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
 
 @mixin makeFromDevice($prefix, $property, $value, $args...) {
     @each $device in $args {
         .#{$prefix}#{$device} {
             @if ($device == "sm") {
                 @include from-sm {
-                    #{$property}: $value;
+                    #{$property}: $value !important;
                 }
             } @else if($device == "md") {
                 @include from-md {
-                    #{$property}: $value;
+                    #{$property}: $value !important;
                 }
             } @else if($device == "lg") {
                 @include from-lg {
-                    #{$property}: $value;
+                    #{$property}: $value !important;
                 }
             } @else if($device == "xl") {
                 @include from-xl {
-                    #{$property}: $value;
+                    #{$property}: $value !important;
                 }
             } @else if($device == "xxl") {
                 @include from-xxl {
-                    #{$property}: $value;
+                    #{$property}: $value !important;
                 }
             }
         }
@@ -37,19 +41,19 @@
         .#{$prefix}#{$device} {
             @if ($device == "sm") {
                 @include to-sm {
-                    #{$property}: $value;
+                    #{$property}: $value !important;
                 }
             } @else if($device == "md") {
                 @include to-md {
-                    #{$property}: $value;
+                    #{$property}: $value !important;
                 }
             } @else if($device == "lg") {
                 @include to-lg {
-                    #{$property}: $value;
+                    #{$property}: $value !important;
                 }
             } @else if($device == "xl") {
                 @include to-xl {
-                    #{$property}: $value;
+                    #{$property}: $value !important;
                 }
             } @else {
                 @error 'The device '#{$device}' is not available for this mixin, you need to remove it from the args list.';
@@ -63,23 +67,23 @@
         .#{$prefix}#{$device} {
             @if ($device == "sm") {
                 @include on-sm {
-                    #{$property}: $value;
+                    #{$property}: $value !important;
                 }
             } @else if($device == "md") {
                 @include on-md {
-                    #{$property}: $value;
+                    #{$property}: $value !important;
                 }
             } @else if($device == "lg") {
                 @include on-lg {
-                    #{$property}: $value;
+                    #{$property}: $value !important;
                 }
             } @else if($device == "xl") {
                 @include on-xl {
-                    #{$property}: $value;
+                    #{$property}: $value !important;
                 }
             } @else if($device == "xxl") {
                 @include on-xxl {
-                    #{$property}: $value;
+                    #{$property}: $value !important;
                 }
             }
         }

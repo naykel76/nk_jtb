@@ -132,13 +132,17 @@ $padding-y-responsive-sizes: (10, 6, 2), "";
 // --------------------------------------------------------------
 //
 
-$space-y-sizes: (0, 1, 1.5, 2, 3);
+$space-sizes: (0, 1, 1.5, 2, 3);
 
-@each $size in $space-y-sizes {
+@each $size in $space-sizes {
     // wrap size in quotes to convert to string
     $class: "#{$size}";
     // search and escape decimals
     $class: strReplace($class, ".", "\\.");
+
+    .space-x-#{$class} > *:not(:first-child) {
+        margin-left: #{$size}rem;
+    }
 
     .space-y-#{$class} > *:not(:first-child) {
         margin-top: #{$size}rem;
@@ -146,14 +150,32 @@ $space-y-sizes: (0, 1, 1.5, 2, 3);
 }
 
 // these do not play well in a loop!
-.space-y-025 > *:not(:first-child) {
-    margin-top: 0.25rem;
+.space-y {
+    &-025 > *:not(:first-child) {
+        margin-top: 0.25rem;
+    }
+    &-05 > *:not(:first-child) {
+        margin-top: 0.5rem;
+    }
+    &-075 > *:not(:first-child) {
+        margin-top: 0.75rem;
+    }
 }
-.space-y-05 > *:not(:first-child) {
-    margin-top: 0.5rem;
-}
-.space-y-075 > *:not(:first-child) {
-    margin-top: 0.75rem;
+
+// these do not play well in a loop!
+.space-x {
+    > *:not(:first-child) {
+        margin-left: 1rem;
+    }
+    &-025 > *:not(:first-child) {
+        margin-left: 0.25rem;
+    }
+    &-05 > *:not(:first-child) {
+        margin-left: 0.5rem;
+    }
+    &-075 > *:not(:first-child) {
+        margin-left: 0.75rem;
+    }
 }
 
 //
@@ -180,14 +202,6 @@ $space-y-sizes: (0, 1, 1.5, 2, 3);
     .lg\:space-x > *:not(:first-child) {
         margin-left: 1rem;
     }
-}
-
-.space-x > *:not(:first-child) {
-    margin-left: 1rem;
-}
-
-.space-x-2 > *:not(:first-child) {
-    margin-left: 2rem;
 }
 
 .space-mx > * + * {

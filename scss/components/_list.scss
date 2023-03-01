@@ -1,0 +1,32 @@
+@use "../base/vars_colors" as *;
+@use "../base/vars_components" as *;
+
+// --------------------------------------------------------------------------
+// -- TICK ICON LIST --
+// --------------------------------------------------------------------------
+//
+
+.icon-list {
+    // leave as fallback?
+    //     list-style: none;
+    ul {
+        margin-left: 0;
+    }
+
+    :where(svg) {
+        margin-right: 1rem;
+    }
+
+    & li {
+        display: flex;
+        align-items: center;
+        background-repeat: no-repeat;
+        background-position: left center;
+        padding-block: 0.25rem;
+    }
+
+    &.tick-svg li {
+        background-image: $icon-tick;
+        padding-left: 2rem;
+    }
+}

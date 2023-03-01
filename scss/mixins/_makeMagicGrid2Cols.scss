@@ -2,11 +2,15 @@
 @use "../mixins/media" as *;
 @use "sass:list";
 
-// only need to add 1st column percentage, 2nd is calculated
-// no need to add small size here, it is set to 100 in the create function
-// (25, 25) is shorthand for {25:75}_{25:75}_{100}
 
-// The numbers is this list represent the first colum width of the largest breakpoint as a percentage of a two colum layout at a certain breakpoint.
+// mobile = 100
+// small = 100
+// medium = 50
+// large = 30
+
+
+// only need to add 1st column percentage, 2nd is calculated
+// (25, 25) is shorthand for {25:75}_{25:75}_{100}
 
 // The more sizes you add will cover more breakpoints.
 

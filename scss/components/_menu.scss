@@ -1,5 +1,5 @@
 @use "../base/vars_all" as *;
-@use "../functions/setTextColor" as *;
+@use "../functions/colorFunctions" as *;
 
 .menu {
     flex-wrap: wrap;
@@ -12,7 +12,10 @@
     :where(a, li a, .menu-item) {
         color: inherit;
         padding: $menu-padding-y $menu-padding-x;
-        display: block;
+        // this was initially set to display block but it is too difficult to
+        // work with icons and chevrons on the anchor element.
+        display: flex;
+        align-items: center;
 
         &.active,
         &:hover {
@@ -24,7 +27,6 @@
 
     .menu-title {
         font-weight: 600;
-        color: #696969;
         letter-spacing: 0.05em;
         margin-left: $menu-padding-x;
         margin-bottom: 0.5em;
@@ -34,37 +36,3 @@
         }
     }
 }
-
-
-// .menu {
-//     flex-wrap: wrap;
-//     display: flex;
-//     flex-direction: column;
-//     line-height: 1.25;
-//     list-style: none;
-
-//     // add div to
-//     :where(a, li a, .menu-item) {
-//         color: $menu-link-color;
-//         padding: $menu-padding-y $menu-padding-x;
-//         display: block;
-
-//         &.active,
-//         &:hover {
-//             color: $menu-link-hover-color;
-//             background-color: $menu-hover-bg;
-//         }
-//     }
-
-//     .menu-title {
-//         font-weight: 600;
-//         color: #696969;
-//         letter-spacing: 0.05em;
-//         margin-left: $menu-padding-x;
-//         margin-bottom: 0.5em;
-
-//         &:not(:first-child) {
-//             margin-top: $content-gap;
-//         }
-//     }
-// }

@@ -1,8 +1,9 @@
 @use "../base/vars_all" as *;
-@use "../mixins/makeColorSchemeAdvanced" as *;
+@use "../functions/colorFunctions" as *;
+@use "../functions/helpers" as *;
 @use "../mixins/colorSchemeSimple" as *;
 @use "../mixins/colorShades" as *;
-@use "../functions/setTextColor" as *;
+@use "../mixins/makeColorSchemeAdvanced" as *;
 @use "sass:map";
 
 // ----------------------------------
@@ -43,23 +44,21 @@ $default-themes: (
     //     "base": $primary,
     //     "link-color": purple,
     // ),
-    "primary": (
-        "base": $primary,
-        "link-color": white,
-    ),
+    "primary":
+        (
+            "base": $primary,
+            "link-color": white,
+        ),
     "secondary": (
         "base": $secondary,
         "color": setTextColor($secondary),
         "link-color": $primary,
         "hover-color": $primary,
     ),
-    "contrast": (
-        "base": $contrast,
-    ),
     "white": (
         "base": #fff,
         "default-links": true,
-    ),
+    )
 ) !default;
 
 $themes-map: map.merge($alert-theme, $default-themes);
@@ -84,7 +83,6 @@ $themes-map: map.merge($alert-theme, $default-themes);
     }
 }
 
-
 .bg-white {
     background-color: #fff;
 }
@@ -95,3 +93,29 @@ $themes-map: map.merge($alert-theme, $default-themes);
 
 @include colorShades("bg-blue-", #1e3a8a, 9, 6);
 // @include colorShades("bg-blue-", hsl(224, 64%, 33%), 9, 6);
+
+// THIS IS A WORK IN PROGRESS AND HAS LIMITATIONS. MAKE SURE YOU ONLY USE
+// NUMBERS AND DO NOT INCLUDE 1
+
+@function removeLeadingZero($value) {
+    // wrap in quotes and convert to string
+    $class: "#{$value}";
+    // search and escape decimals
+    @return strReplace($class, "0.", "");
+}
+
+@mixin createColorOpacity($list-of-opacity, $color) {
+    @each $opacity in $list-of-opacity {
+
+        @if ($opacity > 9) {
+            @error "Opacity in the createColorOpacity function must be between 0 and 1";
+        }
+
+        // strip leading zero and decimal if exists, and convert to number
+        $suffix: removeLeadingZero($opacity);
+
+        .bg-#{$color}-0#{$suffix} {
+            background-color: convertToRgba(map-get($color-map, $color), $opacity);
+        }
+    }
+}

@@ -11,10 +11,6 @@
 // NK::TD this could be made into a special layout because it
 // could be a common pattern. Another example would be the navbar
 
-#nk-header {
-    // background-color: $header-bg;
-}
-
 // This needs to be reviewed because it is too specific and causes problems
 // for some layouts I have removed because of the QMH site but I am not sure
 // what else it affects
@@ -91,4 +87,13 @@ pre code.hljs{
 trix-editor {
     background: white !important;
     min-height: 100px !important;
+}
+
+.filepond {
+    &--root {
+        margin-bottom: 0 !important;
+    }
+    &--credits {
+        display: none;
+    }
 }

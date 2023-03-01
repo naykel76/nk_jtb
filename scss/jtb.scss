@@ -13,13 +13,13 @@
 @forward "nk";
 @forward "forms";
 
-
 @forward "components/accordion";
 @forward "components/box";
 @forward "components/button";
 @forward "components/dropdown";
 @forward "components/hero"; // has problems with img
 @forward "components/icon";
+@forward "components/list";
 @forward "components/menu";
 @forward "components/navbar";
 @forward "components/other";
@@ -40,4 +40,6 @@
 @forward "utilities/themes";
 @forward "utilities/transition";
 @forward "utilities/translate";
+
+@use "play";
 

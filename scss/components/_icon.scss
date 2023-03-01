@@ -1,15 +1,12 @@
 @use '../base/vars_all' as *;
 
 
-// 1. aligns better inline to text text
+// 1. aligns better text to text when inline
 // 2. better alignment rather than changing size
 
 .#{$icon-class} {
     width: $icon-xy;
     height: $icon-xy;
-    // align-items: center;
-    // display: inline-flex;
-    // justify-content: center;
     vertical-align: bottom; // 1
     color: $icon-color;
     padding: 2px; // 2

@@ -1,6 +1,6 @@
 @use "vars_base" as *;
 @use "vars_colors" as *;
-@use "../functions/setTextColor" as *;
+@use "../functions/colorFunctions" as *;
 
 // box
 // --------------------------------
@@ -14,17 +14,13 @@ $bx-title-font-size: 1.2rem !default;
 
 // button
 // --------------------------------
-$btn-bg: rgb(248, 248, 248) !default;
+$btn-bg: rgb(240, 240, 240) !default;
 $btn-color: setTextColor($btn-bg) !default;
 
-$btn-link-color: $link-color;
-$btn-link-hover-color: $link-hover-color;
+$btn-link-color: $link-color !default;
+$btn-link-hover-color: $link-hover-color !default;
 
 $btn-text-transform: capitalize;
-
-// dropdown
-// --------------------------------
-$dropdown-toggle-gap: 0.25rem !default; // gap between toggle and content
 
 // icons
 // --------------------------------
@@ -39,10 +35,9 @@ $icon-color: inherit !default;
 $menu-padding-y: 0.5rem !default;
 $menu-padding-x: 0.5rem !default;
 
-$menu-hover-bg: hsl(0, 0%, 97%) !default;
+$menu-hover-bg: hsl(0, 0%, 95%) !default;
 
 $menu-link-color: $base-color !default;
-// $menu-link-color: setTextColor($base-color) !default;
 $menu-link-hover-color: setTextColor($menu-hover-bg) !default;
 
 // navbar
@@ -51,27 +46,20 @@ $navbar-bg: hsl(215, 28%, 17%) !default;
 $navbar-padding-x: 1rem !default;
 $navbar-padding-y: 0.5rem !default;
 
-$navbar-nav-font-color: setTextColor($navbar-bg) !default;
-// $navbar-nav-item-bg: transparent !default;
-$navbar-nav-item-bg: hsl(215, 28%, 21%) !default;
 $navbar-nav-padding-x: 1em !default;
 $navbar-nav-padding-y: 0.75em !default;
 
-$navbar-nav-hover-bg: lighten($navbar-nav-item-bg, 10%) !default;
-$navbar-nav-hover-color: $secondary !default;
-// $navbar-nav-hover-color: $navbar-nav-font-color !default;
-$navbar-nav-active-bg: rgba(0, 0, 0, 0.1) !default;
+$navbar-nav-item-bg: $navbar-bg !default;
+$navbar-nav-item-color: setTextColor($navbar-bg) !default;
+
+$navbar-nav-active-bg: darken($navbar-nav-item-bg, 3%) !default;
+$navbar-nav-active-color: setTextColor($navbar-nav-active-bg) !default;
+
+$navbar-nav-hover-bg: darken($navbar-nav-item-bg, 3%) !default;
+$navbar-nav-hover-color: setTextColor($navbar-bg) !default;
 
 // lists
 // --------------------------------
-// $base: ;
-// $color: ;
-// $border-color: ;
-$list-font-size: 0.875rem !default;
-$list-color: rgb(44, 82, 130) !default;
+$icon-list-color: inherit !default;
 
-$list-link-color: rgb(44, 82, 130) !default;
-$list-link-hover-color: rgb(49, 130, 206) !default;
-
-// $hover-bg: ;
-// $hover-color: ;
+$icon-tick: url("data:image/svg+xml;utf8,<?xml version='1.0' encoding='utf-8'?><svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><path fill='#{$icon-list-color}' d='M10,0A10,10,0,1,0,20,10,10.011,10.011,0,0,0,10,0Zm5.575,6.665L9.421,13.588a.77.77,0,0,1-1.056.09L4.519,10.6A.769.769,0,0,1,5.48,9.4l3.276,2.62,5.669-6.377a.769.769,0,0,1,1.15,1.023Z'/></svg>");

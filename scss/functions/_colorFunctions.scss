@@ -1,0 +1,35 @@
+@use "../base/vars_base" as *;
+
+// set text colour based on the background
+// --------------------------------------------------------------------------
+
+@function setTextColor($bg-color) {
+    @if (lightness($bg-color) > 60) {
+        @return $base-color;
+    } @else {
+        @return #fff;
+    }
+}
+
+// --------------------------------------------------------------
+// -- CONVERT COLOR TO RGBA --
+// --------------------------------------------------------------
+// will convert when passing in rgb, hex or hsl
+//
+// manually set a colour to convert
+// background-color: convertToRgba(#e23465);
+//
+// optionally set the opacity
+// background-color: convertToRgba(#e23465, 0.5);
+//
+// fetch a color from the color-map
+// background-color: convertToRgba(map-get($color-map, 'blue'));
+
+@function convertToRgba($color, $alpha: 1) {
+    @return rgba(red($color), green($color), blue($color), $alpha);
+}
+
+
+
+
+

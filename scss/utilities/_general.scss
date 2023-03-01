@@ -1,6 +1,9 @@
 @use "../base/vars_all" as *;
 @use "../mixins/media" as *;
 
+
+// This file is for general utilities that don't have a home,
+
 // -- CONTAINER --
 // -----------------------------------
 // there is no need to add a tonne of media queries for the
@@ -17,6 +20,15 @@
     position: relative;
 }
 
+// .#{$container-class}-lg {
+
+
+//     width: Min($container-max, $container-max-lg); // 1.
+//     margin-right: auto;
+//     margin-left: auto;
+//     position: relative;
+// }
+
 .cover {
     background-repeat: no-repeat;
     background-position: center;
@@ -28,6 +40,7 @@
 //
 //
 //
+// These are utilities that could easily be created using multiple utility classes
 //
 //
 //
@@ -42,17 +55,6 @@
     border-radius: 100vmax;
 }
 
-.overlay {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    overflow-y: auto;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
-    margin: 0;
-}
 
 .cursor-pointer {
     cursor: pointer;

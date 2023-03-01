@@ -102,6 +102,9 @@ $border-colors-map: ($color-map) !default;
     &-none {
         border-radius: 0px;
     }
+    &-0125 {
+        border-radius: 0.125rem;
+    }
     &-025 {
         border-radius: 0.25rem;
     }

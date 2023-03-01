@@ -1,21 +1,10 @@
 @use "../base/vars_all" as *;
 @use "../forms/control" as *;
-@use "../functions/setTextColor" as *;
+@use "../functions/colorFunctions" as *;
 @use "../mixins/createState" as *;
 
 // base class
 // ----------------------------
-
-// [class*="#{$button-class}"] {
-//     &.focus,
-//     &:focus {
-//         outline: none;
-//     }
-// }
-
-
-// DO NOT add <button> here, it is best to add the class for more
-// flexibility using button in livewire components
 
 .#{$button-class} {
     @extend %control;

@@ -11,6 +11,7 @@
     background: $navbar-bg;
     padding: $navbar-padding-y $navbar-padding-x;
     position: relative;
+    box-shadow: 1px 2px 5px #2a2a2b;
 
     li {
         list-style: none;
@@ -26,7 +27,7 @@
         padding: $navbar-nav-padding-y $navbar-nav-padding-x;
         display: block; // 1. allowing the navbar to grow in height
         background: $navbar-nav-item-bg;
-        color: $navbar-nav-font-color;
+        color: $navbar-nav-item-color;
         line-height: 1.2rem;
 
         &:hover {
@@ -35,6 +36,7 @@
         }
 
         &.active {
+            color: $navbar-nav-active-color;
             background: $navbar-nav-active-bg;
         }
     }

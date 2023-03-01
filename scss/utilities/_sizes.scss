@@ -101,7 +101,8 @@ $max-min-sizes: (
     400: 400px,
     600: 600px,
     800: 800px,
-    'md': $tablet
+    'md': $md,
+    'lg': $lg
 );
 
 .h-1\/1 {
@@ -118,8 +119,6 @@ $max-min-sizes: (
     .maxw-#{$key} {
         // Think of the min() value as providing the maximum value a property
         // can have. chooses the minimum of the two
-
-        // this allows shring?????
         max-width: $value;
         // width: Min($value, 95%); // 1. use capital so sass does not throw an error
     }
