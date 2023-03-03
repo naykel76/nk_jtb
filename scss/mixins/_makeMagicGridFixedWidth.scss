@@ -1,0 +1,55 @@
+@use "../base/vars_utility_maps" as *;
+@use "../mixins/media" as *;
+@use "sass:list";
+
+
+@mixin makeMagicGridFixedWidth($list-of-lists) {
+    // must have at least two list
+    @each $list in $list-of-lists {
+        // exclude empty list when creating single list
+        @if ($list != ()) {
+            $numBreakPoints: list.length($list);
+
+            $sm: nth($list, -1);
+            $md: nth($list, -2);
+            $lg: if($numBreakPoints >= 3, nth($list, -3), null);
+            $xl: if($numBreakPoints >= 4, nth($list, -4), null);
+            $xxl: if($numBreakPoints >= 5, nth($list, -5), null);
+
+            $derived-class: #{$md}-#{$sm};
+
+            @if ($numBreakPoints == 3) {
+                $derived-class: #{$lg}-#{$md}-#{$sm};
+            } @else if ($numBreakPoints == 4) {
+                $derived-class: #{$xl}-#{$lg}-#{$md}-#{$sm};
+            } @else if ($numBreakPoints == 5) {
+                $derived-class: #{$xxl}-#{$xl}-#{$lg}-#{$md}-#{$sm};
+            }
+
+            .cols-#{$derived-class} {
+                // @include from-sm {
+                //     grid-template-columns: repeat(nth($list, -1), 1fr);
+                // }
+
+                // I am not convinced that I need the small size!!
+                grid-template-columns: repeat(nth($list, -1), 1fr);
+
+                @include from-md {
+                    grid-template-columns: repeat(nth($list, -2), 1fr);
+                }
+
+                @if ($numBreakPoints >= 3) {
+                    @include from-lg {
+                        grid-template-columns: repeat(nth($list, -3), 1fr);
+                    }
+                }
+
+                @if ($numBreakPoints >= 4) {
+                    @include from-xl {
+                        grid-template-columns: repeat(nth($list, -4), 1fr);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -10,11 +10,11 @@
 }
 
 // exclude section to give more control
-:where(.flex, .grid) + :where(*):not(:is(.flex, .grid, section)) {
+:where(.flex, [class^="grid"]) + :where(*):not(:is(.flex, [class^="grid"], section)) {
     margin-top: $content-gap;
 }
 
 // opt-out
-:is(.flex, .grid) > * {
+:is(.flex, [class^="grid"]) > * {
     margin: 0;
 }
