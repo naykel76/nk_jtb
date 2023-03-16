@@ -1,0 +1,30 @@
+@use "./base/vars_all" as *;
+@use "./base/vars_base" as *;
+@use "./base/vars_utility_maps" as *;
+@use "./functions/helpers" as *;
+@use "./mixins/makeCssPropertyMixins" as *;
+@use "./mixins/makeMagicClass" as *;
+@use "./mixins/makeMagicGrid2Cols" as *;
+@use "./mixins/media" as *;
+@use "./mixins/positionUtilityClasses" as *;
+@use "sass:list";
+@use "sass:map";
+@use "sass:string";
+
+$magic-width-sizes: ((16, "full"), (24, "full")) !default;
+@include makeMagicClass("width", "w", ($magic-width-sizes));
+
+// $magic-grid-sizes-2cols: ((25, 25), (25, 25));
+// @include makeMagicGrid2Cols($magic-grid-sizes-2cols);
+
+// (sfw) single fixed width
+@media (min-width: 576px) {
+    .cols-sfw-25_25 {
+        grid-template-columns: 1fr 14rem;
+    }
+}
+@media (min-width: 768px) {
+    .cols-sfw-25_25 {
+        grid-template-columns: 1fr 20rem;
+    }
+}

@@ -11,6 +11,7 @@
   "scripts": {
     "border": "sass --watch --no-source-map ./scss/utilities/_border.scss:dist/css/border.css",
     "spacing": "sass --watch --no-source-map ./scss/utilities/_spacing.scss:dist/css/spacing.css",
+    "flex": "sass --watch --no-source-map ./scss/utilities/_flex.scss:dist/css/flex.css",
     "grid": "sass --watch --no-source-map ./scss/utilities/_grid.scss:dist/css/grid.css",
     "play": "sass --watch --no-source-map ./scss/_play.scss:dist/css/play.css",
     "dev": "vite --open",

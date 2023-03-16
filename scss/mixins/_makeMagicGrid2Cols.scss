@@ -2,12 +2,10 @@
 @use "../mixins/media" as *;
 @use "sass:list";
 
-
 // mobile = 100
 // small = 100
 // medium = 50
 // large = 30
-
 
 // only need to add 1st column percentage, 2nd is calculated
 // (25, 25) is shorthand for {25:75}_{25:75}_{100}
@@ -22,47 +20,48 @@
 
 // Grid will display in rows by default, size are min-size so you do not need to worry about adding the smallest size as it will be 100% by default
 
-@mixin makeMagicGrid2Cols($list-of-lists) {
+
+@mixin makeMagicGrid2Cols($listOfLists) {
     // must have at least two list
-    @each $list in $list-of-lists {
+    @each $list in $listOfLists {
         // exclude empty list when creating single list
         @if ($list != ()) {
             $numBreakPoints: list.length($list);
 
-            $sm: nth($list, -1);
-            $md: nth($list, -2);
-            $lg: if($numBreakPoints >= 3, nth($list, -3), null);
-            $xl: if($numBreakPoints >= 4, nth($list, -4), null);
-            $xxl: if($numBreakPoints >= 5, nth($list, -5), null);
+            $smValue: nth($list, -1);
+            $mdValue: nth($list, -2);
+            $lgValue: if($numBreakPoints >= 3, nth($list, -3), null);
+            $xlValue: if($numBreakPoints >= 4, nth($list, -4), null);
+            $xxlValue: if($numBreakPoints >= 5, nth($list, -5), null);
 
-            $class: #{$md}_#{$sm};
+            $class: #{$mdValue}_#{$smValue};
 
             @if ($numBreakPoints == 3) {
-                $class: #{$lg}_#{$md}_#{$sm};
+                $class: #{$lgValue}_#{$mdValue}_#{$smValue};
             } @else if ($numBreakPoints == 4) {
-                $class: #{$xl}_#{$lg}_#{$md}_#{$sm};
+                $class: #{$xlValue}_#{$lgValue}_#{$mdValue}_#{$smValue};
             } @else if ($numBreakPoints == 5) {
-                $class: #{$xxl}_#{$xl}_#{$lg}_#{$md}_#{$sm};
+                $class: #{$xxlValue}_#{$xlValue}_#{$lgValue}_#{$mdValue}_#{$smValue};
             }
 
             .cols-#{$class} {
                 @include from-sm {
-                    grid-template-columns: nth(map-get($fr-map-2-col, $sm), 1) nth(map-get($fr-map-2-col, $sm), 2);
+                    grid-template-columns: nth(map-get($fr-map-2-col, $smValue), 1) nth(map-get($fr-map-2-col, $smValue), 2);
                 }
 
                 @include from-md {
-                    grid-template-columns: nth(map-get($fr-map-2-col, $md), 1) nth(map-get($fr-map-2-col, $md), 2);
+                    grid-template-columns: nth(map-get($fr-map-2-col, $mdValue), 1) nth(map-get($fr-map-2-col, $mdValue), 2);
                 }
 
                 @if ($numBreakPoints >= 3) {
                     @include from-lg {
-                        grid-template-columns: nth(map-get($fr-map-2-col, $lg), 1) nth(map-get($fr-map-2-col, $lg), 2);
+                        grid-template-columns: nth(map-get($fr-map-2-col, $lgValue), 1) nth(map-get($fr-map-2-col, $lgValue), 2);
                     }
                 }
 
                 @if ($numBreakPoints >= 4) {
                     @include from-xl {
-                        grid-template-columns: nth(map-get($fr-map-2-col, $xl), 1) nth(map-get($fr-map-2-col, $xl), 2);
+                        grid-template-columns: nth(map-get($fr-map-2-col, $xlValue), 1) nth(map-get($fr-map-2-col, $xlValue), 2);
                     }
                 }
             }

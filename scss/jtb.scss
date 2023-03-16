@@ -25,6 +25,8 @@
 @forward "components/other";
 @forward "components/sidebar";
 
+// this is completly optional
+// @forward "layouts/_two-column";
 
 @forward "utilities/border";
 @forward "utilities/display_visibility";
@@ -40,6 +42,3 @@
 @forward "utilities/themes";
 @forward "utilities/transition";
 @forward "utilities/translate";
-
-@use "play";
-

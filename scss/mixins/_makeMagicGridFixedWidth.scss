@@ -3,27 +3,27 @@
 @use "sass:list";
 
 
-@mixin makeMagicGridFixedWidth($list-of-lists) {
+@mixin makeMagicGridFixedWidth($listOfLists) {
     // must have at least two list
-    @each $list in $list-of-lists {
+    @each $list in $listOfLists {
         // exclude empty list when creating single list
         @if ($list != ()) {
             $numBreakPoints: list.length($list);
 
-            $sm: nth($list, -1);
-            $md: nth($list, -2);
-            $lg: if($numBreakPoints >= 3, nth($list, -3), null);
-            $xl: if($numBreakPoints >= 4, nth($list, -4), null);
-            $xxl: if($numBreakPoints >= 5, nth($list, -5), null);
+            $smValue: nth($list, -1);
+            $mdValue: nth($list, -2);
+            $lgValue: if($numBreakPoints >= 3, nth($list, -3), null);
+            $xlValue: if($numBreakPoints >= 4, nth($list, -4), null);
+            $xxlValue: if($numBreakPoints >= 5, nth($list, -5), null);
 
-            $derived-class: #{$md}-#{$sm};
+            $derived-class: #{$mdValue}-#{$smValue};
 
             @if ($numBreakPoints == 3) {
-                $derived-class: #{$lg}-#{$md}-#{$sm};
+                $derived-class: #{$lgValue}-#{$mdValue}-#{$smValue};
             } @else if ($numBreakPoints == 4) {
-                $derived-class: #{$xl}-#{$lg}-#{$md}-#{$sm};
+                $derived-class: #{$xlValue}-#{$lgValue}-#{$mdValue}-#{$smValue};
             } @else if ($numBreakPoints == 5) {
-                $derived-class: #{$xxl}-#{$xl}-#{$lg}-#{$md}-#{$sm};
+                $derived-class: #{$xxlValue}-#{$xlValue}-#{$lgValue}-#{$mdValue}-#{$smValue};
             }
 
             .cols-#{$derived-class} {

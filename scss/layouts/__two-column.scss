@@ -1,0 +1,32 @@
+@use "../mixins/media" as *;
+@use "../base/vars_base" as *;
+
+// These are common design patterns layouts
+
+// add reverse to swap column positions or use order utility classes??
+
+// utility structure
+
+// <div class="flex-col md:flex-row gg">
+//     <div class="w-24-full"></div>
+//     <div class="fg1"></div>
+// </div>
+
+// TEST: can i still override??
+.two-column {
+    display: flex;
+    // gap: 3rem;
+
+    // > div {
+    //     flex: 1;
+    // }
+
+    // aside {
+    //     width: 24rem;
+    //     flex: 0 1 100%;
+    // }
+
+    // @include to-lg {
+    //     flex-direction: column;
+    // }
+}

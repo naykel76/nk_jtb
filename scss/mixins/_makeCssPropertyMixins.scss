@@ -13,9 +13,12 @@
 // --------------------------------------------------------------
 // -- CREATE SINGLE CSS PROPERTY --
 // --------------------------------------------------------------
-
-@mixin makeCssProperty($property, $value) {
-    #{$property}: $value;
+// creates a single size based properties. if the situation arises when you do
+// not need a unit, re-write with conditional
+@mixin makeCssProperty($property, $value, $unit: null) {
+    $val: if($value == "full", 100, $value);
+    $u: if($value == "full", "%", $unit);
+    #{$property}: #{$val}#{$u};
 }
 
 // --------------------------------------------------------------
@@ -26,3 +29,5 @@
         #{$property}: $value;
     }
 }
+
+

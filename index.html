@@ -6,14 +6,30 @@
     <link rel="icon" type="image/svg+xml" href="/nk.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NayKel JTB</title>
+    <link rel="stylesheet" href="">
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <!-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> -->
+
+    <style>
+        .cols-24-full {
+            /* grid-template-columns: repeat(auto-fit, minmax(25%, 400px)); */
+            grid-template-columns: 1fr minmax(24rem, 30rem);
+        }
+
+
+
+    </style>
 </head>
 
 <body>
 
-    <div class="container maxw-md py-5">
-        <img class="mx-auto pxy rounded-05 bg-grey-9" src="images/logo.svg" alt="naykel logo" width="200">
+    <div class="container py-5">
+
+        <div class="flex-col green bdr vh60">
+            <div class="bx mxy-0 dark"></div>
+            <div class="bx mxy-0 light flex-1"></div>
+        </div>
+
     </div>
 
     <div id="app"></div>

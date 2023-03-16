@@ -10,6 +10,9 @@
 @use "sass:map";
 @use "sass:string";
 
+
+
+
 // --------------------------------------------------------------------------
 // !! IMPORTANT !! ALL MAGIC MIXINS MUST HAVE AT LEAST TWO MAPS OR YOU WILL
 //  GET AN AN 'UNDEFINED' ERROR BECAUSE IT TREATS A SINGLE MAP AS A LIST
@@ -48,11 +51,14 @@ $grid-gap-sizes: (0, 0.5, 1, 1.25, 1.5, 2, 3, 4, 5) !default;
 }
 
 // --------------------------------------------------------------------------
-// -- MAGIC GRID GAP --
+// -- MAKE MAGIC CLASSES --
 // --------------------------------------------------------------------------
 
+// grid gap
 $grid-gap-magic-sizes: ((5, 3, 2), (5, 3), (4, 2), (3, 1)) !default;
 @include makeMagicClass("grid-gap", "gg", ($grid-gap-magic-sizes), $unit: "rem");
+
+
 
 // --------------------------------------------------------------------------
 // -- MAGIC GRID FIXED WIDTH  --
@@ -66,10 +72,12 @@ $fixed-width-columns-map: ((4, 2, 1), (3, 2, 1), (2, 1)) !default;
 // -- TWO COLUMN RESPONSIVE MAGIC GRID --
 // --------------------------------------------------------------------------
 
-// NK::TD catch error if size not in the fr-map i.e.100
+// // NK::TD catch error if size not in the fr-map i.e.100
 
-$magic-grid-sizes-2cols: ((25, 25), (30, 50), (70, 60));
-@include makeMagicGrid2Cols($magic-grid-sizes-2cols);
+// this is throwing an error but I am not sure I need it??
+
+// $magic-grid-sizes-2cols: ((25, 25), (30, 50), (70, 60));
+// @include makeMagicGrid2Cols($magic-grid-sizes-2cols);
 
 // --------------------------------------------------------------------------
 // -- TWO COLUMN NON-RESPONSIVE GRIDS --

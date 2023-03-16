@@ -151,6 +151,9 @@ $space-sizes: (0, 1, 1.5, 2, 3);
 
 // these do not play well in a loop!
 .space-y {
+    > *:not(:first-child) {
+        margin-top: $content-gap;
+    }
     &-025 > *:not(:first-child) {
         margin-top: 0.25rem;
     }

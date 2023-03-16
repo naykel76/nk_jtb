@@ -1,4 +1,5 @@
 @use "./media" as *;
+@use "./makeCssPropertyMixins" as *;
 @use "sass:list";
 @use "sass:map";
 @use "sass:string";
@@ -7,47 +8,51 @@
 //
 // accepts single css property with list of lists with responsive sizes
 
-@mixin makeMagicClass($property, $prefix, $list-of-lists, $unit: rem) {
+@mixin makeMagicClass($property, $prefix, $listOfLists, $unit: rem) {
     // must have at least two list
-    @each $list in $list-of-lists {
+    @each $list in $listOfLists {
         // exclude empty list when creating single list
         @if ($list != ()) {
             $numBreakPoints: list.length($list);
 
-            $sm: nth($list, -1);
-            $md: nth($list, -2);
-            $lg: if($numBreakPoints >= 3, nth($list, -3), null);
-            $xl: if($numBreakPoints >= 4, nth($list, -4), null);
-            $xxl: if($numBreakPoints >= 5, nth($list, -5), null);
+            // set the value of the BP based on position using negative
+            // numbers. This makes sure the position is always the same
+            $smValue: nth($list, -1);
+            $mdValue: nth($list, -2);
+            $lgValue: if($numBreakPoints >= 3, nth($list, -3), null);
+            $xlValue: if($numBreakPoints >= 4, nth($list, -4), null);
+            $xxlValue: if($numBreakPoints >= 5, nth($list, -5), null);
 
-            $derived-class: #{$md}-#{$sm};
+            $derived-class: #{$mdValue}-#{$smValue};
 
             @if ($numBreakPoints == 3) {
-                $derived-class: #{$lg}-#{$md}-#{$sm};
+                $derived-class: #{$lgValue}-#{$mdValue}-#{$smValue};
             } @else if ($numBreakPoints == 4) {
-                $derived-class: #{$xl}-#{$lg}-#{$md}-#{$sm};
+                $derived-class: #{$xlValue}-#{$lgValue}-#{$mdValue}-#{$smValue};
             } @else if ($numBreakPoints == 5) {
-                $derived-class: #{$xxl}-#{$xl}-#{$lg}-#{$md}-#{$sm};
+                $derived-class: #{$xxlValue}-#{$xlValue}-#{$lgValue}-#{$mdValue}-#{$smValue};
             }
 
             .#{$prefix}-#{$derived-class} {
                 @include from-sm {
-                    #{$property}: #{$sm}#{$unit};
+                    @include makeCssProperty($property, $smValue, $unit);
                 }
-
                 @include from-md {
-                    #{$property}: #{$md}#{$unit};
+                    @include makeCssProperty($property, $mdValue, $unit);
                 }
-
                 @if ($numBreakPoints >= 3) {
                     @include from-lg {
-                        #{$property}: #{$lg}#{$unit};
+                        @include makeCssProperty($property, $lgValue, $unit);
                     }
                 }
-
                 @if ($numBreakPoints >= 4) {
                     @include from-xl {
-                        #{$property}: #{$xl}#{$unit};
+                        @include makeCssProperty($property, $xlValue, $unit);
+                    }
+                }
+                @if ($numBreakPoints >= 5) {
+                    @include from-xxl {
+                        @include makeCssProperty($property, $xxlValue,$unit);
                     }
                 }
             }
