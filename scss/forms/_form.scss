@@ -3,8 +3,6 @@
 
 // @use "../base/vars_base" as *;
 
-$placeholder-color: #bbbbbb !default;
-
 // -- Base Elements --
 // ==========================================================================
 label {
@@ -26,12 +24,6 @@ select {
     cursor: pointer;
 }
 
-::placeholder {
-    color: $placeholder-color;
-    opacity: 1;
-}
-
-//
 .checkbox,
 .radio {
     cursor: pointer;
@@ -41,6 +33,7 @@ select {
 
 // -- frm-row --
 // ==========================================================================
+
 .frm-row {
     position: relative;
     display: flex;
@@ -57,7 +50,11 @@ select {
         gap: 1rem;
 
         label {
-            width: 10rem; // use flex-basis to override
+            // exclude width class to make it easier to override or
+            // can also use flex-basis to override width
+            &:not([class*="w-"]) {
+                width: 10rem;
+            }
             flex-shrink: 0; // prevent shrink for 100%
             margin-top: 4px; // better alignment
         }
@@ -98,8 +95,7 @@ select {
     }
 }
 
-
-.withAddons:has(.leadingAddon){
+.withAddons:has(.leadingAddon) {
     background: green;
 }
 // the width of the addon will vary depending on the content

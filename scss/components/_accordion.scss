@@ -1,28 +1,96 @@
+@use "../base/vars_base" as *;
+// add accordion component variables here instead of the main
+// component variable file.
 $accordion-bg: rgb(245, 245, 245) !default;
+$accordion-border: $border !default;
+$accordion-hover-bg: darken($accordion-bg, 5%) !default;
+
+$midnight: #2c3e50;
+
+// ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
+// These styles are for the CSS accordion, not the Alpine accordion.
+// You should focus the accordion behaviour and limit opinionated
+// styles to make it easier to apply utility classes.
+// ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
+
+// style the toggle
+:where(.accordion label) {
+    font-weight: bold;
+    // background: #000;
+}
 
 .accordion {
-    border: 1px solid;
-    margin-top: 1rem;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+    border: $border;
+
+    // title and label are used to toggle the accordion
+    &-title,
+    label {
+        width: 100%;
+        transition: 0.3s;
+        display: flex;
+        justify-content: space-between;
+        padding: 1em;
+        background: $accordion-bg;
+        cursor: pointer;
+
+        &:hover {
+            background: $accordion-hover-bg;
+        }
+        /* Icon */
+        &::after {
+            content: "\276F";
+            text-align: center;
+            transition: all 0.3s;
+        }
+    }
+
+    &-content {
+        padding: 0 1em;
+        max-height: 0;
+        transition: all 0.3s;
+    }
+
+    &-close {
+        display: flex;
+        justify-content: flex-end;
+        font-size: 0.75em;
+        cursor: pointer;
+    }
+
+    input {
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+        // checked toggles open and closed
+        &:checked {
+            + label {
+                background: $accordion-hover-bg;
+                &::after {
+                    transform: rotate(90deg);
+                }
+            }
+            ~ .accordion-content {
+                max-height: 999vh; // prevent cutting off content
+                padding: 1em;
+            }
+        }
+    }
+
+    .active {
+        content: "\276F";
+        text-align: center;
+        transition: all 0.3s;
+        &::after {
+            transform: rotate(90deg);
+        }
+    }
 }
 
-.accordion-toggle {
-    background-color: $accordion-bg;
-    color: #444;
-    cursor: pointer;
-    width: 100%;
-    transition: 0.4s;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-}
-
-// Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover)
-.accordion-active,
-.accordion-toggle:hover {
-    background-color: rgb(230, 230, 230);
-}
+// ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
+// This is only used in an alpine accordion and will be DEPRECIATED
+// ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
 
 .accordion-body {
     display: block;
@@ -30,7 +98,6 @@ $accordion-bg: rgb(245, 245, 245) !default;
     border-radius: 0;
 
     > div {
-        border-top: none;
         &:hover {
             background-color: rgba(250, 221, 230, 0.15);
         }

@@ -304,25 +304,11 @@ textarea {
     resize: vertical;
 }
 
-// 1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
-// 2. Set the default placeholder color to the user's configured gray 400 color.
-
-input::-moz-placeholder,
-textarea::-moz-placeholder {
-    opacity: 1; // 1
-    color: #9ca3af; // 2
-}
-
-input:-ms-input-placeholder,
-textarea:-ms-input-placeholder {
-    opacity: 1; // 1
-    color: #9ca3af; // 2
-}
 
 input::placeholder,
 textarea::placeholder {
     opacity: 1; // 1
-    color: #9ca3af; // 2
+    color: #c5c5c5; // 2
 }
 
 // Set the default cursor for buttons.

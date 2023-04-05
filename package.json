@@ -13,14 +13,14 @@
     "spacing": "sass --watch --no-source-map ./scss/utilities/_spacing.scss:dist/css/spacing.css",
     "flex": "sass --watch --no-source-map ./scss/utilities/_flex.scss:dist/css/flex.css",
     "grid": "sass --watch --no-source-map ./scss/utilities/_grid.scss:dist/css/grid.css",
-    "play": "sass --watch --no-source-map ./scss/_play.scss:dist/css/play.css",
+    "play": "sass --watch --no-source-map ./scss/play.scss:dist/css/play.css",
     "dev": "vite --open",
     "build": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
-    "sass": "^1.54.0",
-    "vite": "^3.0.0"
+    "sass": "^1.60.0",
+    "vite": "^4.2.1"
   },
   "dependencies": {
     "alpinejs": "^3.10.5"

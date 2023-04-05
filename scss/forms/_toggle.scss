@@ -12,7 +12,9 @@ $toggle-gap: 0.25rem;
     cursor: pointer;
 
     input[type="checkbox"] {
-        @extend .sr-only;
+        height: 0;
+        width: 0;
+        visibility: hidden;
     }
 
     // toggle body
@@ -29,7 +31,8 @@ $toggle-gap: 0.25rem;
             height: calc($toggle-body-height - $toggle-gap);
             width: calc($toggle-body-height - $toggle-gap);
             top: calc($toggle-gap / 2);
-            left: calc($toggle-gap / 2);
+            left: calc($toggle-gap + $toggle-gap / 2);
+            // left: calc($toggle-gap + .1125rem);
             background-color: hsl(0, 0%, 100%);
             border-color: rgba(0, 0, 0, 0.15);
             border-radius: 9999px;
@@ -37,18 +40,18 @@ $toggle-gap: 0.25rem;
             @extend .transition;
         }
     }
-}
 
-input[type="checkbox"]:checked {
-    // toggle body on (checked)
-    ~ div {
-        background-color: hsl(100, 70%, 40%);
-        @extend .transition;
-        // toggle when checked
-        &::after {
-            // background-color: hsl(50, 10%, 10%);
-            transform: translateX(calc($toggle-body-width - $toggle-body-height));
+    input[type="checkbox"]:checked {
+        // toggle body on (checked)
+        ~ div {
+            background-color: hsl(100, 70%, 40%);
             @extend .transition;
+            // toggle when checked
+            &::after {
+                // background-color: hsl(50, 10%, 10%);
+                transform: translateX(calc($toggle-body-width - $toggle-body-height));
+                @extend .transition;
+            }
         }
     }
 }
