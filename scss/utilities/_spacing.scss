@@ -69,6 +69,15 @@ $padding-y-responsive-sizes: (10, 6, 2), "";
     padding: 1rem;
 }
 
+.c-pxy-0 > * {
+    padding: 0;
+}
+
+.c-px-0 > * {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 .c-px-1 > * {
     padding-left: 1rem;
     padding-right: 1rem;

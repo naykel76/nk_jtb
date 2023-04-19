@@ -5,6 +5,11 @@
     margin-top: $content-gap;
 }
 
+// this may turn out to be more hassle than it is worth!
+* + :where(table) {
+    margin-top: $content-gap;
+}
+
 :where(.bx, .bx-title, .bx-content, .frm-row, .container) + :where(*):not(.dd-content) {
     margin-top: $content-gap;
 }
@@ -18,5 +23,3 @@
 :is(.flex, [class^="grid"]) > * {
     margin: 0;
 }
-
-

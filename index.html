@@ -11,23 +11,46 @@
     <!-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> -->
 
     <style>
-        .cols-24-full {
-            /* grid-template-columns: repeat(auto-fit, minmax(25%, 400px)); */
-            grid-template-columns: 1fr minmax(24rem, 30rem);
+        .abc {
+            grid-template-columns: 3rem 8rem 1fr 5rem;
         }
-
-
 
     </style>
 </head>
 
 <body>
 
-    <div class="container py-5">
+    <div class="container pxy-5">
 
-        <div class="flex-col green bdr vh60">
-            <div class="bx mxy-0 dark"></div>
-            <div class="bx mxy-0 light flex-1"></div>
+        <h2>Create a css grid that can be used in a data table layout</h2>
+
+
+        <div class="grid abc">
+            <div class="bx blue"></div>
+            <div class="bx blue"></div>
+            <div class="bx blue"></div>
+            <div class="bx blue"></div>
+            <div class="bx blue"></div>
+            <div class="bx orange"></div>
+            <div class="bx orange"></div>
+            <div class="bx orange"></div>
+            <div class="bx orange"></div>
+            <div class="bx orange"></div>
+        </div>
+
+        <style>
+            .special {
+                grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+            }
+
+            .item {
+                grid-column: 100px;
+            }
+
+        </style>
+
+        <div class="grid special">
+
         </div>
 
     </div>
