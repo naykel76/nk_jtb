@@ -1,5 +1,5 @@
 @use '../base/vars_all' as *;
-@use "./makeCssPropertyMixins" as *;
+@use "./helpers" as *;
 @use "./media" as *;
 @use "sass:list";
 @use "sass:map";
@@ -38,19 +38,19 @@
 
             // use -index to select from the end to ensure correct order with different length lists
             .#{$class} {
-                @include makeCssPositionProperty($property, #{nth($sizes-list, -1)}rem, $positions);
+                @include makePositionProperties($property, #{nth($sizes-list, -1)}rem, $positions);
 
                 @include from-md {
-                    @include makeCssPositionProperty($property, #{nth($sizes-list, -2)}rem, $positions);
+                    @include makePositionProperties($property, #{nth($sizes-list, -2)}rem, $positions);
                 }
 
                 @include from-xl {
-                    @include makeCssPositionProperty($property, #{nth($sizes-list, -3)}rem, $positions);
+                    @include makePositionProperties($property, #{nth($sizes-list, -3)}rem, $positions);
                 }
 
                 @if ($numSizes==4) {
                     @include from-xxl {
-                        @include makeCssPositionProperty($property, #{nth($sizes-list, -4)}rem, $positions);
+                        @include makePositionProperties($property, #{nth($sizes-list, -4)}rem, $positions);
                     }
                 }
             }

@@ -14,6 +14,7 @@
     "flex": "sass --watch --no-source-map ./scss/utilities/_flex.scss:dist/css/flex.css",
     "grid": "sass --watch --no-source-map ./scss/utilities/_grid.scss:dist/css/grid.css",
     "play": "sass --watch --no-source-map ./scss/play.scss:dist/css/play.css",
+    "jtb": "sass --watch --no-source-map ./scss/jtb.scss:dist/css/jtb.css",
     "dev": "vite --open",
     "build": "vite build",
     "preview": "vite preview"

@@ -1,89 +1,88 @@
 @use "./media" as *;
 
-// At first glance it seems really dumb to create mixins full of if-else
-// statements and that is because it is! SCSS will not allow interpolation for
-// @include so there is no other way.
+// ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
+// SCSS does not support interpolation for @include so there is no
+// choice other than using multiple if-else statements.
+// ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
 
-// ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
-// must be marked !important to ensure override default property
-// ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
-
-@mixin makeFromDevice($prefix, $property, $value, $args...) {
-    @each $device in $args {
-        .#{$prefix}#{$device} {
-            @if ($device == "sm") {
+// output:  {bp}\:class
+@mixin makeFromBreakpoint($class, $property, $value, $breakpoints...) {
+    @each $bp in $breakpoints {
+        .#{$bp}\:#{$class} {
+            @if ($bp == "sm") {
                 @include from-sm {
-                    #{$property}: $value !important;
+                    #{$property}: $value;
                 }
-            } @else if($device == "md") {
+            } @else if($bp == "md") {
                 @include from-md {
-                    #{$property}: $value !important;
+                    #{$property}: $value;
                 }
-            } @else if($device == "lg") {
+            } @else if($bp == "lg") {
                 @include from-lg {
-                    #{$property}: $value !important;
+                    #{$property}: $value;
                 }
-            } @else if($device == "xl") {
+            } @else if($bp == "xl") {
                 @include from-xl {
-                    #{$property}: $value !important;
+                    #{$property}: $value;
                 }
-            } @else if($device == "xxl") {
+            } @else if($bp == "xxl") {
                 @include from-xxl {
-                    #{$property}: $value !important;
+                    #{$property}: $value;
                 }
             }
         }
     }
 }
 
-@mixin makeToDevice($prefix, $property, $value, $args...) {
-    @each $device in $args {
-        .#{$prefix}#{$device} {
-            @if ($device == "sm") {
+// output:  to-{breakpoint}\:class
+@mixin makeToBreakpoint($class, $property, $value, $breakpoints...) {
+    @each $bp in $breakpoints {
+        .#{$bp}\:#{$class} {
+            @if ($bp == "sm") {
                 @include to-sm {
-                    #{$property}: $value !important;
+                    #{$property}: $value;
                 }
-            } @else if($device == "md") {
+            } @else if($bp == "md") {
                 @include to-md {
-                    #{$property}: $value !important;
+                    #{$property}: $value;
                 }
-            } @else if($device == "lg") {
+            } @else if($bp == "lg") {
                 @include to-lg {
-                    #{$property}: $value !important;
+                    #{$property}: $value;
                 }
-            } @else if($device == "xl") {
+            } @else if($bp == "xl") {
                 @include to-xl {
-                    #{$property}: $value !important;
+                    #{$property}: $value;
                 }
             } @else {
-                @error 'The device '#{$device}' is not available for this mixin, you need to remove it from the args list.';
+                @error 'The device '#{$bp}' is not available for this mixin, you need to remove it from the args list.';
             }
         }
     }
 }
 
-@mixin makeOnDevice($prefix, $property, $value, $args...) {
-    @each $device in $args {
-        .#{$prefix}#{$device} {
-            @if ($device == "sm") {
+@mixin makeOnBreakpoint($class, $property, $value, $breakpoints...) {
+    @each $bp in $breakpoints {
+        .#{$bp}\:#{$class} {
+            @if ($bp == "sm") {
                 @include on-sm {
-                    #{$property}: $value !important;
+                    #{$property}: $value;
                 }
-            } @else if($device == "md") {
+            } @else if($bp == "md") {
                 @include on-md {
-                    #{$property}: $value !important;
+                    #{$property}: $value;
                 }
-            } @else if($device == "lg") {
+            } @else if($bp == "lg") {
                 @include on-lg {
-                    #{$property}: $value !important;
+                    #{$property}: $value;
                 }
-            } @else if($device == "xl") {
+            } @else if($bp == "xl") {
                 @include on-xl {
-                    #{$property}: $value !important;
+                    #{$property}: $value;
                 }
-            } @else if($device == "xxl") {
+            } @else if($bp == "xxl") {
                 @include on-xxl {
-                    #{$property}: $value !important;
+                    #{$property}: $value;
                 }
             }
         }

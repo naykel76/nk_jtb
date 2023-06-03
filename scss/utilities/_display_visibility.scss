@@ -48,19 +48,21 @@ $visibility-utilities: (
 
 // |--\0/-- DISPLAY --\0/--|
 // --------------------------------------------------------------------------
-[class*="block-to"],
-[class*="block-from"],
-[class*="block-on"] {
-    display: none;
-}
 
-@include makeFromDevice("block-from-", display, block, "sm", "md", "lg", "xl", "xxl");
-@include makeOnDevice("block-on-", display, block, "sm", "md", "lg", "xl", "xxl");
-@include makeToDevice("block-to-", display, block, "sm", "md", "lg", "xl");
+// NK::TD THIS IS A PROBLEM!!!
+// [class*="block-to"],
+// [class*="block-from"],
+// [class*="block-on"] {
+//     display: none;
+// }
 
-// |--\0/-- HIDE --\0/--|
-// --------------------------------------------------------------------------
+// [class$=":block"]
 
-@include makeFromDevice("hide-from-", display, none, "sm", "md", "lg", "xl", "xxl");
-@include makeOnDevice("hide-on-", display, none, "sm", "md", "lg", "xl", "xxl");
-@include makeToDevice("hide-to-", display, none, "sm", "md", "lg", "xl");
+@include makeFromBreakpoint(block, display, block, "sm", "md", "lg", "xl", "xxl");
+@include makeFromBreakpoint(hide, display, none, "sm", "md", "lg", "xl", "xxl");
+
+@include makeOnBreakpoint("block", display, block, "sm", "md", "lg", "xl", "xxl");
+@include makeOnBreakpoint("hide", display, none, "sm", "md", "lg", "xl", "xxl");
+
+@include makeToBreakpoint("block", display, block, "sm", "md", "lg", "xl");
+@include makeToBreakpoint("hide", display, none, "sm", "md", "lg", "xl");

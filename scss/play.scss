@@ -1,15 +1,15 @@
-// @use "./base/vars_all" as *;
-// @use "./base/vars_base" as *;
-// @use "./base/vars_utility_maps" as *;
-// @use "./functions/helpers" as *;
-// @use "./mixins/makeCssPropertyMixins" as *;
-// @use "./mixins/makeMagicClass" as *;
-// @use "./mixins/makeMagicGrid2Cols" as *;
-// @use "./mixins/media" as *;
-// @use "./mixins/positionUtilityClasses" as *;
-// @use "sass:list";
-// @use "sass:map";
-// @use "sass:string";
-// add accordion component variables here instead of the main
+@use "./base/vars_all" as *;
+@use "./base/vars_base" as *;
+@use "./base/vars_utility_maps" as *;
+@use "./functions/helpers" as *;
+@use "./mixins/helpers" as *;
+@use "./mixins/makeMagicClass" as *;
+@use "./mixins/makeMagicGrid2Cols" as *;
+@use "./mixins/makeResponsiveClasses" as *;
+@use "./mixins/media" as *;
+@use "./mixins/positionUtilityClasses" as *;
+@use "sass:list";
+@use "sass:map";
+@use "sass:string";
 
 

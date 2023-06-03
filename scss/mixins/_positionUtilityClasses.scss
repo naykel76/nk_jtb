@@ -1,5 +1,5 @@
-@use "./makeCssPropertyMixins" as *;
 @use "../functions/helpers" as *;
+@use "../mixins/helpers" as *;
 // --------------------------------------------------------------
 // -- CREATES BASE AND POSITION BASED UTILITY CLASSES FROM MAP --
 // --------------------------------------------------------------
@@ -50,7 +50,7 @@
                         #{$property}-left: #{$value};
                         #{$property}-right: #{$value};
                     } @else {
-                        @include makeCssPositionProperty($property, #{$value}, $positions);
+                        @include makePositionProperties($property, #{$value}, $positions);
                     }
                 }
             }

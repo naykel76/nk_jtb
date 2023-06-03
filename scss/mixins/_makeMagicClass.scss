@@ -1,5 +1,5 @@
 @use "./media" as *;
-@use "./makeCssPropertyMixins" as *;
+@use "./helpers" as *;
 @use "sass:list";
 @use "sass:map";
 @use "sass:string";
@@ -35,24 +35,24 @@
 
             .#{$prefix}-#{$derived-class} {
                 @include from-sm {
-                    @include makeCssProperty($property, $smValue, $unit);
+                    @include makeUnitProperty($property, $smValue, $unit);
                 }
                 @include from-md {
-                    @include makeCssProperty($property, $mdValue, $unit);
+                    @include makeUnitProperty($property, $mdValue, $unit);
                 }
                 @if ($numBreakPoints >= 3) {
                     @include from-lg {
-                        @include makeCssProperty($property, $lgValue, $unit);
+                        @include makeUnitProperty($property, $lgValue, $unit);
                     }
                 }
                 @if ($numBreakPoints >= 4) {
                     @include from-xl {
-                        @include makeCssProperty($property, $xlValue, $unit);
+                        @include makeUnitProperty($property, $xlValue, $unit);
                     }
                 }
                 @if ($numBreakPoints >= 5) {
                     @include from-xxl {
-                        @include makeCssProperty($property, $xxlValue,$unit);
+                        @include makeUnitProperty($property, $xxlValue,$unit);
                     }
                 }
             }
