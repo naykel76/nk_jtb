@@ -4,11 +4,14 @@
 @use "sass:map";
 @use "sass:string";
 
-// Make magic responsive class for a single css property.
-//
-// accepts single css property with list of lists with responsive sizes
+// ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
+// there must always be at least two lists or there will be an
+// undefined error. To prevent error for a single list just and an
+// empty list ().
+// ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
 
-@mixin makeMagicClass($property, $prefix, $listOfLists, $unit: rem) {
+
+@mixin makeMagicClass($prefix, $property, $listOfLists, $unit: rem) {
     // must have at least two list
     @each $list in $listOfLists {
         // exclude empty list when creating single list
@@ -52,7 +55,7 @@
                 }
                 @if ($numBreakPoints >= 5) {
                     @include from-xxl {
-                        @include makeUnitProperty($property, $xxlValue,$unit);
+                        @include makeUnitProperty($property, $xxlValue, $unit);
                     }
                 }
             }

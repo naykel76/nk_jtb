@@ -17,7 +17,7 @@ $size-utilities: (
             screen: 100vw,
             // min: min-content,
             // max: max-content,
-            // fit: fit-content,,,,,
+            // fit: fit-content
         ),
     ),
     "height": (
@@ -31,12 +31,10 @@ $size-utilities: (
 );
 
 @each $property, $map in $size-utilities {
-
     $prefix: map-get($map, "prefix");
     $values: map-get($map, "values");
 
     @each $key, $v in $values {
-
         .#{$prefix}#{$key} {
             #{$property}: $v;
         }
@@ -48,7 +46,7 @@ $size-utilities: (
 // --------------------------------------------------------------------------
 
 $magic-width-sizes: ((16 "full"), (20, "full"), (24, "full")) !default;
-@include makeMagicClass("width", "w", ($magic-width-sizes));
+@include makeMagicClass("w", width, ($magic-width-sizes));
 
 // --------------------------------------------------------------------------
 // -- MAKE UTILITY SIZE CLASSES --

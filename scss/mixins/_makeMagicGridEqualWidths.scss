@@ -3,7 +3,7 @@
 @use "sass:list";
 
 
-@mixin makeMagicGridFixedWidth($listOfLists) {
+@mixin makeMagicGridEqualWidths($listOfLists) {
     // must have at least two list
     @each $list in $listOfLists {
         // exclude empty list when creating single list
