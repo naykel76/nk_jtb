@@ -1,0 +1,17 @@
+@use "../base/vars_all" as *;
+@use "../mixins/media" as *;
+
+// These are very opinionated styles designed specifically for
+// NAYKEL layouts.
+
+article.image-wrap {
+    img {
+        margin-bottom: 2rem;
+        @include from-lg {
+            float: right;
+            max-width: 480px;
+            margin-left: 5rem;
+            margin-bottom: 5rem;
+        }
+    }
+}

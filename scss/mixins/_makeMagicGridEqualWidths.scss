@@ -1,52 +1,67 @@
 @use "../base/vars_utility_maps" as *;
+@use "../functions/classNaming" as *;
 @use "../mixins/media" as *;
 @use "sass:list";
 
+@mixin handleValue($index) {
+    grid-template-columns: repeat(nth($list, -1), 1fr);
 
-@mixin makeMagicGridEqualWidths($listOfLists) {
-    // must have at least two list
-    @each $list in $listOfLists {
+    // @if ($positions == null) {
+    //     @include makeProperty($property, $value, $unit);
+    // } @else {
+    //     @include makePositionProperties($property, $value, $positions);
+    // }
+}
+
+@mixin makeMagicGridEqualWidths($listsOfValues) {
+    $identifier: cols;
+    @each $list in $listsOfValues {
         // exclude empty list when creating single list
         @if ($list != ()) {
             $numBreakPoints: list.length($list);
 
-            $smValue: nth($list, -1);
-            $mdValue: nth($list, -2);
-            $lgValue: if($numBreakPoints >= 3, nth($list, -3), null);
-            $xlValue: if($numBreakPoints >= 4, nth($list, -4), null);
-            $xxlValue: if($numBreakPoints >= 5, nth($list, -5), null);
+            // set the value of the BP based on position using negative
+            // numbers. This makes sure the position is always the same
+            $baseValue: nth($list, -1);
+            $smValue: nth($list, -2);
+            $mdValue: if($numBreakPoints >= 3, nth($list, -3), null);
+            $lgValue: if($numBreakPoints >= 4, nth($list, -4), null);
+            $xlValue: if($numBreakPoints >= 5, nth($list, -5), null);
+            $xxlValue: if($numBreakPoints >= 6, nth($list, -6), null);
 
-            $derived-class: #{$mdValue}-#{$smValue};
+            $derived-class: derivedClass($list);
 
-            @if ($numBreakPoints == 3) {
-                $derived-class: #{$lgValue}-#{$mdValue}-#{$smValue};
-            } @else if ($numBreakPoints == 4) {
-                $derived-class: #{$xlValue}-#{$lgValue}-#{$mdValue}-#{$smValue};
-            } @else if ($numBreakPoints == 5) {
-                $derived-class: #{$xxlValue}-#{$xlValue}-#{$lgValue}-#{$mdValue}-#{$smValue};
-            }
-
-            .cols-#{$derived-class} {
-                // @include from-sm {
-                //     grid-template-columns: repeat(nth($list, -1), 1fr);
-                // }
-
-                // I am not convinced that I need the small size!!
+            // You want ALL classes to have the opportunity to build
+            // so DO NOT use else-if statements
+            .#{$identifier}-#{$derived-class} {
                 grid-template-columns: repeat(nth($list, -1), 1fr);
 
-                @include from-md {
+                @include from-sm {
+                    // grid-template-columns: nth(map-get($fr-conversion-map, $smValue), 1) nth(map-get($fr-conversion-map, $smValue), 2);
                     grid-template-columns: repeat(nth($list, -2), 1fr);
                 }
 
                 @if ($numBreakPoints >= 3) {
-                    @include from-lg {
+                    @include from-md {
                         grid-template-columns: repeat(nth($list, -3), 1fr);
                     }
                 }
 
                 @if ($numBreakPoints >= 4) {
-                    @include from-xl {
+                    @include from-lg {
                         grid-template-columns: repeat(nth($list, -4), 1fr);
+                    }
+                }
+
+                @if ($numBreakPoints >= 5) {
+                    @include from-xl {
+                        grid-template-columns: repeat(nth($list, -5), 1fr);
+                    }
+                }
+
+                @if ($numBreakPoints >= 6) {
+                    @include from-xxl {
+                        grid-template-columns: repeat(nth($list, -6), 1fr);
                     }
                 }
             }

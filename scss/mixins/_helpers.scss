@@ -1,23 +1,37 @@
 // --------------------------------------------------------------
 // -- CREATE POSITION BASED PROPERTIES --
 // --------------------------------------------------------------
+
+// create single position based property. margin-left: 5rem
+@mixin makePositionProperty($property, $value, $position, $unit: rem) {
+    #{$property}-#{$position}: #{$value}#{$unit};
+}
+
 // iterates through a list of positions creating the appropriate
 // property (top, bottom, left, right)
-
-@mixin makePositionProperties($property, $value, $positions) {
+@mixin makePositionProperties($property, $value, $positions, $unit: rem) {
     @each $position in $positions {
-        #{$property}-#{$position}: $value;
+        // remove unit for auto, 0, border
+        $derivedUnit: if(($value == "auto" or $value == '0' or $property == 'border'), null, $unit);
+        @include makePositionProperty($property, $value, $position, $derivedUnit);
     }
 }
+
 
 // --------------------------------------------------------------
 // -- CREATE SINGLE PROPERTY --
 // --------------------------------------------------------------
-// creates a single size based properties.
-@mixin makeUnitProperty($property, $value, $unit: null) {
-    $val: if($value == "full", 100, $value);
-    $u: if($value == "full", "%", $unit);
-    #{$property}: #{$val}#{$u};
+// create unit base or other property
+@mixin makeProperty($property, $value, $unit: null) {
+    // 'full' value implies a unit based property that will be 100%
+    $derivedValue: if($value == "full", 100, $value);
+    $derivedUnit: if($value == "full", "%", $unit);
+
+    @if ($unit == null) {
+        #{$property}: #{$derivedValue};
+    } @else {
+        #{$property}: #{$derivedValue}#{$derivedUnit};
+    }
 }
 
 // --------------------------------------------------------------
@@ -29,5 +43,3 @@
         #{$property}: $value;
     }
 }
-
-

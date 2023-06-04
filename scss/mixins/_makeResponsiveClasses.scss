@@ -1,58 +1,63 @@
 @use "./media" as *;
 
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
+//
 // SCSS does not support interpolation for @include so there is no
 // choice other than using multiple if-else statements.
+//
+// Putting the $property, and $value before the class $identifier
+// will make it easier to order and read mixins.
+//
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
 
-// output:  {bp}\:class
-@mixin makeFromBreakpoint($class, $property, $value, $breakpoints...) {
+// output:  {bp}\:identifier
+@mixin makeFromBreakpoint($property, $value, $identifier, $breakpoints...) {
     @each $bp in $breakpoints {
-        .#{$bp}\:#{$class} {
+        .#{$bp}\:#{$identifier} {
             @if ($bp == "sm") {
                 @include from-sm {
-                    #{$property}: $value;
+                    #{$property}: $value !important;
                 }
             } @else if($bp == "md") {
                 @include from-md {
-                    #{$property}: $value;
+                    #{$property}: $value !important;
                 }
             } @else if($bp == "lg") {
                 @include from-lg {
-                    #{$property}: $value;
+                    #{$property}: $value !important;
                 }
             } @else if($bp == "xl") {
                 @include from-xl {
-                    #{$property}: $value;
+                    #{$property}: $value !important;
                 }
             } @else if($bp == "xxl") {
                 @include from-xxl {
-                    #{$property}: $value;
+                    #{$property}: $value !important;
                 }
             }
         }
     }
 }
 
-// output:  to-{breakpoint}\:class
-@mixin makeToBreakpoint($class, $property, $value, $breakpoints...) {
+// output:  to-{breakpoint}\:identifier
+@mixin makeToBreakpoint($property, $value, $identifier, $breakpoints...) {
     @each $bp in $breakpoints {
-        .#{$bp}\:#{$class} {
+        .to-#{$bp}\:#{$identifier} {
             @if ($bp == "sm") {
                 @include to-sm {
-                    #{$property}: $value;
+                    #{$property}: $value !important;
                 }
             } @else if($bp == "md") {
                 @include to-md {
-                    #{$property}: $value;
+                    #{$property}: $value !important;
                 }
             } @else if($bp == "lg") {
                 @include to-lg {
-                    #{$property}: $value;
+                    #{$property}: $value !important;
                 }
             } @else if($bp == "xl") {
                 @include to-xl {
-                    #{$property}: $value;
+                    #{$property}: $value !important;
                 }
             } @else {
                 @error 'The device '#{$bp}' is not available for this mixin, you need to remove it from the args list.';
@@ -61,28 +66,29 @@
     }
 }
 
-@mixin makeOnBreakpoint($class, $property, $value, $breakpoints...) {
+// output: on-{breakpoint}\:identifier
+@mixin makeOnBreakpoint($property, $value, $identifier, $breakpoints...) {
     @each $bp in $breakpoints {
-        .#{$bp}\:#{$class} {
+        .on-#{$bp}\:#{$identifier} {
             @if ($bp == "sm") {
                 @include on-sm {
-                    #{$property}: $value;
+                    #{$property}: $value !important;
                 }
             } @else if($bp == "md") {
                 @include on-md {
-                    #{$property}: $value;
+                    #{$property}: $value !important;
                 }
             } @else if($bp == "lg") {
                 @include on-lg {
-                    #{$property}: $value;
+                    #{$property}: $value !important;
                 }
             } @else if($bp == "xl") {
                 @include on-xl {
-                    #{$property}: $value;
+                    #{$property}: $value !important;
                 }
             } @else if($bp == "xxl") {
                 @include on-xxl {
-                    #{$property}: $value;
+                    #{$property}: $value !important;
                 }
             }
         }

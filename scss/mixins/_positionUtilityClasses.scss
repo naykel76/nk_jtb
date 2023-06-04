@@ -1,11 +1,10 @@
 @use "../functions/helpers" as *;
 @use "../mixins/helpers" as *;
+
 // --------------------------------------------------------------
-// -- CREATES BASE AND POSITION BASED UTILITY CLASSES FROM MAP --
+// -- CREATES BASE AND POSITION BASED UTILITY CLASSES --
 // --------------------------------------------------------------
 //
-//
-// Example Usage:
 //
 
 // add a dash between class and position (bdr-xy)
@@ -43,15 +42,7 @@
                 }
 
                 .#{$base-class}#{$position-key}#{$size-key} {
-                    // do not use shorthand to allow for easier override
-                    @if ($axis-or-position == "xy") {
-                        #{$property}-top: #{$value};
-                        #{$property}-bottom: #{$value};
-                        #{$property}-left: #{$value};
-                        #{$property}-right: #{$value};
-                    } @else {
-                        @include makePositionProperties($property, #{$value}, $positions);
-                    }
+                    @include makePositionProperties($property, #{$value}, $positions);
                 }
             }
         }

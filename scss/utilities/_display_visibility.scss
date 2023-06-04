@@ -58,11 +58,13 @@ $visibility-utilities: (
 
 // [class$=":block"]
 
-@include makeFromBreakpoint(block, display, block, "sm", "md", "lg", "xl", "xxl");
-@include makeFromBreakpoint(hide, display, none, "sm", "md", "lg", "xl", "xxl");
 
-@include makeOnBreakpoint("block", display, block, "sm", "md", "lg", "xl", "xxl");
-@include makeOnBreakpoint("hide", display, none, "sm", "md", "lg", "xl", "xxl");
 
-@include makeToBreakpoint("block", display, block, "sm", "md", "lg", "xl");
-@include makeToBreakpoint("hide", display, none, "sm", "md", "lg", "xl");
+@include makeFromBreakpoint(display, block, "block", "sm", "md", "lg", "xl", "xxl");
+@include makeFromBreakpoint(display, none, "hide", "sm", "md", "lg", "xl", "xxl");
+
+@include makeOnBreakpoint(display, block, "block", "sm", "md", "lg", "xl", "xxl");
+@include makeOnBreakpoint(display, none, "hide", "sm", "md", "lg", "xl", "xxl");
+
+@include makeToBreakpoint(display, block, "block", "sm", "md", "lg", "xl");
+@include makeToBreakpoint(display, none, "hide", "sm", "md", "lg", "xl");

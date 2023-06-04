@@ -1,7 +1,6 @@
 @use "../base/vars_all" as *;
 @use "../mixins/media" as *;
 
-
 // This file is for general utilities that don't have a home,
 
 // -- CONTAINER --
@@ -14,20 +13,16 @@
 //    sass and css. This works because sass is case-sensitive, but
 //    CSS is not.
 .#{$container-class} {
-    width: Min($container-max, $container-max-xxl); // 1.
+    // make the max a little smaller to act as padding
+    width: Min(90%, $container-max-xxl); // 1.
     margin-right: auto;
     margin-left: auto;
     position: relative;
+
+    @include from-md {
+        width: Min($container-max, $container-max-xxl); // 1.
+    }
 }
-
-// .#{$container-class}-lg {
-
-
-//     width: Min($container-max, $container-max-lg); // 1.
-//     margin-right: auto;
-//     margin-left: auto;
-//     position: relative;
-// }
 
 .cover {
     background-repeat: no-repeat;
@@ -54,7 +49,6 @@
 .round {
     border-radius: 100vmax;
 }
-
 
 .cursor-pointer {
     cursor: pointer;

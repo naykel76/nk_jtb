@@ -1,8 +1,8 @@
 @use "../base/vars_all" as *;
-@use "../mixins/positionUtilityClasses" as *;
-@use "../mixins/makeResponsivePositionUtilities" as *;
-@use "../mixins/media" as *;
 @use "../functions/helpers" as *;
+@use "../mixins/makeMagicClass" as *;
+@use "../mixins/media" as *;
+@use "../mixins/positionUtilityClasses" as *;
 
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
 //
@@ -12,15 +12,8 @@
 // There is no winning here!!! Do you want parent magic classes to
 // override utilities or visa versa
 //
-// put remove at the top???
 // --------------------------------------------------------------
 
-// for testing only to override default list
-// $rem-sizes-map: (
-//     "1": 1rem,
-//     "3": 3rem,
-//     "5": 5rem,
-// );
 
 $spacing-utilities-map: (
     "margin": (
@@ -30,7 +23,7 @@ $spacing-utilities-map: (
                 $rem-sizes-map,
                 (
                     "auto": auto,
-                    "default": 1.25rem,
+                    "default": 1.25,
                 )
             ),
         "xy-suffix": true,
@@ -42,7 +35,7 @@ $spacing-utilities-map: (
             map-merge(
                 $rem-sizes-map,
                 (
-                    "default": $content-gap,
+                    "default": 1.25,
                 )
             ),
         "xy-suffix": true,
@@ -51,19 +44,38 @@ $spacing-utilities-map: (
 );
 
 // --------------------------------------------------------------
-// -- RESPONSIVE SPACING UTILITIES --
+// -- MAGIC PADDING AND MARGINS --
 // --------------------------------------------------------------
-// NK::TD move the maps to a vars files and set default and merge
+
+$magic-padding-x: ((), ());
+$magic-padding-y: ((5, 3, 2, 2), ());
+
+@include makeMagicClass(padding, $magic-padding-x, "px", $direction: x);
+@include makeMagicClass(padding, $magic-padding-y, "py", $direction: y);
+
+$magic-margin-x: ((), ());
+$magic-margin-y: ((5, 3, 2, 2), ());
+@include makeMagicClass(margin, $magic-margin-x, "mx", $direction: x);
+@include makeMagicClass(margin, $magic-margin-y, "my", $direction: y);
+
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 
-$padding-x-responsive-sizes: (2, 2, 1), "";
-$padding-y-responsive-sizes: (10, 6, 2), "";
-@include makeResponsivePositionUtilities("padding", "p", "y", $padding-y-responsive-sizes);
-@include makeResponsivePositionUtilities("padding", "p", "x", $padding-x-responsive-sizes);
-
-// --------------------------------------------------------------
-// -- MAGIC UTILITIES --
-// --------------------------------------------------------------
 //
 .c-pxy > * {
     padding: 1rem;
@@ -83,41 +95,7 @@ $padding-y-responsive-sizes: (10, 6, 2), "";
     padding-right: 1rem;
 }
 
-// --------------------------------------------------------------
-// -- RESPONSIVE PADDING / MARGIN--
-// --------------------------------------------------------------
-//
-.py-5-3-2 {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-
-    @include from-md {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-    }
-
-    @include from-xl {
-        padding-top: 5rem;
-        padding-bottom: 5rem;
-    }
-}
-
-.my-5-3-2 {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-
-    @include from-md {
-        margin-top: 3rem;
-        margin-bottom: 3rem;
-    }
-
-    @include from-xl {
-        margin-top: 5rem;
-        margin-bottom: 5rem;
-    }
-}
-
-// --------------------------------------------------------------
+// py-5-3-2-2------------------------------------------------------
 // -- RESPONSIVE MAGIC PADDING --
 // --------------------------------------------------------------
 //

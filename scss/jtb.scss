@@ -14,6 +14,7 @@
 @forward "forms";
 
 @forward "components/accordion";
+@forward "components/article";
 @forward "components/box";
 @forward "components/button";
 @forward "components/dropdown";
@@ -24,9 +25,6 @@
 @forward "components/navbar";
 @forward "components/other";
 @forward "components/sidebar";
-
-// this is completly optional
-// @forward "layouts/_two-column";
 
 @forward "utilities/border";
 @forward "utilities/display_visibility";

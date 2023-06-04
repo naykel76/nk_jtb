@@ -17,7 +17,7 @@ $size-utilities: (
             screen: 100vw,
             // min: min-content,
             // max: max-content,
-            // fit: fit-content
+            // fit: fit-content,
         ),
     ),
     "height": (
@@ -46,7 +46,7 @@ $size-utilities: (
 // --------------------------------------------------------------------------
 
 $magic-width-sizes: ((16 "full"), (20, "full"), (24, "full")) !default;
-@include makeMagicClass("w", width, ($magic-width-sizes));
+@include makeMagicClass(width, ($magic-width-sizes), "w");
 
 // --------------------------------------------------------------------------
 // -- MAKE UTILITY SIZE CLASSES --

@@ -21,9 +21,9 @@
 // Grid will display in rows by default, size are min-size so you do not need to worry about adding the smallest size as it will be 100% by default
 
 
-@mixin makeMagicGrid2Cols($listOfLists) {
+@mixin makeMagicGrid2Cols($listsOfValues) {
     // must have at least two list
-    @each $list in $listOfLists {
+    @each $list in $listsOfValues {
         // exclude empty list when creating single list
         @if ($list != ()) {
             $numBreakPoints: list.length($list);
@@ -46,22 +46,22 @@
 
             .cols-#{$class} {
                 @include from-sm {
-                    grid-template-columns: nth(map-get($fr-map-2-col, $smValue), 1) nth(map-get($fr-map-2-col, $smValue), 2);
+                    grid-template-columns: nth(map-get($fr-conversion-2-col, $smValue), 1) nth(map-get($fr-conversion-2-col, $smValue), 2);
                 }
 
                 @include from-md {
-                    grid-template-columns: nth(map-get($fr-map-2-col, $mdValue), 1) nth(map-get($fr-map-2-col, $mdValue), 2);
+                    grid-template-columns: nth(map-get($fr-conversion-2-col, $mdValue), 1) nth(map-get($fr-conversion-2-col, $mdValue), 2);
                 }
 
                 @if ($numBreakPoints >= 3) {
                     @include from-lg {
-                        grid-template-columns: nth(map-get($fr-map-2-col, $lgValue), 1) nth(map-get($fr-map-2-col, $lgValue), 2);
+                        grid-template-columns: nth(map-get($fr-conversion-2-col, $lgValue), 1) nth(map-get($fr-conversion-2-col, $lgValue), 2);
                     }
                 }
 
                 @if ($numBreakPoints >= 4) {
                     @include from-xl {
-                        grid-template-columns: nth(map-get($fr-map-2-col, $xlValue), 1) nth(map-get($fr-map-2-col, $xlValue), 2);
+                        grid-template-columns: nth(map-get($fr-conversion-2-col, $xlValue), 1) nth(map-get($fr-conversion-2-col, $xlValue), 2);
                     }
                 }
             }

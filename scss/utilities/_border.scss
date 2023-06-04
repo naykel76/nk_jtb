@@ -6,7 +6,6 @@ $border-utilities-map: (
         "base-class": "bdr",
         "values-map": (
             "default": $border,
-            "0": none !important,
         ),
         "axis-position-map": $axis-position-map,
     ),
@@ -44,7 +43,7 @@ $border-colors-map: ($color-map) !default;
 
 @each $key, $value in $border-widths-map {
     .bdr-#{$key} {
-        border-width: $value;
+        border-width: $value !important;
     }
 }
 

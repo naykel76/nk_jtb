@@ -1,10 +1,12 @@
 @use "./base/vars_all" as *;
 @use "./base/vars_base" as *;
 @use "./base/vars_utility_maps" as *;
+@use "./functions/classNaming" as *;
 @use "./functions/helpers" as *;
 @use "./mixins/helpers" as *;
 @use "./mixins/makeMagicClass" as *;
 @use "./mixins/makeMagicGrid2Cols" as *;
+@use "./mixins/makeMagicGridEqualWidths" as *;
 @use "./mixins/makeResponsiveClasses" as *;
 @use "./mixins/media" as *;
 @use "./mixins/positionUtilityClasses" as *;
@@ -13,3 +15,16 @@
 @use "sass:string";
 
 
+
+@include makeFromBreakpoint(padding-left, 5rem, "pl-5", "lg");
+@include makeFromBreakpoint(padding-left, 5rem, "pb-5", "lg");
+
+
+@include makeFromBreakpoint(display, block, "block", "sm", "md", "lg", "xl", "xxl");
+@include makeFromBreakpoint(display, none, "hide", "sm", "md", "lg", "xl", "xxl");
+
+@include makeOnBreakpoint(display, block, "block", "sm", "md", "lg", "xl", "xxl");
+@include makeOnBreakpoint(display, none, "hide", "sm", "md", "lg", "xl", "xxl");
+
+@include makeToBreakpoint(display, block, "block", "sm", "md", "lg", "xl");
+@include makeToBreakpoint(display, none, "hide", "sm", "md", "lg", "xl");
