@@ -1,41 +1,56 @@
 // ==========================================================================
-// -- GENERAL STYLES --
+// -- Base Styles --
 // ==========================================================================
-$border: 1px solid rgba(0, 0, 0, 0.15) !default;
+
+// $text: #f0f2f9;
+// $background: #0b101d;
+// $primary-button: #e6c637;
+// $secondary-button: #e1dfe1;
+// $accent: #4a4c5e;
+
+$text: #0a0a10;
+$background: #ffffff;
+$primary-button: #045c94;
+$secondary-button: #181e20;
+$accent: #ffbb1c;
+
+$base-color: $text !default;
+$background: $background !default;
+
+$primary: $primary-button !default;
+$secondary: $secondary-button !default;
+$accent: $accent !default;
+
+$border-color: rgba(0, 0, 0, 0.15) !default;
+$border: 1px solid $border-color !default;
 $border-radius: 8px !default;
+
+$font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-size: 1rem !default;
+$line-height: 1.5 !default;
+
+$heading-sizes: 2.25em, 1.75em, 1.5em, 1.25em, 1.125em, 1em !default;
+$heading-color: inherit !default;
+$heading-font-weight: 700 !default;
+
+$link-color: #5850ec !default;
+$link-hover-color: indianred !default;
 
 $img-path: "/src/images" !default;
 
 // ==========================================================================
-// -- Base Styles --
+// -- Theme Styles --
 // ==========================================================================
 
-$base-bg: hsl(0, 0%, 100%) !default;
-$base-color: #333 !default;
+$header-bg: transparent !default;
 
-$base-font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
-// $base-font-family: 'Nunito', sans-serif;
-// $base-font-family: Montserrat, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-$base-font-weight: normal !default;
-$base-font-size: 1rem !default;
-$base-line-height: 1.5 !default;
-$base-border-color: #ddd !default;
+$main-bg: transparent !default;
 
-// ==========================================================================
-// -- Typography --
-// ==========================================================================
-$font-size-sm: ($base-font-size * 0.875) !default;
-$font-size-md: ($base-font-size * 1.25) !default;
-$font-size-lg: ($base-font-size * 1.5) !default;
+$footer-bg: #1d1d1c !default;
+$footer-text-color: rgb(204, 204, 204) !default;
 
-$heading-sizes: 2.25em, 1.75em, 1.5em, 1.25em, 1.125em, 1em;
-// $heading-color: $base-color !default;
-$heading-color: inherit !default;
-$heading-font-weight: 700;
-
-$link-color: #5850ec !default;
-//     color: blueviolet;
-$link-hover-color: indianred !default;
+$copyright-bg: darken($footer-bg, 2%) !default;
+$copyright-text-color: $footer-text-color !default;
 
 // ==========================================================================
 // -- Spacing Sizes --
@@ -65,18 +80,8 @@ $breakpoints: (
 
 // create an empty map to update or add defaults
 $breakpoints-custom: () !default;
-
 // merge together
 $breakpoints: map-merge($breakpoints, $breakpoints-custom);
-
-// translate breakpoints into user friendly names for easy reference
-// IMPORTANT: in terms of device-only, mobile is anything under 767px
-
-$small: map-get($breakpoints, sm);
-$tablet: map-get($breakpoints, md);
-$laptop: map-get($breakpoints, lg);
-$desktop: map-get($breakpoints, xl);
-$widescreen: map-get($breakpoints, xxl);
 
 $sm: map-get($breakpoints, sm);
 $md: map-get($breakpoints, md);
@@ -105,18 +110,3 @@ $container-max-xxl: 75rem !default; // 1200px
 
 
 
-
-// ==========================================================================
-// -- NAYKEL STYLES --
-// ==========================================================================
-// These styles are specific to naykel template layouts
-
-$header-bg: #074464 !default;
-
-$main-bg: transparent !default;
-
-$footer-bg: #1D1D1C !default;
-$footer-text-color: rgb(204, 204, 204) !default;
-
-$copyright-bg: darken($footer-bg, 2%) !default;
-$copyright-text-color: $footer-text-color !default;

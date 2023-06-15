@@ -15,7 +15,11 @@
         visibility: hidden;
         opacity: 0;
         transform: translateY(-2em);
-        top: calc(100% + 4px); // push to bottom of toggle element
+        // adding additional top-margin affects elements
+        // differently. E.G. The toggle buttons need extra margin
+        // but the navbar does not.It is best to leave it off and
+        // manage it directly on the element.
+        top: calc(100%);
         left: 0;
         transition: all 0.1s ease-in-out 1s, visibility 0s linear 0.1s, z-index 0s linear 0.01s;
         z-index: 1000;

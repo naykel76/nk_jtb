@@ -3,16 +3,6 @@
 @use "../mixins/media" as *;
 @use "sass:list";
 
-@mixin handleValue($index) {
-    grid-template-columns: repeat(nth($list, -1), 1fr);
-
-    // @if ($positions == null) {
-    //     @include makeProperty($property, $value, $unit);
-    // } @else {
-    //     @include makePositionProperties($property, $value, $positions);
-    // }
-}
-
 @mixin makeMagicGridEqualWidths($listsOfValues) {
     $identifier: cols;
     @each $list in $listsOfValues {

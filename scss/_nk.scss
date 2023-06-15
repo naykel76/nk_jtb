@@ -1,36 +1,36 @@
 @use "./base/vars_all" as *;
 @use "./mixins/media" as *;
 
-// ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
-//
-// It is best not to add padding to the main mk-elements, as it
-// makes it more difficult to add extra elements.
-//
-// ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
+body {
+    min-height: 100vh; // set height to push footer to the bottom
+    display: flex;
+    flex-direction: column;
+}
 
-// NK::TD this could be made into a special layout because it
-// could be a common pattern. Another example would be the navbar
+#nk-header {
+    background: $header-bg;
+}
 
 // This needs to be reviewed because it is too specific and causes problems
 // for some layouts I have removed because of the QMH site but I am not sure
 // what else it affects
-#nk-header,
-#nk-header > .#{$container-class} {
-    #search {
-        display: flex;
-        flex: 1 1 auto;
+// #nk-header,
+// #nk-header > .#{$container-class} {
+//     #search {
+//         display: flex;
+//         flex: 1 1 auto;
 
-        input {
-            width: 100%;
-            margin-right: 4px;
-        }
+//         input {
+//             width: 100%;
+//             margin-right: 4px;
+//         }
 
-        @include to-xl {
-            flex: 1 1 100%;
-            order: 3;
-        }
-    }
-}
+//         @include to-xl {
+//             flex: 1 1 100%;
+//             order: 3;
+//         }
+//     }
+// }
 
 #nk-main {
     flex: 1; // 1. allow to grow to fill height
@@ -90,16 +90,6 @@ trix-editor {
 // ==========================================================================
 // -- MARKDOWN --
 // ==========================================================================
-
-// make code block comments stand out
-.hljs-comment {
-    color: hsl(120, 98%, 35%) !important;
-}
-
-pre code.hljs {
-    padding: 1.5em !important;
-    line-height: 2;
-}
 
 .code-first-col,
 .code-second-col,

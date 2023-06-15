@@ -14,7 +14,7 @@
 //    CSS is not.
 .#{$container-class} {
     // make the max a little smaller to act as padding
-    width: Min(90%, $container-max-xxl); // 1.
+    width: Min(92%, $container-max-xxl); // 1.
     margin-right: auto;
     margin-left: auto;
     position: relative;
@@ -85,7 +85,7 @@
 // Adds a divider line between elements. IMPORTANT: This will only work on items that do not have
 // padding as the class uses top and bottom padding to seperate items then adds a border-top
 .divider-y > * {
-    border-top: 1px solid $base-border-color;
+    border-top: 1px solid $border-color;
     padding-top: $content-gap;
     padding-bottom: $content-gap;
 

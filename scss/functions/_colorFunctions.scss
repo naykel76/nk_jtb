@@ -3,11 +3,24 @@
 // set text colour based on the background
 // --------------------------------------------------------------------------
 
-@function setTextColor($bg-color) {
-    @if (lightness($bg-color) > 60) {
-        @return $base-color;
+@function setTextColor($c) {
+    $color-brightness: round((red($c) * 299) + (green($c) * 587) + calc((blue($c) * 114) / 1000));
+    $light-color: round((red(#ffffff) * 299) + (green(#ffffff) * 587) + calc((blue(#ffffff) * 114) / 1000));
+    // if background is dark, then the text color should be light
+    @if abs($color-brightness) < calc($light-color / 2) {
+        //  if the $base-color is already light, then use it.
+        @if (lightness($base-color) > 55) {
+            @return $base-color;
+        } @else {
+            @return white;
+        }
     } @else {
-        @return #fff;
+        //  if the $base-color is light, then set it dark
+        @if (lightness($base-color) > 55) {
+            @return black;
+        } @else {
+            @return $base-color;
+        }
     }
 }
 
@@ -28,8 +41,3 @@
 @function convertToRgba($color, $alpha: 1) {
     @return rgba(red($color), green($color), blue($color), $alpha);
 }
-
-
-
-
-

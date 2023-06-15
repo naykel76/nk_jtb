@@ -2,21 +2,20 @@
 // -- CREATE POSITION BASED PROPERTIES --
 // --------------------------------------------------------------
 
-// create single position based property. margin-left: 5rem
-@mixin makePositionProperty($property, $value, $position, $unit: rem) {
+@mixin singlePositionProperty($property, $position, $value, $unit: rem) {
     #{$property}-#{$position}: #{$value}#{$unit};
 }
 
-// iterates through a list of positions creating the appropriate
-// property (top, bottom, left, right)
-@mixin makePositionProperties($property, $value, $positions, $unit: rem) {
-    @each $position in $positions {
+// Iterates through the list of positions passed in with the
+// `$positions-map` creating the appropriate `$property` (top,
+// bottom, left, right) based on the `$value`.
+@mixin makePositionProperties($property, $positions-map, $value, $unit: rem) {
+    @each $position in $positions-map {
         // remove unit for auto, 0, border
-        $derivedUnit: if(($value == "auto" or $value == '0' or $property == 'border'), null, $unit);
-        @include makePositionProperty($property, $value, $position, $derivedUnit);
+        $derivedUnit: if(($value == "auto" or $value == "0" or $property == "border"), null, $unit);
+        @include singlePositionProperty($property, $position, $value, $derivedUnit);
     }
 }
-
 
 // --------------------------------------------------------------
 // -- CREATE SINGLE PROPERTY --
@@ -37,9 +36,8 @@
 // --------------------------------------------------------------
 // -- CREATE SINGLE PROPERTY CLASS --
 // --------------------------------------------------------------
-// optionally add a breakpoint to make responsive
-@mixin makeClass($class, $property, $value) {
-    .#{$class} {
+@mixin singlePropertyClass($identifier, $property, $value) {
+    .#{$identifier} {
         #{$property}: $value;
     }
 }

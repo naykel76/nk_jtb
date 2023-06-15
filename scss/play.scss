@@ -14,17 +14,37 @@
 @use "sass:map";
 @use "sass:string";
 
+@function text($n) {
+    $color-brightness: round((red($n) * 299) + (green($n) * 587) + calc((blue($n) * 114) / 1000));
+    $light-color: round((red(#ffffff) * 299) + (green(#ffffff) * 587) + calc((blue(#ffffff) * 114) / 1000));
+    // if background is dark, then the text color should be light
+    @if abs($color-brightness) < calc($light-color / 2) {
+        //  if the $base-color is already light, then use it.
+        @if (lightness($base-color) > 55) {
+            @return $base-color;
+        } @else {
+            @return white;
+        }
+    } @else {
+        //  if the $base-color is light, then set it dark
+        @if (lightness($base-color) > 55) {
+            @return black;
+        } @else {
+            @return $base-color;
+        }
+    }
+}
 
+$bg: black;
+$bg: #7c0442;
+$bg: pink;
+.dark-with-light-text {
+    background: $bg;
+    color: text($bg);
+}
 
-@include makeFromBreakpoint(padding-left, 5rem, "pl-5", "lg");
-@include makeFromBreakpoint(padding-left, 5rem, "pb-5", "lg");
-
-
-@include makeFromBreakpoint(display, block, "block", "sm", "md", "lg", "xl", "xxl");
-@include makeFromBreakpoint(display, none, "hide", "sm", "md", "lg", "xl", "xxl");
-
-@include makeOnBreakpoint(display, block, "block", "sm", "md", "lg", "xl", "xxl");
-@include makeOnBreakpoint(display, none, "hide", "sm", "md", "lg", "xl", "xxl");
-
-@include makeToBreakpoint(display, block, "block", "sm", "md", "lg", "xl");
-@include makeToBreakpoint(display, none, "hide", "sm", "md", "lg", "xl");
+$bg: white;
+.light-with-dark-text {
+    background: $bg;
+    color: text($bg);
+}

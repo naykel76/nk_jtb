@@ -6,9 +6,6 @@
 @use "../mixins/makeColorSchemeAdvanced" as *;
 @use "sass:map";
 
-// ----------------------------------
-
-// get this to fall back to the base colors???
 $alert-theme: (
     "danger-light": (
         "base": hsl(0, 100%, 95%),
@@ -33,27 +30,26 @@ $alert-theme: (
         "border-color": hsl(142, 61%, 81%),
         "color": hsl(142, 61%, 15%),
         "title-color": hsl(142, 62%, 25%),
-    ),
-    "complement": (
-        "base": #ffbfd1,
-    ),
+    )
 );
 
 $default-themes: (
-    // "dark": (
-    //     "base": $primary,
-    //     "link-color": purple,
-    // ),
     "primary":
         (
             "base": $primary,
-            "link-color": white,
+            // "link-color": white,
         ),
     "secondary": (
         "base": $secondary,
         "color": setTextColor($secondary),
-        "link-color": $primary,
-        "hover-color": $primary,
+        // "link-color": $primary,
+        // "hover-color": $primary,
+    ),
+    "accent": (
+        "base": $accent,
+        "color": setTextColor($accent),
+        // "link-color": $primary,
+        // "hover-color": $primary,
     ),
     "white": (
         "base": #fff,

@@ -8,10 +8,10 @@
 //
 
 // add a dash between class and position (bdr-xy)
-@function setPositionKeySeparator($base-class, $axis-or-position, $exclusions: ("m", "p")) {
+@function setPositionKeySeparator($class, $axis-or-position, $exclusions: ("m", "p")) {
     // if class is in exclusions
     @each $class in $exclusions {
-        @if ($base-class == $class) {
+        @if ($class == $class) {
             // return without a dash
             @return #{$axis-or-position};
         }
@@ -21,7 +21,7 @@
 
 @mixin positionUtilityClasses($utility-map) {
     @each $property, $map in $utility-map {
-        $base-class: map-get($map, "base-class");
+        $class: map-get($map, "base-class");
         $value: map-get($map, "value");
         $values-map: map-get($map, "values-map");
 
@@ -34,15 +34,15 @@
 
                 // add or remove dash separator between class and position (bdr-x or mx)
                 // exclusions can be added in the setPositionKeySeparator() function
-                $position-key: setPositionKeySeparator($base-class, $axis-or-position);
+                $position-key: setPositionKeySeparator($class, $axis-or-position);
 
                 // remove optional xy suffix as position key (bdr or bdr-xy)
                 @if ($axis-or-position == "xy") {
                     $position-key: if(map-has-key($map, "xy-suffix"), "xy", "");
                 }
 
-                .#{$base-class}#{$position-key}#{$size-key} {
-                    @include makePositionProperties($property, #{$value}, $positions);
+                .#{$class}#{$position-key}#{$size-key} {
+                    @include makePositionProperties($property, $positions, #{$value});
                 }
             }
         }

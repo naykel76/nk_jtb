@@ -13,12 +13,11 @@
 // and an empty list ().
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
 
-
 @mixin handleValue($property, $value, $unit, $positions) {
     @if ($positions == null) {
         @include makeProperty($property, $value, $unit);
     } @else {
-        @include makePositionProperties($property, $value, $positions);
+        @include makePositionProperties($property, $positions, $value);
     }
 }
 

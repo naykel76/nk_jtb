@@ -1,12 +1,11 @@
-// $primary: #7c0442 !default;
-// $secondary: #fff4e5 !default;
+@use "./vars_base" as *;
 
-$primary: hsl(201, 100%, 14%) !default;
-$secondary: hsl(31, 100%, 48%) !default;
-$primary-light: lighten($primary, 10) !default;
-
+// Primary and secondary colors are set in vars_base for the
+// convenience of overriding the theme
 
 $color-map: (
+    "primary": $primary,
+    "secondary": $secondary,
     "white": #fff,
     "red": hsl(354, 70%, 54%),
     "green": hsl(134, 61%, 41%),
@@ -21,8 +20,6 @@ $color-map: (
     "yellow": hsl(48, 100%, 67%),
     "teal": hsl(162, 73%, 46%),
     "cyan": hsl(188, 78%, 41%),
-    "primary": $primary,
-    "secondary": $secondary,
     "light": hsl(0, 0%, 98%),
     "dark": hsl(0, 0%, 13%),
     "muted": hsl(208, 7%, 46%),
@@ -35,5 +32,4 @@ $color-map: (
     "info-light": hsl(206, 70%, 96%),
     "success-light": hsl(142, 52%, 96%),
     "warning-light": hsl(48, 100%, 96%),
-)!default;
-
+) !default;

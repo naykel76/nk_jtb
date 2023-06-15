@@ -3,31 +3,31 @@
 // |-- on-device --|
 // --------------------------------------------------------------------------
 @mixin on-sm {
-    @media (min-width: $small) and (max-width: $tablet - 1px) {
+    @media (min-width: $sm) and (max-width: $md - 1px) {
         @content;
     }
 }
 
 @mixin on-md {
-    @media (min-width: $tablet) and (max-width: $laptop - 1px) {
+    @media (min-width: $md) and (max-width: $lg - 1px) {
         @content;
     }
 }
 
 @mixin on-lg {
-    @media (min-width: $laptop) and (max-width: $desktop - 1px) {
+    @media (min-width: $lg) and (max-width: $xl - 1px) {
         @content;
     }
 }
 
 @mixin on-xl {
-    @media (min-width: $desktop) and (max-width: $widescreen - 1px) {
+    @media (min-width: $xl) and (max-width: $xxl - 1px) {
         @content;
     }
 }
 
 @mixin on-xxl {
-    @media (min-width: $widescreen) {
+    @media (min-width: $xxl) {
         @content;
     }
 }
@@ -36,31 +36,31 @@
 // --------------------------------------------------------------------------
 
 @mixin from-sm {
-    @media (min-width: $small) {
+    @media (min-width: $sm) {
         @content;
     }
 }
 
 @mixin from-md {
-    @media (min-width: $tablet) {
+    @media (min-width: $md) {
         @content;
     }
 }
 
 @mixin from-lg {
-    @media (min-width: $laptop) {
+    @media (min-width: $lg) {
         @content;
     }
 }
 
 @mixin from-xl {
-    @media (min-width: $desktop) {
+    @media (min-width: $xl) {
         @content;
     }
 }
 
 @mixin from-xxl {
-    @media (min-width: $widescreen) {
+    @media (min-width: $xxl) {
         @content;
     }
 }
@@ -68,25 +68,25 @@
 // |-- to-device (up-to but not including) --|
 // --------------------------------------------------------------------------
 @mixin to-sm {
-    @media (max-width: $small - 1px) {
+    @media (max-width: $sm - 1px) {
         @content;
     }
 }
 
 @mixin to-md {
-    @media (max-width: $tablet - 1px) {
+    @media (max-width: $md - 1px) {
         @content;
     }
 }
 
 @mixin to-lg {
-    @media (max-width: $laptop - 1px) {
+    @media (max-width: $lg - 1px) {
         @content;
     }
 }
 
 @mixin to-xl {
-    @media (max-width: $desktop - 1px) {
+    @media (max-width: $xl - 1px) {
         @content;
     }
 }

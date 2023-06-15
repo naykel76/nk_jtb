@@ -1,11 +1,13 @@
 @use "../base/vars_all" as *;
 @use "../mixins/positionUtilityClasses" as *;
 
+// input expects full border, 1px solid rgba(0, 0, 0, 0.15);
 $border-utilities-map: (
     "border": (
         "base-class": "bdr",
         "values-map": (
             "default": $border,
+            "0": none,
         ),
         "axis-position-map": $axis-position-map,
     ),
