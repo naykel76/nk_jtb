@@ -11,3 +11,6 @@ Yet another utility based framework based on flex-box and grid.
 
 
 
+## Naming conventions
+
+Use dash-separated file and variable names.

@@ -1,17 +1,33 @@
 @use "../functions/colorFunctions" as *;
 
-@mixin hover($bg, $lightenBy: 10%, $color: setTextColor($bg),) {
+@mixin hover($color, $by: 10%) {
     &:hover {
         @content;
-        background-color: lighten($bg, $lightenBy);
-        color: $color;
+        background-color: lighten($color, $by);
+        color: setTextColor($color);
     }
 }
 
-@mixin active($bg, $lightenBy: 2%, $color: setTextColor($bg)) {
+@mixin active($color, $by: 5%) {
     &:active {
         @content;
-        background-color: lighten($bg, $lightenBy);
-        color: $color;
+        background-color: darken($color, $by);
+        color: setTextColor($color);
     }
 }
+
+// @mixin hover($bg, $lightenBy: 10%, $color: setTextColor($bg),) {
+//     &:hover {
+//         @content;
+//         background-color: lighten($bg, $lightenBy);
+//         color: $color;
+//     }
+// }
+
+// @mixin active($bg, $lightenBy: 2%, $color: setTextColor($bg)) {
+//     &:active {
+//         @content;
+//         background-color: lighten($bg, $lightenBy);
+//         color: $color;
+//     }
+// }
