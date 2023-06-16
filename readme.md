@@ -13,4 +13,5 @@ Yet another utility based framework based on flex-box and grid.
 
 ## Naming conventions
 
-Use dash-separated file and variable names.
+- Use dash-separated for scss files and variable names
+- Use camelCase for mixin files and mixin names

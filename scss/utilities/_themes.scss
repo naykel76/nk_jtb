@@ -2,7 +2,6 @@
 @use "../functions/colorFunctions" as *;
 @use "../functions/helpers" as *;
 @use "../mixins/colorSchemeSimple" as *;
-@use "../mixins/colorShades" as *;
 @use "../mixins/makeColorSchemeAdvanced" as *;
 @use "sass:map";
 
@@ -82,13 +81,7 @@ $themes-map: map.merge($alert-theme, $default-themes);
 .bg-white {
     background-color: #fff;
 }
-@include colorShades("bg-grey-", hsl(0, 0%, 7%), 9, 10);
-@include colorShades("bg-orange-", hsl(14, 100%, 50%));
-@include colorShades("bg-yellow-", hsl(48, 100%, 70%), 9, 3);
-@include colorShades("bg-green-", hsl(134, 61%, 41%), 9, 3);
 
-@include colorShades("bg-blue-", #1e3a8a, 9, 6);
-// @include colorShades("bg-blue-", hsl(224, 64%, 33%), 9, 6);
 
 // THIS IS A WORK IN PROGRESS AND HAS LIMITATIONS. MAKE SURE YOU ONLY USE
 // NUMBERS AND DO NOT INCLUDE 1

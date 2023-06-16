@@ -1,0 +1,20 @@
+@use "../base/vars_colors" as *;
+@use "../config" as *;
+@use "../functions/color-shades" as *;
+@use "../functions/get" as *;
+@use "../mixins/createColorShades" as *;
+
+
+@if (get("shades.create-base", $config)) {
+    @each $color, $value in $base-colors {
+        @include createColorShades($color, $value);
+    }
+}
+
+@if (get("shades.create-theme", $config)) {
+    @each $color, $value in $base-colors {
+        @include createColorShades($color, $value);
+    }
+}
+
+
