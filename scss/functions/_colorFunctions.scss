@@ -12,12 +12,12 @@
         @if (lightness($base-color) > 55) {
             @return $base-color;
         } @else {
-            @return white;
+            @return hsl(0, 0%, 100%);
         }
     } @else {
         //  if the $base-color is light, then set it dark
         @if (lightness($base-color) > 55) {
-            @return black;
+            @return hsl(0, 0%, 0%);
         } @else {
             @return $base-color;
         }

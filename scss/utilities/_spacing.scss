@@ -99,6 +99,17 @@ $magic-margin-y: ((5, 3, 2, 2), ());
 // -- RESPONSIVE MAGIC PADDING --
 // --------------------------------------------------------------
 //
+
+.c-py-3-2 > * {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    @include from-md {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+}
+
 .c-py-5-3-2 > * {
     padding-top: 2rem;
     padding-bottom: 2rem;

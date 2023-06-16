@@ -28,8 +28,6 @@
 
     @include hover($btn-bg);
     @include active($btn-bg);
-
-    // DO NOT add link here, use .link in text utilities
 }
 
 // themes and variations
@@ -38,9 +36,6 @@
 // **! must explicitly create btn state override base class !**
 //
 
-// create btn state
-// need to remove surplus classes
-// map.remove ?? or just create from theme-map
 @each $key, $color in $color-map {
     .#{$button-class}.#{$key} {
         @include hover($color);

@@ -30,7 +30,7 @@ $font-size: 1rem !default;
 $line-height: 1.5 !default;
 
 $heading-sizes: 2.25em, 1.75em, 1.5em, 1.25em, 1.125em, 1em !default;
-$heading-color: inherit !default;
+$heading-and-title-color: inherit !default;
 $heading-font-weight: 700 !default;
 
 $link-color: #5850ec !default;
@@ -92,7 +92,7 @@ $xxl: map-get($breakpoints, xxl);
 // ==========================================================================
 // -- Grid --
 // ==========================================================================
-$num-grid-cols: 8 !default; // number of classes to make
+$num-grid-cols: 9 !default; // number of classes to make
 
 // ==========================================================================
 // -- Container --

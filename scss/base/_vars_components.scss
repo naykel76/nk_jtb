@@ -56,11 +56,9 @@ $navbar-nav-item-bg: $navbar-bg !default;
 $navbar-nav-item-color: setTextColor($navbar-bg) !default;
 
 $navbar-nav-hover-bg: darken($navbar-nav-item-bg, 3%) !default;
-// $navbar-nav-hover-color: setTextColor($navbar-bg) !default;
 $navbar-nav-hover-color: $accent !default;
 
 $navbar-nav-active-bg: $navbar-nav-hover-bg !default;
-// $navbar-nav-active-color: setTextColor($navbar-bg) !default;
 $navbar-nav-active-color: $accent !default;
 
 // -- lists --

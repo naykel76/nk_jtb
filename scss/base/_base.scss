@@ -31,7 +31,6 @@ html {
     tab-size: 4; // 3
     font-family: $font-family;
     font-size: $font-size;
-    -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;
 }
 
@@ -73,7 +72,7 @@ abbr:where([title]) {
 
 :where(h1, h2, h3, h4, h5, h6) {
     font-weight: $heading-font-weight;
-    color: $heading-color;
+    color: $heading-and-title-color;
     line-height: 1.125;
 }
 
@@ -110,13 +109,6 @@ pre {
     border-radius: 0.125rem;
 }
 
-// :not(pre) > code {
-//     background-color: rgb(247, 247, 247);
-//     padding: 0.125rem 0.25rem;
-//     display: inline-flex;
-//     vertical-align: middle;
-// }
-
 // 1. override highlightJS css
 pre code {
     line-height: 1.8;
@@ -148,16 +140,34 @@ sup {
 
 // -- Tables --
 // ==========================================================================
-
-// 1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
-// 2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
-// 3. Remove gaps between table borders by default.
+// do not create to much opinion here, just enough to look
+// respectable out of the box!
 
 table {
-    text-indent: 0; // 1
-    border-color: inherit; // 2
-    border-collapse: collapse; // 3
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+    width: 100%; // !!
 }
+
+th {
+    font-weight: 600;
+    background: #f8fafc; //
+}
+
+th,
+td {
+    padding: 0.25em; // give some breathing space by default
+    text-align: left;
+    vertical-align: top;
+}
+
+// // Lists
+// // ====================
+// // this may be to too opinionated but using :is should make it easy to override
+// :is(li:not(:first-child)) {
+//     margin-top: 0.25em;
+// }
 
 // 1. Change the font styles in all browsers.
 

@@ -30,6 +30,7 @@
         letter-spacing: 0.05em;
         margin-left: $menu-padding-x;
         margin-bottom: 0.5em;
+        color: $heading-and-title-color; // inherits by default
 
         &:not(:first-child) {
             margin-top: $content-gap;

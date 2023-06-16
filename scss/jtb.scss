@@ -1,15 +1,12 @@
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
-//
 // Rather than loading Scss stylesheets through _index.scss bring
 // each file in separately for more finite control.
-//
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
 
 @use "base/root";
 @use "base/base";
 @use "base/content_gap";
 
-// @use "nk_components";
 @forward "nk";
 @forward "forms";
 
@@ -18,7 +15,7 @@
 @forward "components/box";
 @forward "components/button";
 @forward "components/dropdown";
-@forward "components/hero"; // has problems with img
+@forward "components/hero";
 @forward "components/icon";
 @forward "components/list";
 @forward "components/menu";
