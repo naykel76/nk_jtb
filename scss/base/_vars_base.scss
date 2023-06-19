@@ -2,23 +2,24 @@
 // -- Base Styles --
 // ==========================================================================
 
-// $text: #f0f2f9;
-// $background: #0b101d;
-// $primary-button: #e6c637;
-// $secondary-button: #e1dfe1;
-// $accent: #4a4c5e;
-
-$text: #0a0a10;
+// generic
+$text: #333;
 $background: #ffffff;
-$primary-button: #045c94;
-$secondary-button: #181e20;
+$primary: #2563eb;
+$secondary: #181e20;
 $accent: #ffbb1c;
+// nbw
+// $text: #070604;
+// $background: #f8f6f2;
+// $primary: #424f76;
+// $secondary: #f3f2f2;
+// $accent: #514e4d;
 
-$base-color: $text !default;
+//
+$text: $text !default;
 $background: $background !default;
-
-$primary: $primary-button !default;
-$secondary: $secondary-button !default;
+$primary: $primary !default;
+$secondary: $secondary !default;
 $accent: $accent !default;
 
 $border-color: rgba(0, 0, 0, 0.15) !default;
@@ -92,7 +93,7 @@ $xxl: map-get($breakpoints, xxl);
 // ==========================================================================
 // -- Grid --
 // ==========================================================================
-$num-grid-cols: 9 !default; // number of classes to make
+$num-grid-cols: 12 !default; // number of classes to make
 
 // ==========================================================================
 // -- Container --

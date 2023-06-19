@@ -37,7 +37,7 @@ $menu-padding-x: 0.5rem !default;
 
 $menu-hover-bg: hsl(0, 0%, 95%) !default;
 
-$menu-link-color: $base-color !default;
+$menu-link-color: $text !default;
 $menu-link-hover-color: setTextColor($menu-hover-bg) !default;
 
 // -- navbar --

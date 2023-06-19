@@ -6,7 +6,6 @@
 @forward "forms";
 @forward "./UPDATED-src/color/";
 
-
 // Rather than loading utility and component _index.scss bring each
 // file in separately for more finite control.
 
@@ -37,3 +36,7 @@
 @forward "utilities/themes";
 @forward "utilities/transition";
 @forward "utilities/translate";
+
+// extras
+
+@use "./UPDATED-src/color/tailwind-colors" as *;
