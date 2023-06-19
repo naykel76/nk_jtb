@@ -11,9 +11,6 @@ $ctrl-bg-color: #fff !default;
 $ctrl-padding-x: 1em !default;
 $ctrl-padding-y: 0.375em !default;
 
-@mixin createControlSizes($map) {
-}
-
 $control-sizes: (
     xs: 0.6rem,
     sm: $ctrl-font-size-sm,
@@ -40,6 +37,7 @@ $ctrl-line-height: 1.5 !default;
     align-items: center;
     position: relative;
     background-color: $ctrl-bg-color;
+    color: setTextColor($ctrl-bg-color);
     max-width: 100%; // prevent overflow
 
     // create control sizes

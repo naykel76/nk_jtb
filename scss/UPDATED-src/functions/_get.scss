@@ -7,21 +7,21 @@
 //
 // Example of use: get('border.radius.xs')
 //
-// Dependencies: deep-map-check, deep-map-get, str-explode
+// Dependencies: deepMapCheck, deepMapGet, strExplode
 //
 // @return Anything
 // --------------------------------------------------------------
 
-@use './deep-map-check' as *;
-@use './deep-map-get' as *;
-@use './str-explode' as *;
+@use './deepMapCheck' as *;
+@use './deepMapGet' as *;
+@use './strExplode' as *;
 
 @function get($key, $map: $dfr-config) {
-    $keys: str-explode($key, ".");
+    $keys: strExplode($key, ".");
 
-    @if not deep-map-check($map, $keys...) {
+    @if not deepMapCheck($map, $keys...) {
         @error 'The argument $map: `#{$map}` doesn\'t has some of the $keys: `#{$keys}`!';
     }
 
-    @return deep-map-get($map, $keys...);
+    @return deepMapGet($map, $keys...);
 }

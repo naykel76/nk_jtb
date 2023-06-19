@@ -1,4 +1,5 @@
-@use "../base/vars_base" as *;
+@use "../../base/vars_base" as *;
+
 
 // set text colour based on the background
 // --------------------------------------------------------------------------
@@ -17,7 +18,7 @@
     } @else {
         //  if the $text is light, then set it dark
         @if (lightness($text) > 55) {
-            @return hsl(0, 0%, 0%);
+            @return #333;
         } @else {
             @return $text;
         }

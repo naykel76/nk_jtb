@@ -1,4 +1,4 @@
-@use "../functions/color-shades" as *;
+@use "../functions/colorShades" as *;
 @use "../functions/get" as *;
 @use "../config" as *;
 
@@ -12,7 +12,7 @@
 @mixin createDarkerShades($class, $base-color, $num-shades, $step) {
     @for $i from $num-shades - 1 through 1 {
         .#{$class}-#{$i + $num-shades} {
-            background-color: color-shades($base-color, $i, -$step);
+            background-color: colorShades($base-color, $i, -$step);
         }
     }
 }
@@ -20,7 +20,7 @@
 @mixin createLighterShades($class, $base-color, $num-shades, $step) {
     @for $i from $num-shades - 1 through 1 {
         .#{$class}-#{$i} {
-            background-color: color-shades($base-color, $num-shades - $i, $step);
+            background-color: colorShades($base-color, $num-shades - $i, $step);
         }
     }
 }

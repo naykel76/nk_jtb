@@ -2,7 +2,7 @@
 // ==============================================================
 // @for $i from $num-shades - 1 through 1 {
 //     .#{$color}-#{$i + $num-shades} {
-//         background-color: color-shades($value, $i, -$step);
+//         background-color: colorShades($value, $i, -$step);
 //     }
 // }
 
@@ -10,11 +10,11 @@
 // ==============================================================
 // @for $i from $num-shades - 1 through 1 {
 //     .#{$color}-#{$i} {
-//         background-color: color-shades($value, $num-shades - $i, $step);
+//         background-color: colorShades($value, $num-shades - $i, $step);
 //     }
 // }
 
-@function color-shades($base-color, $shade-number, $step) {
+@function colorShades($base-color, $shade-number, $step) {
     $r: red($base-color);
     $g: green($base-color);
     $b: blue($base-color);
