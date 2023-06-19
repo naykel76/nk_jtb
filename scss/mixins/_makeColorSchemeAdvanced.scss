@@ -1,6 +1,6 @@
 @use "../base/vars_all" as *; // required to set defaults
 @use "../mixins/colorSchemeSimple" as *;
-@use '../UPDATED-src/functions/colorFunctions' as *;
+@use '../src/functions/colorFunctions' as *;
 
 // The minimum requirement for creating a theme-map is the $base
 // color, all other properties can be created intuitively.
