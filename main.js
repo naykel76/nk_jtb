@@ -1,5 +1,5 @@
 import './src/jtb.scss'
-import './scss/play.scss'
+import './src/play.scss'
 
 // document.querySelector('#app').innerHTML = `Hello`
 

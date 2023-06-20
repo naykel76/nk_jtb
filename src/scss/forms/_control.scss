@@ -6,6 +6,7 @@ $ctrl-font-size: 0.875rem !default;
 $ctrl-font-size-md: 1.25rem !default;
 $ctrl-font-size-lg: 1.5rem !default;
 $ctrl-bg-color: #fff !default;
+$ctrl-color: setTextColor($ctrl-bg-color) !default;
 
 // Control and Button padding use em making them relative to the font-size
 $ctrl-padding-x: 1em !default;
@@ -37,7 +38,7 @@ $ctrl-line-height: 1.5 !default;
     align-items: center;
     position: relative;
     background-color: $ctrl-bg-color;
-    color: setTextColor($ctrl-bg-color);
+    color: $ctrl-color;
     max-width: 100%; // prevent overflow
 
     // create control sizes

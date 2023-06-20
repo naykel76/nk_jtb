@@ -1,42 +1,40 @@
 @use "./base/root";
-@use "../scss/base/base";
-@use "../scss/base/content_gap";
+@use "./base/base";
+@use "./scss/base/content_gap";
 
-@forward "../scss/nk";
-@forward "../scss/forms";
+@forward "./scss/nk";
+@forward "./scss/forms";
 @forward "./color/";
 
-// Rather than loading utility and component _index.scss bring each
-// file in separately for more finite control.
+// bring each file in separately for more finite control.
 
-@forward "../scss/components/accordion";
-@forward "../scss/components/article";
-@forward "../scss/components/box";
-@forward "../scss/components/button";
-@forward "../scss/components/dropdown";
-@forward "../scss/components/hero";
-@forward "../scss/components/icon";
-@forward "../scss/components/list";
-@forward "../scss/components/menu";
-@forward "../scss/components/navbar";
-@forward "../scss/components/other";
-@forward "../scss/components/sidebar";
+@forward "./scss/components/accordion";
+@forward "./scss/components/article";
+@forward "./scss/components/box";
+@forward "./scss/components/button";
+@forward "./scss/components/dropdown";
+@forward "./scss/components/hero";
+@forward "./scss/components/icon";
+@forward "./scss/components/list";
+@forward "./scss/components/menu";
+@forward "./scss/components/navbar";
+@forward "./scss/components/other";
+@forward "./scss/components/sidebar";
 
-@forward "../scss/utilities/border";
-@forward "../scss/utilities/display_visibility";
-@forward "../scss/utilities/flex";
-@forward "../scss/utilities/general";
-@forward "../scss/utilities/grid";
-@forward "../scss/utilities/opacity";
-@forward "../scss/utilities/position";
-@forward "../scss/utilities/sizes";
-@forward "../scss/utilities/spacing";
-@forward "../scss/utilities/state";
-@forward "../scss/utilities/text";
-@forward "../scss/utilities/themes";
-@forward "../scss/utilities/transition";
-@forward "../scss/utilities/translate";
+@forward "./scss/utilities/border";
+@forward "./scss/utilities/display_visibility";
+@forward "./scss/utilities/flex";
+@forward "./scss/utilities/general";
+@forward "./scss/utilities/grid";
+@forward "./scss/utilities/opacity";
+@forward "./scss/utilities/position";
+@forward "./scss/utilities/sizes";
+@forward "./scss/utilities/spacing";
+@forward "./scss/utilities/state";
+@forward "./scss/utilities/text";
+@forward "./scss/utilities/themes";
+@forward "./scss/utilities/transition";
+@forward "./scss/utilities/translate";
 
 // extras
-
-// @use ".././src/color/tailwind-colors" as *;
+@use "./color/tailwind-colors" as *;

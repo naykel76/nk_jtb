@@ -1,5 +1,5 @@
 @use "sass:color";
-@use '../../forms/control' as *; // gives access access to variables
+@use '../scss/forms/control' as *; // gives access access to variables
 @use '../functions/colorFunctions' as *;
 
 // $ctrl-border-radius: 0.2rem !default;

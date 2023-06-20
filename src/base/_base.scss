@@ -1,5 +1,5 @@
-@use "../base/vars_base" as *;
-@use "../src/base/vars_colors" as *;
+@use "../scss/base/vars_base" as *;
+@use "./vars_colors" as *;
 
 // 1. Remove the default margin and padding and opt-in as needed
 
