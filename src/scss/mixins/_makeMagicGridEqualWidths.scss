@@ -1,6 +1,6 @@
 @use "../base/vars_utility_maps" as *;
 @use "../functions/classNaming" as *;
-@use "../mixins/media" as *;
+@use "../../mixins/media" as *;
 @use "sass:list";
 
 @mixin makeMagicGridEqualWidths($listsOfValues) {

@@ -5,7 +5,7 @@
 @use "../mixins/makeMagicClass" as *;
 @use "../mixins/makeMagicGrid2Cols" as *;
 @use "../mixins/makeMagicGridEqualWidths" as *;
-@use "../mixins/media" as *;
+@use "../../mixins/media" as *;
 @use "sass:list";
 @use "sass:map";
 @use "sass:string";

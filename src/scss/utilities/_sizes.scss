@@ -1,6 +1,6 @@
 @use "../base/vars_base" as *;
 @use "../functions/helpers" as *;
-@use "../mixins/media" as *;
+@use "../../mixins/media" as *;
 @use "../mixins/makeMagicClass" as *;
 @use "sass:map";
 

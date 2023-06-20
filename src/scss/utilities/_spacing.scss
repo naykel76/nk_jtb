@@ -1,7 +1,7 @@
 @use "../base/vars_all" as *;
 @use "../functions/helpers" as *;
 @use "../mixins/makeMagicClass" as *;
-@use "../mixins/media" as *;
+@use "../../mixins/media" as *;
 @use "../mixins/positionUtilityClasses" as *;
 
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------

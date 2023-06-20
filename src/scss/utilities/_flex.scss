@@ -1,5 +1,5 @@
 @use "../base/vars_base" as *;
-@use "../mixins/media" as *;
+@use "../../mixins/media" as *;
 
 // there are two maps for 'flex-justify' this is by design. I prefer to use shorthand for
 // simple left, right and center alignment but the full property name for everything else
