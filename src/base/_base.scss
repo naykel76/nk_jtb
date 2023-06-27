@@ -1,4 +1,5 @@
 @use "../scss/base/vars_base" as *;
+@use "./vars_base" as *;
 @use "./vars_colors" as *;
 
 // 1. Remove the default margin and padding and opt-in as needed
@@ -162,13 +163,6 @@ td {
     vertical-align: top;
 }
 
-// // Lists
-// // ====================
-// // this may be to too opinionated but using :is should make it easy to override
-// :is(li:not(:first-child)) {
-//     margin-top: 0.25em;
-// }
-
 // 1. Change the font styles in all browsers.
 
 button,
@@ -268,14 +262,22 @@ ul {
 }
 
 // -- Nested Lists --
+//
+
+// 1. keep consistent spacing
 li ul,
 li ol {
-    margin-top: 0.25em;
+    margin-top: $base-list-spacing; // 1
     margin-left: 1rem;
 }
 
-// these list styles are quite opinionated and may not have a place
-// in the base file, however they seem to be a good fit overall
+// These list styles are quite opinionated, however they seem to be
+// a good fit overall and should be easy enough to override
+
+// 1. keep consistent spacing.
+:is(li:not(:first-child):not(nav li)) {
+    margin-top: $base-list-spacing; // 1
+}
 
 ul {
     list-style-type: disc;

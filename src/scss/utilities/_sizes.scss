@@ -23,6 +23,7 @@ $size-utilities: (
     "height": (
         "prefix": "h-",
         "values": (
+            auto: auto,
             fc: fit-content,
             full: 100%,
             screen: 100vh,
