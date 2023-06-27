@@ -1,0 +1,27 @@
+@use "../config" as *;
+@use "../functions/get" as *;
+
+
+// @use "../base/vars_colors" as *;
+// @use "../functions/colorShades" as *;
+// @use "../mixins/createColorShades" as *;
+
+
+// @if (get("shades.create-base", $config)) {
+//     @each $color, $value in $base-colors {
+//         @include createColorShades($color, $value);
+//     }
+// }
+
+$num-grid-cols: get("grid.num-grid-cols", $config);
+
+// @debug 'sdff';
+
+// --------------------------------------------------------------------------
+// -- EQUAL WIDTHS COLUMNS(NON-RESPONSIVE) --
+// --------------------------------------------------------------------------
+@for $i from 1 through $num-grid-cols {
+    .cols-#{$i} {
+        grid-template-columns: repeat($i, minmax(0, 1fr));
+    }
+}

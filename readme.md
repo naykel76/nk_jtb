@@ -16,3 +16,10 @@ Yet another utility based framework based on flex-box and grid.
 - Use dash-separated for scss files and variable names
 - Use camelCase for function files and function names
 - Use camelCase for mixin files and mixin names
+
+## Get item from Config
+
+    @use "../config" as *;
+    @use "../functions/get" as *;
+
+    get('shades.step', $config)

@@ -52,14 +52,7 @@ $grid-gap-sizes: (0, 0.5, 1, 1.25, 1.5, 2, 3, 4, 5) !default;
 @include makeMagicClass(grid-gap, ($grid-gap-magic-sizes), "gg", $unit: "rem");
 @include makeMagicGridEqualWidths($equal-width-magic-columns);
 
-// --------------------------------------------------------------------------
-// -- EQUAL WIDTHS COLUMNS(NON-RESPONSIVE) --
-// --------------------------------------------------------------------------
-@for $i from 1 through $num-grid-cols {
-    .cols-#{$i} {
-        grid-template-columns: repeat($i, minmax(0, 1fr));
-    }
-}
+
 
 // --------------------------------------------------------------------------
 // -- TWO COLUMN UN-EQUAL WIDTHS (NON-RESPONSIVE) --
