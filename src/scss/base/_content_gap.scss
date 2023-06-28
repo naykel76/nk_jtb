@@ -1,4 +1,4 @@
-@use "vars_base" as *;
+@use "../../base/vars_base" as *;
 
 // any adjacent (excludes first child)
 :where(blockquote, p, pre, form, table, ol, ul, h1, h2, h3, h4, h5, h6) + * {

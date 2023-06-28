@@ -1,33 +1,8 @@
 $img-path: "/src/images" !default;
 
-// ==========================================================================
-// -- Theme Styles --
-// ==========================================================================
 
-$header-bg: transparent !default;
 
-$main-bg: transparent !default;
 
-$footer-bg: #1d1d1c !default;
-$footer-text-color: rgb(204, 204, 204) !default;
-
-$copyright-bg: darken($footer-bg, 2%) !default;
-$copyright-text-color: $footer-text-color !default;
-
-// ==========================================================================
-// -- Spacing Sizes --
-// ==========================================================================
-
-// grid-gap, is the space used to separate grid elements, page sections or components
-// content-gap, is the padding or margin that separates content. For example, <p>
-
-$grid-gap: 1.25rem;
-
-// use em so gap relative to font size, this means h2 gap will be larger than p
-$content-gap-sm: 0.75em;
-$content-gap: 1.5em;
-$content-gap-lg: 3em;
-$content-gap-xl: 5em;
 
 // ==========================================================================
 // -- Responsive Sizes and Breakpoints --

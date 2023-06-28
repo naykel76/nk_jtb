@@ -45,6 +45,23 @@ $link-color: #5850ec !default;
 $link-hover-color: indianred !default;
 
 // ==========================================================================
+// -- Theme Styles --
+// ==========================================================================
+
+$header-bg: transparent !default;
+
+$main-bg: transparent !default;
+
+$footer-bg: #1d1d1c !default;
+$footer-text-color: rgb(204, 204, 204) !default;
+
+$copyright-bg: darken($footer-bg, 2%) !default;
+$copyright-text-color: $footer-text-color !default;
+
+// ==========================================================================
 // -- Spacing --
 // ==========================================================================
 $base-list-spacing: 0.25em !default;
+$grid-gap: 1.25rem;
+// use em so gap relative to font size
+$content-gap: 1.5em;

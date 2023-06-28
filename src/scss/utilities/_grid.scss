@@ -20,17 +20,8 @@ $grid-gap-magic-sizes: ((5, 3, 2), (5, 3), (4, 2), (3, 1)) !default;
 $grid-gap-sizes: (0, 0.5, 1, 1.25, 1.5, 2, 3, 4, 5) !default;
 
 // --------------------------------------------------------------------------
-// -- GRID AND GRID GAP --
+// -- GRID GAP --
 // --------------------------------------------------------------------------
-
-.grid {
-    display: grid;
-    gap: $grid-gap;
-}
-
-.gg {
-    gap: $grid-gap;
-}
 
 @each $size in $grid-gap-sizes {
     $class: escapeDecimal($size);
@@ -51,8 +42,6 @@ $grid-gap-sizes: (0, 0.5, 1, 1.25, 1.5, 2, 3, 4, 5) !default;
 
 @include makeMagicClass(grid-gap, ($grid-gap-magic-sizes), "gg", $unit: "rem");
 @include makeMagicGridEqualWidths($equal-width-magic-columns);
-
-
 
 // --------------------------------------------------------------------------
 // -- TWO COLUMN UN-EQUAL WIDTHS (NON-RESPONSIVE) --

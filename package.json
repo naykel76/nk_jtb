@@ -1,31 +1,32 @@
 {
-  "name": "nk_jtb",
-  "description": "Yet another utility based framework.",
-  "version": "0.8.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/naykel76/nk_jtb.git"
-  },
-  "private": false,
-  "type": "module",
-  "scripts": {
-    "border": "sass --watch --no-source-map ./scss/utilities/_border.scss:dist/css/border.css",
-    "spacing": "sass --watch --no-source-map ./scss/utilities/_spacing.scss:dist/css/spacing.css",
-    "flex": "sass --watch --no-source-map ./scss/utilities/_flex.scss:dist/css/flex.css",
-    "grid": "sass --watch --no-source-map ./src/utilities/_grid.scss:dist/css/grid.css",
-    "play": "sass --watch --no-source-map ./src/play.scss:dist/css/play.css",
-    "jtb": "sass --watch --no-source-map ./src/jtb.scss:dist/css/jtb.css",
-    "dev": "vite --open",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^5.0.0",
-    "alpinejs": "^3.12",
-    "autoprefixer": "^10.4.14",
-    "postcss": "^8.4.24",
-    "postcss-cli": "^10.1.0",
-    "sass": "^1.60.0",
-    "vite": "^4.2.1"
+    "name": "nk_jtb",
+    "description": "Yet another utility based framework.",
+    "version": "0.8.0",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/naykel76/nk_jtb.git"
+    },
+    "private": false,
+    "type": "module",
+    "scripts": {
+      "border": "sass --watch --no-source-map ./scss/utilities/_border.scss:dist/css/border.css",
+      "flex": "sass --watch --no-source-map ./scss/utilities/_flex.scss:dist/css/flex.css",
+      "grid": "sass --watch --no-source-map ./src/utilities/_grid.scss:dist/css/grid.css",
+      "jtb": "sass --watch --no-source-map ./src/jtb.scss:dist/css/jtb.css",
+      "play": "sass --watch --no-source-map ./src/play.scss:dist/css/play.css",
+      "spacing": "sass --watch --no-source-map ./scss/utilities/_spacing.scss:dist/css/spacing.css",
+      "theme": "sass --watch --no-source-map ./src/color/_themes.scss:dist/css/themes.css",
+      "dev": "vite --open",
+      "build": "vite build",
+      "preview": "vite preview"
+    },
+    "devDependencies": {
+      "@fullhuman/postcss-purgecss": "^5.0.0",
+      "alpinejs": "^3.12",
+      "autoprefixer": "^10.4.14",
+      "postcss": "^8.4.24",
+      "postcss-cli": "^10.1.0",
+      "sass": "^1.60.0",
+      "vite": "^4.2.1"
+    }
   }
-}

@@ -2,20 +2,21 @@
 @use "../functions/get" as *;
 
 
-// @use "../base/vars_colors" as *;
-// @use "../functions/colorShades" as *;
-// @use "../mixins/createColorShades" as *;
 
-
-// @if (get("shades.create-base", $config)) {
-//     @each $color, $value in $base-colors {
-//         @include createColorShades($color, $value);
-//     }
-// }
 
 $num-grid-cols: get("grid.num-grid-cols", $config);
 
-// @debug 'sdff';
+// --------------------------------------------------------------------------
+// -- EQUAL WIDTHS COLUMNS(NON-RESPONSIVE) --
+// --------------------------------------------------------------------------
+.grid {
+    display: grid;
+    gap: get("grid.default-gap", $config);
+}
+
+.gg {
+    gap: get("grid.default-gap", $config);
+}
 
 // --------------------------------------------------------------------------
 // -- EQUAL WIDTHS COLUMNS(NON-RESPONSIVE) --
