@@ -5,10 +5,9 @@
 @forward "./scss/nk";
 @forward "./nk";
 @forward "./scss/forms";
-@forward "./color/";
 
-// bring each file in separately for more finite control.
-
+// -- ORDER MATTERS -- Components need to be loaded before utility
+// classes to make sure they can be overridden
 @forward "./scss/components/accordion";
 @forward "./scss/components/article";
 @forward "./scss/components/box";
@@ -21,6 +20,9 @@
 @forward "./scss/components/navbar";
 @forward "./scss/components/other";
 @forward "./scss/components/sidebar";
+
+@forward "./color/";
+@forward "./color/themes";
 
 @forward "./scss/utilities/border";
 @forward "./scss/utilities/display_visibility";

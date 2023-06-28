@@ -14,9 +14,12 @@
 // @use "sass:map";
 // @use "sass:string";
 
+@use "./color/themes" as *;
+@use "./functions/colorFunctions" as *;
+@use "./mixins/createBasicColorScheme" as *;
+
 // ================================================================
-@use "./color/tailwind-colors" as *;
+// @use "./color/tailwind-colors" as *;
 // @use "./color/shades" as *;
 // @use "./functions/colorShades" as *;
 // ================================================================
-

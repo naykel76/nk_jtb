@@ -1,0 +1,7 @@
+@use '../functions/colorFunctions' as *;
+
+@mixin createBasicColorScheme($base, $border-color: setBorderShadeColor($base), $font-color: setTextColor($base)) {
+    background-color: $base;
+    border: 1px solid $border-color;
+    color: $font-color;
+}

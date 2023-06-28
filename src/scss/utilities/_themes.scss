@@ -1,87 +1,44 @@
 @use "../base/vars_all" as *;
-@use '../../functions/colorFunctions' as *;
+@use "../../functions/colorFunctions" as *;
 @use "../functions/helpers" as *;
-@use "../mixins/colorSchemeSimple" as *;
 @use "../mixins/makeColorSchemeAdvanced" as *;
 @use "sass:map";
 
-$alert-theme: (
-    "danger-light": (
-        "base": hsl(0, 100%, 95%),
-        "border-color": hsl(0, 100%, 81%),
-        "color": hsl(0, 100%, 15%),
-        "title-color": hsl(0, 100%, 30%),
-    ),
-    "info-light": (
-        "base": hsl(211, 94%, 94%),
-        "border-color": hsl(211, 94%, 81%),
-        "color": hsl(211, 94%, 15%),
-        "title-color": hsl(211, 94%, 30%),
-    ),
-    "warning-light": (
-        "base": hsl(50, 92%, 95%),
-        "border-color": hsl(50, 92%, 60%),
-        "color": hsl(50, 92%, 21%),
-        "title-color": hsl(50, 92%, 35%),
-    ),
-    "success-light": (
-        "base": hsl(142, 61%, 92%),
-        "border-color": hsl(142, 61%, 81%),
-        "color": hsl(142, 61%, 15%),
-        "title-color": hsl(142, 62%, 25%),
-    )
-);
+$old-alert-theme: ();
 
 $default-themes: (
-    "primary":
-        (
-            "base": $primary,
-            // "link-color": white,
-        ),
+    "primary": (
+        "base": $primary,
+        // "link-color": white,
+    ),
     "secondary": (
         "base": $secondary,
         "color": setTextColor($secondary),
         // "link-color": $primary,
-        // "hover-color": $primary,
+        // "hover-color": $primary,,
     ),
     "accent": (
         "base": $accent,
         "color": setTextColor($accent),
         // "link-color": $primary,
-        // "hover-color": $primary,
+        // "hover-color": $primary,,
     ),
     "white": (
         "base": #fff,
         "default-links": true,
-    )
+    ),
 ) !default;
 
-$themes-map: map.merge($alert-theme, $default-themes);
+$themes-map: map.merge($old-alert-theme, $default-themes);
 
 // $key is the theme name, $map is the theme map
 @each $theme-name, $map in $themes-map {
     @include makeColorSchemeAdvanced($theme-name, $map);
 }
 
-@each $key, $value in $color-map {
-    // if the $key NOT in $themes-map, exclude if already in the $themes-map
-    @if (not map-has-key($themes-map, $key)) {
-        // straight forward color scheme
-        .#{$key} {
-            @include colorSchemeSimple($value);
-        }
-
-        // background only
-        .bg-#{$key} {
-            background-color: $value;
-        }
-    }
-}
-
 .bg-white {
     background-color: #fff;
 }
-
 
 // THIS IS A WORK IN PROGRESS AND HAS LIMITATIONS. MAKE SURE YOU ONLY USE
 // NUMBERS AND DO NOT INCLUDE 1
@@ -95,7 +52,6 @@ $themes-map: map.merge($alert-theme, $default-themes);
 
 @mixin createColorOpacity($list-of-opacity, $color) {
     @each $opacity in $list-of-opacity {
-
         @if ($opacity > 9) {
             @error "Opacity in the createColorOpacity function must be between 0 and 1";
         }

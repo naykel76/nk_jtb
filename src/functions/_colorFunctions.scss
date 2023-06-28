@@ -1,11 +1,11 @@
 @use "../scss/base/vars_base" as *;
 
-
+// --------------------------------------------------------------------------
 // set text colour based on the background
 // --------------------------------------------------------------------------
 
-@function setTextColor($c) {
-    $color-brightness: round((red($c) * 299) + (green($c) * 587) + calc((blue($c) * 114) / 1000));
+@function setTextColor($color) {
+    $color-brightness: round((red($color) * 299) + (green($color) * 587) + calc((blue($color) * 114) / 1000));
     $light-color: round((red(#ffffff) * 299) + (green(#ffffff) * 587) + calc((blue(#ffffff) * 114) / 1000));
     // if background is dark, then the text color should be light
     @if abs($color-brightness) < calc($light-color / 2) {
@@ -22,6 +22,22 @@
         } @else {
             @return $text;
         }
+    }
+}
+
+// --------------------------------------------------------------------------
+// Set transparent border color based on the background color.
+// --------------------------------------------------------------------------
+// this is not a perfect solution because sometimes a dark color can
+// have a low lightness, and visa-versa, but it is good enough.
+//
+
+@function setBorderShadeColor($color, $opacity: 0.15) {
+    $lightness: lightness($color);
+    @if ($lightness > 50) {
+        @return rgba(0, 0, 0, $opacity); // Black
+    } @else {
+        @return rgba(255, 255, 255, $opacity); // White
     }
 }
 
