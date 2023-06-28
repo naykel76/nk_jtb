@@ -1,4 +1,6 @@
-@use "../base/vars_all" as *;
+@use "../../base/vars_base" as *;
+@use "../base/vars_base" as *;
+@use "../base/vars_class_names" as *;
 @use "../../mixins/media" as *;
 
 // This file is for general utilities that don't have a home,

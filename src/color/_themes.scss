@@ -1,3 +1,4 @@
+@use "../base/vars_base" as *;
 @use "../base/vars_colors" as *;
 @use "../functions/colorFunctions" as *;
 @use "../mixins/createBasicColorScheme" as *;
@@ -31,6 +32,30 @@ $alert-theme: (
     ),
 );
 
+$default-themes: (
+    "primary": (
+        "base": $primary,
+        // "link-color": white,
+    ),
+    "secondary": (
+        "base": $secondary,
+        "color": setTextColor($secondary),
+        // "link-color": $primary,
+        // "hover-color": $primary,,
+    ),
+    "accent": (
+        "base": $accent,
+        "color": setTextColor($accent),
+        // "link-color": $primary,
+        // "hover-color": $primary,,
+    ),
+    "white": (
+        "base": #fff,
+        "default-links": true,
+    ),
+) !default;
+
+// $themes-map: map.merge($old-alert-theme, $default-themes);
 
 
 $advanced-themes: ();

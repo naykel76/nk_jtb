@@ -1,4 +1,5 @@
-@use "../base/vars_all" as *;
+@use "../../base/vars_colors" as *;
+@use "../../base/vars_base" as *;
 @use "../../functions/colorFunctions" as *;
 @use "../functions/helpers" as *;
 @use "../mixins/makeColorSchemeAdvanced" as *;
@@ -6,61 +7,37 @@
 
 $old-alert-theme: ();
 
-$default-themes: (
-    "primary": (
-        "base": $primary,
-        // "link-color": white,
-    ),
-    "secondary": (
-        "base": $secondary,
-        "color": setTextColor($secondary),
-        // "link-color": $primary,
-        // "hover-color": $primary,,
-    ),
-    "accent": (
-        "base": $accent,
-        "color": setTextColor($accent),
-        // "link-color": $primary,
-        // "hover-color": $primary,,
-    ),
-    "white": (
-        "base": #fff,
-        "default-links": true,
-    ),
-) !default;
 
-$themes-map: map.merge($old-alert-theme, $default-themes);
+// // $key is the theme name, $map is the theme map
+// @each $theme-name, $map in $themes-map {
+//     @include makeColorSchemeAdvanced($theme-name, $map);
+// }
 
-// $key is the theme name, $map is the theme map
-@each $theme-name, $map in $themes-map {
-    @include makeColorSchemeAdvanced($theme-name, $map);
-}
+// .bg-white {
+//     background-color: #fff;
+// }
 
-.bg-white {
-    background-color: #fff;
-}
+// // THIS IS A WORK IN PROGRESS AND HAS LIMITATIONS. MAKE SURE YOU ONLY USE
+// // NUMBERS AND DO NOT INCLUDE 1
 
-// THIS IS A WORK IN PROGRESS AND HAS LIMITATIONS. MAKE SURE YOU ONLY USE
-// NUMBERS AND DO NOT INCLUDE 1
+// @function removeLeadingZero($value) {
+//     // wrap in quotes and convert to string
+//     $class: "#{$value}";
+//     // search and escape decimals
+//     @return strReplace($class, "0.", "");
+// }
 
-@function removeLeadingZero($value) {
-    // wrap in quotes and convert to string
-    $class: "#{$value}";
-    // search and escape decimals
-    @return strReplace($class, "0.", "");
-}
+// @mixin createColorOpacity($list-of-opacity, $color) {
+//     @each $opacity in $list-of-opacity {
+//         @if ($opacity > 9) {
+//             @error "Opacity in the createColorOpacity function must be between 0 and 1";
+//         }
 
-@mixin createColorOpacity($list-of-opacity, $color) {
-    @each $opacity in $list-of-opacity {
-        @if ($opacity > 9) {
-            @error "Opacity in the createColorOpacity function must be between 0 and 1";
-        }
+//         // strip leading zero and decimal if exists, and convert to number
+//         $suffix: removeLeadingZero($opacity);
 
-        // strip leading zero and decimal if exists, and convert to number
-        $suffix: removeLeadingZero($opacity);
-
-        .bg-#{$color}-0#{$suffix} {
-            background-color: convertToRgba(map-get($color-map, $color), $opacity);
-        }
-    }
-}
+//         .bg-#{$color}-0#{$suffix} {
+//             background-color: convertToRgba(map-get($color-map, $color), $opacity);
+//         }
+//     }
+// }
