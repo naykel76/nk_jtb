@@ -1,6 +1,6 @@
 @use "../base/vars_base" as *;
 @use "../base/vars_base" as *;
-@use "../base/vars_utility_maps" as *;
+@use "../../base/vars_utility_maps" as *;
 @use "../functions/helpers" as *;
 @use "../mixins/makeMagicClass" as *;
 @use "../mixins/makeMagicGrid2Cols" as *;
