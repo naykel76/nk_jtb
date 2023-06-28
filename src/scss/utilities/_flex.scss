@@ -1,4 +1,4 @@
-@use "../base/vars_base" as *;
+@use "../../base/vars_base" as *;
 @use "../../mixins/media" as *;
 
 // there are two maps for 'flex-justify' this is by design. I prefer to use shorthand for
