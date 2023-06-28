@@ -1,4 +1,4 @@
-@use "../base/vars_all" as *;
+@use "../../base/vars_all" as *;
 
 .#{$navbar-class},
 .#{$navbar-class} > .#{$container-class} {
