@@ -1,9 +1,10 @@
 @use "../base/vars_base" as *;
 @use "../base/vars_colors" as *;
 @use "../functions/colorFunctions" as *;
-@use "../mixins/createBasicColorScheme" as *;
-// @use "../mixins/makeColorSchemeAdvanced" as *;
-// @use "sass:map";
+@use "../functions/mapMerge" as *;
+@use "../mixins/createAdvancedColorScheme" as *;
+@use "../mixins/createUtilityClasses" as *;
+@use "../mixins/helpers" as *; // index
 
 $alert-theme: (
     "danger-light": (
@@ -20,7 +21,7 @@ $alert-theme: (
     ),
     "warning-light": (
         "base": hsl(50, 92%, 95%),
-        "border-color": hsl(50, 92%, 60%),
+        "border-color": hsl(50, 92%, 45%),
         "color": hsl(50, 92%, 21%),
         "title-color": hsl(50, 92%, 35%),
     ),
@@ -32,48 +33,50 @@ $alert-theme: (
     ),
 );
 
-$default-themes: (
+$extended-themes: (
     "primary": (
         "base": $primary,
-        // "link-color": white,
     ),
     "secondary": (
         "base": $secondary,
-        "color": setTextColor($secondary),
-        // "link-color": $primary,
-        // "hover-color": $primary,,
     ),
     "accent": (
         "base": $accent,
-        "color": setTextColor($accent),
-        // "link-color": $primary,
-        // "hover-color": $primary,,
-    ),
-    "white": (
-        "base": #fff,
-        "default-links": true,
     ),
 ) !default;
 
-// $themes-map: map.merge($old-alert-theme, $default-themes);
-
-
-$advanced-themes: ();
 // --------------------------------------------------------------------------
-// -- CREATE BASIC COLOR SCHEMES AND BACKGROUND --
+// -- ADVANCED COLOR SCHEMES --
 // --------------------------------------------------------------------------
-// - Remove color if in advanced-color-scheme
+// to prevent duplication do not build anything that already exists
+// in the advanced-themes map
+
+$advanced-themes: mapMerge($alert-theme, $extended-themes);
+@each $theme-name, $map in $advanced-themes {
+    @include createAdvancedColorScheme($theme-name, $map);
+}
+
+// --------------------------------------------------------------------------
+// -- BASIC COLOR SCHEMES --
+// --------------------------------------------------------------------------
+// to prevent duplication do not build anything that already exists
+// in the advanced-themes map
 
 @each $key, $value in $color-map {
-    // if the $key NOT in $advanced-themes, exclude if already in the $advanced-themes
+    // if the $key NOT in $advanced-themes, exclude if already in
+    // the $advanced-themes
     @if (not map-has-key($advanced-themes, $key)) {
         .#{$key} {
-            @include createBasicColorScheme($value);
-        }
-
-        // background only
-        .bg-#{$key} {
-            background-color: $value;
+            @include basicColorScheme($value);
         }
     }
 }
+
+// --------------------------------------------------------------------------
+// -- UTILITY CLASSES --
+// --------------------------------------------------------------------------
+
+// this could arguably be removed and just use base colors?? maybe
+// leave main theme colors like primary, secondary, and accent
+@include createUtilityClasses(background-color, $theme-colors, "bg");
+@include createUtilityClasses(background-color, $base-colors, "bg");

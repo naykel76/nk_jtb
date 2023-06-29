@@ -1,0 +1,18 @@
+@use "sass:map";
+
+// --------------------------------------------------------------------------
+// merge two or more maps into a single map.
+// --------------------------------------------------------------------------
+//
+// EXAMPLE:
+// $colors: mapMerge($map-a, $map-b, $map-c);
+
+@function mapMerge($maps...) {
+    $collection: ();
+
+    @each $map in $maps {
+        $collection: map.merge($collection, $map);
+    }
+
+    @return $collection;
+}

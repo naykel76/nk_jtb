@@ -2,34 +2,35 @@
 @use "../functions/get" as *;
 @use "../config" as *;
 
-// NK::TD
-//  do not include the dash when creating the file class name, the mixin will look after it.
-// the $shade-type specifies if the shades should be darker, lighter or both. 'both is the default'
-// when adding the the number of shades you need to include the total including the base color.???
-// $base-color is the center, will make darker and lighter
-// the number of shaded total or either side????
+// NK::TD do not include the dash when creating the file class name,
+//  the mixin will look after it. the $shade-type specifies if the
+//  shades should be darker, lighter or both. 'both is the default'
+//  when adding the the number of shades you need to include the
+//  total including the base color.??? $base-color is the center,
+//  will make darker and lighter the number of shaded total or
+//  either side????
 
-@mixin createDarkerShades($class, $base-color, $num-shades, $step) {
+@mixin createDarkerShades($identifier, $base-color, $num-shades, $step) {
     @for $i from $num-shades - 1 through 1 {
-        .#{$class}-#{$i + $num-shades} {
+        .#{$identifier}-#{$i + $num-shades} {
             background-color: colorShades($base-color, $i, -$step);
         }
     }
 }
 
-@mixin createLighterShades($class, $base-color, $num-shades, $step) {
+@mixin createLighterShades($identifier, $base-color, $num-shades, $step) {
     @for $i from $num-shades - 1 through 1 {
-        .#{$class}-#{$i} {
+        .#{$identifier}-#{$i} {
             background-color: colorShades($base-color, $num-shades - $i, $step);
         }
     }
 }
 
-@mixin createColorShades($class, $base-color, $num-shades: 6, $step: get('shades.step', $config), $shade: "both") {
-    @include createDarkerShades($class, $base-color, $num-shades, $step);
+@mixin createColorShades($identifier, $base-color, $num-shades: 6, $step: get('shades.step', $config), $shade: "both") {
+    @include createDarkerShades($identifier, $base-color, $num-shades, $step);
     // create the base-class separately to make sure it is in the middle
-    .#{$class}-#{$num-shades} {
+    .#{$identifier}-#{$num-shades} {
         background-color: $base-color;
     }
-    @include createLighterShades($class, $base-color, $num-shades, $step);
+    @include createLighterShades($identifier, $base-color, $num-shades, $step);
 }

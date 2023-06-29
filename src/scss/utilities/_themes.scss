@@ -2,20 +2,10 @@
 @use "../../base/vars_base" as *;
 @use "../../functions/colorFunctions" as *;
 @use "../functions/helpers" as *;
-@use "../mixins/makeColorSchemeAdvanced" as *;
 @use "sass:map";
 
 $old-alert-theme: ();
 
-
-// // $key is the theme name, $map is the theme map
-// @each $theme-name, $map in $themes-map {
-//     @include makeColorSchemeAdvanced($theme-name, $map);
-// }
-
-// .bg-white {
-//     background-color: #fff;
-// }
 
 // // THIS IS A WORK IN PROGRESS AND HAS LIMITATIONS. MAKE SURE YOU ONLY USE
 // // NUMBERS AND DO NOT INCLUDE 1

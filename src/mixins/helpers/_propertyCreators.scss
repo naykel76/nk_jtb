@@ -32,12 +32,3 @@
         #{$property}: #{$derivedValue}#{$derivedUnit};
     }
 }
-
-// --------------------------------------------------------------
-// -- CREATE SINGLE PROPERTY CLASS --
-// --------------------------------------------------------------
-@mixin singlePropertyClass($identifier, $property, $value) {
-    .#{$identifier} {
-        #{$property}: $value;
-    }
-}

@@ -1,0 +1,18 @@
+@use "./helpers/classCreators" as *;
+
+// --------------------------------------------------------------
+// -- CREATE SINGLE PROPERTY UTILITY CLASSES --
+// --------------------------------------------------------------
+// loop through map and create single property utility class
+
+@mixin createUtilityClasses($property, $map, $identifier: "") {
+    @each $key, $value in $map {
+        @if ($identifier == "") {
+            // if the $identifier is omitted just us the key as the class name
+            @include singlePropertyClass(#{$key}, $property, $value);
+        } @else {
+            // otherwise join $identifier and $key for class name
+            @include singlePropertyClass(#{$identifier}-#{$key}, $property, $value);
+        }
+    }
+}
