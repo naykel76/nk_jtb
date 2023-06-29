@@ -6,6 +6,11 @@
 @use "../mixins/utilityClasses" as *;
 @use "../mixins/helpers" as *; // index
 
+// ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
+// There is a fair bit going on here and the BUILD ORDER MATTERS.
+// Make sure you read the comments before making any changes.
+// ----------------------------------------------------------------
+
 $alert-theme: (
     "danger-light": (
         "base": hsl(0, 100%, 95%),
@@ -33,48 +38,68 @@ $alert-theme: (
     ),
 );
 
-$extended-themes: (
+// Convert all the colors into a usable map of maps to create
+// extended themes.
+//
+// NK?? THINK! Do you really want to extend every theme?
+
+$themes-map: ();
+
+@each $color, $value in $color-map {
+    $themes-map: map-merge(
+        $themes-map,
+        (
+            $color: (
+                "base": $value,
+            ),
+        )
+    );
+}
+
+// add additional styles to override created styles
+$extended-theme-overrides: (
     "primary": (
         "base": $primary,
-    ),
-    "secondary": (
-        "base": $secondary,
-    ),
-    "accent": (
-        "base": $accent,
+        "color": pink,
     ),
 ) !default;
 
-// --------------------------------------------------------------------------
-// -- ADVANCED COLOR SCHEMES --
-// --------------------------------------------------------------------------
-// to prevent duplication do not build anything that already exists
-// in the advanced-themes map
+// ----------------------------------------------------------------
+// -- CREATE EXTENDED COLOR SCHEMES --
+// ----------------------------------------------------------------
+// extended maps add extra element styles and classes. For example,
+// `withState`, `bx-title` and link-colors.
+//
+// To prevent duplication make sure the `$extended-themes` are
+// created first.
 
-$advanced-themes: mapMerge($alert-theme, $extended-themes);
-@each $theme-name, $map in $advanced-themes {
+// $extended-themes: mapMerge($alert-theme, $extended-theme-overrides);
+
+// The order matters here, overrides must go last!
+$extended-themes: mapMerge($alert-theme, $themes-map, $extended-theme-overrides);
+
+@each $theme-name, $map in $extended-themes {
     @include extendedThemeClass($theme-name, $map);
 }
 
-// --------------------------------------------------------------------------
-// -- BASIC COLOR SCHEMES --
-// --------------------------------------------------------------------------
-// to prevent duplication do not build anything that already exists
-// in the advanced-themes map
+// ----------------------------------------------------------------
+// -- CREATE BASIC COLOR SCHEMES --
+// ----------------------------------------------------------------
+// To prevent duplication make sure the `$extended-themes` are
+// created first.
 
 @each $key, $value in $color-map {
-    // if the $key NOT in $advanced-themes, exclude if already in
-    // the $advanced-themes
-    @if (not map-has-key($advanced-themes, $key)) {
+    // exclude if $key already in the $extended-themes
+    @if (not map-has-key($extended-themes, $key)) {
         .#{$key} {
             @include basicColorScheme($value);
         }
     }
 }
 
-// --------------------------------------------------------------------------
-// -- UTILITY CLASSES --
-// --------------------------------------------------------------------------
+// ----------------------------------------------------------------
+// -- CREATE UTILITY CLASSES --
+// ----------------------------------------------------------------
 
 // this could arguably be removed and just use base colors?? maybe
 // leave main theme colors like primary, secondary, and accent
