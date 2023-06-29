@@ -1,0 +1,52 @@
+@use "../base/vars_all" as *;
+@use "../functions/colorFunctions" as *;
+@use "../scss/forms/control" as *;
+@use "../scss/mixins/createState" as *;
+@use "../utilities/transition" as *;
+
+// ----------------------------------------------------------------
+// -- BASE CLASS --
+// ----------------------------------------------------------------
+// items that are in themes are more difficult to override in the
+// base class. For example, setting the border-width in the base
+// class will do nothing because the theme border takes precedence.
+// I don't really see it as a problem because utilities are king!
+
+.#{$button-class} {
+    @extend %control;
+    @extend %transition;
+    background: $btn-bg;
+    color: $btn-color;
+    text-transform: $btn-text-transform;
+    text-align: center;
+    justify-content: center;
+    font-weight: 600;
+    white-space: nowrap; // prevent text wrapping
+
+    border-width: 8px;
+
+    &:not(:disabled):not(.disabled) {
+        cursor: pointer;
+    }
+
+    // !-WARNING-! changing the vertical alignment affects buttons with icons
+    vertical-align: bottom; // keep buttons aligned to inputs
+
+    @include hover($btn-bg);
+    @include active($btn-bg);
+}
+
+// ----------------------------------------------------------------
+// -- THEMES AND VARIATIONS --
+// ----------------------------------------------------------------
+//
+//  must explicitly create btn state to override base class because
+//  theme only apply when the `withState` modifier is included
+//
+
+@each $key, $color in $color-map {
+    .#{$button-class}.#{$key} {
+        @include hover($color);
+        @include active($color);
+    }
+}

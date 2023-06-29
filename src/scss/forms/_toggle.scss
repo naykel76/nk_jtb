@@ -1,5 +1,5 @@
 @use "../utilities/display_visibility" as *;
-@use "../utilities/transition" as *;
+@use "../../utilities/transition" as *;
 
 $toggle-body-height: 1.5rem;
 $toggle-body-width: 3rem;

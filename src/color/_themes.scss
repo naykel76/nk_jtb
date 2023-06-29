@@ -58,10 +58,9 @@ $themes-map: ();
 
 // add additional styles to override created styles
 $extended-theme-overrides: (
-    "primary": (
-        "base": $primary,
-        "color": pink,
-    ),
+    // "primary": (
+    //     "base": $primary,
+    // ),
 ) !default;
 
 // ----------------------------------------------------------------

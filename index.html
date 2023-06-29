@@ -12,7 +12,46 @@
 
 <body class="">
 
-    <section class="py-3 bg-neutral-100">
+    <section id="button-theme-examples" class="py-3 bg-neutral-100">
+        <div class="container">
+            <h2 class="title txt-3">Buttons</h2>
+            <h4>Base Colors</h4>
+            <div class="grid-1 cols-9">
+                <button class="btn stone">stone</button>
+                <button class="btn brown">brown</button>
+                <button class="btn red">red</button>
+                <button class="btn orange">orange</button>
+                <button class="btn amber">amber</button>
+                <button class="btn yellow">yellow</button>
+                <button class="btn lime">lime</button>
+                <button class="btn emerald">emerald</button>
+                <button class="btn green">green</button>
+                <button class="btn teal">teal</button>
+                <button class="btn cyan">cyan</button>
+                <button class="btn sky">sky</button>
+                <button class="btn blue">blue</button>
+                <button class="btn indigo">indigo</button>
+                <button class="btn purple">purple</button>
+                <button class="btn fuchsia">fuchsia</button>
+                <button class="btn pink">pink</button>
+                <button class="btn rose">rose</button>
+            </div>
+            <h4>Theme Colors and Alert Colors</h4>
+            <div class="grid cols-10">
+                <button class="btn primary">primary</button>
+                <button class="btn secondary">secondary</button>
+                <button class="btn accent">accent</button>
+                <button class="btn light">light</button>
+                <button class="btn dark">dark</button>
+                <button class="btn muted">muted</button>
+                <button class="btn danger">danger</button>
+                <button class="btn info">info</button>
+                <button class="btn success">success</button>
+                <button class="btn warning">warning</button>
+            </div>
+        </div>
+    </section>
+    <section id="theme-examples" class="py-3 bg-neutral-100">
         <div class="container">
             <h2 class="title txt-3">Basic Themes</h2>
             <h4>Base Colors</h4>
@@ -51,48 +90,43 @@
             </div>
         </div>
     </section>
-    <section class="py-3 bg-neutral-200">
+
+    <section id="theme-examples-with-state" class="py-3 bg-neutral-100">
         <div class="container">
-            <h2>Base Colors</h2>
+            <h2 class="title txt-3">Themes With State</h2>
+            <h4>Base Colors</h4>
+            <div class="grid-1 cols-6">
+                <div class="pxy bdr-3 tac withState stone">stone</div>
+                <div class="pxy bdr-3 tac withState brown">brown</div>
+                <div class="pxy bdr-3 tac withState red">red</div>
+                <div class="pxy bdr-3 tac withState orange">orange</div>
+                <div class="pxy bdr-3 tac withState amber">amber</div>
+                <div class="pxy bdr-3 tac withState yellow">yellow</div>
+                <div class="pxy bdr-3 tac withState lime">lime</div>
+                <div class="pxy bdr-3 tac withState emerald">emerald</div>
+                <div class="pxy bdr-3 tac withState green">green</div>
+                <div class="pxy bdr-3 tac withState teal">teal</div>
+                <div class="pxy bdr-3 tac withState cyan">cyan</div>
+                <div class="pxy bdr-3 tac withState sky">sky</div>
+                <div class="pxy bdr-3 tac withState blue">blue</div>
+                <div class="pxy bdr-3 tac withState indigo">indigo</div>
+                <div class="pxy bdr-3 tac withState purple">purple</div>
+                <div class="pxy bdr-3 tac withState fuchsia">fuchsia</div>
+                <div class="pxy bdr-3 tac withState pink">pink</div>
+                <div class="pxy bdr-3 tac withState rose">rose</div>
+            </div>
+            <h4>Theme Colors and Alert Colors</h4>
             <div class="grid cols-5">
-                <div class="pxy bdr-5 tac stone">stone</div>
-                <div class="pxy bdr-5 tac brown">brown</div>
-                <div class="pxy bdr-5 tac red">red</div>
-                <div class="pxy bdr-5 tac orange">orange</div>
-                <div class="pxy bdr-5 tac amber">amber</div>
-                <div class="pxy bdr-5 tac yellow">yellow</div>
-                <div class="pxy bdr-5 tac lime">lime</div>
-                <div class="pxy bdr-5 tac emerald">emerald</div>
-                <div class="pxy bdr-5 tac green">green</div>
-                <div class="pxy bdr-5 tac teal">teal</div>
-                <div class="pxy bdr-5 tac cyan">cyan</div>
-                <div class="pxy bdr-5 tac sky">sky</div>
-                <div class="pxy bdr-5 tac blue">blue</div>
-                <div class="pxy bdr-5 tac indigo">indigo</div>
-                <div class="pxy bdr-5 tac purple">purple</div>
-                <div class="pxy bdr-5 tac fuchsia">fuchsia</div>
-                <div class="pxy bdr-5 tac pink">pink</div>
-                <div class="pxy bdr-5 tac rose">rose</div>
-            </div>
-            <h2>Theme Colors</h2>
-            <div class="grid cols-6 mt">
-                <div class="pxy bdr-5 tac primary">primary</div>
-                <div class="pxy bdr-5 tac secondary">secondary</div>
-                <div class="pxy bdr-5 tac accent">accent</div>
-                <div class="pxy bdr-5 tac light">light</div>
-                <div class="pxy bdr-5 tac dark">dark</div>
-                <div class="pxy bdr-5 tac muted">muted</div>
-            </div>
-            <h2>Alert Colors</h2>
-            <div class="grid cols-4 mt">
-                <div class="pxy bdr-5 tac danger">danger</div>
-                <div class="pxy bdr-5 tac info">info</div>
-                <div class="pxy bdr-5 tac success">success</div>
-                <div class="pxy bdr-5 tac warning">warning</div>
-                <div class="pxy bdr-5 tac danger-light">danger</div>
-                <div class="pxy bdr-5 tac info-light">info</div>
-                <div class="pxy bdr-5 tac success-light">success</div>
-                <div class="pxy bdr-5 tac warning-light">warning</div>
+                <div class="pxy bdr-3 tac withState primary">primary</div>
+                <div class="pxy bdr-3 tac withState secondary">secondary</div>
+                <div class="pxy bdr-3 tac withState accent">accent</div>
+                <div class="pxy bdr-3 tac withState light">light</div>
+                <div class="pxy bdr-3 tac withState dark">dark</div>
+                <div class="pxy bdr-3 tac withState muted">muted</div>
+                <div class="pxy bdr-3 tac withState danger">danger</div>
+                <div class="pxy bdr-3 tac withState info">info</div>
+                <div class="pxy bdr-3 tac withState success">success</div>
+                <div class="pxy bdr-3 tac withState warning">warning</div>
             </div>
         </div>
     </section>
