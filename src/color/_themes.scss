@@ -2,8 +2,8 @@
 @use "../base/vars_colors" as *;
 @use "../functions/colorFunctions" as *;
 @use "../functions/mapMerge" as *;
-@use "../mixins/createAdvancedColorScheme" as *;
-@use "../mixins/createUtilityClasses" as *;
+@use "../mixins/extendedThemeClass" as *;
+@use "../mixins/utilityClasses" as *;
 @use "../mixins/helpers" as *; // index
 
 $alert-theme: (
@@ -53,7 +53,7 @@ $extended-themes: (
 
 $advanced-themes: mapMerge($alert-theme, $extended-themes);
 @each $theme-name, $map in $advanced-themes {
-    @include createAdvancedColorScheme($theme-name, $map);
+    @include extendedThemeClass($theme-name, $map);
 }
 
 // --------------------------------------------------------------------------
@@ -78,5 +78,5 @@ $advanced-themes: mapMerge($alert-theme, $extended-themes);
 
 // this could arguably be removed and just use base colors?? maybe
 // leave main theme colors like primary, secondary, and accent
-@include createUtilityClasses(background-color, $theme-colors, "bg");
-@include createUtilityClasses(background-color, $base-colors, "bg");
+@include utilityClasses(background-color, $theme-colors, "bg");
+@include utilityClasses(background-color, $base-colors, "bg");

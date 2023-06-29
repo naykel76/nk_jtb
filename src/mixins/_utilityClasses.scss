@@ -5,7 +5,7 @@
 // --------------------------------------------------------------
 // loop through map and create single property utility class
 
-@mixin createUtilityClasses($property, $map, $identifier: "") {
+@mixin utilityClasses($property, $map, $identifier: "") {
     @each $key, $value in $map {
         @if ($identifier == "") {
             // if the $identifier is omitted just us the key as the class name

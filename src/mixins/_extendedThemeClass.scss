@@ -1,27 +1,27 @@
-@use "../base/vars_colors" as *; // required to set defaults
+@use "../base/vars_colors" as *;
 @use "../functions/colorFunctions" as *;
 @use "../scss/mixins/createState" as *;
-@use '../mixins/basicColorScheme' as *;
+@use '../mixins/helpers/basicColorScheme' as *;
 
-// The minimum requirement for creating a theme-map is the $base
+// The minimum requirement for creating a map is the $base
 // color, all other properties can be created intuitively.
 
-@mixin createAdvancedColorScheme($theme-name, $theme-map) {
-    $base: map-get($theme-map, "base");
+@mixin extendedThemeClass($identifier, $map) {
+    $base: map-get($map, "base");
     // set default values based on the user defined styles in the
     // map, or intuitively create based on the `base` if not exists
-    $color: if(map-get($theme-map, "color"), map-get($theme-map, "color"), setTextColor($base));
-    $border-color: if(map-get($theme-map, "border-color"), map-get($theme-map, "border-color"), setBorderShadeColor($base));
+    $color: if(map-get($map, "color"), map-get($map, "color"), setTextColor($base));
+    $border-color: if(map-get($map, "border-color"), map-get($map, "border-color"), setBorderShadeColor($base));
 
-    .#{$theme-name} {
+    .#{$identifier} {
         @include basicColorScheme($base, $border-color, $color);
 
         //     // if there is no link color then force the default??? extra for no reason???
         //     // only create theme link styles if $link-color exists in map, else fall back to default
-        //     @if (map-get($theme-map, "link-color") or map-get($theme-map, "default-links")) {
-        //         // $link-color: map-get($theme-map, "link-color");
-        //         $link-color: if(map-get($theme-map, "link-color"), map-get($theme-map, "link-color"), $link-color);
-        //         $link-hover-color: if(map-get($theme-map, "link-hover-color"), map-get($theme-map, "link-hover-color"), $link-hover-color);
+        //     @if (map-get($map, "link-color") or map-get($map, "default-links")) {
+        //         // $link-color: map-get($map, "link-color");
+        //         $link-color: if(map-get($map, "link-color"), map-get($map, "link-color"), $link-color);
+        //         $link-hover-color: if(map-get($map, "link-hover-color"), map-get($map, "link-hover-color"), $link-hover-color);
 
         //         a:not(a.btn){
         //             color: $link-color;
@@ -33,15 +33,15 @@
         //     }
 
         //     // if there is a title colour, then use it
-        //     @if (map-get($theme-map, "title-color")){
+        //     @if (map-get($map, "title-color")){
         //         .bx-title{
-        //             color: map-get($theme-map, "title-color");
+        //             color: map-get($map, "title-color");
         //         }
         //     }
 
         &.withState:hover {
-            $hover-bg: if(map-get($theme-map, "hover-bg"), map-get($theme-map, "hover-bg"), darken($base, 4%));
-            $hover-color: if(map-get($theme-map, "hover-color"), map-get($theme-map, "hover-color"), setTextColor($hover-bg));
+            $hover-bg: if(map-get($map, "hover-bg"), map-get($map, "hover-bg"), darken($base, 4%));
+            $hover-color: if(map-get($map, "hover-color"), map-get($map, "hover-color"), setTextColor($hover-bg));
             background-color: $hover-bg;
             color: $hover-color;
         }
@@ -63,4 +63,4 @@
 //     "title-color": hsl(0, 100%, 30%),
 // );
 
-// @include createAdvancedColorScheme("sample-theme", $sample-theme);
+// @include extendedThemeClass("sample-theme", $sample-theme);
