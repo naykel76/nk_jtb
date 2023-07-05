@@ -3,8 +3,10 @@
 @use "../functions/colorFunctions" as *;
 @use "../functions/mapMerge" as *;
 @use "../mixins/extendedThemeClass" as *;
-@use "../mixins/utilityClasses" as *;
 @use "../mixins/helpers" as *; // index
+@use "../mixins/utilityClasses" as *;
+@use "./tailwind-colors" as *;
+@use "../functions/get" as *;
 
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
 // There is a fair bit going on here and the BUILD ORDER MATTERS.
@@ -13,28 +15,24 @@
 
 $alert-theme: (
     "danger-light": (
-        "base": hsl(0, 100%, 95%),
-        "border-color": hsl(0, 100%, 81%),
-        "color": hsl(0, 100%, 15%),
-        "title-color": hsl(0, 100%, 30%),
+        "base": get("red.50", $tailwind-colors),
+        "color": get("red.900", $tailwind-colors),
+        "border-color": get("red.500", $tailwind-colors),
     ),
     "info-light": (
-        "base": hsl(211, 94%, 94%),
-        "border-color": hsl(211, 94%, 81%),
-        "color": hsl(211, 94%, 15%),
-        "title-color": hsl(211, 94%, 30%),
+        "base": get("blue.50", $tailwind-colors),
+        "color": get("blue.900", $tailwind-colors),
+        "border-color": get("blue.500", $tailwind-colors),
     ),
     "warning-light": (
-        "base": hsl(50, 92%, 95%),
-        "border-color": hsl(50, 92%, 45%),
-        "color": hsl(50, 92%, 21%),
-        "title-color": hsl(50, 92%, 35%),
+        "base": get("yellow.50", $tailwind-colors),
+        "color": get("yellow.900", $tailwind-colors),
+        "border-color": get("yellow.500", $tailwind-colors),
     ),
     "success-light": (
-        "base": hsl(142, 61%, 92%),
-        "border-color": hsl(142, 61%, 81%),
-        "color": hsl(142, 61%, 15%),
-        "title-color": hsl(142, 62%, 25%),
+        "base": get("green.50", $tailwind-colors),
+        "color": get("green.900", $tailwind-colors),
+        "border-color": get("green.500", $tailwind-colors),
     ),
 );
 

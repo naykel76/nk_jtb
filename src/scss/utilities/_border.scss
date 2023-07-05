@@ -9,7 +9,7 @@ $border-utilities-map: (
         "base-class": "bdr",
         "values-map": (
             "default": $border,
-            "0": none,
+            "none": none,
         ),
         "axis-position-map": $axis-position-map,
     ),

@@ -1,8 +1,5 @@
-@use "../../mixins/media" as *;
-
-@use "../forms/control" as *;
-
-// @use "../../base/vars_base" as *;
+@use "../mixins/media" as *;
+@use "../scss/forms/control" as *;
 
 // -- Base Elements --
 // ==========================================================================
@@ -69,20 +66,27 @@ select {
 
     input {
         flex-grow: 1;
-        // border-top-left-radius: 0;
-        // border-bottom-left-radius: 0;
-        // border-top-right-radius: 0;
-        // border-bottom-right-radius: 0;
     }
 
     .leadingAddon {
         border-top-left-radius: $ctrl-border-radius;
         border-bottom-left-radius: $ctrl-border-radius;
+        ~ input {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            margin-left: -1px; // prevent double border
+        }
     }
 
     .trailingAddon {
         border-top-right-radius: $ctrl-border-radius;
         border-bottom-right-radius: $ctrl-border-radius;
+        order: 3;
+        ~ input {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            margin-right: -1px; // prevent double border
+        }
     }
 
     // style addons the same as the control
@@ -95,15 +99,3 @@ select {
         display: inline-flex;
     }
 }
-
-.withAddons:has(.leadingAddon) {
-    background: green;
-}
-// the width of the addon will vary depending on the content
-// :where(input) {
-//     padding-left: 2rem;
-//     width: 100%; // 3.
-//     &:focus ~ * {
-//         color: rgb(73, 73, 73);
-//     }
-// }

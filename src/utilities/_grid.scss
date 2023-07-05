@@ -1,10 +1,14 @@
 @use "../config" as *;
 @use "../functions/get" as *;
-
-
-
+@use "../mixins/media" as *;
 
 $num-grid-cols: get("grid.num-grid-cols", $config);
+
+@include from-lg {
+    .lg\:cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
 // ----------------------------------------------------------------
 // -- EQUAL WIDTHS COLUMNS(NON-RESPONSIVE) --

@@ -10,8 +10,8 @@ $ctrl-bg-color: #fff !default;
 $ctrl-color: setTextColor($ctrl-bg-color) !default;
 
 // Control and Button padding use em making them relative to the font-size
-$ctrl-padding-x: 1em !default;
-$ctrl-padding-y: 0.375em !default;
+$ctrl-padding-x: 1.25em !default;
+$ctrl-padding-y: 0.625em !default;
 
 $control-sizes: (
     xs: 0.6rem,
