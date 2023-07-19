@@ -90,12 +90,13 @@ select {
     }
 
     // style addons the same as the control
-    .leadingAddon,
-    .trailingAddon {
+    :where(.leadingAddon, .trailingAddon) {
         border: $ctrl-border;
         font-size: $ctrl-font-size;
         padding: $ctrl-padding-y $ctrl-padding-x;
         line-height: $ctrl-line-height; // 1
         display: inline-flex;
+        color: $ctrl-color;
+        background: #fafafa;
     }
 }

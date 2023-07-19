@@ -1,7 +1,7 @@
 @use "../../base/vars_colors" as *;
 @use "../../base/vars_base" as *;
 @use "../../functions/colorFunctions" as *;
-@use "../functions/helpers" as *;
+@use "../../functions/helpers" as *;
 @use "sass:map";
 
 $old-alert-theme: ();

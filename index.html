@@ -11,7 +11,6 @@
 </head>
 
 <body class="">
-
     <div>
         <header id="nk-header" class="container py">
             <div class="container flex space-between">
@@ -66,7 +65,7 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="relative" x-data="{showChildren:false}" x-on:mouseenter="showChildren=true" x-on:mouseleave="showChildren=false">
+                    <li class="relative" x-data="{showChildren:true}" x-on:mouseenter="showChildren=true" x-on:mouseleave="showChildren=true">
                         <a href="#">
                             Parent (alpine hover)
                             <svg class="icon sm">
@@ -157,8 +156,92 @@
             </nav>
         </div>
 
-        <div id="quick-hide-wrapper">
-            <section id="button-theme-examples" class="py-3 bg-neutral-100">
+        <div class="quick-hide-wrapper zebra c-py-5-3-2">
+            <section id="typography">
+                <div class="container maxw-md">
+                    <h2 class="title txt-3">Typography</h2>
+
+                    <h1>Heading 1</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aperiam quas totam laboriosam soluta harum beatae qui reiciendis possimus molestiae?</p>
+                    <h2>Heading 2</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aperiam quas totam laboriosam soluta harum beatae qui reiciendis possimus molestiae?</p>
+                    <h3>Heading 3</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aperiam quas totam laboriosam soluta harum beatae qui reiciendis possimus molestiae?</p>
+                    <h4>Heading 4</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aperiam quas totam laboriosam soluta harum beatae qui reiciendis possimus molestiae?</p>
+                    <h5>Heading 5</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aperiam quas totam laboriosam soluta harum beatae qui reiciendis possimus molestiae?</p>
+                    <h6>Heading 6</h6>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aperiam quas totam laboriosam soluta harum beatae qui reiciendis possimus molestiae?</p>
+
+                    <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus sed aperiam quibusdam adipisci sequi deserunt nesciunt vel illum voluptatibus maxime soluta repudiandae numquam sapiente exercitationem, culpa, omnis expedita tempore? Similique.</p>
+
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque at corporis deserunt sint eum laboriosam quae nulla fugit, error, tempore quibusdam temporibus fuga adipisci. Nam architecto sunt cupiditate soluta molestias ipsum delectus numquam illo magnam! Praesentium quos deserunt sed, maxime, eligendi quasi, sequi fugiat facere neque harum debitis laborum ipsam!</p>
+
+                    <h3 class="title">Text Sizes</h3>
+                    <p class="txt-xs">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto delectus asperiores commodi incidunt facilis nisi adipisci magni assumenda ullam exercitationem id similique dolore at reiciendis impedit suscipit, soluta ratione nam deleniti non magnam et repudiandae, aliquam fugit? Eum, expedita officia!</p>
+                    <p class="txt-sm">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto delectus asperiores commodi incidunt facilis nisi adipisci magni assumenda ullam exercitationem id similique dolore at reiciendis impedit suscipit, soluta ratione nam deleniti non magnam et repudiandae, aliquam fugit? Eum, expedita officia!</p>
+                    <p class="txt-base">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto delectus asperiores commodi incidunt facilis nisi adipisci magni assumenda ullam exercitationem id similique dolore at reiciendis impedit suscipit, soluta ratione nam deleniti non magnam et repudiandae, aliquam fugit? Eum, expedita officia!</p>
+                    <p class="txt-lg">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto delectus asperiores commodi incidunt facilis nisi adipisci magni assumenda ullam exercitationem id similique dolore at reiciendis impedit suscipit, soluta ratione nam deleniti non magnam et repudiandae, aliquam fugit? Eum, expedita officia!</p>
+                    <p class="txt-xl">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto delectus asperiores commodi incidunt facilis nisi adipisci magni assumenda ullam exercitationem id similique dolore at reiciendis impedit suscipit, soluta ratione nam deleniti non magnam et repudiandae, aliquam fugit? Eum, expedita officia!</p>
+
+                </div>
+            </section>
+            <section id="menu">
+                <div class="container">
+                    <h2 class="title txt-3">Menu Component</h2>
+                    <h4>Base Component</h4>
+                    <div class="bx grid md:cols-3">
+                        <div class="menu">
+                            <div class="menu-title"><code>&lt;div class=&quot;menu&quot;&gt;</code></div>
+                            <div class="menu-title">Menu Title</div>
+                            <a href="">Item</a>
+                            <a href="">Parent</a>
+                            <a href="" class="active">Active</a>
+                        </div>
+                        <nav class="menu">
+                            <div class="menu-title"><code>&lt;nav class=&quot;menu&quot;&gt;</code></div>
+                            <div class="menu-title">Menu Title</div>
+                            <a href="">Item</a>
+                            <a href="">Parent</a>
+                            <a href="" class="active">Active</a>
+                        </nav>
+                        <ul class="menu">
+                            <div class="menu-title"><code>&lt;ul class=&quot;menu&quot;&gt;</code></div>
+                            <div class="menu-title">Menu Title</div>
+                            <li><a href="">Item</a></li>
+                            <li><a href="">Parent</a></li>
+                            <li><a href="" class="active">Active</a></li>
+                        </ul>
+                    </div>
+                    <h4>With Menu-Item</h4>
+                    <div class="bx grid md:cols-3">
+                        <div class="menu">
+                            <div class="menu-title"><code>&lt;div class=&quot;menu&quot;&gt;</code></div>
+                            <div class="menu-title">Menu Title</div>
+                            <a class="menu-item" href="">Item</a>
+                            <a class="menu-item" href="">Parent</a>
+                            <a class="menu-item active" href="">Active</a>
+                        </div>
+                        <nav class="menu">
+                            <div class="menu-title"><code>&lt;nav class=&quot;menu&quot;&gt;</code></div>
+                            <div class="menu-title">Menu Title</div>
+                            <a class="menu-item" href="">Item</a>
+                            <a class="menu-item" href="">Parent</a>
+                            <a class="menu-item active" href="">Active</a>
+                        </nav>
+                        <ul class="menu">
+                            <div class="menu-title"><code>&lt;ul class=&quot;menu&quot;&gt;</code></div>
+                            <div class="menu-title">Menu Title</div>
+                            <li><a class="menu-item" href="">Item</a></li>
+                            <li><a class="menu-item" href="">Parent</a></li>
+                            <li><a class="menu-item active" href="">Active</a></li>
+                        </ul>
+                    </div>
+                    <h4>Collapse</h4>
+                </div>
+            </section>
+            <section id="button-theme-examples">
                 <div class="container">
                     <h2 class="title txt-3">Buttons</h2>
                     <h4>Base Colors</h4>
@@ -197,7 +280,7 @@
                     </div>
                 </div>
             </section>
-            <section id="theme-examples" class="py-3 bg-neutral-200">
+            <section id="theme-examples">
                 <div class="container">
                     <h2 class="title txt-3">Basic Themes</h2>
                     <h4>Base Colors</h4>
@@ -236,7 +319,7 @@
                     </div>
                 </div>
             </section>
-            <section id="theme-examples-with-state" class="py-3 bg-neutral-100">
+            <section id="theme-examples-with-state">
                 <div class="container">
                     <h2 class="title txt-3">Themes With State</h2>
                     <h4>Base Colors</h4>
@@ -275,7 +358,7 @@
                     </div>
                 </div>
             </section>
-            <section id="button-and-form-controls" class="py-3 bg-neutral-200">
+            <section id="button-and-form-controls">
                 <div class="container">
                     <h2 class="title">Buttons and Form Controls</h2>
 
@@ -285,12 +368,6 @@
                         <button type="button">Button</button>
                         <button type="reset">Reset</button>
                         <button type="submit">Submit</button>
-                    </div>
-
-                    <div class="frm-row success-light">
-                        <label for="success" class="txt-success-light">Your name</label>
-                        <input type="text" id="success" class="success-light" placeholder="Success input">
-                        <p class="txt-success-light txt-sm"><span class="font-medium">Well done!</span> Some success message.</p>
                     </div>
 
                     <div class="frm-row">
@@ -363,25 +440,7 @@
             </section>
             <article>
 
-                <section>
-                    <h1>Heading 1</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aperiam quas totam laboriosam soluta harum beatae qui reiciendis possimus molestiae?</p>
-                    <h2>Heading 2</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aperiam quas totam laboriosam soluta harum beatae qui reiciendis possimus molestiae?</p>
-                    <h3>Heading 3</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aperiam quas totam laboriosam soluta harum beatae qui reiciendis possimus molestiae?</p>
-                    <h4>Heading 4</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aperiam quas totam laboriosam soluta harum beatae qui reiciendis possimus molestiae?</p>
-                    <h5>Heading 5</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aperiam quas totam laboriosam soluta harum beatae qui reiciendis possimus molestiae?</p>
-                    <h6>Heading 6</h6>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aperiam quas totam laboriosam soluta harum beatae qui reiciendis possimus molestiae?</p>
-                </section>
 
-                <h1>Main</h1>
-                <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus sed aperiam quibusdam adipisci sequi deserunt nesciunt vel illum voluptatibus maxime soluta repudiandae numquam sapiente exercitationem, culpa, omnis expedita tempore? Similique.</p>
-
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque at corporis deserunt sint eum laboriosam quae nulla fugit, error, tempore quibusdam temporibus fuga adipisci. Nam architecto sunt cupiditate soluta molestias ipsum delectus numquam illo magnam! Praesentium quos deserunt sed, maxime, eligendi quasi, sequi fugiat facere neque harum debitis laborum ipsam!</p>
 
                 <div class="flex">
                     <div>

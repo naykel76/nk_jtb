@@ -274,7 +274,7 @@ li ol {
 // a good fit overall and should be easy enough to override
 
 // 1. keep consistent spacing.
-:is(li:not(:first-child):not(nav li)) {
+:is(li:not(:first-child):not(nav li):not(.menu li)) {
     margin-top: $base-list-spacing; // 1
 }
 

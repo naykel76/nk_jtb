@@ -37,7 +37,7 @@ $menu-padding-x: 0.5rem !default;
 
 $menu-hover-bg: hsl(0, 0%, 95%) !default;
 
-$menu-link-color: $text !default;
+// $menu-link-color: $text !default;
 $menu-link-hover-color: setTextColor($menu-hover-bg) !default;
 
 // -- navbar --
@@ -46,7 +46,9 @@ $menu-link-hover-color: setTextColor($menu-hover-bg) !default;
 // background color set so it is best not to set as transparent
 
 // what if i want transparent navbar but styled nav?
-$navbar-bg: rgb(247, 247, 247) !default;
+// $navbar-bg: rgb(247, 247, 247) !default;
+$navbar-bg: transparent !default;
+
 $navbar-padding-x: 1rem !default;
 $navbar-padding-y: 0.5rem !default;
 
@@ -57,10 +59,12 @@ $navbar-nav-item-bg: $navbar-bg !default;
 $navbar-nav-item-color: setTextColor($navbar-nav-item-bg) !default;
 
 $navbar-nav-hover-bg: lighten($navbar-nav-item-bg, 3%) !default;
-$navbar-nav-hover-color: setTextColor($navbar-nav-item-bg) !default;
+$navbar-nav-hover-color: lighten(setTextColor($navbar-nav-item-bg), 20%) !default;
 
 $navbar-nav-active-bg: darken($navbar-nav-item-bg, 3%) !default;
-$navbar-nav-active-color: setTextColor($navbar-nav-item-bg) !default;
+$navbar-nav-active-color: darken(setTextColor($navbar-nav-item-bg), 20%) !default;
+
+// $navbar-menu-color
 
 // $navbar:(
 //     'hover':(

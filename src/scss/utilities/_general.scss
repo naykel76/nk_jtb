@@ -124,9 +124,4 @@
     }
 }
 
-// -- STRIPED SECTIONS --
-// -----------------------------------
-//
-.zebra section:nth-child(2n + 2):not(.primary):not(.secondary) {
-    background: rgb(245, 245, 245);
-}
+

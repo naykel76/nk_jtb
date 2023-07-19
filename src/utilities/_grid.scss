@@ -4,12 +4,6 @@
 
 $num-grid-cols: get("grid.num-grid-cols", $config);
 
-@include from-lg {
-    .lg\:cols-2 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 // ----------------------------------------------------------------
 // -- EQUAL WIDTHS COLUMNS(NON-RESPONSIVE) --
 // ----------------------------------------------------------------
@@ -28,5 +22,25 @@ $num-grid-cols: get("grid.num-grid-cols", $config);
 @for $i from 1 through $num-grid-cols {
     .cols-#{$i} {
         grid-template-columns: repeat($i, minmax(0, 1fr));
+    }
+}
+
+// ----------------------------------------------------------------
+// -- RESPONSIVE GRID --
+// ----------------------------------------------------------------
+@include from-lg {
+    .lg\:cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@include from-md {
+    .md\: {
+        &cols-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        &cols-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
     }
 }

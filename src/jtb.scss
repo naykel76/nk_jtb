@@ -36,9 +36,10 @@
 @forward "./scss/utilities/state";
 @forward "./scss/utilities/text";
 @forward "./scss/utilities/themes";
-@forward "./utilities/transition";
 @forward "./scss/utilities/translate";
+@forward "./utilities/general";
 @forward "./utilities/grid";
+@forward "./utilities/transition";
 
 // // extras
 @use "./color/tailwind-colors" as *;

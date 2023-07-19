@@ -19,8 +19,6 @@
     // remove specificity to make easier to override
     :where(ul a) {
         color: $navbar-nav-item-color;
-        // do not set backgrounds here to limit opinion, use
-        // utility classes or `nav-item` class instead
         padding: $navbar-nav-padding-y $navbar-nav-padding-x;
         display: block; // 1. allowing the navbar to grow in height
         line-height: 1.2rem;
@@ -29,7 +27,8 @@
             color: $navbar-nav-hover-color;
         }
 
-        &.active {
+        &.active,
+        &:active {
             color: $navbar-nav-active-color;
         }
     }
@@ -45,9 +44,29 @@
             background: $navbar-nav-hover-bg;
         }
 
-        &.active {
+        &.active,
+        &:active {
             color: $navbar-nav-active-color;
             background: $navbar-nav-active-bg;
+        }
+    }
+
+    // this is a quick and dirt solution to prevent to work with
+    // .bx.menu which is likely set in the dropdowns
+    .menu {
+        :where(a, li a, .menu-item) {
+            color: #333;
+        }
+
+        li {
+            &:first-child a {
+                border-top-left-radius: $bx-border-radius;
+                border-top-right-radius: $bx-border-radius;
+            }
+            &:last-child a {
+                border-bottom-left-radius: $bx-border-radius;
+                border-bottom-right-radius: $bx-border-radius;
+            }
         }
     }
 }

@@ -3,13 +3,14 @@
 @use "../../functions/colorFunctions" as *;
 
 .menu {
-    flex-wrap: wrap;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     line-height: 1.25;
     list-style: none;
     margin-left: 0; // remove margin for ul
 
+    // limit opinionated styles to allow parent styles to trickle down
     :where(a, li a, .menu-item) {
         color: inherit;
         padding: $menu-padding-y $menu-padding-x;
@@ -31,7 +32,6 @@
         letter-spacing: 0.05em;
         margin-left: $menu-padding-x;
         margin-bottom: 0.5em;
-        color: $heading-and-title-color; // inherits by default
 
         &:not(:first-child) {
             margin-top: $content-gap;

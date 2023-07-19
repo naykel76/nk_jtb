@@ -1,8 +1,11 @@
-// @import 'github-dark-dimmed';
+@use "../base/vars_base" as *;
 @import "panda-syntax-dark";
+// @import 'github-dark-dimmed';
+
+$pre-bg: #2a2c2d !default;
 
 pre {
-    background: #2a2c2d;
+    background: $pre-bg;
 }
 
 pre code.hljs {
@@ -15,3 +18,7 @@ code.hljs {
     padding: 3px 5px;
 }
 
+code:not(.hljs) {
+    background-color: rgba(240, 240, 240, 0.1);
+    padding: 1px 4px;
+}
