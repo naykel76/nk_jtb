@@ -1,7 +1,6 @@
 @use "../../base/vars_base" as *;
 @use "../../base/vars_colors" as *;
 
-
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
 //
 // When using numbers to identify a utility class, do not use a
@@ -10,7 +9,6 @@
 // For example, fw9 NOT fw-9
 //
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
-
 
 $text-utilities: (
     "font-weight": (
@@ -21,21 +19,21 @@ $text-utilities: (
             5: 500,
             6: 600,
             7: 700,
-            9: 900,
-        ),
+            9: 900
+        )
     ),
     "font-style": (
         "prefix": "txt-",
         "values": (
-            italic: italic,
-        ),
+            italic: italic
+        )
     ),
     "line-height": (
         "prefix": "lh-",
         "values": (
             1: 1,
             // 1: 1,
-        ),
+        )
     ),
     "text-align": (
         "prefix": "ta",
@@ -43,8 +41,8 @@ $text-utilities: (
             "l": left,
             "r": right,
             "c": center,
-            "j": justify,
-        ),
+            "j": justify
+        )
     ),
     "text-transform": (
         "prefix": "txt-",
@@ -52,8 +50,8 @@ $text-utilities: (
             "upper": uppercase,
             "lower": lowercase,
             "capitalize": capitalize,
-            "normal-case": none,
-        ),
+            "normal-case": none
+        )
     ),
     "text-decoration": (
         "prefix": "txt-",
@@ -61,8 +59,8 @@ $text-utilities: (
             "strike": line-through,
             "underline": underline,
             "overline": overline,
-            "underline-overline": underline overline,
-        ),
+            "underline-overline": underline overline
+        )
     ),
     "white-space": (
         "prefix": "whitespace-",
@@ -71,9 +69,9 @@ $text-utilities: (
             "nowrap": nowrap,
             "pre": pre,
             "pre-line": pre-line,
-            "pre-wrap": pre-wrap,
-        ),
-    ),
+            "pre-wrap": pre-wrap
+        )
+    )
 );
 
 .lead {
@@ -110,6 +108,7 @@ h1.title {
 }
 
 
+
 .txt {
     &-xs {
         font-size: 0.75rem;
@@ -124,23 +123,11 @@ h1.title {
     }
     &-lg {
         font-size: 1.125rem;
-        line-height: 1.75;
+        // line-height: 1.75;
     }
     &-xl {
         font-size: 1.5rem;
-        line-height: 1.75;
-    }
-
-    &-2 {
-        font-size: 2rem;
-    }
-
-    &-3 {
-        font-size: 3rem;
-    }
-
-    &-4 {
-        font-size: 4rem;
+        // line-height: 1.75;
     }
 
     // colour modifiers

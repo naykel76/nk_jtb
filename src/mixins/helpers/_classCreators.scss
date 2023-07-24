@@ -3,8 +3,8 @@
 // --------------------------------------------------------------
 // -- CREATE SINGLE PROPERTY CLASS --
 // --------------------------------------------------------------
-@mixin singlePropertyClass($identifier, $property, $value) {
-    .#{$identifier} {
+@mixin singlePropertyClass($class, $property, $value) {
+    .#{$class} {
         #{$property}: $value;
     }
 }

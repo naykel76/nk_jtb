@@ -4,7 +4,7 @@
 @use "../functions/mapMerge" as *;
 @use "../mixins/extendedThemeClass" as *;
 @use "../mixins/helpers" as *; // index
-@use "../mixins/utilityClasses" as *;
+@use "../mixins/utilityClassCreators" as *;
 @use "./tailwind-colors" as *;
 @use "../functions/get" as *;
 

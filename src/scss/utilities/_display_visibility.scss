@@ -1,6 +1,6 @@
 @use "../../base/vars_base" as *;
 @use "../../mixins/media" as *;
-@use "../mixins/makeResponsiveClasses" as *;
+@use "../../mixins/responsiveClassCreators" as *;
 
 $visibility-utilities: (
     "display": (

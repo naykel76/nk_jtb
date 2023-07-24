@@ -1,7 +1,8 @@
+@use "../base/vars_components" as *;
 // ----------------------------------------------------------------
 // -- STRIPED SECTIONS --
 // ----------------------------------------------------------------
 
 .zebra > *:nth-child(2n + 2):not(.primary):not(.secondary) {
-    background: rgb(245, 245, 245);
+    background: $zebra-alt-bg;
 }

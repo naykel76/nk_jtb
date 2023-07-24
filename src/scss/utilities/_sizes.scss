@@ -42,24 +42,7 @@ $size-utilities: (
     }
 }
 
-// ----------------------------------------------------------------
-// -- MAKE MAGIC CLASSES --
-// ----------------------------------------------------------------
 
-// THIS SYSTEM NEEDS MORE CONSIDERATION !!
-
-// $magic-width-sizes: ((16, "full"), (20, "full"), (24, "full")) !default;
-// @include makeMagicClass(width, ($magic-width-sizes), "w");
-
-// THIS NEEDS TO BE MADE REPEATABLE
-@include from-md {
-    .md\:w-16 {
-        width: 16rem;
-    }
-    .md\:w-20 {
-        width: 20rem;
-    }
-}
 
 // ----------------------------------------------------------------
 // -- MAKE UTILITY SIZE CLASSES --

@@ -1,0 +1,37 @@
+@use "../mixins/helpers/classCreators" as *;
+@use "../functions/helpers" as *; // imports all helpers
+
+// --------------------------------------------------------------
+// -- CREATE SINGLE PROPERTY UTILITY CLASSES --
+// --------------------------------------------------------------
+// loop through map and create single property utility class
+
+@mixin utilityClasses($property, $map, $identifier: "") {
+    @each $key, $value in $map {
+        @if ($identifier == "") {
+            // if the $identifier is omitted just us the key as the class name
+            @include singlePropertyClass(#{$key}, $property, $value);
+        } @else {
+            // otherwise join $identifier and $key for class name
+            @include singlePropertyClass(#{$identifier}-#{$key}, $property, $value);
+        }
+    }
+}
+
+// --------------------------------------------------------------
+// -- CREATE SINGLE UNIT BASED PROPERTY CLASSES --
+// --------------------------------------------------------------
+//
+// $text-sizes: (2, 2.5, 3, 4);
+//
+// @include utilityClassesUnit(font-size, $text-sizes, "txt");
+
+@mixin utilityClassesUnit($property, $map, $prefix, $unit: rem) {
+    @each $value in $map {
+        // {prefix}-{value} excluding unit with escaped dot
+        $escapedValue: escapeDecimal($value);
+        $class: #{$prefix}-#{$escapedValue};
+
+        @include singlePropertyClass($class, $property, #{$value}#{$unit});
+    }
+}
