@@ -1,9 +1,9 @@
 @use "../base/vars_base" as *;
 @use "../base/vars_colors" as *;
 
-// ----------------------------------------------------------------
+// ------------------------------------------------------------------
 // -- AXIS TO POSITIONS MAP --
-// ----------------------------------------------------------------
+// ------------------------------------------------------------------
 // Uses the key to defines the mapping structure that can be used to
 // retrieve css positions for a axis or position.
 //
@@ -33,9 +33,9 @@ $axis-position-map: (
 $tblr-positions-map: map-remove($axis-position-map, "x", "y");
 $xy-positions-map: map-remove($axis-position-map, "t", "b", "l", "r");
 
-// ----------------------------------------------------------------
+// ------------------------------------------------------------------
 // -- COMMON SIZES (REM) --
-// ----------------------------------------------------------------
+// ------------------------------------------------------------------
 // for creating margin, padding and other size related utilities.
 //
 // DO NOT add unit here, it can get in the way with some mixins

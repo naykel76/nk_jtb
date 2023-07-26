@@ -29,8 +29,3 @@
 @use "sass:map";
 @use "sass:string";
 
-
-
-@include utilityClassesUnit(font-size, $text-sizes, "txt");
-
-@include utilityClassesUnit(font-size, $text-sizes, "txt", "px");

@@ -26,9 +26,9 @@
     }
 }
 
-// --------------------------------------------------------------
+// ----------------------------------------------------------------
 // creates multiple classes with different color shades
-// --------------------------------------------------------------
+// ----------------------------------------------------------------
 
 @mixin colorShadeClasses($identifier, $base-color, $num-shades: 6, $step: get("shades.step", $config), $shade: "both") {
     @include createDarkerShades($identifier, $base-color, $num-shades, $step);

@@ -1,0 +1,25 @@
+@use "../functions/helpers" as *;
+@use "../mixins/helpers" as *;
+@use "sass:map";
+
+$properties: (
+    "overflow": (
+        "values": ( auto, clip, hidden, scroll, visible )
+    ),
+    "overflow-x": (
+        "values": ( auto, clip, hidden, scroll, visible )
+    ),
+    "overflow-y": (
+        "values": ( auto, clip, hidden, scroll, visible )
+    )
+);
+
+@each $property, $map in $properties {
+    $values: map-get($map, "values");
+    $prefix: setPrefix($map, $property);
+
+    @each $value in $values {
+        $class: #{$prefix}-#{$value};
+        @include singlePropertyClass($class, $property, $value);
+    }
+}
