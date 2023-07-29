@@ -4,8 +4,14 @@
 // set text colour based on the background
 // ------------------------------------------------------------------
 
-@function setTextColor($color) {
-    $color-brightness: round((red($color) * 299) + (green($color) * 587) + calc((blue($color) * 114) / 1000));
+@function setTextColor($bg) {
+
+    // return the default color if transparent
+    @if alpha($bg) == 0 {
+        @return $text;
+    }
+
+    $color-brightness: round((red($bg) * 299) + (green($bg) * 587) + calc((blue($bg) * 114) / 1000));
     $light-color: round((red(#ffffff) * 299) + (green(#ffffff) * 587) + calc((blue(#ffffff) * 114) / 1000));
     // if background is dark, then the text color should be light
     @if abs($color-brightness) < calc($light-color / 2) {
@@ -32,8 +38,8 @@
 // have a low lightness, and visa-versa, but it is good enough.
 //
 
-@function setBorderShadeColor($color, $opacity: 0.15) {
-    $lightness: lightness($color);
+@function setBorderShadeColor($bg, $opacity: 0.15) {
+    $lightness: lightness($bg);
     @if ($lightness > 50) {
         @return rgba(0, 0, 0, $opacity); // Black
     } @else {
