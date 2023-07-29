@@ -3,9 +3,11 @@
 // @import 'github-dark-dimmed';
 
 $pre-bg: #2a2c2d !default;
+$pre-border-radius: 0.5rem !default;
 
 pre {
     background: $pre-bg;
+    border-radius: $pre-border-radius;
 }
 
 pre code.hljs {

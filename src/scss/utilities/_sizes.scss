@@ -12,6 +12,7 @@ $size-utilities: (
     "width": (
         "prefix": "w-",
         "values": (
+            auto: auto,
             fc: fit-content,
             full: 100%,
             screen: 100vw,
@@ -70,7 +71,7 @@ $size-utilities: (
     }
 }
 
-$rem-sizes: (0, 1, 1.5, 2, 3, 4, 5, 10, 12, 14, 16, 18, 20, 22, 24);
+$rem-sizes: (0, 1, 1.5, 2, 3, 4, 5, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24);
 @include makeSizeUtilities($rem-sizes);
 
 $pixel-sizes: (16, 24, 32, 40, 64, 100, 150, 200, 300, 400, 600);
