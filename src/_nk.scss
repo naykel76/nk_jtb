@@ -64,6 +64,10 @@ code-first-second-col {
     }
 }
 
+#toc {
+    margin-bottom: 1.5em;
+}
+
 // this is a hack solution to an ugly problem when using x-gt-markdown
 .markdown pre {
     overflow: auto;
@@ -88,6 +92,9 @@ code-first-second-col {
     }
     .-ml-7 pre code {
         margin-left: -7rem;
+    }
+    .-ml-8 pre code {
+        margin-left: -8rem;
     }
 
     tab-size: 0;
