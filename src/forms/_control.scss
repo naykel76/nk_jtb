@@ -1,4 +1,5 @@
-@use '../../functions/colorFunctions' as *;
+@use '../functions/colorFunctions' as *;
+
 $ctrl-border-radius: 0.25rem !default;
 $ctrl-border: 1px solid rgba(0, 0, 0, 0.15);
 
@@ -10,7 +11,7 @@ $ctrl-bg-color: #fff !default;
 $ctrl-color: setTextColor($ctrl-bg-color) !default;
 
 // Control and Button padding use em making them relative to the font-size
-$ctrl-padding-x: 1.25em !default;
+$ctrl-padding-x: 1rem !default;
 $ctrl-padding-y: 0.625em !default;
 
 $control-sizes: (

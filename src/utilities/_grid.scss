@@ -1,11 +1,12 @@
 @use "../config" as *;
 @use "../functions/get" as *;
+@use "../functions/helpers" as *;
 @use "../mixins/media" as *;
 
 $num-grid-cols: get("grid.num-grid-cols", $config);
 
 // ------------------------------------------------------------------
-// -- EQUAL WIDTHS COLUMNS(NON-RESPONSIVE) --
+// -- GRID --
 // ------------------------------------------------------------------
 .grid {
     display: grid;
@@ -14,6 +15,30 @@ $num-grid-cols: get("grid.num-grid-cols", $config);
 
 .gg {
     gap: get("grid.default-gap", $config);
+}
+
+// ------------------------------------------------------------------
+// -- GRID GAP --
+// ------------------------------------------------------------------
+
+$grid-gap-sizes: (0, 1, 1.25, 1.5, 2, 3, 4, 5) !default;
+
+@each $size in $grid-gap-sizes {
+    $class: escapeDecimal($size);
+
+    .grid-#{$class} {
+        display: grid;
+        gap: #{$size}rem;
+    }
+
+    .gg-#{$class} {
+        gap: #{$size}rem;
+    }
+}
+
+// 05 does not play well in the map
+.gg-05 {
+    gap: 0.5rem;
 }
 
 // ------------------------------------------------------------------
@@ -41,6 +66,9 @@ $num-grid-cols: get("grid.num-grid-cols", $config);
         }
         &cols-3 {
             grid-template-columns: repeat(3, 1fr);
+        }
+        &cols-9 {
+            grid-template-columns: repeat(4, 1fr);
         }
     }
 }

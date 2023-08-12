@@ -1,7 +1,7 @@
 @use "sass:color";
 @use '../functions/colorFunctions' as *;
 @use '../base/vars_base' as *;
-@use '../scss/forms/control' as *; // gives access access to variables
+@use '../forms/control' as *; // gives access access to variables
 
 $choices-selector: "choices" !default;
 $choices-font-size-lg: 16px !default;
