@@ -60,18 +60,13 @@ $navbar-nav-item-color: setTextColor($navbar-nav-item-bg) !default;
 
 $navbar-nav-hover-bg: lighten($navbar-nav-item-bg, 3%) !default;
 $navbar-nav-hover-color: lighten(setTextColor($navbar-nav-item-bg), 20%) !default;
+// $navbar-nav-hover-bg: lighten($navbar-nav-item-bg, 3%) !default;
+// $navbar-nav-hover-color: lighten(setTextColor($navbar-nav-item-bg), 20%) !default;
 
 $navbar-nav-active-bg: darken($navbar-nav-item-bg, 3%) !default;
 $navbar-nav-active-color: darken(setTextColor($navbar-nav-item-bg), 20%) !default;
 
-// $navbar-menu-color
 
-// $navbar:(
-//     'hover':(
-//         'color': red,
-//         "background": darken($navbar-nav-item-bg, 3%)
-//     )
-// );
 // -- lists --
 // ==============================================================
 $icon-list-color: inherit !default;

@@ -19,7 +19,11 @@
     margin-top: $content-gap;
 }
 
+// excluding .flex + input is experimental.the exclusion makes it
+// easier to add tool-tips with a label
+
 // opt-out
-:is(.flex, [class^="grid"]) > * {
+:is(.flex, [class^="grid"]) > *,
+.flex + input {
     margin: 0;
 }
