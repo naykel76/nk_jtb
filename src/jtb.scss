@@ -39,10 +39,11 @@
 @forward "./scss/utilities/translate";
 @forward "./utilities/general";
 @forward "./utilities/grid";
+@forward "./utilities/sizes";
 @forward "./utilities/text";
 @forward "./utilities/transition";
 @forward "./utilities/utilities"; // godfather utility sheet
 
-// // extras
+// extras
 @use "./color/tailwind-colors" as *;
 @use "./extras/code" as *;
