@@ -1,6 +1,4 @@
 @use "../../base/vars_base" as *;
-@use "../../mixins/media" as *;
-@use "../../mixins/responsiveClassCreators" as *;
 
 $visibility-utilities: (
     "display": (
@@ -60,11 +58,3 @@ $visibility-utilities: (
 
 
 
-@include makeFromBreakpoint(display, block, "block", "sm", "md", "lg", "xl", "xxl");
-@include makeFromBreakpoint(display, none, "hide", "sm", "md", "lg", "xl", "xxl");
-
-@include makeOnBreakpoint(display, block, "block", "sm", "md", "lg", "xl", "xxl");
-@include makeOnBreakpoint(display, none, "hide", "sm", "md", "lg", "xl", "xxl");
-
-@include makeToBreakpoint(display, block, "block", "sm", "md", "lg", "xl");
-@include makeToBreakpoint(display, none, "hide", "sm", "md", "lg", "xl");

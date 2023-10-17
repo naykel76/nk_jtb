@@ -1,0 +1,29 @@
+@use "../base/vars_base" as *;
+@use "../base/vars_components" as *;
+@use "../mixins/media" as *;
+
+// ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
+// constant debate has surrounded a `hero-text` wrapper. It has been
+// removed because it is easier to manage with utility classes
+// ------------------------------------------------------------------
+
+.hero {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    .title {
+        color: $hero-title-color;
+        font-size: $hero-title-sm;
+        @include from-md {
+            font-size: $hero-title-lg;
+        }
+    }
+    .subtitle {
+        color: $hero-subtitle-color;
+        font-size: $hero-subtitle-sm;
+        @include from-md {
+            font-size: $hero-subtitle-lg;
+        }
+    }
+}

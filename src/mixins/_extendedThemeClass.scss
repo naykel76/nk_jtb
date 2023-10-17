@@ -60,11 +60,11 @@
             }
         }
 
-        //     // do not apply to :hover let component or specialty classes look after it
-        //     &.outline:not(:hover) {
-        //         background-color: transparent;
-        //         border-color: $base;
-        //         color: $base;
-        //     }
+        // do not apply to :hover let component or specialty classes look after it
+        &.outline:not(:hover) {
+            background-color: transparent;
+            border-color: $base;
+            color: $base;
+        }
     }
 }

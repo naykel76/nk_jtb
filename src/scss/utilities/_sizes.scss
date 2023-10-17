@@ -43,52 +43,6 @@ $size-utilities: (
     }
 }
 
-
-
-// ------------------------------------------------------------------
-// -- MAKE UTILITY SIZE CLASSES --
-// ------------------------------------------------------------------
-
-@mixin makeSizeUtilities($sizes, $unit: "rem") {
-    $suffix: if($unit!= "rem", $unit, "");
-
-    @each $size in $sizes {
-        // wrap size in quotes to convert to string
-        $class: "#{$size}";
-        // search and escape decimals
-        $class: strReplace($class, ".", "\\.");
-
-        .w-#{$class}#{$suffix} {
-            width: #{$size}#{$unit};
-        }
-        .h-#{$class}#{$suffix} {
-            height: #{$size}#{$unit};
-        }
-        .wh-#{$class}#{$suffix} {
-            width: #{$size}#{$unit};
-            height: #{$size}#{$unit};
-        }
-    }
-}
-
-$rem-sizes: (0, 1, 1.5, 2, 3, 4, 5, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24);
-@include makeSizeUtilities($rem-sizes);
-
-$pixel-sizes: (16, 24, 32, 40, 64, 100, 150, 200, 300, 400, 600);
-@include makeSizeUtilities($pixel-sizes, "px");
-
-// ------------------------------------------------------------------
-// -- FRACTIONAL SIZES --
-// ------------------------------------------------------------------
-
-$fractional-sizes: (1\/4: 25%, 1\/3: 33.33%, 1\/2: 50%, 3\/4: 75%);
-
-@each $key, $value in $fractional-sizes {
-    .w-#{$key} {
-        width: $value;
-    }
-}
-
 $max-min-sizes: (
     200: 200px,
     250: 250px,
@@ -100,14 +54,6 @@ $max-min-sizes: (
     "md": $md,
     "lg": $lg,
 );
-
-.h-1\/1 {
-    height: 100%;
-}
-
-.maxw-full {
-    max-width: 100%;
-}
 
 @each $key, $value in $max-min-sizes {
     .minw-#{$key} {

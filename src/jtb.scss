@@ -8,12 +8,12 @@
 
 // -- ORDER MATTERS -- Components need to be loaded before utility
 // classes to make sure they can be overridden
+@forward "./components-extended/hero";
+@forward "./components/button";
 @forward "./scss/components/accordion";
 @forward "./scss/components/article";
 @forward "./scss/components/box";
-@forward "./components/button";
 @forward "./scss/components/dropdown";
-@forward "./scss/components/hero";
 @forward "./scss/components/icon";
 @forward "./scss/components/list";
 @forward "./scss/components/menu";
@@ -39,6 +39,7 @@
 @forward "./scss/utilities/translate";
 @forward "./utilities/general";
 @forward "./utilities/grid";
+@forward "./utilities/responsive_display_visibility";
 @forward "./utilities/size";
 @forward "./utilities/text";
 @forward "./utilities/transition";

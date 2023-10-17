@@ -19,18 +19,24 @@
 }
 
 // ----------------------------------------------------------------
-// -- CREATE SINGLE UNIT BASED PROPERTY CLASSES --
+// -- CREATE UNIT BASED PROPERTY CLASSES --
 // ----------------------------------------------------------------
 //
 // $text-sizes: (2, 2.5, 3, 4);
+// @include unitBasedUtilityClasses(font-size, $text-sizes, "txt");
 //
-// @include utilityClassesUnit(font-size, $text-sizes, "txt");
+// $text-sizes-px: (16, 20, 24);
+// @include unitBasedUtilityClasses(font-size, $text-sizes, "txt", "px");
+//
 
-@mixin utilityClassesUnit($property, $map, $prefix, $unit: rem) {
+@mixin unitBasedUtilityClasses($property, $map, $identifier, $unit: "rem") {
+    // add unit to class name if not 'rem'
+    $suffix: if($unit!= "rem", $unit, "");
+
     @each $value in $map {
         // {prefix}-{value} excluding unit with escaped dot
         $escapedValue: escapeDecimal($value);
-        $class: #{$prefix}-#{$escapedValue};
+        $class: #{$identifier}-#{$escapedValue}#{$suffix};
 
         @include singlePropertyClass($class, $property, #{$value}#{$unit});
     }

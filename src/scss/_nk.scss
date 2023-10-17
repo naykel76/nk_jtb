@@ -7,31 +7,6 @@ body {
     flex-direction: column;
 }
 
-#nk-header {
-    background: $header-bg;
-}
-
-// This needs to be reviewed because it is too specific and causes problems
-// for some layouts I have removed because of the QMH site but I am not sure
-// what else it affects
-// #nk-header,
-// #nk-header > .#{$container-class} {
-//     #search {
-//         display: flex;
-//         flex: 1 1 auto;
-
-//         input {
-//             width: 100%;
-//             margin-right: 4px;
-//         }
-
-//         @include to-xl {
-//             flex: 1 1 100%;
-//             order: 3;
-//         }
-//     }
-// }
-
 #nk-main {
     flex: 1; // 1. allow to grow to fill height
     background-color: $main-bg;
@@ -92,20 +67,20 @@ trix-editor {
 // ==========================================================================
 // -- Primary banner for page layouts --
 // ==========================================================================
-$banner-height: 450px !default;
-$banner-bg: transparent !default;
-$banner-text-bg: transparent !default;
+// $banner-height: 450px !default;
+// $banner-bg: transparent !default;
+// $banner-text-bg: transparent !default;
 
-.banner {
-    background-repeat: no-repeat;
-    background-position: right center;
-    height: $banner-height;
-    background-color: $banner-bg;
+// .banner {
+//     background-repeat: no-repeat;
+//     background-position: right center;
+//     height: $banner-height;
+//     background-color: $banner-bg;
 
-    // banner-text is the wrapper
-    &-text {
-        // color: white;
-        background-color: $banner-text-bg;
-        padding: 1rem;
-    }
-}
+//     // banner-text is the wrapper
+//     &-text {
+//         // color: white;
+//         background-color: $banner-text-bg;
+//         padding: 1rem;
+//     }
+// }
