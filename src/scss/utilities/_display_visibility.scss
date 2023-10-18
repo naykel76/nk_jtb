@@ -1,40 +1,5 @@
 @use "../../base/vars_base" as *;
 
-$visibility-utilities: (
-    "display": (
-        "property": "display",
-        "prefix": "",
-        "values": (
-            block: block,
-            inline: inline,
-            inline-block: inline-block,
-            flex: flex,
-            inline-flex: inline-flex,
-            hidden: none,
-        ),
-    ),
-    "visibility": (
-        "property": "visibility",
-        "prefix": "",
-        "values": (
-            visible: visible,
-            invisible: hidden,
-        ),
-    ),
-);
-
-@each $property, $map in $visibility-utilities {
-    $property: map-get($map, "property");
-    $utility-prefix: map-get($map, "prefix");
-    $values: map-get($map, "values");
-
-    @each $key, $v in $values {
-        .#{$utility-prefix}#{$key} {
-            #{$property}: $v;
-        }
-    }
-}
-
 // |--\0/-- device-only --\0/--|
 // ------------------------------------------------------------------
 .sr-only {
@@ -43,18 +8,3 @@ $visibility-utilities: (
     // left: -9000px;
     // top: -9000px;
 }
-
-// |--\0/-- DISPLAY --\0/--|
-// ------------------------------------------------------------------
-
-// NK::TD THIS IS A PROBLEM!!!
-// [class*="block-to"],
-// [class*="block-from"],
-// [class*="block-on"] {
-//     display: none;
-// }
-
-// [class$=":block"]
-
-
-

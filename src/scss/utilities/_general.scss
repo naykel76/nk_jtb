@@ -1,5 +1,5 @@
 @use "../../base/vars_base" as *;
-@use "../../base/vars_class_names" as *;
+@use "../../base/vars_identifier" as *;
 @use "../../mixins/media" as *;
 
 // This file is for general utilities that don't have a home,
@@ -13,7 +13,7 @@
 // 1. Use capital M in min() function to prevent clash between
 //    sass and css. This works because sass is case-sensitive, but
 //    CSS is not.
-.#{$container-class} {
+.#{$container-identifier} {
     // make the max a little smaller to act as padding
     width: Min(92%, $container-max-xxl); // 1.
     margin-right: auto;

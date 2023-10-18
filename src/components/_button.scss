@@ -12,7 +12,7 @@
 // class will do nothing because the theme border takes precedence.
 // I don't really see it as a problem because utilities are king!
 
-.#{$button-class} {
+.#{$button-identifier} {
     @extend %control;
     @extend %transition;
     background: $btn-bg;
@@ -44,7 +44,7 @@
 //
 
 @each $key, $color in $color-map {
-    .#{$button-class}.#{$key} {
+    .#{$button-identifier}.#{$key} {
         @include hover($color);
         @include active($color);
     }

@@ -1,13 +1,13 @@
 @use "../../base/vars_all" as *;
 
-.#{$navbar-class},
-.#{$navbar-class} > .#{$container-class} {
+.#{$navbar-identifier},
+.#{$navbar-identifier} > .#{$container-identifier} {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.#{$navbar-class} {
+.#{$navbar-identifier} {
     background: $navbar-bg;
     padding: $navbar-padding-y $navbar-padding-x;
     position: relative;

@@ -51,5 +51,8 @@ $fractional-sizes: (1\/4: 25%, 1\/3: 33.33%, 1\/2: 50%, 3\/4: 75%) !default;
 
 @include makeFromBreakpoint(width, 16rem, "w-16", "sm", "md", "lg", "xl");
 @include makeFromBreakpoint(width, 20rem, "w-20", "sm", "md", "lg", "xl");
+@include makeFromBreakpoint(width, 24rem, "w-24", "sm", "md", "lg", "xl");
 // -- FULL WIDTH --
 @include makeFromBreakpoint(width, 100%, "w-full", "sm", "md", "lg", "xl");
+
+

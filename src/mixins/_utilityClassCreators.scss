@@ -4,9 +4,18 @@
 // ----------------------------------------------------------------
 // -- CREATE SINGLE PROPERTY UTILITY CLASSES --
 // ----------------------------------------------------------------
-// loop through map and create single property utility class
+//
+// $theme-colors: (
+//     "danger": #dc3848,
+//     "success": #29a847,
+//     "warning": #ffdd57
+// );
+//
+// .bg-danger { color: #dc3848; }
+// .bg-success { color: #29a847; }
+// .bg-warning { color: #ffdd57; }
 
-@mixin utilityClasses($property, $map, $identifier: "") {
+@mixin singlePropertyUtilityClasses($property, $map, $identifier: "") {
     @each $key, $value in $map {
         @if ($identifier == "") {
             // if the $identifier is omitted just us the key as the class name
@@ -17,6 +26,13 @@
         }
     }
 }
+
+// ----------------------------------------------------------------
+// -- CREATE SINGLE PROPERTY RESPONSIVE UTILITY CLASS --
+// ----------------------------------------------------------------
+// md:w-20, lg:flex-col
+
+// @include unitBasedUtilityClasses(height, $rem-sizes, "h");
 
 // ----------------------------------------------------------------
 // -- CREATE UNIT BASED PROPERTY CLASSES --
@@ -41,3 +57,8 @@
         @include singlePropertyClass($class, $property, #{$value}#{$unit});
     }
 }
+
+// ----------------------------------------------------------------
+// -- CREATE MULTIPLE PROPERTY RESPONSIVE UTILITY CLASS --
+// ----------------------------------------------------------------
+// md:bdr-t, lg:mx

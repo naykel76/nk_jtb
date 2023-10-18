@@ -7,7 +7,7 @@
 // you will forever be fighting specificity.
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
 
-.#{$dropdown-class} {
+.#{$dropdown-identifier} {
     position: relative;
 
     &-content {
@@ -27,9 +27,9 @@
     }
 
     // set content visible and bring to the top
-    &:focus .#{$dropdown-class}-content,
-    &:focus-within .#{$dropdown-class}-content,
-    &:hover .#{$dropdown-class}-content {
+    &:focus .#{$dropdown-identifier}-content,
+    &:focus-within .#{$dropdown-identifier}-content,
+    &:hover .#{$dropdown-identifier}-content {
         visibility: visible;
         opacity: 1;
         transform: translateY(0%);

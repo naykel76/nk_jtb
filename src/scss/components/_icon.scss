@@ -4,7 +4,7 @@
 // 1. aligns better text to text when inline
 // 2. better alignment rather than changing size
 
-.#{$icon-class} {
+.#{$icon-identifier} {
     width: $icon-xy;
     height: $icon-xy;
     vertical-align: bottom; // 1

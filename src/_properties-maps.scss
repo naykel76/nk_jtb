@@ -1,0 +1,118 @@
+
+// ------------------------------------------------------------------
+// -- PROPERTIES MAPS --
+// ------------------------------------------------------------------
+// The loop to build the properties is at the bottom of this file.
+//
+// "property": ( prefix:"display-", (optional) "values": ( key:
+//      value,
+//         ...
+//     )
+// )
+//
+// if the key is null, the value is used as the key. This can be
+// combined with the prefix more descriptive classes.
+
+$properties-map: (
+    display: (
+        values: (
+            block,
+            flex,
+            none,
+            inline-block,
+            inline-flex,
+            inline
+        )
+    ),
+    flex-direction: (
+        prefix: "flex-",
+        values: (
+            // `flex-col` and `flex-row` are handled in the
+            // flex.scss utility file to include the display
+            // property as well.
+            column-reverse,
+            row-reverse
+        )
+    ),
+    flex-wrap: (
+        values: (
+            nowrap,
+            wrap-reverse,
+            wrap
+        )
+    ),
+    align-self: (
+        prefix: "align-self-",
+        values: (
+            auto,
+            baseline,
+            center,
+            flex-end,
+            flex-start,
+            stretch
+        )
+    ),
+    justify-self: (
+        prefix: "justify-self-",
+        values: (
+            auto,
+            center,
+            end,
+            start,
+            stretch
+        )
+    ),
+    place-content: (
+        prefix: "place-content-",
+        values: (
+            baseline,
+            center,
+            end,
+            space-around,
+            space-between,
+            space-evenly,
+            start,
+            stretch
+        )
+    ),
+    place-items: (
+        prefix: "place-items-",
+        values: (
+            baseline,
+            center,
+            end,
+            start,
+            stretch
+        )
+    ),
+    place-self: (
+        prefix: "place-self-",
+        values: (
+            auto,
+            center,
+            end,
+            start,
+            stretch
+        )
+    ),
+    visibility: (
+        values: (
+            collapse,
+            hidden,
+            visible
+        )
+    )
+);
+
+@each $property, $map in $properties-map {
+    $prefix: map-get($map, "prefix");
+    $map: map-get($map, "values");
+
+    @each $key, $value in $map {
+        // if there is no key-value pair in the map, use the key
+        // as the key and the value.
+        .#{$prefix}#{$key} {
+            #{$property}: if($value, $value, $key);
+        }
+    }
+}

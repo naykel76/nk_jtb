@@ -1,0 +1,12 @@
+// create a mixin to create both the base and responsive!
+
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
