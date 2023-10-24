@@ -1,38 +1,7 @@
 @use "../mixins/helpers/classCreators" as *;
 @use "../functions/helpers" as *; // imports all helpers
 
-// ----------------------------------------------------------------
-// -- CREATE SINGLE PROPERTY UTILITY CLASSES --
-// ----------------------------------------------------------------
-//
-// $theme-colors: (
-//     "danger": #dc3848,
-//     "success": #29a847,
-//     "warning": #ffdd57
-// );
-//
-// .bg-danger { color: #dc3848; }
-// .bg-success { color: #29a847; }
-// .bg-warning { color: #ffdd57; }
-
-@mixin singlePropertyUtilityClasses($property, $map, $identifier: "") {
-    @each $key, $value in $map {
-        @if ($identifier == "") {
-            // if the $identifier is omitted just us the key as the class name
-            @include singlePropertyClass(#{$key}, $property, $value);
-        } @else {
-            // otherwise join $identifier and $key for class name
-            @include singlePropertyClass(#{$identifier}-#{$key}, $property, $value);
-        }
-    }
-}
-
-// ----------------------------------------------------------------
-// -- CREATE SINGLE PROPERTY RESPONSIVE UTILITY CLASS --
-// ----------------------------------------------------------------
-// md:w-20, lg:flex-col
-
-// @include unitBasedUtilityClasses(height, $rem-sizes, "h");
+// THE MIXINS IN THE FILLE NEEDS TO BE REVIEWED AND RELOCATED TO THE APPROPRIATE HELPER FILE
 
 // ----------------------------------------------------------------
 // -- CREATE UNIT BASED PROPERTY CLASSES --
@@ -54,11 +23,7 @@
         $escapedValue: escapeDecimal($value);
         $class: #{$identifier}-#{$escapedValue}#{$suffix};
 
-        @include singlePropertyClass($class, $property, #{$value}#{$unit});
+        @include createSinglePropertyClass($class, $property, #{$value}#{$unit});
     }
 }
 
-// ----------------------------------------------------------------
-// -- CREATE MULTIPLE PROPERTY RESPONSIVE UTILITY CLASS --
-// ----------------------------------------------------------------
-// md:bdr-t, lg:mx

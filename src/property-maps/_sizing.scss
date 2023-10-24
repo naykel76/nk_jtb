@@ -1,0 +1,27 @@
+@use "../mixins/helpers/classCreators" as *;
+
+$size-properties-map: (
+    "width": (
+        "prefix": "w-",
+        "values": (
+            auto: auto,
+            fc: fit-content,
+            full: 100%,
+            screen: 100vw,
+            min: min-content,
+            max: max-content,
+            fit: fit-content
+        )
+    ),
+    "height": (
+        "prefix": "h-",
+        "values": (
+            auto: auto,
+            fc: fit-content,
+            full: 100%,
+            screen: 100vh
+        )
+    )
+);
+
+@include createFromMapOfProperties($size-properties-map);

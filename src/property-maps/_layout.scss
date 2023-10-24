@@ -1,0 +1,51 @@
+@use "../base/vars_identifier" as *;
+@use "../mixins/helpers/classCreators" as *;
+
+$layout-properties-map: (
+    display: (
+        values: (
+            block,
+            flex,
+            none,
+            inline-block,
+            inline-flex,
+            inline
+        )
+    ),
+    overflow: (
+        values: (
+            auto,
+            clip,
+            hidden,
+            scroll,
+            visible
+        )
+    ),
+    overflow-x: (
+        values: (
+            auto,
+            clip,
+            hidden,
+            scroll,
+            visible
+        )
+    ),
+    overflow-y: (
+        values: (
+            auto,
+            clip,
+            hidden,
+            scroll,
+            visible
+        )
+    ),
+    visibility: (
+        values: (
+            collapse,
+            hidden,
+            visible
+        )
+    )
+);
+
+@include createFromMapOfProperties($layout-properties-map);

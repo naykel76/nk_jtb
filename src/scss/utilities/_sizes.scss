@@ -8,41 +8,6 @@
 // -- WIDTH AND HEIGHT UTILITY CLASSES --
 // ------------------------------------------------------------------
 
-$size-utilities: (
-    "width": (
-        "prefix": "w-",
-        "values": (
-            auto: auto,
-            fc: fit-content,
-            full: 100%,
-            screen: 100vw,
-            // min: min-content,
-            // max: max-content,
-            // fit: fit-content,
-        ),
-    ),
-    "height": (
-        "prefix": "h-",
-        "values": (
-            auto: auto,
-            fc: fit-content,
-            full: 100%,
-            screen: 100vh,
-        ),
-    ),
-);
-
-@each $property, $map in $size-utilities {
-    $prefix: map-get($map, "prefix");
-    $values: map-get($map, "values");
-
-    @each $key, $v in $values {
-        .#{$prefix}#{$key} {
-            #{$property}: $v;
-        }
-    }
-}
-
 $max-min-sizes: (
     200: 200px,
     250: 250px,

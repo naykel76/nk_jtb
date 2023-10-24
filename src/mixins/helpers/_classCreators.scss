@@ -1,12 +1,64 @@
 @use './propertyCreators' as *;
 
 // ----------------------------------------------------------------
-// -- CREATE SINGLE PROPERTY CLASS --
+// -- CREATE CLASS WITH A SINGLE PROPERTY --
 // ----------------------------------------------------------------
-@mixin singlePropertyClass($class, $property, $value) {
+@mixin createSinglePropertyClass($class, $property, $value) {
     .#{$class} {
         #{$property}: $value;
     }
 }
 
+// ----------------------------------------------------------------
+// -- CREATE MULTIPLE CLASSES OF A SINGLE PROPERTY --
+// ----------------------------------------------------------------
+//
+// $theme-colors: (
+//     "danger": #dc3848,
+//     "success": #29a847,
+// );
+//
+// .bg-danger { color: #dc3848; }
+// .bg-success { color: #29a847; }
+//
 
+@mixin createFromMapOfValues($property, $map, $identifier: "") {
+    @each $key, $value in $map {
+        @if ($identifier == "") {
+            // if the $identifier is omitted just us the key as the class name
+            @include createSinglePropertyClass(#{$key}, $property, $value);
+        } @else {
+            // otherwise join $identifier and $key for class name
+            @include createSinglePropertyClass(#{$identifier}-#{$key}, $property, $value);
+        }
+    }
+}
+
+// ----------------------------------------------------------------
+// -- CREATE CLASSES FROM MAP OF PROPERTIES --
+// ----------------------------------------------------------------
+// this is the main mixin used to create the utility classes
+
+@mixin createFromMapOfProperties($map-of-property-maps) {
+    @each $property, $map in $map-of-property-maps {
+        $utility-prefix: map-get($map, "prefix");
+        $values: map-get($map, "values");
+
+        @each $key, $value in $values {
+            $class: #{$utility-prefix}#{$key};
+            @include createSinglePropertyClass($class, $property, $value);
+        }
+    }
+}
+
+
+// @each $property, $map in $size-utilities {
+//     $prefix: map-get($map, "prefix");
+//     $values: map-get($map, "values");
+
+//     @each $key, $v in $values {
+//         .#{$prefix}#{$key} {
+//             #{$property}: $v;
+//         }
+//     }
+// }

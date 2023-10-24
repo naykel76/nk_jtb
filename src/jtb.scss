@@ -24,7 +24,7 @@
 @forward "./color/";
 @forward "./color/themes";
 
-
+@forward "./property-maps/"; // css property maps
 
 @forward "./scss/utilities/border";
 @forward "./scss/utilities/display_visibility";
@@ -37,7 +37,6 @@
 @forward "./scss/utilities/spacing";
 @forward "./scss/utilities/state";
 @forward "./scss/utilities/text";
-@forward "./scss/utilities/themes";
 @forward "./scss/utilities/translate";
 @forward "./utilities/flex";
 @forward "./utilities/general";
@@ -46,7 +45,6 @@
 @forward "./utilities/size";
 @forward "./utilities/text";
 @forward "./utilities/transition";
-@forward "./utilities/utilities"; // godfather utility sheet
 
 // extras
 @use "./color/tailwind-colors" as *;

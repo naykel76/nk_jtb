@@ -8,16 +8,15 @@
 // @use "./utilities/grid" as *;
 // @use "./utilities/responsive_display_visibility as *";
 // @use "./utilities/size" as *;
-// @use "./utilities/text" as *;
-@use "./functions/colorFunctions" as *;
-@use "./functions/helpers" as *;
+// @use "./functions/colorFunctions" as *;
+// @use "./functions/helpers" as *;
+@use "./property-maps" as *;
 @use "./mixins/helpers" as *;
 @use "./mixins/media" as *;
 @use "./mixins/responsiveClassCreators" as *;
 @use "./mixins/utilityClassCreators" as *;
-@use "./properties-maps" as *;
+// @use "./utilities/text" as *;
 // @use "./utilities/flex" as *;
 @use "sass:list";
 @use "sass:map";
 @use "sass:string";
-

@@ -2,7 +2,6 @@
 @use "../../base/vars_utility_maps" as *;
 @use "../../functions/helpers" as *;
 @use "../mixins/makeMagicClass" as *;
-@use "../mixins/makeMagicGrid2Cols" as *;
 @use "../mixins/makeMagicGridEqualWidths" as *;
 @use "../../mixins/media" as *;
 @use "sass:list";
@@ -39,28 +38,3 @@ $grid-gap-magic-sizes: ((5, 3, 2), (5, 3), (4, 2), (3, 1)) !default;
         grid-template-columns: minmax(0, nth($fr-units, 1)) minmax(0, nth($fr-units, 2));
     }
 }
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-// ------------------------------------------------------------------
-// -- TWO COLUMN RESPONSIVE MAGIC GRID --
-// ------------------------------------------------------------------
-
-// $magic-grid-sizes-2cols: ((25, 25), (30, 50), (70, 60));
-// @include makeMagicGrid2Cols($magic-grid-sizes-2cols);
