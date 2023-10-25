@@ -1,7 +1,7 @@
 @use "../functions/helpers" as *;
 @use "../mixins/media" as *;
 @use "../mixins/responsiveClassCreators" as *;
-@use "../mixins/utilityClassCreators" as *;
+@use "../mixins/helpers/classCreators" as *;
 
 // ------------------------------------------------------------------
 // -- WIDTH AND HEIGHT UTILITY CLASSES --
@@ -11,11 +11,11 @@ $rem-sizes: (0, 1, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24) !
 $pixel-sizes: (100, 150, 200, 300, 400, 600) !default;
 
 // -- HEIGHT --
-@include unitBasedUtilityClasses(height, $rem-sizes, "h");
-@include unitBasedUtilityClasses(height, $pixel-sizes, "h", "px");
+@include generateUnitBasedClasses(height, $rem-sizes, "h");
+@include generateUnitBasedClasses(height, $pixel-sizes, "h", "px");
 // -- WIDTH --
-@include unitBasedUtilityClasses(width, $rem-sizes, "w");
-@include unitBasedUtilityClasses(width, $pixel-sizes, "w", "px");
+@include generateUnitBasedClasses(width, $rem-sizes, "w");
+@include generateUnitBasedClasses(width, $pixel-sizes, "w", "px");
 
 // -- NK::TD --
 // -- WIDTH & HEIGHT --

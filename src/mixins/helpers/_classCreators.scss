@@ -1,4 +1,5 @@
-@use './propertyCreators' as *;
+@use "../../functions/helpers" as *;
+@use "./propertyCreators" as *;
 
 // ----------------------------------------------------------------
 // -- CREATE CLASS WITH A SINGLE PROPERTY --
@@ -10,7 +11,7 @@
 }
 
 // ----------------------------------------------------------------
-// -- CREATE MULTIPLE CLASSES OF A SINGLE PROPERTY --
+// -- GENERATE CLASSES FROM A MAP OF VALUES --
 // ----------------------------------------------------------------
 //
 // $theme-colors: (
@@ -22,7 +23,7 @@
 // .bg-success { color: #29a847; }
 //
 
-@mixin createFromMapOfValues($property, $map, $identifier: "") {
+@mixin generateFromMapOfValues($property, $map, $identifier: "") {
     @each $key, $value in $map {
         @if ($identifier == "") {
             // if the $identifier is omitted just us the key as the class name
@@ -35,30 +36,46 @@
 }
 
 // ----------------------------------------------------------------
-// -- CREATE CLASSES FROM MAP OF PROPERTIES --
+// -- GENERATE CLASSES FROM A MAP OF PROPERTIES --
 // ----------------------------------------------------------------
-// this is the main mixin used to create the utility classes
+//
 
-@mixin createFromMapOfProperties($map-of-property-maps) {
-    @each $property, $map in $map-of-property-maps {
-        $utility-prefix: map-get($map, "prefix");
-        $values: map-get($map, "values");
-
-        @each $key, $value in $values {
-            $class: #{$utility-prefix}#{$key};
-            @include createSinglePropertyClass($class, $property, $value);
+@mixin generateFromMapOfProperties($map-of-properties) {
+    @each $property, $map in $map-of-properties {
+        $prefix: map-get($map, "prefix");
+        $map: map-get($map, "values");
+        @each $key, $value in $map {
+            // if there is no key-value pair in the map, use the key
+            // as both the key and the value.
+            .#{$prefix}#{$key} {
+                #{$property}: if($value, $value, $key);
+            }
         }
     }
 }
 
+// ----------------------------------------------------------------
+// -- GENERATE UNIT BASED CLASSES OF A SINGLE PROPERTY --
+// ----------------------------------------------------------------
+//
+// $text-sizes: (2, 2.5, 3, 4);
+// @include generateUnitBasedClasses(font-size, $text-sizes, "txt");
+//
+// $text-sizes-px: (16, 20, 24);
+// @include generateUnitBasedClasses(font-size, $text-sizes, "txt", "px");
+//
 
-// @each $property, $map in $size-utilities {
-//     $prefix: map-get($map, "prefix");
-//     $values: map-get($map, "values");
+@mixin generateUnitBasedClasses($property, $map, $identifier, $unit: "rem") {
+    // add unit to class name if not 'rem'
+    $suffix: if($unit!= "rem", $unit, "");
 
-//     @each $key, $v in $values {
-//         .#{$prefix}#{$key} {
-//             #{$property}: $v;
-//         }
-//     }
-// }
+    @each $value in $map {
+        // {prefix}-{value} excluding unit with escaped dot
+        $escapedValue: escapeDecimal($value);
+        $class: #{$identifier}-#{$escapedValue}#{$suffix};
+
+        @include createSinglePropertyClass($class, $property, #{$value}#{$unit});
+    }
+}
+
+

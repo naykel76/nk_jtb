@@ -24,4 +24,4 @@ $size-properties-map: (
     )
 );
 
-@include createFromMapOfProperties($size-properties-map);
+@include generateFromMapOfProperties($size-properties-map);

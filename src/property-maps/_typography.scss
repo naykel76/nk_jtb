@@ -66,4 +66,4 @@ $typography-properties-map: (
     )
 );
 
-@include createFromMapOfProperties($typography-properties-map);
+@include generateFromMapOfProperties($typography-properties-map);

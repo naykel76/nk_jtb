@@ -137,4 +137,4 @@ $flex-grid-properties-map: (
         )
     )
 );
-@include createFromMapOfProperties($flex-grid-properties-map);
+@include generateFromMapOfProperties($flex-grid-properties-map);

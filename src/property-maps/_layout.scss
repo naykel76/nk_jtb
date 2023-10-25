@@ -48,4 +48,4 @@ $layout-properties-map: (
     )
 );
 
-@include createFromMapOfProperties($layout-properties-map);
+@include generateFromMapOfProperties($layout-properties-map);
