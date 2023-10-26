@@ -42,18 +42,10 @@
 }
 
 // ----------------------------------------------------------------
-// -- SET UTILITY CLASS PREFIX --
+// -- CONVERT VALUE TO STRING --
 // ----------------------------------------------------------------
-// This function allows users to define custom prefixes within a
-// `utility-property-map` when generating class names. If no prefix
-// is specified or it is empty, the function will return the
-// property name itself.
 
-@function setPrefix($map, $property) {
-    // Check if the map has a "prefix" key and it is not empty
-    @if (map-has-key($map, "prefix")) and (map-get($map, "prefix") != "") {
-        @return map-get($map, "prefix");
-    }
-    // If no prefix is defined, return the original property name
-    @return $property;
+@function toString($int) {
+    // wrap in quotes and convert to string
+    @return "#{$int}";
 }

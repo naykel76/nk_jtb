@@ -1,0 +1,146 @@
+@use "../../functions/helpers" as *;
+@use "./propertyCreators" as *;
+@use '../../base/vars_utility_maps' as *; // REMOVE THIS
+@use "sass:string";
+
+// ----------------------------------------------------------------
+// -- CREATE CLASS WITH A SINGLE PROPERTY --
+// ----------------------------------------------------------------
+@mixin createSinglePropertyClass($class, $property, $value) {
+    .#{$class} {
+        #{$property}: $value;
+    }
+}
+
+// ----------------------------------------------------------------
+// -- GENERATE CLASSES FROM A MAP OF VALUES --
+// ----------------------------------------------------------------
+//
+// $theme-colors: (
+//     "danger": #dc3848,
+//     "success": #29a847,
+// );
+//
+// .bg-danger { color: #dc3848; }
+// .bg-success { color: #29a847; }
+//
+
+@mixin generateFromMapOfValues($property, $map, $identifier: "") {
+    @each $key, $value in $map {
+        @if ($identifier == "") {
+            // if the $identifier is omitted just us the key as the class name
+            @include createSinglePropertyClass(#{$key}, $property, $value);
+        } @else {
+            // otherwise join $identifier and $key for class name
+            @include createSinglePropertyClass(#{$identifier}-#{$key}, $property, $value);
+        }
+    }
+}
+
+// ----------------------------------------------------------------
+// -- GENERATE CLASSES FROM A MAP OF PROPERTIES --
+// ----------------------------------------------------------------
+//
+
+@mixin generateFromMapOfProperties($properties-map) {
+    @each $property, $map in $properties-map {
+        $prefix: map-get($map, "prefix");
+        $map: map-get($map, "values");
+        @each $key, $value in $map {
+            // if there is no key-value pair in the map, use the key
+            // as both the key and the value.
+            .#{$prefix}#{$key} {
+                #{$property}: if($value, $value, $key);
+            }
+        }
+    }
+}
+
+// ----------------------------------------------------------------
+// -- GENERATE UNIT BASED CLASSES FOR A SINGLE PROPERTY --
+// ----------------------------------------------------------------
+// Escapes decimals and removes decimal when value is less than 1
+//
+// $padding-sizes: (0.5, 1, 1.5);
+// @include generateUnitBasedClasses(padding, $padding-sizes, "pxy");
+//
+// $padding-sizes-px: (8, 16, 24);
+// @include generateUnitBasedClasses(padding, $padding-sizes, "pxy", "px");
+//
+
+@mixin generateUnitBasedClasses($property, $map, $identifier, $unit: "rem") {
+    // appends unit to the class name if $unit is not equal to "rem."
+    $unitToAppend: if($unit!= "rem", $unit, "");
+
+    @each $value in $map {
+        // convert the value to a string
+        $formattedValue: toString($value);
+
+        // if the value starts with '0.' remove the decimal
+        @if (str-slice($formattedValue, 1, 2) == "0.") {
+            $formattedValue: strReplace($formattedValue, "0.", "0");
+        }
+
+        // if the value is a decimal, escape the decimal
+        $formattedValue: escapeDecimal($formattedValue);
+
+        $class: #{$identifier}-#{$formattedValue}#{$unitToAppend};
+        @include createSinglePropertyClass($class, $property, #{$value}#{$unit});
+    }
+}
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+// $identifier, $unit: "rem"
+
+// @mixin makePositionBasedClass123($property, $positions-map) {
+//     // @debug $property;
+//     // @debug $positions-map;
+
+//     // $key is the axis-or-position (x, y, xy, t, b, l, r)
+//     // $positions is the map value xy: (top, bottom, left, right)
+//     @each $key, $positions in $positions-map {
+//         @debug $key;
+
+//         .#{$key}{
+//             @debug $positions;
+//         }
+
+//         //     // escape decimal /0.5 and remove (size) key for default size
+//         //     $size-key: escapeDecimal(if($key == "default", "", -#{$key}));
+
+//         //     // add or remove dash separator between class and position (bdr-x or mx)
+//         //     // exclusions can be added in the setPositionKeySeparator() function
+//         //     $position-key: setPositionKeySeparator($class, $key);
+
+//         //     // remove optional xy suffix as position key (bdr or bdr-xy)
+//         //     @if ($key == "xy") {
+//         //         $position-key: if(map-has-key($map, "xy-suffix"), "xy", "");
+//         //     }
+
+//         //     .#{$class}#{$position-key}#{$size-key} {
+//         //         @include makePositionProperties($property, $positions, #{$value});
+//         //     }
+//         }
+
+// }
+
+
+
+// // $tblr-positions-map: map-remove($axis-position-map, "x", "y");
+// // $xy-positions-map: map-remove($axis-position-map, "t", "b", "l", "r");
+
+// @include makePositionBasedClass123(margin, $xy-positions-map);

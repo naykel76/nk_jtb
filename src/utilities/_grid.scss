@@ -2,7 +2,7 @@
 @use "../functions/get" as *;
 @use "../functions/helpers" as *;
 @use "../mixins/media" as *;
-
+@use '../mixins/helpers/classGenerators' as *;
 $num-grid-cols: get("grid.num-grid-cols", $config);
 
 // ------------------------------------------------------------------
@@ -20,26 +20,8 @@ $num-grid-cols: get("grid.num-grid-cols", $config);
 // ------------------------------------------------------------------
 // -- GRID GAP --
 // ------------------------------------------------------------------
-
-$grid-gap-sizes: (0, 1, 1.25, 1.5, 2, 3, 4, 5) !default;
-
-@each $size in $grid-gap-sizes {
-    $class: escapeDecimal($size);
-
-    .grid-#{$class} {
-        display: grid;
-        gap: #{$size}rem;
-    }
-
-    .gg-#{$class} {
-        gap: #{$size}rem;
-    }
-}
-
-// 05 does not play well in the map
-.gg-05 {
-    gap: 0.5rem;
-}
+$grid-gap-sizes: (0, 0.5, 1, 1.25, 1.5, 2, 3, 4, 5) !default;
+@include generateUnitBasedClasses(gap, $grid-gap-sizes, "gg");
 
 // ------------------------------------------------------------------
 // -- EQUAL WIDTHS COLUMNS(NON-RESPONSIVE) --

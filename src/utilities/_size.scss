@@ -1,7 +1,7 @@
 @use "../functions/helpers" as *;
 @use "../mixins/media" as *;
-@use "../mixins/responsiveClassCreators" as *;
-@use "../mixins/helpers/classCreators" as *;
+@use "../mixins/responsiveClassGenerators" as *;
+@use "../mixins/helpers/classGenerators" as *;
 
 // ------------------------------------------------------------------
 // -- WIDTH AND HEIGHT UTILITY CLASSES --
