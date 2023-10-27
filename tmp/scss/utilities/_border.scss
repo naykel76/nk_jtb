@@ -1,0 +1,89 @@
+@use "../../base/vars_base" as *;
+@use "../../base/vars_colors" as *;
+@use "../../base/vars_utility_maps" as *;
+@use "../mixins/positionUtilityClasses" as *;
+
+// input expects full border, 1px solid rgba(0, 0, 0, 0.15);
+$border-utilities-map: (
+    "border": (
+        "base-class": "bdr",
+        "values-map": (
+            "default": $border,
+            "none": none,
+        ),
+        "axis-position-map": $axis-position-map,
+    ),
+);
+
+
+// $border-colors-map: ($color-map) !default;
+
+// ------------------------------------------------------------------
+// -- POSITION BASED BORDERS --
+// ------------------------------------------------------------------
+
+@include positionUtilityClasses($border-utilities-map);
+
+// ------------------------------------------------------------------
+// -- BORDER COLORS --
+// ------------------------------------------------------------------
+
+// @each $key, $value in $border-colors-map {
+//     .bdr-#{$key} {
+//         border-color: $value;
+//     }
+// }
+
+
+
+// ------------------------------------------------------------------
+// -- BORDER RADIUS --
+// ------------------------------------------------------------------
+// .bdrr {
+//     border: $border;
+//     border-radius: $border-radius;
+//     &-t {
+//         border-top-left-radius: $border-radius;
+//         border-top-right-radius: $border-radius;
+//     }
+//     &-b {
+//         border-bottom-left-radius: $border-radius;
+//         border-bottom-right-radius: $border-radius;
+//     }
+//     &-l {
+//         border-top-left-radius: $border-radius;
+//         border-bottom-left-radius: $border-radius;
+//     }
+//     &-r {
+//         border-top-right-radius: $border-radius;
+//         border-bottom-right-radius: $border-radius;
+//     }
+// }
+
+// ------------------------------------------------------------------
+// -- REMOVE BORDER --
+// ------------------------------------------------------------------
+
+// .bdrr {
+//     &-0 {
+//         border-radius: 0;
+//     }
+//     &-t-0 {
+//         border-top-left-radius: 0;
+//         border-top-right-radius: 0;
+//     }
+//     &-b-0 {
+//         border-bottom-left-radius: 0;
+//         border-bottom-right-radius: 0;
+//     }
+//     &-l-0 {
+//         border-top-left-radius: 0;
+//         border-bottom-left-radius: 0;
+//     }
+//     &-r-0 {
+//         border-top-right-radius: 0;
+//         border-bottom-right-radius: 0;
+//     }
+// }
+
+

@@ -1,0 +1,21 @@
+@use "../mixins/classGenerators" as *;
+@use "../variables" as *;
+@use "sass:map";
+
+$margin-sizes: (0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 4, 5) !default;
+@include positionBasedClasses(margin, $margin-sizes, "m", $axis-position-map);
+
+
+// create variants mxy, mxy-sm, mxy-lg????
+
+// .mxy-0 {
+//     margin: 0
+// }
+
+// .mxy-auto {
+//     margin: auto
+// }
+
+// .mxy {
+//     margin: 1.25rem
+// }

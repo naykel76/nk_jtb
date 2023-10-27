@@ -1,0 +1,40 @@
+@use "../../base/vars_base" as *;
+@use "../../base/vars_colors" as *;
+
+.txt {
+
+    // colour modifiers
+    &-green {
+        color: map-get($color-map, "green");
+    }
+
+    &-red {
+        color: map-get($color-map, "red");
+    }
+
+    &-orange {
+        color: map-get($color-map, "orange");
+    }
+
+    &-blue {
+        color: map-get($color-map, "blue");
+    }
+
+    &-white {
+        color: #fff;
+    }
+
+    &-muted {
+        color: var(--muted);
+    }
+
+    &-primary {
+        color: $primary;
+    }
+
+    &-secondary {
+        color: var(--secondary);
+    }
+}
+
+

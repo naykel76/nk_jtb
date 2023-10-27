@@ -1,10 +1,9 @@
-@use "../base/vars_base" as *;
-@use "../base/vars_colors" as *;
 @use "../functions/colorFunctions" as *;
 @use "../functions/get" as *;
 @use "../functions/mapMerge" as *;
-@use "../mixins/extendedThemeClass" as *;
 @use "../mixins/classGenerators" as *;
+@use "../mixins/extendedThemeClass" as *;
+@use "../variables" as *;
 @use "./tailwind-colors" as *;
 
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------

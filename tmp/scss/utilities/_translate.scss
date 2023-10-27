@@ -1,0 +1,32 @@
+.translate {
+    &-x-full {
+        transform: translateX(100%);
+    }
+    &-y-full {
+        transform: translateY(100%);
+    }
+    &-x-0 {
+        transform: translateX(0px);
+    }
+    &-y-0 {
+        transform: translateY(0px);
+    }
+}
+
+.-translate {
+    &-x-full {
+        transform: translateX(-100%);
+    }
+    &-y-full {
+        transform: translateY(-100%);
+    }
+}
+
+.rotate {
+    &-90 {
+        rotate: 90deg;
+    }
+    &-180 {
+        rotate: 180deg;
+    }
+}

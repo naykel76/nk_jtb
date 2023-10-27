@@ -13,12 +13,14 @@
 // @forward "./utilities/flex";
 // @forward "./utilities/general";
 // @forward "./utilities/grid";
-// @forward "./utilities/margin";
-// @forward "./utilities/padding";
+@forward "./utilities/margin";
+@forward "./utilities/padding";
 // @forward "./utilities/responsive_display_visibility";
 // @forward "./utilities/size";
 // @forward "./utilities/text";
+@forward "./utilities/layout";
 @forward "./utilities/transition";
+@forward "./utilities/typography";
 
 // // extras
 // @use "./color/tailwind-colors" as *;
