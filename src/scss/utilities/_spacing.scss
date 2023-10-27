@@ -2,46 +2,7 @@
 @use "../../functions/helpers" as *;
 @use "../mixins/makeMagicClass" as *;
 @use "../../mixins/media" as *;
-@use "../mixins/positionUtilityClasses" as *;
 
-// ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
-//
-// Order Matters! basic and responsive utility classes need to
-// come after the magic classes to allow them to be overridden
-//
-// There is no winning here!!! Do you want parent magic classes to
-// override utilities or visa versa
-//
-// ----------------------------------------------------------------
-
-
-$spacing-utilities-map: (
-    "margin": (
-        "base-class": "m",
-        "values-map":
-            map-merge(
-                $rem-sizes-map,
-                (
-                    "auto": auto,
-                    "default": 1.25,
-                )
-            ),
-        "xy-suffix": true,
-        "axis-position-map": $axis-position-map,
-    ),
-    "padding": (
-        "base-class": "p",
-        "values-map":
-            map-merge(
-                $rem-sizes-map,
-                (
-                    "default": 1.25,
-                )
-            ),
-        "xy-suffix": true,
-        "axis-position-map": $axis-position-map,
-    ),
-);
 
 // ----------------------------------------------------------------
 // -- MAGIC PADDING AND MARGINS --
@@ -236,12 +197,3 @@ $space-sizes: (0, 1, 1.5, 2, 3);
 //
 //
 //
-//
-
-// ----------------------------------------------------------------
-// -- POSITION BASED UTILITIES --
-// ----------------------------------------------------------------
-// Must built last to ensure override
-//
-
-@include positionUtilityClasses($spacing-utilities-map);

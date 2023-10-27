@@ -1,0 +1,40 @@
+// ----------------------------------------------------------------
+// -- CREATE POSITION BASED PROPERTIES --
+// ----------------------------------------------------------------
+
+@mixin singlePositionProperty($property, $position, $value, $unit: "rem") {
+    #{$property}-#{$position}: #{$value}#{$unit};
+}
+
+// ----------------------------------------------------------------
+// -- CREATE A SINGLE PROPERTY WITH MULTIPLE POSITIONS --
+// ----------------------------------------------------------------
+//
+@mixin multiPositionProperties($property, $positions, $value, $unit: "rem") {
+    @each $position in $positions {
+        // remove unit for auto, 0, border
+        $derivedUnit: if(($value == "auto" or $value == "0" or $property == "border"), null, $unit);
+
+        @include singlePositionProperty($property, $position, $value, $derivedUnit);
+    }
+}
+
+// ----------------------------------------------------------------
+// -- CREATE POSITION BASED PROPERTIES FROM MAP --
+// ----------------------------------------------------------------
+// Iterates through the list of positions passed in with the
+// `$positions` creating the appropriate `$property` (top,
+// bottom, left, right) based on the `$value`.
+
+// can be one or many positions
+
+// positionBasedProperty
+@mixin makePositionProperties($property, $positions, $value, $unit: "rem") {
+    @each $position in $positions {
+        // remove unit for auto, 0, border
+        $derivedUnit: if(($value == "auto" or $value == "0" or $property == "border"), null, $unit);
+
+        // @debug $derivedUnit;
+        @include singlePositionProperty($property, $position, $value, $derivedUnit);
+    }
+}

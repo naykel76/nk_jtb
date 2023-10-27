@@ -55,4 +55,4 @@ $text-utilities: (
 
 $text-sizes: (2, 2.5, 3, 4);
 
-@include generateUnitBasedClasses(font-size, $text-sizes, "txt");
+@include unitBasedClasses(font-size, $text-sizes, "txt");

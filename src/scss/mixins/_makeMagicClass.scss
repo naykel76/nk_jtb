@@ -13,6 +13,26 @@
 // and an empty list ().
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
 
+// ----------------------------------------------------------------
+// -- CREATE SINGLE PROPERTY --
+// ----------------------------------------------------------------
+//
+// this has been move here and may be removed later
+//
+//
+// create unit base or other property
+@mixin makeProperty($property, $value, $unit: null) {
+    // 'full' value implies a unit based property that will be 100%
+    $derivedValue: if($value == "full", 100, $value);
+    $derivedUnit: if($value == "full", "%", $unit);
+
+    @if ($unit == null) {
+        #{$property}: #{$derivedValue};
+    } @else {
+        #{$property}: #{$derivedValue}#{$derivedUnit};
+    }
+}
+
 @mixin handleValue($property, $value, $unit, $positions) {
     @if ($positions == null) {
         @include makeProperty($property, $value, $unit);

@@ -49,3 +49,22 @@
     // wrap in quotes and convert to string
     @return "#{$int}";
 }
+
+// ----------------------------------------------------------------
+// --  --
+// ----------------------------------------------------------------
+// sanitize $class to removes decimal for values less than zero and
+// escape invalid charters
+
+@function sanitizeForClassName($class) {
+    $class: toString($class);
+
+    // if the value starts with '0.' remove the decimal
+    @if (str-slice($class, 1, 2) == "0.") {
+        $class: strReplace($class, "0.", "0");
+    }
+
+    $class: escapeDecimal($class);
+
+    @return $class;
+}
