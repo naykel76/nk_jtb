@@ -1,6 +1,5 @@
-@use "../../functions/helpers" as *;
+@use "../functions/helpers" as *;
 @use "./propertyGenerators" as *;
-@use "../../base/vars_utility_maps" as *; // REMOVE THIS
 @use "sass:string";
 
 // ----------------------------------------------------------------

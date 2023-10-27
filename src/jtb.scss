@@ -1,53 +1,25 @@
-@use "./base/root";
 @use "./base/base";
-@use "./scss/base/content_gap";
+@use "./base/root";
 
-@forward "./scss/nk";
-@forward "./nk";
-@forward "./scss/forms";
+// -- IMPORTANT --  order matters, and components need to be loaded before
+// utility classes to make sure they can be overridden
 
-// -- ORDER MATTERS -- Components need to be loaded before utility
-// classes to make sure they can be overridden
-@forward "./components-extended/hero";
-@forward "./components/button";
-@forward "./scss/components/accordion";
-@forward "./scss/components/article";
-@forward "./scss/components/box";
-@forward "./scss/components/dropdown";
-@forward "./scss/components/icon";
-@forward "./scss/components/list";
-@forward "./scss/components/menu";
-@forward "./scss/components/navbar";
-@forward "./scss/components/other";
-@forward "./scss/components/sidebar";
+// @forward "./components/button";
 
 @forward "./color/";
 @forward "./color/themes";
 
-@forward "./property-maps/"; // css property maps
-
-@forward "./scss/utilities/display_visibility";
-@forward "./scss/utilities/flex";
-@forward "./scss/utilities/general";
-@forward "./scss/utilities/grid";
-@forward "./scss/utilities/opacity";
-@forward "./scss/utilities/position";
-@forward "./scss/utilities/sizes";
-@forward "./scss/utilities/spacing";
-@forward "./scss/utilities/state";
-@forward "./scss/utilities/text";
-@forward "./scss/utilities/translate";
-@forward "./utilities/border";
-@forward "./utilities/flex";
-@forward "./utilities/general";
-@forward "./utilities/grid";
-@forward "./utilities/margin";
-@forward "./utilities/padding";
-@forward "./utilities/responsive_display_visibility";
-@forward "./utilities/size";
-@forward "./utilities/text";
+// @forward "./utilities/border";
+// @forward "./utilities/flex";
+// @forward "./utilities/general";
+// @forward "./utilities/grid";
+// @forward "./utilities/margin";
+// @forward "./utilities/padding";
+// @forward "./utilities/responsive_display_visibility";
+// @forward "./utilities/size";
+// @forward "./utilities/text";
 @forward "./utilities/transition";
 
-// extras
-@use "./color/tailwind-colors" as *;
-@use "./extras/code" as *;
+// // extras
+// @use "./color/tailwind-colors" as *;
+// @use "./extras/code" as *;

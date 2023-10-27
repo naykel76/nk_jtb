@@ -1,29 +1,3 @@
-// @use "./base/vars_base" as *;
-// @use "./base/vars_colors" as *;
-// @use "./color/shades" as *;
-// @use "./color/tailwind-colors" as *;
-// @use "./color/themes" as *;
-// @use "./functions/colorFunctions" as *;
-// @use "./functions/colorShades" as *;
-// @use "./mixins/extendedThemeClass" as *;
-// @use "./mixins/media" as *;
-// @use "./property-maps" as *;
-// @use "./utilities/flex" as *;
-// @use "./utilities/grid" as *;
-// @use "./utilities/responsive_display_visibility as *";
-// @use "./utilities/size" as *;
-// @use "./utilities/text" as *;
-
-// @forward "./scss/utilities/spacing";
-
-@use "./functions/helpers" as *;
-@use "./mixins/helpers" as *;
-@use "./utilities/border" as *;
-// @use "./scss/utilities/border" as *;
-// @use "./utilities/padding" as *;
 @use "sass:list";
 @use "sass:map";
 @use "sass:string";
-
-// $border-radius-sizes: (0, 0.25, 0.5, 0.75, 1, 1.5, 2) !default;
-// @include unitBasedClasses(border-radius, $border-radius-sizes, "rounded");

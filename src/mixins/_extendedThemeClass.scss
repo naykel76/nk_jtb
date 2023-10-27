@@ -1,7 +1,7 @@
 @use "../base/vars_colors" as *;
 @use "../functions/colorFunctions" as *;
-@use "../mixins/helpers/basicColorScheme" as *;
-@use "../scss/mixins/createState" as *;
+@use "../mixins/colorThemeGenerators" as *;
+@use "../mixins/state" as *;
 @use "../utilities/transition" as *;
 
 // The minimum requirement for creating a map is the $base color,

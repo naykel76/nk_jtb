@@ -1,7 +1,7 @@
 @use "../base/vars_colors" as *;
 @use "../config" as *;
 @use "../functions/get" as *;
-@use "../mixins/colorShadeClasses" as *;
+@use "../mixins/colorThemeGenerators" as *;
 
 @if (get("shades.create-base", $config)) {
     @each $color, $value in $base-colors {

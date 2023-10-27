@@ -1,0 +1,17 @@
+@use '../functions/colorFunctions' as *;
+
+@mixin hover($color, $by: 10%) {
+    &:hover {
+        @content;
+        background-color: lighten($color, $by);
+        color: setTextColor($color);
+    }
+}
+
+@mixin active($color, $by: 5%) {
+    &:active {
+        @content;
+        background-color: darken($color, $by);
+        color: setTextColor($color);
+    }
+}
