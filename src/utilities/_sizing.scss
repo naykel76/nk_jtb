@@ -1,0 +1,61 @@
+@use "../mixins/classGenerators" as *;
+@use "../mixins/media" as *;
+
+
+// @use "../functions/helpers" as *;
+// @use "../mixins/classGenerators" as *;
+@use "../mixins/classGenerators" as *;
+@use "../mixins/responsiveClassGenerators" as *;
+
+$size-properties-map: (
+    width: (
+        prefix: "w-",
+        values: (
+            auto: auto,
+            fc: fit-content,
+            full: 100%,
+            screen: 100vw,
+            min: min-content,
+            max: max-content,
+            fit: fit-content
+        )
+    ),
+    height: (
+        prefix: "h-",
+        values: (
+            auto: auto,
+            fc: fit-content,
+            full: 100%,
+            screen: 100vh
+        )
+    )
+);
+
+// does this need to go down the bottom??
+@include generateFromMapOfProperties($size-properties-map);
+
+
+
+// ------------------------------------------------------------------
+// -- WIDTH AND HEIGHT UTILITY CLASSES --
+// ------------------------------------------------------------------
+
+$rem-sizes: (0, 1, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24) !default;
+$pixel-sizes: (100, 150, 200, 300, 400, 600) !default;
+
+// -- HEIGHT --
+@include unitBasedClasses(height, $rem-sizes, "h");
+@include unitBasedClasses(height, $pixel-sizes, "h", "px");
+
+// -- WIDTH --
+@include unitBasedClasses(width, $rem-sizes, "w");
+@include unitBasedClasses(width, $pixel-sizes, "w", "px");
+
+// ------------------------------------------------------------------
+// -- RESPONSIVE SIZES --
+// ------------------------------------------------------------------
+
+@include makeFromBreakpoint(width, 16rem, "w-16", "sm", "md", "lg", "xl");
+@include makeFromBreakpoint(width, 20rem, "w-20", "sm", "md", "lg", "xl");
+@include makeFromBreakpoint(width, 24rem, "w-24", "sm", "md", "lg", "xl");
+@include makeFromBreakpoint(width, 100%, "w-full", "sm", "md", "lg", "xl");

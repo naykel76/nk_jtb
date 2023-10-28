@@ -37,7 +37,7 @@
     @if ($positions == null) {
         @include makeProperty($property, $value, $unit);
     } @else {
-        @include makePositionProperties($property, $positions, $value);
+        @include positionBasedProperties($property, $positions, $value);
     }
 }
 

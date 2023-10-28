@@ -67,22 +67,18 @@
     }
 }
 
-//
-//
-//
+// ----------------------------------------------------------------
+// -- GENERATE property BASED CLASSES FOR A SINGLE PROPERTY --
+// ----------------------------------------------------------------
 
-// For a single property
 @mixin positionBasedClasses($property, $values-map, $identifier, $positions-map, $unit: "rem") {
     @each $value in $values-map {
         @each $axis-or-position-key, $positions in $positions-map {
             $sanitized: sanitizeForClassName($value);
-
-            // if xy, remove unit??
-
             $class: #{$identifier}#{$axis-or-position-key}-#{$sanitized};
             .#{$class} {
                 // loop through each position and create associated properties
-                @include makePositionProperties($property, $positions, $value);
+                @include positionBasedProperties($property, $positions, $value);
             }
         }
     }
