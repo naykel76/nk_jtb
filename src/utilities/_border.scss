@@ -40,7 +40,7 @@ $border-properties-map: (
     ),
 );
 
-@include generateFromMapOfProperties($border-properties-map);
+// @include generateFromMapOfProperties($border-properties-map);
 
 // ??????
 // @include positionBasedClasses(border, (1,2), "bdr-", $axis-position-map, 'px');

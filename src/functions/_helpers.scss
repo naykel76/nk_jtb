@@ -55,16 +55,21 @@
 // ----------------------------------------------------------------
 // sanitize $class to removes decimal for values less than zero and
 // escape invalid charters
+//
 
-@function sanitizeForClassName($class) {
-    $class: toString($class);
+@function sanitizeForClassName($class, $ignore: false) {
+    // if $ignore is true, then return the value without sanitizing
+    // it. This is useful for when you want to use a value that is
+    // not a number, but still want to use it as a class name.
+    @if ($ignore == false) {
+        $class: toString($class);
 
-    // if the value starts with '0.' remove the decimal
-    @if (str-slice($class, 1, 2) == "0.") {
-        $class: strReplace($class, "0.", "0");
+        // if the value starts with '0.' remove the decimal
+        @if (str-slice($class, 1, 2) == "0.") {
+            $class: strReplace($class, "0.", "0");
+        }
+
+        $class: escapeDecimal($class);
     }
-
-    $class: escapeDecimal($class);
-
     @return $class;
 }

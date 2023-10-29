@@ -11,16 +11,27 @@
     }
 }
 
+// ----------------------------------------------------------------
+// Creates multiple position based classes for a single value with
+// multiple positions. For example, x, y, xy, left, right etc.
+//
+// Can be used directly to for a single size or combined with other
+// mixins to create additional sizes.
+//
+// @include positionBasedClass(padding, 1, "p", $xy-positions-map);
+// ----------------------------------------------------------------
+// need to add px to class name when 'px' is passed as unit
 @mixin positionBasedClass($property, $value, $identifier, $positions-map, $unit: "rem") {
     $sanitized: sanitizeForClassName($value);
     @each $axis-or-position-key, $positions in $positions-map {
-        $class: #{$identifier}#{$axis-or-position-key}-#{$sanitized};
-
-        // @debug $identifier;
-        @debug $value;
-    //     .#{$class} {
-    //         @include positionBasedProperties($property, $positions, $value);
-    //     }
+        // add
+        $unitToAppend: if($unit!= "rem", $unit, "");
+        $variant: -#{$sanitized}#{$unitToAppend};
+        // build class name
+        $class: #{$identifier}#{$axis-or-position-key}#{$variant};
+        .#{$class} {
+            @include positionBasedProperties($property, $positions, $value, $unit);
+        }
     }
 }
 
@@ -52,27 +63,22 @@
         $unit: map-get($map, "unit");
         // derived unit for class name
         $unitToAppend: if($unit != "rem", $unit, "");
-
         $positions-map: map-get($map, "positions");
 
-        @each $key, $value in $values {
-            // if there is no `key-value` pair in the map, the key
-            // will be used as the value this allows for a list of
-            // values to be used as the map
-            $value: if($value, $value, $key);
-            $sanitized: sanitizeForClassName($key);
-            $class: #{$identifier}#{$sanitized}#{$unitToAppend};
+        @if ($positions-map) {
+            @include positionBasedClasses($property, $values, $identifier, $positions-map, $unit);
+        } @else {
+            @each $key, $value in $values {
+                // if there is no `key-value` pair in the map, the key
+                // will be used as the value this allows for a list of
+                // values to be used as the map
+                $value: if($value, $value, $key);
+                $sanitized: sanitizeForClassName($key);
+                $class: #{$identifier}#{$sanitized}#{$unitToAppend};
 
-            // if has positions, create position based classes
-            // can have one or more positions
-            @if ($positions-map) {
-                @debug $value;
-                // pass in the identifier and build class name in the mixin
-                // @include positionBasedClass($property, $value, $identifier, $positions-map, $unit);
+                // if there is a unit then append it to the value
+                @include singlePropertyClass(#{$class}, $property, #{$value}#{$unit});
             }
-
-            // if there is a unit then append it to the value
-            @include singlePropertyClass(#{$class}, $property, #{$value}#{$unit});
         }
     }
 }
@@ -107,13 +113,6 @@
 
 @mixin positionBasedClasses($property, $values, $identifier, $positions-map, $unit: "rem") {
     @each $value in $values {
-        @each $axis-or-position-key, $positions in $positions-map {
-            $sanitized: sanitizeForClassName($value);
-            $class: #{$identifier}#{$axis-or-position-key}-#{$sanitized};
-            .#{$class} {
-                // loop through each position and create associated properties
-                @include positionBasedProperties($property, $positions, $value);
-            }
-        }
+        @include positionBasedClass($property, $value, $identifier, $positions-map, $unit);
     }
 }

@@ -15,10 +15,6 @@ $margin-properties-map: (
 
 @include generateFromMapOfProperties($margin-properties-map);
 
-// @include positionBasedClasses(margin, $margin-sizes, "m", $axis-position-map);
-
-// create variants mxy, mxy-sm, mxy-lg????
-
 // .mxy-0 {
 //     margin: 0
 // }

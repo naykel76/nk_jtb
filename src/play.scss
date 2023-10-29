@@ -1,6 +1,16 @@
-@use './utilities/border' as *;
-// @use './utilities/margin' as *;
-
+@use "./mixins/classGenerators" as *;
+// @use "./utilities/border" as *;
+@use "./utilities/padding" as *;
+@use "./utilities/margin" as *;
+@use "./variables/utility_maps" as *;
 @use "sass:list";
 @use "sass:map";
 @use "sass:string";
+
+// prettier-ignore
+
+
+
+// @include positionBasedClass(padding, 1, "p", $xy-positions-map, "rem");
+// @include positionBasedClass(padding, 16, "m", $xy-positions-map, "px");
+
