@@ -1,0 +1,46 @@
+@use "../variables" as *;
+@use "../mixins/classGenerators" as *;
+@use "../variables/utility_maps" as *;
+
+$border-radius-sizes: (0, 0.25, 0.5, 0.75, 1, 1.5, 2) !default;
+
+// $border-utilities-map: (
+//     "border": (
+//         "base-class": "bdr",
+
+//         "positions": $axis-position-map,
+//     ),
+// );
+
+// prettier-ignore
+$border-properties-map: (
+    border: (
+        prefix: #{$border-identifier},
+        values: (
+            default: $border,
+            none: none,
+        ),
+        positions: $axis-position-map,
+    //     values: (0: 0, 1: 1px, 2: 2px, 3: 3px, 4: 4px, 5: 5px),
+    ),
+    border-width: (
+        prefix: #{$border-identifier},
+        // use key-value pair instead of values to make it easier
+        // manage unit and class name
+        values: (0: 0, 1: 1px, 2: 2px, 3: 3px, 4: 4px, 5: 5px),
+    ),
+    border-style: (
+        prefix: #{$border-identifier},
+        values: (solid, dashed, dotted, double, none),
+    ),
+    border-radius: (
+        prefix: "rounded-",
+        values: $border-radius-sizes,
+        unit: "rem"
+    ),
+);
+
+@include generateFromMapOfProperties($border-properties-map);
+
+// ??????
+// @include positionBasedClasses(border, (1,2), "bdr-", $axis-position-map, 'px');

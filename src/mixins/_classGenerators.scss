@@ -3,11 +3,24 @@
 @use "sass:string";
 
 // ----------------------------------------------------------------
-// -- CREATE CLASS WITH A SINGLE PROPERTY --
+// -- CLASS CREATORS --
 // ----------------------------------------------------------------
-@mixin createSinglePropertyClass($class, $property, $value) {
+@mixin singlePropertyClass($class, $property, $value) {
     .#{$class} {
         #{$property}: $value;
+    }
+}
+
+@mixin positionBasedClass($property, $value, $identifier, $positions-map, $unit: "rem") {
+    $sanitized: sanitizeForClassName($value);
+    @each $axis-or-position-key, $positions in $positions-map {
+        $class: #{$identifier}#{$axis-or-position-key}-#{$sanitized};
+
+        // @debug $identifier;
+        @debug $value;
+    //     .#{$class} {
+    //         @include positionBasedProperties($property, $positions, $value);
+    //     }
     }
 }
 
@@ -18,10 +31,10 @@
     @each $key, $value in $map {
         @if ($identifier == "") {
             // if the $identifier is omitted just us the key as the class name
-            @include createSinglePropertyClass(#{$key}, $property, $value);
+            @include singlePropertyClass(#{$key}, $property, $value);
         } @else {
             // otherwise join $identifier and $key for class name
-            @include createSinglePropertyClass(#{$identifier}-#{$key}, $property, $value);
+            @include singlePropertyClass(#{$identifier}-#{$key}, $property, $value);
         }
     }
 }
@@ -29,17 +42,37 @@
 // ----------------------------------------------------------------
 // -- GENERATE CLASSES FROM A MAP OF PROPERTIES --
 // ----------------------------------------------------------------
-//
+// This does not support mixed maps, must have all keys or no keys
+
 @mixin generateFromMapOfProperties($properties-map) {
     @each $property, $map in $properties-map {
-        $prefix: map-get($map, "prefix");
-        $map: map-get($map, "values");
-        @each $key, $value in $map {
-            // if there is no key-value pair in the map, use the key
-            // as both the key and the value.
-            .#{$prefix}#{$key} {
-                #{$property}: if($value, $value, $key);
+        $identifier: map-get($map, "prefix");
+        $values: map-get($map, "values");
+        // actual unit to add to property or null
+        $unit: map-get($map, "unit");
+        // derived unit for class name
+        $unitToAppend: if($unit != "rem", $unit, "");
+
+        $positions-map: map-get($map, "positions");
+
+        @each $key, $value in $values {
+            // if there is no `key-value` pair in the map, the key
+            // will be used as the value this allows for a list of
+            // values to be used as the map
+            $value: if($value, $value, $key);
+            $sanitized: sanitizeForClassName($key);
+            $class: #{$identifier}#{$sanitized}#{$unitToAppend};
+
+            // if has positions, create position based classes
+            // can have one or more positions
+            @if ($positions-map) {
+                @debug $value;
+                // pass in the identifier and build class name in the mixin
+                // @include positionBasedClass($property, $value, $identifier, $positions-map, $unit);
             }
+
+            // if there is a unit then append it to the value
+            @include singlePropertyClass(#{$class}, $property, #{$value}#{$unit});
         }
     }
 }
@@ -56,23 +89,24 @@
 // @include unitBasedClasses(padding, $padding-sizes, "pxy", "px");
 //
 
-@mixin unitBasedClasses($property, $values-map, $identifier, $unit: "rem") {
-    // appends unit to the class name if $unit is not equal to "rem."
+@mixin unitBasedClasses($property, $values, $identifier, $unit: "rem") {
+    // if the unit is not "rem" then append it to the class name, or
+    // else append nothing
     $unitToAppend: if($unit!= "rem", $unit, "");
 
-    @each $value in $values-map {
+    @each $value in $values {
         $sanitized: sanitizeForClassName($value);
         $class: #{$identifier}-#{$sanitized}#{$unitToAppend};
-        @include createSinglePropertyClass($class, $property, #{$value}#{$unit});
+        @include singlePropertyClass($class, $property, #{$value}#{$unit});
     }
 }
 
 // ----------------------------------------------------------------
-// -- GENERATE property BASED CLASSES FOR A SINGLE PROPERTY --
+// -- GENERATE POSITION BASED CLASSES FOR A SINGLE PROPERTY --
 // ----------------------------------------------------------------
 
-@mixin positionBasedClasses($property, $values-map, $identifier, $positions-map, $unit: "rem") {
-    @each $value in $values-map {
+@mixin positionBasedClasses($property, $values, $identifier, $positions-map, $unit: "rem") {
+    @each $value in $values {
         @each $axis-or-position-key, $positions in $positions-map {
             $sanitized: sanitizeForClassName($value);
             $class: #{$identifier}#{$axis-or-position-key}-#{$sanitized};

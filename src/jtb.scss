@@ -6,15 +6,16 @@
 
 // @forward "./components/button";
 
+
 @forward "./color/";
 @forward "./color/themes";
 
-// @forward "./utilities/border";
-// @forward "./utilities/flex";
 // @forward "./utilities/general";
-// @forward "./utilities/grid";
 // @forward "./utilities/responsive_display_visibility";
 // @forward "./utilities/text";
+@forward "./utilities/border";
+@forward "./utilities/flexbox";
+@forward "./utilities/grid";
 @forward "./utilities/layout";
 @forward "./utilities/margin";
 @forward "./utilities/padding";

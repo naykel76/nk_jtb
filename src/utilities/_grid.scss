@@ -1,0 +1,27 @@
+@use "../variables" as *;
+@use "../mixins/classGenerators" as *;
+
+$grid-properties-map: (
+    justify-items: (
+        prefix: "justify-items-",
+        values: ( center, end, start, stretch )
+    ),
+    justify-self: (
+        prefix: "justify-self-",
+        values: ( auto, center, end, start, stretch )
+    ),
+    place-content: (
+        prefix: "place-content-",
+        values: ( baseline, center, end, space-around, space-between, space-evenly, start, stretch )
+    ),
+    place-items: (
+        prefix: "place-items-",
+        values: ( baseline, center, end, start, stretch )
+    ),
+    place-self: (
+        prefix: "place-self-",
+        values: ( auto, center, end, start, stretch )
+    )
+);
+
+@include generateFromMapOfProperties($grid-properties-map);

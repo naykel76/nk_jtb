@@ -1,6 +1,18 @@
 // ----------------------------------------------------------------
 // -- CREATE POSITION BASED PROPERTIES --
 // ----------------------------------------------------------------
+
+// @mixin singlePositionProperty($property, $position, $value, $unit: "rem") {
+//     #{$property}-#{$position}: #{$value}#{$unit};
+// }
+
+// @mixin createProperty($property, $value) {
+//     #{$property}: #{$value};
+// }
+
+// ----------------------------------------------------------------
+// -- CREATE POSITION BASED PROPERTIES --
+// ----------------------------------------------------------------
 // Iterates through the list of positions creating the appropriate
 // `$property` (top, bottom, left, right) based on the `$value`.
 

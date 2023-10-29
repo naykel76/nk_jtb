@@ -4,4 +4,15 @@
 
 $padding-sizes: (0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 4, 5) !default;
 
-@include positionBasedClasses(padding, $padding-sizes, "p", $axis-position-map);
+$padding-properties-map: (
+    padding: (
+        prefix: #{$padding-identifier},
+        values: $padding-sizes,
+        unit: "rem",
+        positions: $axis-position-map
+    )
+);
+
+@include generateFromMapOfProperties($padding-properties-map);
+
+// @include positionBasedClasses(padding, $padding-sizes, "p", $axis-position-map);
