@@ -20,14 +20,25 @@
 //
 // @include positionBasedClass(padding, 1, "p", $xy-positions-map);
 // ----------------------------------------------------------------
-// need to add px to class name when 'px' is passed as unit
 @mixin positionBasedClass($property, $value, $identifier, $positions-map, $unit: "rem") {
-    $sanitized: sanitizeForClassName($value);
+    $sanitized: "frog"; // initialize to something or will get error
+    // this is to solve the annoying problem of having to pass in a
+    // map with a single key-value pair to the `positionBasedClasses`
+    // mixin because it converts map items to a list!
+    @if (type-of($value) == map) {
+        $key: nth(map-keys($value), 1);
+        $value: nth(map-values($value), 1);
+        // remove the key if 'default' to allow for base class
+        $sanitized: if($key == default, "", $key);
+    } @else {
+        $sanitized: sanitizeForClassName($value);
+    }
+
     @each $axis-or-position-key, $positions in $positions-map {
-        // add
         $unitToAppend: if($unit!= "rem", $unit, "");
-        $variant: -#{$sanitized}#{$unitToAppend};
-        // build class name
+        // remove the dash if it is the last character to allow for
+        // base class. E.g bdr, or mxy
+        $variant: stripDash(-#{$sanitized}#{$unitToAppend});
         $class: #{$identifier}#{$axis-or-position-key}#{$variant};
         .#{$class} {
             @include positionBasedProperties($property, $positions, $value, $unit);
@@ -59,10 +70,8 @@
     @each $property, $map in $properties-map {
         $identifier: map-get($map, "prefix");
         $values: map-get($map, "values");
-        // actual unit to add to property or null
-        $unit: map-get($map, "unit");
-        // derived unit for class name
-        $unitToAppend: if($unit != "rem", $unit, "");
+        $unit: map-get($map, "unit"); // unit to add to property or null
+        $unitToAppend: if($unit != "rem", $unit, ""); // unit for class name
         $positions-map: map-get($map, "positions");
 
         @if ($positions-map) {
@@ -75,8 +84,8 @@
                 $value: if($value, $value, $key);
                 $sanitized: sanitizeForClassName($key);
                 $class: #{$identifier}#{$sanitized}#{$unitToAppend};
-
-                // if there is a unit then append it to the value
+                // removes unwanted unit for auto, 0
+                $derivedUnit: if(($value == "auto" or $value == 0), null, $unit);
                 @include singlePropertyClass(#{$class}, $property, #{$value}#{$unit});
             }
         }
@@ -110,9 +119,13 @@
 // ----------------------------------------------------------------
 // -- GENERATE POSITION BASED CLASSES FOR A SINGLE PROPERTY --
 // ----------------------------------------------------------------
-
 @mixin positionBasedClasses($property, $values, $identifier, $positions-map, $unit: "rem") {
-    @each $value in $values {
+    // for reasons unknown, the map is converted to a list when
+    // passed to this mixin, so we have to convert it back to a map.
+    // The map will be handles in the `positionBasedClass` mixin
+    @each $key, $value in $values {
+        // prettier-ignore
+        $value: if( $value==null, $key, ( $key: $value ) );
         @include positionBasedClass($property, $value, $identifier, $positions-map, $unit);
     }
 }

@@ -1,7 +1,7 @@
 @use "../variables" as *;
 @use "../mixins/classGenerators" as *;
 
-$flex-grid-properties-map: (
+$flex-properties-map: (
     align-content: (
         values: (
             content-around: space-around,
@@ -67,7 +67,7 @@ $flex-grid-properties-map: (
 
 );
 
-@include generateFromMapOfProperties($flex-grid-properties-map);
+@include generateFromMapOfProperties($flex-properties-map);
 
 .flex-col {
     display: flex;

@@ -4,14 +4,6 @@
 
 $border-radius-sizes: (0, 0.25, 0.5, 0.75, 1, 1.5, 2) !default;
 
-// $border-utilities-map: (
-//     "border": (
-//         "base-class": "bdr",
-
-//         "positions": $axis-position-map,
-//     ),
-// );
-
 // prettier-ignore
 $border-properties-map: (
     border: (
@@ -21,7 +13,6 @@ $border-properties-map: (
             none: none,
         ),
         positions: $axis-position-map,
-    //     values: (0: 0, 1: 1px, 2: 2px, 3: 3px, 4: 4px, 5: 5px),
     ),
     border-width: (
         prefix: #{$border-identifier},
@@ -40,7 +31,4 @@ $border-properties-map: (
     ),
 );
 
-// @include generateFromMapOfProperties($border-properties-map);
-
-// ??????
-// @include positionBasedClasses(border, (1,2), "bdr-", $axis-position-map, 'px');
+@include generateFromMapOfProperties($border-properties-map);

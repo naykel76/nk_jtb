@@ -32,44 +32,31 @@
 // -- ESCAPE DECIMAL VALUE --
 // ----------------------------------------------------------------
 // works with both quoted and unquoted values 9.5 or "9.5"
-//
-
 @function escapeDecimal($int) {
-    // wrap in quotes and convert to string
-    $class: "#{$int}";
-    // search and escape decimals
-    @return strReplace($class, ".", "\\.");
+    $class: "#{$int}"; // wrap in quotes and convert to string
+    @return strReplace($class, ".", "\\."); // search and escape decimals
 }
 
 // ----------------------------------------------------------------
 // -- CONVERT VALUE TO STRING --
 // ----------------------------------------------------------------
-
 @function toString($int) {
-    // wrap in quotes and convert to string
-    @return "#{$int}";
+    @return "#{$int}"; // wrap in quotes and convert to string
 }
 
 // ----------------------------------------------------------------
-// --  --
-// ----------------------------------------------------------------
 // sanitize $class to removes decimal for values less than zero and
 // escape invalid charters
-//
+// ----------------------------------------------------------------
+@function sanitizeForClassName($input) {
+    $input: toString($input);
 
-@function sanitizeForClassName($class, $ignore: false) {
-    // if $ignore is true, then return the value without sanitizing
-    // it. This is useful for when you want to use a value that is
-    // not a number, but still want to use it as a class name.
-    @if ($ignore == false) {
-        $class: toString($class);
-
-        // if the value starts with '0.' remove the decimal
-        @if (str-slice($class, 1, 2) == "0.") {
-            $class: strReplace($class, "0.", "0");
-        }
-
-        $class: escapeDecimal($class);
+    // if the value starts with '0.' remove the decimal
+    @if (str-slice($input, 1, 2) == "0.") {
+        $input: strReplace($input, "0.", "0");
     }
-    @return $class;
+
+    $output: escapeDecimal($input);
+
+    @return $output;
 }

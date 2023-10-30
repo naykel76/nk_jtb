@@ -14,5 +14,3 @@ $padding-properties-map: (
 );
 
 @include generateFromMapOfProperties($padding-properties-map);
-
-// @include positionBasedClasses(padding, $padding-sizes, "p", $axis-position-map);
