@@ -1,0 +1,27 @@
+@use "../variables" as *;
+@use "../mixins/media" as *;
+
+
+// $container-widths:(
+
+// )
+
+// ----------------------------------------------------------------
+// -- CONTAINER --
+// ----------------------------------------------------------------
+// there is no need to add a tonne of media queries for the
+// container because using min() width does a pretty good job!
+
+// 1. Use capital M in min() function to prevent clash between sass
+//    and css. This works because sass is case-sensitive, but CSS is
+//    not.
+.#{$container-identifier} {
+    width: Min(92%, $container-max-xxl); // 1.
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+
+    @include from-md {
+        width: Min($container-max, $container-max-xxl); // 1.
+    }
+}

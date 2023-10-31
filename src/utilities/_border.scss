@@ -1,8 +1,10 @@
-@use "../variables" as *;
+@use "../functions/helpers" as *;
 @use "../mixins/classGenerators" as *;
+@use "../variables" as *;
 @use "../variables/utility_maps" as *;
 
 $border-radius-sizes: (0, 0.25, 0.5, 0.75, 1, 1.5, 2) !default;
+$border-colors-map: ($color-map) !default;
 
 // prettier-ignore
 $border-properties-map: (
@@ -21,8 +23,12 @@ $border-properties-map: (
         values: (0: 0, 1: 1px, 2: 2px, 3: 3px, 4: 4px, 5: 5px),
     ),
     border-style: (
+            prefix: #{$border-identifier},
+            values: (solid, dashed, dotted, double, none),
+        ),
+    border-color: (
         prefix: #{$border-identifier},
-        values: (solid, dashed, dotted, double, none),
+        values: $border-colors-map
     ),
     border-radius: (
         prefix: "rounded-",
@@ -32,3 +38,35 @@ $border-properties-map: (
 );
 
 @include generateFromMapOfProperties($border-properties-map);
+
+// ----------------------------------------------------------------
+// This map and the following mixin is used to generate
+// `border-radius` classes for corners. It has been separated
+// because it is a little different. The full border-radius is
+// handled in the `$border-properties-map` above.
+// ----------------------------------------------------------------
+$border-radius-map: (
+    prefix: "rounded-",
+    values: $border-radius-sizes,
+    unit: "rem",
+    positions: $corners-map,
+);
+
+@mixin borderRadius($map) {
+    @each $value in map-get($map, "values") {
+        $identifier: "rounded-";
+        $sanitized: sanitizeClassName($value);
+        @each $position-key, $positions in map-get($map, "positions") {
+            $class: #{$identifier}#{$position-key}-#{$sanitized};
+            .#{$class} {
+                @each $position in $positions {
+                    // prettier-ignore
+                    $derivedUnit: if(($value == "auto" or $value == 0), null, map-get($map, "unit"));
+                    border-#{$position}-radius: #{$value}#{$derivedUnit};
+                }
+            }
+        }
+    }
+}
+
+@include borderRadius($border-radius-map);

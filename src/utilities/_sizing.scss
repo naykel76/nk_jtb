@@ -59,3 +59,6 @@ $pixel-sizes: (100, 150, 200, 300, 400, 600) !default;
 @include makeFromBreakpoint(width, 20rem, "w-20", "sm", "md", "lg", "xl");
 @include makeFromBreakpoint(width, 24rem, "w-24", "sm", "md", "lg", "xl");
 @include makeFromBreakpoint(width, 100%, "w-full", "sm", "md", "lg", "xl");
+
+
+

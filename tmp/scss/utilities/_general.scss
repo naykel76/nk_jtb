@@ -4,26 +4,7 @@
 
 // This file is for general utilities that don't have a home,
 
-// -- CONTAINER --
-// -----------------------------------
-// there is no need to add a tonne of media queries for the
-// container because the min() width does a pretty good job!
-// think of container size as maximum-width up to a maximum-size.
 
-// 1. Use capital M in min() function to prevent clash between
-//    sass and css. This works because sass is case-sensitive, but
-//    CSS is not.
-.#{$container-identifier} {
-    // make the max a little smaller to act as padding
-    width: Min(92%, $container-max-xxl); // 1.
-    margin-right: auto;
-    margin-left: auto;
-    position: relative;
-
-    @include from-md {
-        width: Min($container-max, $container-max-xxl); // 1.
-    }
-}
 
 .cover {
     background-repeat: no-repeat;

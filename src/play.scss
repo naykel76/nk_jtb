@@ -1,12 +1,41 @@
 @use "./mixins/classGenerators" as *;
 // @use "./utilities/flexbox" as *;
-// @use "./utilities/border" as *;
 // @use "./utilities/padding" as *;
 // @use "./utilities/margin" as *;
-@use "./variables/utility_maps" as *;
+@use "./variables" as *;
 @use "sass:list";
 @use "sass:map";
 @use "sass:string";
 
 // prettier-ignore
 
+// @include generateFromMapOfProperties($properties-map);
+
+// $max-min-sizes: (
+//     // these sizes are mapped to breakpoints
+//     // "sm": $sm,
+//     // "md": $md,
+//     // "lg": $lg,,,,,
+// );
+
+// // how can i pass in a map
+// $sizes-map: (200, 250, 300, 400, 600, (sm: $sm));
+$sizes-map: (200, 250, 300, 400, 600);
+
+// // $sizes-map: ( 20rem, 600px, ( sm: $sm, ), ( md: $md, ), ( lg: $lg, ) );
+// // $sizes-map: ( sm: $sm, md: $md, lg: $lg );
+$sizing-properties-map: (
+    max-width: (
+        prefix: "maxw-",
+        values: $sizes-map,
+        unit: "rem",
+        // values: ( sm: $sm, md: $md, lg: $lg, ),
+    ),
+);
+
+@include generateFromMapOfProperties($sizing-properties-map);
+
+// max-width: ( prefix: "maxw-", values: $sizes-map, unit: "px", ),
+// max-height: ( prefix: "maxh-", values: $sizes-map, unit: "px", ),
+// min-width: ( prefix: "minw-", values: $sizes-map, unit: "px", ),
+// min-height: ( prefix: "minh-", values: $sizes-map, unit: "px", )
