@@ -1,7 +1,27 @@
 @use "../variables" as *;
 @use "../mixins/classGenerators" as *;
+@use "sass:map";
 
+// remove the following colours from the map
+$colors: map.remove($color-map, 'danger', 'dark', 'info', 'light', 'success', 'warning');
+$text-variants: ( xs: 0.75rem, sm: 0.875rem, base: 1rem, lg: 1.125rem, xl: 1.5rem ) !default;
+
+// build rem-sizes separately because it's a list
+$text-rem-sizes: (2, 2.5, 3, 4) !default;
+@include unitBasedClasses(font-size, $text-rem-sizes, "txt", $unit: "rem");
+
+// ------------------------------------------------------------------
+// -- TEXT UTILITY CLASSES --
+// ------------------------------------------------------------------
 $typography-properties-map: (
+    color: (
+        prefix: "#{$text-identifier}",
+        values: ( $colors )
+    ),
+    font-size: (
+        prefix: "#{$text-identifier}",
+        values: $text-variants
+    ),
     font-style: (
         prefix: "#{$text-identifier}",
         values: ( italic, normal )
@@ -33,3 +53,35 @@ $typography-properties-map: (
 );
 
 @include generateFromMapOfProperties($typography-properties-map);
+
+// ------------------------------------------------------------------
+// -- OPINIONATED TEXT CLASSES --
+// ------------------------------------------------------------------
+.lead{
+    font-size: 1.2rem;
+}
+
+.title {
+    color: $primary;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.125;
+}
+
+.subtitle {
+    color: $primary;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.125;
+}
+
+// this seems a little out of place here, oh well!
+.link {
+    background-color: transparent;
+    background-image: none;
+    border: none;
+    color: $link-color;
+    &:hover {
+        color: $link-hover-color;
+    }
+}

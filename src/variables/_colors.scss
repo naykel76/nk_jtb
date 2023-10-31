@@ -9,7 +9,6 @@ $theme-colors: (
     "accent": $accent,
     "light": #fafafa,
     "dark": #212121,
-    "muted": #6d767e,
     "danger": #dc3848,
     "info": #249beb,
     "success": #29a847,
@@ -17,6 +16,7 @@ $theme-colors: (
 ) !default;
 
 $base-colors: (
+    "muted": #6d767e,
     "stone": #78716c,
     "brown": #795649,
     "red": #dc3848,
