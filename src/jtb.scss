@@ -4,12 +4,26 @@
 // -- IMPORTANT --  order matters, and components need to be loaded before
 // utility classes to make sure they can be overridden
 
+// // -- ORDER MATTERS -- Components need to be loaded before utility
+// // classes to make sure they can be overridden
+// @forward "./components-extended/hero";
+// @forward "./components/button";
+// @forward "./components-for-review/accordion";
+// @forward "./components-for-review/article";
+// @forward "./components-for-review/box";
+// @forward "./components-for-review/dropdown";
+// @forward "./components-for-review/icon";
+// @forward "./components-for-review/list";
+// @forward "./components-for-review/menu";
+// @forward "./components-for-review/navbar";
+// @forward "./components-for-review/other";
+// @forward "./components-for-review/sidebar";
+
 // @forward "./components/button";
 
 @forward "./color/";
 @forward "./color/themes";
 
-// @forward "./utilities/general";
 // @forward "./utilities/responsive_display_visibility";
 @forward "./utilities/border";
 @forward "./utilities/container";
@@ -18,6 +32,7 @@
 @forward "./utilities/layout";
 @forward "./utilities/margin";
 @forward "./utilities/padding";
+@forward "./utilities/position";
 @forward "./utilities/sizing";
 @forward "./utilities/transition";
 @forward "./utilities/typography";

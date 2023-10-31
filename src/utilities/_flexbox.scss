@@ -1,6 +1,7 @@
 @use "../variables" as *;
 @use "../mixins/classGenerators" as *;
 
+// prettier-ignore
 $flex-properties-map: (
     align-content: (
         values: (
@@ -32,7 +33,7 @@ $flex-properties-map: (
         values: ( auto, baseline, center, flex-end, flex-start, stretch )
     ),
     flex-direction: (
-        prefix: "flex-",
+        prefix: #{$flex-identifier},
         values: (
             // `flex-col` and `flex-row` are handled in the
             // flex.scss utility file to include the display
@@ -40,6 +41,14 @@ $flex-properties-map: (
             column-reverse,
             row-reverse
         )
+    ),
+    flex-grow: (
+        prefix: #{$flex-grow-identifier},
+        values: ( 0, 1)
+    ),
+    flex-shrink: (
+        prefix: #{$flex-shrink-identifier},
+        values: ( 0, 1)
     ),
     flex-wrap: (
         values: ( nowrap, wrap-reverse, wrap )
@@ -67,6 +76,7 @@ $flex-properties-map: (
 
 );
 
+
 @include generateFromMapOfProperties($flex-properties-map);
 
 .flex-col {
@@ -78,3 +88,21 @@ $flex-properties-map: (
     display: flex;
     flex-direction: row;
 }
+
+
+
+$flex-grow-map: (
+    "0": 0,
+    "1": 1,
+    "2": 2
+);
+
+// covers both grow and shrink
+// @each $key, $value in $flex-grow-map {
+//     .fg#{$key} {
+//         flex-grow: $value;
+//     }
+//     .fs#{$key} {
+//         flex-shrink: $value;
+//     }
+// }

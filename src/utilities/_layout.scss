@@ -3,10 +3,20 @@
 
 $layout-properties-map: (
     display: ( values: ( block, flex, none, inline-block, inline-flex, inline ) ),
+    float: ( prefix: "float-", values: ( left, right, none ) ),
     overflow: ( values: ( auto, clip, hidden, scroll, visible ) ),
     overflow-x: ( values: ( auto, clip, hidden, scroll, visible ) ),
     overflow-y: ( values: ( auto, clip, hidden, scroll, visible ) ),
-    visibility: ( values: ( collapse, hidden, visible ) )
+    visibility: ( values: ( collapse, hidden, visible ) ),
+    z-index: ( prefix: "z-", values: ( 0, 50, 100, (bottom: -1), (top: 999)) ),
 );
 
 @include generateFromMapOfProperties($layout-properties-map);
+
+
+// only stick while parent is in view
+.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}

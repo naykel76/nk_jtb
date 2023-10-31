@@ -83,11 +83,28 @@
 // the unit is null.
 @mixin generalClasses($property, $values, $identifier, $unit) {
     @each $key, $value in $values {
+        $variant: sanitizeClassName($key);
+
         // if there is no `key-value` pair in the map, the key
         // will be used as the value this allows for a list of
         // values to be used as the map
         $value: if($value, $value, $key);
-        $variant: sanitizeClassName($key);
+
+        // if the $key is a list, then the value key-value pair in
+        // the property map has been converted. This is a sass thing
+        // and I don't know why it does this. So we have to convert
+        // it to something usable.
+        @if (type-of($key) == list) {
+            $variant: nth($key, 1);
+            $value: nth($key, 2);
+        }
+
+        // if the $value has a unit, consider it as an override and
+        // replace what ever was passed in to the mixin. Note: this
+        // may have limitations or unexpected results. This is good
+        // for creating base variants `container-sm`
+        $unit: if(hasUnit($value), "", $unit);
+
         $class: #{$identifier}#{$variant}#{handleClassUnit($unit)};
 
         // handleValue function append's the unit if required
