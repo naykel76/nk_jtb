@@ -1,25 +1,24 @@
 @use "./base/base";
 @use "./base/root";
 
-// -- IMPORTANT --  order matters, and components need to be loaded before
-// utility classes to make sure they can be overridden
+// -- ORDER MATTERS --
+// ----------------------------------------------------------------
+// Components need to be loaded before utility classes to make sure
+// they can be overridden
 
-// // -- ORDER MATTERS -- Components need to be loaded before utility
-// // classes to make sure they can be overridden
 // @forward "./components-extended/hero";
-// @forward "./components/button";
-// @forward "./components-for-review/accordion";
-// @forward "./components-for-review/article";
-// @forward "./components-for-review/box";
-// @forward "./components-for-review/dropdown";
-// @forward "./components-for-review/icon";
-// @forward "./components-for-review/list";
-// @forward "./components-for-review/menu";
-// @forward "./components-for-review/navbar";
-// @forward "./components-for-review/other";
-// @forward "./components-for-review/sidebar";
 
-// @forward "./components/button";
+@forward "./components/accordion";
+@forward "./components/article";
+@forward "./components/box";
+@forward "./components/button";
+@forward "./components/dropdown";
+@forward "./components/icon";
+@forward "./components/list";
+@forward "./components/menu";
+@forward "./components/navbar";
+@forward "./components/other";
+@forward "./components/sidebar";
 
 @forward "./color/";
 @forward "./color/themes";

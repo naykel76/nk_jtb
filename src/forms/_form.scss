@@ -1,0 +1,102 @@
+@use "../mixins/media" as *;
+@use "../forms/control" as *;
+
+// -- Base Elements --
+// ==========================================================================
+label {
+    font-weight: 600;
+}
+
+textarea,
+select,
+input {
+    @extend %control;
+}
+
+:where(textarea, select, input:not([type="checkbox"]):not([type="radio"])) {
+    padding-left: 0.75em;
+}
+
+button,
+select {
+    cursor: pointer;
+}
+
+.checkbox,
+.radio {
+    cursor: pointer;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+// -- frm-row --
+// ==========================================================================
+
+.frm-row {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    // -- Generic Elements --
+    label {
+        margin-bottom: 3px;
+    }
+
+    &.inline {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+
+        label {
+            // exclude width class to make it easier to override or
+            // can also use flex-basis to override width
+            &:not([class*="w-"]) {
+                width: 10rem;
+            }
+            flex-shrink: 0; // prevent shrink for 100%
+            margin-top: 4px; // better alignment
+        }
+    }
+}
+
+.withAddons {
+    display: flex;
+    align-items: center;
+    flex: 1 1 0%;
+
+    input {
+        flex-grow: 1;
+    }
+
+    .leadingAddon {
+        border-top-left-radius: $ctrl-border-radius;
+        border-bottom-left-radius: $ctrl-border-radius;
+        ~ input {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            margin-left: -1px; // prevent double border
+        }
+    }
+
+    .trailingAddon {
+        border-top-right-radius: $ctrl-border-radius;
+        border-bottom-right-radius: $ctrl-border-radius;
+        order: 3;
+        ~ input {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            margin-right: -1px; // prevent double border
+        }
+    }
+
+    // style addons the same as the control
+    :where(.leadingAddon, .trailingAddon) {
+        border: $ctrl-border;
+        font-size: $ctrl-font-size;
+        padding: $ctrl-padding-y $ctrl-padding-x;
+        line-height: $ctrl-line-height; // 1
+        display: inline-flex;
+        color: $ctrl-color;
+        background: #fafafa;
+    }
+}
