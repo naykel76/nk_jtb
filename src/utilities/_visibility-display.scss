@@ -1,4 +1,4 @@
-@use "../variables/vars_base" as *;
+@use "../variables/base" as *;
 @use "../mixins/media" as *;
 @use "../mixins/responsiveClassGenerators" as *;
 
@@ -30,3 +30,10 @@
 
 @include makeToBreakpoint(display, block, "block", "sm", "md", "lg", "xl");
 @include makeToBreakpoint(display, none, "hide", "sm", "md", "lg", "xl");
+
+
+// DEPRECATED
+.sr-only {
+    opacity: 0;
+    position: absolute;
+}
