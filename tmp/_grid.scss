@@ -38,3 +38,26 @@ $grid-gap-magic-sizes: ((5, 3, 2), (5, 3), (4, 2), (3, 1)) !default;
         grid-template-columns: minmax(0, nth($fr-units, 1)) minmax(0, nth($fr-units, 2));
     }
 }
+
+// ------------------------------------------------------------------
+// -- RESPONSIVE GRID --
+// ------------------------------------------------------------------
+@include from-lg {
+    .lg\:cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@include from-md {
+    .md\: {
+        &cols-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        &cols-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        &cols-9 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+}

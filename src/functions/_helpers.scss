@@ -26,6 +26,25 @@
 }
 
 // ----------------------------------------------------------------
+// Strips 'xy' and '-xy' if the last characters in a string
+// ----------------------------------------------------------------
+// Usage: $class: stripDash("bdr-xy");
+// Outputs $class: 'bdr';
+// ----------------------------------------------------------------
+// used to exclude the -xy suffix from the class name, for example
+// `bdr-xy` will be `bdr` and `bdr-xy-sm` will be `bdr-sm`. This is
+// kind of a hack and some people may prefer to have the `xy` suffix
+// in the class name.
+$xy-exclusions: ("bdr-");
+
+@function stripXy($class, $identifier) {
+    @if index($xy-exclusions, $identifier) and (str-slice($class, -3) == "-xy") {
+        $class: str-slice($class, 1, -4);
+    }
+    @return $class;
+}
+
+// ----------------------------------------------------------------
 // Search and replace a string
 // ----------------------------------------------------------------
 // Usage: $class: strReplace("maxw-20rem", "rem", "");
@@ -93,6 +112,9 @@
     @return if($unit != "rem", $unit, "");
 }
 
+// @function handlePosition($position-key) {
+//     @return if($position-key == "xy", "", "");
+// }
 
 // ----------------------------------------------------------------
 // Check if a value has a unit. For example, 1rem or 1px.

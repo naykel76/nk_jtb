@@ -1,0 +1,13 @@
+@use "../functions/helpers" as *;
+
+$space-sizes: (0, 1, 1.5, 2, 3);
+
+@each $value in $space-sizes {
+    $variant: #{sanitizeClassName($value)};
+    .space-x-#{$variant} > *:not(:first-child) {
+        margin-left: #{$value}rem;
+    }
+    .space-y-#{$variant} > *:not(:first-child) {
+        margin-top: #{$value}rem;
+    }
+}

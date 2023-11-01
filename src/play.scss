@@ -1,7 +1,7 @@
 // @use "./components/box" as *;
 @use "./mixins/classGenerators" as *;
 @use "./mixins/magicClassGenerators" as *;
-@use "./utilities/grid" as *;
+@use "./utilities/border" as *;
 @use "./variables" as *;
 @use "sass:list";
 @use "sass:map";

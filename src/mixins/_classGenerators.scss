@@ -36,7 +36,7 @@
 
     @each $axis-or-position-key, $positions in $positions-map {
         $variant: stripDash(-#{$sanitized}#{handleClassUnit($unit)});
-        $class: #{$identifier}#{$axis-or-position-key}#{$variant};
+        $class: stripXy(#{$identifier}#{$axis-or-position-key}#{$variant}, $identifier);
         .#{$class} {
             @include positionBasedProperties($property, $value, $positions, $unit);
         }
