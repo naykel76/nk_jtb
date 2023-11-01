@@ -38,7 +38,7 @@
         $variant: stripDash(-#{$sanitized}#{handleClassUnit($unit)});
         $class: #{$identifier}#{$axis-or-position-key}#{$variant};
         .#{$class} {
-            @include positionBasedProperties($property, $positions, $value, $unit);
+            @include positionBasedProperties($property, $value, $positions, $unit);
         }
     }
 }

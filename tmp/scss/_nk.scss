@@ -1,11 +1,7 @@
 @use "../variables" as *;
 @use "../mixins/media" as *;
 
-body {
-    min-height: 100vh; // set height to push footer to the bottom
-    display: flex;
-    flex-direction: column;
-}
+
 
 #nk-main {
     flex: 1; // 1. allow to grow to fill height

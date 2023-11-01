@@ -15,11 +15,9 @@
 // ----------------------------------------------------------------
 // Iterates through the list of positions creating the appropriate
 // `$property` (top, bottom, left, right) based on the `$value`.
-
-@mixin positionBasedProperties($property, $positions, $value, $unit: "rem") {
+@mixin positionBasedProperties($property, $value, $positions, $unit: "rem") {
     @each $position in $positions {
-        // remove unit for auto, 0, border
-        $derivedUnit: if(($value == "auto" or $value == 0 or $property == "border"), null, $unit);
+        $derivedUnit: if(($value == "auto" or $value == 0), null, $unit);
         #{$property}-#{$position}: #{$value}#{$derivedUnit};
     }
 }

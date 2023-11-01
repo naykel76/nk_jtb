@@ -17,11 +17,7 @@ $num-grid-cols: get("grid.num-grid-cols", $config);
     gap: get("grid.default-gap", $config);
 }
 
-// ------------------------------------------------------------------
-// -- GRID GAP --
-// ------------------------------------------------------------------
-$grid-gap-sizes: (0, 0.5, 1, 1.25, 1.5, 2, 3, 4, 5) !default;
-@include unitBasedClasses(gap, $grid-gap-sizes, "gg");
+
 
 // ------------------------------------------------------------------
 // -- EQUAL WIDTHS COLUMNS(NON-RESPONSIVE) --

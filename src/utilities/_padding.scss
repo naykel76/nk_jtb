@@ -1,8 +1,10 @@
 @use "../mixins/classGenerators" as *;
+@use "../mixins/magicClassGenerators" as *;
 @use "../variables" as *;
 @use "sass:map";
 
 $padding-sizes: (0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 4, 5) !default;
+$magic-padding-y: ((5, 3, 2), (3, 2, 1));
 
 $padding-properties-map: (
     padding: (
@@ -14,3 +16,6 @@ $padding-properties-map: (
 );
 
 @include generateFromMapOfProperties($padding-properties-map);
+
+
+@include magicClass(padding, $magic-padding-y, "py", $position-or-axis: y);

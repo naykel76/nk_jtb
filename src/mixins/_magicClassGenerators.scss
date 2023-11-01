@@ -1,0 +1,99 @@
+@use "../variables/utility_maps" as *;
+@use "./media" as *;
+@use "./propertyGenerators" as *;
+@use "sass:list";
+
+@mixin handlePropertyCreator($property, $value, $positions, $unit) {
+    @if ($positions == "" or $positions == null) {
+        // need to complete!!
+        @debug "handlePropertyCreator: $property, $value, $positions, $unit";
+        // @include makeProperty($property, $value, $unit);
+    } @else {
+        // do i need unit???
+        @include positionBasedProperties($property, $value, $positions, $unit);
+    }
+}
+
+@function derivedClass($list) {
+    $numBreakPoints: list.length($list);
+
+    $baseValue: nth($list, -1);
+    $smValue: nth($list, -2);
+    $mdValue: if($numBreakPoints >= 3, nth($list, -3), null);
+    $lgValue: if($numBreakPoints >= 4, nth($list, -4), null);
+    $xlValue: if($numBreakPoints >= 5, nth($list, -5), null);
+    $xxlValue: if($numBreakPoints >= 6, nth($list, -6), null);
+
+    @if ($numBreakPoints == 2) {
+        @return #{$smValue}-#{$baseValue};
+    } @else if ($numBreakPoints == 3) {
+        @return #{$mdValue}-#{$smValue}-#{$baseValue};
+    } @else if ($numBreakPoints == 4) {
+        @return #{$lgValue}-#{$mdValue}-#{$smValue}-#{$baseValue};
+    } @else if ($numBreakPoints == 5) {
+        @return #{$xlValue}-#{$lgValue}-#{$mdValue}-#{$smValue}-#{$baseValue};
+    } @else if ($numBreakPoints == 6) {
+        @return #{$xxlValue}-#{$xlValue}-#{$lgValue}-#{$mdValue}-#{$smValue}-#{$baseValue};
+    }
+}
+
+// ----------------------------------------------------------------
+// -- GENERATE MAGIC CLASS FOR A SINGLE PROPERTY --
+// ----------------------------------------------------------------
+@mixin magicClass($property, $values-list, $identifier, $unit: "rem", $position-or-axis: "") {
+    // @debug
+    // get the positions required to build up the class
+    // (x:(left, right), y:(top, bottom) ... etc)
+    $positions: map-get($axis-position-map, $position-or-axis);
+
+    @each $list in $values-list {
+        //     // exclude empty list when creating single list
+        @if ($list != ()) {
+            $numBreakPoints: list.length($list);
+
+            // set the value of the BP based on position using negative
+            // numbers. This makes sure the position is always the same
+            $baseValue: nth($list, -1);
+            $smValue: nth($list, -2);
+            $mdValue: if($numBreakPoints >= 3, nth($list, -3), null);
+            $lgValue: if($numBreakPoints >= 4, nth($list, -4), null);
+
+            $derived-class: derivedClass($list);
+
+            // DO NOT use else-if statements when building the classes.
+            // You want to give all classes to the opportunity to build.
+            .#{$identifier}-#{$derived-class} {
+                @include handlePropertyCreator($property, $baseValue, $positions, $unit);
+
+                @include from-sm {
+                    @include handlePropertyCreator($property, $smValue, $positions, $unit);
+                }
+
+                @if ($numBreakPoints >= 3) {
+                    @include from-md {
+                        @include handlePropertyCreator($property, $mdValue, $positions, $unit);
+                    }
+                }
+
+                @if ($numBreakPoints >= 4) {
+                    @include from-lg {
+                        @include handlePropertyCreator($property, $lgValue, $positions, $unit);
+                    }
+                }
+
+                //             // I think this is a bit much and we don't need to go this far.
+
+                //             // @if ($numBreakPoints >= 5) {
+                //             //     @include from-xl {
+                //             //         @include handlePropertyCreator($property, $xlValue, $unit, $positions);
+                //             //     }
+                //             // }
+                //             // @if ($numBreakPoints >= 6) {
+                //             //     @include from-xxl {
+                //             //         @include handlePropertyCreator($property, $xxlValue, $unit, $positions);
+                //             //     }
+                //             // }
+            }
+        }
+    }
+}

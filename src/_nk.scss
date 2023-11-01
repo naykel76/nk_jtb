@@ -1,5 +1,11 @@
-@use "./base/vars_all" as *;
+@use "./variables" as *;
 @use "./mixins/media" as *;
+
+body {
+    min-height: 100vh; // set height to push footer to the bottom
+    // display: flex;
+    // flex-direction: column;
+}
 
 #nk-header {
     background: $header-bg;

@@ -1,7 +1,14 @@
 @use "../variables" as *;
 @use "../mixins/classGenerators" as *;
 
+$gap-sizes: (0, 0.5, 1, 1.25, 1.5, 2, 3, 4, 5) !default;
+
 $grid-properties-map: (
+    gap:(
+        prefix: "gg-",
+        values: $gap-sizes,
+        unit: "rem"
+    ),
     justify-items: (
         prefix: "justify-items-",
         values: ( center, end, start, stretch )

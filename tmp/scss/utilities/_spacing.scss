@@ -1,6 +1,6 @@
 @use "../variables" as *;
 @use "../../functions/helpers" as *;
-@use "../mixins/makeMagicClass" as *;
+@use "../mixins/magicClass" as *;
 @use "../mixins/media" as *;
 
 
@@ -8,16 +8,7 @@
 // -- MAGIC PADDING AND MARGINS --
 // ----------------------------------------------------------------
 
-$magic-padding-x: ((), ());
-$magic-padding-y: ((5, 3, 2, 2), ());
 
-@include makeMagicClass(padding, $magic-padding-x, "px", $direction: x);
-@include makeMagicClass(padding, $magic-padding-y, "py", $direction: y);
-
-$magic-margin-x: ((), ());
-$magic-margin-y: ((5, 3, 2, 2), ());
-@include makeMagicClass(margin, $magic-margin-x, "mx", $direction: x);
-@include makeMagicClass(margin, $magic-margin-y, "my", $direction: y);
 
 
 

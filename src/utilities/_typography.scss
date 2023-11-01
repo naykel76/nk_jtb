@@ -2,25 +2,66 @@
 @use "../mixins/classGenerators" as *;
 @use "sass:map";
 
-// remove the following colours from the map
-$colors: map.remove($color-map, 'danger', 'dark', 'info', 'light', 'success', 'warning');
-$text-variants: ( xs: 0.75rem, sm: 0.875rem, base: 1rem, lg: 1.125rem, xl: 1.5rem ) !default;
-
-// build rem-sizes separately because it's a list
-$text-rem-sizes: (2, 2.5, 3, 4) !default;
-@include unitBasedClasses(font-size, $text-rem-sizes, "txt", $unit: "rem");
+/* ----------------------------------------------------------------
+ * -- IMPORTANT --
+ * ----------------------------------------------------------------
+ * Opinionated classes must be created first to make sure they can
+ * be overridden by utility classes
+ */
 
 // ------------------------------------------------------------------
-// -- TEXT UTILITY CLASSES --
+// -- PROPERTY MAPS --
+// ------------------------------------------------------------------
+// remove the following colours from the map
+$text-colors: map.remove($color-map, 'danger', 'dark', 'info', 'light', 'success', 'warning');
+$text-size-variants: ( xs: 0.75rem, sm: 0.875rem, base: 1rem, lg: 1.125rem, xl: 1.5rem ) !default;
+// build rem-sizes separately because it's a list an will not play nice with the map
+$text-rem-sizes: (2, 2.5, 3, 4) !default;
+
+// ------------------------------------------------------------------
+// -- OPINIONATED TEXT CLASSES --
+// ------------------------------------------------------------------
+//
+.lead{
+    font-size: 1.2rem;
+}
+
+.title {
+    color: $primary;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.125;
+}
+
+.subtitle {
+    color: $primary;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.125;
+}
+
+// this seems a little out of place here, oh well!
+.link {
+    background-color: transparent;
+    background-image: none;
+    border: none;
+    color: $link-color;
+    &:hover {
+        color: $link-hover-color;
+    }
+}
+
+// ------------------------------------------------------------------
+// -- UTILITY CLASS MAP --
 // ------------------------------------------------------------------
 $typography-properties-map: (
     color: (
         prefix: "#{$text-identifier}",
-        values: ( $colors )
+        values: $text-colors
     ),
     font-size: (
         prefix: "#{$text-identifier}",
-        values: $text-variants
+        values: $text-size-variants
     ),
     font-style: (
         prefix: "#{$text-identifier}",
@@ -53,35 +94,5 @@ $typography-properties-map: (
 );
 
 @include generateFromMapOfProperties($typography-properties-map);
-
-// ------------------------------------------------------------------
-// -- OPINIONATED TEXT CLASSES --
-// ------------------------------------------------------------------
-.lead{
-    font-size: 1.2rem;
-}
-
-.title {
-    color: $primary;
-    font-size: 3rem;
-    font-weight: 700;
-    line-height: 1.125;
-}
-
-.subtitle {
-    color: $primary;
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1.125;
-}
-
-// this seems a little out of place here, oh well!
-.link {
-    background-color: transparent;
-    background-image: none;
-    border: none;
-    color: $link-color;
-    &:hover {
-        color: $link-hover-color;
-    }
-}
+// build rem-sizes separately because it's a list an will not play nice with the map
+@include unitBasedClasses(font-size, $text-rem-sizes, "txt", $unit: "rem");
