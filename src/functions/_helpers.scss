@@ -26,10 +26,7 @@
 }
 
 // ----------------------------------------------------------------
-// Strips 'xy' and '-xy' if the last characters in a string
-// ----------------------------------------------------------------
-// Usage: $class: stripDash("bdr-xy");
-// Outputs $class: 'bdr';
+// Strip unwanted characters from class names
 // ----------------------------------------------------------------
 // used to exclude the -xy suffix from the class name, for example
 // `bdr-xy` will be `bdr` and `bdr-xy-sm` will be `bdr-sm`. This is
@@ -37,7 +34,17 @@
 // in the class name.
 $xy-exclusions: ("bdr-");
 
-@function stripXy($class, $identifier) {
+
+@function stripInvalid($class, $identifier) {
+
+    // allows variants with base classes to be used without the
+    // '-base' suffix. For example, `pxy-base` will be `pxy`.
+    @if (str-slice($class, -5) == "-base") {
+        $class: str-slice($class, 1, -6);
+    }
+
+    // Check if the identifier is in the exclusions list and if the
+    // class ends with '-xy' and if so remove the '-xy' suffix.
     @if index($xy-exclusions, $identifier) and (str-slice($class, -3) == "-xy") {
         $class: str-slice($class, 1, -4);
     }
@@ -80,10 +87,9 @@ $xy-exclusions: ("bdr-");
 }
 
 // ----------------------------------------------------------------
-// sanitize $class to removes decimal for values less than zero and
-// escape invalid charters
+// escape invalid charters to be used in class names
 // ----------------------------------------------------------------
-@function sanitizeClassName($input) {
+@function escapeInvalid($input) {
     $input: toString($input);
 
     // if the value starts with '0.' remove the decimal
@@ -111,10 +117,6 @@ $xy-exclusions: ("bdr-");
 @function handleClassUnit($unit) {
     @return if($unit != "rem", $unit, "");
 }
-
-// @function handlePosition($position-key) {
-//     @return if($position-key == "xy", "", "");
-// }
 
 // ----------------------------------------------------------------
 // Check if a value has a unit. For example, 1rem or 1px.

@@ -1,5 +1,4 @@
 @use "./base" as *;
-@use "./colors" as *;
 
 // ------------------------------------------------------------------
 // -- AXIS TO POSITIONS MAP --
@@ -8,8 +7,6 @@
 // retrieve css positions for a axis or position.
 //
 // !--IMPORTANT--!  The order of this map matters
-
-// tl, tr, bl, br
 
 // prettier-ignore
 $axis-position-map: (

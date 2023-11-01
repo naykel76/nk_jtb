@@ -21,7 +21,7 @@
 // @include positionBasedClass(padding, 1, "p", $xy-positions-map);
 // ----------------------------------------------------------------
 @mixin positionBasedClass($property, $value, $identifier, $positions-map, $unit: "rem") {
-    $sanitized: "frog"; // initialize to something or will get error
+    $escapedValue: "frog"; // initialize to something or will get error
     // this is to solve the annoying problem of having to pass in a
     // map with a single key-value pair to the `positionBasedClasses`
     // mixin because it converts map items to a list!
@@ -29,14 +29,16 @@
         $key: nth(map-keys($value), 1);
         $value: nth(map-values($value), 1);
         // remove the key if 'default' to allow for base class
-        $sanitized: if($key == default, "", $key);
+        $escapedValue: if($key == default, "", $key);
     } @else {
-        $sanitized: sanitizeClassName($value);
+        $escapedValue: escapeInvalid($value);
     }
 
     @each $axis-or-position-key, $positions in $positions-map {
-        $variant: stripDash(-#{$sanitized}#{handleClassUnit($unit)});
-        $class: stripXy(#{$identifier}#{$axis-or-position-key}#{$variant}, $identifier);
+        $variant: stripDash(-#{$escapedValue}#{handleClassUnit($unit)});
+
+        $class: stripInvalid(#{$identifier}#{$axis-or-position-key}#{$variant}, $identifier);
+
         .#{$class} {
             @include positionBasedProperties($property, $value, $positions, $unit);
         }
@@ -83,7 +85,7 @@
 // the unit is null.
 @mixin generalClasses($property, $values, $identifier, $unit) {
     @each $key, $value in $values {
-        $variant: sanitizeClassName($key);
+        $variant: escapeInvalid($key);
 
         // if there is no `key-value` pair in the map, the key
         // will be used as the value this allows for a list of
@@ -126,8 +128,8 @@
 
 @mixin unitBasedClasses($property, $values, $identifier, $unit: "rem") {
     @each $value in $values {
-        $sanitized: sanitizeClassName($value);
-        $class: #{$identifier}-#{$sanitized}#{handleClassUnit($unit)};
+        $escapedValue: escapeInvalid($value);
+        $class: #{$identifier}-#{$escapedValue}#{handleClassUnit($unit)};
         @include singlePropertyClass($class, $property, #{$value}#{$unit});
     }
 }

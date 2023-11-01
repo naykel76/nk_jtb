@@ -56,7 +56,7 @@ $pixel-sizes: (100, 150, 200, 300, 400, 600) !default;
 
 // -- WIDTH & HEIGHT --
 @each $size in $rem-sizes {
-    $class: sanitizeClassName($size);
+    $class: escapeInvalid($size);
     .wh-#{$class} {
         width: #{$size}rem;
         height: #{$size}rem;
