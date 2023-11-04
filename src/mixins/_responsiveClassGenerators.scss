@@ -1,38 +1,37 @@
 @use "./media" as *;
+@use "./propertyGenerators" as *;
 
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
 //
 // SCSS does not support interpolation for @include so there is no
 // choice other than using multiple if-else statements.
 //
-// Putting the $property, and $value before the class $identifier
-// will make it easier to order and read mixins.
-//
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
 
 // output:  {bp}\:identifier
-@mixin makeFromBreakpoint($property, $value, $identifier, $breakpoints...) {
+@mixin makeFromBreakpoint($props, $identifier, $breakpoints...) {
     @each $bp in $breakpoints {
-        .#{$bp}\:#{$identifier} {
+        $class: #{$bp}\:#{$identifier};
+        .#{$class} {
             @if ($bp == "sm") {
                 @include from-sm {
-                    #{$property}: $value !important;
+                    @include propertiesFromMap($props);
                 }
             } @else if($bp == "md") {
                 @include from-md {
-                    #{$property}: $value !important;
+                    @include propertiesFromMap($props);
                 }
             } @else if($bp == "lg") {
                 @include from-lg {
-                    #{$property}: $value !important;
+                    @include propertiesFromMap($props);
                 }
             } @else if($bp == "xl") {
                 @include from-xl {
-                    #{$property}: $value !important;
+                    @include propertiesFromMap($props);
                 }
             } @else if($bp == "xxl") {
                 @include from-xxl {
-                    #{$property}: $value !important;
+                    @include propertiesFromMap($props);
                 }
             }
         }
@@ -40,24 +39,24 @@
 }
 
 // output:  to-{breakpoint}\:identifier
-@mixin makeToBreakpoint($property, $value, $identifier, $breakpoints...) {
+@mixin makeToBreakpoint($props, $identifier, $breakpoints...) {
     @each $bp in $breakpoints {
         .to-#{$bp}\:#{$identifier} {
             @if ($bp == "sm") {
                 @include to-sm {
-                    #{$property}: $value !important;
+                    @include propertiesFromMap($props);
                 }
             } @else if($bp == "md") {
                 @include to-md {
-                    #{$property}: $value !important;
+                    @include propertiesFromMap($props);
                 }
             } @else if($bp == "lg") {
                 @include to-lg {
-                    #{$property}: $value !important;
+                    @include propertiesFromMap($props);
                 }
             } @else if($bp == "xl") {
                 @include to-xl {
-                    #{$property}: $value !important;
+                    @include propertiesFromMap($props);
                 }
             } @else {
                 @error 'The device '#{$bp}' is not available for this mixin, you need to remove it from the args list.';
@@ -67,28 +66,28 @@
 }
 
 // output: on-{breakpoint}\:identifier
-@mixin makeOnBreakpoint($property, $value, $identifier, $breakpoints...) {
+@mixin makeOnBreakpoint($props, $identifier, $breakpoints...) {
     @each $bp in $breakpoints {
         .on-#{$bp}\:#{$identifier} {
             @if ($bp == "sm") {
                 @include on-sm {
-                    #{$property}: $value !important;
+                    @include propertiesFromMap($props);
                 }
             } @else if($bp == "md") {
                 @include on-md {
-                    #{$property}: $value !important;
+                    @include propertiesFromMap($props);
                 }
             } @else if($bp == "lg") {
                 @include on-lg {
-                    #{$property}: $value !important;
+                    @include propertiesFromMap($props);
                 }
             } @else if($bp == "xl") {
                 @include on-xl {
-                    #{$property}: $value !important;
+                    @include propertiesFromMap($props);
                 }
             } @else if($bp == "xxl") {
                 @include on-xxl {
-                    #{$property}: $value !important;
+                    @include propertiesFromMap($props);
                 }
             }
         }

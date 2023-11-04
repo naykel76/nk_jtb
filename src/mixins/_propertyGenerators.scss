@@ -1,14 +1,11 @@
 // ----------------------------------------------------------------
-// -- CREATE POSITION BASED PROPERTIES --
+// -- CREATE PROPERTIES FROM MAP OF KEY-VALUE PAIRS --
 // ----------------------------------------------------------------
-
-// @mixin singlePositionProperty($property, $position, $value, $unit: "rem") {
-//     #{$property}-#{$position}: #{$value}#{$unit};
-// }
-
-// @mixin createProperty($property, $value) {
-//     #{$property}: #{$value};
-// }
+@mixin propertiesFromMap($props) {
+    @each $property, $value in $props {
+        #{$property}: $value;
+    }
+}
 
 // ----------------------------------------------------------------
 // -- CREATE POSITION BASED PROPERTIES --

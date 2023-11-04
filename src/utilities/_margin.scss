@@ -3,18 +3,21 @@
 @use "../variables" as *;
 @use "sass:map";
 
-// NEED TO ADD VARIANTS // .mxy { margin: 1.25rem }
-$margin-sizes: (0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 4, 5, auto) !default;
-$magic-margin-y: ((5, 3, 2), (3, 2, 1));
+// variants and sizes can be modified in src/variables/utility-maps.scss
 
-$margin-properties-map: (
-    margin: (
-        prefix: #{$margin-identifier},
-        values: $margin-sizes,
-        unit: "rem",
-        positions: $axis-position-map
-    )
-);
+$margin-sizes: (0:0, auto:auto) !default;
+@include positionBasedClasses(margin, (auto), #{$margin-identifier}, $axis-position-map, "rem");
 
-@include generateFromMapOfProperties($margin-properties-map);
-@include magicClass(margin, $magic-margin-y, "my", $position-or-axis: y);
+// $margin-sizes: $space-sizes !default;
+// $magic-margin-y: ((5, 3, 2), (3, 2, 1)) !default;
+
+// // merge-list-and-map($margin-sizes, $rem-sizes-map);
+
+// // variants
+// @include positionBasedClasses(margin, $margin-sizes, #{$margin-identifier}, $axis-position-map, "rem");
+
+// // sizes
+// @include positionBasedClasses(margin, $space-variants, #{$margin-identifier}, $axis-position-map, "rem");
+
+// // magic classes
+// @include magicClass(margin, $magic-margin-y, "my", $position-or-axis: y);

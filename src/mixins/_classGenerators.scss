@@ -1,5 +1,6 @@
 @use "../functions/helpers" as *;
 @use "./propertyGenerators" as *;
+@use "./responsiveClassGenerators" as *;
 @use "sass:string";
 
 // ----------------------------------------------------------------
@@ -76,6 +77,23 @@
             @include positionBasedClasses($property, $values, $identifier, $positions-map, $unit);
         } @else {
             @include generalClasses($property, $values, $identifier, $unit);
+        }
+    }
+}
+
+// can handle multiple properties
+@mixin generateFromMapOfClasses($properties-map) {
+    @each $class, $map in $properties-map {
+        $props: map-get($map, "props");
+        $bp: map-get($map, "breakpoints");
+
+        .#{$class} {
+            @include propertiesFromMap($props);
+        }
+
+        // handle responsive variants
+        @if ($bp) {
+            @include makeFromBreakpoint($props, $class, $bp...);
         }
     }
 }

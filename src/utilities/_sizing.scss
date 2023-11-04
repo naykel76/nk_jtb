@@ -67,11 +67,10 @@ $pixel-sizes: (100, 150, 200, 300, 400, 600) !default;
 // -- RESPONSIVE SIZES --
 // ------------------------------------------------------------------
 
-@include makeFromBreakpoint(width, 16rem, "w-16", "sm", "md", "lg", "xl");
-@include makeFromBreakpoint(width, 20rem, "w-20", "sm", "md", "lg", "xl");
-@include makeFromBreakpoint(width, 24rem, "w-24", "sm", "md", "lg", "xl");
-@include makeFromBreakpoint(width, 100%, "w-full", "sm", "md", "lg", "xl");
-
+@include makeFromBreakpoint((width: 16rem), "w-16", "sm", "md", "lg", "xl");
+@include makeFromBreakpoint((width: 20rem), "w-20", "sm", "md", "lg", "xl");
+@include makeFromBreakpoint((width: 24rem), "w-24", "sm", "md", "lg", "xl");
+@include makeFromBreakpoint((width: 100%), "w-full", "sm", "md", "lg", "xl");
 
 // ------------------------------------------------------------------
 // I really don't think fractional widths are worth it. I think it

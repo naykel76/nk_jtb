@@ -1,21 +1,16 @@
 // @use "./components/box" as *;
+@use "./utilities/flexbox" as *;
+
+@use "./functions/helpers" as *;
 @use "./mixins/classGenerators" as *;
 @use "./mixins/magicClassGenerators" as *;
-@use "./utilities/padding" as *;
+@use "./mixins/propertyGenerators" as *;
+@use "./mixins/magicGridEqualWidths" as *;
+@use "./mixins/media" as *;
+@use "./mixins/responsiveClassGenerators" as *;
 @use "./variables" as *;
 @use "sass:list";
 @use "sass:map";
 @use "sass:string";
 
 
-// @media (min-width: 768px)
-// .cols-3-1-1 {
-//     grid-template-columns: repeat(3,1fr);
-// }
-// @media (min-width: 576px)
-// .cols-3-1-1 {
-//     grid-template-columns: repeat(1,1fr);
-// }
-// .cols-3-1-1 {
-//     grid-template-columns: repeat(1,1fr);
-// }

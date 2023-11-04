@@ -82,3 +82,17 @@ $fr-conversion-2-col: (
     75: ( 3fr, 1fr ),
     80: ( 4fr, 1fr )
 );
+
+// ------------------------------------------------------------------
+//  Space sizes and variants for margin and padding utilities
+// ------------------------------------------------------------------
+$space-variants: (
+    0: 0,
+    xs: 0.75,
+    sm: 1,
+    base: 1.5,
+    lg: 2,
+    xl: 3
+) !default;
+
+$space-sizes: (0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 4, 5) !default;

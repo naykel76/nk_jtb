@@ -1,52 +1,12 @@
-@use "../variables" as *;
-@use "../../functions/helpers" as *;
-@use "../mixins/magicClass" as *;
-@use "../mixins/media" as *;
-
-
 // ----------------------------------------------------------------
 // -- MAGIC PADDING AND MARGINS --
 // ----------------------------------------------------------------
-
-
-
-
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-//
-
-.c-mt-0 > * {
-    margin-top: 0;
-}
 
 .c-pxy > * {
     padding: 1rem;
 }
 
-.c-pxy-0 > * {
-    padding: 0;
-}
-
-.c-px-0 > * {
-    padding-left: 0;
-    padding-right: 0;
-}
-
+// used in FOL
 .c-px-1 > * {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -82,55 +42,6 @@
     }
 }
 
-
-
-// these do not play well in a loop!
-.space-y {
-    > *:not(:first-child) {
-        margin-top: $content-gap;
-    }
-    &-025 > *:not(:first-child) {
-        margin-top: 0.25rem;
-    }
-    &-05 > *:not(:first-child) {
-        margin-top: 0.5rem;
-    }
-    &-075 > *:not(:first-child) {
-        margin-top: 0.75rem;
-    }
-}
-
-// these do not play well in a loop!
-.space-x {
-    > *:not(:first-child) {
-        margin-left: 1rem;
-    }
-    &-025 > *:not(:first-child) {
-        margin-left: 0.25rem;
-    }
-    &-05 > *:not(:first-child) {
-        margin-left: 0.5rem;
-    }
-    &-075 > *:not(:first-child) {
-        margin-left: 0.75rem;
-    }
-}
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -142,29 +53,10 @@
     }
 }
 
-.space-mx > * + * {
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
 
-.children-py-05 > * {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-}
 .children-py-025 > * {
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
 }
 
-.children-px-1 > * {
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
 
-//
-//
-//
-// ORDER ABOVE IN REVIEW
-//
-//
-//

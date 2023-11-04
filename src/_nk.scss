@@ -1,17 +1,30 @@
 @use "./variables" as *;
 @use "./mixins/media" as *;
 
+// ==========================================================================
+// -- LAYOUT ELEMENTS --
+// ==========================================================================
+
 body {
     min-height: 100vh; // set height to push footer to the bottom
-    // display: flex;
-    // flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 #nk-header {
     background: $header-bg;
-    margin: 0; // override spacing
 }
 
+#nk-main {
+    flex: 1; // 1. allow to grow to fill height
+    background-color: $main-bg;
+}
+
+#nk-footer {
+    background-color: $footer-bg;
+    margin-top: auto; // force footer to the bottom
+    color: #ccc;
+}
 // ==========================================================================
 // -- MARKDOWN --
 // ==========================================================================

@@ -3,17 +3,7 @@
 
 
 
-#nk-main {
-    flex: 1; // 1. allow to grow to fill height
-    background-color: $main-bg;
-    margin: 0;
-}
 
-#nk-footer {
-    background-color: $footer-bg;
-    margin-top: auto; // forces footer to the bottom
-    color: #ccc;
-}
 
 .copyright {
     color: $copyright-text-color;
