@@ -76,16 +76,13 @@
 // --  --
 // ----------------------------------------------------------------
 
-// can handle multiple properties
-// good when working with a single value
-// creates responsive classes
 @mixin generateFromMapOfClasses($properties-map) {
+
+    // how to check for property, or class map?
+
     @each $class, $map in $properties-map {
         $props: map-get($map, "props");
         $bp: map-get($map, "breakpoints");
-
-
-        $values: map-get($map, "values");
 
         .#{$class} {
             @include createProperties($props);

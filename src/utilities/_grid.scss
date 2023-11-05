@@ -1,8 +1,9 @@
-@use "../variables" as *;
 @use "../config" as *;
 @use "../functions/get" as *;
 @use "../functions/helpers" as *;
 @use "../mixins/classGenerators" as *;
+@use "../mixins/responsiveClassGenerators" as *;
+@use "../variables" as *;
 
 $gap: get("grid.default-gap", $config);
 
@@ -71,8 +72,6 @@ $grid-properties-map: (
 
 @include generateFromMapOfProperties($grid-properties-map);
 
-
-
 // ------------------------------------------------------------------
 // -- GRID --
 // ------------------------------------------------------------------
@@ -87,10 +86,18 @@ $grid-properties-map: (
 }
 
 // ------------------------------------------------------------------
-// -- EQUAL WIDTHS COLUMNS(NON-RESPONSIVE) --
+// -- EQUAL WIDTHS COLUMNS(RESPONSIVE AND NON-RESPONSIVE) --
 // ------------------------------------------------------------------
 @for $i from 1 through $num-grid-cols {
+    // base class
     .cols-#{$i} {
         grid-template-columns: repeat($i, minmax(0, 1fr));
     }
+    // responsive classes
+    $props: (
+        grid-template-columns: repeat($i, minmax(0, 1fr))
+    );
+    $breakpoints: ("base", "sm", "md", "lg", "xl");
+    $class: "cols-#{$i}";
+    @include makeFromBreakpoint($props, $class, $breakpoints...);
 }
