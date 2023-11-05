@@ -2,7 +2,7 @@
 @use "../functions/get" as *;
 @use "../functions/helpers" as *;
 @use "../mixins/classGenerators" as *;
-@use "../mixins/responsiveClassGenerators" as *;
+@use "../mixins/helpers" as *;
 @use "../variables" as *;
 
 $gap: get("grid.default-gap", $config);

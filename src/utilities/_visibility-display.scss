@@ -1,6 +1,6 @@
 @use "../variables/base" as *;
 @use "../mixins/media" as *;
-@use "../mixins/responsiveClassGenerators" as *;
+@use "../mixins/helpers" as *;
 
 // ----------------------------------------------------------------
 // DISPLAY AND HIDE 'FROM' THE SELECTED SCREEN SIZE
@@ -17,7 +17,7 @@
 // Example output: .on-sm:block, .on-md:block ... .on-xxl:block
 // Example output: .on-sm:hide, .on-md:hide ... .on-xxl:hide
 
-// @include makeOnBreakpoint((display: block), "block", "sm", "md", "lg", "xl", "xxl");
+@include makeOnBreakpoint((display: block), "block", "sm", "md", "lg", "xl", "xxl");
 @include makeOnBreakpoint((display: none), "hide", "sm", "md", "lg", "xl", "xxl");
 
 // ----------------------------------------------------------------

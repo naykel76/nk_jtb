@@ -1,5 +1,5 @@
 @use "../functions/helpers";
-
+@use "./media" as *;
 // ----------------------------------------------------------------
 // -- CLASS CREATORS --
 // ----------------------------------------------------------------
@@ -40,5 +40,98 @@
     @each $position in $positions {
         $derivedUnit: if(($value == "auto" or $value == 0), null, $unit);
         #{$property}-#{$position}: #{$value}#{$derivedUnit};
+    }
+}
+
+// ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
+//
+// SCSS does not support interpolation for @include so there is no
+// choice other than using multiple if-else statements.
+//
+// ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
+
+// output:  {bp}\:identifier
+@mixin makeFromBreakpoint($props, $identifier, $breakpoints...) {
+    @each $bp in $breakpoints {
+        $class: #{$bp}\:#{$identifier};
+        .#{$class} {
+            @if ($bp == "sm") {
+                @include from-sm {
+                    @include createProperties($props);
+                }
+            } @else if($bp == "md") {
+                @include from-md {
+                    @include createProperties($props);
+                }
+            } @else if($bp == "lg") {
+                @include from-lg {
+                    @include createProperties($props);
+                }
+            } @else if($bp == "xl") {
+                @include from-xl {
+                    @include createProperties($props);
+                }
+            } @else if($bp == "xxl") {
+                @include from-xxl {
+                    @include createProperties($props);
+                }
+            }
+        }
+    }
+}
+
+// output:  to-{breakpoint}\:identifier
+@mixin makeToBreakpoint($props, $identifier, $breakpoints...) {
+    @each $bp in $breakpoints {
+        .to-#{$bp}\:#{$identifier} {
+            @if ($bp == "sm") {
+                @include to-sm {
+                    @include createProperties($props);
+                }
+            } @else if($bp == "md") {
+                @include to-md {
+                    @include createProperties($props);
+                }
+            } @else if($bp == "lg") {
+                @include to-lg {
+                    @include createProperties($props);
+                }
+            } @else if($bp == "xl") {
+                @include to-xl {
+                    @include createProperties($props);
+                }
+            } @else {
+                @error 'The device '#{$bp}' is not available for this mixin, you need to remove it from the args list.';
+            }
+        }
+    }
+}
+
+// output: on-{breakpoint}\:identifier
+@mixin makeOnBreakpoint($props, $identifier, $breakpoints...) {
+    @each $bp in $breakpoints {
+        .on-#{$bp}\:#{$identifier} {
+            @if ($bp == "sm") {
+                @include on-sm {
+                    @include createProperties($props);
+                }
+            } @else if($bp == "md") {
+                @include on-md {
+                    @include createProperties($props);
+                }
+            } @else if($bp == "lg") {
+                @include on-lg {
+                    @include createProperties($props);
+                }
+            } @else if($bp == "xl") {
+                @include on-xl {
+                    @include createProperties($props);
+                }
+            } @else if($bp == "xxl") {
+                @include on-xxl {
+                    @include createProperties($props);
+                }
+            }
+        }
     }
 }

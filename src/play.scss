@@ -1,5 +1,5 @@
 // @use "./components/box" as *;
-@use "./utilities/visibility-display" as *;
+@use "./utilities/flexbox" as *;
 
 @use "./functions/helpers" as *;
 @use "./mixins/classGenerators" as *;
@@ -7,7 +7,6 @@
 @use "./mixins/magicClassGenerators" as *;
 @use "./mixins/magicGridEqualWidths" as *;
 @use "./mixins/media" as *;
-@use "./mixins/responsiveClassGenerators" as *;
 @use "./variables" as *;
 @use "sass:list";
 @use "sass:map";

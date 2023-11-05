@@ -1,7 +1,35 @@
 @use "../functions/helpers" as *;
 @use "../mixins/helpers" as *;
-@use "../mixins/responsiveClassGenerators" as *;
 @use "sass:string";
+
+// ----------------------------------------------------------------
+// Generate single property classes from map of values.
+// ----------------------------------------------------------------
+@mixin generateFromMapOfValues($property, $values, $identifier: "") {
+    @each $key, $value in $values {
+        @if ($identifier == "") {
+            // if the $identifier is omitted just us the key as the class name
+            @include createSinglePropertyClass(#{$key}, $property, $value);
+        } @else {
+            // otherwise join $identifier and $key for class name
+            @include createSinglePropertyClass(#{$identifier}-#{$key}, $property, $value);
+        }
+    }
+}
+
+// ----------------------------------------------------------------
+// Generate single property, position based classes from map of values
+// ----------------------------------------------------------------
+@mixin positionBasedClasses($property, $values, $identifier, $positions-map, $unit: "rem") {
+    // for reasons unknown, the map is converted to a list when
+    // passed to this mixin, so we have to convert it back to a map.
+    // The map will be handles in the `positionBasedClass` mixin
+    @each $key, $value in $values {
+        // prettier-ignore
+        $value: if( $value==null, $key, ( $key: $value ) );
+        @include positionBasedClass($property, $value, $identifier, $positions-map, $unit);
+    }
+}
 
 // ----------------------------------------------------------------
 // Creates multiple position based classes for a single value with
@@ -38,21 +66,6 @@
 }
 
 // ----------------------------------------------------------------
-// -- GENERATE CLASSES FROM A MAP OF VALUES --
-// ----------------------------------------------------------------
-@mixin generateFromMapOfValues($property, $map, $identifier: "") {
-    @each $key, $value in $map {
-        @if ($identifier == "") {
-            // if the $identifier is omitted just us the key as the class name
-            @include createSinglePropertyClass(#{$key}, $property, $value);
-        } @else {
-            // otherwise join $identifier and $key for class name
-            @include createSinglePropertyClass(#{$identifier}-#{$key}, $property, $value);
-        }
-    }
-}
-
-// ----------------------------------------------------------------
 // -- GENERATE CLASSES FROM A MAP OF PROPERTIES --
 // ----------------------------------------------------------------
 // null values will be handled when required in the builder mixins
@@ -77,7 +90,6 @@
 // ----------------------------------------------------------------
 
 @mixin generateFromMapOfClasses($properties-map) {
-
     // how to check for property, or class map?
 
     @each $class, $map in $properties-map {
@@ -149,16 +161,4 @@
     }
 }
 
-// ----------------------------------------------------------------
-// -- GENERATE POSITION BASED CLASSES FOR A SINGLE PROPERTY --
-// ----------------------------------------------------------------
-@mixin positionBasedClasses($property, $values, $identifier, $positions-map, $unit: "rem") {
-    // for reasons unknown, the map is converted to a list when
-    // passed to this mixin, so we have to convert it back to a map.
-    // The map will be handles in the `positionBasedClass` mixin
-    @each $key, $value in $values {
-        // prettier-ignore
-        $value: if( $value==null, $key, ( $key: $value ) );
-        @include positionBasedClass($property, $value, $identifier, $positions-map, $unit);
-    }
-}
+
