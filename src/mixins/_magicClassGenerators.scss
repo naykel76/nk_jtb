@@ -1,6 +1,6 @@
+@use "../mixins/helpers" as *;
+@use "../mixins/media" as *;
 @use "../variables/utility_maps" as *;
-@use "./media" as *;
-@use "./propertyGenerators" as *;
 @use "sass:list";
 
 @mixin handlePropertyCreator($property, $value, $positions, $unit) {

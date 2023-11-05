@@ -8,16 +8,13 @@
 $margin-sizes: (0:0, auto:auto) !default;
 @include positionBasedClasses(margin, (auto), #{$margin-identifier}, $axis-position-map, "rem");
 
-// $margin-sizes: $space-sizes !default;
-// $magic-margin-y: ((5, 3, 2), (3, 2, 1)) !default;
+$margin-sizes: $space-sizes !default;
+$magic-margin-y: ((5, 3, 2), (3, 2, 1)) !default;
 
-// // merge-list-and-map($margin-sizes, $rem-sizes-map);
+// variants
+@include positionBasedClasses(margin, $margin-sizes, #{$margin-identifier}, $axis-position-map, "rem");
+// sizes
+@include positionBasedClasses(margin, $space-variants, #{$margin-identifier}, $axis-position-map, "rem");
 
-// // variants
-// @include positionBasedClasses(margin, $margin-sizes, #{$margin-identifier}, $axis-position-map, "rem");
-
-// // sizes
-// @include positionBasedClasses(margin, $space-variants, #{$margin-identifier}, $axis-position-map, "rem");
-
-// // magic classes
-// @include magicClass(margin, $magic-margin-y, "my", $position-or-axis: y);
+// magic classes
+@include magicClass(margin, $magic-margin-y, "my", $position-or-axis: y);

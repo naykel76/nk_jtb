@@ -1,5 +1,5 @@
-@use "./media" as *;
-@use "./propertyGenerators" as *;
+@use "../mixins/helpers" as *;
+@use "../mixins/media" as *;
 
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
 //
@@ -15,23 +15,23 @@
         .#{$class} {
             @if ($bp == "sm") {
                 @include from-sm {
-                    @include propertiesFromMap($props);
+                    @include createProperties($props);
                 }
             } @else if($bp == "md") {
                 @include from-md {
-                    @include propertiesFromMap($props);
+                    @include createProperties($props);
                 }
             } @else if($bp == "lg") {
                 @include from-lg {
-                    @include propertiesFromMap($props);
+                    @include createProperties($props);
                 }
             } @else if($bp == "xl") {
                 @include from-xl {
-                    @include propertiesFromMap($props);
+                    @include createProperties($props);
                 }
             } @else if($bp == "xxl") {
                 @include from-xxl {
-                    @include propertiesFromMap($props);
+                    @include createProperties($props);
                 }
             }
         }
@@ -44,19 +44,19 @@
         .to-#{$bp}\:#{$identifier} {
             @if ($bp == "sm") {
                 @include to-sm {
-                    @include propertiesFromMap($props);
+                    @include createProperties($props);
                 }
             } @else if($bp == "md") {
                 @include to-md {
-                    @include propertiesFromMap($props);
+                    @include createProperties($props);
                 }
             } @else if($bp == "lg") {
                 @include to-lg {
-                    @include propertiesFromMap($props);
+                    @include createProperties($props);
                 }
             } @else if($bp == "xl") {
                 @include to-xl {
-                    @include propertiesFromMap($props);
+                    @include createProperties($props);
                 }
             } @else {
                 @error 'The device '#{$bp}' is not available for this mixin, you need to remove it from the args list.';
@@ -71,23 +71,23 @@
         .on-#{$bp}\:#{$identifier} {
             @if ($bp == "sm") {
                 @include on-sm {
-                    @include propertiesFromMap($props);
+                    @include createProperties($props);
                 }
             } @else if($bp == "md") {
                 @include on-md {
-                    @include propertiesFromMap($props);
+                    @include createProperties($props);
                 }
             } @else if($bp == "lg") {
                 @include on-lg {
-                    @include propertiesFromMap($props);
+                    @include createProperties($props);
                 }
             } @else if($bp == "xl") {
                 @include on-xl {
-                    @include propertiesFromMap($props);
+                    @include createProperties($props);
                 }
             } @else if($bp == "xxl") {
                 @include on-xxl {
-                    @include propertiesFromMap($props);
+                    @include createProperties($props);
                 }
             }
         }

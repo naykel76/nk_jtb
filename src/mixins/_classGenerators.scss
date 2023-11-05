@@ -1,16 +1,7 @@
 @use "../functions/helpers" as *;
-@use "./propertyGenerators" as *;
-@use "./responsiveClassGenerators" as *;
+@use "../mixins/helpers" as *;
+@use "../mixins/responsiveClassGenerators" as *;
 @use "sass:string";
-
-// ----------------------------------------------------------------
-// -- CLASS CREATORS --
-// ----------------------------------------------------------------
-@mixin singlePropertyClass($class, $property, $value) {
-    .#{$class} {
-        #{$property}: $value;
-    }
-}
 
 // ----------------------------------------------------------------
 // Creates multiple position based classes for a single value with
@@ -53,10 +44,10 @@
     @each $key, $value in $map {
         @if ($identifier == "") {
             // if the $identifier is omitted just us the key as the class name
-            @include singlePropertyClass(#{$key}, $property, $value);
+            @include createSinglePropertyClass(#{$key}, $property, $value);
         } @else {
             // otherwise join $identifier and $key for class name
-            @include singlePropertyClass(#{$identifier}-#{$key}, $property, $value);
+            @include createSinglePropertyClass(#{$identifier}-#{$key}, $property, $value);
         }
     }
 }
@@ -81,14 +72,23 @@
     }
 }
 
+// ----------------------------------------------------------------
+// --  --
+// ----------------------------------------------------------------
+
 // can handle multiple properties
+// good when working with a single value
+// creates responsive classes
 @mixin generateFromMapOfClasses($properties-map) {
     @each $class, $map in $properties-map {
         $props: map-get($map, "props");
         $bp: map-get($map, "breakpoints");
 
+
+        $values: map-get($map, "values");
+
         .#{$class} {
-            @include propertiesFromMap($props);
+            @include createProperties($props);
         }
 
         // handle responsive variants
@@ -128,7 +128,7 @@
         $class: #{$identifier}#{$variant}#{handleClassUnit($unit)};
 
         // handleValue function append's the unit if required
-        @include singlePropertyClass(#{$class}, $property, #{handleValue($value, $unit)});
+        @include createSinglePropertyClass(#{$class}, $property, #{handleValue($value, $unit)});
     }
 }
 
@@ -148,7 +148,7 @@
     @each $value in $values {
         $escapedValue: escapeInvalid($value);
         $class: #{$identifier}-#{$escapedValue}#{handleClassUnit($unit)};
-        @include singlePropertyClass($class, $property, #{$value}#{$unit});
+        @include createSinglePropertyClass($class, $property, #{$value}#{$unit});
     }
 }
 

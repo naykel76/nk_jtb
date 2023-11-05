@@ -76,6 +76,9 @@ $flex-properties-map: (
     ),
 );
 
+@include generateFromMapOfProperties($flex-properties-map);
+
+
 // prettier-ignore
 $flex-classes-map: (
     flex-col: (
@@ -88,7 +91,6 @@ $flex-classes-map: (
     )
 );
 
-@include generateFromMapOfProperties($flex-properties-map);
 @include generateFromMapOfClasses($flex-classes-map);
 
 

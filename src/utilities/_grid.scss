@@ -4,52 +4,79 @@
 @use "../functions/helpers" as *;
 @use "../mixins/classGenerators" as *;
 
+$gap: get("grid.default-gap", $config);
+
 $gap-sizes: (0, 0.5, 1, 1.25, 1.5, 2, 3, 4, 5) !default;
 $num-grid-cols: get("grid.num-grid-cols", $config);
 
 $grid-properties-map: (
-    gap:(
+    gap: (
         prefix: "gap-",
         values: $gap-sizes,
         unit: "rem"
     ),
     justify-items: (
         prefix: "justify-items-",
-        values: ( center, end, start, stretch )
+        values: (
+            center,
+            end,
+            start,
+            stretch
+        )
     ),
     justify-self: (
         prefix: "justify-self-",
-        values: ( auto, center, end, start, stretch )
+        values: (
+            auto,
+            center,
+            end,
+            start,
+            stretch
+        )
     ),
     place-content: (
         prefix: "place-content-",
-        values: ( baseline, center, end, space-around, space-between, space-evenly, start, stretch )
+        values: (
+            baseline,
+            center,
+            end,
+            space-around,
+            space-between,
+            space-evenly,
+            start,
+            stretch
+        )
     ),
     place-items: (
         prefix: "place-items-",
-        values: ( baseline, center, end, start, stretch )
+        values: (
+            baseline,
+            center,
+            end,
+            start,
+            stretch
+        )
     ),
     place-self: (
         prefix: "place-self-",
-        values: ( auto, center, end, start, stretch )
+        values: (
+            auto,
+            center,
+            end,
+            start,
+            stretch
+        )
     )
 );
 
 @include generateFromMapOfProperties($grid-properties-map);
 
+
+
 // ------------------------------------------------------------------
 // -- GRID --
 // ------------------------------------------------------------------
 // NK::TD refactor into a more reusable mixin
-
-.grid {
-    display: grid;
-    gap: get("grid.default-gap", $config);
-}
-
-.gap {
-    gap: get("grid.default-gap", $config);
-}
 
 @each $size in $gap-sizes {
     $class: escapeDecimal($size);

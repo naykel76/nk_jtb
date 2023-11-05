@@ -25,25 +25,4 @@ $grid-gap-magic-sizes: ((5, 3, 2), (5, 3), (4, 2), (3, 1)) !default;
 
 
 
-// ------------------------------------------------------------------
-// -- RESPONSIVE GRID --
-// ------------------------------------------------------------------
-@include from-lg {
-    .lg\:cols-2 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 
-@include from-md {
-    .md\: {
-        &cols-2 {
-            grid-template-columns: repeat(2, 1fr);
-        }
-        &cols-3 {
-            grid-template-columns: repeat(3, 1fr);
-        }
-        &cols-9 {
-            grid-template-columns: repeat(4, 1fr);
-        }
-    }
-}

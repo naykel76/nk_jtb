@@ -1,10 +1,10 @@
 // @use "./components/box" as *;
-@use "./utilities/flexbox" as *;
+// @use "./utilities/grid" as *;
 
 @use "./functions/helpers" as *;
 @use "./mixins/classGenerators" as *;
 @use "./mixins/magicClassGenerators" as *;
-@use "./mixins/propertyGenerators" as *;
+@use "./mixins/helpers" as *;
 @use "./mixins/magicGridEqualWidths" as *;
 @use "./mixins/media" as *;
 @use "./mixins/responsiveClassGenerators" as *;
@@ -14,3 +14,105 @@
 @use "sass:string";
 
 
+// - values can be a mix of single values and key-value pairs (maps)
+//   as long at the map is wrapped in parentheses
+// - map key is the css property
+// - if the item prefix is omitted the key is used as the prefix
+
+
+//  can not mix list and map, values, all list or map
+
+// pettier-ignore
+$examples-map: (
+    color: (
+        prefix: "#{$text-identifier}",
+        values: (green, (blue: blue)),
+
+        // breakpoints: ("sm", "md", "lg", "xl")
+
+    ),
+    // font-size: (
+    //     prefix: "#{$text-identifier}",
+    //     values: $text-size-variants
+    // ),
+    // font-style: (
+    //     prefix: "#{$text-identifier}",
+    //     values: ( italic, normal )
+    // )
+);
+
+// generateFromPropertiesMap
+// generateFromClassesMap
+
+@include generateFromMapOfProperties($examples-map);
+
+// Map types
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+
+
+
+
+
+$gap: 1.25rem;
+$gap-sizes: (0, 0.5, 1, 1.25, 1.5, 2, 3, 4, 5) !default;
+
+// can create multiple values when single property
+
+// Works well for creating a base class and responsive classes for a
+// class with multiple properties. It does handle multiple values
+// because you would need to map the value to the property and I
+// think that would be a bit too complicated.
+//
+// The idea is to be able to create more complex responsive classes.
+
+// prettier-ignore
+$grid-classes-map: (
+    gap: (
+        props: (gap: $gap),
+        breakpoints: ("sm", "md", "lg", "xl")
+    ),
+    grid: (
+        props: (display: grid, gap: $gap),
+        breakpoints: ("sm", "md", "lg", "xl")
+    ),
+    // class: (
+    //     props: (property: value, property: value),
+    //     breakpoints: ("sm", "md", "lg", "xl")
+    // ),
+);
+
+// generateBaseAndResponsiveClasses($grid-classes-map);
+
+@include generateFromMapOfClasses($grid-classes-map);
+
+// class = {responsive}:{prefix}-{property|value}
+// variant = {property|value}
+// prettier-ignore
+$grid-properties-map: (
+    gap: (
+        prefix: "gap-",
+        values: $gap-sizes,
+        unit: "rem"
+    ),
+    justify-items: (
+        prefix: "justify-items-",
+        values: ( center, end, start, stretch )
+    )
+);
+
+@include generateFromMapOfProperties($grid-properties-map);
