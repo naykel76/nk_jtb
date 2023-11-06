@@ -2,7 +2,7 @@
 
 # NAYKEL JTB
 
-Yet another utility based framework.
+Why!
 
 > Because without reinventing the wheel we wouldn’t have fast cars.
 > -- Nathan Watts
@@ -17,21 +17,20 @@ Yet another utility based framework.
 ```scss
 $examples-map: (
     color: (
-        prefix: "#{$text-identifier}",
-        values: (green, (blue: blue))
-    ),
-    font-size: (
-        prefix: "#{$text-identifier}",
-        values: $text-size-variants
+        prefix: "txt-",
+        values: (green, (blue: blue)),
+        breakpoints: ("sm", "md", "lg", "xl")
     ),
     font-style: (
-        prefix: "#{$text-identifier}",
+        prefix: "txt-",
         values: ( italic, normal )
     )
 );
 
 @include generateFromMapOfProperties($examples-map);
 ```
+
+
 
 ```scss
 $grid-classes-map: (

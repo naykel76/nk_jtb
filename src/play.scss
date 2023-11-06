@@ -1,5 +1,5 @@
 // @use "./components/box" as *;
-@use "./utilities/flexbox" as *;
+// @use "./utilities/typography" as *;
 
 @use "./functions/helpers" as *;
 @use "./mixins/classGenerators" as *;
@@ -12,32 +12,48 @@
 @use "sass:map";
 @use "sass:string";
 
-
-
-// @include makeFromBreakpoint($props, $class, $bp...);
+$text-size-variants: (
+    xs: 0.75rem,
+    sm: 0.875rem,
+    base: 1rem,
+    lg: 1.125rem,
+    xl: 1.5rem
+) !default;
+// build rem-sizes separately because it's a list an will not play nice with the map
+$text-rem-sizes: (2, 2.5, 3, 4, 9) !default;
 
 // prettier-ignore
-// $grid-classes-map: (
-//     gap: (
-//         props: (gap: $gap),
-//         breakpoints: ("sm", "md", "lg", "xl")
-//     ),
-//     grid: (
-//         props: (display: grid, gap: $gap),
-//         breakpoints: ("sm", "md", "lg", "xl")
-//     ),
-// );
+@function listToMap($list) {
+    $map: ();
+    @each $value in $list {
+        $map: map-merge($map, ($value: $value));
+    }
+    @return $map;
+}
 
-// @include generateFromMapOfClasses($grid-classes-map);
+@debug listToMap($text-rem-sizes);
 
-// @each $size in $gap {
-// }
+// @debug $text-size-variants;
 
-// can create multiple values when single property
+// prettier-ignore
+$examples-map: (
+    // color: (
+    //     prefix: "txt-",
+    //     values: (green, (blue: blue)),
+    //     breakpoints: ("sm", "md", "lg", "xl")
+    // ),
+    font-size: (
+        prefix: "#{$text-identifier}",
+        values: (xs: 0.75rem, sm: 0.875rem),
+    ),
+    // font-style: (
+    //     prefix: "txt-",
+    //     values: ( italic, normal )
+    // )
+);
 
-// Works well for creating a base class and responsive classes for a
-// class with multiple properties. It does handle multiple values
-// because you would need to map the value to the property and I
-// think that would be a bit too complicated.
-//
-// The idea is to be able to create more complex responsive classes.
+// @include createClasses(color, (green, (blue: blue)), "txt-", $unit: "", ("sm", "md", "lg", "xl"));
+
+// @mixin createClasses($property, $values, $identifier, $unit)
+
+@include generateFromMapOfProperties($examples-map);

@@ -18,18 +18,29 @@
 }
 
 // ----------------------------------------------------------------
-// Generate single property, position based classes from map of values
+// Generate single property classes from map of properties
 // ----------------------------------------------------------------
-@mixin positionBasedClasses($property, $values, $identifier, $positions-map, $unit: "rem") {
-    // for reasons unknown, the map is converted to a list when
-    // passed to this mixin, so we have to convert it back to a map.
-    // The map will be handles in the `positionBasedClass` mixin
-    @each $key, $value in $values {
-        // prettier-ignore
-        $value: if( $value==null, $key, ( $key: $value ) );
-        @include positionBasedClass($property, $value, $identifier, $positions-map, $unit);
+// This mixin can optionally handle:
+// - position based properties
+// - unit based properties
+
+@mixin generateFromMapOfProperties($properties-map) {
+    @each $property, $map in $properties-map {
+        $identifier: map-get($map, "prefix");
+        $values: map-get($map, "values");
+        $unit: map-get($map, "unit");
+        $positions: map-get($map, "positions");
+        $breakpoints: map-get($map, "breakpoints");
+
+        @if ($positions) {
+            @include positionBasedClasses($property, $values, $identifier, $positions, $unit);
+        } @else {
+            @include createClasses($property, $values, $identifier, $unit, $breakpoints);
+        }
     }
 }
+
+
 
 // ----------------------------------------------------------------
 // Creates multiple position based classes for a single value with
@@ -66,26 +77,6 @@
 }
 
 // ----------------------------------------------------------------
-// -- GENERATE CLASSES FROM A MAP OF PROPERTIES --
-// ----------------------------------------------------------------
-// null values will be handled when required in the builder mixins
-
-@mixin generateFromMapOfProperties($properties-map) {
-    @each $property, $map in $properties-map {
-        $identifier: map-get($map, "prefix");
-        $values: map-get($map, "values");
-        $unit: map-get($map, "unit");
-        $positions-map: map-get($map, "positions");
-
-        @if ($positions-map) {
-            @include positionBasedClasses($property, $values, $identifier, $positions-map, $unit);
-        } @else {
-            @include generalClasses($property, $values, $identifier, $unit);
-        }
-    }
-}
-
-// ----------------------------------------------------------------
 // --  --
 // ----------------------------------------------------------------
 
@@ -94,66 +85,64 @@
 
     @each $class, $map in $properties-map {
         $props: map-get($map, "props");
-        $bp: map-get($map, "breakpoints");
+        $breakpoints: map-get($map, "breakpoints");
 
         .#{$class} {
             @include createProperties($props);
         }
 
         // handle responsive variants
-        @if ($bp) {
-            @include makeFromBreakpoint($props, $class, $bp...);
+        @if ($breakpoints) {
+            @include makeFromBreakpoint($props, $class, $breakpoints...);
         }
     }
 }
 
-// always pass in a unit, even if it is null. This is to allow for
-// the unit to be appended to the class name and will be omitted if
-// the unit is null.
-@mixin generalClasses($property, $values, $identifier, $unit) {
+// ----------------------------------------------------------------
+// Standalone mixin to create single property classes
+// ----------------------------------------------------------------
+// 1. if there is no `key-value` pair in the map, the key will be
+//    used as the value this allows for a list of values to be used
+//    as the map
+// 2. if the $key is a list, then the value key-value pair in the
+//    property map has been converted. This is a sass thing and I
+//    don't know why it does this. So we have to convert it back to
+//    something usable.
+// 3. if the $value has a unit, consider it as an override and
+//    replace what ever was passed in to the mixin. Note: this may
+//    have limitations or unexpected results. This is good for
+//    creating base variants `container-sm`
+
+// prettier-ignore
+@mixin createClasses($property, $values, $identifier, $unit, $breakpoints) {
     @each $key, $value in $values {
+
         $variant: escapeInvalid($key);
 
-        // if there is no `key-value` pair in the map, the key
-        // will be used as the value this allows for a list of
-        // values to be used as the map
-        $value: if($value, $value, $key);
+        $value: if($value, $value, $key); // 1.
 
-        // if the $key is a list, then the value key-value pair in
-        // the property map has been converted. This is a sass thing
-        // and I don't know why it does this. So we have to convert
-        // it to something usable.
-        @if (type-of($key) == list) {
+        @if (type-of($key) == list) { // 2.
             $variant: nth($key, 1);
             $value: nth($key, 2);
         }
-
-        // if the $value has a unit, consider it as an override and
-        // replace what ever was passed in to the mixin. Note: this
-        // may have limitations or unexpected results. This is good
-        // for creating base variants `container-sm`
-        $unit: if(hasUnit($value), "", $unit);
+        $unit: if(hasUnit($value), "", $unit); // 3.
 
         $class: #{$identifier}#{$variant}#{handleClassUnit($unit)};
 
-        // handleValue function append's the unit if required
+        // conditionally create responsive variants
+        @if ($breakpoints) {
+            @include makeFromBreakpoint(($property: $value), $class, $breakpoints...);
+        }
+
         @include createSinglePropertyClass(#{$class}, $property, #{handleValue($value, $unit)});
     }
 }
 
 // ----------------------------------------------------------------
-// -- GENERATE UNIT BASED CLASSES FOR A SINGLE PROPERTY --
+// Standalone mixin to create single property unit based classes
 // ----------------------------------------------------------------
-// Escapes decimals and removes decimal when value is less than 1
-//
-// $padding-sizes: (0.5, 1, 1.5);
-// @include unitBasedClasses(padding, $padding-sizes, "pxy");
-//
-// $padding-sizes-px: (8, 16, 24);
-// @include unitBasedClasses(padding, $padding-sizes, "pxy", "px");
-//
-
 @mixin unitBasedClasses($property, $values, $identifier, $unit: "rem") {
+    @debug $property;
     @each $value in $values {
         $escapedValue: escapeInvalid($value);
         $class: #{$identifier}-#{$escapedValue}#{handleClassUnit($unit)};
@@ -161,4 +150,30 @@
     }
 }
 
+// ----------------------------------------------------------------
+// Generate single property, position based classes from map of values
+// ----------------------------------------------------------------
 
+@mixin positionBasedClasses($property, $values, $identifier, $positions-map, $unit: "rem") {
+    // for reasons unknown, the map is converted to a list when
+    // passed to this mixin, so we have to convert it back to a map.
+    // The map will be handles in the `positionBasedClass` mixin
+    @each $key, $value in $values {
+        // prettier-ignore
+        $value: if( $value==null, $key, ( $key: $value ) );
+        @include positionBasedClass($property, $value, $identifier, $positions-map, $unit);
+    }
+}
+
+
+// 1. if there is no `key-value` pair in the map, the key will be
+//    used as the value this allows for a list of values to be used
+//    as the map
+// 2. if the $key is a list, then the value key-value pair in the
+//    property map has been converted. This is a sass thing and I
+//    don't know why it does this. So we have to convert it back to
+//    something usable.
+// 3. if the $value has a unit, consider it as an override and
+//    replace what ever was passed in to the mixin. Note: this may
+//    have limitations or unexpected results. This is good for
+//    creating base variants `container-sm`

@@ -1,0 +1,36 @@
+@use './numeric.scss' as *;
+@use './string.scss' as *;
+@use './strippers.scss' as *;
+
+// ----------------------------------------------------------------
+// escape invalid charters to be used in class names
+// ----------------------------------------------------------------
+@function escapeInvalid($input) {
+    $input: toString($input);
+
+    // if the value starts with '0.' remove the decimal
+    @if (str-slice($input, 1, 2) == "0.") {
+        $input: strReplace($input, "0.", "0");
+    }
+
+    $output: escapeDecimal($input);
+    $output: stripRem($output);
+
+    @return $output;
+}
+
+// ----------------------------------------------------------------
+// Remove unwanted unit for certain values, e.g. 0 and auto
+// ----------------------------------------------------------------
+@function handleValue($value, $unit) {
+    $derivedUnit: if(($value == "auto" or $value == 0), null, $unit);
+    @return $value + $derivedUnit;
+}
+
+// ----------------------------------------------------------------
+// Remove 'rem' unit from class names because it is the default
+// ----------------------------------------------------------------
+@function handleClassUnit($unit) {
+    @return if($unit != "rem", $unit, "");
+}
+

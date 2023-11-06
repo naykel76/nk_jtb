@@ -2,12 +2,10 @@
 @use "../mixins/classGenerators" as *;
 @use "sass:map";
 
-/* ----------------------------------------------------------------
- * -- IMPORTANT --
- * ----------------------------------------------------------------
- * Opinionated classes must be created first to make sure they can
- * be overridden by utility classes
- */
+// ******************************************************************
+// !! IMPORTANT !! Opinionated classes must be created first to make
+// sure they can be overridden by utility classes
+// ******************************************************************
 
 // ------------------------------------------------------------------
 // -- PROPERTY MAPS --
@@ -62,7 +60,7 @@ $typography-properties-map: (
     ),
     font-size: (
         prefix: "#{$text-identifier}",
-        values: $text-size-variants
+        values: $text-size-variants,
     ),
     font-style: (
         prefix: "#{$text-identifier}",

@@ -1,0 +1,34 @@
+// ----------------------------------------------------------------
+// Cast to string
+// ----------------------------------------------------------------
+@function toString($int) {
+    @return "#{$int}"; // wrap in quotes and cast to string
+}
+
+// ----------------------------------------------------------------
+// Search and replace a string
+// ----------------------------------------------------------------
+// Usage: $class: strReplace("maxw-20rem", "rem", "");
+// Outputs $class: 'maxw-20';
+// ----------------------------------------------------------------
+@function strReplace($string, $search, $replace: "") {
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace + strReplace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+
+// ----------------------------------------------------------------
+// Escape decimals in a string
+// Note: works with both quoted and unquoted values 9.5 or "9.5"
+// ----------------------------------------------------------------
+// Usage: $class: escapeDecimal(9.5);
+// Outputs $class: '9\.5';
+// ----------------------------------------------------------------
+@function escapeDecimal($int) {
+    $escaped: "#{$int}"; // wrap in quotes and convert to string
+    @return strReplace($escaped, ".", "\\."); // search and escape decimals
+}
