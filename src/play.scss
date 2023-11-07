@@ -1,5 +1,5 @@
 // @use "./components/box" as *;
-// @use "./utilities/typography" as *;
+@use "./utilities/typography" as *;
 
 @use "./functions/helpers" as *;
 @use "./mixins/classGenerators" as *;
@@ -11,49 +11,34 @@
 @use "sass:list";
 @use "sass:map";
 @use "sass:string";
+// @use "./functions/helpers/map-and-list" as *;
 
-$text-size-variants: (
-    xs: 0.75rem,
-    sm: 0.875rem,
-    base: 1rem,
-    lg: 1.125rem,
-    xl: 1.5rem
-) !default;
-// build rem-sizes separately because it's a list an will not play nice with the map
-$text-rem-sizes: (2, 2.5, 3, 4, 9) !default;
+// $text-size-variants: ( xs: 0.75rem, sm: 0.875rem, base: 1rem, lg: 1.125rem, xl: 1.5rem ) !default;
+// $text-rem-sizes: listToMap(2, 2.5, 3, 4, 9) !default;
 
-// prettier-ignore
-@function listToMap($list) {
-    $map: ();
-    @each $value in $list {
-        $map: map-merge($map, ($value: $value));
-    }
-    @return $map;
-}
-
-@debug listToMap($text-rem-sizes);
+// @debug $text-rem-sizes;
 
 // @debug $text-size-variants;
 
 // prettier-ignore
-$examples-map: (
-    // color: (
-    //     prefix: "txt-",
-    //     values: (green, (blue: blue)),
-    //     breakpoints: ("sm", "md", "lg", "xl")
-    // ),
-    font-size: (
-        prefix: "#{$text-identifier}",
-        values: (xs: 0.75rem, sm: 0.875rem),
-    ),
-    // font-style: (
-    //     prefix: "txt-",
-    //     values: ( italic, normal )
-    // )
-);
+// $examples-map: (
+//     // color: (
+//     //     prefix: "txt-",
+//     //     values: (green, (blue: blue)),
+//     //     breakpoints: ("sm", "md", "lg", "xl")
+//     // ),
+//     font-size: (
+//         prefix: "#{$text-identifier}",
+//         values: map-merge($text-size-variants, $text-rem-sizes),
+//     ),
+//     // font-style: (
+//     //     prefix: "txt-",
+//     //     values: ( italic, normal )
+//     // )
+// );
 
 // @include createClasses(color, (green, (blue: blue)), "txt-", $unit: "", ("sm", "md", "lg", "xl"));
 
 // @mixin createClasses($property, $values, $identifier, $unit)
 
-@include generateFromMapOfProperties($examples-map);
+// @include generateFromMapOfProperties($examples-map);

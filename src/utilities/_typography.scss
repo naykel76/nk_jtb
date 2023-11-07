@@ -1,10 +1,11 @@
-@use "../variables" as *;
-@use "../mixins/classGenerators" as *;
+@use "../mixins/common" as *;
 @use "sass:map";
 
 // ******************************************************************
-// !! IMPORTANT !! Opinionated classes must be created first to make
-// sure they can be overridden by utility classes
+// IMPORTANT
+// ******************************************************************
+// Opinionated classes must be created first to make sure they can
+// be overridden by utility classes
 // ******************************************************************
 
 // ------------------------------------------------------------------
@@ -12,9 +13,11 @@
 // ------------------------------------------------------------------
 // remove the following colours from the map
 $text-colors: map.remove($color-map, 'danger', 'dark', 'info', 'light', 'success', 'warning');
-$text-size-variants: ( xs: 0.75rem, sm: 0.875rem, base: 1rem, lg: 1.125rem, xl: 1.5rem ) !default;
-// build rem-sizes separately because it's a list an will not play nice with the map
+
 $text-rem-sizes: (2, 2.5, 3, 4) !default;
+$text-variant-sizes: ( xs: 0.75rem, sm: 0.875rem, base: 1rem, lg: 1.125rem, xl: 1.5rem ) !default;
+// convert 'rem' sizes to map and merge with variant sizes
+$text-variants: map-merge(listToMap($text-rem-sizes), $text-variant-sizes);
 
 // ------------------------------------------------------------------
 // -- OPINIONATED TEXT CLASSES --
@@ -52,6 +55,7 @@ $text-rem-sizes: (2, 2.5, 3, 4) !default;
 // ------------------------------------------------------------------
 // -- UTILITY CLASS MAP --
 // ------------------------------------------------------------------
+
 // pettier-ignore
 $typography-properties-map: (
     color: (
@@ -60,7 +64,8 @@ $typography-properties-map: (
     ),
     font-size: (
         prefix: "#{$text-identifier}",
-        values: $text-size-variants,
+        values: $text-variants,
+        breakpoints: ("sm", "md", "lg", "xl")
     ),
     font-style: (
         prefix: "#{$text-identifier}",
@@ -101,5 +106,3 @@ $typography-properties-map: (
 );
 
 @include generateFromMapOfProperties($typography-properties-map);
-// build rem-sizes separately because it's a list an will not play nice with the map
-@include unitBasedClasses(font-size, $text-rem-sizes, "txt", $unit: "rem");

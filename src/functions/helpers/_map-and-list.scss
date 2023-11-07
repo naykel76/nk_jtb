@@ -1,11 +1,11 @@
-
 // ----------------------------------------------------------------
 // Convert a list of values to a map of key-value pairs where the
 // key and value are the same. This is useful when generating
 // classes with mixed types.
 // ----------------------------------------------------------------
-// Usage: listToMap("green", 5, 16px); Outputs: (green: green, 5: 5,
-// 16px: 16px);
+// !! IMPORTANT !! values must be bracketed with parentheses
+// Usage: listToMap(("green", 5, 16px));
+// Outputs: (green: green, 5: 5, 16px: 16px);
 // ----------------------------------------------------------------
 @function listToMap($list) {
     $map: ();
@@ -14,3 +14,4 @@
     }
     @return $map;
 }
+

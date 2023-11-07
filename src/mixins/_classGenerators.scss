@@ -142,7 +142,6 @@
 // Standalone mixin to create single property unit based classes
 // ----------------------------------------------------------------
 @mixin unitBasedClasses($property, $values, $identifier, $unit: "rem") {
-    @debug $property;
     @each $value in $values {
         $escapedValue: escapeInvalid($value);
         $class: #{$identifier}-#{$escapedValue}#{handleClassUnit($unit)};
@@ -165,15 +164,3 @@
     }
 }
 
-
-// 1. if there is no `key-value` pair in the map, the key will be
-//    used as the value this allows for a list of values to be used
-//    as the map
-// 2. if the $key is a list, then the value key-value pair in the
-//    property map has been converted. This is a sass thing and I
-//    don't know why it does this. So we have to convert it back to
-//    something usable.
-// 3. if the $value has a unit, consider it as an override and
-//    replace what ever was passed in to the mixin. Note: this may
-//    have limitations or unexpected results. This is good for
-//    creating base variants `container-sm`
