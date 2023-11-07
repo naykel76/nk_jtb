@@ -1,5 +1,6 @@
 @use "../functions/helpers" as *;
 @use "../variables" as *;
+@use "../mixins/media" as *;
 
 $space-sizes: (0, 0.25, 0.5, 0.75, 1, 1.5, 2);
 
@@ -21,3 +22,26 @@ $space-sizes: (0, 0.25, 0.5, 0.75, 1, 1.5, 2);
     }
 }
 
+
+
+.c-py-5-3-2 > * {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    @include from-md {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    @include from-xl {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+}
+
+
+@include from-xl {
+    .lg\:space-x > *:not(:first-child) {
+        margin-left: 1rem;
+    }
+}

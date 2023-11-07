@@ -6,7 +6,7 @@
 @mixin handlePropertyCreator($property, $value, $positions, $unit) {
     @if ($positions == "" or $positions == null) {
         // need to complete!!
-        @debug "handlePropertyCreator: $property, $value, $positions, $unit";
+        // @debug "handlePropertyCreator: $property, $value, $positions, $unit";
         // @include makeProperty($property, $value, $unit);
     } @else {
         // do i need unit???
@@ -81,19 +81,21 @@
                     }
                 }
 
-                //             // I think this is a bit much and we don't need to go this far.
+                // I think this is a bit much and we don't need to go this far.
 
-                //             // @if ($numBreakPoints >= 5) {
-                //             //     @include from-xl {
-                //             //         @include handlePropertyCreator($property, $xlValue, $unit, $positions);
-                //             //     }
-                //             // }
-                //             // @if ($numBreakPoints >= 6) {
-                //             //     @include from-xxl {
-                //             //         @include handlePropertyCreator($property, $xxlValue, $unit, $positions);
-                //             //     }
-                //             // }
+                // @if ($numBreakPoints >= 5) {
+                //     @include from-xl {
+                //         @include handlePropertyCreator($property, $xlValue, $unit, $positions);
+                //     }
+                // }
+                // @if ($numBreakPoints >= 6) {
+                //     @include from-xxl {
+                //         @include handlePropertyCreator($property, $xxlValue, $unit, $positions);
+                //     }
+                // }
             }
         }
     }
 }
+
+// @include createMagicGrid(grid, (4,3,2,1));

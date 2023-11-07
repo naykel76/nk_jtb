@@ -5,7 +5,7 @@
 @use "./mixins/classGenerators" as *;
 @use "./mixins/helpers" as *;
 @use "./mixins/magicClassGenerators" as *;
-@use "./mixins/magicGridEqualWidths" as *;
+// @use "./mixins/magicGridGenerators" as *;
 @use "./mixins/media" as *;
 @use "./variables" as *;
 @use "sass:list";
