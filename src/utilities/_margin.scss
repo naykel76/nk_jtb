@@ -3,26 +3,10 @@
 @use "../variables" as *;
 @use "sass:map";
 
-// variants and sizes can be modified in src/variables/utility-maps.scss
-
-
-@include positionBasedClasses(margin, (auto), #{$margin-identifier}, $axis-position-map, "rem");
-
 $magic-margin-y: ((5, 3, 2), (3, 2, 1)) !default;
 
-// IMPORTANT! This is not a mistake, the $margin-sizes need to be
-// reset and run again because $space-sizes is a list and will not
-// play nice with 0 and auto which is a map.
-//
-// NK::TD need to consider if 0 should be included in the
-// $space-sizes map in the utility-maps.scss file
-$margin-sizes: $space-sizes !default;
-@include positionBasedClasses(margin, $margin-sizes, #{$margin-identifier}, $axis-position-map, "rem");
-$margin-sizes: (0: 0, auto: auto) !default;
-@include positionBasedClasses(margin, $margin-sizes, #{$margin-identifier}, $axis-position-map, "rem");
-
-// sizes
-@include positionBasedClasses(margin, $space-variants, #{$margin-identifier}, $axis-position-map, "rem");
+@include positionBasedClasses(margin, $space-rem-sizes, #{$margin-identifier}, $axis-position-map, "rem");
+@include positionBasedClasses(margin, $margin-variants, #{$margin-identifier}, $axis-position-map, "rem");
 
 // magic classes
 @include magicClass(margin, $magic-margin-y, "my", $position-or-axis: y);

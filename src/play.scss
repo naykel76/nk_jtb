@@ -1,44 +1,8 @@
 // @use "./components/box" as *;
-@use "./utilities/typography" as *;
+@use "./utilities/padding" as *;
+@use "./utilities/margin" as *;
 
-@use "./functions/helpers" as *;
-@use "./mixins/classGenerators" as *;
-@use "./mixins/helpers" as *;
-@use "./mixins/magicClassGenerators" as *;
-// @use "./mixins/magicGridGenerators" as *;
-@use "./mixins/media" as *;
-@use "./variables" as *;
+@use "./mixins/common" as *;
 @use "sass:list";
 @use "sass:map";
 @use "sass:string";
-// @use "./functions/helpers/map-and-list" as *;
-
-// $text-size-variants: ( xs: 0.75rem, sm: 0.875rem, base: 1rem, lg: 1.125rem, xl: 1.5rem ) !default;
-// $text-rem-sizes: listToMap(2, 2.5, 3, 4, 9) !default;
-
-// @debug $text-rem-sizes;
-
-// @debug $text-size-variants;
-
-// prettier-ignore
-// $examples-map: (
-//     // color: (
-//     //     prefix: "txt-",
-//     //     values: (green, (blue: blue)),
-//     //     breakpoints: ("sm", "md", "lg", "xl")
-//     // ),
-//     font-size: (
-//         prefix: "#{$text-identifier}",
-//         values: map-merge($text-size-variants, $text-rem-sizes),
-//     ),
-//     // font-style: (
-//     //     prefix: "txt-",
-//     //     values: ( italic, normal )
-//     // )
-// );
-
-// @include createClasses(color, (green, (blue: blue)), "txt-", $unit: "", ("sm", "md", "lg", "xl"));
-
-// @mixin createClasses($property, $values, $identifier, $unit)
-
-// @include generateFromMapOfProperties($examples-map);

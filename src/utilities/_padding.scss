@@ -3,15 +3,11 @@
 @use "../variables" as *;
 @use "sass:map";
 
-// variants and sizes can be modified in src/variables/utility-maps.scss
 
-$padding-sizes: $space-sizes !default;
 $magic-padding-y: ((5, 3, 2), (3, 2, 1)) !default;
 
-// variants
-@include positionBasedClasses(padding, $padding-sizes, #{$padding-identifier}, $axis-position-map, "rem");
-// sizes
-@include positionBasedClasses(padding, $space-variants, #{$padding-identifier}, $axis-position-map, "rem");
+@include positionBasedClasses(padding, $space-rem-sizes, #{$padding-identifier}, $axis-position-map, "rem");
+@include positionBasedClasses(padding, $padding-variants, #{$padding-identifier}, $axis-position-map, "rem");
 
 // magic classes
 @include magicClass(padding, $magic-padding-y, "py", $position-or-axis: y);

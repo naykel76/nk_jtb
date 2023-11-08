@@ -87,4 +87,8 @@ $fr-conversion-2-col: (
 //  Space sizes and variants for margin and padding utilities
 // ------------------------------------------------------------------
 
-$space-rem-sizes: (0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 4, 5) !default;
+$space-rem-sizes: (0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 4, 5) !default;
+$space-rem-sizes: (0, 0.5, 1, 1.5); // for testing
+$margin-variants: (default: 1.5, auto: auto) !default;
+$padding-variants: (default: 1.5) !default;
+
