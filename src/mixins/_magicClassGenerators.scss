@@ -10,7 +10,7 @@
         // @include makeProperty($property, $value, $unit);
     } @else {
         // do i need unit???
-        @include positionBasedProperties($property, $value, $positions, $unit);
+        @include createPositionProperties($property, $value, $positions, $unit);
     }
 }
 

@@ -15,6 +15,13 @@
     }
 }
 
+// $positions is each individual position, e.g., top, bottom, left, right
+@mixin createPositionClass($class, $property, $value, $positions, $unit: "rem") {
+    .#{$class} {
+        @include createPositionProperties($property, $value, $positions, $unit);
+    }
+}
+
 // ----------------------------------------------------------------
 // -- CREATE ONE OR MANY PROPERTIES FROM MAP OF KEY-VALUE PAIRS --
 // ----------------------------------------------------------------
@@ -36,7 +43,7 @@
 // You can specify the unit of measurement with the optional `$unit`
 // parameter, with the default unit being "rem".
 
-@mixin positionBasedProperties($property, $value, $positions, $unit: "rem") {
+@mixin createPositionProperties($property, $value, $positions, $unit: "rem") {
     @each $position in $positions {
         $derivedUnit: if(($value == "auto" or $value == 0), null, $unit);
         #{$property}-#{$position}: #{$value}#{$derivedUnit};
