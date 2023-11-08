@@ -7,6 +7,16 @@ Why!
 > Because without reinventing the wheel we wouldn’t have fast cars.
 > -- Nathan Watts
 
+
+## Creating lists and maps
+
+```scss
+$space-base-variants: ( 0: 0, xs: 0.75, sm: 1, base: 1.5, lg: 2, xl: 3 ) !default;
+$space-rem-sizes: (0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2) !default;
+
+$space-base-variants: map-merge($space-base-variants, $space-rem-sizes);
+```
+
 ---
 
 - values can be a mix of single values and key-value pairs (maps)
@@ -50,16 +60,6 @@ $grid-classes-map: (
 );
 ```
 
-
-<code-first-col></code-first-col>
-|                    |  Property Map   |         Class Map          |
-| :----------------- | :-------------: | :------------------------: |
-| Key                | Is the property | Is the class or identifier |
-| Responsive Classes |       No        |            Yes             |
-|                    |                 |                            |
-|                    |                 |                            |
-|                    |                 |                            |
-|                    |                 |                            |
 
 ```scss
 $classes-map: (

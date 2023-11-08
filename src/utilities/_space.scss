@@ -2,7 +2,7 @@
 @use "../variables" as *;
 @use "../mixins/media" as *;
 
-$space-sizes: (0, 0.25, 0.5, 0.75, 1, 1.5, 2);
+$space-rem-sizes: (0, 0.25, 0.5, 0.75, 1, 1.5, 2);
 
 // these are the base sizes and should be updated to use size variants.
 .space-x > *:not(:first-child) {
@@ -12,7 +12,7 @@ $space-sizes: (0, 0.25, 0.5, 0.75, 1, 1.5, 2);
     margin-top: $content-gap;
 }
 
-@each $value in $space-sizes {
+@each $value in $space-rem-sizes {
     $variant: #{escapeInvalid($value)};
     .space-x-#{$variant} > *:not(:first-child) {
         margin-left: #{$value}rem;
