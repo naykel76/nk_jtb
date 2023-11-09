@@ -1,56 +1,55 @@
 // @use "./components/box" as *;
 // @use "./utilities/padding" as *;
-@use "./utilities/margin" as *;
+// @use "./utilities/margin" as *;
 
 @use "./mixins/common" as *;
 @use "sass:list";
 @use "sass:map";
 @use "sass:string";
 
-
-    // border: (
-    //     prefix: #{$border-identifier},
-    //     values: ( default: $border, none: none, ),
-    //     positions: $axis-position-map,
-    // ),
-    // border-width: (
-    //     prefix: #{$border-identifier},
-    //     // use key-value pair instead of values to make it easier
-    //     // manage unit and class name. This is an exception, and not
-    //     // the norm.
-    //     values: (0: 0, 1: 1px, 2: 2px),
-    // ),
-    // margin:(
-    //     prefix: "m",
-    //     values: (base: 1.5, auto: auto),
-    //     positions: $axis-position-map,
-    // ),
+// border: (
+//     prefix: #{$border-identifier},
+//     values: ( default: $border, none: none, ),
+//     positions: $axis-position-map,
+// ),
+// border-width: (
+//     prefix: #{$border-identifier},
+//     // use key-value pair instead of values to make it easier
+//     // manage unit and class name. This is an exception, and not
+//     // the norm.
+//     values: (0: 0, 1: 1px, 2: 2px),
+// ),
+// margin:(
+//     prefix: "m",
+//     values: (base: 1.5, auto: auto),
+//     positions: $axis-position-map,
+// ),
 
 //     $text-rem-sizes: (2, 2.5, 3, 4) !default;
 // $text-variant-sizes: ( sm: 0.875rem, base: 1rem, lg: 1.125rem ) !default;
 
+// handle base value
+
 // prettier-ignore
 $example-properties-map: (
     font-size: (
+        // sample map with mixed values and unit types
         prefix: "#{$text-identifier}",
-        // values: ((sm: 0.875rem), (base: 1rem), (lg: 1.125rem), 12),
-        values: ((sm: 0.875rem), (base: 1rem), (lg: 1.125rem), 12),
-        unit: "px"
+        values: ((sm: 0.875rem), (base: 1rem), (lg: 1.125), 12px, 3),
+        // values: (1, 2, 3),
+        unit: "rem" // this is not working
         // breakpoints: ("sm", "md", "lg", "xl")
     ),
-    // margin:(
-    //     prefix: #{$margin-identifier},
-    //     values: (0, 0.5, 1, 1.5),
-    //     unit: "rem",
-    //     positions: $axis-position-map,
-    // )
+    margin:(
+        prefix: #{$margin-identifier},
+        values: ((sm: 0.875rem), (base: 1rem), (lg: 1.125rem), 12px, 3),
+        unit: "rem",
+        positions: $xy-positions-map,
+    )
 );
 
 // @include generateFromMapOfProperties($example-properties-map);
 
-// @include positionBasedClasses(margin, (0, 0.5, 1, 1.5), "m", $axis-position-map);
-
-// @include createdClasses(margin, (0, 0.5, 1, 1.5), "m", $axis-position-map);
-
-
-// test with and without unit
+// @mixin createClasses($property, $values, $identifier, $unit: "rem", $positions-map: '', $breakpoints: '')
+// remove unit from class name
+@include createClasses(margin, (0.5, 1, 16px), "m", "rem", $xy-positions-map);

@@ -7,94 +7,77 @@ Why!
 > Because without reinventing the wheel we wouldn’t have fast cars.
 > -- Nathan Watts
 
+@mixin generateFromMapOfProperties($properties-map) {
+    @each $property, $map in $properties-map {
+        $values: map-get($map, "values");
+        $identifier: map-get($map, "prefix");
+        $unit: map-get($map, "unit"); // 1.
+        $positions-map: map-get($map, "positions"); // 1.
+        $breakpoints: map-get($map, "breakpoints"); // 1.
 
-## Creating lists and maps
+        @include createClasses($property, $values, $identifier, $unit, $positions-map, $breakpoints);
+    }
+}
 
-```scss
-$space-base-variants: ( 0: 0, xs: 0.75, sm: 1, base: 1.5, lg: 2, xl: 3 ) !default;
-$space-rem-sizes: (0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2) !default;
+@mixin createClasses($property, $values, $identifier, $unit, $positions-map, $breakpoints) {
 
-$space-base-variants: map-merge($space-base-variants, $space-rem-sizes);
-```
+    @each $key, $value in $values { // 1.
 
----
+        $variant: escapeInvalid($key); // 2.
+        $value: if($value, $value, $key); // 3.
 
-- values can be a mix of single values and key-value pairs (maps)
-  as long at the map is wrapped in parentheses
-- map key is the css property
-- if the item prefix is omitted the key is used as the prefix
+        @if (type-of($key) == list) { // 4.
+            $variant: nth($key, 1);
+            $value: nth($key, 2);
+        }
 
-```scss
-$examples-map: (
-    color: (
-        prefix: "txt-",
-        values: (green, (blue: blue)),
-        breakpoints: ("sm", "md", "lg", "xl")
-    ),
-    font-style: (
-        prefix: "txt-",
-        values: ( italic, normal )
-    )
-);
+        $derivedUnit: if(value-has-unit($value), null, ($unit)); // 5.
 
-@include generateFromMapOfProperties($examples-map);
-```
+        $class: #{$identifier}#{$variant}#{handleClassUnit($derivedUnit)};
 
+        @if $positions-map {
+            @include createPositionClass($property, $value, $positions-map, $derivedUnit, $identifier, $variant);
+        } @else{
+            @include createSinglePropertyClass(#{$class}, $property, #{handleValue($value, $derivedUnit)});
+        }
 
+    }
+}
 
-```scss
-$grid-classes-map: (
-    // identifier: (
-    //     props: (property: value, property: value),
-    //     breakpoints: ("sm", "md", "lg", "xl"),
-    //     values: (value, (key: value))
-    // ),
-    gap: (
-        props: (gap: $gap),
-        breakpoints: ("sm", "md", "lg", "xl")
-    ),
-    grid: (
-        props: (display: grid, gap: $gap),
-        breakpoints: ("sm", "md", "lg", "xl")
-    ),
-);
-```
+## Class Generator Mixin
 
+The `generateFromMapOfProperties` mixin serves as the entry point for the class generator. It
+takes a map of property-maps, iterating through each property and setting variables to be passed
+into the `createClasses` mixin.
+
+**Parameters:**
+
+`$properties-map`: A map containing property-specific maps.
+
+**Usage**
 
 ```scss
-$classes-map: (
-    class: (
-        props: (property: value, property: value),
-        breakpoints: ("sm", "md", "lg", "xl")
-    ),
-);
+@include generateFromMapOfProperties($myPropertiesMap);
 ```
+
+The `createClasses` mixin directs the flow of the class generator based on values passed in by the
+`generateFromMapOfProperties` mixin. It iterates through each value, formatting the `variant` and
+`value` to be used in the appropriate class builder.
+
+#### Parameters:
+
+- `$property`: The CSS property name.
+- `$values`: A map of variants and their corresponding values.
+- `$identifier`: A prefix for the generated class.
+- `$unit`: The unit for the property values.
+- `$positions-map`: A map specifying positions for the property.
+- `$breakpoints`: Breakpoints for responsive design.
+
+#### Usage:
+
 ```scss
-$property-map: (
-    property: (
-        values: (value, (key: value))
-    ),
-);
+@include createClasses($property, $values, $identifier, $unit, $positions-map, $breakpoints);
 ```
 
-
-```mermaid
-sequenceDiagram
-    participant User
-    participant Code
-    participant positionBasedClasses
-    participant createClasses
-
-    User->>Code: Call generateFromMapOfProperties($properties-map)
-    loop For each $property, $map in $properties-map
-        Code->>Code: Extract $identifier, $values, $unit, $positions, $breakpoints
-        alt If $positions exists
-            Code->>positionBasedClasses: Call positionBasedClasses($property, $values, $identifier, $positions, $unit)
-        else
-            Code->>createClasses: Call createClasses($property, $values, $identifier, $unit, $breakpoints)
-        end
-    end
-    Code->>User: Return
-
-
-```
+Note, some values passed in may be null and will be handled by the appropriate mixin or function
+when required.

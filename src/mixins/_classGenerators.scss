@@ -23,17 +23,13 @@
 
 @mixin generateFromMapOfProperties($properties-map) {
     @each $property, $map in $properties-map {
-        $identifier: map-get($map, "prefix");
         $values: map-get($map, "values");
+        $identifier: map-get($map, "prefix");
         $unit: map-get($map, "unit"); // 1.
-        $positions: map-get($map, "positions"); // 1.
+        $positions-map: map-get($map, "positions"); // 1.
         $breakpoints: map-get($map, "breakpoints"); // 1.
 
-        @if ($positions) {
-            @include positionBasedClasses($property, $values, $identifier, $positions, $unit, $breakpoints);
-        } @else {
-            @include createClasses($property, $values, $identifier, $unit, $breakpoints);
-        }
+        @include createClasses($property, $values, $identifier, $unit, $positions-map, $breakpoints);
     }
 }
 
@@ -83,13 +79,13 @@
 //    specify different units in a single map while still defining a
 //    default.
 
+// some parameters default to null so mixin can be used directly
 // prettier-ignore
-@mixin createClasses($property, $values, $identifier, $unit, $breakpoints) {
+@mixin createClasses($property, $values, $identifier, $unit: '', $positions-map: '', $breakpoints: '') {
 
     @each $key, $value in $values { // 1.
 
         $variant: escapeInvalid($key); // 2.
-        @debug $variant;
         $value: if($value, $value, $key); // 3.
 
         @if (type-of($key) == list) { // 4.
@@ -97,20 +93,26 @@
             $value: nth($key, 2);
         }
 
-        $unit: if(value-has-unit($value), null, $unit); // 5.
+        @debug $unit;
 
-        // @debug $unit;
+        $derivedUnit: if(value-has-unit($value), null, ($unit)); // 5.
 
-        $class: #{$identifier}#{$variant}#{handleClassUnit($unit)};
+        @debug $derivedUnit;
 
-        // conditionally create responsive variants
-        @if ($breakpoints) {
-            @include makeFromBreakpoint(($property: $value), $class, $breakpoints...);
+        @if $positions-map {
+            @include createPositionClass($property, $value, $positions-map, $derivedUnit, $identifier, $variant);
+        } @else{
+            // $class: #{$identifier}#{$variant}#{handleClassUnit($derivedUnit)};
+            // @include createSinglePropertyClass(#{$class}, $property, #{handleValue($value, $derivedUnit)});
         }
 
-        @include createSinglePropertyClass(#{$class}, $property, #{handleValue($value, $unit)});
     }
 }
+
+// // conditionally create responsive variants
+// @if ($breakpoints) {
+//     @include makeFromBreakpoint(($property: $value), $class, $breakpoints...);
+// }
 
 // ----------------------------------------------------------------
 // Standalone mixin to create single property position based classes
@@ -121,23 +123,26 @@
 // prettier-ignore
 @mixin positionBasedClasses($property, $values, $identifier, $positions-map, $unit: "rem", $breakpoints: null) {
 
-    @each $key, $value in $values { // 1.
+    // @each $key, $value in $values { // 1.
 
-        $variant: escapeInvalid($key); // 2.
-        $value: if($value, $value, $key); // 3.
+    //     $variant: escapeInvalid($key); // 2.
+    //     $value: if($value, $value, $key); // 3.
 
-        @if (type-of($key) == list) { // 4.
-            $variant: nth($key, 1);
-            $value: nth($key, 2);
-        }
+    //     @if (type-of($key) == list) { // 4.
+    //         $variant: nth($key, 1);
+    //         $value: nth($key, 2);
+    //     }
 
-        @each $axis-or-position-key, $positions in $positions-map {
-            $class: #{$identifier}#{$axis-or-position-key}-#{$variant}#{handleClassUnit($unit)};
-            @include createPositionClass($class, $property, $value, $positions, $unit);
-        }
-    }
+    //     @include createPositionClass($property, $value, $positions-map, $unit, $identifier, $variant);
+
+    // }
 }
 
+// @each $axis-or-position-key, $positions in $positions-map {
+//     $class: #{$identifier}#{$axis-or-position-key}-#{$variant}#{handleClassUnit($unit)};
+//     @include createPositionClass($class, $property, $value, $positions, $unit);
+//     @include createPositionClass($class, $property, $value, $positions, $unit);
+// }
 // ----------------------------------------------------------------
 // Standalone mixin to create single property unit based classes
 // ----------------------------------------------------------------
