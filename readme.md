@@ -76,3 +76,25 @@ $property-map: (
     ),
 );
 ```
+
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Code
+    participant positionBasedClasses
+    participant createClasses
+
+    User->>Code: Call generateFromMapOfProperties($properties-map)
+    loop For each $property, $map in $properties-map
+        Code->>Code: Extract $identifier, $values, $unit, $positions, $breakpoints
+        alt If $positions exists
+            Code->>positionBasedClasses: Call positionBasedClasses($property, $values, $identifier, $positions, $unit)
+        else
+            Code->>createClasses: Call createClasses($property, $values, $identifier, $unit, $breakpoints)
+        end
+    end
+    Code->>User: Return
+
+
+```

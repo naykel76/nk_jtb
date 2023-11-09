@@ -1,7 +1,13 @@
 // ----------------------------------------------------------------
-// Check if a value has a unit. For example, 1rem or 1px.
+// Check if a value includes a unit. For example, 1rem or 1px.
 // ----------------------------------------------------------------
-@function hasUnit($value) {
+$units: (px, rem, em, vh);
+@function value-has-unit($value) {
     $value: toString($value);
-    @return str-index($value, "px") or str-index($value, "rem");
+    @each $unit in $units {
+        @if str-index($value, $unit) {
+            @return true;
+        }
+    }
+    @return false;
 }

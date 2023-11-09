@@ -7,13 +7,10 @@
 // ----------------------------------------------------------------
 @mixin generateFromMapOfValues($property, $values, $identifier: "") {
     @each $key, $value in $values {
-        @if ($identifier == "") {
-            // if the $identifier is omitted just us the key as the class name
-            @include createSinglePropertyClass(#{$key}, $property, $value);
-        } @else {
-            // otherwise join $identifier and $key for class name
-            @include createSinglePropertyClass(#{$identifier}-#{$key}, $property, $value);
-        }
+        // if the $identifier is omitted use the key as the class
+        // name otherwise join $identifier and $key for class name
+        $class: if($identifier == "", $key, #{$identifier}-#{$key}); // 1.
+        @include createSinglePropertyClass($class, $property, $value);
     }
 }
 
@@ -33,7 +30,7 @@
         $breakpoints: map-get($map, "breakpoints"); // 1.
 
         @if ($positions) {
-            @include positionBasedClasses($property, $values, $identifier, $positions, $unit);
+            @include positionBasedClasses($property, $values, $identifier, $positions, $unit, $breakpoints);
         } @else {
             @include createClasses($property, $values, $identifier, $unit, $breakpoints);
         }
@@ -68,10 +65,9 @@
 // Important, all parameters are required even if they are null to
 // make sure the mixin works as expected.
 //
-// 1. $kv can be a single value `1.5` which will represent both the
-//    key and value, alternatively it can be the key only for a
-//    key-value pair. This allows you to pass in a list of values or
-//    a map of key-value pairs.
+// 1. The `key`can be a single value e.g. `1.5` or a key-value pair
+//    represented as list e.g. `sm 1.5`. This allows you to pass in
+//    a list of values or a map of key-value pairs.
 // 2. escape or convert any invalid characters in the key
 // 3. if there is no value, then a key-value pair was not passed in
 //    and the key will be used as both the `key` and the `value`.
@@ -79,25 +75,31 @@
 //    key-value pair that has been converted to a list and it needs
 //    to be convert back to a map. I am not sure why it does this
 //    but it appears to be a sass thing!
-// 5. if the $value has a unit, consider it as an override and
-//    replace what ever was passed in to the mixin. Note: this may
-//    have limitations or unexpected results. This is good for
-//    creating base variants `container-sm`
+// 5. If the `value` passed in includes a unit (12px), then we need
+//    to set the mixin `unit` variable to null to prevent duplicate
+//    units. For example, if 12px is passed and the unit defined in
+//    the map 'rem' then the value will be `12px` instead of
+//    `12pxrem`. This essential works as an override allowing us to
+//    specify different units in a single map while still defining a
+//    default.
 
-//
 // prettier-ignore
 @mixin createClasses($property, $values, $identifier, $unit, $breakpoints) {
 
-    @each $kv, $value in $values { // 1.
+    @each $key, $value in $values { // 1.
 
-        $variant: escapeInvalid($kv); // 2.
-        $value: if($value, $value, $kv); // 3.
+        $variant: escapeInvalid($key); // 2.
+        @debug $variant;
+        $value: if($value, $value, $key); // 3.
 
-        @if (type-of($kv) == list) { // 4.
-            $variant: nth($kv, 1);
-            $value: nth($kv, 2);
+        @if (type-of($key) == list) { // 4.
+            $variant: nth($key, 1);
+            $value: nth($key, 2);
         }
-        $unit: if(hasUnit($value), "", $unit); // 5. ??
+
+        $unit: if(value-has-unit($value), null, $unit); // 5.
+
+        // @debug $unit;
 
         $class: #{$identifier}#{$variant}#{handleClassUnit($unit)};
 
@@ -117,16 +119,16 @@
 // the code clean and readable.
 
 // prettier-ignore
-@mixin positionBasedClasses($property, $values, $identifier, $positions-map, $unit: "rem") {
+@mixin positionBasedClasses($property, $values, $identifier, $positions-map, $unit: "rem", $breakpoints: null) {
 
-    @each $kv, $value in $values { // 1.
+    @each $key, $value in $values { // 1.
 
-        $variant: escapeInvalid($kv); // 2.
-        $value: if($value, $value, $kv); // 3.
+        $variant: escapeInvalid($key); // 2.
+        $value: if($value, $value, $key); // 3.
 
-        @if (type-of($kv) == list) { // 4.
-            $variant: nth($kv, 1);
-            $value: nth($kv, 2);
+        @if (type-of($key) == list) { // 4.
+            $variant: nth($key, 1);
+            $value: nth($key, 2);
         }
 
         @each $axis-or-position-key, $positions in $positions-map {
