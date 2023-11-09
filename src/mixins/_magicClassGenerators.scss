@@ -1,4 +1,4 @@
-@use "../mixins/helpers" as *;
+@use "../mixins/class-helpers" as *;
 @use "../mixins/media" as *;
 @use "../variables/utility_maps" as *;
 @use "sass:list";
@@ -6,7 +6,6 @@
 @mixin handlePropertyCreator($property, $value, $positions, $unit) {
     @if ($positions == "" or $positions == null) {
         // need to complete!!
-        // @debug "handlePropertyCreator: $property, $value, $positions, $unit";
         // @include makeProperty($property, $value, $unit);
     } @else {
         // do i need unit???
@@ -41,7 +40,6 @@
 // -- GENERATE MAGIC CLASS FOR A SINGLE PROPERTY --
 // ----------------------------------------------------------------
 @mixin magicClass($property, $values-list, $identifier, $unit: "rem", $position-or-axis: "") {
-    // @debug
     // get the positions required to build up the class
     // (x:(left, right), y:(top, bottom) ... etc)
     $positions: map-get($axis-position-map, $position-or-axis);

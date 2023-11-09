@@ -19,17 +19,12 @@
 @mixin createPositionClass($property, $value, $positions-map, $unit, $identifier, $variant) {
     @each $axis-or-position-key, $positions in $positions-map {
         $class: #{$identifier}#{$axis-or-position-key}-#{$variant}#{handleClassUnit($unit)};
+        $class: stripInvalid($class);
         .#{$class} {
             @include createPositionProperties($property, $value, $positions, $unit);
         }
     }
 }
-
-// @mixin createPositionClass($class, $property, $value, $positions, $unit: "rem") {
-//     .#{$class} {
-//         @include createPositionProperties($property, $value, $positions, $unit);
-//     }
-// }
 
 // ----------------------------------------------------------------
 // -- CREATE ONE OR MANY PROPERTIES FROM MAP OF KEY-VALUE PAIRS --

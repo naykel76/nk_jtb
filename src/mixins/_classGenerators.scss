@@ -1,5 +1,5 @@
 @use "../functions/helpers" as *;
-@use "../mixins/helpers" as *;
+@use "../mixins/class-helpers" as *;
 @use "sass:string";
 
 // ----------------------------------------------------------------
@@ -99,6 +99,7 @@
             @include createPositionClass($property, $value, $positions-map, $derivedUnit, $identifier, $variant);
         } @else{
             $class: #{$identifier}#{$variant}#{handleClassUnit($derivedUnit)};
+            $class: stripInvalid($class);
             @include createSinglePropertyClass(#{$class}, $property, #{handleValue($value, $derivedUnit)});
 
             @if ($breakpoints) {

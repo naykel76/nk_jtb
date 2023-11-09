@@ -1,6 +1,6 @@
 @use "../variables" as *;
 @use "../mixins/classGenerators" as *;
-@use "../mixins/helpers" as *;
+@use "../mixins/class-helpers" as *;
 
 // prettier-ignore
 $flex-properties-map: (
