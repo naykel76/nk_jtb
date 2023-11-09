@@ -1,6 +1,6 @@
 // @use "./components/box" as *;
 // @use "./utilities/padding" as *;
-// @use "./utilities/margin" as *;
+@use "./utilities/margin" as *;
 
 @use "./mixins/common" as *;
 @use "sass:list";
@@ -31,25 +31,23 @@
 // handle base value
 
 // prettier-ignore
-$example-properties-map: (
-    font-size: (
-        // sample map with mixed values and unit types
-        prefix: "#{$text-identifier}",
-        values: ((sm: 0.875rem), (base: 1rem), (lg: 1.125), 12px, 3),
-        // values: (1, 2, 3),
-        unit: "rem" // this is not working
-        // breakpoints: ("sm", "md", "lg", "xl")
-    ),
-    margin:(
-        prefix: #{$margin-identifier},
-        values: ((sm: 0.875rem), (base: 1rem), (lg: 1.125rem), 12px, 3),
-        unit: "rem",
-        positions: $xy-positions-map,
-    )
-);
+// $example-properties-map: (
+//     font-size: (
+//         prefix: "#{$text-identifier}",
+//         values: ((sm: 0.875rem), (base: 1rem), (lg: 1.125), 12px, 3),
+//         unit: "rem",
+//         breakpoints: ("sm", "md", "lg", "xl")
+//     ),
+//     margin:(
+//         prefix: #{$margin-identifier},
+//         values: ((sm: 0.875rem), (base: 1rem), (lg: 1.125rem), 12px, 3),
+//         unit: "rem",
+//         positions: $xy-positions-map,
+//     )
+// );
 
 // @include generateFromMapOfProperties($example-properties-map);
 
 // @mixin createClasses($property, $values, $identifier, $unit: "rem", $positions-map: '', $breakpoints: '')
 // remove unit from class name
-@include createClasses(margin, (0.5, 1, 16px), "m", "rem", $xy-positions-map);
+// @include createClasses(margin, (0.5, 1, 16px), "m", "rem", $xy-positions-map);

@@ -93,56 +93,22 @@
             $value: nth($key, 2);
         }
 
-        @debug $unit;
-
         $derivedUnit: if(value-has-unit($value), null, ($unit)); // 5.
-
-        @debug $derivedUnit;
 
         @if $positions-map {
             @include createPositionClass($property, $value, $positions-map, $derivedUnit, $identifier, $variant);
         } @else{
-            // $class: #{$identifier}#{$variant}#{handleClassUnit($derivedUnit)};
-            // @include createSinglePropertyClass(#{$class}, $property, #{handleValue($value, $derivedUnit)});
+            $class: #{$identifier}#{$variant}#{handleClassUnit($derivedUnit)};
+            @include createSinglePropertyClass(#{$class}, $property, #{handleValue($value, $derivedUnit)});
+
+            @if ($breakpoints) {
+                @include makeFromBreakpoint(($property: $value), $class, $breakpoints...);
+            }
         }
 
     }
 }
 
-// // conditionally create responsive variants
-// @if ($breakpoints) {
-//     @include makeFromBreakpoint(($property: $value), $class, $breakpoints...);
-// }
-
-// ----------------------------------------------------------------
-// Standalone mixin to create single property position based classes
-// ----------------------------------------------------------------
-// There is a bit of duplication here, but it is necessary to keep
-// the code clean and readable.
-
-// prettier-ignore
-@mixin positionBasedClasses($property, $values, $identifier, $positions-map, $unit: "rem", $breakpoints: null) {
-
-    // @each $key, $value in $values { // 1.
-
-    //     $variant: escapeInvalid($key); // 2.
-    //     $value: if($value, $value, $key); // 3.
-
-    //     @if (type-of($key) == list) { // 4.
-    //         $variant: nth($key, 1);
-    //         $value: nth($key, 2);
-    //     }
-
-    //     @include createPositionClass($property, $value, $positions-map, $unit, $identifier, $variant);
-
-    // }
-}
-
-// @each $axis-or-position-key, $positions in $positions-map {
-//     $class: #{$identifier}#{$axis-or-position-key}-#{$variant}#{handleClassUnit($unit)};
-//     @include createPositionClass($class, $property, $value, $positions, $unit);
-//     @include createPositionClass($class, $property, $value, $positions, $unit);
-// }
 // ----------------------------------------------------------------
 // Standalone mixin to create single property unit based classes
 // ----------------------------------------------------------------
