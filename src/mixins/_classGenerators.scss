@@ -65,8 +65,9 @@
 //    represented as list e.g. `sm 1.5`. This allows you to pass in
 //    a list of values or a map of key-value pairs.
 // 2. escape or convert any invalid characters in the key
-// 3. if there is no value, then a key-value pair was not passed in
-//    and the key will be used as both the `key` and the `value`.
+// 3. The initial `values` does not include the unit. If there is no
+//    value, then a key-value pair was not passed in and the key
+//    will be used as both the `key` and the `value`.
 // 4. if the `kv` type is a list, then it is a map with a single
 //    key-value pair that has been converted to a list and it needs
 //    to be convert back to a map. I am not sure why it does this
@@ -93,14 +94,21 @@
             $value: nth($key, 2);
         }
 
-        $derivedUnit: if(value-has-unit($value), null, ($unit)); // 5.
+        // derived values are used to create classes and are passed
+        // through to minimize complexity in the class creators.
+        $derived-unit: if(value-has-unit($value), null, ($unit)); // 5.
+        $derived-value: #{handleClassValue($value, $derived-unit)}; // 6.
+        $derived-variant: #{$variant}#{handleClassUnit($derived-unit)}; // 7.
 
+        // when creating classes pass through derived values to
+        // minimize complexity in the class creators.
         @if $positions-map {
-            @include createPositionClass($property, $value, $positions-map, $derivedUnit, $identifier, $variant);
+            // the class naming is handled by the mixin
+            @include createPositionClass($property, $derived-value, $positions-map, $identifier, $derived-variant, $breakpoints);
         } @else{
-            $class: #{$identifier}#{$variant}#{handleClassUnit($derivedUnit)};
+            $class: #{$identifier}#{$derived-variant};
             $class: stripInvalid($class);
-            @include createSinglePropertyClass(#{$class}, $property, #{handleValue($value, $derivedUnit)});
+            @include createSinglePropertyClass(#{$class}, $property, #{$derived-value});
 
             @if ($breakpoints) {
                 @include makeFromBreakpoint(($property: $value), $class, $breakpoints...);

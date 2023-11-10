@@ -31,14 +31,14 @@ Why!
             $value: nth($key, 2);
         }
 
-        $derivedUnit: if(value-has-unit($value), null, ($unit)); // 5.
+        $derived-unit: if(value-has-unit($value), null, ($unit)); // 5.
 
-        $class: #{$identifier}#{$variant}#{handleClassUnit($derivedUnit)};
+        $class: #{$identifier}#{$variant}#{handleClassUnit($derived-unit)};
 
         @if $positions-map {
-            @include createPositionClass($property, $value, $positions-map, $derivedUnit, $identifier, $variant);
+            @include createPositionClass($property, $value, $positions-map, $derived-unit, $identifier, $variant);
         } @else{
-            @include createSinglePropertyClass(#{$class}, $property, #{handleValue($value, $derivedUnit)});
+            @include createSinglePropertyClass(#{$class}, $property, #{handleClassValue($value, $derived-unit)});
         }
 
     }

@@ -3,13 +3,13 @@
 @use "../variables/utility_maps" as *;
 @use "sass:list";
 
-@mixin handlePropertyCreator($property, $value, $positions, $unit) {
+@mixin handlePropertyCreator($property, $value, $positions) {
     @if ($positions == "" or $positions == null) {
         // need to complete!!
         // @include makeProperty($property, $value, $unit);
     } @else {
         // do i need unit???
-        @include createPositionProperties($property, $value, $positions, $unit);
+        @include createPositionProperties($property, $value, $positions);
     }
 }
 
@@ -61,21 +61,21 @@
             // DO NOT use else-if statements when building the classes.
             // You want to give all classes to the opportunity to build.
             .#{$identifier}-#{$derived-class} {
-                @include handlePropertyCreator($property, $baseValue, $positions, $unit);
+                @include handlePropertyCreator($property, $baseValue, $positions);
 
                 @include from-sm {
-                    @include handlePropertyCreator($property, $smValue, $positions, $unit);
+                    @include handlePropertyCreator($property, $smValue, $positions);
                 }
 
                 @if ($numBreakPoints >= 3) {
                     @include from-md {
-                        @include handlePropertyCreator($property, $mdValue, $positions, $unit);
+                        @include handlePropertyCreator($property, $mdValue, $positions);
                     }
                 }
 
                 @if ($numBreakPoints >= 4) {
                     @include from-lg {
-                        @include handlePropertyCreator($property, $lgValue, $positions, $unit);
+                        @include handlePropertyCreator($property, $lgValue, $positions);
                     }
                 }
 
@@ -83,12 +83,12 @@
 
                 // @if ($numBreakPoints >= 5) {
                 //     @include from-xl {
-                //         @include handlePropertyCreator($property, $xlValue, $unit, $positions);
+                //         @include handlePropertyCreator($property, $xlValue, $positions);
                 //     }
                 // }
                 // @if ($numBreakPoints >= 6) {
                 //     @include from-xxl {
-                //         @include handlePropertyCreator($property, $xxlValue, $unit, $positions);
+                //         @include handlePropertyCreator($property, $xxlValue, $positions);
                 //     }
                 // }
             }

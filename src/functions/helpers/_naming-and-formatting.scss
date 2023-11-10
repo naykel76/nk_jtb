@@ -22,9 +22,9 @@
 // ----------------------------------------------------------------
 // Remove unwanted unit for certain values, e.g. 0 and auto
 // ----------------------------------------------------------------
-@function handleValue($value, $unit) {
-    $derivedUnit: if(($value == "auto" or $value == 0), null, $unit);
-    @return $value + $derivedUnit;
+@function handleClassValue($value, $unit) {
+    $derived-unit: if(($value == "auto" or $value == 0), null, $unit);
+    @return $value + $derived-unit;
 }
 
 // ----------------------------------------------------------------

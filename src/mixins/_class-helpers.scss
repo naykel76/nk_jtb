@@ -15,16 +15,34 @@
     }
 }
 
+
+// NK?? This could arguably be moved into the main generator mixin
 // $positions is each individual position, e.g., top, bottom, left, right
-@mixin createPositionClass($property, $value, $positions-map, $unit, $identifier, $variant) {
+@mixin createPositionClass($property, $value, $positions-map, $identifier, $variant, $breakpoints) {
     @each $axis-or-position-key, $positions in $positions-map {
-        $class: #{$identifier}#{$axis-or-position-key}-#{$variant}#{handleClassUnit($unit)};
-        $class: stripInvalid($class);
-        .#{$class} {
-            @include createPositionProperties($property, $value, $positions, $unit);
+        $derived-class: #{$identifier}#{$axis-or-position-key}-#{$variant};
+        $derived-class: stripInvalid($derived-class);
+
+        .#{$derived-class} {
+            // @include createPositionProperties($property, $value, $positions, $breakpoints);
+            @each $position in $positions {
+                #{$property}-#{$position}: #{$value};
+            }
         }
     }
 }
+
+// // $positions is each individual position, e.g., top, bottom, left, right
+// @mixin createPositionClass($property, $value, $positions-map, $unit, $identifier, $variant) {
+//     @each $axis-or-position-key, $positions in $positions-map {
+//         $class: #{$identifier}#{$axis-or-position-key}-#{$variant}#{handleClassUnit($unit)};
+//         $class: stripInvalid($class);
+//         @debug $class;
+//         // .#{$class} {
+//         //     @include createPositionProperties($property, $value, $positions, $unit);
+//         // }
+//     }
+// }
 
 // ----------------------------------------------------------------
 // -- CREATE ONE OR MANY PROPERTIES FROM MAP OF KEY-VALUE PAIRS --
@@ -62,10 +80,10 @@
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
 
 // output:  {bp}\:identifier
-@mixin makeFromBreakpoint($props, $identifier, $breakpoints...) {
+@mixin makeFromBreakpoint($props, $class, $breakpoints...) {
     @each $bp in $breakpoints {
-        $class: #{$bp}\:#{$identifier};
-        .#{$class} {
+        $derived-class: #{$bp}\:#{$class};
+        .#{$derived-class} {
             @if ($bp == "sm") {
                 @include from-sm {
                     @include createProperties($props);
@@ -94,7 +112,8 @@
 // output:  to-{breakpoint}\:identifier
 @mixin makeToBreakpoint($props, $identifier, $breakpoints...) {
     @each $bp in $breakpoints {
-        .to-#{$bp}\:#{$identifier} {
+        $derived-class: #{$bp}\:#{$identifier};
+        .to-#{$derived-class} {
             @if ($bp == "sm") {
                 @include to-sm {
                     @include createProperties($props);
@@ -119,9 +138,10 @@
 }
 
 // output: on-{breakpoint}\:identifier
-@mixin makeOnBreakpoint($props, $identifier, $breakpoints...) {
+@mixin makeOnBreakpoint($props, $class, $breakpoints...) {
     @each $bp in $breakpoints {
-        .on-#{$bp}\:#{$identifier} {
+        $derived-class: #{$bp}\:#{$class};
+        .on-#{$derived-class} {
             @if ($bp == "sm") {
                 @include on-sm {
                     @include createProperties($props);

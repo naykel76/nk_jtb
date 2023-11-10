@@ -61,8 +61,8 @@ $border-radius-map: (
             .#{$class} {
                 @each $position in $positions {
                     // prettier-ignore
-                    $derivedUnit: if(($value == "auto" or $value == 0), null, map-get($map, "unit"));
-                    border-#{$position}-radius: #{$value}#{$derivedUnit};
+                    $derived-unit: if(($value == "auto" or $value == 0), null, map-get($map, "unit"));
+                    border-#{$position}-radius: #{$value}#{$derived-unit};
                 }
             }
         }
