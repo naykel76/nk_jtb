@@ -3,46 +3,53 @@
 // ----------------------------------------------------------------
 // -- CLASS CREATORS --
 // ----------------------------------------------------------------
-@mixin createSinglePropertyClass($class, $property, $value) {
+
+// prettier-ignore
+@mixin singlePropertyClass($class, $property, $value, $breakpoints: "") {
+
     .#{$class} {
         #{$property}: $value;
     }
-}
 
-@mixin createMultiplePropertyClass($class, $props) {
-    .#{$class} {
-        @include createProperties($props);
+    @if ($breakpoints) {
+        @include makeFromBreakpoint(($property: $value), $class, $breakpoints...);
     }
+
 }
 
+// @mixin createMultiplePropertyClass($class, $props) {
+//     .#{$class} {
+//         @include createProperties($props);
+//     }
+// }
 
 // NK?? This could arguably be moved into the main generator mixin
 // $positions is each individual position, e.g., top, bottom, left, right
-@mixin createPositionClass($property, $value, $positions-map, $identifier, $variant, $breakpoints) {
-    @each $axis-or-position-key, $positions in $positions-map {
-        $derived-class: #{$identifier}#{$axis-or-position-key}-#{$variant};
-        $derived-class: stripInvalid($derived-class);
 
+// 1. initialise props to be used for responsive classes
+// 2. merge the props for each position into a single map so it can
+//    be used for responsive classes which expects a map of props
+//    not a seperate `property` and `value
+
+@mixin positionBasedClass($property, $value, $positions-map, $identifier, $variant, $breakpoints) {
+    @each $axis-or-position-key, $positions in $positions-map {
+        $props: (); // 1.
+        $derived-class: stripInvalid(#{$identifier}#{$axis-or-position-key}-#{$variant});
         .#{$derived-class} {
-            // @include createPositionProperties($property, $value, $positions, $breakpoints);
             @each $position in $positions {
                 #{$property}-#{$position}: #{$value};
+                $props: map-merge($props, (#{$property}-#{$position}: $value)); // 2.
             }
+        }
+        // @debug $breakpoints;
+        @if($breakpoints) {
+            // convert the `breakpoints` passed in as a list to an
+            // argument list because the makeFromBreakpoint mixin
+            // expects separate arguments.
+            @include makeFromBreakpoint($props, $derived-class, $breakpoints...);
         }
     }
 }
-
-// // $positions is each individual position, e.g., top, bottom, left, right
-// @mixin createPositionClass($property, $value, $positions-map, $unit, $identifier, $variant) {
-//     @each $axis-or-position-key, $positions in $positions-map {
-//         $class: #{$identifier}#{$axis-or-position-key}-#{$variant}#{handleClassUnit($unit)};
-//         $class: stripInvalid($class);
-//         @debug $class;
-//         // .#{$class} {
-//         //     @include createPositionProperties($property, $value, $positions, $unit);
-//         // }
-//     }
-// }
 
 // ----------------------------------------------------------------
 // -- CREATE ONE OR MANY PROPERTIES FROM MAP OF KEY-VALUE PAIRS --
@@ -80,7 +87,9 @@
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
 
 // output:  {bp}\:identifier
+
 @mixin makeFromBreakpoint($props, $class, $breakpoints...) {
+
     @each $bp in $breakpoints {
         $derived-class: #{$bp}\:#{$class};
         .#{$derived-class} {

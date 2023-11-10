@@ -3,20 +3,20 @@
 @use "sass:string";
 
 // ----------------------------------------------------------------
-// Generate single property classes from map of values.
+// Generate classes for a single property from map of values.
 // ----------------------------------------------------------------
+// 1. if the $identifier is omitted use the key as the class name
+//    otherwise join $identifier and $key for class name
+
 @mixin generateFromMapOfValues($property, $values, $identifier: "") {
     @each $key, $value in $values {
-        // if the $identifier is omitted use the key as the class
-        // name otherwise join $identifier and $key for class name
-        $class: if($identifier == "", $key, #{$identifier}-#{$key}); // 1.
-        @include createSinglePropertyClass($class, $property, $value);
+        $derived-class: if($identifier == "", $key, #{$identifier}-#{$key}); // 1.
+        @include singlePropertyClass($derived-class, $property, $value);
     }
 }
 
 // ----------------------------------------------------------------
-// All purpose mixin to generate classes for a single property
-// classes from map of properties.
+// Generate classes for a single property from map of properties.
 // ----------------------------------------------------------------
 // 1. These values can be null and will be handled appropriately by
 //    the relevant mixin
@@ -28,7 +28,6 @@
         $unit: map-get($map, "unit"); // 1.
         $positions-map: map-get($map, "positions"); // 1.
         $breakpoints: map-get($map, "breakpoints"); // 1.
-
         @include createClasses($property, $values, $identifier, $unit, $positions-map, $breakpoints);
     }
 }
@@ -48,8 +47,10 @@
             @include createProperties($props);
         }
 
-        // handle responsive variants
         @if ($breakpoints) {
+            // convert the `breakpoints` from list to an argument
+            // list because the makeFromBreakpoint mixin expects
+            // separate arguments.
             @include makeFromBreakpoint($props, $class, $breakpoints...);
         }
     }
@@ -100,21 +101,13 @@
         $derived-value: #{handleClassValue($value, $derived-unit)}; // 6.
         $derived-variant: #{$variant}#{handleClassUnit($derived-unit)}; // 7.
 
-        // when creating classes pass through derived values to
-        // minimize complexity in the class creators.
         @if $positions-map {
             // the class naming is handled by the mixin
-            @include createPositionClass($property, $derived-value, $positions-map, $identifier, $derived-variant, $breakpoints);
+            @include positionBasedClass($property, $derived-value, $positions-map, $identifier, $derived-variant, $breakpoints);
         } @else{
-            $class: #{$identifier}#{$derived-variant};
-            $class: stripInvalid($class);
-            @include createSinglePropertyClass(#{$class}, $property, #{$derived-value});
-
-            @if ($breakpoints) {
-                @include makeFromBreakpoint(($property: $value), $class, $breakpoints...);
-            }
+            $derived-class: stripInvalid(#{$identifier}#{$derived-variant});
+            @include singlePropertyClass(#{$derived-class}, $property, #{$derived-value}, $breakpoints);
         }
-
     }
 }
 
@@ -124,7 +117,7 @@
 @mixin unitBasedClasses($property, $values, $identifier, $unit: "rem") {
     @each $value in $values {
         $escapedValue: escapeInvalid($value);
-        $class: #{$identifier}-#{$escapedValue}#{handleClassUnit($unit)};
-        @include createSinglePropertyClass($class, $property, #{$value}#{$unit});
+        $derived-class: #{$identifier}-#{$escapedValue}#{handleClassUnit($unit)};
+        @include singlePropertyClass($derived-class, $property, #{$value}#{$unit});
     }
 }

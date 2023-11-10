@@ -1,6 +1,6 @@
 // @use "./components/box" as *;
 // @use "./utilities/padding" as *;
-// @use "./utilities/margin" as *;
+@use "./utilities/margin" as *;
 
 @use "./mixins/common" as *;
 @use "sass:list";
@@ -14,22 +14,21 @@ $example-properties-map: (
     //     values: (teal, green, blue),
     //     breakpoints: ("sm", "md", "lg", "xl")
     // ),
-    // font-size: (
-    //     prefix: "#{$text-identifier}",
-    //     values: ((base: 1rem), (lg: 1.125), 12px, 3),
-    //     unit: "rem",
-    //     breakpoints: ("sm", "md", "lg", "xl")
-    // ),
-    margin:(
-        prefix: #{$margin-identifier},
-        values: (2),
-        // values: ((sm: 0.875rem), (base: 1rem), (lg: 1.125rem), 12px, 3),
+    font-size: (
+        prefix: "#{$text-identifier}",
+        values: ((base: 1rem), (lg: 1.125), 12px, 3),
         unit: "rem",
-        positions: (x: (left, right), y: (top, bottom)),
-        // positions: $xy-positions-map,
-        breakpoints: ("sm")
-    )
+        breakpoints: ("sm", "md", "lg", "xl")
+    ),
+    // margin:(
+    //     prefix: #{$margin-identifier},
+    //     values: ((sm: 0.875rem), (base: 1rem), (lg: 1.125rem), 12px, 3),
+    //     unit: "rem",
+    //     positions: (x: (left, right), y: (top, bottom)),
+    //     breakpoints: ("sm", "lg")
+    // )
 );
 
-@include generateFromMapOfProperties($example-properties-map);
+// @include generateFromMapOfProperties($example-properties-map);
+
 

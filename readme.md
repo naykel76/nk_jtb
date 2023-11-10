@@ -36,7 +36,7 @@ Why!
         $class: #{$identifier}#{$variant}#{handleClassUnit($derived-unit)};
 
         @if $positions-map {
-            @include createPositionClass($property, $value, $positions-map, $derived-unit, $identifier, $variant);
+            @include positionBasedClass($property, $value, $positions-map, $derived-unit, $identifier, $variant);
         } @else{
             @include createSinglePropertyClass(#{$class}, $property, #{handleClassValue($value, $derived-unit)});
         }

@@ -9,7 +9,7 @@ $margin-properties-map: (
         prefix: #{$margin-identifier},
         values: $margin-sizes,
         unit: "rem",
-        positions: $xy-positions-map,
+        positions: $axis-position-map,
         breakpoints: ("sm", "md", "lg", "xl")
     )
 );
