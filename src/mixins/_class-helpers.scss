@@ -42,7 +42,7 @@
             }
         }
         // @debug $breakpoints;
-        @if($breakpoints) {
+        @if ($breakpoints) {
             // convert the `breakpoints` passed in as a list to an
             // argument list because the makeFromBreakpoint mixin
             // expects separate arguments.
@@ -89,7 +89,6 @@
 // output:  {bp}\:identifier
 
 @mixin makeFromBreakpoint($props, $class, $breakpoints...) {
-
     @each $bp in $breakpoints {
         $derived-class: #{$bp}\:#{$class};
         .#{$derived-class} {

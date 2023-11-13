@@ -1,6 +1,6 @@
 // @use "./components/box" as *;
 // @use "./utilities/padding" as *;
-@use "./utilities/margin" as *;
+@use "./utilities/sizing" as *;
 
 @use "./mixins/common" as *;
 @use "sass:list";
@@ -8,27 +8,43 @@
 @use "sass:string";
 
 // prettier-ignore
+@function listToMap($list) {
+    $map: ();
+    @each $value in $list {
+        $map: map-merge($map, ($value: $value));
+    }
+    @return $map;
+}
+
+$variants1: ( sm: $sm, md: $md );
+$variants2: ( lg: $lg, xl: $xl );
+$px-list: (200, 250, 300, 400, 600);
+$rem-list: (2, 4, 6);
+
+$map: magic-merge($variants1, $variants2, $px-list);
+
+// @debug $map;
+
+// prettier-ignore
 $example-properties-map: (
-    // color: (
-    //     prefix: "#{$text-identifier}",
-    //     values: (teal, green, blue),
-    //     breakpoints: ("sm", "md", "lg", "xl")
-    // ),
+    color: (
+        prefix: "#{$text-identifier}",
+        values: (teal, green, blue),
+        breakpoints: ("sm", "md", "lg", "xl")
+    ),
     font-size: (
         prefix: "#{$text-identifier}",
         values: ((base: 1rem), (lg: 1.125), 12px, 3),
         unit: "rem",
         breakpoints: ("sm", "md", "lg", "xl")
     ),
-    // margin:(
-    //     prefix: #{$margin-identifier},
-    //     values: ((sm: 0.875rem), (base: 1rem), (lg: 1.125rem), 12px, 3),
-    //     unit: "rem",
-    //     positions: (x: (left, right), y: (top, bottom)),
-    //     breakpoints: ("sm", "lg")
-    // )
+    margin:(
+        prefix: #{$margin-identifier},
+        values: ((sm: 0.875rem), (base: 1rem), (lg: 1.125rem), 12px, 3),
+        unit: "rem",
+        positions: (x: (left, right), y: (top, bottom)),
+        breakpoints: ("sm", "lg")
+    )
 );
 
 // @include generateFromMapOfProperties($example-properties-map);
-
-
