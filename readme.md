@@ -7,42 +7,10 @@ Why!
 > Because without reinventing the wheel we wouldn’t have fast cars.
 > -- Nathan Watts
 
-@mixin generateFromMapOfProperties($properties-map) {
-    @each $property, $map in $properties-map {
-        $values: map-get($map, "values");
-        $identifier: map-get($map, "prefix");
-        $unit: map-get($map, "unit"); // 1.
-        $positions-map: map-get($map, "positions"); // 1.
-        $breakpoints: map-get($map, "breakpoints"); // 1.
 
-        @include createClasses($property, $values, $identifier, $unit, $positions-map, $breakpoints);
-    }
-}
-
-@mixin createClasses($property, $values, $identifier, $unit, $positions-map, $breakpoints) {
-
-    @each $key, $value in $values { // 1.
-
-        $variant: escapeInvalid($key); // 2.
-        $value: if($value, $value, $key); // 3.
-
-        @if (type-of($key) == list) { // 4.
-            $variant: nth($key, 1);
-            $value: nth($key, 2);
-        }
-
-        $derived-unit: if(value-has-unit($value), null, ($unit)); // 5.
-
-        $class: #{$identifier}#{$variant}#{handleClassUnit($derived-unit)};
-
-        @if $positions-map {
-            @include positionBasedClass($property, $value, $positions-map, $derived-unit, $identifier, $variant);
-        } @else{
-            @include createSinglePropertyClass(#{$class}, $property, #{handleClassValue($value, $derived-unit)});
-        }
-
-    }
-}
+Generate classes with a single property from a map of values.
+    - Optionally generate responsive classes from a map of breakpoints.
+    - Optionally generate classes for each position from a map of positions.
 
 ## Class Generator Mixin
 

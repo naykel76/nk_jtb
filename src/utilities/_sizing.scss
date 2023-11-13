@@ -36,7 +36,7 @@ $sizes-map: (
 
 // -- WIDTH & HEIGHT --
 @each $size in $size-rem-list {
-    $class: escapeInvalid($size);
+    $class: escape-invalid($size);
     .wh-#{$class} {
         width: #{$size}rem;
         height: #{$size}rem;

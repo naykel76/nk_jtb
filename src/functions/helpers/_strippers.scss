@@ -35,7 +35,7 @@
 $xy-exclusions: ("bdr-");
 
 // the identifier is only required for the `xy-exclusions` list
-@function stripInvalid($class, $identifier: "") {
+@function strip-invalid($class, $identifier: "") {
     // allows variants with base classes to be used without the
     // '-base' suffix. For example, `pxy-base` will be `pxy`.
     @if (str-slice($class, -5) == "-base") {

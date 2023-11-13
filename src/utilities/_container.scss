@@ -19,7 +19,7 @@ $container-variants: (
 //    not.
 
 @each $variant, $size in $container-variants {
-    $class: stripInvalid(#{$container-identifier}-#{$variant});
+    $class: strip-invalid(#{$container-identifier}-#{$variant});
 
     // 95% is a good default for most cases, but this may need to be
     // adjusted for smaller screens.

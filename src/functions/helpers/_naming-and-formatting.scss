@@ -5,7 +5,7 @@
 // ----------------------------------------------------------------
 // escape invalid charters to be used in class names
 // ----------------------------------------------------------------
-@function escapeInvalid($input) {
+@function escape-invalid($input) {
     $input: toString($input);
 
     // if the value starts with '0.' remove the decimal
@@ -22,7 +22,7 @@
 // ----------------------------------------------------------------
 // Remove unwanted unit for certain values, e.g. 0 and auto
 // ----------------------------------------------------------------
-@function handleClassValue($value, $unit) {
+@function handle-class-value($value, $unit) {
     $derived-unit: if(($value == "auto" or $value == 0), null, $unit);
     @return $value + $derived-unit;
 }
@@ -30,7 +30,7 @@
 // ----------------------------------------------------------------
 // Remove 'rem' unit from class names because it is the default
 // ----------------------------------------------------------------
-@function handleClassUnit($unit) {
+@function handle-class-unit($unit) {
     @return if($unit != "rem", $unit, "");
 }
 

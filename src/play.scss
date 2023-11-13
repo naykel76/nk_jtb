@@ -1,32 +1,28 @@
 // @use "./components/box" as *;
 // @use "./utilities/padding" as *;
-@use "./utilities/sizing" as *;
-
+// @use "./utilities/sizing" as *;
+@use "./mixins/class/generate-utilities" as *;
 @use "./mixins/common" as *;
 @use "sass:list";
 @use "sass:map";
 @use "sass:string";
 
-// prettier-ignore
-@function listToMap($list) {
-    $map: ();
-    @each $value in $list {
-        $map: map-merge($map, ($value: $value));
-    }
-    @return $map;
-}
+// there are three types of maps that can be used to generate utilities
+// 1. map of values
+// 2. map of properties
+// 3. map of classes
 
-$variants1: ( sm: $sm, md: $md );
-$variants2: ( lg: $lg, xl: $xl );
-$px-list: (200, 250, 300, 400, 600);
-$rem-list: (2, 4, 6);
+// ----------------------------------------------------------------
+// -- MAP OF VALUES --
+// ----------------------------------------------------------------
+$map-of-values: (6, 12px, 100vh, 100%);
 
-$map: magic-merge($variants1, $variants2, $px-list);
-
-// @debug $map;
+// ----------------------------------------------------------------
+// -- MAP OF PROPERTIES --
+// ----------------------------------------------------------------
 
 // prettier-ignore
-$example-properties-map: (
+$map-of-properties: (
     color: (
         prefix: "#{$text-identifier}",
         values: (teal, green, blue),
@@ -47,4 +43,63 @@ $example-properties-map: (
     )
 );
 
-// @include generateFromMapOfProperties($example-properties-map);
+@include generate-utilities($map-of-properties);
+
+// ----------------------------------------------------------------
+// -- MAP OF CLASSES --
+// ----------------------------------------------------------------
+$with-height-identifier: "wh-";
+// prettier-ignore
+$map-of-classes:(
+    #{$with-height-identifier}: (
+        props: (color, font-size),
+        breakpoints: ("sm", "md", "lg", "xl")
+    ),
+);
+
+// prettier-ignore
+$flex-classes-map: (
+    flex-col: (
+        props: ( display: flex, flex-direction: column ),
+        breakpoints: ("sm", "md", "lg", "xl")
+    ),
+    flex-row: (
+        props: ( display: flex, flex-direction: row ),
+        breakpoints: ("sm", "md", "lg", "xl")
+    )
+);
+
+$flex-classes-map: (
+    width-height: (
+        props: (
+            width: 1rem,
+            height: 1rem,
+        ),
+    ),
+);
+
+// @include generateFromMapOfClasses($flex-classes-map);
+// $class: escape-invalid($size);
+// .wh-#{$class} {
+//     width: #{$size}rem;
+//     height: #{$size}rem;
+// }
+
+// @include generateFromMapOfProperties($map-of-properties);
+$width-values: 1rem, 2rem, 3rem, 4rem; // Add more width values as needed
+$height-values: 19.5rem, 2.5rem, 3.5rem, 4.5rem; // Add more height values as needed
+
+
+@for $i from 1 through length($width-values) {
+    $flex-classes-map: map-merge(
+        $flex-classes-map,
+        (
+            "wh-#{$i}": (
+                props: ( width: nth($width-values, $i), height: nth($height-values, $i), ),
+            ),
+        )
+    );
+}
+
+
+
