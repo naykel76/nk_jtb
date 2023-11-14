@@ -1,6 +1,4 @@
-@use "../variables" as *;
-@use "../mixins/classGenerators" as *;
-@use "../mixins/class-helpers" as *;
+@use "../mixins/common" as *;
 
 // prettier-ignore
 $flex-properties-map: (
@@ -76,8 +74,7 @@ $flex-properties-map: (
     ),
 );
 
-@include generateFromMapOfProperties($flex-properties-map);
-
+@include generate-utilities($flex-properties-map);
 
 // prettier-ignore
 $flex-classes-map: (
@@ -91,6 +88,6 @@ $flex-classes-map: (
     )
 );
 
-@include generateFromMapOfClasses($flex-classes-map);
+@include generate-classes($flex-classes-map);
 
 

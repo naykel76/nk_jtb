@@ -1,0 +1,57 @@
+@use "../../functions/helpers" as *;
+@use "../../mixins/class-helpers" as *;
+@use "sass:string";
+
+// 1. The `key`can be a single value e.g. `1.5` or a key-value pair
+//    represented as list e.g. `sm 1.5`. This allows you to pass in
+//    a list of values or a map of key-value pairs.
+// 2. $derived-unit: Checks if the $value includes a unit (12px,
+//    1em, 100vh, etc.). If it does, $derived-unit is set to null.
+//    If it doesn't, $derived-unit is set to $unit.This is used to
+//    prevent the unit from being added twice when values include
+//    units.
+// 3. $derived-value: This variable holds the processed value of the
+//    class, which is derived from the original $value. It's created
+//    to ensure that the class value is handled correctly based on
+//    its unit.
+// 4. $derived-variant: This variable combines the variant and the
+//    unit into a single string. This creates the unique identifier
+//    which is used to create the class name.
+
+// prettier-ignore
+@mixin generate-utilities($properties-map) {
+
+    @each $property, $map in $properties-map {
+
+        // seperate the map into its parts for easier access
+        $values: map-get($map, "values");
+        $identifier: map-get($map, "prefix");
+        $unit: map-get($map, "unit"); // optional
+        $positions-map: map-get($map, "positions"); // optional
+        $breakpoints: map-get($map, "breakpoints"); // optional
+
+        // loop through the values and create classes
+        @each $key, $value in $values { // 1.
+
+            // Process the key and value to get the variant and value
+            $variant-value: get-variant-value($key, $value);
+            $variant: nth($variant-value, 1);
+            $value: nth($variant-value, 2);
+
+            // Derived variables simplify and standardize value and
+            // unit handling in utility class generation, improving
+            // code readability and reducing complexity.
+            $derived-unit: if(value-has-unit($value), null, ($unit)); // 2.
+            $derived-value: #{handle-class-value($value, $derived-unit)}; // 3.
+            $derived-variant: #{$variant}#{handle-class-unit($derived-unit)}; // 4.
+
+            @if $positions-map {
+                // the class naming is handled by the mixin
+                @include positionBasedClass($property, $derived-value, $positions-map, $identifier, $derived-variant, $breakpoints);
+            } @else{
+                $derived-class: strip-invalid(#{$identifier}#{$derived-variant});
+                @include singlePropertyClass(#{$derived-class}, $property, #{$derived-value}, $breakpoints);
+            }
+        }
+    }
+}

@@ -1,4 +1,4 @@
-@use "../mixins/classGenerators" as *;
+@use "../mixins/common" as *;
 
 $position-properties-map: (
     position: (
@@ -6,7 +6,7 @@ $position-properties-map: (
     ),
 );
 
-@include generateFromMapOfProperties($position-properties-map);
+@include generate-utilities($position-properties-map);
 
 // prettier-ignore
 .pos {

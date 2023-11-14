@@ -97,5 +97,5 @@ $extended-themes: mapMerge($alert-theme, $themes-map, $extended-theme-overrides)
 
 // this could arguably be removed and just use base colors?? maybe
 // leave main theme colors like primary, secondary, and accent
-// @include generateFromMapOfValues(background-color, $theme-colors, "bg");
-// @include generateFromMapOfValues(background-color, $base-colors, "bg");
+// @include generate-values(background-color, $theme-colors, "bg");
+// @include generate-values(background-color, $base-colors, "bg");

@@ -1,0 +1,18 @@
+@use "../../functions/helpers" as *;
+@use "../../mixins/class-helpers" as *;
+@use "sass:string";
+
+// Mixin to generate CSS classes for a given property and set of values
+@mixin generate-values($property, $values, $identifier) {
+    @each $key, $value in $values {
+        // Process key and value to get the variant and value
+        $variant-value: get-variant-value($key, $value);
+        $variant: nth($variant-value, 1);
+        $value: nth($variant-value, 2);
+
+        // Generate the class name by concatenating the identifier and the variant
+        $derived-class: #{$identifier}#{$variant};
+
+        @include singlePropertyClass($derived-class, $property, $value);
+    }
+}

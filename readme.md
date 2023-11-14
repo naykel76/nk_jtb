@@ -14,7 +14,7 @@ Generate classes with a single property from a map of values.
 
 ## Class Generator Mixin
 
-The `generateFromMapOfProperties` mixin serves as the entry point for the class generator. It
+The `generate-utilities` mixin serves as the entry point for the class generator. It
 takes a map of property-maps, iterating through each property and setting variables to be passed
 into the `createClasses` mixin.
 
@@ -25,11 +25,11 @@ into the `createClasses` mixin.
 **Usage**
 
 ```scss
-@include generateFromMapOfProperties($myPropertiesMap);
+@include generate-utilities($myPropertiesMap);
 ```
 
 The `createClasses` mixin directs the flow of the class generator based on values passed in by the
-`generateFromMapOfProperties` mixin. It iterates through each value, formatting the `variant` and
+`generate-utilities` mixin. It iterates through each value, formatting the `variant` and
 `value` to be used in the appropriate class builder.
 
 #### Parameters:

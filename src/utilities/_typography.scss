@@ -105,4 +105,4 @@ $typography-properties-map: (
     )
 );
 
-@include generateFromMapOfProperties($typography-properties-map);
+@include generate-utilities($typography-properties-map);

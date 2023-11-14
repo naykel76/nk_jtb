@@ -14,7 +14,7 @@ $margin-properties-map: (
     )
 );
 
-@include generateFromMapOfProperties($margin-properties-map);
+@include generate-utilities($margin-properties-map);
 
 // magic classes
 $magic-margin-y: ((5, 3, 2), (3, 2, 1)) !default;

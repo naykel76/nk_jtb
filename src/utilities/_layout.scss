@@ -1,5 +1,4 @@
-@use "../variables" as *;
-@use "../mixins/classGenerators" as *;
+@use "../mixins/common" as *;
 
 $layout-properties-map: (
     display: ( values: ( block, flex, none, inline-block, inline-flex, inline ) ),
@@ -11,7 +10,7 @@ $layout-properties-map: (
     z-index: ( prefix: "z-", values: ( 0, 50, 100, (bottom: -1), (top: 999)) ),
 );
 
-@include generateFromMapOfProperties($layout-properties-map);
+@include generate-utilities($layout-properties-map);
 
 
 // only stick while parent is in view

@@ -1,7 +1,9 @@
 // Common mixins, functions and variables for quick and easy use in other files.
 @forward "../functions/helpers";
 @forward "../mixins/class-helpers";
-@forward "../mixins/classGenerators";
+@forward "../mixins/generators/generate-classes";
+@forward "../mixins/generators/generate-utilities";
+@forward "../mixins/generators/generate-values";
 @forward "../mixins/media";
 @forward "../variables";
 

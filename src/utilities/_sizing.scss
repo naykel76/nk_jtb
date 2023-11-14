@@ -1,8 +1,4 @@
-@use "../functions/helpers" as *;
-@use "../mixins/classGenerators" as *;
-@use "../mixins/media" as *;
-@use "../mixins/class-helpers" as *;
-@use "../variables/" as *;
+@use "../mixins/common" as *;
 
 $map: magic-merge($size-variants-map, $size-pixel-list, $size-rem-list, $custom-sizes);
 
@@ -28,7 +24,7 @@ $sizes-map: (
     min-height: ( prefix: "minh-", values: $map, unit: "rem" ),
 );
 
-@include generateFromMapOfProperties($sizes-map);
+@include generate-utilities($sizes-map);
 
 // ------------------------------------------------------------------
 // -- WIDTH AND HEIGHT UTILITY CLASSES --

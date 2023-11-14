@@ -1,7 +1,6 @@
 // @use "./components/box" as *;
 // @use "./utilities/padding" as *;
 // @use "./utilities/sizing" as *;
-@use "./mixins/class/generate-utilities" as *;
 @use "./mixins/common" as *;
 @use "sass:list";
 @use "sass:map";
@@ -13,12 +12,18 @@
 // 3. map of classes
 
 // ----------------------------------------------------------------
-// -- MAP OF VALUES --
+// Generate class variants from map of values
 // ----------------------------------------------------------------
-$map-of-values: (6, 12px, 100vh, 100%);
+// - can handle mixed values
+// - must include unit with value
+// - values must include unit??
+$mixed-values: (6rem, 12px, 100vh);
+@include generate-values(width, $mixed-values, "w-");
+$map-of-values: (teal, green, (primary: blue));
+@include generate-values(background-color, $map-of-values, "bg-");
 
 // ----------------------------------------------------------------
-// -- MAP OF PROPERTIES --
+// Generate class and variants from map of properties
 // ----------------------------------------------------------------
 
 // prettier-ignore
@@ -43,12 +48,13 @@ $map-of-properties: (
     )
 );
 
-@include generate-utilities($map-of-properties);
+// @include generate-utilities($map-of-properties);
 
 // ----------------------------------------------------------------
 // -- MAP OF CLASSES --
 // ----------------------------------------------------------------
 $with-height-identifier: "wh-";
+
 // prettier-ignore
 $map-of-classes:(
     #{$with-height-identifier}: (
@@ -78,28 +84,22 @@ $flex-classes-map: (
     ),
 );
 
-// @include generateFromMapOfClasses($flex-classes-map);
+// @include generate-classes($flex-classes-map);
 // $class: escape-invalid($size);
 // .wh-#{$class} {
 //     width: #{$size}rem;
 //     height: #{$size}rem;
 // }
 
-// @include generateFromMapOfProperties($map-of-properties);
-$width-values: 1rem, 2rem, 3rem, 4rem; // Add more width values as needed
-$height-values: 19.5rem, 2.5rem, 3.5rem, 4.5rem; // Add more height values as needed
+$flex-classes-map: (
+    flex-col: (
+        props: ( display: flex, flex-direction: column ),
+        breakpoints: ("sm", "md", "lg", "xl")
+    ),
+    flex-row: (
+        props: ( display: flex, flex-direction: row ),
+        breakpoints: ("sm", "md", "lg", "xl")
+    )
+);
 
-
-@for $i from 1 through length($width-values) {
-    $flex-classes-map: map-merge(
-        $flex-classes-map,
-        (
-            "wh-#{$i}": (
-                props: ( width: nth($width-values, $i), height: nth($height-values, $i), ),
-            ),
-        )
-    );
-}
-
-
-
+@include generate-classes($flex-classes-map);

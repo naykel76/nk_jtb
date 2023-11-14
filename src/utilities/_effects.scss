@@ -8,6 +8,6 @@ $effect-properties-map: (
     ),
 );
 
-@include generateFromMapOfProperties($effect-properties-map);
+@include generate-utilities($effect-properties-map);
 
 

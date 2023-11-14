@@ -1,7 +1,4 @@
-@use "../functions/helpers" as *;
-@use "../mixins/classGenerators" as *;
-@use "../variables" as *;
-@use "../variables/utility_maps" as *;
+@use "../mixins/common" as *;
 
 $border-radius-sizes: (0, 0.25, 0.5, 0.75, 1, 1.5, 2) !default;
 $border-colors-map: ($color-map) !default;
@@ -37,7 +34,7 @@ $border-properties-map: (
     ),
 );
 
-@include generateFromMapOfProperties($border-properties-map);
+@include generate-utilities($border-properties-map);
 
 // ----------------------------------------------------------------
 // This map and the following mixin is used to generate

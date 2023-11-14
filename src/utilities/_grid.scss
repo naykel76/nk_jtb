@@ -37,7 +37,7 @@ $grid-properties-map: (
     )
 );
 
-@include generateFromMapOfProperties($grid-properties-map);
+@include generate-utilities($grid-properties-map);
 
 // ------------------------------------------------------------------
 // -- GRID --
