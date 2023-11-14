@@ -1,7 +1,6 @@
 @use "../functions/colorFunctions" as *;
 @use "../functions/get" as *;
 @use "../functions/mapMerge" as *;
-@use "../mixins/classGenerators" as *;
 @use "../mixins/extendedThemeClass" as *;
 @use "../variables" as *;
 @use "./tailwind-colors" as *;
@@ -97,5 +96,5 @@ $extended-themes: mapMerge($alert-theme, $themes-map, $extended-theme-overrides)
 
 // this could arguably be removed and just use base colors?? maybe
 // leave main theme colors like primary, secondary, and accent
-// @include generate-values(background-color, $theme-colors, "bg");
-// @include generate-values(background-color, $base-colors, "bg");
+// @include generate-from-values(background-color, $theme-colors, "bg");
+// @include generate-from-values(background-color, $base-colors, "bg");

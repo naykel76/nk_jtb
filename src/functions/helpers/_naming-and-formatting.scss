@@ -38,7 +38,7 @@
 // Process the variant and value based on the key and value passed
 // in to be used in the class name and property value
 // ----------------------------------------------------------------
-// 1. escape or convert any invalid characters in the key so it can
+// 1. escape or convert any invalid characters in the key so it c an
 //    be uses in the class name.
 // 2. If there is no value, then a key-value pair was not passed in
 //    and the key will be used as both the `key` and the `value`.

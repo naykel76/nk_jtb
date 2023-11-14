@@ -1,0 +1,31 @@
+@use "../../functions/helpers" as *;
+@use "../../mixins/class-helpers" as *;
+@use "sass:string";
+
+// Mixin to generate CSS classes for a given property and set of values
+@mixin generate-from-values($property, $values, $identifier, $unit: "") {
+    @each $key, $value in $values {
+        // Process key and value to get the variant and value
+        $variant-value: get-variant-value($key, $value);
+        $variant: nth($variant-value, 1);
+        $value: nth($variant-value, 2);
+
+        // Derived variables simplify and standardize value and
+        // unit handling in utility class generation, improving
+        // code readability and reducing complexity.
+        $derived-unit: if(value-has-unit($value), null, ($unit)); //
+        $derived-value: #{handle-class-value($value, $derived-unit)}; // includes unit if needed
+        $derived-variant: #{$variant}#{handle-class-unit($derived-unit)}; // 4.
+        $derived-class: strip-invalid(#{$identifier}#{$derived-variant});
+
+        @include singlePropertyClass($derived-class, $property, $derived-value);
+    }
+}
+
+// @mixin unitBasedClasses($property, $values, $identifier, $unit: "rem") {
+//     @each $value in $values {
+//         $escapedValue: escape-invalid($value);
+//         $derived-class: #{$identifier}-#{$escapedValue}#{handle-class-unit($unit)};
+//         @include singlePropertyClass($derived-class, $property, #{$value}#{$unit});
+//     }
+// }

@@ -16,12 +16,15 @@
 // ----------------------------------------------------------------
 // - can handle mixed values
 // - must include unit with value
-// - values must include unit??
-$mixed-values: (6rem, 12px, 100vh);
-@include generate-values(width, $mixed-values, "w-");
-$map-of-values: (teal, green, (primary: blue));
-@include generate-values(background-color, $map-of-values, "bg-");
+// - omit unit in list for rem
+$mixed-values: (0.5, 1.5, 6rem, 12px, 100vh);
+@include generate-from-values(width, $mixed-values, "w-", "rem");
 
+$map-of-values: (teal, green, (primary: blue));
+@include generate-from-values(background-color, $map-of-values, "bg-");
+
+
+//  from-map-of-values
 // ----------------------------------------------------------------
 // Generate class and variants from map of properties
 // ----------------------------------------------------------------
