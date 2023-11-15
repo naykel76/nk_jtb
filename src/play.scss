@@ -1,6 +1,6 @@
 // @use "./components/box" as *;
 // @use "./utilities/padding" as *;
-// @use "./utilities/sizing" as *;
+@use "./utilities/sizing" as *;
 @use "./mixins/common" as *;
 @use "sass:list";
 @use "sass:map";
@@ -18,10 +18,10 @@
 // - must include unit with value
 // - omit unit in list for rem
 $mixed-values: (0.5, 1.5, 6rem, 12px, 100vh);
-@include generate-from-values(width, $mixed-values, "w-", "rem");
+// @include generate-from-values(width, $mixed-values, "w-", "rem");
 
 $map-of-values: (teal, green, (primary: blue));
-@include generate-from-values(background-color, $map-of-values, "bg-");
+// @include generate-from-values(background-color, $map-of-values, "bg-", $breakpoints: ("sm", "md", "lg", "xl"));
 
 
 //  from-map-of-values
@@ -105,4 +105,4 @@ $flex-classes-map: (
     )
 );
 
-@include generate-classes($flex-classes-map);
+// @include generate-classes($flex-classes-map);
