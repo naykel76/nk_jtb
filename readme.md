@@ -14,5 +14,11 @@ Why!
 
 **How can I override all values in utility map?**
 
+**How can I add a value to a property map?**
 
 
+
+    height: (
+        prefix: "h-",
+        values: ( full: 100%, screen: 100vh, fit: fit-content, max: max-content, min: min-content ),
+    )

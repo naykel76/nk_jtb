@@ -1,30 +1,23 @@
 @use "../mixins/common" as *;
+@use "sass:map";
 
-$map: magic-merge($size-variants-map, $size-pixel-list, $size-rem-list, $custom-sizes);
+$sizing-merged: magic-merge($size-variants-map, $size-pixel-list, $size-rem-list);
 
-// prettier-ignore
-$size-properties-map: (
-    width: (
-        prefix: "w-",
-        values: ( screen: 100vw, full: 100%, fit: fit-content, max: max-content, min: min-content ),
-    ),
-    height: (
-        prefix: "h-",
-        values: ( full: 100%, screen: 100vh, fit: fit-content, max: max-content, min: min-content ),
-    )
-);
+// Build the base properties for width and height separately. This allows for more flexibility when
+// you want to add a custom size to either the width or the height without affecting the other. For
+// example 80vh can be merged into the base height class without affecting the width.
 
 // prettier-ignore
-$sizes-map: (
-    width: ( prefix: "w-", values: $map, unit: "rem" ),
-    height: ( prefix: "h-", values: $map, unit: "rem" ),
-    max-width: ( prefix: "maxw-", values: $map, unit: "rem" ),
-    max-height: ( prefix: "maxh-", values: $map, unit: "rem" ),
-    min-width: ( prefix: "minw-", values: $map, unit: "rem" ),
-    min-height: ( prefix: "minh-", values: $map, unit: "rem" ),
+$sizing-properties-map: (
+    height: (prefix: "h-", values: map-merge($sizing-merged, $sizing-base-heights), unit: "rem"),
+    width: (prefix: "w-", values: map-merge($sizing-merged, $sizing-base-widths), unit: "rem"),
+    max-height: (prefix: "maxh-", values: $sizing-merged, unit: "rem"),
+    max-width: (prefix: "maxw-", values: $sizing-merged, unit: "rem"),
+    min-height: (prefix: "minh-", values: $sizing-merged, unit: "rem"),
+    min-width: (prefix: "minw-", values: $sizing-merged, unit: "rem")
 );
 
-@include generate-utilities($sizes-map);
+@include generate-utilities($sizing-properties-map);
 
 // ------------------------------------------------------------------
 // -- WIDTH AND HEIGHT UTILITY CLASSES --

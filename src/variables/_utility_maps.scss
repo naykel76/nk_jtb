@@ -92,7 +92,18 @@ $margin-variants: (base: 1.5, auto: auto) !default;
 $padding-variants: (default: 1.5) !default;
 
 
-$custom-sizes: (100vh) !default;
+// ------------------------------------------------------------------
+//  Sizing maps and variants
+// ------------------------------------------------------------------
+
 $size-pixel-list: (200px, 250px, 300px, 400px, 600px) !default; // include unit to make merge easier
 $size-rem-list: (0, 1, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24) !default;
 $size-variants-map: (sm: $sm, md: $md, lg: $lg, xl: $xl) !default;
+
+// These maps are seperate because they will only be used for the width, and height properties. I
+// am a bit perplexed how to handle this because I won't always want every sizing property to be
+// used for but at the same time I don't want to create complicated maps for each property. I think
+// I will just have to create a seperate map for each property and then merge them together
+$sizing-base-heights: (screen: 100vh, full: 100%,  fit: fit-content, max: max-content, min: min-content);
+$sizing-base-widths: (screen: 100vw, full: 100%, fit: fit-content, max: max-content, min: min-content);
+
