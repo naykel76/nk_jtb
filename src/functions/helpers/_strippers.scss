@@ -42,6 +42,10 @@ $xy-exclusions: ("bdr-");
         $class: str-slice($class, 1, -6);
     }
 
+    @if (str-slice($class, -8) == "-default") {
+        $class: str-slice($class, 1, -9);
+    }
+
     // Check if the identifier is in the exclusions list and if the
     // class ends with '-xy' and if so remove the '-xy' suffix.
     @if index($xy-exclusions, $identifier) and (str-slice($class, -3) == "-xy") {

@@ -1,15 +1,12 @@
 // @use "./components/box" as *;
 // @use "./utilities/padding" as *;
-@use "./utilities/sizing" as *;
+@use "./utilities/border" as *;
 @use "./mixins/common" as *;
 @use "sass:list";
 @use "sass:map";
 @use "sass:string";
 
-// there are three types of maps that can be used to generate utilities
-// 1. map of values
-// 2. map of properties
-// 3. map of classes
+
 
 // ----------------------------------------------------------------
 // Generate class variants from map of values

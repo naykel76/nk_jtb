@@ -4,12 +4,14 @@
 // 1. aligns better text to text when inline
 // 2. better alignment rather than changing size
 
+// padding removed to make it easier to override and play better
+// with inputs. need to check what else this affects!
 .#{$icon-identifier} {
     width: $icon-xy;
     height: $icon-xy;
     vertical-align: bottom; // 1
     color: $icon-color;
-    padding: 2px; // 2
+    // padding: 2px; // 2
 
     &.sm {
         height: $icon-xy-sm;

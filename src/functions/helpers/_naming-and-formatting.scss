@@ -20,10 +20,17 @@
 }
 
 // ----------------------------------------------------------------
-// Remove unwanted unit for certain values, e.g. 0 and auto
+// Remove unwanted unit for certain values, e.g. 0, %, and auto
 // ----------------------------------------------------------------
+
+// Define a list of units to be excluded
+$exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
+
 @function handle-class-value($value, $unit) {
-    $derived-unit: if(($value == "auto" or $value == 0), null, $unit);
+    // Check if the value is in the exclude list. If it is, set the
+    // derived unit to null, otherwise set it to the unit
+    $derived-unit: if(index($exclude-units, $value), null, $unit);
+
     @return $value + $derived-unit;
 }
 

@@ -22,11 +22,23 @@ select {
     cursor: pointer;
 }
 
-.checkbox,
-.radio {
-    cursor: pointer;
-    margin-top: 0;
-    margin-bottom: 0;
+// 1. :has is not supported in firefox yet. Expected release is
+//    2023-12-19 This is not really a problem when you use the
+//    default height of 1rem because everything aligns well enough.
+//    But if you change the height, you will need add utility
+//    classes to the label to align the input.
+
+label:has(input[type="radio"]){ // 1.
+    display: inline-flex;
+    align-items: center;
+}
+
+// handle the case when the input is nested inside the label and use
+// :where selector to prevent specificity issues
+:where(label > input[type="radio"]) { // 1.
+    height: 1rem;
+    width: 1rem;
+    margin-inline-end: 0.5rem;
 }
 
 // -- frm-row --
@@ -68,6 +80,10 @@ select {
         flex-grow: 1;
     }
 
+    svg{
+        height: 1.15rem;
+        width: 1.15rem;
+    }
     .leadingAddon {
         border-top-left-radius: $ctrl-border-radius;
         border-bottom-left-radius: $ctrl-border-radius;
