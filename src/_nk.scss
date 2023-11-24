@@ -51,6 +51,7 @@ body {
     margin-top: $content-gap;
     font-size: 0.85em;
 }
+
 code-first-col {
     + table tbody {
         @extend %markdown-table;
@@ -59,6 +60,7 @@ code-first-col {
         }
     }
 }
+
 code-second-col {
     + table tbody {
         @extend %markdown-table;
@@ -102,11 +104,6 @@ code-first-second-col {
 
 #toc {
     margin-bottom: 1.5em;
-}
-
-// this is a hack solution to an ugly problem when using x-gt-markdown
-.markdown pre {
-    overflow: auto;
 }
 
 .markdown {

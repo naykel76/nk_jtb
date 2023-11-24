@@ -1,7 +1,7 @@
 @use "../mixins/common" as *;
 @use "sass:map";
 
-$sizing-merged: magic-merge($size-variants-map, $size-pixel-list, $size-rem-list);
+$sizing-merged: magic-merge($sizing-variants, $sizing-pixels, $sizing-rem);
 
 // Build the base properties for width and height separately. This allows for more flexibility when
 // you want to add a custom size to either the width or the height without affecting the other. For
@@ -24,7 +24,7 @@ $sizing-properties-map: (
 // ------------------------------------------------------------------
 
 // -- WIDTH & HEIGHT --
-@each $size in $size-rem-list {
+@each $size in $sizing-rem {
     $class: escape-invalid($size);
     .wh-#{$class} {
         width: #{$size}rem;

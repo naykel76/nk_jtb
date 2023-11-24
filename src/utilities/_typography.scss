@@ -65,7 +65,9 @@ $typography-properties-map: (
     font-size: (
         prefix: "#{$text-identifier}",
         values: $text-variants,
-        breakpoints: ("sm", "md", "lg", "xl")
+        // TXT BREAKPOINTS ARE NOT WORKING CORRECTLY WITH THE UNIT
+        // breakpoints: ("sm", "md", "lg", "xl"),
+        unit: "rem"
     ),
     font-style: (
         prefix: "#{$text-identifier}",

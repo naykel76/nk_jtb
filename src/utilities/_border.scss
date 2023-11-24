@@ -1,7 +1,12 @@
 @use "../mixins/common" as *;
 
-$border-radius-sizes: (0, 0.25, 0.5, 0.75, 1, 1.5, 2) !default;
+$border-variants: (default, none) !default;
 $border-colors-map: ($color-map) !default;
+
+$border-radius-sizes: (0, 0.25, 0.5, 0.75, 1, 1.5, 2) !default;
+$border-radius-variants: (xs: 0.125rem, sm: 0.25rem, base: 0.375, lg: 0.5rem, xl: 0.75rem, full: 9999rem) !default;
+
+$border-radius-merged: magic-merge($border-radius-variants, $border-radius-sizes);
 
 // prettier-ignore
 $border-properties-map: (
@@ -29,7 +34,7 @@ $border-properties-map: (
     ),
     border-radius: (
         prefix: "rounded-",
-        values: $border-radius-sizes,
+        values: $border-radius-merged,
         unit: "rem"
     ),
 );
@@ -42,7 +47,8 @@ $border-properties-map: (
 // because it is a little different. The full border-radius is
 // handled in the `$border-properties-map` above.
 // ----------------------------------------------------------------
-$border-radius-map: (
+
+$border-radius-corners-map: (
     prefix: "rounded-",
     values: $border-radius-sizes,
     unit: "rem",
@@ -66,4 +72,4 @@ $border-radius-map: (
     }
 }
 
-@include borderRadius($border-radius-map);
+@include borderRadius($border-radius-corners-map);

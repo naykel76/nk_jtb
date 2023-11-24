@@ -11,11 +11,10 @@ $ctrl-font-size-lg-xl: 1rem !default;
 $ctrl-bg-color: #fff !default;
 $ctrl-color: setTextColor($ctrl-bg-color) !default;
 
-$ctrl-padding-x: 1.25rem !default;
+$ctrl-padding-x: 0.875rem !default;
 $ctrl-padding-y: 0.625rem !default;
 
-
-$ctrl-line-height: 1.25 !default;
+$ctrl-line-height: 1.5 !default;
 
 // The control placeholder is the basis for all inputs, buttons and controls
 
@@ -36,7 +35,9 @@ $ctrl-line-height: 1.25 !default;
     max-width: 100%; // prevent overflow
 
     font-size: $ctrl-font-size;
-    padding: $ctrl-padding-y $ctrl-padding-x;
+
+    padding-inline: $ctrl-padding-x;
+    padding-block: $ctrl-padding-y;
 
     // this is ok for now but i think the input and buttons should
     // be separated, they really should have different x padding values
