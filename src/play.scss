@@ -1,11 +1,23 @@
-// @use "./components/box" as *;
+@use "./color/shades" as *;
 // @use "./utilities/padding" as *;
-@use "./utilities/border" as *;
+// @use "./utilities/border" as *;
 @use "./mixins/common" as *;
 @use "sass:list";
 @use "sass:map";
 @use "sass:string";
 
+// .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+//     background: #000;
+// }
+
+// .divide-slate-300 > :not([hidden]) ~ :not([hidden]) {
+
+// Adds a divider line between elements. IMPORTANT: This will only work on items that do not have
+// padding as the class uses top and bottom padding to seperate items then adds a border-top
+// .divider-y > * {
+// }
+
+// which one ????
 
 
 // ----------------------------------------------------------------
@@ -17,9 +29,14 @@
 $mixed-values: (0.5, 1.5, 6rem, 12px, 100vh);
 // @include generate-from-values(width, $mixed-values, "w-", "rem");
 
-$map-of-values: (teal, green, (primary: blue));
+$map-of-values: (
+    teal,
+    green,
+    (
+        primary: blue,
+    )
+);
 // @include generate-from-values(background-color, $map-of-values, "bg-", $breakpoints: ("sm", "md", "lg", "xl"));
-
 
 //  from-map-of-values
 // ----------------------------------------------------------------
@@ -93,13 +110,29 @@ $flex-classes-map: (
 
 $flex-classes-map: (
     flex-col: (
-        props: ( display: flex, flex-direction: column ),
-        breakpoints: ("sm", "md", "lg", "xl")
+        props: (
+            display: flex,
+            flex-direction: column,
+        ),
+        breakpoints: (
+            "sm",
+            "md",
+            "lg",
+            "xl",
+        ),
     ),
     flex-row: (
-        props: ( display: flex, flex-direction: row ),
-        breakpoints: ("sm", "md", "lg", "xl")
-    )
+        props: (
+            display: flex,
+            flex-direction: row,
+        ),
+        breakpoints: (
+            "sm",
+            "md",
+            "lg",
+            "xl",
+        ),
+    ),
 );
 
 // @include generate-classes($flex-classes-map);

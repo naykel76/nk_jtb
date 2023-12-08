@@ -1,12 +1,15 @@
 @use "../mixins/common" as *;
+@use "sass:map";
 
-$border-variants: (default, none) !default;
-$border-colors-map: ($color-map) !default;
-
-$border-radius-sizes: (0, 0.25, 0.5, 0.75, 1, 1.5, 2) !default;
-$border-radius-variants: (xs: 0.125rem, sm: 0.25rem, base: 0.375, lg: 0.5rem, xl: 0.75rem, full: 9999rem) !default;
-
+// remove the following colours from the map
+$border-colors-merged: magic-merge($border-colors, $border-color-variants);
 $border-radius-merged: magic-merge($border-radius-variants, $border-radius-sizes);
+
+// this is not easy to override on the child element unless the
+// properties are set as !important but works great otherwise.
+.divide-y > :not([hidden]) ~ :not([hidden]) {
+    border-top: 1px solid $border-color;
+}
 
 // prettier-ignore
 $border-properties-map: (
@@ -30,7 +33,7 @@ $border-properties-map: (
         ),
     border-color: (
         prefix: #{$border-identifier},
-        values: $border-colors-map
+        values: $border-colors-merged
     ),
     border-radius: (
         prefix: "rounded-",

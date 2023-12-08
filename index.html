@@ -6,46 +6,199 @@
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NayKel JTB</title>
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
 <body>
 
- <div class="flex gap-1 va-c">
-    <div class="bx tac wh-5 pink lh-1 rounded-xs">xs</div>
-    <div class="bx tac wh-5 pink lh-1 rounded-sm">sm</div>
-    <div class="bx tac wh-5 pink lh-1 rounded">base</div>
-    <div class="bx tac wh-5 pink lh-1 rounded-lg">lg</div>
-    <div class="bx tac wh-5 pink lh-1 rounded-xl">xl</div>
-    <div class="bx tac wh-5 pink lh-1 rounded-full">full</div>
- </div>
+    <section>
+        <div class="container">
+            <div class="flex-col">
+                <div class="bx pink h-2"></div>
+                <div class="bx pink h-2"></div>
+            </div>
+            <div class="bx">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit laboriosam aliquid commodi animi magni excepturi inventore qui nemo, sapiente quasi eum beatae ducimus iusto molestiae dolorum obcaecati in eaque vitae.</div>
+        </div>
+    </section>
 
-    <section class="container maxw-md mt-2 ">
+    <section>
+        <div class="container">
+            <div class="flex-col lg:flex-row">
+                <div class="bx pink h-24"></div>
+                <div class="bx pink h-24"></div>
+            </div>
+        </div>
+    </section>
 
-        <div class="bdr bdr-red rounded-1 overflow-hidden">
+    <div class="container py-5">
+        <div class="overflow-x-auto rounded-lg bdr">
             <table>
-                <thead>
+                <thead class="txt-upper">
                     <tr>
-                        <th>Table Header</th>
-                        <th>Table Header</th>
-                        <th>Table Header</th>
+                        <th scope="col" class=""> Product name </th>
+                        <th scope="col" class=""> Color </th>
+                        <th scope="col" class=""> Category </th>
+                        <th scope="col" class=""> Price </th>
+                        <th scope="col" class=""> Action </th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>Table Data</td>
-                        <td>Table Data</td>
-                        <td>Table Data</td>
+                <tbody class="divide-y bdr-t">
+                    <tr class="">
+                        <th scope="row" class=""> Apple MacBook Pro 17" </th>
+                        <td class=""> Silver </td>
+                        <td class=""> Laptop </td>
+                        <td class=""> $2999 </td>
+                        <td class=""> <a href="#">Edit</a> </td>
                     </tr>
-                    <tr>
-                        <td>Table Data</td>
-                        <td>Table Data</td>
-                        <td>Table Data</td>
+                    <tr class="bdr-green bdr5">
+                        <th scope="row" class=""> Microsoft Surface Pro </th>
+                        <td class=""> White </td>
+                        <td class=""> Laptop PC </td>
+                        <td class=""> $1999 </td>
+                        <td class=""> <a href="#">Edit</a> </td>
+                    </tr>
+                    <tr class="">
+                        <th scope="row" class=""> Magic Mouse 2 </th>
+                        <td class=""> Black </td>
+                        <td class=""> Accessories </td>
+                        <td class=""> $99 </td>
+                        <td class=""> <a href="#">Edit</a> </td>
+                    </tr>
+                    <tr class="">
+                        <th scope="row" class=""> Google Pixel Phone </th>
+                        <td class=""> Gray </td>
+                        <td class=""> Phone </td>
+                        <td class=""> $799 </td>
+                        <td class=""> <a href="#">Edit</a> </td>
+                    </tr>
+                    <tr class="">
+                        <th scope="row" class=""> Apple Watch 5 </th>
+                        <td class=""> Red </td>
+                        <td class=""> Wearables </td>
+                        <td class=""> $999 </td>
+                        <td class=""> <a href="#">Edit</a> </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+        <hr>
+        <div class="overflow-x-auto rounded-lg bdr">
+            <table>
+                <thead class="txt-upper">
+                    <tr>
+                        <th scope="col" class=""> Product name </th>
+                        <th scope="col" class=""> Color </th>
+                        <th scope="col" class=""> Category </th>
+                        <th scope="col" class=""> Price </th>
+                        <th scope="col" class=""> Action </th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y">
+                    <tr class="bdr-b bdr-light">
+                        <th scope="row" class=""> Apple MacBook Pro 17" </th>
+                        <td class=""> Silver </td>
+                        <td class=""> Laptop </td>
+                        <td class=""> $2999 </td>
+                        <td class=""> <a href="#">Edit</a> </td>
+                    </tr>
+                    <tr class="bdr-b bdr-light">
+                        <th scope="row" class=""> Microsoft Surface Pro </th>
+                        <td class=""> White </td>
+                        <td class=""> Laptop PC </td>
+                        <td class=""> $1999 </td>
+                        <td class=""> <a href="#">Edit</a> </td>
+                    </tr>
+                    <tr class="bdr-b bdr-light">
+                        <th scope="row" class=""> Magic Mouse 2 </th>
+                        <td class=""> Black </td>
+                        <td class=""> Accessories </td>
+                        <td class=""> $99 </td>
+                        <td class=""> <a href="#">Edit</a> </td>
+                    </tr>
+                    <tr class="bdr-b bdr-light">
+                        <th scope="row" class=""> Google Pixel Phone </th>
+                        <td class=""> Gray </td>
+                        <td class=""> Phone </td>
+                        <td class=""> $799 </td>
+                        <td class=""> <a href="#">Edit</a> </td>
+                    </tr>
+                    <tr class="bdr-blue-40">
+                        <th scope="row" class=""> Apple Watch 5 </th>
+                        <td class=""> Red </td>
+                        <td class=""> Wearables </td>
+                        <td class=""> $999 </td>
+                        <td class=""> <a href="#">Edit</a> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        <div class="overflow-x-auto rounded-lg">
+            <table>
+                <thead class="txt-upper txt-white bg-blue-600">
+                    <tr>
+                        <th scope="col" class=""> Product name </th>
+                        <th scope="col" class=""> Color </th>
+                        <th scope="col" class=""> Category </th>
+                        <th scope="col" class=""> Price </th>
+                        <th scope="col" class=""> Action </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-blue-500 bdr-b bdr-light">
+                        <th scope="row" class=""> Apple MacBook Pro 17" </th>
+                        <td class=""> Silver </td>
+                        <td class=""> Laptop </td>
+                        <td class=""> $2999 </td>
+                        <td class=""> <a href="#">Edit</a> </td>
+                    </tr>
+                    <tr class="bg-blue-500 bdr-b bdr-light">
+                        <th scope="row" class="">
+                            Microsoft Surface Pro
+                        </th>
+                        <td class=""> White </td>
+                        <td class=""> Laptop PC </td>
+                        <td class=""> $1999 </td>
+                        <td class=""> <a href="#">Edit</a> </td>
+                    </tr>
+                    <tr class="bg-blue-500 bdr-b bdr-light">
+                        <th scope="row" class=""> Magic Mouse 2 </th>
+                        <td class=""> Black </td>
+                        <td class=""> Accessories </td>
+                        <td class=""> $99 </td>
+                        <td class=""> <a href="#">Edit</a> </td>
+                    </tr>
+                    <tr class="bg-blue-500 bdr-b bdr-light">
+                        <th scope="row" class=""> Google Pixel Phone </th>
+                        <td class=""> Gray </td>
+                        <td class=""> Phone </td>
+                        <td class=""> $799 </td>
+                        <td class=""> <a href="#">Edit</a> </td>
+                    </tr>
+                    <tr class="bg-blue-500 bdr-blue-40">
+                        <th scope="row" class=""> Apple Watch 5 </th>
+                        <td class=""> Red </td>
+                        <td class=""> Wearables </td>
+                        <td class=""> $999 </td>
+                        <td class=""> <a href="#">Edit</a> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="flex gap-1 va-c">
+        <div class="bx tac wh-5 pink lh-1 rounded-xs">xs</div>
+        <div class="bx tac wh-5 pink lh-1 rounded-sm">sm</div>
+        <div class="bx tac wh-5 pink lh-1 rounded">base</div>
+        <div class="bx tac wh-5 pink lh-1 rounded-lg">lg</div>
+        <div class="bx tac wh-5 pink lh-1 rounded-xl">xl</div>
+        <div class="bx tac wh-5 pink lh-1 rounded-full">full</div>
+    </div>
+
+    <section class="container maxw-md mt-2 ">
+
 
     </section>
 
@@ -447,7 +600,7 @@
 
                     <div class="frm-row">
                         <label for="error" class="block mb-2 text-sm font-medium text-red-700 dark:text-red-500">Your name</label>
-                        <input type="text" id="error" class="bg-red-50 border border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 dark:bg-gray-700 focus:border-red-500 block w-full p-2.5 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500" placeholder="Error input">
+                        <input type="text" id="error" class="bg-red-50 bdr bdr-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 dark:bg-gray-700 focus:bdr-red-500 block w-full p-2.5 dark:text-red-500 dark:placeholder-red-500 dark:bdr-red-500" placeholder="Error input">
                         <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Some error message.</p>
                     </div>
 
@@ -487,7 +640,7 @@
                 </div>
             </section>
 
-            <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <select id="countries" class="bg-gray-50 bdr bdr-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:bdr-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:bdr-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:bdr-blue-500">
                 <option selected>Choose a country</option>
                 <option value="US">United States</option>
                 <option value="CA">Canada</option>

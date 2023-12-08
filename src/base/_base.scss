@@ -160,10 +160,10 @@ thead {
     vertical-align: middle;
 }
 
-// 1.give some breathing space by default
 th,
 td {
-    padding: 0.5em; // 1.
+    padding-inline: 1rem;
+    padding-block: 0.75rem;
     vertical-align: inherit;
     text-align: left;
 }
