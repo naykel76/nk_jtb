@@ -24,7 +24,10 @@ $accent: $accent !default;
 
 $img-path: "/images" !default;
 
-$border-color: rgba(0, 0, 0, 0.15) !default;
+// NK::COMMENT the border color has been changed to an actual color because
+// the transparent color has issues. I don't think this will break anything!
+// $border-color: rgba(0, 0, 0, 0.15) !default;
+$border-color: rgb(229, 231, 235) !default;
 $border: 1px solid $border-color !default;
 $border-radius: 8px !default;
 

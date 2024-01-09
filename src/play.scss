@@ -1,10 +1,32 @@
-@use "./color/shades" as *;
-// @use "./utilities/padding" as *;
+// @use "./color/shades" as *;
 // @use "./utilities/border" as *;
+// @use "./utilities/padding" as *;
+// @use "./utilities/grid" as *;
 @use "./mixins/common" as *;
+@use "./mixins/magicClassGenerators" as *;
 @use "sass:list";
 @use "sass:map";
 @use "sass:string";
+
+$grid-gap-magic-sizes: ((5, 3, 2), (5, 3), (4, 2), (3, 1)) !default;
+@include magicClass(grid-gap, ($grid-gap-magic-sizes), "gap");
+
+// $grid-gap-magic-sizes: ((5, 3, 2), (5, 3), (4, 2), (3, 1)) !default;
+// @include magicClass(grid-gap, ($grid-gap-magic-sizes), "gap", $unit: "rem");
+
+// // magic classes
+// $magic-margin-y: ((5, 3, 2), (3, 2, 1)) !default;
+// @include magicClass(margin, $magic-margin-y, "my", $position-or-axis: y);
+
+// @mixin magicClass($property, $values-list, $identifier, $unit: "rem", $position-or-axis: "")
+
+
+// $magic-margin-y: ((5, 3, 2), (3, 2, 1)) !default;
+// @include magicClass(margin, $magic-margin-y, "my", $position-or-axis: y);
+
+
+
+
 
 // .space-x-4 > :not([hidden]) ~ :not([hidden]) {
 //     background: #000;

@@ -3,12 +3,21 @@
 @use "../variables/utility_maps" as *;
 @use "sass:list";
 
-@mixin handlePropertyCreator($property, $value, $positions) {
+// --------------------------------------------------------------------------
+// -- HELPER MIXIN FOR MAGIC CLASSES --
+// --------------------------------------------------------------------------
+// NOTE: the values do not include the unit!! These mixins will always use rem
+// as the unit. I don't see this as a problem because all the classes that use
+// these mixins will be using rem as the unit. If you need to use a different
+// unit, you will need to create a new mixin or revise to allow for different
+// units
+
+@mixin handleMagicProperties($property, $value, $positions) {
     @if ($positions == "" or $positions == null) {
-        // need to complete!!
-        // @include makeProperty($property, $value, $unit);
+        // always uses rem as the unit
+        $unit: rem;
+        @include createSingleProperty($property, #{$value}#{$unit});
     } @else {
-        // do i need unit???
         @include createPositionProperties($property, $value, $positions);
     }
 }
@@ -36,16 +45,18 @@
     }
 }
 
-// ----------------------------------------------------------------
+// --------------------------------------------------------------------------
 // -- GENERATE MAGIC CLASS FOR A SINGLE PROPERTY --
-// ----------------------------------------------------------------
+// --------------------------------------------------------------------------
+// * `rem` is the default unit, pass in empty string to set to null
+
 @mixin magicClass($property, $values-list, $identifier, $unit: "rem", $position-or-axis: "") {
     // get the positions required to build up the class
     // (x:(left, right), y:(top, bottom) ... etc)
     $positions: map-get($axis-position-map, $position-or-axis);
 
     @each $list in $values-list {
-        //     // exclude empty list when creating single list
+        // exclude empty list when creating single list
         @if ($list != ()) {
             $numBreakPoints: list.length($list);
 
@@ -61,39 +72,32 @@
             // DO NOT use else-if statements when building the classes.
             // You want to give all classes to the opportunity to build.
             .#{$identifier}-#{$derived-class} {
-                @include handlePropertyCreator($property, $baseValue, $positions);
+                @include handleMagicProperties($property, $baseValue, $positions);
 
                 @include from-sm {
-                    @include handlePropertyCreator($property, $smValue, $positions);
+                    @include handleMagicProperties($property, $smValue, $positions);
                 }
 
                 @if ($numBreakPoints >= 3) {
                     @include from-md {
-                        @include handlePropertyCreator($property, $mdValue, $positions);
+                        @include handleMagicProperties($property, $mdValue, $positions);
                     }
                 }
 
                 @if ($numBreakPoints >= 4) {
                     @include from-lg {
-                        @include handlePropertyCreator($property, $lgValue, $positions);
+                        @include handleMagicProperties($property, $lgValue, $positions);
                     }
                 }
 
-                // I think this is a bit much and we don't need to go this far.
-
-                // @if ($numBreakPoints >= 5) {
-                //     @include from-xl {
-                //         @include handlePropertyCreator($property, $xlValue, $positions);
-                //     }
-                // }
-                // @if ($numBreakPoints >= 6) {
-                //     @include from-xxl {
-                //         @include handlePropertyCreator($property, $xxlValue, $positions);
-                //     }
-                // }
+                @if ($numBreakPoints >= 5) {
+                    @include from-xl {
+                        @include handleMagicProperties($property, $xlValue, $positions);
+                    }
+                }
+                // I don't see the need to cover xxl, I think this is too much
+                // and you would be better off using responsive classes
             }
         }
     }
 }
-
-// @include createMagicGrid(grid, (4,3,2,1));
