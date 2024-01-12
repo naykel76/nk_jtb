@@ -1,5 +1,5 @@
-@use "../base/vars_base" as *;
-@use "../base/vars_components" as *;
+@use "../variables/base" as *;
+@use "../variables/components" as *;
 @use "../mixins/media" as *;
 
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
@@ -25,5 +25,21 @@
         @include from-md {
             font-size: $hero-subtitle-lg;
         }
+    }
+}
+
+.fp-hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("#{$img-path}/hero-sm.jpg");
+
+    @include from-md {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("#{$img-path}/hero-md.jpg");
+    }
+
+    @include from-lg {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("#{$img-path}/hero-lg.jpg");
+    }
+
+    @include from-xxl {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("#{$img-path}/hero-xl.jpg");
     }
 }

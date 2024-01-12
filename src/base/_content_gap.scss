@@ -1,0 +1,33 @@
+@use "../variables" as *;
+
+// any adjacent (excludes first child)
+:where(blockquote, p, pre, form, table, ol, ul, h1, h2, h3, h4, h5, h6) + * {
+    margin-top: $content-gap;
+}
+
+// this may be more hassle than it is worth but it is handy to place elements
+// with the need for a wrapper element.
+* + :where(table, form) {
+    margin-top: $content-gap;
+}
+
+:where(.bx, .bx-title, .bx-content, .frm-row, .container) + :where(*):not(.dd-content) {
+    margin-top: $content-gap;
+}
+
+// exclude section to give more control
+:where([class^="flex"], [class^="grid"]) + :where(*):not(:is([class*="flex"], [class*="grid"], section)) {
+    margin-top: $content-gap;
+}
+
+
+// opt-out
+// - Remove margin from all direct child elements of "flex" or
+//   "grid" because it is too inconsistent to manage.
+// - excluding .flex + input is experimental.the exclusion makes it
+//   easier to add tool-tips with a label
+
+:is([class*="flex"], [class*="grid"]) > *,
+.flex + input {
+    margin: 0;
+}

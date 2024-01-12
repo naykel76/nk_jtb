@@ -1,0 +1,56 @@
+@use "../variables" as *;
+@use "../../variables" as *;
+@use "../mixins/media" as *;
+
+// This file is for general utilities that don't have a home,
+
+
+
+.cover {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+//
+//
+//
+//
+//
+//
+// These are utilities that could easily be created using multiple utility classes
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+.round {
+    border-radius: 100vmax;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.cursor-default {
+    cursor: default;
+}
+
+.cursor-events-none {
+    pointer-events: none;
+}
+
+.no-click {
+    pointer-events: none;
+}
+
+
+
+
+
+
+

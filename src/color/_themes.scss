@@ -1,12 +1,9 @@
-@use "../base/vars_base" as *;
-@use "../base/vars_colors" as *;
 @use "../functions/colorFunctions" as *;
+@use "../functions/get" as *;
 @use "../functions/mapMerge" as *;
 @use "../mixins/extendedThemeClass" as *;
-@use "../mixins/helpers" as *; // index
-@use "../mixins/utilityClassCreators" as *;
+@use "../variables" as *;
 @use "./tailwind-colors" as *;
-@use "../functions/get" as *;
 
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
 // There is a fair bit going on here and the BUILD ORDER MATTERS.
@@ -17,27 +14,26 @@ $alert-theme: (
     "danger-light": (
         "base": get("red.50", $tailwind-colors),
         "color": get("red.900", $tailwind-colors),
-        "border-color": get("red.500", $tailwind-colors),
+        "border-color": get("red.500", $tailwind-colors)
     ),
     "info-light": (
         "base": get("blue.50", $tailwind-colors),
         "color": get("blue.900", $tailwind-colors),
-        "border-color": get("blue.500", $tailwind-colors),
+        "border-color": get("blue.500", $tailwind-colors)
     ),
     "warning-light": (
         "base": get("yellow.50", $tailwind-colors),
         "color": get("yellow.900", $tailwind-colors),
-        "border-color": get("yellow.500", $tailwind-colors),
+        "border-color": get("yellow.500", $tailwind-colors)
     ),
     "success-light": (
         "base": get("green.50", $tailwind-colors),
         "color": get("green.900", $tailwind-colors),
-        "border-color": get("green.500", $tailwind-colors),
-    ),
+        "border-color": get("green.500", $tailwind-colors)
+    )
 );
 
-// Convert all the colors into a usable map of maps to create
-// extended themes.
+// Convert all the colors into a usable map of maps to create extended themes.
 //
 // NK?? THINK! Do you really want to extend every theme?
 
@@ -48,8 +44,8 @@ $themes-map: ();
         $themes-map,
         (
             $color: (
-                "base": $value,
-            ),
+                "base": $value
+            )
         )
     );
 }
@@ -100,5 +96,5 @@ $extended-themes: mapMerge($alert-theme, $themes-map, $extended-theme-overrides)
 
 // this could arguably be removed and just use base colors?? maybe
 // leave main theme colors like primary, secondary, and accent
-@include singlePropertyUtilityClasses(background-color, $theme-colors, "bg");
-@include singlePropertyUtilityClasses(background-color, $base-colors, "bg");
+// @include generate-from-values(background-color, $theme-colors, "bg");
+// @include generate-from-values(background-color, $base-colors, "bg");

@@ -1,5 +1,4 @@
-@use "./vars_base" as *;
-@use "./vars_colors" as *;
+@use "../variables" as *;
 
 // 1. Remove the default margin and padding and opt-in as needed
 
@@ -99,12 +98,19 @@ strong {
     font-weight: bolder;
 }
 
+//
+pre {
+    overflow: auto;
+    white-space: pre;
+    word-wrap: normal;
+}
+
 code,
 kbd,
 samp,
 pre {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    font-size: 1rem;
+    font-size: .875rem;
     color: #f0506e;
     border-radius: 0.25rem;
 }
@@ -113,7 +119,6 @@ pre {
 pre code {
     line-height: 1.8;
     padding: 1.25rem !important; // 1
-    // overflow: auto;
 }
 
 small {
@@ -140,26 +145,27 @@ sup {
 
 // -- Tables --
 // ==========================================================================
-// do not create to much opinion here, just enough to look
-// respectable out of the box!
-
+//
 table {
     text-indent: 0;
     border-color: inherit;
     border-collapse: collapse;
-    width: 100%; // !!
+    width: 100%;
 }
 
-th {
+thead {
     font-weight: 600;
-    background: #f8fafc; //
+    background: #f9fafb;
+    font-size: 0.875rem;
+    vertical-align: middle;
 }
 
 th,
 td {
-    padding: 0.25em; // give some breathing space by default
+    padding-inline: 1rem;
+    padding-block: 0.75rem;
+    vertical-align: inherit;
     text-align: left;
-    vertical-align: top;
 }
 
 // 1. Change the font styles in all browsers.
@@ -290,6 +296,8 @@ nav ul {
     list-style: none;
     margin: 0; // reset nested
 }
+
+// -- Controls --
 // ==========================================================================
 
 // 1. Prevent resizing textareas horizontally by default.

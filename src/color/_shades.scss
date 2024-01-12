@@ -1,18 +1,35 @@
-@use "../base/vars_colors" as *;
-@use "../config" as *;
-@use "../functions/get" as *;
-@use "../mixins/colorShadeClasses" as *;
+@use "../mixins/common" as *;
+// @use "../mixins/magicClassGenerators" as *;
+// @use "sass:map";
 
-@if (get("shades.create-base", $config)) {
-    @each $color, $value in $base-colors {
-        @include colorShadeClasses($color, $value);
-    }
-}
+// @use "../variables" as *;
+// @use "../config" as *;
+// @use "../functions/get" as *;
+// @use "../mixins/colorThemeGenerators" as *;
 
-@if (get("shades.create-theme", $config)) {
-    @each $color, $value in $base-colors {
-        @include colorShadeClasses($color, $value);
-    }
-}
+// just use tailwind???
+
+// @if (get("shades.create-base", $config)) {
+//     @each $color, $value in $base-colors {
+//         @include colorShadeClasses($color, $value);
+//     }
+// }
+
+// @if (get("shades.create-theme", $config)) {
+//     @each $color, $value in $base-colors {
+//         @include colorShadeClasses($color, $value);
+//     }
+// }
 
 
+
+// prettier-ignore
+$colors-map: (
+    background-color: (
+        prefix: #{$bg-identifier},
+        values:( white, black ),
+        breakpoints: ("sm", "md", "lg", "xl")
+    ),
+);
+
+@include generate-utilities($colors-map);

@@ -1,0 +1,55 @@
+// ----------------------------------------------------------------
+// Strips dash '-' if the last character in a string
+// ----------------------------------------------------------------
+// Usage: $class: stripDash("bdr-");
+// Outputs $class: 'bdr';
+// ----------------------------------------------------------------
+@function stripDash($string) {
+    @if str-slice($string, -1) == "-" {
+        @return str-slice($string, 1, -2);
+    }
+    @return $string;
+}
+
+// ----------------------------------------------------------------
+// Strips 'rem' if last three characters in a string
+// ----------------------------------------------------------------
+// Usage: $class: stripDash("maxw-20rem");
+// Outputs $class: 'maxw-20';
+// ----------------------------------------------------------------
+@function stripRem($string) {
+    @if str-slice($string, -3) == "rem" {
+        @return str-slice($string, 1, -4);
+        @return $string;
+    }
+    @return $string;
+}
+
+// ----------------------------------------------------------------
+// Strip unwanted characters from class names
+// ----------------------------------------------------------------
+// used to exclude the -xy suffix from the class name, for example
+// `bdr-xy` will be `bdr` and `bdr-xy-sm` will be `bdr-sm`. This is
+// kind of a hack and some people may prefer to have the `xy` suffix
+// in the class name.
+$xy-exclusions: ("bdr-");
+
+// the identifier is only required for the `xy-exclusions` list
+@function strip-invalid($class, $identifier: "") {
+    // allows variants with base classes to be used without the
+    // '-base' suffix. For example, `pxy-base` will be `pxy`.
+    @if (str-slice($class, -5) == "-base") {
+        $class: str-slice($class, 1, -6);
+    }
+
+    @if (str-slice($class, -8) == "-default") {
+        $class: str-slice($class, 1, -9);
+    }
+
+    // Check if the identifier is in the exclusions list and if the
+    // class ends with '-xy' and if so remove the '-xy' suffix.
+    @if index($xy-exclusions, $identifier) and (str-slice($class, -3) == "-xy") {
+        $class: str-slice($class, 1, -4);
+    }
+    @return $class;
+}

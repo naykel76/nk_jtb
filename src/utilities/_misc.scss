@@ -1,0 +1,16 @@
+@use "../variables/components" as *;
+
+.zebra > *:nth-child(2n + 2):not(.primary):not(.secondary) {
+    background: $zebra-alt-bg;
+}
+
+//
+// -----------------------------------
+.overlay {
+    position: fixed;
+    inset: 0;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 30;
+    margin: 0;
+}

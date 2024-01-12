@@ -1,0 +1,127 @@
+@use "./base" as *;
+@use "../variables/colors" as *;
+@use "sass:map";
+
+// ------------------------------------------------------------------
+// -- AXIS TO POSITIONS MAP --
+// ------------------------------------------------------------------
+// Uses the key to defines the mapping structure that can be used to
+// retrieve css positions for a axis or position.
+//
+// !--IMPORTANT--!  The order of this map matters
+
+// prettier-ignore
+$axis-position-map: (
+    xy: (top, bottom, left, right),
+    x: (left, right),
+    y: (top, bottom),
+    t: top,
+    b: bottom,
+    l: left,
+    r: right,
+);
+
+$tblr-positions-map: map-remove($axis-position-map, "x", "y");
+$xy-positions-map: map-remove($axis-position-map, "t", "b", "l", "r");
+
+// maps edges to respective corners for border-radius
+
+// prettier-ignore
+$corners-map: (
+    t: (top-left, top-right),
+    b: (bottom-left, bottom-right),
+    l: (top-left, bottom-left),
+    r: (top-right, bottom-right),
+    tl: top-left,
+    tr: top-right,
+    bl: bottom-left,
+    br: bottom-right,
+);
+
+// ------------------------------------------------------------------
+// -- COMMON SIZES (REM) --
+// ------------------------------------------------------------------
+// for creating margin, padding and other size related utilities.
+//
+// DO NOT add unit here, it can get in the way with some mixins
+
+$rem-sizes-map: (
+    "0": 0,
+    "025": 0.25,
+    "05": 0.5,
+    "075": 0.75,
+    "1": 1,
+    "1.25": 1.25,
+    "1.5": 1.5,
+    "1.75": 1.75,
+    "2": 2,
+    "2.25": 2.25,
+    "2.5": 2.5,
+    "2.75": 2.75,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6,
+    "7": 7,
+    "8": 8,
+    "9": 9,
+    "10": 10
+);
+
+// grid column fr conversion map for two column layouts. The map key specifies the percentage width of the 1st column
+
+// prettier-ignore
+$fr-conversion-2-col: (
+    20: ( 1fr, 4fr ),
+    25: ( 1fr, 3fr ),
+    30: ( 3fr, 7fr ),
+    33: ( 1fr, 2fr ),
+    40: ( 2fr, 3fr ),
+    50: ( 1fr, 1fr ),
+    60: ( 3fr, 2fr ),
+    67: ( 2fr, 1fr ),
+    70: ( 7fr, 3fr ),
+    75: ( 3fr, 1fr ),
+    80: ( 4fr, 1fr )
+);
+
+// ------------------------------------------------------------------
+//  Border, and border-radius sizes
+// ------------------------------------------------------------------
+$border-color-variants: (light: rgba(255, 255, 255, 0.15), dark: rgba(0, 0, 0, 0.15) ) !default;
+$border-colors: map.remove($color-map, "danger", "dark", "info", "light", "success", "warning") !default;
+
+$border-radius-sizes: (0, 0.25, 0.5, 0.75, 1, 1.5, 2) !default;
+$border-radius-variants: (xs: 0.125rem, sm: 0.25rem, base: 0.375, lg: 0.5rem, xl: 0.75rem, full: 9999rem) !default;
+
+// ------------------------------------------------------------------
+//  Space sizes and variants for margin and padding utilities
+// ------------------------------------------------------------------
+
+$space-rem-sizes: (0, 0.125, 0.25, 0.5, 0.75, 0.875, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 4, 5) !default;
+$margin-variants: (base: 1.5, auto: auto) !default;
+$padding-variants: (default: 1.5) !default;
+
+// ------------------------------------------------------------------
+//  Sizing maps and variants
+// ------------------------------------------------------------------
+
+$sizing-pixels: (200px, 250px, 300px, 400px, 600px) !default; // include unit to make merge easier
+$sizing-rem: (0, 1, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24) !default;
+// the sizing variants are not related to the breakpoints. You can use the container utilities for that
+$sizing-variants: (xs: 20rem, sm: 24rem, md: 28rem, lg: 32rem, xl: 36rem, xxl: 42rem) !default;
+
+// 20rem; /* 320px */
+// 24rem; /* 384px */
+// 28rem; /* 448px */
+// 32rem; /* 512px */
+// 36rem; /* 576px */
+// 42rem; /* 672px */
+
+// These maps are seperate because they will only be used for the width, and height properties. I
+// am a bit perplexed how to handle this because I won't always want every sizing property to be
+// used for but at the same time I don't want to create complicated maps for each property. I think
+// I will just have to create a seperate map for each property and then merge them together
+$sizing-base-heights: (screen: 100vh, full: 100%,  fit: fit-content, max: max-content, min: min-content);
+$sizing-base-widths: (screen: 100vw, full: 100%, fit: fit-content, max: max-content, min: min-content);
+

@@ -1,7 +1,7 @@
-@use "../base/vars_all" as *;
+@use "../variables" as *;
 @use "../functions/colorFunctions" as *;
 @use "../forms/control" as *;
-@use "../scss/mixins/createState" as *;
+@use "../mixins/state" as *;
 @use "../utilities/transition" as *;
 
 // ------------------------------------------------------------------
@@ -22,7 +22,7 @@
     justify-content: center;
     font-weight: 600;
     white-space: nowrap; // prevent text wrapping
-
+    padding-inline: 1.25rem;
 
     &:not(:disabled):not(.disabled) {
         cursor: pointer;

@@ -1,0 +1,31 @@
+@use "../variables" as *;
+@use "../mixins/media" as *;
+@use "../functions/helpers" as *;
+
+$container-variants: (
+    base: 1200px,
+    sm: $sm,
+    md: $md,
+    lg: $lg,
+    xl: $xl,
+    xxl: $xxl
+) !default;
+
+// there is no need to add a tonne of media queries for the
+// container because using min() width does a pretty good job!
+
+// 1. Use capital M in min() function to prevent clash between sass
+//    and css. This works because sass is case-sensitive, but CSS is
+//    not.
+
+@each $variant, $size in $container-variants {
+    $class: strip-invalid(#{$container-identifier}-#{$variant});
+
+    // 95% is a good default for most cases, but this may need to be
+    // adjusted for smaller screens.
+    .#{$class} {
+        width: Min(95%, $size); // 1.
+        margin-right: auto;
+        margin-left: auto;
+    }
+}

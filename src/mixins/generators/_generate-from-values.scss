@@ -1,0 +1,40 @@
+@use "../../functions/helpers" as *;
+@use "../../mixins/class-helpers" as *;
+@use "sass:string";
+
+// --------------------------------------------------------------------------
+// Generate class variants for a given property and list of values
+// --------------------------------------------------------------------------
+// !! IMPORTANT !! does not support position based classes
+// --------------------------------------------------------------------------
+// Note: I really don't like that you must set a unit to use the
+// breakpoints, even if you don't want one. This is a tradeoff to
+// allow responsive utilities to be generated from this mixin.
+//
+//
+// @include generate-from-values(background-color, $map-of-values,
+//      "bg-", "", ("sm", "md", "lg", "xl"));
+//
+// @include generate-from-values(background-color, $map-of-values,
+//      "bg-", $breakpoints: ("sm", "md", "lg", "xl"));
+
+@mixin generate-from-values($property, $values, $identifier, $unit: "", $breakpoints: "") {
+    @each $key, $value in $values {
+        // Process key and value to get the variant and value
+        $variant-value: get-variant-value($key, $value);
+        $variant: nth($variant-value, 1);
+        $value: nth($variant-value, 2);
+
+        // Derived variables simplify and standardize value and
+        // unit handling in utility class generation, improving
+        // code readability and reducing complexity.
+        $derived-unit: if(value-has-unit($value), null, ($unit));
+        $derived-value: #{handle-class-value($value, $derived-unit)};
+        $derived-variant: #{$variant}#{handle-class-unit($derived-unit)};
+
+        $derived-class: strip-invalid(#{$identifier}#{$derived-variant});
+        @include singlePropertyClass($derived-class, $property, $derived-value, $breakpoints);
+    }
+}
+
+

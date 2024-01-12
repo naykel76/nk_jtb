@@ -1,53 +1,52 @@
-@use "./base/root";
-@use "./base/base";
-@use "./scss/base/content_gap";
+@use "./base";
 
-@forward "./scss/nk";
-@forward "./nk";
-@forward "./scss/forms";
+// -- ORDER MATTERS --
+// ----------------------------------------------------------------
+// Components need to be loaded before utility classes to make sure
+// they can be overridden
 
-// -- ORDER MATTERS -- Components need to be loaded before utility
-// classes to make sure they can be overridden
-@forward "./components-extended/hero";
+@forward "./components/accordion";
+@forward "./components/article";
+@forward "./components/banner";
+@forward "./components/box";
 @forward "./components/button";
-@forward "./scss/components/accordion";
-@forward "./scss/components/article";
-@forward "./scss/components/box";
-@forward "./scss/components/dropdown";
-@forward "./scss/components/icon";
-@forward "./scss/components/list";
-@forward "./scss/components/menu";
-@forward "./scss/components/navbar";
-@forward "./scss/components/other";
-@forward "./scss/components/sidebar";
+@forward "./components/dropdown";
+@forward "./components/icon";
+@forward "./components/list";
+@forward "./components/menu";
+@forward "./components/misc";
+@forward "./components/navbar";
+@forward "./components/other";
+@forward "./components/sidebar";
+
+@forward "./forms/";
 
 @forward "./color/";
 @forward "./color/themes";
 
-
-
-@forward "./scss/utilities/border";
-@forward "./scss/utilities/display_visibility";
-@forward "./scss/utilities/flex";
-@forward "./scss/utilities/general";
-@forward "./scss/utilities/grid";
-@forward "./scss/utilities/opacity";
-@forward "./scss/utilities/position";
-@forward "./scss/utilities/sizes";
-@forward "./scss/utilities/spacing";
-@forward "./scss/utilities/state";
-@forward "./scss/utilities/text";
-@forward "./scss/utilities/themes";
-@forward "./scss/utilities/translate";
-@forward "./utilities/flex";
-@forward "./utilities/general";
+@forward "./utilities/border";
+@forward "./utilities/container";
+@forward "./utilities/effects";
+@forward "./utilities/flexbox";
 @forward "./utilities/grid";
-@forward "./utilities/responsive_display_visibility";
-@forward "./utilities/size";
-@forward "./utilities/text";
+@forward "./utilities/layout";
+@forward "./utilities/margin";
+@forward "./utilities/misc";
+@forward "./utilities/padding";
+@forward "./utilities/position";
+@forward "./utilities/sizing";
+@forward "./utilities/space";
+@forward "./utilities/state";
+@forward "./utilities/transforms";
 @forward "./utilities/transition";
-@forward "./utilities/utilities"; // godfather utility sheet
+@forward "./utilities/typography";
+@forward "./utilities/visibility-display";
 
 // extras
-@use "./color/tailwind-colors" as *;
+// @use "./color/tailwind-colors" as *;
 @use "./extras/code" as *;
+
+// These are opinionated styles for NK components. They are not part
+// of the core and will eventually be moved to a separate package.
+@forward "./components-extended/hero";
+@use "./nk" as *;

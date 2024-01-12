@@ -1,0 +1,72 @@
+@use './numeric.scss' as *;
+@use './string.scss' as *;
+@use './strippers.scss' as *;
+
+// ----------------------------------------------------------------
+// escape invalid charters to be used in class names
+// ----------------------------------------------------------------
+@function escape-invalid($input) {
+    $input: toString($input);
+
+    // if the value starts with '0.' remove the decimal
+    @if (str-slice($input, 1, 2) == "0.") {
+        $input: strReplace($input, "0.", "0");
+    }
+
+    $output: escapeDecimal($input);
+    $output: stripRem($output);
+
+    @return $output;
+}
+
+// ----------------------------------------------------------------
+// Remove unwanted unit for certain values, e.g. 0, %, and auto
+// ----------------------------------------------------------------
+
+// Define a list of units to be excluded
+$exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
+
+@function handle-class-value($value, $unit) {
+    // Check if the value is in the exclude list. If it is, set the
+    // derived unit to null, otherwise set it to the unit
+    $derived-unit: if(index($exclude-units, $value), null, $unit);
+
+    @return $value + $derived-unit;
+}
+
+// ----------------------------------------------------------------
+// Remove 'rem' unit from class names because it is the default
+// ----------------------------------------------------------------
+@function handle-class-unit($unit) {
+    @return if($unit != "rem", $unit, "");
+}
+
+// ----------------------------------------------------------------
+// Process the variant and value based on the key and value passed
+// in to be used in the class name and property value
+// ----------------------------------------------------------------
+// 1. escape or convert any invalid characters in the key so it c an
+//    be uses in the class name.
+// 2. If there is no value, then a key-value pair was not passed in
+//    and the key will be used as both the `key` and the `value`.
+// 3. If the type of `key` is a list, it means that the original
+//    key-value pair from the map has been transformed into a list.
+//    We need to convert it back to its original form so everything
+//    works as expected. This is a sass thing when you pass in a
+//    single key-value pair from a map.
+
+@function get-variant-value($key, $value) {
+    // By default, set the variant as the escaped key and the value
+    // as the key or the provided value
+    $variant: escape-invalid($key); // 1.
+    $value: if($value, $value, $key); // 2.
+
+    // If the key is a list, set the variant and value as the first
+    // and second elements of the list
+    @if (type-of($key) == list) { // 3.
+        $variant: nth($key, 1);
+        $value: nth($key, 2);
+    }
+
+    @return ($variant, $value);
+}

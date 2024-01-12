@@ -1,0 +1,88 @@
+// ==========================================================================
+// -- Base Styles --
+// ==========================================================================
+
+// generic
+$text: #333;
+$background: #ffffff;
+$primary: #2563eb;
+$secondary: #181e20;
+$accent: #ffbb1c;
+
+// dark
+// $text: #e4e8ec;
+// $background: #0b101d;
+// $primary: #2876dc;
+// $secondary: #e1e1df;
+// $accent: #e6c637;
+
+$text: $text !default;
+$background: $background !default;
+$primary: $primary !default;
+$secondary: $secondary !default;
+$accent: $accent !default;
+
+$img-path: "/images" !default;
+
+// NK::COMMENT the border color has been changed to an actual color because
+// the transparent color has issues. I don't think this will break anything!
+// $border-color: rgba(0, 0, 0, 0.15) !default;
+$border-color: rgb(229, 231, 235) !default;
+$border: 1px solid $border-color !default;
+$border-radius: 8px !default;
+
+$font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-size: 1rem !default;
+$line-height: 1.5 !default;
+
+$heading-sizes: 2.25em, 1.75em, 1.5em, 1.25em, 1.125em, 1em !default;
+$heading-and-title-color: inherit !default;
+$heading-font-weight: 700 !default;
+
+$link-color: #5850ec !default;
+$link-hover-color: indianred !default;
+
+// ==========================================================================
+// -- Theme Styles --
+// ==========================================================================
+
+$header-bg: transparent !default;
+
+$main-bg: transparent !default;
+
+$footer-bg: #1d1d1c !default;
+$footer-text-color: rgb(204, 204, 204) !default;
+
+$copyright-bg: darken($footer-bg, 2%) !default;
+$copyright-text-color: $footer-text-color !default;
+
+// ==========================================================================
+// -- Spacing --
+// ==========================================================================
+$base-list-spacing: 0.25em !default;
+// use em so gap relative to font size
+$content-gap: 1.5em;
+
+// ==========================================================================
+// -- Responsive Sizes and Breakpoints --
+// ==========================================================================
+$breakpoints: (
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1600px,
+) !default;
+
+// create an empty map to update or add defaults
+$breakpoints-custom: () !default;
+// merge together
+$breakpoints: map-merge($breakpoints, $breakpoints-custom);
+
+$sm: map-get($breakpoints, sm);
+$md: map-get($breakpoints, md);
+$lg: map-get($breakpoints, lg);
+$xl: map-get($breakpoints, xl);
+$xxl: map-get($breakpoints, xxl);
+
+

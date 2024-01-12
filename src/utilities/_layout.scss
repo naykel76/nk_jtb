@@ -1,0 +1,21 @@
+@use "../mixins/common" as *;
+
+// prettier-ignore
+$layout-properties-map: (
+    display: ( values: ( block, contents, flex, (hidden: none), inline-block, inline-flex, inline, ) ),
+    float: ( prefix: "float-", values: ( left, right, none ) ),
+    overflow: ( prefix:'overflow-', values: ( auto, clip, hidden, scroll, visible ) ),
+    overflow-x: ( prefix:'overflow-x-', values: ( auto, clip, hidden, scroll, visible ) ),
+    overflow-y: ( prefix:'overflow-y-', values: ( auto, clip, hidden, scroll, visible ) ),
+    visibility: ( values: ( collapse, (invisible: hidden), visible ) ),
+    z-index: ( prefix: "z-", values: ( 0, 1, 50, 100, (bottom: -1), (top: 999)) )
+);
+
+@include generate-utilities($layout-properties-map);
+
+// only stick while parent is in view
+.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}

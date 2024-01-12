@@ -1,0 +1,180 @@
+@use "../functions/helpers" as *;
+@use "./media" as *;
+// --------------------------------------------------------------------------
+// -- CLASS CREATORS --
+// --------------------------------------------------------------------------
+
+// prettier-ignore
+@mixin singlePropertyClass($class, $property, $value, $breakpoints: "") {
+
+    .#{$class} {
+        #{$property}: $value;
+    }
+
+    @if ($breakpoints) {
+        @include makeFromBreakpoint(($property: $value), $class, $breakpoints...);
+    }
+
+}
+
+// @mixin createMultiplePropertyClass($class, $props) {
+//     .#{$class} {
+//         @include createProperties($props);
+//     }
+// }
+
+// NK?? This could arguably be moved into the main generator mixin
+// $positions is each individual position, e.g., top, bottom, left, right
+
+// 1. initialise props to be used for responsive classes
+// 2. pass in identifier to strip-invalid to remove unwanted characters
+// 3. merge the props for each position into a single map so it can
+//    be used for responsive classes which expects a map of props
+//    not a seperate `property` and `value
+
+@mixin positionBasedClass($property, $value, $positions-map, $identifier, $variant, $breakpoints) {
+    @each $axis-or-position-key, $positions in $positions-map {
+        $props: (); // 1.
+        $derived-class: strip-invalid(#{$identifier}#{$axis-or-position-key}-#{$variant}, $identifier); // 2.
+
+        .#{$derived-class} {
+            @each $position in $positions {
+                #{$property}-#{$position}: #{$value};
+                $props: map-merge($props, (#{$property}-#{$position}: $value)); // 3.
+            }
+        }
+        @if ($breakpoints) {
+            // convert the `breakpoints` passed in as a list to an
+            // argument list because the makeFromBreakpoint mixin
+            // expects separate arguments.
+            @include makeFromBreakpoint($props, $derived-class, $breakpoints...);
+        }
+    }
+}
+
+// --------------------------------------------------------------------------
+// -- CREATE ONE OR MANY PROPERTIES FROM MAP OF KEY-VALUE PAIRS --
+// --------------------------------------------------------------------------
+@mixin createProperties($props) {
+    @each $property, $value in $props {
+        #{$property}: $value;
+    }
+}
+
+// must pass in complete value including the unit
+@mixin createSingleProperty($property, $value) {
+    #{$property}: $value;
+}
+
+// --------------------------------------------------------------------------
+// Generate properties based on positional requirements. For
+// example, when `margin-top` requires a value for `top`, and
+// `margin-x` requires values for `left` and `right`.
+// --------------------------------------------------------------------------
+// This mixin iterates through a list of positions, creating the
+// appropriate property (e.g., `top`, `bottom`, `left`, `right`)
+// based on the provided value.
+//
+// You can specify the unit of measurement with the optional `$unit`
+// parameter, with the default unit being "rem".
+
+@mixin createPositionProperties($property, $value, $positions, $unit: "rem") {
+    @each $position in $positions {
+        $derivedUnit: if(($value == "auto" or $value == 0), null, $unit);
+        #{$property}-#{$position}: #{$value}#{$derivedUnit};
+    }
+}
+
+// ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
+// SCSS does not support interpolation for @include so there is no
+// choice other than using multiple if-else statements.
+// --------------------------------------------------------------------------
+
+// output:  {bp}\:identifier
+
+@mixin makeFromBreakpoint($props, $class, $breakpoints...) {
+    @each $bp in $breakpoints {
+        $derived-class: #{$bp}\:#{$class};
+        .#{$derived-class} {
+            @if ($bp == "sm") {
+                @include from-sm {
+                    @include createProperties($props);
+                }
+            } @else if($bp == "md") {
+                @include from-md {
+                    @include createProperties($props);
+                }
+            } @else if($bp == "lg") {
+                @include from-lg {
+                    @include createProperties($props);
+                }
+            } @else if($bp == "xl") {
+                @include from-xl {
+                    @include createProperties($props);
+                }
+            } @else if($bp == "xxl") {
+                @include from-xxl {
+                    @include createProperties($props);
+                }
+            }
+        }
+    }
+}
+
+// output:  to-{breakpoint}\:identifier
+@mixin makeToBreakpoint($props, $identifier, $breakpoints...) {
+    @each $bp in $breakpoints {
+        $derived-class: #{$bp}\:#{$identifier};
+        .to-#{$derived-class} {
+            @if ($bp == "sm") {
+                @include to-sm {
+                    @include createProperties($props);
+                }
+            } @else if($bp == "md") {
+                @include to-md {
+                    @include createProperties($props);
+                }
+            } @else if($bp == "lg") {
+                @include to-lg {
+                    @include createProperties($props);
+                }
+            } @else if($bp == "xl") {
+                @include to-xl {
+                    @include createProperties($props);
+                }
+            } @else {
+                @error 'The device '#{$bp}' is not available for this mixin, you need to remove it from the args list.';
+            }
+        }
+    }
+}
+
+// output: on-{breakpoint}\:identifier
+@mixin makeOnBreakpoint($props, $class, $breakpoints...) {
+    @each $bp in $breakpoints {
+        $derived-class: #{$bp}\:#{$class};
+        .on-#{$derived-class} {
+            @if ($bp == "sm") {
+                @include on-sm {
+                    @include createProperties($props);
+                }
+            } @else if($bp == "md") {
+                @include on-md {
+                    @include createProperties($props);
+                }
+            } @else if($bp == "lg") {
+                @include on-lg {
+                    @include createProperties($props);
+                }
+            } @else if($bp == "xl") {
+                @include on-xl {
+                    @include createProperties($props);
+                }
+            } @else if($bp == "xxl") {
+                @include on-xxl {
+                    @include createProperties($props);
+                }
+            }
+        }
+    }
+}

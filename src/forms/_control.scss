@@ -1,25 +1,18 @@
-@use '../functions/colorFunctions' as *;
+@use "../functions/colorFunctions" as *;
 
 $ctrl-border-radius: 0.25rem !default;
 $ctrl-border: 1px solid rgba(0, 0, 0, 0.15);
 
-$ctrl-font-size-sm: 0.75rem !default;
+$ctrl-font-size-xs: 0.75rem !default;
+$ctrl-font-size-sm: 0.875rem !default;
 $ctrl-font-size: 0.875rem !default;
-$ctrl-font-size-md: 1.25rem !default;
-$ctrl-font-size-lg: 1.5rem !default;
+$ctrl-font-size-lg-xl: 1rem !default;
+
 $ctrl-bg-color: #fff !default;
 $ctrl-color: setTextColor($ctrl-bg-color) !default;
 
-// Control and Button padding use em making them relative to the font-size
-$ctrl-padding-x: 1rem !default;
-$ctrl-padding-y: 0.625em !default;
-
-$control-sizes: (
-    xs: 0.6rem,
-    sm: $ctrl-font-size-sm,
-    md: $ctrl-font-size-md,
-    lg: $ctrl-font-size-lg,
-);
+$ctrl-padding-x: 0.875rem !default;
+$ctrl-padding-y: 0.625rem !default;
 
 $ctrl-line-height: 1.5 !default;
 
@@ -33,8 +26,6 @@ $ctrl-line-height: 1.5 !default;
     border-left: $ctrl-border;
     border-right: $ctrl-border;
     border-radius: $ctrl-border-radius;
-    font-size: $ctrl-font-size;
-    padding: $ctrl-padding-y $ctrl-padding-x;
     line-height: $ctrl-line-height; // 1
     display: inline-flex;
     align-items: center;
@@ -43,11 +34,39 @@ $ctrl-line-height: 1.5 !default;
     color: $ctrl-color;
     max-width: 100%; // prevent overflow
 
-    // create control sizes
-    @each $size, $value in $control-sizes {
-        &.#{$size} {
-            font-size: $value;
-        }
-    }
-}
+    font-size: $ctrl-font-size;
 
+    padding-inline: $ctrl-padding-x;
+    padding-block: $ctrl-padding-y;
+
+    // this is ok for now but i think the input and buttons should
+    // be separated, they really should have different x padding values
+    &.xs {
+        font-size: $ctrl-font-size-xs;
+        line-height: 1rem;
+        padding-block: 0.5rem;
+        padding-inline: 0.75rem;
+    }
+
+    &.sm {
+        font-size: $ctrl-font-size-sm;
+        padding-block: 0.5rem;
+        padding-inline: 0.75rem;
+        line-height: $ctrl-line-height;
+    }
+
+    &.lg {
+        font-size: $ctrl-font-size-lg-xl;
+        padding-block: 0.75rem;
+        padding-inline: 1.25rem;
+        line-height: 1.5rem;
+    }
+
+    &.xl {
+        font-size: $ctrl-font-size-lg-xl;
+        padding-block: 0.875rem;
+        padding-inline: 1.5rem;
+        line-height: 1.5rem;
+    }
+
+}

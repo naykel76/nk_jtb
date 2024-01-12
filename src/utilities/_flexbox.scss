@@ -1,0 +1,93 @@
+@use "../mixins/common" as *;
+
+// prettier-ignore
+$flex-properties-map: (
+    align-content: (
+        values: (
+            content-around: space-around,
+            content-baseline: baseline,
+            content-between: space-between,
+            content-center: center,
+            content-end: flex-end,
+            content-evenly: space-evenly,
+            content-normal: normal,
+            content-start: flex-start,
+            content-stretch: stretch
+        )
+    ),
+    align-items: (
+        values: (
+            items-baseline: baseline,
+            items-center: center,
+            items-end: flex-end,
+            items-start: flex-start,
+            items-stretch: stretch,
+            va-b: flex-end,
+            va-c: center,
+            va-t: flex-start
+        )
+    ),
+    align-self: (
+        prefix: "align-self-",
+        values: ( auto, baseline, center, flex-end, flex-start, stretch )
+    ),
+    flex-direction: (
+        prefix: #{$flex-identifier},
+        values: (
+            // `flex-col` and `flex-row` are handled in the
+            // flex.scss utility file to include the display
+            // property as well.
+            column-reverse,
+            row-reverse
+        )
+    ),
+    flex-grow: (
+        prefix: #{$flex-grow-identifier},
+        values: ( 0, 1)
+    ),
+    flex-shrink: (
+        prefix: #{$flex-shrink-identifier},
+        values: ( 0, 1)
+    ),
+    flex-wrap: (
+        values: ( nowrap, wrap-reverse, wrap )
+    ),
+    justify-content: (
+        values: (
+            ha-c: center,
+            ha-l: flex-start,
+            ha-r: flex-end,
+            space-between: space-between,
+            justify-around: space-around,
+            justify-center: center,
+            justify-end: flex-end,
+            justify-evenly: space-evenly,
+            justify-normal: normal,
+            justify-start: flex-start,
+            justify-stretch: stretch
+        )
+    ),
+    order: (
+        property: order,
+        prefix: "order-",
+        values: ( 1, 2, 3, 4, 5, 6, 7, 8 )
+    ),
+);
+
+@include generate-utilities($flex-properties-map);
+
+// prettier-ignore
+$flex-classes-map: (
+    flex-col: (
+        props: ( display: flex, flex-direction: column ),
+        breakpoints: ("sm", "md", "lg", "xl")
+    ),
+    flex-row: (
+        props: ( display: flex, flex-direction: row ),
+        breakpoints: ("sm", "md", "lg", "xl")
+    )
+);
+
+@include generate-classes($flex-classes-map);
+
+

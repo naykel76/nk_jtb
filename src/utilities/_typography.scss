@@ -1,0 +1,185 @@
+@use "../mixins/common" as *;
+@use "sass:map";
+
+// ******************************************************************
+// IMPORTANT
+// ******************************************************************
+// Opinionated classes must be created first to make sure they can
+// be overridden by utility classes
+// ******************************************************************
+
+// ------------------------------------------------------------------
+// -- PROPERTY MAPS --
+// ------------------------------------------------------------------
+// remove the following colours from the map
+$text-colors: map.remove($color-map, "danger", "dark", "info", "light", "success", "warning");
+
+$text-rem-sizes: (1.5, 2, 2.5, 3, 4) !default;
+$text-variant-sizes: (
+    xs: 0.75rem,
+    sm: 0.875rem,
+    base: 1rem,
+    lg: 1.125rem,
+    xl: 1.5rem,
+) !default;
+// convert 'rem' sizes to map and merge with variant sizes
+$text-variants: map-merge(listToMap($text-rem-sizes), $text-variant-sizes);
+
+// ------------------------------------------------------------------
+// -- OPINIONATED TEXT CLASSES --
+// ------------------------------------------------------------------
+//
+.lead {
+    font-size: 1.2rem;
+}
+
+.title {
+    color: $primary;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.125;
+}
+
+.subtitle {
+    color: $primary;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.125;
+}
+
+// this seems a little out of place here, oh well!
+.link {
+    background-color: transparent;
+    background-image: none;
+    border: none;
+    color: $link-color;
+    padding: 0;
+
+    &:hover,
+    &:active {
+        color: $link-hover-color;
+        background-color: transparent;
+    }
+}
+
+// ------------------------------------------------------------------
+// -- UTILITY CLASS MAP --
+// ------------------------------------------------------------------
+
+// pettier-ignore
+$typography-properties-map: (
+    color: (
+        prefix: "#{$text-identifier}",
+        values: $text-colors,
+    ),
+    font-size: (
+        prefix: "#{$text-identifier}",
+        values: $text-variants,
+        // TXT BREAKPOINTS ARE NOT WORKING CORRECTLY WITH THE UNIT
+        // breakpoints: ("sm", "md", "lg", "xl"),
+        unit: "rem",
+    ),
+    font-style: (
+        prefix: "#{$text-identifier}",
+        values: (
+            italic,
+            normal,
+        ),
+    ),
+    font-family: (
+        prefix: "#{$font-identifier}",
+        values: (
+            mono: (
+                ui-monospace,
+                SFMono-Regular,
+                Menlo,
+                Monaco,
+                Consolas,
+                "Liberation Mono",
+                "Courier New",
+                monospace,
+            ),
+            serif: (
+                ui-serif,
+                Georgia,
+                Cambria,
+                "Times New Roman",
+                Times,
+                serif,
+            ),
+            sans: (
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                "Helvetica Neue",
+                Arial,
+                "Noto Sans",
+                sans-serif,
+                "Apple Color Emoji",
+                "Segoe UI Emoji",
+                "Segoe UI Symbol",
+                "Noto Color Emoji",
+            ),
+        ),
+    ),
+    font-weight: (
+        prefix: "fw",
+        values: (
+            2: 200,
+            4: 400,
+            5: 500,
+            6: 600,
+            7: 700,
+            9: 900,
+        ),
+    ),
+    line-height: (
+        prefix: "#{$line-height-identifier}",
+        values: (
+            1,
+            2,
+        ),
+    ),
+    text-align: (
+        prefix: "#{$text-align-identifier}",
+        values: (
+            l: left,
+            r: right,
+            c: center,
+            j: justify,
+        ),
+    ),
+    text-decoration: (
+        prefix: "#{$text-identifier}",
+        values: (
+            strike: line-through,
+            underline: underline,
+            overline: overline,
+            underline-overline: underline overline,
+        ),
+    ),
+    text-transform: (
+        prefix: "#{$text-identifier}",
+        values: (
+            upper: uppercase,
+            lower: lowercase,
+            capitalize: capitalize,
+            normal-case: none,
+        ),
+    ),
+    white-space: (
+        prefix: "#{$whitespace-identifier}",
+        values: (
+            normal,
+            nowrap,
+            pre,
+            pre-line,
+            pre-wrap,
+        ),
+    ),
+);
+
+@include generate-utilities($typography-properties-map);

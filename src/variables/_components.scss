@@ -1,0 +1,100 @@
+@use "./base" as *;
+@use "../functions/colorFunctions" as *;
+
+$zebra-alt-bg: rgb(245, 245, 245) !default; //
+
+// ==========================================================================
+// -- BOX --
+// ==========================================================================
+$bx-bg: #fff !default;
+$bx-padding: $content-gap !default;
+$bx-border-radius: 0.25rem !default;
+
+$bx-header-bg: rgb(250, 250, 250) !default;
+$bx-title-font-weight: 600 !default;
+$bx-title-font-size: 1.2rem !default;
+
+// ==========================================================================
+// -- HERO COMPONENT --
+// ==========================================================================
+// $hero-background-color: $primary;
+$hero-title-color: #eee !default;
+$hero-title-lg: 3rem !default;
+$hero-title-sm: 2rem !default;
+
+$hero-subtitle-color: #eee !default;
+$hero-subtitle-lg: 2.5rem !default;
+$hero-subtitle-sm: 1.75rem !default;
+
+$hero-gradient: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)) !default;
+
+$hero-text-padding: $content-gap !default;
+
+//
+//
+//
+// REVIEW
+//
+//
+//
+//
+
+// -- button --
+// ==============================================================
+$btn-bg: rgb(240, 240, 240) !default;
+$btn-color: setTextColor($btn-bg) !default;
+
+$btn-link-color: $link-color !default;
+$btn-link-hover-color: $link-hover-color !default;
+
+$btn-text-transform: capitalize;
+
+// -- icons --
+// ==============================================================
+$icon-xy-sm: 1em !default;
+$icon-xy: 1.5em !default;
+$icon-xy-md: 2em !default;
+$icon-xy-lg: 3em !default;
+$icon-color: inherit !default;
+
+// -- menu --
+// ==============================================================
+$menu-padding-y: 0.5rem !default;
+$menu-padding-x: 0.5rem !default;
+
+$menu-hover-bg: hsl(0, 0%, 95%) !default;
+
+// $menu-link-color: $text !default;
+$menu-link-hover-color: setTextColor($menu-hover-bg) !default;
+
+// -- navbar --
+// ==============================================================
+// navbar-nav variables are only effective when there is a
+// background color set so it is best not to set as transparent
+
+// what if i want transparent navbar but styled nav?
+// $navbar-bg: rgb(247, 247, 247) !default;
+$navbar-bg: transparent !default;
+
+$navbar-padding-x: 1rem !default;
+$navbar-padding-y: 0.5rem !default;
+
+$navbar-nav-padding-x: 1em !default;
+$navbar-nav-padding-y: 0.75em !default;
+
+$navbar-nav-item-bg: $navbar-bg !default;
+$navbar-nav-item-color: setTextColor($navbar-nav-item-bg) !default;
+
+$navbar-nav-hover-bg: lighten($navbar-nav-item-bg, 3%) !default;
+$navbar-nav-hover-color: lighten(setTextColor($navbar-nav-item-bg), 20%) !default;
+// $navbar-nav-hover-bg: lighten($navbar-nav-item-bg, 3%) !default;
+// $navbar-nav-hover-color: lighten(setTextColor($navbar-nav-item-bg), 20%) !default;
+
+$navbar-nav-active-bg: darken($navbar-nav-item-bg, 3%) !default;
+$navbar-nav-active-color: darken(setTextColor($navbar-nav-item-bg), 20%) !default;
+
+// -- lists --
+// ==============================================================
+$icon-list-color: inherit !default;
+
+$icon-tick: url("data:image/svg+xml;utf8,<?xml version='1.0' encoding='utf-8'?><svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><path fill='#{$icon-list-color}' d='M10,0A10,10,0,1,0,20,10,10.011,10.011,0,0,0,10,0Zm5.575,6.665L9.421,13.588a.77.77,0,0,1-1.056.09L4.519,10.6A.769.769,0,0,1,5.48,9.4l3.276,2.62,5.669-6.377a.769.769,0,0,1,1.15,1.023Z'/></svg>");
