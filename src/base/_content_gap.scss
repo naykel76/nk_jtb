@@ -5,8 +5,9 @@
     margin-top: $content-gap;
 }
 
-// this may turn out to be more hassle than it is worth!
-* + :where(table) {
+// this may be more hassle than it is worth but it is handy to place elements
+// with the need for a wrapper element.
+* + :where(table, form) {
     margin-top: $content-gap;
 }
 

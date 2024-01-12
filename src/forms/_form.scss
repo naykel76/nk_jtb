@@ -46,22 +46,11 @@ label:has(input[type="checkbox"], input[type="radio"]) {
 
 // -- frm-row --
 // ==========================================================================
-// label:has(input[type="checkbox"]) {
-//     background: green;
-//     margin-block-end: 0;
-//     > input
-//     {
-//         margin-left: 1rem;
-//     }
-// }
+
 .frm-row {
     position: relative;
     display: flex;
     flex-direction: column;
-
-    // :where(textarea, select, input:not([type="checkbox"]):not([type="radio"])) {
-    //     padding-left: 2.75em;
-    // }
 
     &.inline {
         display: flex;
@@ -82,14 +71,15 @@ label:has(input[type="checkbox"], input[type="radio"]) {
     }
 }
 
-// 1. set to 100% to prevent overflow. The padding on the addons can
-//    cause blowout if the input is not set to 100% width.
-// 2. let the addon border sit on top of the control border
-// 3. this is a hack so the addon can be placed before the input to
-//    deal with input border radius.
+// 1. set to 100% to prevent overflow. The padding on the addons can cause
+//    blowout if the input is not set to 100% width.
+// 2. let the addon border sit on top of the control border. Don not set too
+//    high or it will create problems for overlay
+// 3. this is a hack so the addon can be placed before the input to deal with
+//    input border radius.
 //
-// NK::TD the hack to arrange the addon before the input can be
-// reviewed when firefox supports the :has selector.
+// NK::TD the hack to arrange the addon before the input can be reviewed when
+// firefox supports the :has selector.
 
 .withAddons {
     display: flex;
@@ -107,7 +97,7 @@ label:has(input[type="checkbox"], input[type="radio"]) {
         font-size: $ctrl-font-size;
         color: #333;
         background: #fafafa;
-        z-index: 50; // 2.
+        z-index: 1; // 2.
     }
 
     .leadingAddon {
