@@ -9,6 +9,7 @@
     "private": false,
     "type": "module",
     "scripts": {
+        "utils": "sass --style compressed ./src/utilities.scss:dist/utilities.css",
         "border": "sass --watch --no-source-map ./scss/utilities/_border.scss:dist/css/border.css",
         "flex": "sass --watch --no-source-map ./scss/utilities/_flex.scss:dist/css/flex.css",
         "grid": "sass --watch --no-source-map ./src/utilities/_grid.scss:dist/css/grid.css",

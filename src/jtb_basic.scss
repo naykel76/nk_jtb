@@ -1,0 +1,18 @@
+@use "./base";
+
+@forward "./color/";
+@forward "./color/themes";
+
+@forward "./utilities/container";
+@forward "./utilities/flexbox";
+@forward "./utilities/margin";
+@forward "./utilities/padding";
+@forward "./utilities/sizing";
+@forward "./utilities/space";
+
+// @forward "./utilities/border";
+// @forward "./utilities/grid";
+// @forward "./utilities/layout";
+// @forward "./utilities/position";
+// @forward "./utilities/typography";
+// @forward "./utilities/visibility-display";
