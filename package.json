@@ -1,7 +1,7 @@
 {
     "name": "nk_jtb",
     "description": "Yet another utility based framework.",
-    "version": "0.9.1",
+    "version": "0.9.2",
     "repository": {
         "type": "git",
         "url": "https://github.com/naykel76/nk_jtb.git"
@@ -22,8 +22,6 @@
         "build:jtb_basic": "sass --style compressed --no-source-map ./src/jtb_basic.scss:dist/jtb_basic.min.css",
         "build": "vite build && npm run build:jtb && npm run build:jtb_basic",
         "preview": "vite preview"
-
-
     },
     "devDependencies": {
         "@fullhuman/postcss-purgecss": "^5.0.0",
