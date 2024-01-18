@@ -18,8 +18,12 @@
         "spacing": "sass --watch --no-source-map ./scss/utilities/_spacing.scss:dist/css/spacing.css",
         "theme": "sass --watch --no-source-map ./src/color/_themes.scss:dist/css/themes.css",
         "dev": "vite --open",
-        "build": "vite build",
+        "build:jtb": "sass --style compressed --no-source-map ./src/jtb.scss:dist/jtb.min.css",
+        "build:jtb_basic": "sass --style compressed --no-source-map ./src/jtb_basic.scss:dist/jtb_basic.min.css",
+        "build": "vite build && npm run build:jtb && npm run build:jtb_basic",
         "preview": "vite preview"
+
+
     },
     "devDependencies": {
         "@fullhuman/postcss-purgecss": "^5.0.0",
