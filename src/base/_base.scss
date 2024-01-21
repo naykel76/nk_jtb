@@ -343,12 +343,6 @@ object {
     vertical-align: middle; // 2
 }
 
-// 1. allows svg to inherit color
-
-svg {
-    fill: currentcolor; // 1.
-}
-
 // 1. Constrain images and videos to the parent width and preserve
 //    their intrinsic aspect ratio.
 //    (https://github.com/mozdevs/cssremedy/issues/14)
