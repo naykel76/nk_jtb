@@ -1,7 +1,7 @@
 {
     "name": "nk_jtb",
     "description": "Yet another utility based framework.",
-    "version": "0.9.3",
+    "version": "0.9.4",
     "repository": {
         "type": "git",
         "url": "https://github.com/naykel76/nk_jtb.git"
