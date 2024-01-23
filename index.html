@@ -6,11 +6,52 @@
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NayKel JTB</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
-<body>
+<body">
+
+    <div class="quick-hide-div zebra">
+        <section id="radio-checkbox-slider" class="py-3">
+            <div class="container">
+                <h5>Radio</h5>
+                <div class="space-x">
+                    <label><input type="radio" name="abc">Option</label>
+                    <label><input type="radio" name="abc" checked>Checked</label>
+                    <label><input type="radio" name="abc" disabled>Disabled</label>
+                </div>
+                <h5>Checkbox</h5>
+                <div class="space-x">
+                    <label><input type="checkbox">Option</label>
+                    <label><input type="checkbox" checked>Checked</label>
+                    <label><input type="checkbox" disabled>Disabled</label>
+                </div>
+                <h5>Slider</h5>
+                <label class="toggle">
+                    <input type="checkbox">
+                    <div class="slider"></div>
+                    <span class="toggle-label">Option</span>
+                </label>
+                <label class="toggle">
+                    <input type="checkbox" checked>
+                    <div class="slider"></div>
+                    <span class="toggle-label">Checked</span>
+                </label>
+                <label class="toggle">
+                    <input type="checkbox" disabled>
+                    <div class="slider"></div>
+                    <span class="toggle-label">Disabled</span>
+                </label>
+            </div>
+        </section>
+    </div>
+
+    <!--  -->
+    <!--  -->
+    <!-- THIS IS ALL OVER THE PLACE AND NEEDS TO BE TIDIED UP! -->
+    <!--  -->
+    <!--  -->
     <div class="container py-5">
         <div class="overflow-x-auto rounded-lg bdr">
             <table>
@@ -528,21 +569,7 @@
             <section id="button-and-form-controls">
                 <div class="container">
 
-                    <label><input type="radio" name="abc">Default Radio</label>
-                    <label><input type="radio" name="abc">Checked State</label>
 
-                    <div class="frm-row">
-                        <label><input type="radio" name="abc">Default Radio</label>
-                        <label><input type="radio" name="abc">Checked State</label>
-                    </div>
-
-
-                    <hr>
-                    <label><input class="wh-3" type="radio" name="abc">Default Radio</label>
-                    <label><input class="wh-3" type="radio" name="abc">Checked State</label>
-                    <hr>
-                    <label class="inline-flex va-c"><input class="wh-3" type="radio" name="abc">Default Radio</label>
-                    <label class="inline-flex va-c"><input class="wh-3" type="radio" name="abc">Checked State</label>
 
 
 
@@ -1390,6 +1417,6 @@
 
     <div id="app"></div>
     <script type="module" src="/main.js"></script>
-</body>
+    </body>
 
 </html>
