@@ -1,5 +1,4 @@
 @use "../variables/base" as *;
-
 @use "sass:math";
 
 // ==========================================================================
@@ -19,7 +18,7 @@
 //   the ball when it's in its default (unchecked) position.
 //
 
-$toggle-height: 1.75rem;
+$toggle-height: 1.5rem;
 $toggle-width: $toggle-height * 2;
 $toggle-ball-size: $toggle-height - 0.5rem;
 $toggle-padding: math.div($toggle-height - $toggle-ball-size, 2);
@@ -27,6 +26,7 @@ $toggle-padding: math.div($toggle-height - $toggle-ball-size, 2);
 $toggle-off-bg: rgb(229, 231, 235) !default;
 $toggle-on-bg: $primary !default;
 $toggle-ball-bg: rgb(253, 253, 253) !default;
+
 
 .toggle {
     position: relative;
@@ -39,6 +39,7 @@ $toggle-ball-bg: rgb(253, 253, 253) !default;
         opacity: 0;
         width: 0;
         height: 0;
+        margin-inline-end: 0; // Override margin in form.scss
     }
 
     .slider {
