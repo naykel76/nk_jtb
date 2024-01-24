@@ -14,36 +14,55 @@
 
     <div class="quick-hide-div zebra">
         <section id="radio-checkbox-slider" class="py-3">
-            <div class="container">
-                <h5>Radio</h5>
-                <div class="space-x">
-                    <label><input type="radio" name="abc">Option</label>
-                    <label><input type="radio" name="abc" checked>Checked</label>
-                    <label><input type="radio" name="abc" disabled>Disabled</label>
+            <div class="container grid cols-2">
+                <div>
+                    <h5>Radio</h5>
+                    <div class="space-x">
+                        <label><input type="radio" name="abc">Option</label>
+                        <label><input type="radio" name="abc" checked>Checked</label>
+                        <label><input type="radio" name="abc" disabled>Disabled</label>
+                    </div>
+                    <h5>Checkbox</h5>
+                    <div class="space-x">
+                        <label><input type="checkbox">Option</label>
+                        <label><input type="checkbox" checked>Checked</label>
+                        <label><input type="checkbox" disabled>Disabled</label>
+                    </div>
+                    <h5>Slider</h5>
+                    <div class="space-x">
+                        <label class="toggle">
+                            <input type="checkbox">
+                            <div class="slider"></div>
+                            <span>Option</span>
+                        </label>
+                        <label class="toggle">
+                            <input type="checkbox" checked>
+                            <div class="slider"></div>
+                            <span>Checked</span>
+                        </label>
+                        <label class="toggle">
+                            <input type="checkbox" disabled>
+                            <div class="slider"></div>
+                            <span>Disabled</span>
+                        </label>
+                    </div>
                 </div>
-                <h5>Checkbox</h5>
-                <div class="space-x">
-                    <label><input type="checkbox">Option</label>
-                    <label><input type="checkbox" checked>Checked</label>
-                    <label><input type="checkbox" disabled>Disabled</label>
-                </div>
-                <h5>Slider</h5>
-                <div class="space-x">
-                    <label class="toggle">
-                        <input type="checkbox">
-                        <div class="slider"></div>
-                        <span>Option</span>
+                <div>
+                    <div class="bx"><input type="file" name="" id=""></div>
+
+                    <label class="file">
+                        <input type="file" name="file">
+                        <span>Choose a file…</span>
                     </label>
-                    <label class="toggle">
-                        <input type="checkbox" checked>
-                        <div class="slider"></div>
-                        <span>Checked</span>
-                    </label>
-                    <label class="toggle">
-                        <input type="checkbox" disabled>
-                        <div class="slider"></div>
-                        <span>Disabled</span>
-                    </label>
+
+                    <div class="bx">
+                        <label class="file">
+                            <input type="file" name="file">
+                            <span>Choose a file…</span>
+                        </label>
+                    </div>
+
+
                 </div>
             </div>
         </section>

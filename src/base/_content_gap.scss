@@ -1,7 +1,7 @@
 @use "../variables" as *;
 
 // any adjacent (excludes first child)
-:where(blockquote, p, pre, form, table, ol, ul, h1, h2, h3, h4, h5, h6) + * {
+:where(blockquote, p, pre, form, table, ol, ul, h1, h2, h3, h4, h5, h6) + *:not(label) {
     margin-top: $content-gap;
 }
 
@@ -19,7 +19,6 @@
 :where([class^="flex"], [class^="grid"]) + :where(*):not(:is([class*="flex"], [class*="grid"], section)) {
     margin-top: $content-gap;
 }
-
 
 // opt-out
 // - Remove margin from all direct child elements of "flex" or

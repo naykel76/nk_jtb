@@ -8,6 +8,7 @@
 
     //   bring to front and hide default input
     input[type="file"] {
+        margin: 0;
         left: 0;
         opacity: 0;
         outline: none;
@@ -17,5 +18,4 @@
         z-index: 1000; // allow parent cursor to use pointer
         cursor: pointer;
     }
-
 }
