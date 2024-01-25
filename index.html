@@ -11,11 +11,10 @@
 </head>
 
 <body">
-
     <div class="quick-hide-div zebra">
-        <section id="radio-checkbox-slider" class="py-3">
+        <section id="form-controls" class="py-3">
             <div class="container grid cols-2">
-                <div>
+                <div id="radio-check-toggle">
                     <h5>Radio</h5>
                     <div class="space-x">
                         <label><input type="radio" name="abc">Option</label>
@@ -47,29 +46,29 @@
                         </label>
                     </div>
                 </div>
-                <label class="file">
-                    <input type="file" name="name">
-                    <span> Select file... </span>
-                </label>
-                <div>
-                    <label class="file bdr">
-                        <input type="file" name="file">
-                        <span>Choose a file…</span>
+                <div id="file-input">
+                    <label class="file">
+                        <input type="file" name="name">
+                        <span> Select file... </span>
                     </label>
-                    <div class="frm-row my">
-                        <label class="file btn">
-                            <input type="file" name="">
-                            <svg class="wh-1.25 mr-075" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon">
-                                <path fill-rule="evenodd" d="M11.47 2.47a.75.75 0 0 1 1.06 0l4.5 4.5a.75.75 0 0 1-1.06 1.06l-3.22-3.22V16.5a.75.75 0 0 1-1.5 0V4.81L8.03 8.03a.75.75 0 0 1-1.06-1.06l4.5-4.5ZM3 15.75a.75.75 0 0 1 .75.75v2.25a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5V16.5a.75.75 0 0 1 1.5 0v2.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V16.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd" />
-                            </svg>
-                            <span>Choose a file...</span>
+                    <div>
+                        <label class="file bdr">
+                            <input type="file" name="file">
+                            <span>Choose a file…</span>
                         </label>
+                        <div class="frm-row my">
+                            <label class="file btn">
+                                <input type="file" name="">
+                                <svg class="wh-1.25 mr-075" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon">
+                                    <path fill-rule="evenodd" d="M11.47 2.47a.75.75 0 0 1 1.06 0l4.5 4.5a.75.75 0 0 1-1.06 1.06l-3.22-3.22V16.5a.75.75 0 0 1-1.5 0V4.81L8.03 8.03a.75.75 0 0 1-1.06-1.06l4.5-4.5ZM3 15.75a.75.75 0 0 1 .75.75v2.25a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5V16.5a.75.75 0 0 1 1.5 0v2.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V16.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Choose a file...</span>
+                            </label>
+                        </div>
                     </div>
-
                 </div>
             </div>
         </section>
-
         <section id="box" class="py-3">
             <div class="container">
                 <h2>Boxes</h2>
@@ -77,6 +76,40 @@
                     <div class="bx">
                         <div class="bx-title">Super Awesome Title</div>
                         <p>Lorem ipsum dolor sit amet consectetur pepe adipisicing elit. Quas debitis unde aut, sed repellendus tempora, molestiae eveniet.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="box" class="py-3">
+            <div class="container">
+                <div class="grid cols-3">
+                    <div class="bx pxy-1 flex va-c">
+                        <svg class="txt-green wh-2">
+                            <use xlink:href="svg/naykel-ui.svg#check-circle"></use>
+                        </svg>
+                        <div class="ml-075">Success message!</div>
+                        <button class="ml-auto">
+                            <svg class="icon">
+                                <use xlink:href="svg/naykel-ui.svg#x-mark"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="box" class="py-3">
+            <div class="container">
+                <h2>Alignment Techniques</h2>
+                <div class="grid cols-3">
+                    <div class="bdr flex va-c">
+                        <div class="wh-3 pink"></div>
+                        <div class="wh-4 blue"></div>
+                        <div class="ml-auto wh-3 pink"></div>
+                    </div>
+                    <div class="bdr flex va-c">
+                        <span class="wh-3 pink"></span>
+                        <div class="fg1 wh-4 blue"></div>
+                        <span class="wh-3 pink"></span>
                     </div>
                 </div>
             </div>

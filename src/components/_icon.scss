@@ -2,17 +2,12 @@
 
 
 // 1. aligns better text to text when inline
-// 2. the icon feels a little big when used inline, with buttons and
-//    and inputs, changing the height affects the overall control
-//    size so this little bit of padding is enough to bring better
-//    alignment without affecting other us cases too much.
 
 .#{$icon-identifier} {
-    width: $icon-xy;
-    height: $icon-xy;
     vertical-align: bottom; // 1
     color: $icon-color;
-    padding: 2px; // 2
+    width: $icon-xy;
+    height: $icon-xy;
 
     &.sm {
         height: $icon-xy-sm;
