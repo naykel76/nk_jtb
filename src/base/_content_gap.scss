@@ -1,6 +1,10 @@
 @use "../variables" as *;
 
-// any adjacent (excludes first child)
+// Use `em` for heading to allow for better spacing when larger sizes.
+:where(h1, h2, h3, h4, h5, h6) + *:not(label) {
+    margin-top: $content-gap-em;
+}
+
 :where(blockquote, p, pre, form, table, ol, ul, h1, h2, h3, h4, h5, h6) + *:not(label) {
     margin-top: $content-gap;
 }
@@ -11,7 +15,7 @@
     margin-top: $content-gap;
 }
 
-:where(.bx, .bx-title, .bx-content, .frm-row, .container) + :where(*):not(.dd-content) {
+:where(.bx, .bx-title, .bx-content, .frm-row, .container) + :where(*):not(.dd-content):not(label) {
     margin-top: $content-gap;
 }
 

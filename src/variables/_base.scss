@@ -60,8 +60,9 @@ $copyright-text-color: $footer-text-color !default;
 // -- Spacing --
 // ==========================================================================
 $base-list-spacing: 0.25em !default;
-// use em so gap relative to font size
-$content-gap: 1.5em;
+$content-gap: 1.25rem;
+// better for headings
+$content-gap-em: 1.25em;
 
 // ==========================================================================
 // -- Responsive Sizes and Breakpoints --
