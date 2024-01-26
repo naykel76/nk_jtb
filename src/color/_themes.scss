@@ -8,7 +8,7 @@
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
 // There is a fair bit going on here and the BUILD ORDER MATTERS.
 // Make sure you read the comments before making any changes.
-// ------------------------------------------------------------------
+// ==========================================================================
 
 $alert-theme: (
     "danger-light": (
@@ -57,9 +57,9 @@ $extended-theme-overrides: (
     // ),
 ) !default;
 
-// ------------------------------------------------------------------
+// ==========================================================================
 // -- CREATE EXTENDED COLOR SCHEMES --
-// ------------------------------------------------------------------
+// ==========================================================================
 // extended maps add extra element styles and classes. For example,
 // `withState`, `bx-title` and link-colors.
 //
@@ -75,9 +75,9 @@ $extended-themes: mapMerge($alert-theme, $themes-map, $extended-theme-overrides)
     @include extendedThemeClass($theme-name, $map);
 }
 
-// ------------------------------------------------------------------
+// ==========================================================================
 // -- CREATE BASIC COLOR SCHEMES --
-// ------------------------------------------------------------------
+// ==========================================================================
 // To prevent duplication make sure the `$extended-themes` are
 // created first.
 
@@ -90,9 +90,9 @@ $extended-themes: mapMerge($alert-theme, $themes-map, $extended-theme-overrides)
     }
 }
 
-// ------------------------------------------------------------------
+// ==========================================================================
 // -- CREATE UTILITY CLASSES --
-// ------------------------------------------------------------------
+// ==========================================================================
 
 // this could arguably be removed and just use base colors?? maybe
 // leave main theme colors like primary, secondary, and accent

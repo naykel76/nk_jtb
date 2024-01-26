@@ -2,9 +2,9 @@
 @use "../mixins/class-helpers" as *;
 @use "sass:string";
 
-// --------------------------------------------------------------------------
+// ==========================================================================
 // Standalone mixin to create single property unit based classes
-// --------------------------------------------------------------------------
+// ==========================================================================
 @mixin unitBasedClasses($property, $values, $identifier, $unit: "rem") {
     @each $value in $values {
         $escapedValue: escape-invalid($value);

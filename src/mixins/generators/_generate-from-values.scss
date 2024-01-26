@@ -2,11 +2,11 @@
 @use "../../mixins/class-helpers" as *;
 @use "sass:string";
 
-// --------------------------------------------------------------------------
+// ==========================================================================
 // Generate class variants for a given property and list of values
-// --------------------------------------------------------------------------
+// ==========================================================================
 // !! IMPORTANT !! does not support position based classes
-// --------------------------------------------------------------------------
+// ==========================================================================
 // Note: I really don't like that you must set a unit to use the
 // breakpoints, even if you don't want one. This is a tradeoff to
 // allow responsive utilities to be generated from this mixin.

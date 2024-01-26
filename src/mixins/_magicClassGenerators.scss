@@ -3,9 +3,9 @@
 @use "../variables/utility_maps" as *;
 @use "sass:list";
 
-// --------------------------------------------------------------------------
+// ==========================================================================
 // -- HELPER MIXIN FOR MAGIC CLASSES --
-// --------------------------------------------------------------------------
+// ==========================================================================
 // NOTE: the values do not include the unit!! These mixins will always use rem
 // as the unit. I don't see this as a problem because all the classes that use
 // these mixins will be using rem as the unit. If you need to use a different
@@ -45,9 +45,9 @@
     }
 }
 
-// --------------------------------------------------------------------------
+// ==========================================================================
 // -- GENERATE MAGIC CLASS FOR A SINGLE PROPERTY --
-// --------------------------------------------------------------------------
+// ==========================================================================
 // * `rem` is the default unit, pass in empty string to set to null
 
 @mixin magicClass($property, $values-list, $identifier, $unit: "rem", $position-or-axis: "") {

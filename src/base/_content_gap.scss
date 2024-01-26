@@ -1,10 +1,5 @@
 @use "../variables" as *;
 
-// Use `em` for heading to allow for better spacing when larger sizes.
-:where(h1, h2, h3, h4, h5, h6) + *:not(label) {
-    margin-top: $content-gap-em;
-}
-
 :where(blockquote, p, pre, form, table, ol, ul, h1, h2, h3, h4, h5, h6) + *:not(label) {
     margin-top: $content-gap;
 }

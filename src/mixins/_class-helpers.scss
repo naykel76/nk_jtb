@@ -1,8 +1,8 @@
 @use "../functions/helpers" as *;
 @use "./media" as *;
-// --------------------------------------------------------------------------
+// ==========================================================================
 // -- CLASS CREATORS --
-// --------------------------------------------------------------------------
+// ==========================================================================
 
 // prettier-ignore
 @mixin singlePropertyClass($class, $property, $value, $breakpoints: "") {
@@ -52,9 +52,9 @@
     }
 }
 
-// --------------------------------------------------------------------------
+// ==========================================================================
 // -- CREATE ONE OR MANY PROPERTIES FROM MAP OF KEY-VALUE PAIRS --
-// --------------------------------------------------------------------------
+// ==========================================================================
 @mixin createProperties($props) {
     @each $property, $value in $props {
         #{$property}: $value;
@@ -66,11 +66,11 @@
     #{$property}: $value;
 }
 
-// --------------------------------------------------------------------------
+// ==========================================================================
 // Generate properties based on positional requirements. For
 // example, when `margin-top` requires a value for `top`, and
 // `margin-x` requires values for `left` and `right`.
-// --------------------------------------------------------------------------
+// ==========================================================================
 // This mixin iterates through a list of positions, creating the
 // appropriate property (e.g., `top`, `bottom`, `left`, `right`)
 // based on the provided value.
@@ -88,7 +88,7 @@
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
 // SCSS does not support interpolation for @include so there is no
 // choice other than using multiple if-else statements.
-// --------------------------------------------------------------------------
+// ==========================================================================
 
 // output:  {bp}\:identifier
 
