@@ -38,7 +38,7 @@ html {
 body {
     line-height: inherit; // 1
     color: $text;
-    background-color: $background;
+    background-color: $body-bg;
 }
 
 // 1. Add the correct height in Firefox.
@@ -73,11 +73,13 @@ abbr:where([title]) {
     font-weight: $heading-font-weight;
     color: $heading-and-title-color;
     line-height: 1.125;
+    text-wrap: balance;
 }
 
-// add top margin to all headings unless they are a first child
+// add top margin to all headings unless they are H1 or first child. H1 will
+// almost always be first child
 // 1. use em to adjust gap between sizes
-:is(h1, h2, h3, h4, h5, h6):not(:first-child) {
+:is(h2, h3, h4, h5, h6):not(:first-child) {
     margin-top: 2em; // 1
 }
 

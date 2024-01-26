@@ -4,20 +4,20 @@
 
 // generic
 $text: #333;
-$background: #ffffff;
+$body-bg: #ffffff;
 $primary: #2563eb;
 $secondary: #181e20;
 $accent: #ffbb1c;
 
 // dark
 // $text: #e4e8ec;
-// $background: #0b101d;
+// $body-bg: #0b101d;
 // $primary: #2876dc;
 // $secondary: #e1e1df;
 // $accent: #e6c637;
 
 $text: $text !default;
-$background: $background !default;
+$body-bg: $body-bg !default;
 $primary: $primary !default;
 $secondary: $secondary !default;
 $accent: $accent !default;
@@ -61,8 +61,6 @@ $copyright-text-color: $footer-text-color !default;
 // ==========================================================================
 $base-list-spacing: 0.25em !default;
 $content-gap: 1.25rem;
-// better for headings
-$content-gap-em: 1.25em;
 
 // ==========================================================================
 // -- Responsive Sizes and Breakpoints --

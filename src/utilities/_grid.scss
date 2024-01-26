@@ -5,9 +5,34 @@
 @use "../mixins/magicGridGenerators" as *;
 
 $gap: get("grid.default-gap", $config);
-
 $gap-sizes: (0, 0.5, 1, 1.25, 1.5, 2, 3, 4, 5) !default;
 $num-grid-cols: get("grid.num-grid-cols", $config);
+
+// ==========================================================================
+// -- GRID --
+// ==========================================================================
+// NK::TD refactor into a more reusable mixin
+// Must sit above utility classes
+
+@each $size in $gap-sizes {
+    $class: escapeDecimal($size);
+    .grid-#{$class} {
+        display: grid;
+        gap: #{$size}rem;
+    }
+}
+.grid {
+    display: grid;
+    gap: $gap;
+}
+
+.gap {
+    gap: $gap;
+}
+
+// ==========================================================================
+// -- GENERAL --
+// ==========================================================================
 
 // prettier-ignore
 $grid-properties-map: (
@@ -39,30 +64,9 @@ $grid-properties-map: (
 
 @include generate-utilities($grid-properties-map);
 
-// ------------------------------------------------------------------
-// -- GRID --
-// ------------------------------------------------------------------
-// NK::TD refactor into a more reusable mixin
-
-.grid {
-    display: grid;
-    gap: $gap;
-}
-.gap {
-    gap: $gap;
-}
-
-@each $size in $gap-sizes {
-    $class: escapeDecimal($size);
-    .grid-#{$class} {
-        display: grid;
-        gap: #{$size}rem;
-    }
-}
-
-// ------------------------------------------------------------------
+// ==========================================================================
 // -- EQUAL WIDTHS COLUMNS(RESPONSIVE AND NON-RESPONSIVE) --
-// ------------------------------------------------------------------
+// ==========================================================================
 @for $i from 1 through $num-grid-cols {
     // base class
     .cols-#{$i} {
@@ -77,9 +81,9 @@ $grid-properties-map: (
     @include makeFromBreakpoint($props, $class, $breakpoints...);
 }
 
-// ------------------------------------------------------------------
+// ==========================================================================
 // -- MAGIC CLASSES --
-// ------------------------------------------------------------------
+// ==========================================================================
 // THIS IS EXPERIMENTAL AND MAY NAT STAY IN THE CODEBASE
 
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
