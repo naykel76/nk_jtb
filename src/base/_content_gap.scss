@@ -1,12 +1,15 @@
 @use "../variables" as *;
 
-:where(blockquote, p, pre, form, table, ol, ul, h1, h2, h3, h4, h5, h6) + *:not(label) {
-    margin-top: $content-gap;
-}
+// ==========================================================================
+// -- FUTURE NATHAN --
+// ==========================================================================
+//  you may be tempted to try and come up with a more generic solution to
+// manage flex and grid spacing. This works fine when working with rows, but
+// when you start working with columns, you will quickly find that you need to
+// add more and more exceptions to the list. I think the easiest solution is
+// to use gap instead of margin.
 
-// this may be more hassle than it is worth but it is handy to place elements
-// with the need for a wrapper element.
-* + :where(table, form) {
+:where(blockquote, p, pre, form, table, ol, ul, h1, h2, h3, h4, h5, h6) + *:not(label) {
     margin-top: $content-gap;
 }
 
@@ -14,18 +17,16 @@
     margin-top: $content-gap;
 }
 
-// exclude section to give more control
-:where([class^="flex"], [class^="grid"]) + :where(*):not(:is([class*="flex"], [class*="grid"], section)) {
-    margin-top: $content-gap;
-}
-
 // opt-out
-// - Remove margin from all direct child elements of "flex" or
-//   "grid" because it is too inconsistent to manage.
-// - excluding .flex + input is experimental.the exclusion makes it
-//   easier to add tool-tips with a label
+// - Remove margin from all direct child elements of "flex" or "grid"
+//   otherwise you are constantly fighting other $content-gap rules.
+//
+// - The opt-out list is to increase the specificity of the selector so that
+//   it overrides other $content-gap rules.
 
-:is([class*="flex"], [class*="grid"]) > *,
-.flex + input {
+$margin-opt-out-list: ".bx", ".frm-row", input;
+
+:is([class*="flex"]:not(.flex-col), [class*="grid"]) > *,
+:is([class*="flex"]:not(.flex-col), [class*="grid"]) > *:is(#{$margin-opt-out-list}) {
     margin: 0;
 }
