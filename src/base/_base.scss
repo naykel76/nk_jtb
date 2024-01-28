@@ -60,7 +60,7 @@ abbr:where([title]) {
     text-decoration: underline dotted; // 1
 }
 
-// -- Headings --
+// -- Typography --
 // ==========================================================================
 
 @for $size from 1 through length($heading-sizes) {
@@ -81,6 +81,12 @@ abbr:where([title]) {
 // 1. use em to adjust gap between sizes
 :is(h2, h3, h4, h5, h6):not(:first-child) {
     margin-top: 2em; // 1
+}
+
+// 1. Don't leave a single word on a line by itself
+
+p {
+    text-wrap: pretty; // 1
 }
 
 // DO NOT reset for opt-in unless you want to keep adding and
@@ -112,7 +118,7 @@ kbd,
 samp,
 pre {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    font-size: .875rem;
+    font-size: 0.875rem;
     color: #f0506e;
     border-radius: 0.25rem;
 }

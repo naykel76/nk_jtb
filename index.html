@@ -8,57 +8,18 @@
     <title>NayKel JTB</title>
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        .sibling {
+            background-color: #3b82f6;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            color: hsl(0, 0%, 100%);
+            padding-inline: 1rem;
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
-
-    <div class="container py space-y">
-        <h4>Testing for the "content-gap" opt out rules</h4>
-        <div class="flex-col">
-            <div class="bx pink fg1"></div>
-            <div class="bx pink fg1"></div>
-            <div class="bx pink fg1"></div>
-        </div>
-        <div class="flex-col">
-            <p class="h-3 pink fg1"></p>
-            <p class="h-3 pink fg1"></p>
-            <p class="h-3 pink fg1"></p>
-        </div>
-       <div class="flex-col">
-        <form action=""><input class="fg1"></form>
-        <form action=""><input class="fg1"></form>
-        <form action=""><input class="fg1"></form>
-       </div>
-    </div>
-    <div class="container py space-y">
-        <h4>Testing for the "content-gap" opt out rules</h4>
-        <div class="flex gap">
-            <div class="bx pink fg1"></div>
-            <div class="bx pink fg1"></div>
-            <div class="bx pink fg1"></div>
-        </div>
-        <div class="flex gap">
-            <p class="h-3 pink fg1"></p>
-            <p class="h-3 pink fg1"></p>
-            <p class="h-3 pink fg1"></p>
-        </div>
-        <div class="flex gap">
-            <input class="fg1">
-            <input class="fg1">
-            <input class="fg1">
-        </div>
-        <div class="flex gap">
-            <div class="frm-row fg1"><textarea></textarea></div>
-            <div class="frm-row fg1"><textarea></textarea></div>
-            <div class="frm-row fg1"><textarea></textarea></div>
-        </div>
-        <div class="grid cols-3">
-            <textarea name=""></textarea>
-            <textarea name=""></textarea>
-            <textarea name=""></textarea>
-        </div>
-    </div>
-
     <div class="quick-hide-div zebra">
         <section id="typography" class="py-3">
             <div class="container">
@@ -128,6 +89,12 @@
                     </div>
                 </div>
                 <div id="file-input">
+                    <div class="my">
+                        <input type="file" name="name">
+                        <!-- <button type="submit" class="btn">Upload</button> -->
+                        <input type="text">
+                    </div>
+                    <hr>
                     <label class="file">
                         <input type="file" name="name">
                         <span> Select file... </span>
@@ -1538,6 +1505,6 @@
 
     <div id="app"></div>
     <script type="module" src="/main.js"></script>
-    </body>
+</body>
 
 </html>

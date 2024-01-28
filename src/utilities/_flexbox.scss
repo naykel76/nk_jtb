@@ -28,8 +28,15 @@ $flex-properties-map: (
         )
     ),
     align-self: (
-        prefix: "align-self-",
-        values: ( auto, baseline, center, flex-end, flex-start, stretch )
+        prefix: "self-",
+        values: (
+            auto: auto,
+            baseline: baseline,
+            center: center,
+            end: flex-end,
+            start: flex-start,
+            stretch: stretch
+        )
     ),
     flex-direction: (
         prefix: #{$flex-identifier},
@@ -89,5 +96,3 @@ $flex-classes-map: (
 );
 
 @include generate-classes($flex-classes-map);
-
-
