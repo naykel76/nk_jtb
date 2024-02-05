@@ -1,10 +1,16 @@
 @use "../variables" as *;
 
 $html-elements: blockquote, p, pre, form, table, ol, ul, h1, h2, h3, h4, h5, h6;
-$common-classes: ".bx", ".bx-title", ".flex", ".grid", ".bx-content", ".frm-row", ".container";
+$common-classes: ".bx", ".bx-content", ".bx-title", "[class*='container']", ".frm-row", ".grid", "[class*='flex']";
 
 // Content gap
 :where(#{$html-elements}, #{$common-classes}) + :where(*) {
+    margin-top: $content-gap;
+}
+
+// This is experimental and may be more hassle than it's worth. It is to cover
+// the case when there are hidden inputs in the form.
+:where(input) + :where(div:not(.slider), p) {
     margin-top: $content-gap;
 }
 

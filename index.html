@@ -8,84 +8,100 @@
     <title>NayKel JTB</title>
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <style>
-        .sibling {
-            background-color: #3b82f6;
-            border: 1px solid rgba(0, 0, 0, 0.15);
-            color: hsl(0, 0%, 100%);
-            padding-inline: 1rem;
-            width: 100%;
-        }
-    </style>
 </head>
 
 <body>
+
+    <div class="container py-3">
+
+    </div>
+
     <div class="quick-hide-div zebra">
-        <section id="typography" class="py-3">
-            <div class="container">
-                <h2 class="title mb-3">Typography</h2>
-                <div class="grid-3 cols-2">
-                    <div id="headings">
-                        <h1>Heading 1</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aperiam quas totam laboriosam soluta harum beatae qui reiciendis possimus molestiae?</p>
-                        <h2>Heading 2</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aperiam quas totam laboriosam soluta harum beatae qui reiciendis possimus molestiae?</p>
-                        <h3>Heading 3</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aperiam quas totam laboriosam soluta harum beatae qui reiciendis possimus molestiae?</p>
-                        <h4>Heading 4</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aperiam quas totam laboriosam soluta harum beatae qui reiciendis possimus molestiae?</p>
-                        <h5>Heading 5</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aperiam quas totam laboriosam soluta harum beatae qui reiciendis possimus molestiae?</p>
-                        <h6>Heading 6</h6>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aperiam quas totam laboriosam soluta harum beatae qui reiciendis possimus molestiae?</p>
-                    </div>
-                    <div>
-                        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus sed aperiam quibusdam adipisci sequi deserunt nesciunt vel illum voluptatibus maxime soluta repudiandae numquam sapiente exercitationem, culpa, omnis expedita tempore? Similique.</p>
-
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque at corporis deserunt sint eum laboriosam quae nulla fugit, error, tempore quibusdam temporibus fuga adipisci. Nam architecto sunt cupiditate soluta molestias ipsum delectus numquam illo magnam! Praesentium quos deserunt sed, maxime, eligendi quasi, sequi fugiat facere neque harum debitis laborum ipsam!</p>
-
-                        <h3 class="title">Text Sizes</h3>
-                        <p class="txt-xs">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto delectus asperiores commodi incidunt facilis nisi adipisci magni assumenda ullam exercitationem id similique dolore at reiciendis impedit suscipit, soluta ratione nam deleniti non magnam et repudiandae, aliquam fugit? Eum, expedita officia!</p>
-                        <p class="txt-sm">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto delectus asperiores commodi incidunt facilis nisi adipisci magni assumenda ullam exercitationem id similique dolore at reiciendis impedit suscipit, soluta ratione nam deleniti non magnam et repudiandae, aliquam fugit? Eum, expedita officia!</p>
-                        <p class="txt-base">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto delectus asperiores commodi incidunt facilis nisi adipisci magni assumenda ullam exercitationem id similique dolore at reiciendis impedit suscipit, soluta ratione nam deleniti non magnam et repudiandae, aliquam fugit? Eum, expedita officia!</p>
-                        <p class="txt-lg">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto delectus asperiores commodi incidunt facilis nisi adipisci magni assumenda ullam exercitationem id similique dolore at reiciendis impedit suscipit, soluta ratione nam deleniti non magnam et repudiandae, aliquam fugit? Eum, expedita officia!</p>
-                        <p class="txt-xl">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto delectus asperiores commodi incidunt facilis nisi adipisci magni assumenda ullam exercitationem id similique dolore at reiciendis impedit suscipit, soluta ratione nam deleniti non magnam et repudiandae, aliquam fugit? Eum, expedita officia!</p>
-                    </div>
-                </div>
-            </div>
-        </section>
         <section id="form-controls" class="py-3">
             <div class="container grid cols-2">
-                <div id="radio-check-toggle">
-                    <h5>Radio</h5>
-                    <div class="space-x">
-                        <label><input type="radio" name="abc">Option</label>
-                        <label><input type="radio" name="abc" checked>Checked</label>
-                        <label><input type="radio" name="abc" disabled>Disabled</label>
+                <div>
+                    <div class="frm-row">
+                        <div class="flex va-c space-between mb-05">
+                            <label for="name"> Name </label>
+                            <span x-data="{open:false}" class="relative" x-on:mouseenter="open=true"
+                                x-on:mouseleave="open=false">
+                                <div class="flex va-c">
+                                    <svg class="txt-muted" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                        aria-hidden="true" data-slot="icon">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="absolute pos-r minw-18 z-100 bx pxy-075 mt-05 txt-sm fw4 bg-stone-50"
+                                    x-show="open" x-transition.duration="" style="display: none;">
+                                    Lorem ipsum dolor, rerum minus magnam consequatur eos ut aliquam aspernatur sapiente
+                                    veniam! Repudiandae voluptatum eius ducimus?
+                                </div>
+                            </span>
+                        </div>
+                        <div class="flex-col w-full my-0">
+                            <input name="name" id="name" class="" for="name" label="Name"
+                                placeholder="Enter your name...">
+                        </div>
                     </div>
-                    <h5>Checkbox</h5>
-                    <div class="space-x">
-                        <label><input type="checkbox">Option</label>
-                        <label><input type="checkbox" checked>Checked</label>
-                        <label><input type="checkbox" disabled>Disabled</label>
+                    <hr>
+                    <div id="radio-check-toggle">
+                        <h5>Radio</h5>
+                        <div class="space-x">
+                            <label><input type="radio" name="abc">Option</label>
+                            <label><input type="radio" name="abc" checked>Checked</label>
+                            <label><input type="radio" name="abc" disabled>Disabled</label>
+                        </div>
+                        <h5>Checkbox</h5>
+                        <div class="space-x">
+                            <label><input type="checkbox">Option</label>
+                            <label><input type="checkbox" checked>Checked</label>
+                            <label><input type="checkbox" disabled>Disabled</label>
+                        </div>
+                        <h5>Slider</h5>
+                        <div class="space-x">
+                            <label class="toggle">
+                                <input type="checkbox">
+                                <div class="slider"></div>
+                                <span>Option</span>
+                            </label>
+                            <label class="toggle">
+                                <input type="checkbox" checked>
+                                <div class="slider"></div>
+                                <span>Checked</span>
+                            </label>
+                            <label class="toggle">
+                                <input type="checkbox" disabled>
+                                <div class="slider"></div>
+                                <span>Disabled</span>
+                            </label>
+                        </div>
                     </div>
-                    <h5>Slider</h5>
-                    <div class="space-x">
-                        <label class="toggle">
-                            <input type="checkbox">
-                            <div class="slider"></div>
-                            <span>Option</span>
-                        </label>
-                        <label class="toggle">
-                            <input type="checkbox" checked>
-                            <div class="slider"></div>
-                            <span>Checked</span>
-                        </label>
-                        <label class="toggle">
-                            <input type="checkbox" disabled>
-                            <div class="slider"></div>
-                            <span>Disabled</span>
-                        </label>
+                    <div id="label-with-tooltip">
+                        <h5 class="my">Label with Tooltip</h5>
+                        <div class="flex va-c space-between mb-05 bdr">
+                            <label> My Label </label>
+                            <span x-data="{open:false}" class="relative" x-on:mouseenter="open=true"
+                                x-on:mouseleave="open=false">
+                                <div class="flex va-c">
+                                    <svg class="txt-muted" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                        aria-hidden="true" data-slot="icon">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="absolute pos-r minw-18 z-100 bx pxy-075 mt-05 txt-sm fw4 bg-stone-50"
+                                    x-show="open" x-transition.duration="" style="display: none;">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur vitae
+                                    perspiciatis officiis iste omnis, iure quasi, rerum minus magnam consequatur eos ut
+                                    aliquam aspernatur sapiente veniam! Repudiandae voluptatum eius ducimus?
+                                </div>
+                            </span>
+                        </div>
                     </div>
                 </div>
                 <div id="file-input">
@@ -107,8 +123,11 @@
                         <div class="frm-row my">
                             <label class="file btn">
                                 <input type="file" name="">
-                                <svg class="wh-1.25 mr-075" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon">
-                                    <path fill-rule="evenodd" d="M11.47 2.47a.75.75 0 0 1 1.06 0l4.5 4.5a.75.75 0 0 1-1.06 1.06l-3.22-3.22V16.5a.75.75 0 0 1-1.5 0V4.81L8.03 8.03a.75.75 0 0 1-1.06-1.06l4.5-4.5ZM3 15.75a.75.75 0 0 1 .75.75v2.25a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5V16.5a.75.75 0 0 1 1.5 0v2.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V16.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd" />
+                                <svg class="wh-1.25 mr-075" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon">
+                                    <path fill-rule="evenodd"
+                                        d="M11.47 2.47a.75.75 0 0 1 1.06 0l4.5 4.5a.75.75 0 0 1-1.06 1.06l-3.22-3.22V16.5a.75.75 0 0 1-1.5 0V4.81L8.03 8.03a.75.75 0 0 1-1.06-1.06l4.5-4.5ZM3 15.75a.75.75 0 0 1 .75.75v2.25a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5V16.5a.75.75 0 0 1 1.5 0v2.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V16.5a.75.75 0 0 1 .75-.75Z"
+                                        clip-rule="evenodd" />
                                 </svg>
                                 <span>Choose a file...</span>
                             </label>
@@ -123,7 +142,8 @@
                 <div class="grid cols-3">
                     <div class="bx">
                         <div class="bx-title">Super Awesome Title</div>
-                        <p>Lorem ipsum dolor sit amet consectetur pepe adipisicing elit. Quas debitis unde aut, sed repellendus tempora, molestiae eveniet.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur pepe adipisicing elit. Quas debitis unde aut, sed
+                            repellendus tempora, molestiae eveniet.</p>
                     </div>
                 </div>
             </div>
@@ -158,6 +178,66 @@
                         <span class="wh-3 pink"></span>
                         <div class="fg1 wh-4 blue"></div>
                         <span class="wh-3 pink"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="typography" class="py-3">
+            <div class="container">
+                <h2 class="title mb-3">Typography</h2>
+                <div class="grid-3 cols-2">
+                    <div id="headings">
+                        <h1>Heading 1</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aperiam quas totam laboriosam
+                            soluta harum beatae qui reiciendis possimus molestiae?</p>
+                        <h2>Heading 2</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aperiam quas totam laboriosam
+                            soluta harum beatae qui reiciendis possimus molestiae?</p>
+                        <h3>Heading 3</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aperiam quas totam laboriosam
+                            soluta harum beatae qui reiciendis possimus molestiae?</p>
+                        <h4>Heading 4</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aperiam quas totam laboriosam
+                            soluta harum beatae qui reiciendis possimus molestiae?</p>
+                        <h5>Heading 5</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aperiam quas totam laboriosam
+                            soluta harum beatae qui reiciendis possimus molestiae?</p>
+                        <h6>Heading 6</h6>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aperiam quas totam laboriosam
+                            soluta harum beatae qui reiciendis possimus molestiae?</p>
+                    </div>
+                    <div>
+                        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus sed aperiam
+                            quibusdam adipisci sequi deserunt nesciunt vel illum voluptatibus maxime soluta repudiandae
+                            numquam sapiente exercitationem, culpa, omnis expedita tempore? Similique.</p>
+
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque at corporis deserunt sint eum
+                            laboriosam quae nulla fugit, error, tempore quibusdam temporibus fuga adipisci. Nam
+                            architecto sunt cupiditate soluta molestias ipsum delectus numquam illo magnam! Praesentium
+                            quos deserunt sed, maxime, eligendi quasi, sequi fugiat facere neque harum debitis laborum
+                            ipsam!</p>
+
+                        <h3 class="title">Text Sizes</h3>
+                        <p class="txt-xs">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto delectus
+                            asperiores commodi incidunt facilis nisi adipisci magni assumenda ullam exercitationem id
+                            similique dolore at reiciendis impedit suscipit, soluta ratione nam deleniti non magnam et
+                            repudiandae, aliquam fugit? Eum, expedita officia!</p>
+                        <p class="txt-sm">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto delectus
+                            asperiores commodi incidunt facilis nisi adipisci magni assumenda ullam exercitationem id
+                            similique dolore at reiciendis impedit suscipit, soluta ratione nam deleniti non magnam et
+                            repudiandae, aliquam fugit? Eum, expedita officia!</p>
+                        <p class="txt-base">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto
+                            delectus asperiores commodi incidunt facilis nisi adipisci magni assumenda ullam
+                            exercitationem id similique dolore at reiciendis impedit suscipit, soluta ratione nam
+                            deleniti non magnam et repudiandae, aliquam fugit? Eum, expedita officia!</p>
+                        <p class="txt-lg">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto delectus
+                            asperiores commodi incidunt facilis nisi adipisci magni assumenda ullam exercitationem id
+                            similique dolore at reiciendis impedit suscipit, soluta ratione nam deleniti non magnam et
+                            repudiandae, aliquam fugit? Eum, expedita officia!</p>
+                        <p class="txt-xl">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto delectus
+                            asperiores commodi incidunt facilis nisi adipisci magni assumenda ullam exercitationem id
+                            similique dolore at reiciendis impedit suscipit, soluta ratione nam deleniti non magnam et
+                            repudiandae, aliquam fugit? Eum, expedita officia!</p>
                     </div>
                 </div>
             </div>
@@ -334,14 +414,16 @@
                     <nav>
                         <ul>
                             <li><a class="active" href="#">Home</a></li>
-                            <li class="relative" x-data="{showChildren:false}" x-on:mouseenter="showChildren=true" x-on:mouseleave="showChildren=false">
+                            <li class="relative" x-data="{showChildren:false}" x-on:mouseenter="showChildren=true"
+                                x-on:mouseleave="showChildren=false">
                                 <a href="#">
                                     Services
                                     <svg class="icon sm">
                                         <use xlink:href="/svg/naykel-ui.svg#caret-down"></use>
                                     </svg>
                                 </a>
-                                <div class="absolute mt-05 flex w-10 z-100" x-show="showChildren" x-transition.duration.200ms style="display: none;">
+                                <div class="absolute mt-05 flex w-10 z-100" x-show="showChildren"
+                                    x-transition.duration.200ms style="display: none;">
                                     <ul class="menu bx pxy-0 w-full">
                                         <li><a href="#">Graphic Design</a></li>
                                         <li><a href="#">Digital Marketing</a></li>
@@ -380,14 +462,16 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="relative" x-data="{showChildren:true}" x-on:mouseenter="showChildren=true" x-on:mouseleave="showChildren=true">
+                    <li class="relative" x-data="{showChildren:true}" x-on:mouseenter="showChildren=true"
+                        x-on:mouseleave="showChildren=true">
                         <a href="#">
                             Parent (alpine hover)
                             <svg class="icon sm">
                                 <use xlink:href="/svg/naykel-ui.svg#caret-down"></use>
                             </svg>
                         </a>
-                        <div class="absolute mt-05 flex w-10 z-100" x-show="showChildren" x-transition.duration style="display: none;">
+                        <div class="absolute mt-05 flex w-10 z-100" x-show="showChildren" x-transition.duration
+                            style="display: none;">
                             <ul class="menu bx pxy-0 w-full">
                                 <li><a class="txt-red" href="#">Child Override</a></li>
                                 <li><a href="#">Child</a></li>
@@ -402,7 +486,8 @@
                                 <use xlink:href="/svg/naykel-ui.svg#caret-down"></use>
                             </svg>
                         </a>
-                        <div class="absolute mt-05 flex w-10 z-100" x-show="showChildren" x-transition.duration style="display: none;">
+                        <div class="absolute mt-05 flex w-10 z-100" x-show="showChildren" x-transition.duration
+                            style="display: none;">
                             <ul class="menu bx pxy-0 w-full">
                                 <li><a class="txt-red" href="#">Child Override</a></li>
                                 <li><a href="#">Child</a></li>
@@ -436,14 +521,16 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="relative" x-data="{showChildren:false}" x-on:mouseenter="showChildren=true" x-on:mouseleave="showChildren=false">
+                    <li class="relative" x-data="{showChildren:false}" x-on:mouseenter="showChildren=true"
+                        x-on:mouseleave="showChildren=false">
                         <a href="#">
                             Parent (alpine hover)
                             <svg class="icon sm">
                                 <use xlink:href="/svg/naykel-ui.svg#caret-down"></use>
                             </svg>
                         </a>
-                        <div class="absolute mt-05 flex w-10 z-100" x-show="showChildren" x-transition.duration style="display: none;">
+                        <div class="absolute mt-05 flex w-10 z-100" x-show="showChildren" x-transition.duration
+                            style="display: none;">
                             <ul class="menu bx pxy-0 w-full">
                                 <li><a href="#">Child</a></li>
                                 <li><a href="#">Child</a></li>
@@ -458,7 +545,8 @@
                                 <use xlink:href="/svg/naykel-ui.svg#caret-down"></use>
                             </svg>
                         </a>
-                        <div class="absolute mt-05 flex w-10 z-100" x-show="showChildren" x-transition.duration style="display: none;">
+                        <div class="absolute mt-05 flex w-10 z-100" x-show="showChildren" x-transition.duration
+                            style="display: none;">
                             <ul class="menu bx pxy-0 w-full">
                                 <li><a href="#">Child</a></li>
                                 <li><a href="#">Child</a></li>
@@ -675,13 +763,18 @@
                     <div class="frm-row">
                         <label for="success" class="txt-success-light">Your name</label>
                         <input type="text" id="success" class="success-light" placeholder="Success input">
-                        <p class="txt-success-light txt-sm"><span class="font-medium">Well done!</span> Some success message.</p>
+                        <p class="txt-success-light txt-sm"><span class="font-medium">Well done!</span> Some success
+                            message.</p>
                     </div>
 
                     <div class="frm-row">
-                        <label for="error" class="block mb-2 text-sm font-medium text-red-700 dark:text-red-500">Your name</label>
-                        <input type="text" id="error" class="bg-red-50 bdr bdr-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 dark:bg-gray-700 focus:bdr-red-500 block w-full p-2.5 dark:text-red-500 dark:placeholder-red-500 dark:bdr-red-500" placeholder="Error input">
-                        <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, snapp!</span> Some error message.</p>
+                        <label for="error" class="block mb-2 text-sm font-medium text-red-700 dark:text-red-500">Your
+                            name</label>
+                        <input type="text" id="error"
+                            class="bg-red-50 bdr bdr-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 dark:bg-gray-700 focus:bdr-red-500 block w-full p-2.5 dark:text-red-500 dark:placeholder-red-500 dark:bdr-red-500"
+                            placeholder="Error input">
+                        <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh,
+                                snapp!</span> Some error message.</p>
                     </div>
 
                     <div class="frm-row">
@@ -708,19 +801,23 @@
             <section>
                 <h2>Theme Boxes</h2>
                 <div class="grid cols-3 my">
-                    <div class="bx primary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, nulla debitis molestiae expedita reiciendis molestias.
+                    <div class="bx primary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, nulla
+                        debitis molestiae expedita reiciendis molestias.
                         <a href="">Link</a>
                     </div>
-                    <div class="bx secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, nulla debitis molestiae expedita reiciendis molestias.
+                    <div class="bx secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, nulla
+                        debitis molestiae expedita reiciendis molestias.
                         <a href="">Link</a>
                     </div>
-                    <div class="bx accent">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, nulla debitis molestiae expedita reiciendis molestias.
+                    <div class="bx accent">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, nulla
+                        debitis molestiae expedita reiciendis molestias.
                         <a href="">Link</a>
                     </div>
                 </div>
             </section>
 
-            <select id="countries" class="bg-gray-50 bdr bdr-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:bdr-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:bdr-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:bdr-blue-500">
+            <select id="countries"
+                class="bg-gray-50 bdr bdr-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:bdr-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:bdr-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:bdr-blue-500">
                 <option selected>Choose a country</option>
                 <option value="US">United States</option>
                 <option value="CA">Canada</option>

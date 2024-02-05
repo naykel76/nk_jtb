@@ -5,7 +5,7 @@
 $pre-bg: #2a2c2d !default;
 $pre-border-radius: 0.5rem !default;
 
-pre {
+pre:not(.mermaid) {
     background: $pre-bg;
     border-radius: $pre-border-radius;
 }

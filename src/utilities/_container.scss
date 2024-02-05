@@ -1,15 +1,4 @@
-@use "../variables" as *;
-@use "../mixins/media" as *;
-@use "../functions/helpers" as *;
-
-$container-variants: (
-    base: 1200px,
-    sm: $sm,
-    md: $md,
-    lg: $lg,
-    xl: $xl,
-    xxl: $xxl
-) !default;
+@use "../mixins/common" as *;
 
 // there is no need to add a tonne of media queries for the
 // container because using min() width does a pretty good job!
@@ -25,7 +14,15 @@ $container-variants: (
     // adjusted for smaller screens.
     .#{$class} {
         width: Min(95%, $size); // 1.
-        margin-right: auto;
-        margin-left: auto;
+        margin-inline: auto;
+    }
+
+    // this is experimental, and could just as easily be done with using the
+    // start and end variants but I like the idea of having a single class
+    // that can be used to align the container.
+    .#{$class}-start {
+        width: Min(95%, $size); // 1.
+        margin-inline: start;
     }
 }
+
