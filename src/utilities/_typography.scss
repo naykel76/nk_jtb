@@ -14,7 +14,7 @@
 // remove the following colours from the map
 $text-colors: map.remove($color-map, "danger", "dark", "info", "light", "success", "warning");
 
-$text-rem-sizes: (1.5, 2, 2.5, 3, 4) !default;
+$text-rem-sizes: (1, 1.5, 2, 2.5, 3, 4) !default;
 $text-variant-sizes: (
     xs: 0.75rem,
     sm: 0.875rem,

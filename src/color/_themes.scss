@@ -90,11 +90,3 @@ $extended-themes: mapMerge($alert-theme, $themes-map, $extended-theme-overrides)
     }
 }
 
-// ==========================================================================
-// -- CREATE UTILITY CLASSES --
-// ==========================================================================
-
-// this could arguably be removed and just use base colors?? maybe
-// leave main theme colors like primary, secondary, and accent
-// @include generate-from-values(background-color, $theme-colors, "bg");
-// @include generate-from-values(background-color, $base-colors, "bg");

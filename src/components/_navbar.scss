@@ -34,7 +34,8 @@
     }
 
     .nav-item {
-        display: block; // 1. allowing the navbar to grow in height
+        // disabled because it causes issues when there are icons
+        // display: block; // 1. allowing the navbar to grow in height
         background: $navbar-nav-item-bg;
         color: $navbar-nav-item-color;
         line-height: 1.2rem;

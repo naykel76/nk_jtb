@@ -15,12 +15,12 @@ body {
     background: $header-bg;
 }
 
-#nk-main {
+:where(.nk-main) {
     flex: 1; // 1. allow to grow to fill height
     background-color: $main-bg;
 }
 
-#nk-footer {
+:where(.nk-footer) {
     background-color: $footer-bg;
     margin-top: auto; // force footer to the bottom
     color: #ccc;
@@ -51,48 +51,6 @@ body {
 // -- MARKDOWN --
 // ==========================================================================
 
-h2 code {
-    font-size: 0.9em;
-}
-
-%code {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    color: #f0506e;
-    border-radius: 0.25rem;
-}
-
-%markdown-table {
-    margin-top: $content-gap;
-    font-size: 0.85em;
-}
-
-code-first-col {
-    + table tbody {
-        @extend %markdown-table;
-        tr td:first-child {
-            @extend %code;
-        }
-    }
-}
-
-code-second-col {
-    + table tbody {
-        @extend %markdown-table;
-        tr td:nth-child(2) {
-            @extend %code;
-        }
-    }
-}
-code-first-second-col {
-    + table tbody {
-        @extend %markdown-table;
-        tr td:is(:first-child, :nth-child(2)) {
-            @extend %code;
-        }
-    }
-}
-
-// UPDATE TO HTML COMPONENT
 .code-first-col,
 .code-second-col,
 .code-all-col {
@@ -157,16 +115,6 @@ code-first-second-col {
         margin-top: $content-gap;
         margin-bottom: $content-gap;
     }
-
-    // squiggle line
-    // h2::before {
-    //     content: " ";
-    //     display: block;
-    //     width: 100%;
-    //     margin-bottom: 2rem;
-    //     height: 12px;
-    //     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='20px' height='12px' viewBox='0 0 20 12' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cg id='Artboard' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-linecap='square'%3e%3cpath d='M25,1 C20,1 20,11 15,11 C10,11 10,1 5,1 C0,1 0,11 -5,11 C-10,11 -10,1 -15,1' id='Line' stroke='%23CBD5DF' stroke-width='2'%3e%3c/path%3e%3c/g%3e%3c/svg%3e");
-    // }
 }
 
 .bg-stripes-blue {

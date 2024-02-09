@@ -14,6 +14,11 @@ $common-classes: ".bx", ".bx-content", ".bx-title", "[class*='container']", ".fr
     margin-top: $content-gap;
 }
 
+// catch the strays (use with caution)
+* > :is(.frm-row, table, form) {
+    margin-top: $content-gap;
+}
+
 // opt out for `flex` and `grid` element and use `gap` instead.
 :where([class*="flex"], [class*="grid"]) > * {
     margin: 0;
