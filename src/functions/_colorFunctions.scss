@@ -8,25 +8,25 @@
 
     // return the default color if transparent
     @if alpha($bg) == 0 {
-        @return $text;
+        @return $color;
     }
 
     $color-brightness: round((red($bg) * 299) + (green($bg) * 587) + calc((blue($bg) * 114) / 1000));
     $light-color: round((red(#ffffff) * 299) + (green(#ffffff) * 587) + calc((blue(#ffffff) * 114) / 1000));
     // if background is dark, then the text color should be light
     @if abs($color-brightness) < calc($light-color / 2) {
-        //  if the base $text is already light, then use it.
-        @if (lightness($text) > 55) {
-            @return $text;
+        //  if the base $color is already light, then use it.
+        @if (lightness($color) > 55) {
+            @return $color;
         } @else {
             @return hsl(0, 0%, 100%);
         }
     } @else {
-        //  if the $text is light, then set it dark
-        @if (lightness($text) > 55) {
+        //  if the $color is light, then set it dark
+        @if (lightness($color) > 55) {
             @return #333;
         } @else {
-            @return $text;
+            @return $color;
         }
     }
 }

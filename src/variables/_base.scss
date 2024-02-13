@@ -2,25 +2,11 @@
 // -- Base Styles --
 // ==========================================================================
 
-// generic
-$text: #333;
-$body-bg: #ffffff;
-$primary: #2563eb;
-$secondary: #181e20;
-$accent: #ffbb1c;
-
-// dark
-// $text: #e4e8ec;
-// $body-bg: #0b101d;
-// $primary: #2876dc;
-// $secondary: #e1e1df;
-// $accent: #e6c637;
-
-$text: $text !default;
-$body-bg: $body-bg !default;
-$primary: $primary !default;
-$secondary: $secondary !default;
-$accent: $accent !default;
+$color: #333 !default;
+$body-bg: #ffffff !default;
+$primary: #2563eb !default;
+$secondary: #181e20 !default;
+$accent: #ffbb1c !default;
 
 $img-path: "/images" !default;
 
@@ -60,7 +46,8 @@ $copyright-text-color: $footer-text-color !default;
 // -- Spacing --
 // ==========================================================================
 $base-list-spacing: 0.25em !default;
-$content-gap: 1.25rem !default;
+$content-gap: 1.25rem !default; // space between elements
+$content-padding: 1.25rem !default; // padding for elements ie. cards, boxes, etc.
 
 // ==========================================================================
 // -- Responsive Sizes and Breakpoints --

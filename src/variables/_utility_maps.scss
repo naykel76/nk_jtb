@@ -106,7 +106,7 @@ $container-variants: ( base: $base-container-size, sm: $sm, md: $md, lg: $lg, xl
 
 $space-rem-sizes: (0, 0.125, 0.25, 0.5, 0.75, 0.875, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 4, 5) !default;
 $margin-variants: (base: 1.5, auto: auto) !default;
-$padding-variants: (default: 1.5) !default;
+$padding-variants: (default: $content-padding) !default;
 
 // ==========================================================================
 //  Sizing maps and variants
@@ -124,3 +124,6 @@ $sizing-variants: (xs: 20rem, sm: 24rem, md: 28rem, lg: 32rem, xl: 36rem, xxl: 4
 $sizing-base-heights: (screen: 100vh, full: 100%,  fit: fit-content, max: max-content, min: min-content);
 $sizing-base-widths: (screen: 100vw, full: 100%, fit: fit-content, max: max-content, min: min-content);
 
+// ==========================================================================
+//  Text maps and variants
+// ==========================================================================

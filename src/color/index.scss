@@ -1,3 +1,15 @@
-@forward './shades';
-@forward './themes';
+@use "../variables/tailwind-colors" as *;
 
+@forward "./shades";
+@forward "./themes";
+
+@each $color-name, $color-map in $tailwind-colors {
+    @each $key, $value in $color-map {
+        .bg-#{$color-name}-#{$key} {
+            background-color: $value;
+        }
+        .hover\:bg-#{$color-name}-#{$key}:hover {
+            background-color: $value;
+        }
+    }
+}
