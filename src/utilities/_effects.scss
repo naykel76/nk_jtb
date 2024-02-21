@@ -1,15 +1,3 @@
-@use "../mixins/common" as *;
-
-// prettier-ignore
-$effect-properties-map: (
-    opacity: (
-        prefix: 'opacity-',
-        values: ( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 )
-    ),
-);
-
-@include generate-utilities($effect-properties-map);
-
 .animate-spin {
     animation: spin 1s linear infinite;
 }

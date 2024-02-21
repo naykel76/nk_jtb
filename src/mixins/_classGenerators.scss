@@ -7,7 +7,7 @@
 // ==========================================================================
 @mixin unitBasedClasses($property, $values, $identifier, $unit: "rem") {
     @each $value in $values {
-        $escapedValue: escape-invalid($value);
+        $escapedValue: handle-invalid($value);
         $derived-class: #{$identifier}-#{$escapedValue}#{handle-class-unit($unit)};
         @include singlePropertyClass($derived-class, $property, #{$value}#{$unit});
     }

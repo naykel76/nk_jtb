@@ -16,7 +16,7 @@ $common-classes: ".bx", ".bx-content", ".bx-title", "[class*='container']", ".fr
 
 // catch the strays (use with caution)
 // I added the :where to lower the specificity of the selector.
-:where(*:not([class*='flex']):not([class*='grid'])) > :is(.frm-row, table, form) {
+:where(*:not([class*="flex"]):not([class*="grid"])) > :is(.frm-row, table, form):not(:first-child) {
     margin-top: $content-gap;
 }
 

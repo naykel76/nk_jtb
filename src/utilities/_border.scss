@@ -61,7 +61,7 @@ $border-radius-corners-map: (
 @mixin borderRadius($map) {
     @each $value in map-get($map, "values") {
         $identifier: "rounded-";
-        $sanitized: escape-invalid($value);
+        $sanitized: handle-invalid($value);
         @each $position-key, $positions in map-get($map, "positions") {
             $class: #{$identifier}#{$position-key}-#{$sanitized};
             .#{$class} {

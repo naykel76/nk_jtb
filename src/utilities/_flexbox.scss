@@ -96,3 +96,18 @@ $flex-classes-map: (
 );
 
 @include generate-classes($flex-classes-map);
+
+// I am not convinced this should be a permanent part of the framework.
+$special-classes: (
+    flex-center-all: (
+        props: (
+            display: flex,
+            flex-direction: column,
+            align-items: center,
+            justify-content: center,
+        ),
+        breakpoints: ("sm", "md", "lg", "xl")
+    ),
+);
+
+@include generate-classes($special-classes);

@@ -11,12 +11,88 @@
 </head>
 
 <body>
-
-    <div class="container py-3">
+    <div class="container">
 
     </div>
 
     <div class="quick-hide-div zebra">
+        <section id="button-theme-examples" class="py-3">
+            <div class="container">
+                <h2 class="title txt-3">Buttons</h2>
+                <h4>Button sizes</h4>
+                <div class="flex va-c space-x-05">
+                    <button class="btn primary xs">Extra Small</button>
+                    <button class="btn primary sm">Small</button>
+                    <button class="btn primary">Base</button>
+                    <button class="btn primary lg">Large</button>
+                    <button class="btn primary xl">Extra Large</button>
+                </div>
+                <h4>Buttons with icon (TBD)</h4>
+                <h4>Base Colors</h4>
+                <div class="grid-1 cols-9">
+                    <button class="btn stone">stone</button>
+                    <button class="btn brown">brown</button>
+                    <button class="btn red">red</button>
+                    <button class="btn orange">orange</button>
+                    <button class="btn amber">amber</button>
+                    <button class="btn yellow">yellow</button>
+                    <button class="btn lime">lime</button>
+                    <button class="btn emerald">emerald</button>
+                    <button class="btn green">green</button>
+                    <button class="btn teal">teal</button>
+                    <button class="btn cyan">cyan</button>
+                    <button class="btn sky">sky</button>
+                    <button class="btn blue">blue</button>
+                    <button class="btn indigo">indigo</button>
+                    <button class="btn purple">purple</button>
+                    <button class="btn fuchsia">fuchsia</button>
+                    <button class="btn pink">pink</button>
+                    <button class="btn rose">rose</button>
+                </div>
+                <h4>Theme Colors and Alert Colors</h4>
+                <div class="grid cols-10">
+                    <button class="btn primary">primary</button>
+                    <button class="btn secondary">secondary</button>
+                    <button class="btn accent">accent</button>
+                    <button class="btn light">light</button>
+                    <button class="btn dark">dark</button>
+                    <button class="btn muted">muted</button>
+                    <button class="btn danger">danger</button>
+                    <button class="btn info">info</button>
+                    <button class="btn success">success</button>
+                    <button class="btn warning">warning</button>
+                </div>
+            </div>
+        </section>
+        <section class="py-3">
+            <div class="container-sm py-3 bx">
+                <div class="grid cols-2">
+                    <div class="frm-row">
+                        <label for="">Firstname</label>
+                        <div class="flex-col w-full my-0">
+                            <input name="name" id="name" class="" for="name" label="Name"
+                                placeholder="Enter your name...">
+                        </div>
+                    </div>
+                    <div class="frm-row">
+                        <label for="">Lastname</label>
+                        <div class="flex-col w-full my-0">
+                            <input name="name" id="name" class="" for="name" label="Name"
+                                placeholder="Enter your name...">
+                        </div>
+                    </div>
+                </div>
+                <div class="frm-row">
+                    <label for="form.country"> Country <span class="txt-red">*</span> </label>
+                    <div class="flex-col w-full my-0">
+                        <select name="form.country" id="form.country" class="" wire:model="form.country" req="req">
+                            <option value="AU">Australia</option>
+                            <option value="NZ">New Zealand</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section id="form-controls" class="py-3">
             <div class="container grid cols-2">
                 <div>
@@ -616,54 +692,7 @@
                     <h4>Collapse</h4>
                 </div>
             </section>
-            <section id="button-theme-examples">
-                <div class="container">
-                    <h2 class="title txt-3">Buttons</h2>
-                    <h4>Button sizes</h4>
-                    <div class="flex va-c space-x-05">
-                        <button class="btn primary xs">Extra Small</button>
-                        <button class="btn primary sm">Small</button>
-                        <button class="btn primary">Base</button>
-                        <button class="btn primary lg">Large</button>
-                        <button class="btn primary xl">Extra Large</button>
-                    </div>
-                    <h4>Buttons with icon (TBD)</h4>
-                    <h4>Base Colors</h4>
-                    <div class="grid-1 cols-9">
-                        <button class="btn stone">stone</button>
-                        <button class="btn brown">brown</button>
-                        <button class="btn red">red</button>
-                        <button class="btn orange">orange</button>
-                        <button class="btn amber">amber</button>
-                        <button class="btn yellow">yellow</button>
-                        <button class="btn lime">lime</button>
-                        <button class="btn emerald">emerald</button>
-                        <button class="btn green">green</button>
-                        <button class="btn teal">teal</button>
-                        <button class="btn cyan">cyan</button>
-                        <button class="btn sky">sky</button>
-                        <button class="btn blue">blue</button>
-                        <button class="btn indigo">indigo</button>
-                        <button class="btn purple">purple</button>
-                        <button class="btn fuchsia">fuchsia</button>
-                        <button class="btn pink">pink</button>
-                        <button class="btn rose">rose</button>
-                    </div>
-                    <h4>Theme Colors and Alert Colors</h4>
-                    <div class="grid cols-10">
-                        <button class="btn primary">primary</button>
-                        <button class="btn secondary">secondary</button>
-                        <button class="btn accent">accent</button>
-                        <button class="btn light">light</button>
-                        <button class="btn dark">dark</button>
-                        <button class="btn muted">muted</button>
-                        <button class="btn danger">danger</button>
-                        <button class="btn info">info</button>
-                        <button class="btn success">success</button>
-                        <button class="btn warning">warning</button>
-                    </div>
-                </div>
-            </section>
+
             <section id="theme-examples">
                 <div class="container">
                     <h2 class="title txt-3">Basic Themes</h2>

@@ -1,160 +1,23 @@
 // @use "./color/shades" as *;
+// @use "./extras/naykel-docs" as *;
 // @use "./utilities/border" as *;
-// @use "./utilities/padding" as *;
-// @use "./utilities/grid" as *;
+@use "./utilities/opacity" as *;
+// @use "./utilities/typography" as *;
 @use "./mixins/common" as *;
 @use "./mixins/magicClassGenerators" as *;
 @use "sass:list";
 @use "sass:map";
 @use "sass:string";
 
-$grid-gap-magic-sizes: ((5, 3, 2), (5, 3), (4, 2), (3, 1)) !default;
-@include magicClass(grid-gap, ($grid-gap-magic-sizes), "gap");
+// $margin-sizes: listToMap((0.1, 0.2));
 
-// $grid-gap-magic-sizes: ((5, 3, 2), (5, 3), (4, 2), (3, 1)) !default;
-// @include magicClass(grid-gap, ($grid-gap-magic-sizes), "gap", $unit: "rem");
+// $margin-properties-map: (
+//     margin: (
+//         prefix: #{$margin-identifier},
+//         values: $margin-sizes,
+//         unit: "rem",
+//         positions: $axis-position-map
+//     )
+// );
 
-// // magic classes
-// $magic-margin-y: ((5, 3, 2), (3, 2, 1)) !default;
-// @include magicClass(margin, $magic-margin-y, "my", $position-or-axis: y);
-
-// @mixin magicClass($property, $values-list, $identifier, $unit: "rem", $position-or-axis: "")
-
-
-// $magic-margin-y: ((5, 3, 2), (3, 2, 1)) !default;
-// @include magicClass(margin, $magic-margin-y, "my", $position-or-axis: y);
-
-
-
-
-
-// .space-x-4 > :not([hidden]) ~ :not([hidden]) {
-//     background: #000;
-// }
-
-// .divide-slate-300 > :not([hidden]) ~ :not([hidden]) {
-
-// Adds a divider line between elements. IMPORTANT: This will only work on items that do not have
-// padding as the class uses top and bottom padding to seperate items then adds a border-top
-// .divider-y > * {
-// }
-
-// which one ????
-
-
-// ----------------------------------------------------------------
-// Generate class variants from map of values
-// ----------------------------------------------------------------
-// - can handle mixed values
-// - must include unit with value
-// - omit unit in list for rem
-$mixed-values: (0.5, 1.5, 6rem, 12px, 100vh);
-// @include generate-from-values(width, $mixed-values, "w-", "rem");
-
-$map-of-values: (
-    teal,
-    green,
-    (
-        primary: blue,
-    )
-);
-// @include generate-from-values(background-color, $map-of-values, "bg-", $breakpoints: ("sm", "md", "lg", "xl"));
-
-//  from-map-of-values
-// ----------------------------------------------------------------
-// Generate class and variants from map of properties
-// ----------------------------------------------------------------
-
-// prettier-ignore
-$map-of-properties: (
-    color: (
-        prefix: "#{$text-identifier}",
-        values: (teal, green, blue),
-        breakpoints: ("sm", "md", "lg", "xl")
-    ),
-    font-size: (
-        prefix: "#{$text-identifier}",
-        values: ((base: 1rem), (lg: 1.125), 12px, 3),
-        unit: "rem",
-        breakpoints: ("sm", "md", "lg", "xl")
-    ),
-    margin:(
-        prefix: #{$margin-identifier},
-        values: ((sm: 0.875rem), (base: 1rem), (lg: 1.125rem), 12px, 3),
-        unit: "rem",
-        positions: (x: (left, right), y: (top, bottom)),
-        breakpoints: ("sm", "lg")
-    )
-);
-
-// @include generate-utilities($map-of-properties);
-
-// ----------------------------------------------------------------
-// -- MAP OF CLASSES --
-// ----------------------------------------------------------------
-$with-height-identifier: "wh-";
-
-// prettier-ignore
-$map-of-classes:(
-    #{$with-height-identifier}: (
-        props: (color, font-size),
-        breakpoints: ("sm", "md", "lg", "xl")
-    ),
-);
-
-// prettier-ignore
-$flex-classes-map: (
-    flex-col: (
-        props: ( display: flex, flex-direction: column ),
-        breakpoints: ("sm", "md", "lg", "xl")
-    ),
-    flex-row: (
-        props: ( display: flex, flex-direction: row ),
-        breakpoints: ("sm", "md", "lg", "xl")
-    )
-);
-
-$flex-classes-map: (
-    width-height: (
-        props: (
-            width: 1rem,
-            height: 1rem,
-        ),
-    ),
-);
-
-// @include generate-classes($flex-classes-map);
-// $class: escape-invalid($size);
-// .wh-#{$class} {
-//     width: #{$size}rem;
-//     height: #{$size}rem;
-// }
-
-$flex-classes-map: (
-    flex-col: (
-        props: (
-            display: flex,
-            flex-direction: column,
-        ),
-        breakpoints: (
-            "sm",
-            "md",
-            "lg",
-            "xl",
-        ),
-    ),
-    flex-row: (
-        props: (
-            display: flex,
-            flex-direction: row,
-        ),
-        breakpoints: (
-            "sm",
-            "md",
-            "lg",
-            "xl",
-        ),
-    ),
-);
-
-// @include generate-classes($flex-classes-map);
+// @include generate-utilities($margin-properties-map);

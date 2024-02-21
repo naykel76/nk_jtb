@@ -1,9 +1,10 @@
 @use '../variables' as *;
 
 
-// 1. aligns better text to text when inline
+// 1. better alignment
 
 .#{$icon-identifier} {
+    padding: 1px; // 1
     vertical-align: bottom; // 1
     color: $icon-color;
     width: $icon-xy;

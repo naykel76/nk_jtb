@@ -1,27 +1,4 @@
 @use "../mixins/common" as *;
-// @use "../mixins/magicClassGenerators" as *;
-// @use "sass:map";
-
-// @use "../variables" as *;
-// @use "../config" as *;
-// @use "../functions/get" as *;
-// @use "../mixins/colorThemeGenerators" as *;
-
-// just use tailwind???
-
-// @if (get("shades.create-base", $config)) {
-//     @each $color, $value in $base-colors {
-//         @include colorShadeClasses($color, $value);
-//     }
-// }
-
-// @if (get("shades.create-theme", $config)) {
-//     @each $color, $value in $base-colors {
-//         @include colorShadeClasses($color, $value);
-//     }
-// }
-
-
 
 // prettier-ignore
 $colors-map: (

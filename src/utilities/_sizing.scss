@@ -25,7 +25,7 @@ $sizing-properties-map: (
 
 // -- WIDTH & HEIGHT --
 @each $size in $sizing-rem {
-    $class: escape-invalid($size);
+    $class: handle-invalid($size);
     .wh-#{$class} {
         width: #{$size}rem;
         height: #{$size}rem;
