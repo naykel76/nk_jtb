@@ -24,3 +24,6 @@ $magic-padding-y: ((5, 3, 2), (5, 3, 2, 2), (3, 2, 1)) !default;
 .c-py-025 > * {
     padding-block: 0.25rem;
 }
+.c-py-3 > * {
+    padding-block: 3rem;
+}

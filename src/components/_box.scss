@@ -51,7 +51,7 @@
     border-radius: 0 0 $bx-border-radius $bx-border-radius;
 }
 
-:is(.bx-header + .bx-content) {
+:where(.bx-header + .bx-content) {
     padding: $bx-padding;
     margin-bottom: -$bx-padding;
     margin-left: -$bx-padding;

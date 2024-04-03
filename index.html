@@ -8,25 +8,43 @@
     <title>NayKel JTB</title>
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
 </head>
 
 <body>
-    <div class="container">
 
-    </div>
 
     <div class="quick-hide-div zebra">
+        <section id="button-control-sizes-examples" class="py-3">
+            <div class="container space-y">
+                <h2 class="title txt-3">Button and Control Sizes</h2>
+                <div>
+                    <button class="btn primary xs">Extra Small</button>
+                    <input class="xs" placeholder="Text Input">
+                </div>
+                <div>
+                    <button class="btn primary sm">Small</button>
+                    <input class="sm" placeholder="Text Input">
+                </div>
+                <div>
+                    <button class="btn primary">Base</button>
+                    <input placeholder="Text Input">
+                </div>
+                <div>
+                    <button class="btn primary lg">Large</button>
+                    <input class="lg" placeholder="Text Input">
+                </div>
+                <div>
+                    <button class="btn primary xl">Extra Large</button>
+                    <input class="xl" placeholder="Text Input">
+                </div>
+            </div>
+
+        </section>
+
         <section id="button-theme-examples" class="py-3">
             <div class="container">
                 <h2 class="title txt-3">Buttons</h2>
-                <h4>Button sizes</h4>
-                <div class="flex va-c space-x-05">
-                    <button class="btn primary xs">Extra Small</button>
-                    <button class="btn primary sm">Small</button>
-                    <button class="btn primary">Base</button>
-                    <button class="btn primary lg">Large</button>
-                    <button class="btn primary xl">Extra Large</button>
-                </div>
                 <h4>Buttons with icon (TBD)</h4>
                 <h4>Base Colors</h4>
                 <div class="grid-1 cols-9">
@@ -207,6 +225,36 @@
                                 </svg>
                                 <span>Choose a file...</span>
                             </label>
+                        </div>
+                    </div>
+                    <div class="frm-row">
+                        <label for="success" class="txt-success-light">Your name</label>
+                        <input type="text" id="success" class="success-light" placeholder="Success input">
+                        <p class="txt-success-light txt-sm"><span class="font-medium">Well done!</span> Some success
+                            message.</p>
+                    </div>
+                    <div class="frm-row">
+                        <label for="error" class="block mb-2 text-sm font-medium text-red-700 dark:text-red-500">Your
+                            name</label>
+                        <input type="text" id="error"
+                            class="bg-red-50 bdr bdr-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 dark:bg-gray-700 focus:bdr-red-500 block w-full p-2.5 dark:text-red-500 dark:placeholder-red-500 dark:bdr-red-500"
+                            placeholder="Error input">
+                        <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh,
+                                snapp!</span> Some error message.</p>
+                    </div>
+                    <div class="frm-row">
+                        <div class="withAddons">
+                            <div class="leadingAddon light">
+                                <svg class="icon txt-muted">
+                                    <use xlink:href="/svg/naykel-ui.svg#user"></use>
+                                </svg>
+                            </div>
+                            <div class="trailingAddon light">
+                                <svg class="icon txt-muted">
+                                    <use xlink:href="/svg/naykel-ui.svg#tick-round"></use>
+                                </svg>
+                            </div>
+                            <input type="text">
                         </div>
                     </div>
                 </div>
@@ -771,59 +819,7 @@
                     </div>
                 </div>
             </section>
-            <section id="button-and-form-controls">
-                <div class="container">
 
-
-
-
-
-
-                    <h2 class="title">Buttons and Form Controls</h2>
-
-                    <div class="my">
-                        <button class="btn primary">primary</button>
-                        <input id="input" name="input" type="text" placeholder="Text Input">
-                        <button type="button">Button</button>
-                        <button type="reset">Reset</button>
-                        <button type="submit">Submit</button>
-                    </div>
-
-                    <div class="frm-row">
-                        <label for="success" class="txt-success-light">Your name</label>
-                        <input type="text" id="success" class="success-light" placeholder="Success input">
-                        <p class="txt-success-light txt-sm"><span class="font-medium">Well done!</span> Some success
-                            message.</p>
-                    </div>
-
-                    <div class="frm-row">
-                        <label for="error" class="block mb-2 text-sm font-medium text-red-700 dark:text-red-500">Your
-                            name</label>
-                        <input type="text" id="error"
-                            class="bg-red-50 bdr bdr-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 dark:bg-gray-700 focus:bdr-red-500 block w-full p-2.5 dark:text-red-500 dark:placeholder-red-500 dark:bdr-red-500"
-                            placeholder="Error input">
-                        <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh,
-                                snapp!</span> Some error message.</p>
-                    </div>
-
-                    <div class="frm-row">
-                        <div class="withAddons">
-                            <div class="leadingAddon light">
-                                <svg class="icon txt-muted">
-                                    <use xlink:href="/svg/naykel-ui.svg#user"></use>
-                                </svg>
-                            </div>
-                            <div class="trailingAddon light">
-                                <svg class="icon txt-muted">
-                                    <use xlink:href="/svg/naykel-ui.svg#tick-round"></use>
-                                </svg>
-                            </div>
-                            <input type="text">
-                        </div>
-                    </div>
-
-                </div>
-            </section>
         </div>
 
         <main class="container maxw-lg c-py-3-2">

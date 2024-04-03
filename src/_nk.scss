@@ -1,5 +1,14 @@
 @use "./variables" as *;
 @use "./mixins/media" as *;
+@use "./forms/control" as *;
+
+
+// match the control padding, used for selectable elements
+.control-padding {
+    padding-inline: $ctrl-padding-x;
+    padding-block: $ctrl-padding-y;
+    border: 1px solid transparent;
+}
 
 // ==========================================================================
 // -- LAYOUT ELEMENTS --
