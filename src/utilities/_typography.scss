@@ -1,20 +1,14 @@
 @use "../mixins/common" as *;
 @use "sass:map";
 
-// ******************************************************************
-// IMPORTANT
-// ******************************************************************
-// Opinionated classes must be created first to make sure they can
-// be overridden by utility classes
-// ******************************************************************
-
 // ==========================================================================
 // -- PROPERTY MAPS --
 // ==========================================================================
-// remove the following colours from the map
+// remove from the colour map
 $text-colors: map.remove($color-map, "danger", "dark", "info", "light", "success", "warning");
 
 $text-rem-sizes: (1, 1.5, 2, 2.5, 3, 4) !default;
+
 $text-variant-sizes: (
     xs: 0.75rem,
     sm: 0.875rem,
@@ -22,6 +16,7 @@ $text-variant-sizes: (
     lg: 1.125rem,
     xl: 1.5rem
 ) !default;
+
 // convert 'rem' sizes to map and merge with variant sizes
 $text-variants: map-merge(listToMap($text-rem-sizes), $text-variant-sizes);
 
@@ -71,6 +66,7 @@ $text-variants: map-merge(listToMap($text-rem-sizes), $text-variant-sizes);
 // -- UTILITY CLASS MAP --
 // ==========================================================================
 
+// prettier-ignore
 $typography-properties-map: (
     color: (
         prefix: "#{$text-identifier}",
@@ -85,113 +81,43 @@ $typography-properties-map: (
     ),
     font-style: (
         prefix: "#{$text-identifier}",
-        values: (
-            italic,
-            normal
-        )
+        values: ( italic, normal )
     ),
     font-family: (
         prefix: "#{$font-identifier}",
         values: (
-            mono: (
-                ui-monospace,
-                SFMono-Regular,
-                Menlo,
-                Monaco,
-                Consolas,
-                "Liberation Mono",
-                "Courier New",
-                monospace
-            ),
-            serif: (
-                ui-serif,
-                Georgia,
-                Cambria,
-                "Times New Roman",
-                Times,
-                serif
-            ),
-            sans: (
-                ui-sans-serif,
-                system-ui,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                Roboto,
-                "Helvetica Neue",
-                Arial,
-                "Noto Sans",
-                sans-serif,
-                "Apple Color Emoji",
-                "Segoe UI Emoji",
-                "Segoe UI Symbol",
-                "Noto Color Emoji"
-            )
+            serif: ( ui-serif, Georgia, Cambria, "Times New Roman", Times, serif ),
+            sans: ( ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" ),
+            mono: ( ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace ),
         )
     ),
     font-weight: (
         prefix: "fw",
-        values: (
-            2: 200,
-            4: 400,
-            5: 500,
-            6: 600,
-            7: 700,
-            9: 900
-        )
+        values: ( 2: 200, 4: 400, 5: 500, 6: 600, 7: 700, 9: 900 )
     ),
     line-height: (
         prefix: "#{$line-height-identifier}",
-        values: (
-            1,
-            2
-        )
+        values: ( 1, 2 )
     ),
     text-align: (
         prefix: "#{$text-align-identifier}",
-        values: (
-            l: left,
-            r: right,
-            c: center,
-            j: justify
-        )
+        values: ( l: left, r: right, c: center, j: justify )
     ),
     text-decoration: (
         prefix: "#{$text-identifier}",
-        values: (
-            strike: line-through,
-            underline: underline,
-            overline: overline,
-            underline-overline: underline overline
-        )
+        values: ( strike: line-through, underline: underline, overline: overline, underline-overline: underline overline )
     ),
     text-transform: (
         prefix: "#{$text-identifier}",
-        values: (
-            upper: uppercase,
-            lower: lowercase,
-            capitalize: capitalize,
-            normal-case: none
-        )
+        values: ( upper: uppercase, lower: lowercase, capitalize: capitalize, normal-case: none )
     ),
     white-space: (
         prefix: "#{$whitespace-identifier}",
-        values: (
-            normal,
-            nowrap,
-            pre,
-            pre-line,
-            pre-wrap
-        )
+        values: ( normal, nowrap, pre, pre-line, pre-wrap )
     ),
     text-wrap: (
         prefix: "#{$text-identifier}",
-        values: (
-            wrap,
-            balance,
-            nowrap,
-            pretty
-        )
+        values: ( wrap, balance, nowrap, pretty )
     )
 );
 
