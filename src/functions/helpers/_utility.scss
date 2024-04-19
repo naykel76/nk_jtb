@@ -1,0 +1,57 @@
+////
+/// @group Utility-Helpers
+////
+
+/// Escape decimals in a string. Works with both quoted and unquoted values.
+///
+///
+/// @param {Number} $int - The number with a decimal to escape.
+///
+/// @example scss - Usage
+///   escapeDecimal(9.5);
+///   // Outputs '9\.5';
+///
+/// @return {String} - The string with the decimal escaped.
+
+@function escapeDecimal($int) {
+    $escaped: "#{$int}";
+    @return strReplace($escaped, ".", "\\.");
+}
+
+/// Search and replace all occurrences of a substring within a string.
+///
+///
+/// @param {String} $string - The original string.
+/// @param {String} $search - The substring to replace.
+/// @param {String} $replace - The string to replace the substring with. Defaults to an empty string.
+/// @example scss - Usage
+///   strReplace("maxw-20rem", "rem", "");
+///   // Outputs 'maxw-20';
+///
+/// @return {String} - The string with all occurrences of the substring replaced.
+
+@function strReplace($string, $search, $replace: "") {
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace +
+            strReplace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+
+/// Cast a number to a string.
+///
+///
+/// @param {Number} $int - The number to cast.
+///
+/// @example scss - Usage
+///   toString(123);
+///   // Outputs '123';
+///
+/// @return {String} - The number cast to a string.
+
+@function toString($int) {
+    @return "#{$int}";
+}
