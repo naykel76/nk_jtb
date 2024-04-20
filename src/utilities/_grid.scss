@@ -3,6 +3,7 @@
 @use "../mixins/common" as *;
 @use "../mixins/magicClassGenerators" as *;
 @use "../mixins/magicGridGenerators" as *;
+@use "../mixins/makeResponsiveClassMixins" as *;
 
 $gap: get("grid.default-gap", $config);
 $gap-sizes: (0, 0.25, 0.5, 1, 1.25, 1.5, 2, 3, 4, 5) !default;
@@ -64,7 +65,6 @@ $grid-properties-map: (
 
 @include generate-utilities($grid-properties-map);
 
-
 // ==========================================================================
 // -- GRID SPANNING --
 // ==========================================================================
@@ -85,11 +85,11 @@ $grid-properties-map: (
     }
     // responsive classes
     $props: (
-        grid-template-columns: repeat($i, minmax(0, 1fr)),
+        grid-template-columns: repeat($i, minmax(0, 1fr))
     );
     $breakpoints: ("base", "sm", "md", "lg", "xl");
     $class: "cols-#{$i}";
-    @include makeFromBreakpoint($props, $class, $breakpoints...);
+    @include makeFromBreakpoint($props, $class, $breakpoints);
 }
 
 // ==========================================================================

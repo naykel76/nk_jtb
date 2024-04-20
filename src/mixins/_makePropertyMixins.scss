@@ -1,0 +1,24 @@
+////
+/// @group property-makers
+////
+
+/// Generate one or more properties from a map of key-value pairs.
+///
+/// @param {Map} $props - The map of properties and values.
+///
+/// @example scss - Usage
+/// .my-class {
+///   @include createProperties((color: blue, background-color: white));
+/// }
+///
+/// // .my-class {
+/// //     color: blue;
+/// //     background-color: white;
+/// // }
+///
+
+@mixin createProperties($props) {
+    @each $property, $value in $props {
+        #{$property}: $value;
+    }
+}

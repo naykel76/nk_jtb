@@ -1,5 +1,6 @@
 @use "../../functions/helpers" as *;
 @use "../../mixins/class-helpers" as *;
+@use "../makeClassMixins" as *;
 @use "sass:string";
 
 // 1. The `key`can be a single value e.g. `1.5` or a key-value pair
@@ -50,7 +51,7 @@
                 @include positionBasedClass($property, $derived-value, $positions-map, $identifier, $derived-variant, $breakpoints);
             } @else{
                 $derived-class: strip-invalid(#{$identifier}#{$derived-variant});
-                @include singlePropertyClass(#{$derived-class}, $property, #{$derived-value}, $breakpoints);
+                @include makeSinglePropertyClass(#{$derived-class}, $property, #{$derived-value}, $breakpoints);
             }
         }
     }
