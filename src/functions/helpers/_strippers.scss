@@ -1,17 +1,4 @@
 // ----------------------------------------------------------------
-// Strips dash '-' if the last character in a string
-// ----------------------------------------------------------------
-// Usage: $class: stripDash("bdr-");
-// Outputs $class: 'bdr';
-// ----------------------------------------------------------------
-@function stripDash($string) {
-    @if str-slice($string, -1) == "-" {
-        @return str-slice($string, 1, -2);
-    }
-    @return $string;
-}
-
-// ----------------------------------------------------------------
 // Strips 'rem' if last three characters in a string
 // ----------------------------------------------------------------
 // Usage: $class: stripDash("maxw-20rem");

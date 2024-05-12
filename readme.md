@@ -8,17 +8,9 @@ Why!
 > -- Nathan Watts
 
 
-**How can I add a value to a utility map?**
 
-**How can I override a value in a utility map?**
+## Create documentation
 
-**How can I override all values in utility map?**
-
-**How can I add a value to a property map?**
-
-
-
-    height: (
-        prefix: "h-",
-        values: ( full: 100%, screen: 100vh, fit: fit-content, max: max-content, min: min-content ),
-    )
+```bash
+sassdoc ./src --dest ./docs
+```

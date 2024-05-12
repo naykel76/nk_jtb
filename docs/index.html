@@ -1,0 +1,206 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Nk_jtb - v0.9.15</title><link rel="stylesheet" href="assets/css/main.css"><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,700" rel="stylesheet" type="text/css"><meta name="viewport" content="width=device-width"><meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible"><!-- Open Graph tags --><meta property="og:title" content="Nk_jtb - SassDoc"><meta property="og:type" content="website"><meta property="og:description" content="<p>Yet another utility based framework.</p>
+"><!-- Thanks to Sass-lang.com for the icons --><link href="assets/images/favicon.png" rel="shortcut icon"></head><body><aside class="sidebar" role="nav"><div class="sidebar__header"><h1 class="sidebar__title">Nk_jtb - 0.9.15</h1></div><div class="sidebar__body"><button type="button" class="btn-toggle js-btn-toggle" data-alt="Open all">Close all</button><p class="sidebar__item sidebar__item--heading" data-slug="class-makers"><a href="#class-makers">class-makers</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="class-makers-mixin"><a href="#class-makers-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="class-makers" data-name="makeSinglePropertyClass" data-type="mixin"><a href="#class-makers-mixin-makeSinglePropertyClass">makeSinglePropertyClass</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="magic-class-generators"><a href="#magic-class-generators">magic-class-generators</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="magic-class-generators-mixin"><a href="#magic-class-generators-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="magic-class-generators" data-name="makeMagicClass" data-type="mixin"><a href="#magic-class-generators-mixin-makeMagicClass">makeMagicClass</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="property-makers"><a href="#property-makers">property-makers</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="property-makers-mixin"><a href="#property-makers-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="property-makers" data-name="createProperties" data-type="mixin"><a href="#property-makers-mixin-createProperties">createProperties</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="responsive-class-makers"><a href="#responsive-class-makers">responsive-class-makers</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="responsive-class-makers-mixin"><a href="#responsive-class-makers-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="responsive-class-makers" data-name="makeFromBreakpoint" data-type="mixin"><a href="#responsive-class-makers-mixin-makeFromBreakpoint">makeFromBreakpoint</a></li><li class="sidebar__item sassdoc__item" data-group="responsive-class-makers" data-name="makeToBreakpoint" data-type="mixin"><a href="#responsive-class-makers-mixin-makeToBreakpoint">makeToBreakpoint</a></li><li class="sidebar__item sassdoc__item" data-group="responsive-class-makers" data-name="makeOnBreakpoint" data-type="mixin"><a href="#responsive-class-makers-mixin-makeOnBreakpoint">makeOnBreakpoint</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="sanitize-helpers"><a href="#sanitize-helpers">sanitize-helpers</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="sanitize-helpers-function"><a href="#sanitize-helpers-function">functions</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="sanitize-helpers" data-name="stripDash" data-type="function"><a href="#sanitize-helpers-function-stripDash">stripDash</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="utility-helpers"><a href="#utility-helpers">utility-helpers</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="utility-helpers-function"><a href="#utility-helpers-function">functions</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="utility-helpers" data-name="escapeDecimal" data-type="function"><a href="#utility-helpers-function-escapeDecimal">escapeDecimal</a></li><li class="sidebar__item sassdoc__item" data-group="utility-helpers" data-name="strReplace" data-type="function"><a href="#utility-helpers-function-strReplace">strReplace</a></li><li class="sidebar__item sassdoc__item" data-group="utility-helpers" data-name="toString" data-type="function"><a href="#utility-helpers-function-toString">toString</a></li></ul></div></div></aside><article class="main" role="main"><header class="header" role="banner"><div class="container"><div class="sassdoc__searchbar searchbar"><label for="js-search-input" class="visually-hidden">Search</label><div class="searchbar__form" id="js-search"><input name="search" type="search" class="searchbar__field" autocomplete="off" autofocus id="js-search-input" placeholder="Search"><ul class="searchbar__suggestions" id="js-search-suggestions"></ul></div></div></div></header><section class="main__section"><h1 class="main__heading" id="class-makers"><div class="container">class-makers</div></h1><section class="main__sub-section" id="class-makers-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="class-makers-mixin-makeSinglePropertyClass"><h3 class="item__heading"><a class="item__name" href="#class-makers-mixin-makeSinglePropertyClass">makeSinglePropertyClass</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin makeSinglePropertyClass($class, $property, $value, $breakpoints) { 
+    .#{$class} {
+        #{$property}: $value;
+    }
+
+    @if ($breakpoints) {
+        // prettier-ignore
+        @include makeFromBreakpoint(($property: $value), $class, $breakpoints);
+    }
+ }" data-collapsed="@mixin makeSinglePropertyClass($class, $property, $value, $breakpoints) { ... }"><code>@mixin makeSinglePropertyClass($class, $property, $value, $breakpoints) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Generate class for a single property and optionally creates responsive classes for a range of breakpoints.</p><p><em>NOTE:</em> This mixin will create the base class as well as responsive classes.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$class</code></th><td data-label="desc"><p>The fill class name.</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$property</code></th><td data-label="desc"><p>The CSS property.</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$value</code></th><td data-label="desc"><p>The value of the CSS property.</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$breakpoints</code></th><td data-label="desc"><p>The list of breakpoints (optional).</p></td><td data-label="type"><code>List</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Usage</p></div><pre class="example__code language-scss"><code>&#92;@include makeSinglePropertyClass(&#39;txt-red&#39;, &#39;color&#39;, &#39;red&#39;, (&#39;sm&#39;, &#39;md&#39;));
+
+// .txt-red {
+//     color: red;
+// }
+//
+// @media (min-width: 576px) {
+//     .sm&#92;:txt-red {
+//         color: red;
+//     }
+// }
+//
+// @media (min-width: 768px) {
+//     .md&#92;:txt-red {
+//         color: red;
+//     }
+// }</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#responsive-class-makers-mixin-makeFromBreakpoint"><code>makeFromBreakpoint</code></a></li></ul></section></section></section><section class="main__section"><h1 class="main__heading" id="magic-class-generators"><div class="container">magic-class-generators</div></h1><section class="main__sub-section" id="magic-class-generators-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="magic-class-generators-mixin-makeMagicClass"><h3 class="item__heading"><a class="item__name" href="#magic-class-generators-mixin-makeMagicClass">makeMagicClass</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin makeMagicClass($property, $values-list, $identifier, $unit, $position-or-axis) { 
+    // get the positions required to build up the class
+    // (x:(left, right), y:(top, bottom) ... etc)
+    $positions: map-get($axis-position-map, $position-or-axis);
+
+    @each $list in $values-list {
+        // exclude empty list when creating single list
+        @if ($list != ()) {
+            $numBreakPoints: list.length($list);
+
+            // set the value of the BP based on position using negative
+            // numbers. This makes sure the position is always the same
+            $baseValue: nth($list, -1);
+            $smValue: nth($list, -2);
+            $mdValue: if($numBreakPoints &gt;= 3, nth($list, -3), null);
+            $lgValue: if($numBreakPoints &gt;= 4, nth($list, -4), null);
+
+            $derived-class: derivedClass($list);
+
+            // DO NOT use else-if statements when building the classes.
+            // You want to give all classes to the opportunity to build.
+            .#{$identifier}-#{$derived-class} {
+                @include handleMagicProperties($property, $baseValue, $positions);
+
+                @include from-sm {
+                    @include handleMagicProperties($property, $smValue, $positions);
+                }
+
+                @if ($numBreakPoints &gt;= 3) {
+                    @include from-md {
+                        @include handleMagicProperties($property, $mdValue, $positions);
+                    }
+                }
+
+                @if ($numBreakPoints &gt;= 4) {
+                    @include from-lg {
+                        @include handleMagicProperties($property, $lgValue, $positions);
+                    }
+                }
+
+                @if ($numBreakPoints &gt;= 5) {
+                    @include from-xl {
+                        @include handleMagicProperties($property, $xlValue, $positions);
+                    }
+                }
+            }
+        }
+    }
+ }" data-collapsed="@mixin makeMagicClass($property, $values-list, $identifier, $unit, $position-or-axis) { ... }"><code>@mixin makeMagicClass($property, $values-list, $identifier, $unit, $position-or-axis) { ... }</code></pre></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$property</code></th><td data-label="desc"><p>The CSS property.</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$values-list</code></th><td data-label="desc"><p>The list of values for the property.</p></td><td data-label="type"><code>List</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$identifier</code></th><td data-label="desc"><p>The base class name.</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$unit</code></th><td data-label="desc"><p>The unit for the property values (default: &quot;rem&quot;).</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$position-or-axis</code></th><td data-label="desc"><p>The position or axis for the property (default: &quot;&quot;).</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table></section></section></section><section class="main__section"><h1 class="main__heading" id="property-makers"><div class="container">property-makers</div></h1><section class="main__sub-section" id="property-makers-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="property-makers-mixin-createProperties"><h3 class="item__heading"><a class="item__name" href="#property-makers-mixin-createProperties">createProperties</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin createProperties($props) { 
+    @each $property, $value in $props {
+        #{$property}: $value;
+    }
+ }" data-collapsed="@mixin createProperties($props) { ... }"><code>@mixin createProperties($props) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Generate one or more properties from a map of key-value pairs.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$props</code></th><td data-label="desc"><p>The map of properties and values.</p></td><td data-label="type"><code>Map</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Usage</p></div><pre class="example__code language-scss"><code>.my-class {
+  @include createProperties((color: blue, background-color: white));
+}
+
+// .my-class {
+//     color: blue;
+//     background-color: white;
+// }</code></pre></div></section></section></section><section class="main__section"><h1 class="main__heading" id="responsive-class-makers"><div class="container">responsive-class-makers</div></h1><section class="main__sub-section" id="responsive-class-makers-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="responsive-class-makers-mixin-makeFromBreakpoint"><h3 class="item__heading"><a class="item__name" href="#responsive-class-makers-mixin-makeFromBreakpoint">makeFromBreakpoint</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin makeFromBreakpoint($props, $identifier, $breakpoints) { 
+    @each $bp in $breakpoints {
+        $derived-class: #{$bp}&#92;:#{$identifier};
+        .#{$derived-class} {
+            @if ($bp == &quot;sm&quot;) {
+                @include from-sm {
+                    @include createProperties($props);
+                }
+            } @else if($bp == &quot;md&quot;) {
+                @include from-md {
+                    @include createProperties($props);
+                }
+            } @else if($bp == &quot;lg&quot;) {
+                @include from-lg {
+                    @include createProperties($props);
+                }
+            } @else if($bp == &quot;xl&quot;) {
+                @include from-xl {
+                    @include createProperties($props);
+                }
+            } @else if($bp == &quot;xxl&quot;) {
+                @include from-xxl {
+                    @include createProperties($props);
+                }
+            }
+        }
+    }
+ }" data-collapsed="@mixin makeFromBreakpoint($props, $identifier, $breakpoints) { ... }"><code>@mixin makeFromBreakpoint($props, $identifier, $breakpoints) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Generate responsive classes for one or more properties, starting FROM the specified breakpoints, across a range of breakpoints.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$props</code></th><td data-label="desc"><p>The map of properties and values.</p></td><td data-label="type"><code>Map</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$identifier</code></th><td data-label="desc"><p>A part of the base class name.</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$breakpoints</code></th><td data-label="desc"><p>The list of breakpoints.</p></td><td data-label="type"><code>List</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Usage</p></div><pre class="example__code language-scss"><code>&#92;@include makeFromBreakpoint(
+    $class: &quot;txt-abc&quot;,
+    $props: ( font-size: #333, line-height: 1 ),
+    $breakpoints: ( &quot;sm&quot;, &quot;md&quot; )
+);
+
+// @media (min-width: 576px) {
+//     .sm&#92;:txt-abc {
+//         font-size: #333;
+//         line-height: 1;
+//     }
+// }
+
+// @media (min-width: 768px) {
+//     .md&#92;:txt-abc {
+//         font-size: #333;
+//         line-height: 1;
+//     }
+// }</code></pre></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#class-makers-mixin-makeSinglePropertyClass"><code>makeSinglePropertyClass</code></a></li></ul></section><section class="main__item container item" id="responsive-class-makers-mixin-makeToBreakpoint"><h3 class="item__heading"><a class="item__name" href="#responsive-class-makers-mixin-makeToBreakpoint">makeToBreakpoint</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin makeToBreakpoint($props, $identifier, $breakpoints) { 
+    @each $bp in $breakpoints {
+        $derived-class: #{$bp}&#92;:#{$identifier};
+        .to-#{$derived-class} {
+            @if ($bp == &quot;sm&quot;) {
+                @include to-sm {
+                    @include createProperties($props);
+                }
+            } @else if($bp == &quot;md&quot;) {
+                @include to-md {
+                    @include createProperties($props);
+                }
+            } @else if($bp == &quot;lg&quot;) {
+                @include to-lg {
+                    @include createProperties($props);
+                }
+            } @else if($bp == &quot;xl&quot;) {
+                @include to-xl {
+                    @include createProperties($props);
+                }
+            } @else {
+                @error &#39;The device &#39;#{$bp}&#39; is not available for this mixin, you need to remove it from the args list.&#39;;
+            }
+        }
+    }
+ }" data-collapsed="@mixin makeToBreakpoint($props, $identifier, $breakpoints) { ... }"><code>@mixin makeToBreakpoint($props, $identifier, $breakpoints) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Generate responsive classes for one or more properties, starting TO the specified breakpoints, across a range of breakpoints.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$props</code></th><td data-label="desc"><p>The map of properties and values.</p></td><td data-label="type"><code>Map</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$identifier</code></th><td data-label="desc"><p>A part of the base class name.</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$breakpoints</code></th><td data-label="desc"><p>The list of breakpoints.</p></td><td data-label="type"><code>List</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Throws</h3><ul class="list-unstyled"><li><p>The device</p></li></ul></section><section class="main__item container item" id="responsive-class-makers-mixin-makeOnBreakpoint"><h3 class="item__heading"><a class="item__name" href="#responsive-class-makers-mixin-makeOnBreakpoint">makeOnBreakpoint</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin makeOnBreakpoint($props, $identifier, $breakpoints) { 
+    @each $bp in $breakpoints {
+        $derived-class: #{$bp}&#92;:#{$identifier};
+        .on-#{$derived-class} {
+            @if ($bp == &quot;sm&quot;) {
+                @include on-sm {
+                    @include createProperties($props);
+                }
+            } @else if($bp == &quot;md&quot;) {
+                @include on-md {
+                    @include createProperties($props);
+                }
+            } @else if($bp == &quot;lg&quot;) {
+                @include on-lg {
+                    @include createProperties($props);
+                }
+            } @else if($bp == &quot;xl&quot;) {
+                @include on-xl {
+                    @include createProperties($props);
+                }
+            } @else if($bp == &quot;xxl&quot;) {
+                @include on-xxl {
+                    @include createProperties($props);
+                }
+            }
+        }
+    }
+ }" data-collapsed="@mixin makeOnBreakpoint($props, $identifier, $breakpoints) { ... }"><code>@mixin makeOnBreakpoint($props, $identifier, $breakpoints) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Generate responsive classes for one or more properties, starting ON the specified breakpoints, across a range of breakpoints.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$props</code></th><td data-label="desc"><p>The map of properties and values.</p></td><td data-label="type"><code>Map</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$identifier</code></th><td data-label="desc"><p>A part of the base class name.</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$breakpoints</code></th><td data-label="desc"><p>The list of breakpoints.</p></td><td data-label="type"><code>List</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table></section></section></section><section class="main__section"><h1 class="main__heading" id="sanitize-helpers"><div class="container">sanitize-helpers</div></h1><section class="main__sub-section" id="sanitize-helpers-function"><h2 class="main__heading--secondary"><div class="container">functions</div></h2><section class="main__item container item" id="sanitize-helpers-function-stripDash"><h3 class="item__heading"><a class="item__name" href="#sanitize-helpers-function-stripDash">stripDash</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function stripDash($string) { 
+    @if str-slice($string, -1) == &quot;-&quot; {
+        @return str-slice($string, 1, -2);
+    }
+    @return $string;
+ }" data-collapsed="@function stripDash($string) { ... }"><code>@function stripDash($string) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Strips the trailing dash &#39;-&#39; from a string if it exists.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$string</code></th><td data-label="desc"><p>The string to process.</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Usage</p></div><pre class="example__code language-scss"><code>$result: stripDash(&quot;bdr-&quot;);
+// Given the input &quot;bdr-&quot;, the function will return &quot;bdr&quot;.</code></pre></div></section></section></section><section class="main__section"><h1 class="main__heading" id="utility-helpers"><div class="container">utility-helpers</div></h1><section class="main__sub-section" id="utility-helpers-function"><h2 class="main__heading--secondary"><div class="container">functions</div></h2><section class="main__item container item" id="utility-helpers-function-escapeDecimal"><h3 class="item__heading"><a class="item__name" href="#utility-helpers-function-escapeDecimal">escapeDecimal</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function escapeDecimal($int) { 
+    $escaped: &quot;#{$int}&quot;;
+    @return strReplace($escaped, &quot;.&quot;, &quot;&#92;&#92;.&quot;);
+ }" data-collapsed="@function escapeDecimal($int) { ... }"><code>@function escapeDecimal($int) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Escape decimals in a string. Works with both quoted and unquoted values.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$int</code></th><td data-label="desc"><p>The number with a decimal to escape.</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>String</code> &mdash;<p>The string with the decimal escaped.</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Usage</p></div><pre class="example__code language-scss"><code>escapeDecimal(9.5);
+// Outputs &#39;9&#92;.5&#39;;</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#utility-helpers-function-strReplace"><code>strReplace</code></a></li></ul></section><section class="main__item container item" id="utility-helpers-function-strReplace"><h3 class="item__heading"><a class="item__name" href="#utility-helpers-function-strReplace">strReplace</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function strReplace($string, $search, $replace) { 
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace +
+            strReplace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+ }" data-collapsed="@function strReplace($string, $search, $replace) { ... }"><code>@function strReplace($string, $search, $replace) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Search and replace all occurrences of a substring within a string.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$string</code></th><td data-label="desc"><p>The original string.</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$search</code></th><td data-label="desc"><p>The substring to replace.</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$replace</code></th><td data-label="desc"><p>The string to replace the substring with. Defaults to an empty string.</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>String</code> &mdash;<p>The string with all occurrences of the substring replaced.</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Usage</p></div><pre class="example__code language-scss"><code>strReplace(&quot;maxw-20rem&quot;, &quot;rem&quot;, &quot;&quot;);
+// Outputs &#39;maxw-20&#39;;</code></pre></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[function]</span> <a href="#utility-helpers-function-escapeDecimal"><code>escapeDecimal</code></a></li></ul></section><section class="main__item container item" id="utility-helpers-function-toString"><h3 class="item__heading"><a class="item__name" href="#utility-helpers-function-toString">toString</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function toString($int) { 
+    @return &quot;#{$int}&quot;;
+ }" data-collapsed="@function toString($int) { ... }"><code>@function toString($int) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Cast a number to a string.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$int</code></th><td data-label="desc"><p>The number to cast.</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>String</code> &mdash;<p>The number cast to a string.</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Usage</p></div><pre class="example__code language-scss"><code>toString(123);
+// Outputs &#39;123&#39;;</code></pre></div></section></section></section><footer class="footer" role="contentinfo"><div class="container"><div class="footer__project-info project-info"><!-- Name and URL --> <span class="project-info__name">Nk_jtb</span><!-- Version --> <span class="project-info__version">- v0.9.15</span><!-- License --></div><a class="footer__watermark" href="http://sassdoc.com"><img src="assets/images/logo_light_inline.svg" alt="SassDoc Logo"></a></div></footer></article><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script><script src="assets/js/main.min.js"></script></body></html>
