@@ -1,5 +1,5 @@
 @use "../mixins/common" as *;
-@use "../mixins/magicClassGenerators" as *;
+@use "../mixins/generate-magic-classes" as *;
 @use "sass:map";
 
 $margin-sizes: map-merge($margin-variants, listToMap($space-rem-sizes));
@@ -18,4 +18,4 @@ $margin-properties-map: (
 
 // magic classes
 $magic-margin-y: ((5, 3, 2), (3, 2, 1)) !default;
-@include magicClass(margin, $magic-margin-y, "my", $position-or-axis: y);
+@include generate-magic-classes(margin, $magic-margin-y, "my", $position-or-axis: y);

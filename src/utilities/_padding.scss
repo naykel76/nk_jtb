@@ -1,5 +1,5 @@
 @use "../mixins/common" as *;
-@use "../mixins/magicClassGenerators" as *;
+@use "../mixins/generate-magic-classes" as *;
 @use "sass:map";
 
 $padding-sizes: map-merge($padding-variants, listToMap($space-rem-sizes));
@@ -18,7 +18,7 @@ $padding-properties-map: (
 
 // magic classes
 $magic-padding-y: ((5, 3, 2), (5, 3, 2, 2), (3, 2, 1)) !default;
-@include magicClass(padding, $magic-padding-y, "py", $position-or-axis: y);
+@include generate-magic-classes(padding, $magic-padding-y, "py", $position-or-axis: y);
 
 
 .c-py-025 > * {
