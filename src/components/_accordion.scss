@@ -1,14 +1,11 @@
 @use "../variables" as *;
-// add accordion component variables here instead of the main
-// component variable file.
+
 $accordion-bg: rgb(245, 245, 245) !default;
 $accordion-border: $border !default;
 $accordion-hover-bg: darken($accordion-bg, 5%) !default;
 
-$midnight: #2c3e50;
-
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
-// These styles are for the CSS accordion, not the Alpine accordion.
+// These styles are for the CSS accordion.
 // You should focus the accordion behaviour and limit opinionated
 // styles to make it easier to apply utility classes.
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
@@ -20,8 +17,12 @@ $midnight: #2c3e50;
 
 .accordion {
     overflow: hidden;
-    margin-bottom: 0.5rem;
     border: $border;
+
+    // override label margin
+    label.accordion-title{
+        margin: 0;
+    }
 
     // title and label are used to toggle the accordion
     &-title,

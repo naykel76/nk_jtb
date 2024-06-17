@@ -1,5 +1,6 @@
 @use "./base" as *;
 @use "../variables/colors" as *;
+@use "../variables/base" as *;
 @use "sass:map";
 
 // ==========================================================================
@@ -84,8 +85,12 @@ $padding-variants: (default: $content-padding) !default;
 
 $sizing-pixels: (200px, 250px, 300px, 400px, 600px) !default; // include unit to make merge easier
 $sizing-rem: (0, 1, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24) !default;
-// the sizing variants are not related to the breakpoints. You can use the container utilities for that
-$sizing-variants: (xs: 20rem, sm: 24rem, md: 28rem, lg: 32rem, xl: 36rem, xxl: 42rem) !default;
+
+// The debate is if these should be related to the breakpoints or not. I think it would be better if
+// they are related to the breakpoints because it makes it easier to think in terms of the layout. I 
+// did think to use container utilities but they are not as flexible as I would like them to be.
+// $sizing-variants: (xs: 20rem, sm: 24rem, md: 28rem, lg: 32rem, xl: 36rem, xxl: 42rem) !default;
+$sizing-variants: (xs: 20rem, sm: $sm, md: $md, lg: $lg, xl: $xl, xxl: $xxl) !default;
 
 // These maps are seperate because they will only be used for the width, and height properties. I
 // am a bit perplexed how to handle this because I won't always want every sizing property to be

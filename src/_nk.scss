@@ -57,74 +57,9 @@ body {
 }
 
 // ==========================================================================
-// -- MARKDOWN --
+// -- MARKDOWN -- DEPRECATED
 // ==========================================================================
 
-.code-first-col,
-.code-second-col,
-.code-all-col {
-    + table tbody {
-        margin-top: $content-gap;
-        font-size: 0.85em;
-        tr td:first-child {
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-            color: #f0506e;
-            border-radius: 0.25rem;
-        }
-    }
-}
-.code-all-col {
-    + table tbody {
-        td {
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-            color: #f0506e;
-            border-radius: 0.25rem;
-        }
-    }
-}
-
-#toc {
-    margin-bottom: 1.5em;
-}
-
-.markdown {
-    // hack to remove indented when using @verbatim
-    .-ml-2 pre code {
-        margin-left: -2rem;
-    }
-    .-ml-3 pre code {
-        margin-left: -3rem;
-    }
-    .-ml-4 pre code {
-        margin-left: -4rem;
-    }
-    .-ml-5 pre code {
-        margin-left: -5rem;
-    }
-    .-ml-6 pre code {
-        margin-left: -6rem;
-    }
-    .-ml-7 pre code {
-        margin-left: -7rem;
-    }
-    .-ml-8 pre code {
-        margin-left: -8rem;
-    }
-    .-ml-9 pre code {
-        margin-left: -9rem;
-    }
-
-    tab-size: 0;
-    table {
-        width: 100%; // DON'T CHANGE!!
-    }
-
-    // allow to work in markdown component with div
-    pre {
-        margin-top: $content-gap;
-        margin-bottom: $content-gap;
-    }
-}
 
 .bg-stripes-blue {
     background-color: #60a5fa1a;

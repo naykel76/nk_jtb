@@ -99,10 +99,9 @@ $flex-classes-map: (
 
 // I am not convinced this should be a permanent part of the framework.
 $special-classes: (
-    flex-center-all: (
+    flex-centered: (
         props: (
             display: flex,
-            flex-direction: column,
             align-items: center,
             justify-content: center,
         ),

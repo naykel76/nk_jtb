@@ -6,7 +6,6 @@
 // they can be overridden
 
 @forward "./components/accordion";
-@forward "./components/article";
 @forward "./components/banner";
 @forward "./components/box";
 @forward "./components/button";
@@ -47,5 +46,4 @@
 
 // These are opinionated styles for NK components. They are not part
 // of the core and will eventually be moved to a separate package.
-// @forward "./components-extended/hero";
 @use "./nk" as *;

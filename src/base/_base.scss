@@ -152,7 +152,7 @@ sup {
 
 // -- Tables --
 // ==========================================================================
-//
+
 table {
     text-indent: 0;
     border-color: inherit;
@@ -160,16 +160,15 @@ table {
     width: 100%;
 }
 
-thead {
+th {
     font-weight: 600;
-    background: #f9fafb;
-    font-size: 0.875rem;
     vertical-align: middle;
 }
 
 th,
 td {
-    padding-inline: 1rem;
+    font-size: 0.75rem;
+    padding-inline: 0.75rem;
     padding-block: 0.75rem;
     vertical-align: inherit;
     text-align: left;

@@ -22,12 +22,21 @@
     }
 }
 
-@function derivedClass($list) {
+// is parent indicates the class is applied to the parent element
+@function derivedClass($identifier, $list, $is-parent) {
     $numBreakPoints: list.length($list);
     $class: null;
     @for $i from $numBreakPoints through 1 {
         $class: if($class == null, nth($list, -$i), #{$class}-#{nth($list, -$i)});
     }
+
+    // if the class is a parent class, add the prefix
+    @if $is-parent {
+        $class: "c-#{$identifier}-#{$class} > *";
+    } @else {
+        $class: "#{$identifier}-#{$class}";
+    }
+    
     @return $class;
 }
 
@@ -35,18 +44,21 @@
 /// @group class-generators
 ////
 
-/// Generate one ore more magic classes for a single property from a list of lists.
+/// Generate one ore more magic classes for a single property from a list of /// lists.
+///
+/// **NOTE:** this mixin works with both position and unit based properties and
+/// supports parent/child classes.
 /// 
-/// **NOTE:** this mixin works with both position and unit based properties.
-/// 
+///
 /// @param {String} $property - The CSS property.
 /// @param {List} $values-list - The list of values for the property .
 /// @param {String} $identifier - The base class name.
 /// @param {String} $unit - The unit for the property values (default: "rem").
 /// @param {String} $position-or-axis - The position or axis for the property (default: "").
+/// @param {Boolean} $is-parent - Indicates if the class is applied to the parent
 ///
 
-@mixin generate-magic-classes($property, $values-list, $identifier, $unit: "rem", $position-or-axis: "") {
+@mixin generate-magic-classes($property, $values-list, $identifier, $unit: "rem", $position-or-axis: "", $is-parent: false) {
     // get the positions required to build up the class
     // (x:(left, right), y:(top, bottom) ... etc)
     $positions: map-get($axis-position-map, $position-or-axis);
@@ -63,11 +75,11 @@
             $mdValue: if($numBreakPoints >= 3, nth($list, -3), null);
             $lgValue: if($numBreakPoints >= 4, nth($list, -4), null);
 
-            $derived-class: derivedClass($list);
+            $derived-class: derivedClass($identifier, $list, $is-parent);
 
             // DO NOT use else-if statements when building the classes.
             // You want to give all classes to the opportunity to build.
-            .#{$identifier}-#{$derived-class} {
+            .#{$derived-class} {
                 @include handleMagicProperties($property, $baseValue, $positions);
 
                 @include from-sm {

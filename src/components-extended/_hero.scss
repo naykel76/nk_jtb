@@ -2,10 +2,17 @@
 @use "../variables/components" as *;
 @use "../mixins/media" as *;
 
-// ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
-// constant debate has surrounded a `hero-text` wrapper. It has been
-// removed because it is easier to manage with utility classes
-// ==========================================================================
+$hero-title-color: #eee !default;
+$hero-title-lg: 3rem !default;
+$hero-title-sm: 2rem !default;
+
+$hero-subtitle-color: #eee !default;
+$hero-subtitle-lg: 2.5rem !default;
+$hero-subtitle-sm: 1.75rem !default;
+
+$hero-gradient: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)) !default;
+
+$hero-text-padding: $content-gap !default;
 
 .hero {
     background-repeat: no-repeat;
@@ -28,18 +35,3 @@
     }
 }
 
-.fp-hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("#{$img-path}/hero-sm.jpg");
-
-    @include from-md {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("#{$img-path}/hero-md.jpg");
-    }
-
-    @include from-lg {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("#{$img-path}/hero-lg.jpg");
-    }
-
-    @include from-xxl {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("#{$img-path}/hero-xl.jpg");
-    }
-}
