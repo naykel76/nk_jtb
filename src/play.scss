@@ -1,46 +1,33 @@
 // @use "./color/shades" as *;
 // @use "./extras/naykel-docs" as *;
 // @use "./utilities/border" as *;
+@use "./utilities/display-visibility" as *;
 // @use "./utilities/opacity" as *;
 // @use "./utilities/typography" as *;
 @use "./mixins/common" as *;
 @use "./mixins/generate-magic-classes" as *;
+@use "./mixins/makeResponsiveClassMixins" as *;
 @use "sass:list";
 @use "sass:map";
 @use "sass:string";
 
-// @include generate-magic-classes
 
-$space-rem-sizes: (2, 5);
+// $bp: ("sm", "md", "lg", "xl", "xxl");
 
-// // these are the base sizes and should be updated to use size variants.
-// .space-x > *:not(:first-child) {
-//     margin-left: $content-gap;
-// }
-// .space-y > *:not(:first-child) {
-//     margin-top: $content-gap;
-// }
+// // ----------------------------------------------------------------
+// // DISPLAY AND HIDE 'FROM' THE SELECTED SCREEN SIZE
+// // ----------------------------------------------------------------
+// @include makeFromBreakpoint((display: block), "block", $bp);
+// @include makeFromBreakpoint((display: none), "hide", $bp);
 
-// // @each $value in $space-rem-sizes {
-// //     $variant: #{handle-invalid($value)};
-// //     .space-x-#{$variant} > *:not(:first-child) {
-// //         margin-left: #{$value}rem;
-// //     }
-// //     .space-y-#{$variant} > *:not(:first-child) {
-// //         margin-top: #{$value}rem;
-// //     }
-// // }
+// // ----------------------------------------------------------------
+// // DISPLAY AND HIDE 'ON' THE SELECTED SCREEN SIZE
+// // ----------------------------------------------------------------
+// @include makeOnBreakpoint((display: block), "block", $bp);
+// @include makeOnBreakpoint((display: none), "hide", $bp);
 
-// @include from-xl {
-//     .lg\:space-x > *:not(:first-child) {
-//         margin-left: 1rem;
-//     }
-// }
-
-/*parent class*/
-
-$py: ((4, 3, 2, 1), (4, 3, 2, 1), (3, 2, 1)) !default;
-@include generate-magic-classes(padding, $py, "py", $position-or-axis: y, $is-parent: true);
-
-// $my: ((5, 3, 2), (3, 2, 1)) !default;
-// @include generate-magic-classes(margin, $my, "my", $position-or-axis: y, $is-parent: false);
+// // ----------------------------------------------------------------
+// // DISPLAY AND HIDE 'TO' THE SELECTED SCREEN SIZE
+// // ----------------------------------------------------------------
+// @include makeToBreakpoint((display: block), "block", ("sm", "md", "lg", "xl"));
+// @include makeToBreakpoint((display: none), "hide", ("sm", "md", "lg", "xl"));

@@ -1,0 +1,49 @@
+@use '../mixins/common' as *;
+@use '../mixins/makeResponsiveClassMixins' as *;
+
+$breakpoints: ('sm', 'md', 'lg', 'xl', 'xxl');
+
+$display-visibility-properties: (
+    display: (
+        values: (
+            block,
+            contents,
+            flex,
+            ( hidden: none ),
+            inline-block,
+            inline-flex,
+            inline
+        )
+    ),
+    visibility: (
+        values: (
+            collapse,
+            ( invisible: hidden ),
+            visible
+        )
+    )
+);
+
+
+@include generate-utilities($display-visibility-properties);
+
+// ----------------------------------------------------------------
+// DISPLAY AND HIDE 'FROM' THE SELECTED SCREEN SIZE
+// ----------------------------------------------------------------
+@include makeFromBreakpoint((display: block), "block", $breakpoints);
+@include makeFromBreakpoint((display: none), "hidden", $breakpoints);
+@include makeFromBreakpoint((display: none), "hide", $breakpoints); // DEPRECATED
+
+// ----------------------------------------------------------------
+// DISPLAY AND HIDE 'ON' THE SELECTED SCREEN SIZE
+// ----------------------------------------------------------------
+@include makeOnBreakpoint((display: block), "block", $breakpoints);
+@include makeOnBreakpoint((display: none), "hidden", $breakpoints);
+@include makeOnBreakpoint((display: none), "hide", $breakpoints); // DEPRECATED
+
+// ----------------------------------------------------------------
+// DISPLAY AND HIDE 'TO' THE SELECTED SCREEN SIZE
+// ----------------------------------------------------------------
+@include makeToBreakpoint((display: block), "block", ("sm", "md", "lg", "xl"));
+@include makeToBreakpoint((display: none), "hidden", ("sm", "md", "lg", "xl"));
+@include makeToBreakpoint((display: none), "hide", ("sm", "md", "lg", "xl")); // DEPRECATED

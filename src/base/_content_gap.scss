@@ -16,7 +16,7 @@ $common-classes: ".bx", ".bx-content", ".bx-title", "[class*='container']", ".fr
 
 // catch the strays (use with caution). The :where selector is to kill the
 // specificity for easier override
-:where(*:not([class*="flex"]):not([class*="grid"])) > :where(.frm-row, table, form):not(:first-child) {
+:where(*:not([class*="flex"]):not([class*="grid"])) > :where(.frm-row, table, form, pre):not(:first-child) {
     margin-top: $content-gap;
 }
 

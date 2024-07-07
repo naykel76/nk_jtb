@@ -24,22 +24,22 @@
 
 @forward "./utilities/border";
 @forward "./utilities/container";
+@forward "./utilities/display-visibility";
 @forward "./utilities/effects";
 @forward "./utilities/flexbox";
 @forward "./utilities/grid";
 @forward "./utilities/layout";
 @forward "./utilities/margin";
 @forward "./utilities/misc";
+@forward "./utilities/opacity";
 @forward "./utilities/padding";
 @forward "./utilities/position";
 @forward "./utilities/sizing";
 @forward "./utilities/space";
 @forward "./utilities/state";
-@forward "./utilities/opacity";
 @forward "./utilities/transforms";
 @forward "./utilities/transition";
 @forward "./utilities/typography";
-@forward "./utilities/visibility-display";
 
 // extras
 @use "./extras/code" as *;

@@ -1,12 +1,6 @@
 @use "../variables" as *;
 @use "./box" as *;
 
-// ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
-// STOP! being tempted to add default styles to the dropdown Just
-// use utility classes! The dropdown has too many use cases and
-// you will forever be fighting specificity.
-// ---------------- BEFORE YOU DO ANYTHING CRAZY ----------------
-
 .#{$dropdown-identifier} {
     position: relative;
 
@@ -15,10 +9,6 @@
         visibility: hidden;
         opacity: 0;
         transform: translateY(-2em);
-        // adding additional top-margin affects elements
-        // differently. E.G. The toggle buttons need extra margin
-        // but the navbar does not.It is best to leave it off and
-        // manage it directly on the element.
         top: calc(100%);
         left: 0;
         transition: all 0.1s ease-in-out 1s, visibility 0s linear 0.1s, z-index 0s linear 0.01s;
