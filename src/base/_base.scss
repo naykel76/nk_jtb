@@ -72,7 +72,7 @@ abbr:where([title]) {
 :where(h1, h2, h3, h4, h5, h6) {
     font-weight: $heading-font-weight;
     color: $heading-and-title-color;
-    line-height: 1.125;
+    line-height: 1.25;
     text-wrap: balance;
 }
 

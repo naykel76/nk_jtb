@@ -31,6 +31,7 @@ $num-grid-cols: get("grid.num-grid-cols", $config);
     gap: $gap;
 }
 
+
 // ==========================================================================
 // -- GENERAL --
 // ==========================================================================
@@ -40,7 +41,8 @@ $grid-properties-map: (
     gap: (
         prefix: "gap-",
         values: $gap-sizes,
-        unit: "rem"
+        unit: "rem",
+        breakpoints: ("sm", "md", "lg", "xl")
     ),
     justify-items: (
         prefix: "justify-items-",
@@ -95,7 +97,7 @@ $grid-properties-map: (
 // ==========================================================================
 // -- MAGIC CLASSES --
 // ==========================================================================
-// THIS IS EXPERIMENTAL AND MAY NAT STAY IN THE CODEBASE
+// THIS IS EXPERIMENTAL AND MAY NOT STAY IN THE CODEBASE
 
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
 // ALL MAGIC MIXINS MUST HAVE AT LEAST TWO MAPS OR YOU WILL GET AN

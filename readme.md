@@ -7,10 +7,12 @@ Why!
 > Because without reinventing the wheel we wouldn’t have fast cars.
 > -- Nathan Watts
 
-
-
 ## Create documentation
 
 ```bash
 sassdoc ./src --dest ./docs
 ```
+
+## Next Release
+
+Remove `.hide`, has been replaced with `.hidden`
