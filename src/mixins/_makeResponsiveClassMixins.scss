@@ -1,5 +1,5 @@
-@use "./media" as *;
-@use './makePropertyMixins' as *;
+@use './media' as *;
+@use './class-helpers-new' as *;
 
 ////
 /// @group responsive-class-makers
@@ -42,23 +42,23 @@
     @each $bp in $breakpoints {
         $derived-class: #{$bp}\:#{$identifier};
         .#{$derived-class} {
-            @if ($bp == "sm") {
+            @if ($bp == 'sm') {
                 @include from-sm {
                     @include create-properties($props);
                 }
-            } @else if($bp == "md") {
+            } @else if($bp == 'md') {
                 @include from-md {
                     @include create-properties($props);
                 }
-            } @else if($bp == "lg") {
+            } @else if($bp == 'lg') {
                 @include from-lg {
                     @include create-properties($props);
                 }
-            } @else if($bp == "xl") {
+            } @else if($bp == 'xl') {
                 @include from-xl {
                     @include create-properties($props);
                 }
-            } @else if($bp == "xxl") {
+            } @else if($bp == 'xxl') {
                 @include from-xxl {
                     @include create-properties($props);
                 }
@@ -78,19 +78,19 @@
     @each $bp in $breakpoints {
         $derived-class: #{$bp}\:#{$identifier};
         .to-#{$derived-class} {
-            @if ($bp == "sm") {
+            @if ($bp == 'sm') {
                 @include to-sm {
                     @include create-properties($props);
                 }
-            } @else if($bp == "md") {
+            } @else if($bp == 'md') {
                 @include to-md {
                     @include create-properties($props);
                 }
-            } @else if($bp == "lg") {
+            } @else if($bp == 'lg') {
                 @include to-lg {
                     @include create-properties($props);
                 }
-            } @else if($bp == "xl") {
+            } @else if($bp == 'xl') {
                 @include to-xl {
                     @include create-properties($props);
                 }
@@ -112,23 +112,23 @@
     @each $bp in $breakpoints {
         $derived-class: #{$bp}\:#{$identifier};
         .on-#{$derived-class} {
-            @if ($bp == "sm") {
+            @if ($bp == 'sm') {
                 @include on-sm {
                     @include create-properties($props);
                 }
-            } @else if($bp == "md") {
+            } @else if($bp == 'md') {
                 @include on-md {
                     @include create-properties($props);
                 }
-            } @else if($bp == "lg") {
+            } @else if($bp == 'lg') {
                 @include on-lg {
                     @include create-properties($props);
                 }
-            } @else if($bp == "xl") {
+            } @else if($bp == 'xl') {
                 @include on-xl {
                     @include create-properties($props);
                 }
-            } @else if($bp == "xxl") {
+            } @else if($bp == 'xxl') {
                 @include on-xxl {
                     @include create-properties($props);
                 }

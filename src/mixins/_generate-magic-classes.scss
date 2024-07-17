@@ -1,5 +1,5 @@
 @use '../variables/utility_maps' as *;
-@use './class-helpers' as *;
+@use './class-helpers-new' as *;
 @use './media' as *;
 @use 'sass:list';
 
@@ -16,9 +16,9 @@
     @if ($positions == '' or $positions == null) {
         // always uses rem as the unit
         $unit: rem;
-        @include createSingleProperty($property, #{$value}#{$unit});
+        @include create-property($property, #{$value}#{$unit});
     } @else {
-        @include createPositionProperties($property, $value, $positions);
+        @include create-position-properties($property, $value, $positions);
     }
 }
 
@@ -48,7 +48,6 @@
 ///
 /// **NOTE:** this mixin works with both position and unit based properties and
 /// supports parent/child classes.
-///
 ///
 /// @param {String} $property - The CSS property.
 /// @param {List} $values-list - The list of values for the property .

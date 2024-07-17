@@ -3,21 +3,19 @@
 @use './makeClassMixins' as *;
 @use 'sass:string';
 
-// 1. The `key`can be a single value e.g. `1.5` or a key-value pair
-//    represented as list e.g. `sm 1.5`. This allows you to pass in
-//    a list of values or a map of key-value pairs.
-// 2. $derived-unit: Checks if the $value includes a unit (12px,
-//    1em, 100vh, etc.). If it does, $derived-unit is set to null.
-//    If it doesn't, $derived-unit is set to $unit.This is used to
-//    prevent the unit from being added twice when values include
-//    units.
-// 3. $derived-value: This variable holds the processed value of the
-//    class, which is derived from the original $value. It's created
-//    to ensure that the class value is handled correctly based on
-//    its unit.
-// 4. $derived-variant: This variable combines the variant and the
-//    unit into a single string. This creates the unique identifier
-//    which is used to create the class name.
+// 1. The `key`can be a single value e.g. `1.5` or a key-value pair represented
+//    as list e.g. `sm 1.5`. This allows you to pass in a list of values or a
+//    map of key-value pairs.
+// 2. $derived-unit: Checks if the $value includes a unit (12px, 1em, 100vh,
+//    etc.). If it does, $derived-unit is set to null. If it doesn't,
+//    $derived-unit is set to $unit.This is used to prevent the unit from being
+//    added twice when values include units.
+// 3. $derived-value: This variable holds the processed value of the class,
+//    which is derived from the original $value. It's created to ensure that the
+//    class value is handled correctly based on its unit.
+// 4. $derived-variant: This variable combines the variant and the unit into a
+//    single string. This creates the unique identifier which is used to create
+//    the class name.
 
 // prettier-ignore
 @mixin generate-utilities($properties-map) {
@@ -39,9 +37,9 @@
             $variant: nth($variant-value, 1);
             $value: nth($variant-value, 2);
 
-            // Derived variables simplify and standardize value and
-            // unit handling in utility class generation, improving
-            // code readability and reducing complexity.
+            // Derived variables simplify and standardize value and unit
+            // handling in utility class generation, improving code readability
+            // and reducing complexity.
             $derived-unit: if(value-has-unit($value), null, ($unit)); // 2.
             $derived-value: #{handle-class-value($value, $derived-unit)}; // 3.
             $derived-variant: #{$variant}#{handle-class-unit($derived-unit)}; // 4.

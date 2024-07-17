@@ -1,14 +1,6 @@
 @use '../functions/helpers' as *;
-@use './makePropertyMixins' as *;
 @use './makeResponsiveClassMixins' as *;
 @use './media' as *;
-
-////
-/// @group class-helpers
-////
-
-// NK?? This could arguably be moved into the main generator mixin
-// $positions is each individual position, e.g., top, bottom, left, right
 
 // 1. initialise props to be used for responsive classes
 // 2. pass in identifier to strip-invalid to remove unwanted characters
@@ -28,38 +20,10 @@
             }
         }
         @if ($breakpoints) {
-            // convert the `breakpoints` passed in as a list to an
-            // argument list because the makeFromBreakpoint mixin
-            // expects separate arguments.
+            // convert the `breakpoints` passed in as a list to an argument list
+            // because the makeFromBreakpoint mixin expects separate arguments.
             @include makeFromBreakpoint($props, $derived-class, $breakpoints);
         }
     }
 }
 
-// ==========================================================================
-// -- CREATE ONE OR MANY PROPERTIES FROM MAP OF KEY-VALUE PAIRS --
-// ==========================================================================
-
-// must pass in complete value including the unit
-@mixin createSingleProperty($property, $value) {
-    #{$property}: $value;
-}
-
-// ==========================================================================
-// Generate properties based on positional requirements. For
-// example, when `margin-top` requires a value for `top`, and
-// `margin-x` requires values for `left` and `right`.
-// ==========================================================================
-// This mixin iterates through a list of positions, creating the
-// appropriate property (e.g., `top`, `bottom`, `left`, `right`)
-// based on the provided value.
-//
-// You can specify the unit of measurement with the optional `$unit`
-// parameter, with the default unit being "rem".
-
-@mixin createPositionProperties($property, $value, $positions, $unit: 'rem') {
-    @each $position in $positions {
-        $derivedUnit: if(($value == 'auto' or $value == 0), null, $unit);
-        #{$property}-#{$position}: #{$value}#{$derivedUnit};
-    }
-}
