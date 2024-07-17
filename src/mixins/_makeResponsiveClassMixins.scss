@@ -44,23 +44,23 @@
         .#{$derived-class} {
             @if ($bp == "sm") {
                 @include from-sm {
-                    @include createProperties($props);
+                    @include create-properties($props);
                 }
             } @else if($bp == "md") {
                 @include from-md {
-                    @include createProperties($props);
+                    @include create-properties($props);
                 }
             } @else if($bp == "lg") {
                 @include from-lg {
-                    @include createProperties($props);
+                    @include create-properties($props);
                 }
             } @else if($bp == "xl") {
                 @include from-xl {
-                    @include createProperties($props);
+                    @include create-properties($props);
                 }
             } @else if($bp == "xxl") {
                 @include from-xxl {
-                    @include createProperties($props);
+                    @include create-properties($props);
                 }
             }
         }
@@ -80,19 +80,19 @@
         .to-#{$derived-class} {
             @if ($bp == "sm") {
                 @include to-sm {
-                    @include createProperties($props);
+                    @include create-properties($props);
                 }
             } @else if($bp == "md") {
                 @include to-md {
-                    @include createProperties($props);
+                    @include create-properties($props);
                 }
             } @else if($bp == "lg") {
                 @include to-lg {
-                    @include createProperties($props);
+                    @include create-properties($props);
                 }
             } @else if($bp == "xl") {
                 @include to-xl {
-                    @include createProperties($props);
+                    @include create-properties($props);
                 }
             } @else {
                 @error 'The device '#{$bp}' is not available for this mixin, you need to remove it from the args list.';
@@ -114,23 +114,23 @@
         .on-#{$derived-class} {
             @if ($bp == "sm") {
                 @include on-sm {
-                    @include createProperties($props);
+                    @include create-properties($props);
                 }
             } @else if($bp == "md") {
                 @include on-md {
-                    @include createProperties($props);
+                    @include create-properties($props);
                 }
             } @else if($bp == "lg") {
                 @include on-lg {
-                    @include createProperties($props);
+                    @include create-properties($props);
                 }
             } @else if($bp == "xl") {
                 @include on-xl {
-                    @include createProperties($props);
+                    @include create-properties($props);
                 }
             } @else if($bp == "xxl") {
                 @include on-xxl {
-                    @include createProperties($props);
+                    @include create-properties($props);
                 }
             }
         }

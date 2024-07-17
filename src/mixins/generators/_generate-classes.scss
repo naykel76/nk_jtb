@@ -14,7 +14,7 @@
         $breakpoints: map-get($map, "breakpoints");
 
         .#{$class} {
-            @include createProperties($props);
+            @include create-properties($props);
         }
 
         @if ($breakpoints) {

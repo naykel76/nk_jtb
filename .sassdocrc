@@ -1,0 +1,5 @@
+groups:
+  class-generators: Class Generators
+  class-makers: Class Makers
+  helpers: Helpers
+  property-makers: Property Makers

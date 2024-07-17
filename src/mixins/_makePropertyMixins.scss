@@ -8,7 +8,7 @@
 ///
 /// @example scss - Usage
 /// .my-class {
-///   @include createProperties((color: blue, background-color: white));
+///   @include create-properties((color: blue, background-color: white));
 /// }
 ///
 /// // .my-class {
@@ -17,7 +17,7 @@
 /// // }
 ///
 
-@mixin createProperties($props) {
+@mixin create-properties($props) {
     @each $property, $value in $props {
         #{$property}: $value;
     }

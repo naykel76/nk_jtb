@@ -1,5 +1,6 @@
 @use "../variables" as *;
 
+// don't be tempted to add div here, it creates more problems than it solves
 $html-elements: blockquote, p, pre, form, table, ol, ul, h1, h2, h3, h4, h5, h6;
 $common-classes: ".bx", ".bx-content", ".bx-title", "[class*='container']", ".frm-row", ".grid", "[class*='flex']:not(.inline-flex)";
 
