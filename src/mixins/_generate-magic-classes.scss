@@ -1,7 +1,7 @@
-@use "../mixins/class-helpers" as *;
-@use "../mixins/media" as *;
-@use "../variables/utility_maps" as *;
-@use "sass:list";
+@use '../variables/utility_maps' as *;
+@use './class-helpers' as *;
+@use './media' as *;
+@use 'sass:list';
 
 // ==========================================================================
 // -- HELPER MIXIN FOR MAGIC CLASSES --
@@ -13,7 +13,7 @@
 // units
 
 @mixin handleMagicProperties($property, $value, $positions) {
-    @if ($positions == "" or $positions == null) {
+    @if ($positions == '' or $positions == null) {
         // always uses rem as the unit
         $unit: rem;
         @include createSingleProperty($property, #{$value}#{$unit});
@@ -32,11 +32,11 @@
 
     // if the class is a parent class, add the prefix
     @if $is-parent {
-        $class: "c-#{$identifier}-#{$class} > *";
+        $class: 'c-#{$identifier}-#{$class} > *';
     } @else {
-        $class: "#{$identifier}-#{$class}";
+        $class: '#{$identifier}-#{$class}';
     }
-    
+
     @return $class;
 }
 
@@ -48,7 +48,7 @@
 ///
 /// **NOTE:** this mixin works with both position and unit based properties and
 /// supports parent/child classes.
-/// 
+///
 ///
 /// @param {String} $property - The CSS property.
 /// @param {List} $values-list - The list of values for the property .
@@ -58,7 +58,7 @@
 /// @param {Boolean} $is-parent - Indicates if the class is applied to the parent
 ///
 
-@mixin generate-magic-classes($property, $values-list, $identifier, $unit: "rem", $position-or-axis: "", $is-parent: false) {
+@mixin generate-magic-classes($property, $values-list, $identifier, $unit: 'rem', $position-or-axis: '', $is-parent: false) {
     // get the positions required to build up the class
     // (x:(left, right), y:(top, bottom) ... etc)
     $positions: map-get($axis-position-map, $position-or-axis);

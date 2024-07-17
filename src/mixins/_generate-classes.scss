@@ -1,8 +1,8 @@
-@use "../../functions/helpers" as *;
-@use "../../mixins/class-helpers" as *;
-@use "../../mixins/makeResponsiveClassMixins" as *;
-@use "../makePropertyMixins" as *;
-@use "sass:string";
+@use '../functions/helpers' as *;
+@use './class-helpers' as *;
+@use './makeResponsiveClassMixins' as *;
+@use './makePropertyMixins' as *;
+@use 'sass:string';
 
 // ==========================================================================
 // --  --
@@ -10,8 +10,8 @@
 
 @mixin generate-classes($properties-map) {
     @each $class, $map in $properties-map {
-        $props: map-get($map, "props");
-        $breakpoints: map-get($map, "breakpoints");
+        $props: map-get($map, 'props');
+        $breakpoints: map-get($map, 'breakpoints');
 
         .#{$class} {
             @include create-properties($props);

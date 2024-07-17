@@ -1,14 +1,11 @@
-@use "../functions/helpers" as *;
-@use "./makePropertyMixins" as *;
-@use "./makeResponsiveClassMixins" as *;
-@use "./media" as *;
+@use '../functions/helpers' as *;
+@use './makePropertyMixins' as *;
+@use './makeResponsiveClassMixins' as *;
+@use './media' as *;
 
-
-// @mixin createMultiplePropertyClass($class, $props) {
-//     .#{$class} {
-//         @include create-properties($props);
-//     }
-// }
+////
+/// @group class-helpers
+////
 
 // NK?? This could arguably be moved into the main generator mixin
 // $positions is each individual position, e.g., top, bottom, left, right
@@ -60,9 +57,9 @@
 // You can specify the unit of measurement with the optional `$unit`
 // parameter, with the default unit being "rem".
 
-@mixin createPositionProperties($property, $value, $positions, $unit: "rem") {
+@mixin createPositionProperties($property, $value, $positions, $unit: 'rem') {
     @each $position in $positions {
-        $derivedUnit: if(($value == "auto" or $value == 0), null, $unit);
+        $derivedUnit: if(($value == 'auto' or $value == 0), null, $unit);
         #{$property}-#{$position}: #{$value}#{$derivedUnit};
     }
 }

@@ -1,7 +1,7 @@
-@use "../../functions/helpers" as *;
-@use "../../mixins/class-helpers" as *;
-@use "../makeClassMixins" as *;
-@use "sass:string";
+@use '../functions/helpers' as *;
+@use './class-helpers' as *;
+@use './makeClassMixins' as *;
+@use 'sass:string';
 
 // 1. The `key`can be a single value e.g. `1.5` or a key-value pair
 //    represented as list e.g. `sm 1.5`. This allows you to pass in
