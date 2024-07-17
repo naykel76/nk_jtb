@@ -3,7 +3,7 @@
 @use "../mixins/common" as *;
 @use "../mixins/generate-magic-classes" as *;
 @use "../mixins/magicGridGenerators" as *;
-@use "../mixins/makeResponsiveClassMixins" as *;
+@use "../mixins/make-responsive-class-mixins" as *;
 
 $gap: get("grid.default-gap", $config);
 $gap-sizes: (0, 0.25, 0.5, 1, 1.25, 1.5, 2, 3, 4, 5) !default;
@@ -91,7 +91,7 @@ $grid-properties-map: (
     );
     $breakpoints: ("base", "sm", "md", "lg", "xl");
     $class: "cols-#{$i}";
-    @include makeFromBreakpoint($props, $class, $breakpoints);
+    @include make-from-breakpoint($props, $class, $breakpoints);
 }
 
 // ==========================================================================

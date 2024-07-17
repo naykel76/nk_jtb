@@ -1,16 +1,11 @@
 @use './media' as *;
-@use './class-helpers-new' as *;
+@use './class-helpers' as *;
 
 ////
 /// @group responsive-class-makers
 ////
 
-// ======== BEFORE YOU DO ANYTHING CRAZY ======================================
-// SASS does not support interpolation for @include so there is no choice other
-// than creating multiple mixins using using multiple if-else statements.
-// ============================================================================
-
-/// Generate responsive classes for one or more properties, starting FROM the
+/// Generate responsive class for one or more properties, starting FROM the
 /// specified breakpoints, across a range of breakpoints.
 ///
 /// @param {Map} $props - The map of properties and values.
@@ -18,27 +13,32 @@
 /// @param {List} $breakpoints - The list of breakpoints.
 ///
 /// @example scss - Usage
-/// \@include makeFromBreakpoint(
-///     $class: "txt-abc",
-///     $props: ( font-size: #333, line-height: 1 ),
-///     $breakpoints: ( "sm", "md" )
-/// );
-///
-/// // @media (min-width: 576px) {
-/// //     .sm\:txt-abc {
-/// //         font-size: #333;
-/// //         line-height: 1;
-/// //     }
-/// // }
-///
-/// // @media (min-width: 768px) {
-/// //     .md\:txt-abc {
-/// //         font-size: #333;
-/// //         line-height: 1;
-/// //     }
-/// // }
+///     @include make-from-breakpoint(
+///         (display: flex, flex-direction: column),
+///         'flex-column',
+///         ('sm', 'md')
+///     );
+/// @example scss - Usage (Named Arguments)
+///      @include make-from-breakpoint(
+///          $props: (display: flex, flex-direction: column),
+///          $identifier: 'flex-column',
+///          $breakpoints: ('sm', 'md')
+///      );
+/// @example scss - Output
+///     @media (min-width: 576px) {
+///         .sm\:flex-column {
+///             display: flex;
+///             flex-direction: column;
+///         }
+///     }
+///     @media (min-width: 768px) {
+///         .md\:flex-column {
+///             display: flex;
+///             flex-direction: column;
+///         }
+///     }
 
-@mixin makeFromBreakpoint($props, $identifier, $breakpoints) {
+@mixin make-from-breakpoint($props, $identifier, $breakpoints) {
     @each $bp in $breakpoints {
         $derived-class: #{$bp}\:#{$identifier};
         .#{$derived-class} {
@@ -67,14 +67,15 @@
     }
 }
 
-/// Generate responsive classes for one or more properties, starting TO the
-/// specified breakpoints, across a range of breakpoints.
-///
+/// Generate responsive classes for one or more properties, up TO the specified
+/// breakpoints, across a range of breakpoints.
+// 
 /// @param {Map} $props - The map of properties and values.
 /// @param {String} $identifier - A part of the base class name.
 /// @param {List} $breakpoints - The list of breakpoints.
+/// 
 
-@mixin makeToBreakpoint($props, $identifier, $breakpoints) {
+@mixin make-to-breakpoint($props, $identifier, $breakpoints) {
     @each $bp in $breakpoints {
         $derived-class: #{$bp}\:#{$identifier};
         .to-#{$derived-class} {
@@ -108,7 +109,7 @@
 /// @param {String} $identifier - A part of the base class name.
 /// @param {List} $breakpoints - The list of breakpoints.
 
-@mixin makeOnBreakpoint($props, $identifier, $breakpoints) {
+@mixin make-on-breakpoint($props, $identifier, $breakpoints) {
     @each $bp in $breakpoints {
         $derived-class: #{$bp}\:#{$identifier};
         .on-#{$derived-class} {

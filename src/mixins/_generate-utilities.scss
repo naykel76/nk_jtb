@@ -1,6 +1,6 @@
 @use '../functions/helpers' as *;
-@use './class-helpers' as *;
-@use './makeClassMixins' as *;
+@use './make-position-based-class' as *;
+@use './make-class-mixins' as *;
 @use 'sass:string';
 
 // 1. The `key`can be a single value e.g. `1.5` or a key-value pair represented
@@ -45,11 +45,10 @@
             $derived-variant: #{$variant}#{handle-class-unit($derived-unit)}; // 4.
 
             @if $positions-map {
-                // the class naming is handled by the mixin
-                @include positionBasedClass($property, $derived-value, $positions-map, $identifier, $derived-variant, $breakpoints);
+                @include make-position-based-class($property, $derived-value, $positions-map, $identifier, $derived-variant, $breakpoints);
             } @else{
                 $derived-class: strip-invalid(#{$identifier}#{$derived-variant});
-                @include makeSinglePropertyClass(#{$derived-class}, $property, #{$derived-value}, $breakpoints);
+                @include make-single-property-class(#{$derived-class}, $property, #{$derived-value}, $breakpoints);
             }
         }
     }

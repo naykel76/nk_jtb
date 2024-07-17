@@ -1,6 +1,6 @@
 @use '../functions/helpers' as *;
-@use './class-helpers-new' as *;
-@use './makeResponsiveClassMixins' as *;
+@use './class-helpers' as *;
+@use './make-responsive-class-mixins' as *;
 @use 'sass:string';
 
 @mixin generate-classes($properties-map) {
@@ -13,7 +13,7 @@
         }
 
         @if ($breakpoints) {
-            @include makeFromBreakpoint($props, $class, $breakpoints);
+            @include make-from-breakpoint($props, $class, $breakpoints);
         }
     }
 }

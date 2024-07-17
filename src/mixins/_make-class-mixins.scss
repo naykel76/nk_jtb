@@ -1,0 +1,43 @@
+@use './make-responsive-class-mixins' as *;
+
+// ==================================================================== //
+// DO NOT BE TEMPTED TO COMBINE THIS WITH THE `make-class-mixins` FILE. //
+//       IT WILL CREATE A CIRCULAR DEPENDENCY AND RUIN YOUR DAY         //
+// ==================================================================== //
+
+////
+/// @group class-makers
+////
+
+/// Generate class for a single property and optionally creates responsive
+/// classes for a range of breakpoints.
+///
+/// **NOTE:** This mixin will create the base class as well as responsive classes.
+///
+/// @param {String} $class - The full class name.
+/// @param {String} $property - The CSS property.
+/// @param {String} $value - The value of the CSS property.
+/// @param {List} $breakpoints - The list of breakpoints (optional).
+///
+/// @example scss - Usage
+///     @include make-single-property-class('txt-red', 'color', 'red', ('sm', 'md'));
+///
+/// @example scss - Output
+///     .txt-red { color: "red"; }
+///
+///     @media (min-width: 576px) {
+///         .sm\:txt-red { color: "red"; }
+///     }
+///
+///     @media (min-width: 768px) {
+///       .md\:txt-red { color: "red"; }
+///     }
+
+@mixin make-single-property-class($class, $property, $value, $breakpoints: ()) {
+    .#{$class} {
+        #{$property}: $value;
+    }
+    @if ($breakpoints) {
+        @include make-from-breakpoint(($property: $value), $class, $breakpoints);
+    }
+}

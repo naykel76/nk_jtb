@@ -3,9 +3,10 @@
 
 $sizing-merged: magic-merge($sizing-variants, $sizing-pixels, $sizing-rem);
 
-// Build the base properties for width and height separately. This allows for more flexibility when
-// you want to add a custom size to either the width or the height without affecting the other. For
-// example 80vh can be merged into the base height class without affecting the width.
+// Build the base properties for width and height separately. This allows for
+// more flexibility when you want to add a custom size to either the width or
+// the height without affecting the other. For example 80vh can be merged into
+// the base height class without affecting the width.
 
 // prettier-ignore
 $sizing-properties-map: (
@@ -31,30 +32,3 @@ $sizing-properties-map: (
         height: #{$size}rem;
     }
 }
-
-// generateResponsiveClasses();
-// // ==========================================================================
-// // -- RESPONSIVE SIZES --
-// // ==========================================================================
-
-// // prettier-ignore
-// @include makeFromBreakpoint((width: 16rem), "w-16", "sm", "md", "lg", "xl");
-// // prettier-ignore
-// @include makeFromBreakpoint((width: 20rem), "w-20", "sm", "md", "lg", "xl");
-// // prettier-ignore
-// @include makeFromBreakpoint((width: 24rem), "w-24", "sm", "md", "lg", "xl");
-// // prettier-ignore
-// @include makeFromBreakpoint((width: 100%), "w-full", "sm", "md", "lg", "xl");
-
-// ==========================================================================
-// I really don't think fractional widths are worth it. I think it
-// is better to use the grid system for this. I am leaving this here
-// for now but I think it will be removed in the future.
-// ==========================================================================
-
-// $fractional-sizes: (1\/4: 25%, 1\/3: 33.33%, 1\/2: 50%, 3\/4: 75%) !default;
-
-// @each $key, $value in $fractional-sizes {
-//     .w-#{$key} { width: $value; }
-//     @include makeFromBreakpoint(width, $value, "w-#{$key}", "sm", "md", "lg", "xl");
-// }
