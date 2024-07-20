@@ -1,33 +1,25 @@
-// @use "./color/shades" as *;
-// @use "./extras/naykel-docs" as *;
-// @use "./utilities/border" as *;
-// @use "./utilities/display-visibility" as *;
-// @use "./utilities/opacity" as *;
-// @use "./utilities/typography" as *;
-@use "./mixins/common" as *;
-@use "./mixins/generate-magic-classes" as *;
-@use "./mixins/make-responsive-class-mixins" as *;
-@use "sass:list";
-@use "sass:map";
-@use "sass:string";
+// @use './color/shades' as *;
+// @use './extras/naykel-docs' as *;
+@use './utilities/border' as *;
+// @use './utilities/display-visibility' as *;
+// @use './utilities/opacity' as *;
+// @use './utilities/typography' as *;
+@use './mixins/common' as *;
+@use './mixins/generate-magic-classes' as *;
+@use './mixins/make-responsive-class-mixins' as *;
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:string';
+
+// this is not easy to override on the child element unless the
+// properties are set as !important but works great otherwise.
+// .divide-y > :not([hidden]) ~ :not([hidden]) {
+//     border-top: 1px solid blue;
+// }
+
+// .divide-y-red > :not([hidden]) ~ :not([hidden]) {
+//     border-top: 1px solid red;
+// }
 
 
-// $bp: ("sm", "md", "lg", "xl", "xxl");
-
-// // ----------------------------------------------------------------
-// // DISPLAY AND HIDE 'FROM' THE SELECTED SCREEN SIZE
-// // ----------------------------------------------------------------
-// @include makeFromBreakpoint((display: block), "block", $bp);
-// @include makeFromBreakpoint((display: none), "hide", $bp);
-
-// // ----------------------------------------------------------------
-// // DISPLAY AND HIDE 'ON' THE SELECTED SCREEN SIZE
-// // ----------------------------------------------------------------
-// @include makeOnBreakpoint((display: block), "block", $bp);
-// @include makeOnBreakpoint((display: none), "hide", $bp);
-
-// // ----------------------------------------------------------------
-// // DISPLAY AND HIDE 'TO' THE SELECTED SCREEN SIZE
-// // ----------------------------------------------------------------
-// @include makeToBreakpoint((display: block), "block", ("sm", "md", "lg", "xl"));
-// @include makeToBreakpoint((display: none), "hide", ("sm", "md", "lg", "xl"));
+// change the color and with by using the border classes

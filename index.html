@@ -9,21 +9,207 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
 </head>
 
 <body>
 
-    <div class="container mt">
-        <div class="grid cols-2">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur alias a omnis ipsa perferendis dolorum suscipit facere excepturi atque totam illo, exercitationem voluptas accusamus libero ipsum harum, rerum explicabo ducimus.</p>
-            <p class="font-serif">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae magni placeat eligendi. Officiis, voluptate. Eligendi id nesciunt, totam ipsam nobis officia ex voluptate eveniet voluptatem voluptatibus animi molestias dignissimos nulla.</p>
-            <p class="font-sans-serif">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur laborum est exercitationem asperiores voluptate, dolor id magnam, eligendi veniam quo natus numquam vel culpa obcaecati ullam ipsam eveniet velit sunt?</p>
-            <p class="font-mono">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure delectus excepturi dolorum. Eum consequuntur natus eveniet illo consequatur? Inventore, incidunt! Aspernatur laudantium officia veniam! Temporibus eaque qui nemo recusandae similique.</p>
+    <!-- create a element with max height and overflow hidden, then add a class to the element that you want to show/hide and set the max height to 0 and overflow to hidden. Then use alpine to toggle the class on the element you want to show/hide. -->
+
+    set max height
+    hide overflow
+    fade out content
+    show more to display overflow content
+
+    <style>
+        .fade-out-mask {
+            -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+            max-height: 10em;
+            overflow: hidden;
+        }
+
+        .expanded {
+            -webkit-mask-image: none;
+            mask-image: none;
+            max-height: none;
+        }
+    </style>
+
+    <div class="container-md py-5">
+        <div x-data="{ expanded: false }" class="container-md py-5">
+            <div :class="{'fade-out-mask': !expanded}" class="overflow-hidden">
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis porro ipsa expedita, itaque
+                    laudantium minima alias fugit. Perferendis rerum dolorem possimus fugiat dicta, commodi, voluptates
+                    adipisci sunt ad voluptatem quam. </p>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis porro ipsa expedita, itaque
+                    laudantium minima alias fugit. Perferendis rerum dolorem possimus fugiat dicta, commodi, voluptates
+                    adipisci sunt ad voluptatem quam. </p>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis porro ipsa expedita, itaque
+                    laudantium minima alias fugit. Perferendis rerum dolorem possimus fugiat dicta, commodi, voluptates
+                    adipisci sunt ad voluptatem quam. </p>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis porro ipsa expedita, itaque
+                    laudantium minima alias fugit. Perferendis rerum dolorem possimus fugiat dicta, commodi, voluptates
+                    adipisci sunt ad voluptatem quam. </p>
+            </div>
+            <button x-on:click="expanded =! expanded" class="link mt">
+                <div class="flex va-c" x-show="!expanded">
+                    Show more
+                    <svg class="icon sm ml-05">
+                        <use xlink:href="svg/naykel-ui.svg#chevron-down"></use>
+                    </svg>
+                </div>
+                <span class="flex va-c" x-show="expanded">
+                    Show less
+                    <svg class="icon sm ml-05">
+                        <use xlink:href="svg/naykel-ui.svg#chevron-up"></use>
+                    </svg>
+                </span>
+            </button>
         </div>
     </div>
 
+    <div class="pxy container">
+        <div x-data="{ active: 0, }" class="divide-y bdr bdr-red">
+            <div x-data="{
+                id: 1,
+                get expanded() { return this.active === this.id },
+                set expanded(value) { this.active = value ? this.id : null }
+            }">
+                <button x-on:click="expanded =! expanded" class="flex space-between va-c w-full pxy bg-blue-50">
+                    <div class="flex space-between w-full" x-show="!expanded">
+                        Open Item One
+                        <svg class="icon">
+                            <use xlink:href="svg/naykel-ui.svg#chevron-right"></use>
+                        </svg>
+                    </div>
+                    <span class="flex space-between w-full" x-show="expanded">
+                        Close Item One
+                        <svg class="icon">
+                            <use xlink:href="svg/naykel-ui.svg#chevron-down"></use>
+                        </svg>
+                    </span>
+                </button>
+                <div x-show="expanded" class="pxy mxy-0"> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Excepturi ab beatae labore est nam corporis dolorem delectus molestias voluptate, totam, error
+                    necessitatibus! Asperiores saepe, impedit obcaecati sint dignissimos reprehenderit vero? </div>
+            </div>
+            <div x-data="{
+                id: 2,
+                get expanded() { return this.active === this.id },
+                set expanded(value) { this.active = value ? this.id : null }
+            }">
+                <button x-on:click="expanded =! expanded" class="flex space-between va-c w-full pxy bg-blue-50">
+                    <div class="flex space-between w-full" x-show="!expanded">
+                        Open Item Two
+                        <svg class="icon">
+                            <use xlink:href="svg/naykel-ui.svg#chevron-right"></use>
+                        </svg>
+                    </div>
+                    <span class="flex space-between w-full" x-show="expanded">
+                        Close Item Two
+                        <svg class="icon">
+                            <use xlink:href="svg/naykel-ui.svg#chevron-down"></use>
+                        </svg>
+                    </span>
+                </button>
+                <div x-show="expanded" class="pxy mxy-0"> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Excepturi ab beatae labore est nam corporis dolorem delectus molestias voluptate, totam, error
+                    necessitatibus! Asperiores saepe, impedit obcaecati sint dignissimos reprehenderit vero? </div>
+            </div>
+        </div>
+    </div>
+    <div class="pxy container">
+        <div x-data="{ active: 0, }" class="space-y">
+            <div x-data="{
+                id: 1,
+                get expanded() { return this.active === this.id },
+                set expanded(value) { this.active = value ? this.id : null }
+            }">
+                <button x-on:click="expanded =! expanded" class="flex space-between va-c dark w-full pxy">
+                    <div class="flex space-between w-full" x-show="!expanded">
+                        Open Item One
+                        <svg class="icon">
+                            <use xlink:href="svg/naykel-ui.svg#chevron-right"></use>
+                        </svg>
+                    </div>
+                    <span class="flex space-between w-full" x-show="expanded">
+                        Close Item One
+                        <svg class="icon">
+                            <use xlink:href="svg/naykel-ui.svg#chevron-down"></use>
+                        </svg>
+                    </span>
+                </button>
+                <div x-show="expanded" class="bx"> Hey there! </div>
+            </div>
+            <div x-data="{
+                id: 2,
+                get expanded() { return this.active === this.id },
+                set expanded(value) { this.active = value ? this.id : null }
+            }">
+                <button x-on:click="expanded =! expanded" class="flex space-between va-c dark w-full pxy">
+                    <div class="flex space-between w-full" x-show="!expanded">
+                        Open Item Two
+                        <svg class="icon">
+                            <use xlink:href="svg/naykel-ui.svg#chevron-right"></use>
+                        </svg>
+                    </div>
+                    <span class="flex space-between w-full" x-show="expanded">
+                        Close Item Two
+                        <svg class="icon">
+                            <use xlink:href="svg/naykel-ui.svg#chevron-down"></use>
+                        </svg>
+                    </span>
+                </button>
+                <div x-show="expanded" class="bx"> Hey there! </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt">
+        <div class="grid md:cols-2">
+            <div class="divide-y zebra">
+                <div class="h-2"></div>
+                <div class="h-2"></div>
+                <div class="h-2"></div>
+                <div class="h-2"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt">
+        <div class="grid cols-2">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur alias a omnis ipsa perferendis
+                dolorum suscipit facere excepturi atque totam illo, exercitationem voluptas accusamus libero ipsum
+                harum, rerum explicabo ducimus.</p>
+            <p class="font-serif">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae magni placeat
+                eligendi. Officiis, voluptate. Eligendi id nesciunt, totam ipsam nobis officia ex voluptate eveniet
+                voluptatem voluptatibus animi molestias dignissimos nulla.</p>
+            <p class="font-sans-serif">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur laborum est
+                exercitationem asperiores voluptate, dolor id magnam, eligendi veniam quo natus numquam vel culpa
+                obcaecati ullam ipsam eveniet velit sunt?</p>
+            <p class="font-mono">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure delectus excepturi
+                dolorum. Eum consequuntur natus eveniet illo consequatur? Inventore, incidunt! Aspernatur laudantium
+                officia veniam! Temporibus eaque qui nemo recusandae similique.</p>
+        </div>
+    </div>
     <div class="quick-hide-div zebra">
+        <section class="py-3">
+            <div class="container">
+                <h2 class="title txt-3">Naykel UI Icons</h2>
+                <div class="flex">
+                    <svg class="icon">
+                        <use xlink:href="svg/naykel-ui.svg#chevron-down"></use>
+                    </svg>
+                    <svg class="icon">
+                        <use xlink:href="svg/naykel-ui.svg#chevron-left"></use>
+                    </svg>
+                    <svg class="icon">
+                        <use xlink:href="svg/naykel-ui.svg#chevron-right"></use>
+                    </svg>
+                    <svg class="icon">
+                        <use xlink:href="svg/naykel-ui.svg#chevron-up"></use>
+                    </svg>
+                </div>
+            </div>
+        </section>
         <section id="button-control-sizes-examples" class="py-3">
             <div class="container space-y">
                 <h2 class="title txt-3">Button and Control Sizes</h2>
@@ -48,9 +234,7 @@
                     <input class="xl" placeholder="Text Input">
                 </div>
             </div>
-
         </section>
-
         <section id="button-theme-examples" class="py-3">
             <div class="container">
                 <h2 class="title txt-3">Buttons</h2>
