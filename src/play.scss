@@ -1,6 +1,6 @@
 // @use './color/shades' as *;
 // @use './extras/naykel-docs' as *;
-@use './utilities/border' as *;
+@use './utilities/padding' as *;
 // @use './utilities/display-visibility' as *;
 // @use './utilities/opacity' as *;
 // @use './utilities/typography' as *;
@@ -10,16 +10,3 @@
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:string';
-
-// this is not easy to override on the child element unless the
-// properties are set as !important but works great otherwise.
-// .divide-y > :not([hidden]) ~ :not([hidden]) {
-//     border-top: 1px solid blue;
-// }
-
-// .divide-y-red > :not([hidden]) ~ :not([hidden]) {
-//     border-top: 1px solid red;
-// }
-
-
-// change the color and with by using the border classes

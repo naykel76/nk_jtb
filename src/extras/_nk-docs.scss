@@ -1,6 +1,6 @@
-@use "../mixins/common" as *;
-@use "../variables/tailwind-colors" as *;
-@use "sass:map";
+@use '../mixins/common' as *;
+@use '../variables/tailwind-colors' as *;
+@use 'sass:map';
 
 // ========================================================================== --
 // NAYKEL DOCS --
@@ -14,8 +14,8 @@
 
 $table-bg: white !default;
 
-$th-bdr-color: map-get($tailwind-colors, "slate", "200") !default;
-$td-bdr-color: map-get($tailwind-colors, "slate", "100") !default;
+$th-bdr-color: map-get($tailwind-colors, 'slate', '200') !default;
+$td-bdr-color: map-get($tailwind-colors, 'slate', '100') !default;
 
 $code-color: #f0506e !default;
 $question-color: #2299dd !default;
@@ -47,6 +47,11 @@ $question-color: #2299dd !default;
     //         padding-inline: 0.75rem;
     //     }
     // }
+
+    .all-list-spacing-05 ~ ul li {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
 }
 
 // ==========================================================================
@@ -54,7 +59,7 @@ $question-color: #2299dd !default;
 // ==========================================================================
 
 %code {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
     color: $code-color;
     // color: rgb(14, 165, 233);
     border-radius: 0.25rem;
@@ -175,6 +180,7 @@ h3 {
     }
 
     .spaced-out-all ~ ul li {
+        background: red;
         margin-top: 0.5rem !important;
     }
 }
@@ -186,7 +192,10 @@ h3 {
 
 // this is good when making a list when you want to use the toc for an overview
 .small-headings {
+    ~ h1 {
+        font-size: 2em;
+    }
     ~ h3 {
-        font-size: 1.25rem;
+        font-size: 1.25em;
     }
 }

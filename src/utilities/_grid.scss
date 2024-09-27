@@ -1,13 +1,13 @@
-@use "../config" as *;
-@use "../functions/get" as *;
-@use "../mixins/common" as *;
-@use "../mixins/generate-magic-classes" as *;
-@use "../mixins/magicGridGenerators" as *;
-@use "../mixins/make-responsive-class-mixins" as *;
+@use '../config' as *;
+@use '../functions/get' as *;
+@use '../mixins/common' as *;
+@use '../mixins/generate-magic-classes' as *;
+@use '../mixins/magicGridGenerators' as *;
+@use '../mixins/make-responsive-class-mixins' as *;
 
-$gap: get("grid.default-gap", $config);
+$gap: get('grid.default-gap', $config);
 $gap-sizes: (0, 0.25, 0.5, 1, 1.25, 1.5, 2, 3, 4, 5) !default;
-$num-grid-cols: get("grid.num-grid-cols", $config);
+$num-grid-cols: get('grid.num-grid-cols', $config);
 
 // ==========================================================================
 // -- GRID --
@@ -30,7 +30,6 @@ $num-grid-cols: get("grid.num-grid-cols", $config);
 .gap {
     gap: $gap;
 }
-
 
 // ==========================================================================
 // -- GENERAL --
@@ -89,8 +88,8 @@ $grid-properties-map: (
     $props: (
         grid-template-columns: repeat($i, minmax(0, 1fr))
     );
-    $breakpoints: ("base", "sm", "md", "lg", "xl");
-    $class: "cols-#{$i}";
+    $breakpoints: ('base', 'sm', 'md', 'lg', 'xl');
+    $class: 'cols-#{$i}';
     @include make-from-breakpoint($props, $class, $breakpoints);
 }
 
@@ -105,7 +104,7 @@ $grid-properties-map: (
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
 
 $grid-gap-magic-sizes: ((5, 3, 2), (5, 3), (4, 2), (3, 1)) !default;
-@include generate-magic-classes(grid-gap, ($grid-gap-magic-sizes), "gap");
+@include generate-magic-classes(grid-gap, ($grid-gap-magic-sizes), 'gap');
 
 $equal-width-magic-columns: ((4, 2, 1), (4, 3, 2, 1), (3, 2, 1), (3, 1, 1)) !default;
 @include magicGridEqualWidths($equal-width-magic-columns);

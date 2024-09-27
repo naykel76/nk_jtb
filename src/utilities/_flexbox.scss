@@ -1,4 +1,4 @@
-@use "../mixins/common" as *;
+@use '../mixins/common' as *;
 
 // prettier-ignore
 $flex-properties-map: (
@@ -77,7 +77,8 @@ $flex-properties-map: (
     order: (
         property: order,
         prefix: "order-",
-        values: ( 1, 2, 3, 4, 5, 6, 7, 8 )
+        values: ( 1, 2, 3, 4, 5, 6, 7, 8 ),
+        breakpoints: ("sm", "md", "lg", "xl")
     ),
 );
 
@@ -103,10 +104,15 @@ $special-classes: (
         props: (
             display: flex,
             align-items: center,
-            justify-content: center,
+            justify-content: center
         ),
-        breakpoints: ("sm", "md", "lg", "xl")
-    ),
+        breakpoints: (
+            'sm',
+            'md',
+            'lg',
+            'xl'
+        )
+    )
 );
 
 @include generate-classes($special-classes);
