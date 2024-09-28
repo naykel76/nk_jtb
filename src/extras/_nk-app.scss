@@ -1,0 +1,31 @@
+@use '../mixins/common' as *;
+@use '../variables/tailwind-colors' as *;
+@use 'sass:map';
+
+// ==========================================================================
+// NAYKEL DOCS --
+// ==========================================================================
+//
+// The styles in this file are specifically tailored for the Naykel Laravel
+// applications. They are not included in the main build by default. To use
+// these styles, you need to manually import this file.
+
+
+// ==========================================================================
+// BUTTONS
+// ==========================================================================
+
+// opinionated button for create, edit, delete, and view actions. Works well
+// with resource actions in tables and lists.
+.action-button {
+    display: inline-flex;
+    align-items: center;
+    color: $color;
+    padding-inline: 0.25rem;
+    padding-block: 0.25rem;
+    border-radius: 0.5rem;
+    opacity: 0.7;
+    &:hover {
+        background: map.get($tailwind-colors, 'rose', '100');
+    }
+}
