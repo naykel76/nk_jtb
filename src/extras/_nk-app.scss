@@ -10,7 +10,6 @@
 // applications. They are not included in the main build by default. To use
 // these styles, you need to manually import this file.
 
-
 // ==========================================================================
 // BUTTONS
 // ==========================================================================
@@ -21,11 +20,12 @@
     display: inline-flex;
     align-items: center;
     color: $color;
-    padding-inline: 0.25rem;
+    padding-inline: 0.5rem;
     padding-block: 0.25rem;
     border-radius: 0.5rem;
     opacity: 0.7;
     &:hover {
+        color: map.get($tailwind-colors, 'rose', '700');
         background: map.get($tailwind-colors, 'rose', '100');
     }
 }
