@@ -1,11 +1,11 @@
-@use "../mixins/common" as *;
-@use "sass:map";
+@use '../mixins/common' as *;
+@use 'sass:map';
 
 // ==========================================================================
 // -- PROPERTY MAPS --
 // ==========================================================================
 // remove from the colour map
-$text-colors: map.remove($color-map, "danger", "dark", "info", "light", "success", "warning");
+$text-colors: map.remove($color-map, 'danger', 'dark', 'info', 'light', 'success', 'warning');
 
 $text-rem-sizes: (1, 1.5, 2, 2.5, 3, 4) !default;
 
@@ -118,6 +118,10 @@ $typography-properties-map: (
     text-wrap: (
         prefix: "#{$text-identifier}",
         values: ( wrap, balance, nowrap, pretty )
+    ),
+    list-style-type: (
+        prefix: "list-",
+        values: (none, disc, decimal, circle, square)
     )
 );
 
