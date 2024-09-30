@@ -1,8 +1,8 @@
-@use "../variables" as *;
+@use '../variables' as *;
 
 // don't be tempted to add div here, it creates more problems than it solves
 $html-elements: blockquote, p, pre, form, table, ol, ul, h1, h2, h3, h4, h5, h6;
-$common-classes: ".bx", ".bx-content", ".bx-title", "[class*='container']", ".frm-row", ".grid", "[class*='flex']:not(.inline-flex)";
+$common-classes: '.bx', '.bx-content', '.bx-title', "[class*='container']", '.frm-row', '.grid', "[class*='flex']:not(.inline-flex)";
 
 // Content gap
 :where(#{$html-elements}, #{$common-classes}) + :where(*) {
@@ -17,11 +17,17 @@ $common-classes: ".bx", ".bx-content", ".bx-title", "[class*='container']", ".fr
 
 // catch the strays (use with caution). The :where selector is to kill the
 // specificity for easier override
-:where(*:not([class*="flex"]):not([class*="grid"])) > :where(.frm-row, table, form, pre):not(:first-child) {
+:where(*:not([class*='flex']):not([class*='grid'])) > :where(.frm-row, table, form, pre):not(:first-child) {
     margin-top: $content-gap;
 }
 
 // opt out for `flex` and `grid` element and use `gap` instead.
-:where([class*="flex"], [class*="grid"]) > * {
+:where([class*='flex'], [class*='grid']) > * {
     margin: 0;
+}
+
+// adjust margin for the `ul` when the `li` has `flex` class. This is needed
+// because flex automatically removes the bullets leaving the margin
+ul:has(.flex) {
+    margin-inline: 0;
 }
