@@ -42,7 +42,7 @@ $question-color: #2299dd !default;
     // 
     // This is a hack to fix the spacing issue caused by the above problem and
     // it is not yet clear i this will cause any side effects.
-    li > p {
+    li > :is(p, pre) {
         margin-block-start: $base-list-spacing;
     }
 }

@@ -284,18 +284,17 @@ ol {
 
 // -- Nested Lists --
 
-// NK::COMMENT these have been disabled because there were some tweaks made
-// above. I do not think they are necessary anymore.
-
 // // 1. keep consistent spacing
-// li ul,
-// li ol {
-//     margin-top: $base-list-spacing; // 1
-//     margin-left: 1rem;
-// }
+li ul,
+li ol {
+    margin-top: $base-list-spacing; // 1
+}
 
 // These list styles are quite opinionated, however they seem to be
 // a good fit overall and should be easy enough to override
+
+// NK::COMMENT these have been disabled because there were some tweaks made
+// above. I do not think they are necessary anymore.
 
 // :is(li:not(:first-child):not(nav li):not(.menu li)) {
 //     margin-block-start: $base-list-spacing; // consistent spacing between list items
