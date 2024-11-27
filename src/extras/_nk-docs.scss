@@ -6,9 +6,10 @@
 // NAYKEL DOCS --
 // ==========================================================================
 //
-// IMPORTANT: The styles in this file are specifically tailored for the Naykel
-// documentation. They are not included in the main build by default.  To use
-// these styles, you need to manually import this file.
+// NOTE: The styles in this file are specifically designed for the Naykel
+// documentation. They should be wrapped in the `nk-docs` class to prevent
+// conflicts. These styles are not included in the main build by default and
+// need to be manually imported.
 //
 // tr:not(.ignore-nk-styles + table tr - ignores the next table from the styles
 
@@ -19,6 +20,32 @@ $td-bdr-color: map-get($tailwind-colors, 'slate', '100') !default;
 
 $code-color: #f0506e !default;
 $question-color: #2299dd !default;
+
+// ==========================================================================
+// -- SPACING --
+// ==========================================================================
+
+.nk-docs {
+    // Fix spacing issues caused by common mark wrapping all li in p tags
+    // whenever you add any elements in a markdown list.
+    //
+    // <ul>
+    //     <li>List item one</li>
+    // </ul>
+    //
+    // <ul>
+    //     <li>
+    //         <p>List item one</p>
+    //         <p>This paragraph will add <li> to to all <li></p>
+    //     </li>
+    // </ul>
+    // 
+    // This is a hack to fix the spacing issue caused by the above problem and
+    // it is not yet clear i this will cause any side effects.
+    li > p {
+        margin-block-start: $base-list-spacing;
+    }
+}
 
 .nk-docs {
     // ==========================================================================

@@ -18,8 +18,7 @@
         display: flex;
         align-items: center;
 
-        &.active,
-        &:hover {
+        &:is(.active, :hover):not(.disabled) {
             cursor: pointer;
             color: $menu-link-hover-color;
             background-color: $menu-hover-bg;

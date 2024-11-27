@@ -1,4 +1,4 @@
-@use "../variables" as *;
+@use '../variables' as *;
 
 // 1. Remove the default margin and padding and opt-in as needed
 
@@ -116,7 +116,7 @@ code,
 kbd,
 samp,
 pre {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
     font-size: 0.875rem;
     color: #d9558c;
     border-radius: 0.25rem;
@@ -198,9 +198,9 @@ select {
 // 2. Remove default button styles.
 
 button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
+[type='button'],
+[type='reset'],
+[type='submit'] {
     -webkit-appearance: button; // 1
     background-color: transparent; // 2
     background-image: none; // 2
@@ -234,7 +234,7 @@ progress {
 // 1. Correct the odd appearance in Chrome and Safari.
 // 2. Correct the outline style in Safari.
 
-[type="search"] {
+[type='search'] {
     -webkit-appearance: textfield; // 1
     outline-offset: -2px; // 2
 }
@@ -262,31 +262,16 @@ summary {
 // -- Lists --
 // ==========================================================================
 
-// 1. set style-position outside to align text on second line
-// 2. align to other content
-
-ol,
-ul {
+// 1. set style-position outside to align text when wrapping
+// 2. indent to align text with the rest of the content
+ul,
+ol {
     list-style-position: outside; // 1
-    margin-left: 1rem; // 2
+    margin-inline-start: $content-gap; // 2
 }
 
-// -- Nested Lists --
-//
-
-// 1. keep consistent spacing
-li ul,
-li ol {
-    margin-top: $base-list-spacing; // 1
-    margin-left: 1rem;
-}
-
-// These list styles are quite opinionated, however they seem to be
-// a good fit overall and should be easy enough to override
-
-// 1. keep consistent spacing.
-:is(li:not(:first-child):not(nav li):not(.menu li)) {
-    margin-top: $base-list-spacing; // 1
+li {
+    margin-block-start: $base-list-spacing; // Add consistent spacing for list items
 }
 
 ul {
@@ -296,6 +281,25 @@ ul {
 ol {
     list-style-type: decimal;
 }
+
+// -- Nested Lists --
+
+// NK::COMMENT these have been disabled because there were some tweaks made
+// above. I do not think they are necessary anymore.
+
+// // 1. keep consistent spacing
+// li ul,
+// li ol {
+//     margin-top: $base-list-spacing; // 1
+//     margin-left: 1rem;
+// }
+
+// These list styles are quite opinionated, however they seem to be
+// a good fit overall and should be easy enough to override
+
+// :is(li:not(:first-child):not(nav li):not(.menu li)) {
+//     margin-block-start: $base-list-spacing; // consistent spacing between list items
+// }
 
 nav ul {
     list-style: none;
@@ -323,7 +327,7 @@ textarea::placeholder {
 // 1. Set the default cursor for buttons.
 
 button,
-[role="button"] {
+[role='button'] {
     cursor: pointer; // 1
 }
 
@@ -370,6 +374,6 @@ input::-webkit-inner-spin-button {
 }
 
 // Remove number spinner  Firefox
-input[type="number"] {
+input[type='number'] {
     -moz-appearance: textfield;
 }

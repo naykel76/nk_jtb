@@ -1,4 +1,4 @@
-@use "../variables" as *;
+@use '../variables' as *;
 @use '../functions/colorFunctions' as *;
 
 %box {
@@ -12,7 +12,7 @@
 
 .bx {
     @extend %box;
-
+    overflow: hidden; // prevent image from overflowing when using border-radius
     // remove margin from any first element in a box to allow box padding to do the work
     & > *:first-child {
         margin-top: 0;
