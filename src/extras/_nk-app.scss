@@ -1,5 +1,6 @@
 @use '../mixins/common' as *;
 @use '../variables/tailwind-colors' as *;
+@use "../forms/control" as *;
 @use 'sass:map';
 
 // ==========================================================================
@@ -24,6 +25,7 @@
     padding-block: 0.25rem;
     border-radius: 0.5rem;
     opacity: 0.7;
+    font-size: $ctrl-font-size;
     &:hover {
         color: map.get($tailwind-colors, 'rose', '700');
         background: map.get($tailwind-colors, 'rose', '100');

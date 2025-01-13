@@ -1,64 +1,77 @@
-@use "../variables" as *;
+@use '../variables' as *;
 
+$accordion-color: $color !default;
+$accordion-font-size: $font-size !default;
+$accordion-font-weight: 600 !default;
 $accordion-bg: rgb(245, 245, 245) !default;
-$accordion-border: $border !default;
+$accordion-border: $border !default; // entire accordion border
+$accordion-padding: 1rem !default; // entire accordion border
+
 $accordion-hover-bg: darken($accordion-bg, 5%) !default;
 
-// ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
-// These styles are for the CSS accordion.
-// You should focus the accordion behaviour and limit opinionated
-// styles to make it easier to apply utility classes.
-// ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
-
-// style the toggle
-:where(.accordion label) {
-    font-weight: bold;
-}
+// ==========================================================================
+// -- GENERIC ACCORDION STYLES --
+// ==========================================================================
+// These styles provide the basic structure for the accordion and work
+// with both the CSS and Alpine versions.
 
 .accordion {
     overflow: hidden;
-    border: $border;
+    border: $accordion-border;
 
-    // override label margin
-    label.accordion-title{
-        margin: 0;
-    }
-
-    // title and label are used to toggle the accordion
-    &-title,
-    label {
+    &-title {
+        background: $accordion-bg;
+        color: $accordion-color;
+        font-size: $accordion-font-size;
+        font-weight: $accordion-font-weight;
+        padding: $accordion-padding;
         width: 100%;
         transition: 0.3s;
         display: flex;
         justify-content: space-between;
-        padding: 1em;
-        background: $accordion-bg;
         cursor: pointer;
 
         &:hover {
             background: $accordion-hover-bg;
         }
-        /* Icon */
+
         &::after {
-            content: "\276F";
+            content: '\276F';
             text-align: center;
             transition: all 0.3s;
         }
     }
 
+    // this class should only be used in the CSS version
     &-content {
-        padding: 0 1em;
-        max-height: 0;
+        padding: 0 $accordion-padding;
+        max-height: 0; // hide content when using CSS
         transition: all 0.3s;
     }
 
-    &-close {
-        display: flex;
-        justify-content: flex-end;
-        font-size: 0.75em;
-        cursor: pointer;
-    }
+    //     &-close {
+    //         display: flex;
+    //         justify-content: flex-end;
+    //         font-size: 0.75em;
+    //         cursor: pointer;
+    //     }
 
+    //     .active {
+    //         content: '\276F';
+    //         text-align: center;
+    //         transition: all 0.3s;
+    //         &::after {
+    //             transform: rotate(90deg);
+    //         }
+    //     }
+}
+
+// ==========================================================================
+// -- CSS ACCORDION STYLES --
+// ==========================================================================
+// These styles are specific to the CSS accordion.
+
+.accordion {
     input {
         position: absolute;
         opacity: 0;
@@ -75,31 +88,6 @@ $accordion-hover-bg: darken($accordion-bg, 5%) !default;
                 max-height: 999vh; // prevent cutting off content
                 padding: 1em;
             }
-        }
-    }
-
-    .active {
-        content: "\276F";
-        text-align: center;
-        transition: all 0.3s;
-        &::after {
-            transform: rotate(90deg);
-        }
-    }
-}
-
-// ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
-// This is only used in an alpine accordion and will be DEPRECIATED
-// ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
-
-.accordion-body {
-    display: block;
-    overflow: hidden;
-    border-radius: 0;
-
-    > div {
-        &:hover {
-            background-color: rgba(250, 221, 230, 0.15);
         }
     }
 }
