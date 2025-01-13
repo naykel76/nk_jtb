@@ -71,7 +71,11 @@ $accordion-hover-bg: darken($accordion-bg, 5%) !default;
 // ==========================================================================
 // These styles are specific to the CSS accordion.
 
-.accordion {
+// use :where to lower specificity allowing for easier customization
+:where(.accordion) {
+    // This is a problem when you want to use an input inside the accordion. You
+    // will need to manually set the position, opacity, and z-index to get the
+    // input to appear.
     input {
         position: absolute;
         opacity: 0;
