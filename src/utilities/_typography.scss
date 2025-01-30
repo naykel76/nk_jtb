@@ -97,7 +97,7 @@ $typography-properties-map: (
     ),
     line-height: (
         prefix: "#{$line-height-identifier}",
-        values: ( 1, 2 )
+        values: ( 1, 1.5, 2 )
     ),
     text-align: (
         prefix: "#{$text-align-identifier}",

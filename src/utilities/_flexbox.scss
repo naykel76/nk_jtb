@@ -38,6 +38,15 @@ $flex-properties-map: (
             stretch: stretch
         )
     ),
+    flex: (
+        prefix: #{$flex-identifier},
+        values: (1, 2,
+            ('auto': 1 1 auto),
+            ('initial': 0 1 auto),
+            'none'
+        ),
+        breakpoints: ("sm", "md", "lg", "xl")
+    ),
     flex-direction: (
         prefix: #{$flex-identifier},
         values: (
