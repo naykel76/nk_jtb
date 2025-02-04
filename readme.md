@@ -10,9 +10,9 @@ Why!
 ## Create documentation
 
 ```bash
-sassdoc ./src --dest ./docs
+npm install sassdoc -g
 ```
 
-## Next Release
-
-Remove `.hide`, has been replaced with `.hidden`
+```bash
+sassdoc ./src --dest ./docs
+```

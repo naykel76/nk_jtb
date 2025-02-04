@@ -30,18 +30,11 @@ $question-color: #2299dd !default;
     // whenever you add any elements in a markdown list.
     //
     // <ul>
-    //     <li>List item one</li>
-    // </ul>
-    //
-    // <ul>
     //     <li>
     //         <p>List item one</p>
     //         <p>This paragraph will add <li> to to all <li></p>
     //     </li>
     // </ul>
-    // 
-    // This is a hack to fix the spacing issue caused by the above problem and
-    // it is not yet clear i this will cause any side effects.
     li > :is(p, pre) {
         margin-block-start: $base-list-spacing;
     }
@@ -210,6 +203,15 @@ h3 {
         background: red;
         margin-top: 0.5rem !important;
     }
+
+    // all lists on a page
+    .list-space-all {
+        ~ ul li {
+            margin-top: 0.5rem;
+        }
+    }
+
+
 }
 
 .mermaid > svg {
@@ -225,4 +227,27 @@ h3 {
     ~ h3 {
         font-size: 1.25em;
     }
+}
+
+
+
+
+
+
+////
+/// @group spacing-hacks
+////
+
+/// Increase the space between adjacent list items. This eliminates the need to
+/// add a class to the `ul` or each `li`.
+///
+///
+/// @example scss - Usage
+/// <div class="adjacent-list-space-1"></div>
+/// - List item one
+/// - List item two
+///
+
+.adjacent-list-space-1 + ul li:not(:first-child) {
+    margin-block-start: 1rem;
 }

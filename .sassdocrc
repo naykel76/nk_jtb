@@ -4,3 +4,4 @@ groups:
   class-makers: Class Makers
   helpers: Helpers
   property-makers: Property Makers
+  spacing-hacks: Spacing Hacks
