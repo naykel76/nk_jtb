@@ -3,7 +3,9 @@
 @use "../functions/mapMerge" as *;
 @use "../mixins/extendedThemeClass" as *;
 @use "../variables" as *;
-@use "../variables/tailwind-colors" as *;
+@use "../v1/maps_and_variables/tailwind-colors" as *;
+
+
 
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
 // There is a fair bit going on here and the BUILD ORDER MATTERS.
