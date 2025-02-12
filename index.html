@@ -424,65 +424,10 @@
                     </ul>
                 </div>
         </section>
-        <section class="py-3">
-            <div class="container-sm py-3 bx">
-                <div class="grid cols-2">
-                    <div class="frm-row">
-                        <label for="">Firstname</label>
-                        <div class="flex-col w-full my-0">
-                            <input name="name" id="name" class="" for="name" label="Name"
-                                placeholder="Enter your name...">
-                        </div>
-                    </div>
-                    <div class="frm-row">
-                        <label for="">Lastname</label>
-                        <div class="flex-col w-full my-0">
-                            <input name="name" id="name" class="" for="name" label="Name"
-                                placeholder="Enter your name...">
-                        </div>
-                    </div>
-                </div>
-                <div class="frm-row">
-                    <label for="form.country"> Country <span class="txt-red">*</span> </label>
-                    <div class="flex-col w-full my-0">
-                        <select name="form.country" id="form.country" class="" wire:model="form.country" req="req">
-                            <option value="AU">Australia</option>
-                            <option value="NZ">New Zealand</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </section>
         <section id="form-controls" class="py-3">
-            <div class="container grid cols-2">
-                <div>
-                    <div class="frm-row">
-                        <div class="flex va-c space-between mb-05">
-                            <label for="name"> Name </label>
-                            <span x-data="{open:false}" class="relative" x-on:mouseenter="open=true"
-                                x-on:mouseleave="open=false">
-                                <div class="flex va-c">
-                                    <svg class="txt-muted" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                        aria-hidden="true" data-slot="icon">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z">
-                                        </path>
-                                    </svg>
-                                </div>
-                                <div class="absolute pos-r minw-18 z-100 bx pxy-075 mt-05 txt-sm fw4 bg-stone-50"
-                                    x-show="open" x-transition.duration="" style="display: none;">
-                                    Lorem ipsum dolor, rerum minus magnam consequatur eos ut aliquam aspernatur sapiente
-                                    veniam! Repudiandae voluptatum eius ducimus?
-                                </div>
-                            </span>
-                        </div>
-                        <div class="flex-col w-full my-0">
-                            <input name="name" id="name" class="" for="name" label="Name"
-                                placeholder="Enter your name...">
-                        </div>
-                    </div>
-                    <hr>
+            <div class="container">
+                <h2 class="title txt-3">Form Controls</h2>
+                <div class="grid cols-2">
                     <div id="radio-check-toggle">
                         <h5>Radio</h5>
                         <div class="space-x">
@@ -586,16 +531,15 @@
                     </div>
                     <div class="frm-row">
                         <div class="withAddons">
-                            <div class="leadingAddon light">
-                                <svg class="icon txt-muted">
-                                    <use xlink:href="/svg/naykel-ui.svg#user"></use>
-                                </svg>
-                            </div>
-                            <div class="trailingAddon light">
-                                <svg class="icon txt-muted">
-                                    <use xlink:href="/svg/naykel-ui.svg#tick-round"></use>
-                                </svg>
-                            </div>
+                            <input type="text">
+                            <div class="trailingAddon"> Trailing </div>
+                            <div class="leadingAddon"> Leading </div>
+                        </div>
+                    </div>
+                    <div class="frm-row">
+                        <div class="withAddons">
+                            <div class="leadingAddon"> Leading </div>
+                            <div class="trailingAddon"> Trailing </div>
                             <input type="text">
                         </div>
                     </div>

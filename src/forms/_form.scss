@@ -78,8 +78,6 @@ label:has(input[type="checkbox"], input[type="radio"]) {
     }
 }
 
-// 1. set to 100% to prevent overflow. The padding on the addons can cause
-//    blowout if the input is not set to 100% width.
 // 2. let the addon border sit on top of the control border. Don not set too
 //    high or it will create problems for overlay
 // 3. this is a hack so the addon can be placed before the input to deal with
@@ -91,10 +89,6 @@ label:has(input[type="checkbox"], input[type="radio"]) {
 .withAddons {
     display: flex;
     flex-direction: row;
-
-    input {
-        width: 100%; // 1.
-    }
 
     :where(.leadingAddon, .trailingAddon) {
         display: inline-flex;
