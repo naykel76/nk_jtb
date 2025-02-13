@@ -123,40 +123,43 @@ $question-color: #2299dd !default;
 
 question {
     color: $question-color;
-    margin-top: 1.5rem;
-    font-size: 1.1rem;
+    margin-block-start: $content-gap;
     font-weight: 700;
     font-style: italic;
+    display: block;
 }
 
-answer,
-h3:has(question) + p {
-    margin-top: 0.5rem;
-    + ul {
-        margin-top: 0.5rem;
-        margin-left: 1.5rem;
-    }
+// make the margin between the question and the following content smaller.
+// 
+// <p><question></question></p>
+// <p></p>
+// 
+p:has(question) + p {
+    margin-block-start: 0.5rem;
 }
 
-// remove top margin when inside `p` tag and let the `q&a` tag handle the margin
-p:has(question),
-p:has(answer) {
-    margin-top: 0;
-}
 
-// this is a hack to make the question play nice with the `h3` tag
-h3 {
-    > question {
-        margin-top: 0;
-    }
-    &:has(question) {
-        display: inline-flex;
-        align-items: center;
-        a {
-            margin-right: 0.5rem;
-        }
-    }
-}
+// removed 14-02-25 i do not think this is needed
+// h3:has(question) + p {
+//     + ul {
+//         margin-top: 0.5rem;
+//         margin-left: 1.5rem;
+//     }
+// }
+
+// // this is a hack to make the question play nice with the `h3` tag
+// h3 {
+//     > question {
+//         margin-top: 0;
+//     }
+//     &:has(question) {
+//         display: inline-flex;
+//         align-items: center;
+//         a {
+//             margin-right: 0.5rem;
+//         }
+//     }
+// }
 
 // ==========================================================================
 // --  --
