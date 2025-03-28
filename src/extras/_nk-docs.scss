@@ -130,14 +130,13 @@ question {
 }
 
 // make the margin between the question and the following content smaller.
-// 
+//
 // <p><question></question></p>
 // <p></p>
-// 
-p:has(question) + p {
+//
+p:has(question) > p {
     margin-block-start: 0.5rem;
 }
-
 
 // removed 14-02-25 i do not think this is needed
 // h3:has(question) + p {
@@ -206,15 +205,6 @@ p:has(question) + p {
         background: red;
         margin-top: 0.5rem !important;
     }
-
-    // all lists on a page
-    .list-space-all {
-        ~ ul li {
-            margin-top: 0.5rem;
-        }
-    }
-
-
 }
 
 .mermaid > svg {
@@ -232,11 +222,6 @@ p:has(question) + p {
     }
 }
 
-
-
-
-
-
 ////
 /// @group spacing-hacks
 ////
@@ -253,4 +238,20 @@ p:has(question) + p {
 
 .adjacent-list-space-1 + ul li:not(:first-child) {
     margin-block-start: 1rem;
+}
+
+.adjacent-list-space-05 + ul li:not(:first-child) {
+    margin-block-start: 0.5rem;
+}
+
+.indent-all-lists-2 ~ ul {
+    margin-inline-start: 2rem;
+}
+
+
+// all lists on a page
+.list-space-all-1 {
+    ~ ul li {
+        margin-top: 1rem;
+    }
 }

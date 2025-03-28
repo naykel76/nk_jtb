@@ -1,5 +1,5 @@
-@use "../variables" as *;
-@use "../functions/colorFunctions" as *;
+@use '../variables' as *;
+@use '../functions/colorFunctions' as *;
 
 .menu {
     display: flex;
@@ -9,12 +9,13 @@
     list-style: none;
     margin-left: 0; // remove margin for ul
 
-    // limit opinionated styles to allow parent styles to trickle down
+    li {
+        margin: 0;
+    }
+
     :where(a, li a, .menu-item) {
         color: inherit;
         padding: $menu-padding-y $menu-padding-x;
-        // this was initially set to display block but it is too difficult to
-        // work with icons and chevrons on the anchor element.
         display: flex;
         align-items: center;
 

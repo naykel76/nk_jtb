@@ -1,3 +1,6 @@
+@use '../functions/helpers' as *;
+@use '../variables' as *;
+@use '../mixins/media' as *;
 
 // ==========================================================================
 // -- DISABLED --
@@ -12,17 +15,17 @@
 // -- REVIEW --
 // ==========================================================================
 
-// .hover\:txt-primary:hover {
-//     color: $primary;
-// }
+.hover\:txt-primary:hover {
+    color: $primary;
+}
 
-// .hover\:txt-secondary:hover {
-//     color: $secondary;
-// }
+.hover\:txt-secondary:hover {
+    color: $secondary;
+}
 
-// .hover\:txt-white:hover {
-//     color: #fff;
-// }
+.hover\:txt-white:hover {
+    color: #fff;
+}
 
 // .hover\:text-white:hover {
 //     --tw-text-opacity: 1;
