@@ -1,9 +1,12 @@
-@use "../functions/colorFunctions" as *;
-@use "../mixins/colorThemeGenerators" as *;
-@use "../mixins/state" as *;
-@use "../utilities/transition" as *;
-@use "../variables" as *;
+@use '../functions/colorFunctionsOld' as *;
+@use '../mixins/colorThemeGenerators' as *;
+@use '../mixins/state' as *;
+@use '../utilities/transition' as *;
+@use '../v1/functions/color-functions' as *;
+@use '../variables' as *;
+@use 'sass:color';
 @use 'sass:map';
+
 // The minimum requirement for creating a map is the $base color,
 // all other properties can be created intuitively.
 //
@@ -11,16 +14,16 @@
 // or intuitively create based on the `base` if not exists
 
 @mixin extendedThemeClass($identifier, $map) {
-    $base: map.get($map, "base");
+    $base: map.get($map, 'base');
 
-    $color: if(map.get($map, "color"), map.get($map, "color"), setTextColor($base));
-    $border-color: if(map.get($map, "border-color"), map.get($map, "border-color"), setBorderShadeColor($base));
+    $color: if(map.get($map, 'color'), map.get($map, 'color'), text-color($base));
+    $border-color: if(map.get($map, 'border-color'), map.get($map, 'border-color'), setBorderShadeColor($base));
 
-    $hover-bg: if(map.get($map, "hover-bg"), map.get($map, "hover-bg"), darken($base, 15%));
-    $hover-color: if(map.get($map, "hover-color"), map.get($map, "hover-color"), setTextColor($hover-bg));
+    $hover-bg: if(map.get($map, 'hover-bg'), map.get($map, 'hover-bg'), color.adjust($base, $lightness: -15%));
+    $hover-color: if(map.get($map, 'hover-color'), map.get($map, 'hover-color'), text-color($hover-bg));
 
-    $active-bg: if(map.get($map, "active-bg"), map.get($map, "active-bg"), darken($base, 5%));
-    $active-color: if(map.get($map, "active-color"), map.get($map, "active-color"), setTextColor($active-bg));
+    $active-bg: if(map.get($map, 'active-bg'), map.get($map, 'active-bg'), color.adjust($base, $lightness: -5%));
+    $active-color: if(map.get($map, 'active-color'), map.get($map, 'active-color'), text-color($active-bg));
 
     .#{$identifier} {
         @include basicColorScheme($base, $border-color, $color);

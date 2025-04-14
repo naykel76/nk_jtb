@@ -1,5 +1,6 @@
 @use '../variables' as *;
-@use '../functions/colorFunctions' as *;
+@use '../functions/colorFunctionsOld' as *;
+@use '../v1/functions/color-functions' as *;
 
 %box {
     padding: $bx-padding;
@@ -7,7 +8,7 @@
     border: 1px solid rgba(0, 0, 0, 0.125);
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
     background-color: $bx-bg;
-    color: setTextColor($bx-bg);
+    color: text-color($bx-bg);
 }
 
 .bx {

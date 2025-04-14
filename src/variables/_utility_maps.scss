@@ -22,8 +22,8 @@ $axis-position-map: (
     r: right,
 );
 
-$tblr-positions-map: map-remove($axis-position-map, "x", "y");
-$xy-positions-map: map-remove($axis-position-map, "t", "b", "l", "r");
+$tblr-positions-map: map.remove($axis-position-map, "x", "y");
+$xy-positions-map: map.remove($axis-position-map, "t", "b", "l", "r");
 
 // maps edges to respective corners for border-radius
 

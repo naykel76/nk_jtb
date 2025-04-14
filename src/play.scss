@@ -1,12 +1,18 @@
-// @use './color/shades' as *;
-// @use './extras/naykel-docs' as *;
-@use './utilities/padding' as *;
-// @use './utilities/display-visibility' as *;
-// @use './utilities/opacity' as *;
 // @use './utilities/typography' as *;
-@use './mixins/common' as *;
-@use './mixins/generate-magic-classes' as *;
-@use './mixins/make-responsive-class-mixins' as *;
+@use 'sass:color';
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:string';
+
+$color: blue;
+
+$darken: color.adjust($color, $lightness: -10%) !default;
+
+
+
+.default-color {
+    color: $color;
+}
+.bg-darken {
+    background-color: $darken;
+}

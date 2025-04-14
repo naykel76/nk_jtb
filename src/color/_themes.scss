@@ -1,4 +1,5 @@
-@use '../functions/colorFunctions' as *;
+@use '../functions/colorFunctionsOld' as *;
+@use '../v1/functions/color-functions' as *;
 @use '../functions/get' as *;
 @use '../functions/mapMerge' as *;
 @use '../mixins/extendedThemeClass' as *;

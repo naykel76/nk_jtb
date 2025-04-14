@@ -1,5 +1,6 @@
 @use '../variables' as *;
-@use '../functions/colorFunctions' as *;
+@use '../functions/colorFunctionsOld' as *;
+@use '../v1/functions/color-functions' as *;
 
 .menu {
     display: flex;

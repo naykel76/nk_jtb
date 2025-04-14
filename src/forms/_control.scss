@@ -1,4 +1,4 @@
-@use "../functions/colorFunctions" as *;
+@use '../v1/functions/color-functions' as *;
 
 $ctrl-border-radius: 0.25rem !default;
 $ctrl-border: 1px solid rgba(0, 0, 0, 0.15);
@@ -9,7 +9,7 @@ $ctrl-font-size: 0.875rem !default;
 $ctrl-font-size-lg-xl: 1rem !default;
 
 $ctrl-bg-color: #fff !default;
-$ctrl-color: setTextColor($ctrl-bg-color) !default;
+$ctrl-color: text-color($ctrl-bg-color) !default;
 
 $ctrl-padding-x: 0.875rem !default;
 $ctrl-padding-y: 0.625rem !default;

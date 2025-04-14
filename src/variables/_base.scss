@@ -1,9 +1,17 @@
 @use '../v1/maps_and_variables/tailwind-colors' as *;
 @use "sass:map";
+@use "sass:color";
 
 // ==========================================================================
 // -- Base Styles --
 // ==========================================================================
+
+
+$light-text: #ffffff !default;
+$dark-text: #333333 !default;
+
+// Default site text colour
+$text-color: $dark-text !default;
 
 $color: #333 !default;
 $body-bg: #ffffff !default;
@@ -42,7 +50,7 @@ $main-bg: transparent !default;
 $footer-bg: #1d1d1c !default;
 $footer-text-color: rgb(204, 204, 204) !default;
 
-$copyright-bg: darken($footer-bg, 2%) !default;
+$copyright-bg: color.adjust($footer-bg, $lightness: -2%) !default;
 $copyright-text-color: $footer-text-color !default;
 
 // ==========================================================================

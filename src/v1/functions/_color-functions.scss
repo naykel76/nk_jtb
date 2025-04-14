@@ -1,0 +1,44 @@
+@use '../../variables/base' as *;
+@use 'sass:color';
+
+/// @group color-functions
+/// 
+/// Determines the appropriate text color (light or dark) based on the
+/// brightness of the given background color.
+///
+/// Note: the return colors are linked to the light or dark text color variables
+/// defined in the base variables file.
+///
+/// @param {Color} $bg-color - The background color to evaluate.
+/// 
+/// @return Returns `$dark-text` if the background is light, otherwise returns
+/// `$light-text`.
+///
+/// @example scss - Usage
+///
+/// .light-bg-dark-text { color: text-color(white); }
+///
+/// .dark-bg-light-text { color: text-color(black); }
+
+@function text-color($bg-color) {
+
+    // return the default color if transparent
+    @if alpha($bg-color) == 0 {
+        @return $text-color;
+    }
+
+    $threshold: 186; // Lightness threshold for detecting dark/light backgrounds
+
+    // Calculate the brightness of the background colour
+    $brightness: (
+        0.2126 * color.channel($bg-color, 'red', $space: rgb) +
+        0.7152 * color.channel($bg-color, 'green', $space: rgb) +
+        0.0722 * color.channel($bg-color, 'blue', $space: rgb)
+    );
+
+    @if $brightness > $threshold {
+        @return $dark-text;
+    } @else {
+        @return $light-text;
+    }
+}

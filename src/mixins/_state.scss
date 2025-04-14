@@ -1,17 +1,18 @@
-@use '../functions/colorFunctions' as *;
+@use '../v1/functions/color-functions' as *;
+@use 'sass:color';
 
 @mixin hover($color, $by: 10%) {
     &:hover {
         @content;
-        background-color: lighten($color, $by);
-        color: setTextColor($color);
+        background-color: color.adjust($color, $lightness: $by);
+        color: text-color($color);
     }
 }
 
 @mixin active($color, $by: 5%) {
     &:active {
         @content;
-        background-color: darken($color, $by);
-        color: setTextColor($color);
+        background-color: color.adjust($color, $lightness: -$by);
+        color: text-color($color);
     }
 }

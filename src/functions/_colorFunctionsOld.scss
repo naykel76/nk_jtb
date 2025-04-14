@@ -1,0 +1,19 @@
+@use '../variables/base' as *;
+@use 'sass:map';
+
+// ==========================================================================
+// Set transparent border color based on the background color.
+// ==========================================================================
+// this is not a perfect solution because sometimes a dark color can
+// have a low lightness, and visa-versa, but it is good enough.
+//
+
+@function setBorderShadeColor($bg, $opacity: 0.15) {
+    $lightness: lightness($bg);
+    @if ($lightness > 50) {
+        @return rgba(0, 0, 0, $opacity); // Black
+    } @else {
+        @return rgba(255, 255, 255, $opacity); // White
+    }
+}
+

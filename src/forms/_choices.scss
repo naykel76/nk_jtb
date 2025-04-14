@@ -1,4 +1,4 @@
-@use "../functions/colorFunctions" as *;
+@use '../v1/functions/color-functions' as *;
 @use "../variables" as *;
 @use "./control" as *;
 @use "sass:color";

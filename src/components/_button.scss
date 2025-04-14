@@ -1,5 +1,5 @@
 @use "../variables" as *;
-@use "../functions/colorFunctions" as *;
+@use '../v1/functions/color-functions' as *;
 @use "../forms/control" as *;
 @use "../mixins/state" as *;
 @use "../utilities/transition" as *;
