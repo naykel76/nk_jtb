@@ -1,7 +1,5 @@
 @use '../maps_and_variables/tailwind-colors' as *;
 
-// NK::TD this is a primitive way to generate background color classes but it
-// works. Refactor this to use mixins, and all the other good stuff.
 @each $color-name, $color-map in $tailwind-colors {
     @each $key, $value in $color-map {
         .bg-#{$color-name}-#{$key} {

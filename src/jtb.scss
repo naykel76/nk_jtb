@@ -1,53 +1,52 @@
-@use "./base";
+@use './base';
 
 // -- ORDER MATTERS --
 // ----------------------------------------------------------------
 // Components need to be loaded before utility classes to make sure
 // they can be overridden
 
-@forward "./components/accordion";
-@forward "./components/banner";
-@forward "./components/box";
-@forward "./components/button";
-@forward "./components/dropdown";
-@forward "./components/icon";
-@forward "./components/list";
-@forward "./components/menu";
-@forward "./components/misc";
-@forward "./components/navbar";
-@forward "./components/tabs";
-@forward "./components/other";
-@forward "./components/sidebar";
+@forward './components/accordion';
+@forward './components/banner';
+@forward './components/box';
+@forward './components/button';
+@forward './components/dropdown';
+@forward './components/icon';
+@forward './components/list';
+@forward './components/menu';
+@forward './components/misc';
+@forward './components/navbar';
+@forward './components/tabs';
+@forward './components/other';
+@forward './components/sidebar';
 
-@forward "./forms/";
+@forward './forms/';
 
-@forward './v1/colors/backgrounds';
-@forward './v1/colors/text-colors';
+@forward './color/';
 
-@forward "./color/";
-
-@forward "./utilities/border";
-@forward "./utilities/container";
-@forward "./utilities/display-visibility";
-@forward "./utilities/effects";
-@forward "./utilities/flexbox";
-@forward "./utilities/grid";
-@forward "./utilities/layout";
-@forward "./utilities/margin";
-@forward "./utilities/misc";
-@forward "./utilities/opacity";
-@forward "./utilities/padding";
-@forward "./utilities/position";
-@forward "./utilities/sizing";
-@forward "./utilities/space";
-@forward "./utilities/state";
-@forward "./utilities/transforms";
-@forward "./utilities/transition";
-@forward "./utilities/typography";
+@forward './utilities/border';
+@forward './utilities/container';
+@forward './utilities/display-visibility';
+@forward './utilities/effects';
+@forward './utilities/flexbox';
+@forward './utilities/grid';
+@forward './utilities/layout';
+@forward './utilities/margin';
+@forward './utilities/misc';
+@forward './utilities/opacity';
+@forward './utilities/padding';
+@forward './utilities/position';
+@forward './utilities/sizing';
+@forward './utilities/space';
+@forward './utilities/state';
+@forward './utilities/transforms';
+@forward './utilities/transition';
+@forward './utilities/typography';
+@forward './v1/utilities/backgrounds';
+@forward './v1/utilities/typography';
 
 // extras
 // @use "./extras/code" as *;
 
 // These are opinionated styles for NK components. They are not part
 // of the core and will eventually be moved to a separate package.
-@use "./nk" as *;
+@use './nk' as *;

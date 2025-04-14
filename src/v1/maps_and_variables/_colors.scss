@@ -1,8 +1,11 @@
-@use "./base" as *;
 @use 'sass:map';
 
 // Build seperate 'theme' and 'base' maps then merge together to
 // give more flexibly when required.
+
+$primary: #2563eb !default;
+$secondary: #181e20 !default;
+$accent: #ffbb1c !default;
 
 $theme-colors: (
     "primary": $primary,
