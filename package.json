@@ -10,26 +10,21 @@
     "type": "module",
     "scripts": {
         "utils": "sass --style compressed ./src/utilities.scss:dist/utilities.css",
-        "border": "sass --watch --no-source-map ./scss/utilities/_border.scss:dist/css/border.css",
-        "flex": "sass --watch --no-source-map ./scss/utilities/_flex.scss:dist/css/flex.css",
-        "grid": "sass --watch --no-source-map ./src/utilities/_grid.scss:dist/css/grid.css",
         "jtb": "sass --watch --no-source-map ./src/jtb.scss:dist/css/jtb.css",
         "play": "sass --watch --no-source-map ./src/play.scss:dist/css/play.css",
-        "spacing": "sass --watch --no-source-map ./scss/utilities/_spacing.scss:dist/css/spacing.css",
-        "theme": "sass --watch --no-source-map ./src/color/_themes.scss:dist/css/themes.css",
         "dev": "vite --open",
         "build:jtb": "sass --style compressed --no-source-map ./src/jtb.scss:dist/jtb.min.css",
         "build:jtb_basic": "sass --style compressed --no-source-map ./src/jtb_basic.scss:dist/jtb_basic.min.css",
         "build": "vite build && npm run build:jtb && npm run build:jtb_basic",
         "preview": "vite preview"
     },
+    "dependencies": {
+        "alpinejs": "^3.14.9"
+    },
     "devDependencies": {
-        "@fullhuman/postcss-purgecss": "^5.0.0",
-        "alpinejs": "^3.13",
-        "autoprefixer": "^10.4.16",
-        "postcss": "^8.4.33",
-        "postcss-cli": "^11.0.0",
-        "sass": "^1.69.7",
-        "vite": "^5.0.11"
+        "autoprefixer": "^10.4.21",
+        "postcss": "^8.5.3",
+        "sass": "^1.86.3",
+        "vite": "^6.2.6"
     }
 }
