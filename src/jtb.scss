@@ -14,10 +14,10 @@
 @forward './components/list';
 @forward './components/menu';
 @forward './components/misc';
-@forward './components/navbar';
-@forward './components/tabs';
 @forward './components/other';
 @forward './components/sidebar';
+@forward './components/tabs';
+@forward './v1/components/navbar';
 
 @forward './forms/';
 
@@ -45,7 +45,7 @@
 @forward './v1/utilities/typography';
 
 // extras
-// @use "./extras/code" as *;
+@use "./extras/code" as *;
 
 // These are opinionated styles for NK components. They are not part
 // of the core and will eventually be moved to a separate package.

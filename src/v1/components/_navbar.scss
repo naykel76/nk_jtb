@@ -1,13 +1,13 @@
-@use "../variables" as *;
+@use '../maps_and_variables/components' as *;
 
-.#{$navbar-identifier},
-.#{$navbar-identifier} > .#{$container-identifier} {
+.navbar,
+.navbar > .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.#{$navbar-identifier} {
+.navbar {
     background: $navbar-bg;
     padding: $navbar-padding-y $navbar-padding-x;
     position: relative;
@@ -15,6 +15,9 @@
     ul {
         display: flex;
     }
+
+
+    // 
 
     // remove specificity to make easier to override
     :where(ul a) {
@@ -61,12 +64,12 @@
 
         li {
             &:first-child a {
-                border-top-left-radius: $bx-border-radius;
-                border-top-right-radius: $bx-border-radius;
+                // border-top-left-radius: $bx-border-radius;
+                // border-top-right-radius: $bx-border-radius;
             }
             &:last-child a {
-                border-bottom-left-radius: $bx-border-radius;
-                border-bottom-right-radius: $bx-border-radius;
+                // border-bottom-left-radius: $bx-border-radius;
+                // border-bottom-right-radius: $bx-border-radius;
             }
         }
     }

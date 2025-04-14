@@ -1,3 +1,21 @@
-// @use '../../v1/functions/color-functions' as *;
+@use '../functions/color-functions' as *;
+@use 'sass:color';
 
-// hsl(216, 31%, 17%)
+// -- navbar --
+// ==============================================================
+$navbar-bg: hsl(216, 31%, 17%) !default;
+
+$navbar-padding-x: 1rem !default;
+$navbar-padding-y: 0.5rem !default;
+
+$navbar-nav-padding-x: 1em !default;
+$navbar-nav-padding-y: 0.75em !default;
+
+$navbar-nav-item-bg: $navbar-bg !default;
+$navbar-nav-item-color: text-color($navbar-nav-item-bg) !default;
+
+$navbar-nav-hover-bg: color.adjust($navbar-nav-item-bg, $lightness: 3%) !default;
+$navbar-nav-hover-color: color.adjust(text-color($navbar-nav-item-bg), $lightness: 20%) !default;
+
+$navbar-nav-active-bg: color.adjust($navbar-nav-item-bg, $lightness: -3%) !default;
+$navbar-nav-active-color: color.adjust(text-color($navbar-nav-item-bg), $lightness: -20%) !default;
