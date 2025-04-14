@@ -66,7 +66,7 @@ $breakpoints: (
 // create an empty map to update or add defaults
 $breakpoints-custom: () !default;
 // merge together
-$breakpoints: map-merge($breakpoints, $breakpoints-custom);
+$breakpoints: map.merge($breakpoints, $breakpoints-custom);
 
 // breakpoints are use to specify the max-width of the container as well as
 // the media query breakpoints.

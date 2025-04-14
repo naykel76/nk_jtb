@@ -10,8 +10,8 @@ $sizing-merged: magic-merge($sizing-variants, $sizing-pixels, $sizing-rem);
 
 // prettier-ignore
 $sizing-properties-map: (
-    height: (prefix: "h-", values: map-merge($sizing-merged, $sizing-base-heights), unit: "rem"),
-    width: (prefix: "w-", values: map-merge($sizing-merged, $sizing-base-widths), unit: "rem", breakpoints: ("sm", "md", "lg", "xl")),
+    height: (prefix: "h-", values: map.merge($sizing-merged, $sizing-base-heights), unit: "rem"),
+    width: (prefix: "w-", values: map.merge($sizing-merged, $sizing-base-widths), unit: "rem", breakpoints: ("sm", "md", "lg", "xl")),
     max-height: (prefix: "maxh-", values: $sizing-merged, unit: "rem"),
     max-width: (prefix: "maxw-", values: $sizing-merged, unit: "rem"),
     min-height: (prefix: "minh-", values: $sizing-merged, unit: "rem"),

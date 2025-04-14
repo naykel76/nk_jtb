@@ -1,6 +1,7 @@
 @use '../functions/helpers' as *;
 @use './make-responsive-class-mixins' as *;
 @use './media' as *;
+@use 'sass:map';
 
 // 1. initialise props to be used for responsive classes
 // 2. pass in identifier to strip-invalid to remove unwanted characters
@@ -16,7 +17,7 @@
         .#{$derived-class} {
             @each $position in $positions {
                 #{$property}-#{$position}: #{$value};
-                $props: map-merge($props, (#{$property}-#{$position}: $value)); // 3.
+                $props: map.merge($props, (#{$property}-#{$position}: $value)); // 3.
             }
         }
         @if ($breakpoints) {
@@ -33,7 +34,7 @@
         .#{$derived-class} {
             @each $position in $positions {
                 #{$property}-#{$position}: #{$value};
-                $props: map-merge($props, (#{$property}-#{$position}: $value)); // 3.
+                $props: map.merge($props, (#{$property}-#{$position}: $value)); // 3.
             }
         }
         @if ($breakpoints) {

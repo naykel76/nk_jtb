@@ -1,11 +1,10 @@
-@use "../functions/colorFunctions" as *;
-@use "../functions/get" as *;
-@use "../functions/mapMerge" as *;
-@use "../mixins/extendedThemeClass" as *;
-@use "../variables" as *;
-@use "../v1/maps_and_variables/tailwind-colors" as *;
-
-
+@use '../functions/colorFunctions' as *;
+@use '../functions/get' as *;
+@use '../functions/mapMerge' as *;
+@use '../mixins/extendedThemeClass' as *;
+@use '../variables' as *;
+@use '../v1/maps_and_variables/tailwind-colors' as *;
+@use 'sass:map';
 
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------
 // There is a fair bit going on here and the BUILD ORDER MATTERS.
@@ -13,25 +12,25 @@
 // ==========================================================================
 
 $alert-theme: (
-    "danger-light": (
-        "base": get("red.50", $tailwind-colors),
-        "color": get("red.900", $tailwind-colors),
-        "border-color": get("red.500", $tailwind-colors)
+    'danger-light': (
+        'base': get('red.50', $tailwind-colors),
+        'color': get('red.900', $tailwind-colors),
+        'border-color': get('red.500', $tailwind-colors)
     ),
-    "info-light": (
-        "base": get("blue.50", $tailwind-colors),
-        "color": get("blue.900", $tailwind-colors),
-        "border-color": get("blue.500", $tailwind-colors)
+    'info-light': (
+        'base': get('blue.50', $tailwind-colors),
+        'color': get('blue.900', $tailwind-colors),
+        'border-color': get('blue.500', $tailwind-colors)
     ),
-    "warning-light": (
-        "base": get("yellow.50", $tailwind-colors),
-        "color": get("yellow.900", $tailwind-colors),
-        "border-color": get("yellow.500", $tailwind-colors)
+    'warning-light': (
+        'base': get('yellow.50', $tailwind-colors),
+        'color': get('yellow.900', $tailwind-colors),
+        'border-color': get('yellow.500', $tailwind-colors)
     ),
-    "success-light": (
-        "base": get("green.50", $tailwind-colors),
-        "color": get("green.900", $tailwind-colors),
-        "border-color": get("green.500", $tailwind-colors)
+    'success-light': (
+        'base': get('green.50', $tailwind-colors),
+        'color': get('green.900', $tailwind-colors),
+        'border-color': get('green.500', $tailwind-colors)
     )
 );
 
@@ -42,11 +41,11 @@ $alert-theme: (
 $themes-map: ();
 
 @each $color, $value in $color-map {
-    $themes-map: map-merge(
+    $themes-map: map.merge(
         $themes-map,
         (
             $color: (
-                "base": $value
+                'base': $value
             )
         )
     );
@@ -91,4 +90,3 @@ $extended-themes: mapMerge($alert-theme, $themes-map, $extended-theme-overrides)
         }
     }
 }
-

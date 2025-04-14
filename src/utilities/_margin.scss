@@ -2,7 +2,7 @@
 @use '../mixins/generate-magic-classes' as *;
 @use 'sass:map';
 
-$margin-sizes: map-merge($margin-variants, listToMap($space-rem-sizes));
+$margin-sizes: map.merge($margin-variants, listToMap($space-rem-sizes));
 
 // prettier-ignore
 $margin-properties-map: (

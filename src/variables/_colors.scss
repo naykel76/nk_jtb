@@ -1,4 +1,5 @@
 @use "./base" as *;
+@use 'sass:map';
 
 // Build seperate 'theme' and 'base' maps then merge together to
 // give more flexibly when required.
@@ -38,4 +39,4 @@ $base-colors: (
     "white": #ffffff,
 ) !default;
 
-$color-map: map-merge($theme-colors, $base-colors) !default;
+$color-map: map.merge($theme-colors, $base-colors) !default;
