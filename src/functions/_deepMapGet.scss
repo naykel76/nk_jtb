@@ -1,4 +1,5 @@
 @use 'sass:map';
+@use 'sass:meta';
 
 // https://itnext.io/advanced-use-of-sass-maps-bd5a47ca0d1a
 // ---------------------------------------------------------
@@ -14,7 +15,7 @@
 // @return Unspecified (it may return anything as a result)
 // ---------------------------------------------------------
 @function deepMapGet($map, $keys...) {
-    @if type-of($map) != "map" {
+    @if meta.type-of($map) != "map" {
         @error 'The argument $map: `#{$map}` is of incorrect type: `#{type-of($map)}`. Type of `Map` is required!';
     }
 

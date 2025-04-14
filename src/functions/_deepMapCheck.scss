@@ -1,4 +1,6 @@
 @use 'sass:map';
+@use 'sass:meta';
+
 // https://itnext.io/advanced-use-of-sass-maps-bd5a47ca0d1a
 // ---------------------------------------------------------
 // Check if nested map has a value by the keys
@@ -13,12 +15,12 @@
 // @return Bool
 // ---------------------------------------------------------
 @function deepMapCheck($map, $keys...) {
-    @if type-of($map) != "map" {
+    @if meta.type-of($map) != "map" {
         @error 'The argument $map: `#{$map}` is of incorrect type: `#{type-of($map)}`. Type of `Map` is required!';
     }
 
     @each $key in $keys {
-        @if not map-has-key($map, $key) {
+        @if not map.has-key($map, $key) {
             @return false;
         }
 

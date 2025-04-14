@@ -1,3 +1,4 @@
+@use 'sass:string';
 ////
 /// @group Utility-Helpers
 ////
@@ -31,11 +32,11 @@
 /// @return {String} - The string with all occurrences of the substring replaced.
 
 @function strReplace($string, $search, $replace: "") {
-    $index: str-index($string, $search);
+    $index: string.index($string, $search);
 
     @if $index {
-        @return str-slice($string, 1, $index - 1) + $replace +
-            strReplace(str-slice($string, $index + str-length($search)), $search, $replace);
+        @return string.slice($string, 1, $index - 1) + $replace +
+            strReplace(string.slice($string, $index + string.length($search)), $search, $replace);
     }
 
     @return $string;

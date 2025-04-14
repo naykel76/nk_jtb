@@ -13,8 +13,8 @@
 ///
 
 @function stripDash($string) {
-    @if str-slice($string, -1) == "-" {
-        @return str-slice($string, 1, -2);
+    @if string.slice($string, -1) == "-" {
+        @return string.slice($string, 1, -2);
     }
     @return $string;
 }

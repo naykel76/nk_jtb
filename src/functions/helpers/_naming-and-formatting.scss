@@ -1,5 +1,8 @@
 @use './utility.scss' as *;
 @use './strippers.scss' as *;
+@use 'sass:list';
+@use 'sass:meta';
+@use 'sass:string';
 
 // ----------------------------------------------------------------
 // escape invalid charters to be used in class names
@@ -8,7 +11,7 @@
     $input: toString($input);
 
     // if the value starts with '0.' remove the decimal
-    @if (str-slice($input, 1, 2) == "0.") {
+    @if (string.slice($input, 1, 2) == "0.") {
         $input: strReplace($input, "0.", "0");
     }
 
@@ -28,7 +31,7 @@ $exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
 @function handle-class-value($value, $unit) {
     // Check if the value is in the exclude list. If it is, set the
     // derived unit to null, otherwise set it to the unit
-    $derived-unit: if(index($exclude-units, $value), null, $unit);
+    $derived-unit: if(list.index($exclude-units, $value), null, $unit);
 
     @return $value + $derived-unit;
 }
@@ -62,9 +65,9 @@ $exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
 
     // If the key is a list, set the variant and value as the first
     // and second elements of the list
-    @if (type-of($key) == list) { // 3.
-        $variant: nth($key, 1);
-        $value: nth($key, 2);
+    @if (meta.type-of($key) == list) { // 3.
+        $variant: list.nth($key, 1);
+        $value: list.nth($key, 2);
     }
 
     @return ($variant, $value);

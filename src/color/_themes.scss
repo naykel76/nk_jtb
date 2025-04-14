@@ -85,7 +85,7 @@ $extended-themes: mapMerge($alert-theme, $themes-map, $extended-theme-overrides)
 
 @each $key, $value in $color-map {
     // exclude if $key already in the $extended-themes
-    @if (not map-has-key($extended-themes, $key)) {
+    @if (not map.has-key($extended-themes, $key)) {
         .#{$key} {
             @include basicColorScheme($value);
         }

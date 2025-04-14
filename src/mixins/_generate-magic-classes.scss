@@ -28,7 +28,7 @@
     $numBreakPoints: list.length($list);
     $class: null;
     @for $i from $numBreakPoints through 1 {
-        $class: if($class == null, nth($list, -$i), #{$class}-#{nth($list, -$i)});
+        $class: if($class == null, list.nth($list, -$i), #{$class}-#{list.nth($list, -$i)});
     }
 
     // if the class is a parent class, add the prefix
@@ -70,10 +70,10 @@
 
             // set the value of the BP based on position using negative
             // numbers. This makes sure the position is always the same
-            $baseValue: nth($list, -1);
-            $smValue: nth($list, -2);
-            $mdValue: if($numBreakPoints >= 3, nth($list, -3), null);
-            $lgValue: if($numBreakPoints >= 4, nth($list, -4), null);
+            $baseValue: list.nth($list, -1);
+            $smValue: list.nth($list, -2);
+            $mdValue: if($numBreakPoints >= 3, list.nth($list, -3), null);
+            $lgValue: if($numBreakPoints >= 4, list.nth($list, -4), null);
 
             $derived-class: derivedClass($identifier, $list, $is-parent);
 

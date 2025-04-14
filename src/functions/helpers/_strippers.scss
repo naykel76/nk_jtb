@@ -1,3 +1,5 @@
+@use 'sass:list';
+@use 'sass:string';
 // ----------------------------------------------------------------
 // Strips 'rem' if last three characters in a string
 // ----------------------------------------------------------------
@@ -5,8 +7,8 @@
 // Outputs $class: 'maxw-20';
 // ----------------------------------------------------------------
 @function stripRem($string) {
-    @if str-slice($string, -3) == "rem" {
-        @return str-slice($string, 1, -4);
+    @if string.slice($string, -3) == "rem" {
+        @return string.slice($string, 1, -4);
         @return $string;
     }
     @return $string;
@@ -25,18 +27,18 @@ $xy-exclusions: ("bdr-");
 @function strip-invalid($class, $identifier: "") {
     // allows variants with base classes to be used without the
     // '-base' suffix. For example, `pxy-base` will be `pxy`.
-    @if (str-slice($class, -5) == "-base") {
-        $class: str-slice($class, 1, -6);
+    @if (string.slice($class, -5) == "-base") {
+        $class: string.slice($class, 1, -6);
     }
 
-    @if (str-slice($class, -8) == "-default") {
-        $class: str-slice($class, 1, -9);
+    @if (string.slice($class, -8) == "-default") {
+        $class: string.slice($class, 1, -9);
     }
 
     // Check if the identifier is in the exclusions list and if the
     // class ends with '-xy' and if so remove the '-xy' suffix.
-    @if index($xy-exclusions, $identifier) and (str-slice($class, -3) == "-xy") {
-        $class: str-slice($class, 1, -4);
+    @if list.index($xy-exclusions, $identifier) and (string.slice($class, -3) == "-xy") {
+        $class: string.slice($class, 1, -4);
     }
     @return $class;
 }

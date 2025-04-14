@@ -1,4 +1,5 @@
 @use "sass:map";
+@use "sass:meta";
 
 // ----------------------------------------------------------------
 // Convert a list of values to a map of key-value pairs where the
@@ -30,7 +31,7 @@
 @function magic-merge($collections...) {
     $map: ();
     @each $collection in $collections {
-        @if type-of($collection) == "list" {
+        @if meta.type-of($collection) == "list" {
             $collection: listToMap($collection);
         }
         $map: map.merge($map, $collection);

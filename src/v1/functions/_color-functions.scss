@@ -11,7 +11,7 @@
 ///
 /// @param {Color} $bg-color - The background color to evaluate.
 /// 
-/// @return Returns `$dark-text` if the background is light, otherwise returns
+/// @return {Color} Returns `$dark-text` if the background is light, otherwise returns
 /// `$light-text`.
 ///
 /// @example scss - Usage
@@ -23,7 +23,7 @@
 @function text-color($bg-color) {
 
     // return the default color if transparent
-    @if alpha($bg-color) == 0 {
+    @if color.alpha($bg-color) == 0 {
         @return $text-color;
     }
 

@@ -1,4 +1,5 @@
 @use '../variables/base' as *;
+@use 'sass:color';
 @use 'sass:map';
 
 // ==========================================================================
@@ -9,11 +10,12 @@
 //
 
 @function setBorderShadeColor($bg, $opacity: 0.15) {
-    $lightness: lightness($bg);
-    @if ($lightness > 50) {
-        @return rgba(0, 0, 0, $opacity); // Black
+    $lightness: color.channel($bg, 'lightness', $space: hsl);
+
+    @if $lightness > 50 {
+        @return color.change(black, $alpha: $opacity);
     } @else {
-        @return rgba(255, 255, 255, $opacity); // White
+        @return color.change(white, $alpha: $opacity);
     }
 }
 
