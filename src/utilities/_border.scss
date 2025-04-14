@@ -59,15 +59,15 @@ $border-radius-corners-map: (
 );
 
 @mixin borderRadius($map) {
-    @each $value in map-get($map, "values") {
+    @each $value in map.get($map, "values") {
         $identifier: "rounded-";
         $sanitized: handle-invalid($value);
-        @each $position-key, $positions in map-get($map, "positions") {
+        @each $position-key, $positions in map.get($map, "positions") {
             $class: #{$identifier}#{$position-key}-#{$sanitized};
             .#{$class} {
                 @each $position in $positions {
                     // prettier-ignore
-                    $derived-unit: if(($value == "auto" or $value == 0), null, map-get($map, "unit"));
+                    $derived-unit: if(($value == "auto" or $value == 0), null, map.get($map, "unit"));
                     border-#{$position}-radius: #{$value}#{$derived-unit};
                 }
             }

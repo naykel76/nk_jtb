@@ -15,8 +15,8 @@
 
 $table-bg: white !default;
 
-$th-bdr-color: map-get($tailwind-colors, 'slate', '200') !default;
-$td-bdr-color: map-get($tailwind-colors, 'slate', '100') !default;
+$th-bdr-color: map.get($tailwind-colors, 'slate', '200') !default;
+$td-bdr-color: map.get($tailwind-colors, 'slate', '100') !default;
 
 $code-color: #f0506e !default;
 $question-color: #2299dd !default;

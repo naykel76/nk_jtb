@@ -2,6 +2,7 @@
 @use './make-position-based-class' as *;
 @use './make-class-mixins' as *;
 @use 'sass:string';
+@use 'sass:map';
 
 // 1. The `key`can be a single value e.g. `1.5` or a key-value pair represented
 //    as list e.g. `sm 1.5`. This allows you to pass in a list of values or a
@@ -23,11 +24,11 @@
     @each $property, $map in $properties-map {
 
         // seperate the map into its parts for easier access
-        $values: map-get($map, "values");
-        $identifier: map-get($map, "prefix");
-        $unit: map-get($map, "unit"); // optional
-        $positions-map: map-get($map, "positions"); // optional
-        $breakpoints: map-get($map, "breakpoints"); // optional
+        $values: map.get($map, "values");
+        $identifier: map.get($map, "prefix");
+        $unit: map.get($map, "unit"); // optional
+        $positions-map: map.get($map, "positions"); // optional
+        $breakpoints: map.get($map, "breakpoints"); // optional
 
         // loop through the values and create classes
         @each $key, $value in $values { // 1.

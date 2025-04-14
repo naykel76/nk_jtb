@@ -1,6 +1,7 @@
 @use "../variables/utility_maps" as *;
 @use "../mixins/media" as *;
 @use "sass:list";
+@use 'sass:map';
 
 @function derivedClass($list) {
     $numBreakPoints: list.length($list);
@@ -49,7 +50,7 @@
                 grid-template-columns: repeat(nth($list, -1), 1fr);
 
                 @include from-sm {
-                    // grid-template-columns: nth(map-get($fr-conversion-map, $smValue), 1) nth(map-get($fr-conversion-map, $smValue), 2);
+                    // grid-template-columns: nth(map.get($fr-conversion-map, $smValue), 1) nth(map.get($fr-conversion-map, $smValue), 2);
                     grid-template-columns: repeat(nth($list, -2), 1fr);
                 }
 

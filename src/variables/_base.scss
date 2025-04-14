@@ -70,8 +70,8 @@ $breakpoints: map.merge($breakpoints, $breakpoints-custom);
 
 // breakpoints are use to specify the max-width of the container as well as
 // the media query breakpoints.
-$sm: map-get($breakpoints, sm) !default;
-$md: map-get($breakpoints, md) !default;
-$lg: map-get($breakpoints, lg) !default;
-$xl: map-get($breakpoints, xl) !default;
-$xxl: map-get($breakpoints, xxl) !default;
+$sm: map.get($breakpoints, sm) !default;
+$md: map.get($breakpoints, md) !default;
+$lg: map.get($breakpoints, lg) !default;
+$xl: map.get($breakpoints, xl) !default;
+$xxl: map.get($breakpoints, xxl) !default;

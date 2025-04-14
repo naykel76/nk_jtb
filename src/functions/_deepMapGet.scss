@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 // https://itnext.io/advanced-use-of-sass-maps-bd5a47ca0d1a
 // ---------------------------------------------------------
 // Get a value from nested map by the keys
@@ -17,7 +19,7 @@
     }
 
     @each $key in $keys {
-        $map: map-get($map, $key);
+        $map: map.get($map, $key);
     }
 
     @return $map;

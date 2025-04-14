@@ -2,11 +2,12 @@
 @use './class-helpers' as *;
 @use './make-responsive-class-mixins' as *;
 @use 'sass:string';
+@use 'sass:map';
 
 @mixin generate-classes($properties-map) {
     @each $class, $map in $properties-map {
-        $props: map-get($map, 'props');
-        $breakpoints: map-get($map, 'breakpoints');
+        $props: map.get($map, 'props');
+        $breakpoints: map.get($map, 'breakpoints');
 
         .#{$class} {
             @include create-properties($props);

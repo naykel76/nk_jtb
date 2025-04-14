@@ -1,3 +1,4 @@
+@use 'sass:map';
 // https://itnext.io/advanced-use-of-sass-maps-bd5a47ca0d1a
 // ---------------------------------------------------------
 // Check if nested map has a value by the keys
@@ -21,7 +22,7 @@
             @return false;
         }
 
-        $map: map-get($map, $key);
+        $map: map.get($map, $key);
     }
 
     @return true;

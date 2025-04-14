@@ -1,11 +1,11 @@
-@use "../variables/base" as *;
+@use '../variables/base' as *;
+@use 'sass:map';
 
 // ==========================================================================
 // set text colour based on the background
 // ==========================================================================
 
 @function setTextColor($bg) {
-
     // return the default color if transparent
     @if alpha($bg) == 0 {
         @return $color;
@@ -13,7 +13,7 @@
 
     $color-brightness: round((red($bg) * 299) + (green($bg) * 587) + calc((blue($bg) * 114) / 1000));
     $light-color: round((red(#ffffff) * 299) + (green(#ffffff) * 587) + calc((blue(#ffffff) * 114) / 1000));
-    // if background is dark, then the text color should be light
+    // if background is dark, then the text color shourgb(26, 14, 14)ight
     @if abs($color-brightness) < calc($light-color / 2) {
         //  if the base $color is already light, then use it.
         @if (lightness($color) > 55) {
@@ -59,7 +59,7 @@
 // background-color: convertToRgba(#e23465, 0.5);
 //
 // fetch a color from the color-map
-// background-color: convertToRgba(map-get($color-map, 'blue'));
+// background-color: convertToRgba(map.get($color-map, 'blue'));
 
 @function convertToRgba($color, $alpha: 1) {
     @return rgba(red($color), green($color), blue($color), $alpha);
