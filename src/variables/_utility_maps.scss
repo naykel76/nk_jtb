@@ -1,7 +1,8 @@
-@use "./base" as *;
-@use "../v1/maps_and_variables/colors" as *;
-@use "../variables/base" as *;
-@use "sass:map";
+@use '../v1/maps_and_variables/base' as *;
+@use '../v1/maps_and_variables/colors' as *;
+@use '../variables/base' as *;
+@use './base' as *;
+@use 'sass:map';
 
 // ==========================================================================
 // -- AXIS TO POSITIONS MAP --
@@ -22,8 +23,8 @@ $axis-position-map: (
     r: right,
 );
 
-$tblr-positions-map: map.remove($axis-position-map, "x", "y");
-$xy-positions-map: map.remove($axis-position-map, "t", "b", "l", "r");
+$tblr-positions-map: map.remove($axis-position-map, 'x', 'y');
+$xy-positions-map: map.remove($axis-position-map, 't', 'b', 'l', 'r');
 
 // maps edges to respective corners for border-radius
 
@@ -59,25 +60,47 @@ $fr-conversion-2-col: (
 // ==========================================================================
 //  Border, and border-radius sizes
 // ==========================================================================
-$border-color-variants: (light: rgba(255, 255, 255, 0.15), dark: rgba(0, 0, 0, 0.15) ) !default;
-$border-colors: map.remove($color-map, "danger", "dark", "info", "light", "success", "warning") !default;
+$border-color-variants: (
+    light: rgba(255, 255, 255, 0.15),
+    dark: rgba(0, 0, 0, 0.15)
+) !default;
+$border-colors: map.remove($color-map, 'danger', 'dark', 'info', 'light', 'success', 'warning') !default;
 
 $border-radius-sizes: (0, 0.25, 0.5, 0.75, 1, 1.5, 2) !default;
-$border-radius-variants: (xs: 0.125rem, sm: 0.25rem, base: 0.375, lg: 0.5rem, xl: 0.75rem, full: 9999rem) !default;
+$border-radius-variants: (
+    xs: 0.125rem,
+    sm: 0.25rem,
+    base: 0.375,
+    lg: 0.5rem,
+    xl: 0.75rem,
+    full: 9999rem
+) !default;
 
 // ==========================================================================
 //  Container sizes
 // ==========================================================================
 $base-container-size: 1200px !default;
-$container-variants: ( base: $base-container-size, sm: $sm, md: $md, lg: $lg, xl: $xl, xxl: $xxl ) !default;
+$container-variants: (
+    base: $base-container-size,
+    sm: $sm,
+    md: $md,
+    lg: $lg,
+    xl: $xl,
+    xxl: $xxl
+) !default;
 
 // ==========================================================================
 //  Space sizes and variants for margin and padding utilities
 // ==========================================================================
 
 $space-rem-sizes: (0, 0.125, 0.25, 0.5, 0.75, 0.875, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 4, 5) !default;
-$margin-variants: (base: 1.5, auto: auto) !default;
-$padding-variants: (default: $content-padding) !default;
+$margin-variants: (
+    base: 1.5,
+    auto: auto
+) !default;
+$padding-variants: (
+    default: $content-padding
+) !default;
 
 // ==========================================================================
 //  Sizing maps and variants
@@ -87,17 +110,36 @@ $sizing-pixels: (200px, 250px, 300px, 400px, 600px) !default; // include unit to
 $sizing-rem: (0, 1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24) !default;
 
 // The debate is if these should be related to the breakpoints or not. I think it would be better if
-// they are related to the breakpoints because it makes it easier to think in terms of the layout. I 
+// they are related to the breakpoints because it makes it easier to think in terms of the layout. I
 // did think to use container utilities but they are not as flexible as I would like them to be.
 // $sizing-variants: (xs: 20rem, sm: 24rem, md: 28rem, lg: 32rem, xl: 36rem, xxl: 42rem) !default;
-$sizing-variants: (xs: 20rem, sm: $sm, md: $md, lg: $lg, xl: $xl, xxl: $xxl) !default;
+$sizing-variants: (
+    xs: 20rem,
+    sm: $sm,
+    md: $md,
+    lg: $lg,
+    xl: $xl,
+    xxl: $xxl
+) !default;
 
 // These maps are seperate because they will only be used for the width, and height properties. I
 // am a bit perplexed how to handle this because I won't always want every sizing property to be
 // used for but at the same time I don't want to create complicated maps for each property. I think
 // I will just have to create a seperate map for each property and then merge them together
-$sizing-base-heights: (screen: 100vh, full: 100%,  fit: fit-content, max: max-content, min: min-content);
-$sizing-base-widths: (screen: 100vw, full: 100%, fit: fit-content, max: max-content, min: min-content);
+$sizing-base-heights: (
+    screen: 100vh,
+    full: 100%,
+    fit: fit-content,
+    max: max-content,
+    min: min-content
+);
+$sizing-base-widths: (
+    screen: 100vw,
+    full: 100%,
+    fit: fit-content,
+    max: max-content,
+    min: min-content
+);
 
 // ==========================================================================
 //  Text maps and variants

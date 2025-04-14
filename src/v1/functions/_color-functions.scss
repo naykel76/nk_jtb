@@ -1,8 +1,8 @@
-@use '../../variables/base' as *;
+@use '../maps_and_variables/base' as *;
 @use 'sass:color';
 
 /// @group color-functions
-/// 
+///
 /// Determines the appropriate text color (light or dark) based on the
 /// brightness of the given background color.
 ///
@@ -10,7 +10,7 @@
 /// defined in the base variables file.
 ///
 /// @param {Color} $bg-color - The background color to evaluate.
-/// 
+///
 /// @return {Color} Returns `$dark-text` if the background is light, otherwise returns
 /// `$light-text`.
 ///
@@ -21,7 +21,6 @@
 /// .dark-bg-light-text { color: text-color(black); }
 
 @function text-color($bg-color) {
-
     // return the default color if transparent
     @if color.alpha($bg-color) == 0 {
         @return $text-color;
@@ -30,11 +29,7 @@
     $threshold: 186; // Lightness threshold for detecting dark/light backgrounds
 
     // Calculate the brightness of the background colour
-    $brightness: (
-        0.2126 * color.channel($bg-color, 'red', $space: rgb) +
-        0.7152 * color.channel($bg-color, 'green', $space: rgb) +
-        0.0722 * color.channel($bg-color, 'blue', $space: rgb)
-    );
+    $brightness: (0.2126 * color.channel($bg-color, 'red', $space: rgb) + 0.7152 * color.channel($bg-color, 'green', $space: rgb) + 0.0722 * color.channel($bg-color, 'blue', $space: rgb));
 
     @if $brightness > $threshold {
         @return $dark-text;

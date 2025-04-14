@@ -1,0 +1,41 @@
+@use './tailwind-colors' as *;
+@use 'sass:color';
+@use 'sass:map';
+
+// ==========================================================================
+// -- Base Styles and Defaults --
+// ==========================================================================
+
+// Text colors
+$light-text: #ffffff !default;
+$dark-text: #333333 !default;
+$text-color: $dark-text !default; // Default site text color
+
+// Body background
+$body-bg: #ffffff !default;
+
+// Font settings
+$font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji' !default;
+$font-size: 1rem !default;
+$line-height: 1.5 !default;
+
+// Border settings
+$border-color: map.get($tailwind-colors, 'slate', '100') !default;
+$border: 1px solid $border-color !default;
+$border-radius: 8px !default;
+
+// Heading styles
+$heading-sizes: 2.25em, 1.75em, 1.5em, 1.25em, 1.125em, 1em !default;
+$heading-font-weight: 700 !default;
+$heading-color: inherit !default;
+
+// Link styles
+$link-color: #5850ec !default;
+$link-hover-color: indianred !default;
+
+// ==========================================================================
+// -- Spacing --
+// ==========================================================================
+$base-list-spacing: 0.25em !default;
+$content-gap: 1.25rem !default; // Space between elements
+$content-padding: 1rem !default; // Padding for general content ie. cards, boxes, etc.

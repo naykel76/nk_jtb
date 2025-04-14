@@ -5,36 +5,9 @@
 // ==========================================================================
 // -- Base Styles --
 // ==========================================================================
-
-
-$light-text: #ffffff !default;
-$dark-text: #333333 !default;
-
-// Default site text colour
-$text-color: $dark-text !default;
-
 $color: #333 !default;
-$body-bg: #ffffff !default;
 
 $img-path: "/images" !default;
-
-$border-color: map.get($tailwind-colors, "slate", "100") !default;
-$border: 1px solid $border-color !default;
-$border-radius: 8px !default;
-
-$preferred-fonts: "" !default;
-$font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-$font-family: if($preferred-fonts != "", $preferred-fonts, $font-family), $font-family;
-
-$font-size: 1rem !default;
-$line-height: 1.5 !default;
-
-$heading-sizes: 2.25em, 1.75em, 1.5em, 1.25em, 1.125em, 1em !default;
-$heading-and-title-color: inherit !default;
-$heading-font-weight: 700 !default;
-
-$link-color: #5850ec !default;
-$link-hover-color: indianred !default;
 
 // ==========================================================================
 // -- Theme Styles --
@@ -50,12 +23,8 @@ $footer-text-color: rgb(204, 204, 204) !default;
 $copyright-bg: color.adjust($footer-bg, $lightness: -2%) !default;
 $copyright-text-color: $footer-text-color !default;
 
-// ==========================================================================
-// -- Spacing --
-// ==========================================================================
-$base-list-spacing: 0.25em !default;
-$content-gap: 1.25rem !default; // space between elements
-$content-padding: 1.25rem !default; // padding for elements ie. cards, boxes, etc.
+
+
 
 // ==========================================================================
 // -- Responsive Sizes and Breakpoints --

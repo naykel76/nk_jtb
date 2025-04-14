@@ -1,5 +1,6 @@
-@use "../mixins/common" as *;
-@use "sass:map";
+@use '../mixins/common' as *;
+@use '../v1/maps_and_variables/base' as *;
+@use 'sass:map';
 
 // remove the following colours from the map
 $border-colors-merged: magic-merge($border-colors, $border-color-variants);
@@ -52,17 +53,17 @@ $border-properties-map: (
 // ----------------------------------------------------------------
 
 $border-radius-corners-map: (
-    prefix: "rounded-",
+    prefix: 'rounded-',
     values: $border-radius-sizes,
-    unit: "rem",
-    positions: $corners-map,
+    unit: 'rem',
+    positions: $corners-map
 );
 
 @mixin borderRadius($map) {
-    @each $value in map.get($map, "values") {
-        $identifier: "rounded-";
+    @each $value in map.get($map, 'values') {
+        $identifier: 'rounded-';
         $sanitized: handle-invalid($value);
-        @each $position-key, $positions in map.get($map, "positions") {
+        @each $position-key, $positions in map.get($map, 'positions') {
             $class: #{$identifier}#{$position-key}-#{$sanitized};
             .#{$class} {
                 @each $position in $positions {
