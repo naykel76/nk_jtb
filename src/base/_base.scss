@@ -1,4 +1,6 @@
-@use '../variables' as *;
+// @use '../variables' as *;
+@use '../v1/maps_and_variables/base' as *;
+
 @use 'sass:list';
 
 * {
@@ -36,7 +38,7 @@ html {
 
 body {
     line-height: inherit; // 1
-    color: $color;
+    color: $text-color;
     background-color: $body-bg;
 }
 
@@ -64,7 +66,7 @@ abbr:where([title]) {
 
 :where(h1, h2, h3, h4, h5, h6) {
     font-weight: $heading-font-weight;
-    color: $heading-and-title-color;
+    color: $heading-color;
     line-height: 1.25;
     text-wrap: balance;
 }
@@ -260,7 +262,7 @@ summary {
 ul,
 ol {
     list-style-position: outside; // 1
-    margin-inline-start: $content-gap; // 2
+    margin-inline-start: $content-padding; // 2
 }
 
 li {

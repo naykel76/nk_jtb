@@ -1,6 +1,5 @@
-@use "../variables/base" as *;
-@use "../variables/components" as *;
-@use "../mixins/media" as *;
+@use '../v1/maps_and_variables/base' as *;
+@use '../mixins/media' as *;
 
 $hero-title-color: #eee !default;
 $hero-title-lg: 3rem !default;
@@ -34,4 +33,3 @@ $hero-text-padding: $content-gap !default;
         }
     }
 }
-

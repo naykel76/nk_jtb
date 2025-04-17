@@ -1,8 +1,9 @@
-@use "../variables" as *;
-@use '../v1/functions/color-functions' as *;
 @use "../forms/control" as *;
 @use "../mixins/state" as *;
 @use "../utilities/transition" as *;
+@use "../variables" as *;
+@use '../v1/functions/color-functions' as *;
+@use '../v1/maps_and_variables/colors' as *;
 
 // ==========================================================================
 // -- BASE CLASS --

@@ -1,10 +1,11 @@
 @use '../functions/colorFunctionsOld' as *;
-@use '../v1/functions/color-functions' as *;
 @use '../functions/get' as *;
 @use '../functions/mapMerge' as *;
 @use '../mixins/extendedThemeClass' as *;
-@use '../variables' as *;
+@use '../v1/functions/color-functions' as *;
+@use '../v1/maps_and_variables/colors' as *;
 @use '../v1/maps_and_variables/tailwind-colors' as *;
+@use '../variables' as *;
 @use 'sass:map';
 
 // ---------------- BEFORE YOU DO ANYTHING CRAZY ------------------

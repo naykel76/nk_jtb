@@ -13,69 +13,272 @@
 
 <body>
 
-    <div class="container py">
-        <h2>List Styles</h2>
-        <div class="flex space-x">
-            <ul class="bx">
-                <li>Item one</li>
-                <li>Item two</li>
-                <li>Item three</li>
-            </ul>
-            <ul class="bx list-none">
-                <li>Item one</li>
-                <li>Item two</li>
-                <li>Item three</li>
-            </ul>
-            <ul class="bx list-decimal">
-                <li>Item one</li>
-                <li>Item two</li>
-                <li>Item three</li>
-            </ul>
-            <ul class="bx list-square">
-                <li>Item one</li>
-                <li>Item two</li>
-                <li>Item three</li>
-            </ul>
-            <ul class="bx list-circle">
-                <li>Item one</li>
-                <li>Item two</li>
-                <li>Item three</li>
-            </ul>
-        </div>
 
-        <div class="space-x">
-            <div class="inline-flex gap-3 bx">
-                <ul>
-                    <li>List item one</li>
-                    <li>List item two</li>
-                    <li>List item three</li>
-                </ul>
-                <ol>
-                    <li>List item one</li>
-                    <li>List item two</li>
-                    <li>List item three</li>
-                </ol>
+    <!-- revised -->
+    <div id="wrapper" class="zebra">
+        <section id="navbar" class="py-3">
+            <div class="container">
+                <h2 class="title mb-3">Navbar</h2>
+                <div class="h-10 bdr bg-gray-100">
+                    <nav class="navbar">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Services</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a class="txt-red" href="#">Override</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <hr>
+                <nav class="navbar">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a class="txt-red" href="#">Override</a></li>
+                        <li><a class="nav-item" href="#">Nav-Item</a></li>
+                        <li><a class="active nav-item" href="#">Nav-Item (active)</a></li>
+                    </ul>
+                </nav>
             </div>
+        </section>
 
-            <div class="inline-flex gap-3 bx">
-                <ul>
-                    <li>
-                        List item one
+        <div class="bx bdr-red">
+            <header id="nk-header" class="container py">
+                <div class="container flex space-between">
+                    <a href="#"><img src="/images/logo.svg" alt="naykel-logo" class="logo "></a>
+                    <div class="navbar">
+                        <nav>
+                            <ul>
+                                <li><a class="active" href="#">Home</a></li>
+                                <li class="relative" x-data="{showChildren:false}" x-on:mouseenter="showChildren=true"
+                                    x-on:mouseleave="showChildren=false">
+                                    <a href="#">
+                                        Services
+                                        <svg class="icon sm">
+                                            <use xlink:href="/svg/naykel-ui.svg#caret-down"></use>
+                                        </svg>
+                                    </a>
+                                    <div class="absolute mt-05 flex w-10 z-100" x-show="showChildren"
+                                        x-transition.duration.200ms style="display: none;">
+                                        <ul class="menu bx pxy-0 w-full">
+                                            <li><a href="#">Graphic Design</a></li>
+                                            <li><a href="#">Digital Marketing</a></li>
+                                            <li><a href="#">Mobile App Development</a></li>
+                                            <li><a href="#">IT Consulting</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </nav>
+                        <div>
+                            <button class="btn">Sign in</button>
+                            <button class="btn primary">Sign up</button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="navbar ha-l">
+                <a href="#"><img src="/images/logo.svg" alt="naykel-logo" class="logo mr-3"></a>
+                <nav>
+                    <ul>
+                        <li class="dd">
+                            <a href="#">
+                                Parent (css)
+                                <svg class="icon sm">
+                                    <use xlink:href="/svg/naykel-ui.svg#caret-down"></use>
+                                </svg>
+                            </a>
+                            <div class="dd-content mt-05">
+                                <ul class="menu bx pxy-0">
+                                    <li><a class="txt-red" href="#">Child Override</a></li>
+                                    <li><a href="#">Child</a></li>
+                                    <li><a href="#">Child</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="relative" x-data="{showChildren:true}" x-on:mouseenter="showChildren=true"
+                            x-on:mouseleave="showChildren=true">
+                            <a href="#">
+                                Parent (alpine hover)
+                                <svg class="icon sm">
+                                    <use xlink:href="/svg/naykel-ui.svg#caret-down"></use>
+                                </svg>
+                            </a>
+                            <div class="absolute mt-05 flex w-10 z-100" x-show="showChildren" x-transition.duration
+                                style="display: none;">
+                                <ul class="menu bx pxy-0 w-full">
+                                    <li><a class="txt-red" href="#">Child Override</a></li>
+                                    <li><a href="#">Child</a></li>
+                                    <li><a href="#">Child</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="relative" x-data="{showChildren:false}" x-on:click.away="showChildren=false">
+                            <a href="#" x-on:click.prevent="showChildren=!showChildren">
+                                Parent (alpine click)
+                                <svg class="icon sm">
+                                    <use xlink:href="/svg/naykel-ui.svg#caret-down"></use>
+                                </svg>
+                            </a>
+                            <div class="absolute mt-05 flex w-10 z-100" x-show="showChildren" x-transition.duration
+                                style="display: none;">
+                                <ul class="menu bx pxy-0 w-full">
+                                    <li><a class="txt-red" href="#">Child Override</a></li>
+                                    <li><a href="#">Child</a></li>
+                                    <li><a href="#">Child</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a class="txt-red" href="#">Override</a></li>
+                        <li><a class="active" href="#">Active</a></li>
+                        <li><a class="active nav-item" href="#">Active (nav-item)</a></li>
+
+                    </ul>
+                </nav>
+            </div>
+            <div class="navbar ha-l primary">
+                <a href="#"><img src="/images/logo.svg" alt="naykel-logo" class="logo mr-3"></a>
+                <nav>
+                    <ul>
+                        <li class="dd">
+                            <a href="#">
+                                Parent (css)
+                                <svg class="icon sm">
+                                    <use xlink:href="/svg/naykel-ui.svg#caret-down"></use>
+                                </svg>
+                            </a>
+                            <div class="dd-content mt-05">
+                                <ul class="menu bx pxy-0">
+                                    <li><a href="#">Child</a></li>
+                                    <li><a href="#">Child</a></li>
+                                    <li><a href="#">Child</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="relative" x-data="{showChildren:false}" x-on:mouseenter="showChildren=true"
+                            x-on:mouseleave="showChildren=false">
+                            <a href="#">
+                                Parent (alpine hover)
+                                <svg class="icon sm">
+                                    <use xlink:href="/svg/naykel-ui.svg#caret-down"></use>
+                                </svg>
+                            </a>
+                            <div class="absolute mt-05 flex w-10 z-100" x-show="showChildren" x-transition.duration
+                                style="display: none;">
+                                <ul class="menu bx pxy-0 w-full">
+                                    <li><a href="#">Child</a></li>
+                                    <li><a href="#">Child</a></li>
+                                    <li><a href="#">Child</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="relative" x-data="{showChildren:false}" x-on:click.away="showChildren=false">
+                            <a href="#" x-on:click.prevent="showChildren=!showChildren">
+                                Parent (alpine click)
+                                <svg class="icon sm">
+                                    <use xlink:href="/svg/naykel-ui.svg#caret-down"></use>
+                                </svg>
+                            </a>
+                            <div class="absolute mt-05 flex w-10 z-100" x-show="showChildren" x-transition.duration
+                                style="display: none;">
+                                <ul class="menu bx pxy-0 w-full">
+                                    <li><a href="#">Child</a></li>
+                                    <li><a href="#">Child</a></li>
+                                    <li><a href="#">Child</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <section id="lists" class="py-3">
+            <div class="container">
+                <h2 class="title mb-3">Lists</h2>
+                <div class="bx">
+                    <div class="bx-title">Base Lists</div>
+                    <div class="inline-flex gap-3">
+                        <ul>
+                            <li>List item one</li>
+                            <li>List item two</li>
+                            <li>List item three</li>
+                        </ul>
                         <ol>
-                            <li>Nested list item one</li>
-                            <li>Nested list item two</li>
-                            <li>Nested list item three</li>
+                            <li>List item one</li>
+                            <li>List item two</li>
+                            <li>List item three</li>
                         </ol>
-                    </li>
-                    <li>
-                        List item two
-                        <p>paragraph inside a list item</p>
-                    </li>
-                    <li>List item three</li>
-                </ul>
+                    </div>
+                </div>
+                <div class="bx">
+                    <div class="bx-title">List Styles</div>
+                    <p class="txt-red">Check list styles to make sure bullets align correctly.</p>
+                    <div class="flex space-x">
+                        <ul class="bx list-none">
+                            <li>Item one</li>
+                            <li>Item two</li>
+                            <li>Item three</li>
+                        </ul>
+                        <ul class="bx list-decimal">
+                            <li>Item one</li>
+                            <li>Item two</li>
+                            <li>Item three</li>
+                        </ul>
+                        <ul class="bx list-square">
+                            <li>Item one</li>
+                            <li>Item two</li>
+                            <li>Item three</li>
+                        </ul>
+                        <ul class="bx list-circle">
+                            <li>Item one</li>
+                            <li>Item two</li>
+                            <li>Item three</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bx">
+                    <div class="bx-title">Nested Lists</div>
+                    <ul>
+                        <li>
+                            List item one
+                            <ol>
+                                <li>Nested list item one</li>
+                                <li>Nested list item two</li>
+                                <li>Nested list item three</li>
+                            </ol>
+                        </li>
+                        <li>
+                            List item two
+                            <p>paragraph inside a list item</p>
+                        </li>
+                        <li>List item three</li>
+                    </ul>
+                </div>
             </div>
-        </div>
+        </section>
     </div>
+
+
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+
+
+
 
 
 
@@ -817,162 +1020,7 @@
     </div>
 
     <div>
-        <header id="nk-header" class="container py">
-            <div class="container flex space-between">
-                <a href="#"><img src="/images/logo.svg" alt="naykel-logo" class="logo "></a>
-                <div class="navbar">
-                    <nav>
-                        <ul>
-                            <li><a class="active" href="#">Home</a></li>
-                            <li class="relative" x-data="{showChildren:false}" x-on:mouseenter="showChildren=true"
-                                x-on:mouseleave="showChildren=false">
-                                <a href="#">
-                                    Services
-                                    <svg class="icon sm">
-                                        <use xlink:href="/svg/naykel-ui.svg#caret-down"></use>
-                                    </svg>
-                                </a>
-                                <div class="absolute mt-05 flex w-10 z-100" x-show="showChildren"
-                                    x-transition.duration.200ms style="display: none;">
-                                    <ul class="menu bx pxy-0 w-full">
-                                        <li><a href="#">Graphic Design</a></li>
-                                        <li><a href="#">Digital Marketing</a></li>
-                                        <li><a href="#">Mobile App Development</a></li>
-                                        <li><a href="#">IT Consulting</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </nav>
-                    <div>
-                        <button class="btn">Sign in</button>
-                        <button class="btn primary">Sign up</button>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <div class="navbar ha-l">
-            <a href="#"><img src="/images/logo.svg" alt="naykel-logo" class="logo mr-3"></a>
-            <nav>
-                <ul>
-                    <li class="dd">
-                        <a href="#">
-                            Parent (css)
-                            <svg class="icon sm">
-                                <use xlink:href="/svg/naykel-ui.svg#caret-down"></use>
-                            </svg>
-                        </a>
-                        <div class="dd-content mt-05">
-                            <ul class="menu bx pxy-0">
-                                <li><a class="txt-red" href="#">Child Override</a></li>
-                                <li><a href="#">Child</a></li>
-                                <li><a href="#">Child</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="relative" x-data="{showChildren:true}" x-on:mouseenter="showChildren=true"
-                        x-on:mouseleave="showChildren=true">
-                        <a href="#">
-                            Parent (alpine hover)
-                            <svg class="icon sm">
-                                <use xlink:href="/svg/naykel-ui.svg#caret-down"></use>
-                            </svg>
-                        </a>
-                        <div class="absolute mt-05 flex w-10 z-100" x-show="showChildren" x-transition.duration
-                            style="display: none;">
-                            <ul class="menu bx pxy-0 w-full">
-                                <li><a class="txt-red" href="#">Child Override</a></li>
-                                <li><a href="#">Child</a></li>
-                                <li><a href="#">Child</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="relative" x-data="{showChildren:false}" x-on:click.away="showChildren=false">
-                        <a href="#" x-on:click.prevent="showChildren=!showChildren">
-                            Parent (alpine click)
-                            <svg class="icon sm">
-                                <use xlink:href="/svg/naykel-ui.svg#caret-down"></use>
-                            </svg>
-                        </a>
-                        <div class="absolute mt-05 flex w-10 z-100" x-show="showChildren" x-transition.duration
-                            style="display: none;">
-                            <ul class="menu bx pxy-0 w-full">
-                                <li><a class="txt-red" href="#">Child Override</a></li>
-                                <li><a href="#">Child</a></li>
-                                <li><a href="#">Child</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li><a class="txt-red" href="#">Override</a></li>
-                    <li><a class="active" href="#">Active</a></li>
-                    <li><a class="active nav-item" href="#">Active (nav-item)</a></li>
-
-                </ul>
-            </nav>
-        </div>
-        <div class="navbar ha-l primary">
-            <a href="#"><img src="/images/logo.svg" alt="naykel-logo" class="logo mr-3"></a>
-            <nav>
-                <ul>
-                    <li class="dd">
-                        <a href="#">
-                            Parent (css)
-                            <svg class="icon sm">
-                                <use xlink:href="/svg/naykel-ui.svg#caret-down"></use>
-                            </svg>
-                        </a>
-                        <div class="dd-content mt-05">
-                            <ul class="menu bx pxy-0">
-                                <li><a href="#">Child</a></li>
-                                <li><a href="#">Child</a></li>
-                                <li><a href="#">Child</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="relative" x-data="{showChildren:false}" x-on:mouseenter="showChildren=true"
-                        x-on:mouseleave="showChildren=false">
-                        <a href="#">
-                            Parent (alpine hover)
-                            <svg class="icon sm">
-                                <use xlink:href="/svg/naykel-ui.svg#caret-down"></use>
-                            </svg>
-                        </a>
-                        <div class="absolute mt-05 flex w-10 z-100" x-show="showChildren" x-transition.duration
-                            style="display: none;">
-                            <ul class="menu bx pxy-0 w-full">
-                                <li><a href="#">Child</a></li>
-                                <li><a href="#">Child</a></li>
-                                <li><a href="#">Child</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="relative" x-data="{showChildren:false}" x-on:click.away="showChildren=false">
-                        <a href="#" x-on:click.prevent="showChildren=!showChildren">
-                            Parent (alpine click)
-                            <svg class="icon sm">
-                                <use xlink:href="/svg/naykel-ui.svg#caret-down"></use>
-                            </svg>
-                        </a>
-                        <div class="absolute mt-05 flex w-10 z-100" x-show="showChildren" x-transition.duration
-                            style="display: none;">
-                            <ul class="menu bx pxy-0 w-full">
-                                <li><a href="#">Child</a></li>
-                                <li><a href="#">Child</a></li>
-                                <li><a href="#">Child</a></li>
-                            </ul>
-                        </div>
-                    </li>
-
-                </ul>
-            </nav>
-        </div>
-
         <div class="quick-hide-wrapper zebra c-py-5-3-2">
-
-
-
             <section id="theme-examples">
                 <div class="container">
                     <h2 class="title txt-3">Basic Themes</h2>
