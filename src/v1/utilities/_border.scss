@@ -1,0 +1,10 @@
+@use '../maps_and_variables/tailwind-colors' as *;
+
+// NK::TD Update to use build tools including responsive breakpoints
+@each $color-name, $color-map in $tailwind-colors {
+    @each $key, $value in $color-map {
+        .bdr-#{$color-name}-#{$key} {
+            background-color: $value;
+        }
+    }
+}

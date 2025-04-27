@@ -3,7 +3,6 @@
 @use 'sass:map';
 
 // remove the following colours from the map
-$border-colors-merged: magic-merge($border-colors, $border-color-variants);
 $border-radius-merged: magic-merge($border-radius-variants, $border-radius-sizes);
 
 // this is not easy to override on the child element unless the
@@ -32,10 +31,6 @@ $border-properties-map: (
             prefix: #{$border-identifier},
             values: (solid, dashed, dotted, double, none),
         ),
-    border-color: (
-        prefix: #{$border-identifier},
-        values: $border-colors-merged
-    ),
     border-radius: (
         prefix: "rounded-",
         values: $border-radius-merged,

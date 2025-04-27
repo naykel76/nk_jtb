@@ -60,10 +60,6 @@ $fr-conversion-2-col: (
 // ==========================================================================
 //  Border, and border-radius sizes
 // ==========================================================================
-$border-color-variants: (
-    light: rgba(255, 255, 255, 0.15),
-    dark: rgba(0, 0, 0, 0.15)
-) !default;
 $border-colors: map.remove($color-map, 'danger', 'dark', 'info', 'light', 'success', 'warning') !default;
 
 $border-radius-sizes: (0, 0.25, 0.5, 0.75, 1, 1.5, 2) !default;
