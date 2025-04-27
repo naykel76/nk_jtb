@@ -14,7 +14,6 @@
         "jtb": "sass --watch --no-source-map ./src/jtb.scss:dist/css/jtb.css",
         "play": "sass --watch --no-source-map ./src/play.scss:dist/css/play.css",
         "dev": "vite --open",
-        "build:jtb": "sass --style compressed --no-source-map ./src/jtb.scss:dist/jtb.min.css",
         "build": "vite build && npm run build:jtb && npm run build:jtb_basic",
         "preview": "vite preview"
     },

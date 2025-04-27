@@ -1,4 +1,5 @@
 @use '../maps_and_variables/tailwind-colors' as *;
+@use 'sass:map';
 
 // NK::TD Consider if I really need place holder color utility classes
 
@@ -15,3 +16,42 @@
         }
     }
 }
+
+// NK::TD Update to use build tools including responsive breakpoints
+$text-variants: (
+    xs: (
+        font-size: 0.75rem,
+        line-height: 1
+    ),
+    sm: (
+        font-size: 0.875rem,
+        line-height: 1.25
+    ),
+    base: (
+        font-size: 1rem,
+        line-height: 1.5
+    ),
+    lg: (
+        font-size: 1.125rem,
+        line-height: 1.5
+    ),
+    xl: (
+        font-size: 1.25rem,
+        line-height: 1.5
+    ),
+    xxl: (
+        font-size: 1.5rem,
+        line-height: 1.5
+    )
+);
+
+@mixin generate-text-variants($map) {
+    @each $name, $props in $map {
+        .txt-#{$name} {
+            font-size: map.get($props, font-size);
+            line-height: map.get($props, line-height);
+        }
+    }
+}
+
+@include generate-text-variants($text-variants);
