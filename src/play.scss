@@ -1,18 +1,17 @@
 // @use './utilities/typography' as *;
+@use './v1/maps_and_variables/base' as *;
+@use './v1/maps_and_variables/colors' as *;
+@use './v1/maps_and_variables/tailwind-colors' as *;
 @use 'sass:color';
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:string';
 
-$color: blue;
-
-$darken: color.adjust($color, $lightness: -10%) !default;
-
-
-
-.default-color {
-    color: $color;
-}
-.bg-darken {
-    background-color: $darken;
+// NK::TD Update to use build tools including responsive breakpoints
+@each $color-name, $color-map in $tailwind-colors {
+    @each $key, $value in $color-map {
+        .bdr-#{$color-name}-#{$key} {
+            border-color: $value;
+        }
+    }
 }

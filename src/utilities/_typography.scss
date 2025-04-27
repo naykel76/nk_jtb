@@ -62,7 +62,7 @@ $text-sizes: map.merge(listToMap($text-rem-sizes), $text-variant-sizes);
 // This needs to be included in the properties map. I have left seperate for now
 // because 'base' is automatically stripped out
 .txt-base {
-    color: $color;
+    color: $text-color;
 }
 // ==========================================================================
 // -- UTILITY CLASS MAP --

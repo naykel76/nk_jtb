@@ -2,7 +2,7 @@
 @use '../variables' as *;
 @use 'sass:color';
 
-$accordion-color: $color !default;
+$accordion-color: $text-color !default;
 $accordion-font-size: $font-size !default;
 $accordion-font-weight: 600 !default;
 $accordion-bg: rgb(245, 245, 245) !default;

@@ -1,46 +1,6 @@
-// @use '../variables' as *;
 @use '../v1/maps_and_variables/base' as *;
-
 @use 'sass:list';
 
-* {
-    margin: 0; // 1.
-    padding: 0; // 1.
-}
-
-// 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
-// 2. Allow adding a border to an element by just adding a border-width.
-
-*,
-::before,
-::after {
-    box-sizing: border-box; // 1
-    border-width: 0; // 2
-    border-style: solid; // 2
-    border-color: $border-color; // 2
-}
-
-// 1. Use a consistent sensible line-height in all browsers.
-// 2. Prevent adjustments of font size after orientation changes in iOS.
-// 3. Use a more readable tab size.
-
-html {
-    line-height: $line-height; // 1
-    -webkit-text-size-adjust: 100%; // 2
-    -moz-tab-size: 4; // 3
-    tab-size: 4; // 3
-    font-family: $font-family;
-    font-size: $font-size;
-    scroll-behavior: smooth;
-}
-
-// 1. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
-
-body {
-    line-height: inherit; // 1
-    color: $text-color;
-    background-color: $body-bg;
-}
 
 hr {
     height: 0; 
