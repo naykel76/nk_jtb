@@ -1,5 +1,6 @@
 @use '../mixins/common' as *;
 @use '../v1/maps_and_variables/tailwind-colors' as *;
+@use '../v1/maps_and_variables/base' as *;
 @use "../forms/control" as *;
 @use 'sass:map';
 
@@ -20,7 +21,7 @@
 .action-button {
     display: inline-flex;
     align-items: center;
-    color: $color;
+    color: $text-color;
     padding-inline: 0.5rem;
     padding-block: 0.25rem;
     border-radius: 0.5rem;

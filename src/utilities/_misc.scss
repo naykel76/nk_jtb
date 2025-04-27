@@ -1,8 +1,6 @@
 @use "../variables/components" as *;
 
-.zebra > *:nth-child(2n + 2):not(.primary):not(.secondary) {
-    background: $zebra-alt-bg;
-}
+
 
 //
 // -----------------------------------
