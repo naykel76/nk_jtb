@@ -1,0 +1,22 @@
+@use './tailwind-colors' as *;
+@use 'sass:color';
+@use 'sass:map';
+
+// -- Base Styles and Defaults --
+
+// Body background
+$body-bg: #ffffff !default;
+$zebra-alt-bg: rgb(245, 245, 245) !default;
+
+// Border settings
+$border-color: map.get($tailwind-colors, 'slate', '100') !default;
+$border: 1px solid $border-color !default;
+$border-radius: 8px !default;
+
+// -- Spacing --
+$base-list-spacing: 0.25em !default;
+$content-gap: 1.25rem !default; // Space between elements
+$content-padding: 1rem !default; // Padding for general content ie. cards, boxes, etc.
+
+// -- Icons --
+$icon-color: inherit !default;

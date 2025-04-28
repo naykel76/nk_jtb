@@ -1,0 +1,80 @@
+@use '../maps_and_variables/misc' as *;
+@use '../maps_and_variables/typography' as *;
+@use 'sass:list';
+
+// ==========================================================================
+// -- Headings --
+// ==========================================================================
+
+@for $size from 1 through list.length($heading-sizes) {
+    h#{$size} {
+        font-size: list.nth($heading-sizes, $size);
+    }
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+    font-weight: $heading-font-weight;
+    color: $heading-color;
+    line-height: 1.25;
+    text-wrap: balance;
+}
+
+// add top margin to all headings unless they are H1 or first child.
+:is(h2, h3, h4, h5, h6):not(:first-child) {
+    margin-top: 1.5em;
+}
+
+// ==========================================================================
+// -- Body Text --
+// ==========================================================================
+
+// 1. Don't leave a single word on a line by itself
+
+p {
+    text-wrap: pretty; // 1.
+}
+
+small {
+    font-size: 80%;
+}
+
+b,
+strong {
+    font-weight: $font-weight-bold;
+}
+
+// ==========================================================================
+// -- Mono --
+// ==========================================================================
+
+code,
+kbd,
+pre,
+samp {
+    font-family: $mono-font;
+    font-size: 0.875rem;
+    color: #d9558c;
+    border-radius: 0.25rem;
+}
+
+// ==========================================================================
+// -- Links --
+// ==========================================================================
+
+:is(a) {
+    color: $link-color;
+    text-decoration: inherit;
+    cursor: pointer;
+
+    &:hover {
+        color: $link-hover-color;
+    }
+}
+
+// ==========================================================================
+// -- Lists --
+// ==========================================================================
+
+// ==========================================================================
+// -- Lists --
+// ==========================================================================

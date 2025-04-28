@@ -1,7 +1,4 @@
-@use "../mixins/common" as *;
-
-// there is no need to add a tonne of media queries for the
-// container because using min() width does a pretty good job!
+@use '../core-imports' as *;
 
 // 1. Use capital M in min() function to prevent clash between sass
 //    and css. This works because sass is case-sensitive, but CSS is

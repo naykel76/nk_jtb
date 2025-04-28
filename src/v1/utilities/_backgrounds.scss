@@ -1,4 +1,4 @@
-@use '../maps_and_variables/base' as *;
+@use '../maps_and_variables/misc' as *;
 @use '../maps_and_variables/tailwind-colors' as *;
 
 @each $color-name, $color-map in $tailwind-colors {

@@ -1,4 +1,8 @@
-@use '../maps_and_variables/base' as *;
+@use '../maps_and_variables/misc' as *;
+@use '../maps_and_variables/typography' as *;
+
+// Remove all default borders to ensure consistency and avoid unexpected border
+// widths from browsers.
 
 *,
 ::after,
@@ -16,7 +20,7 @@ html {
     line-height: $line-height;
     -webkit-text-size-adjust: 100%; // 1
     tab-size: 4; // 2
-    font-family: $font-family;
+    font-family: $base-font;
     font-size: $font-size;
     scroll-behavior: smooth;
 }
@@ -27,4 +31,274 @@ body {
     line-height: inherit;
     color: $text-color;
     background-color: $body-bg;
+}
+
+hr {
+    height: 0;
+    margin: $content-gap 0;
+    border-color: $border-color;
+    border-top-width: 2px;
+}
+
+// HTML5 elements
+// ==========================================================================
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section {
+    display: block;
+}
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+audio,
+canvas,
+progress,
+video {
+    display: inline-block;
+}
+
+// 1. Constrain images and videos to the parent width and preserve their intrinsic aspect ratio.
+// 2. Use height:auto instead of max-height:100% to prevent scaling issues.
+
+img,
+video {
+    max-width: 100%; // 1
+    height: auto; // 2
+}
+
+/**
+ * Add the correct display in iOS 4-7.
+ */
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+summary {
+    display: list-item;
+}
+
+progress {
+    vertical-align: baseline;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/**
+ * 1. Remove the bottom border in Firefox 39-.
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+
+abbr[title] {
+    border-bottom: none; // 1.
+    text-decoration: underline; // 2.
+    text-decoration: underline dotted; // 2.
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+sup {
+    top: -0.5em;
+}
+
+// -- Forms --
+// ==========================================================================
+
+input,
+select,
+textarea,
+button {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+::placeholder {
+    opacity: 1;
+    color: #c5c5c5;
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+
+button,
+input {
+    overflow: visible; // 1.
+}
+
+// 1. Correct the inability to style clickable types in iOS and Safari.
+// 2. Remove default button styles.
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+    -webkit-appearance: button; // 1.
+    background-color: transparent; // 2.
+    background-image: none; // 2.
+}
+
+// 1. Set the default cursor for buttons.
+
+button,
+[role='button'] {
+    cursor: pointer; // 1
+}
+
+// Make sure disabled buttons don't get the pointer cursor.
+
+:disabled {
+    cursor: default;
+}
+
+textarea {
+    overflow: auto;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ */
+
+legend {
+    box-sizing: border-box; // 1.
+    color: inherit; // 2.
+    display: table; // 1.
+    max-width: 100%; // 1.
+    white-space: normal; // 1.
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
+    height: auto;
+}
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on OS X.
+ */
+
+[type='search']::-webkit-search-cancel-button,
+[type='search']::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/**
+ * Correct the text style of placeholders in Chrome, Edge, and Safari.
+ */
+
+::-webkit-input-placeholder {
+    color: inherit;
+    opacity: 0.54;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+
+::-webkit-file-upload-button {
+    -webkit-appearance: button; // 1.
+    font: inherit; // 2.
+}
+
+// -- Tables --
+// ==========================================================================
+
+table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    font-weight: 600;
+    vertical-align: middle;
+}
+
+th,
+td {
+    font-size: 0.875rem;
+    padding-inline: 0.75rem;
+    padding-block: 0.75rem;
+    vertical-align: inherit;
+}
+
+// -- Controls --
+// ==========================================================================
+
+// 1. Set the default cursor for buttons.
+
+button,
+[role='button'] {
+    cursor: pointer; // 1
+}
+
+// Make sure disabled buttons don't get the pointer cursor.
+
+:disabled {
+    cursor: default;
+}
+
+// 1. Constrain images and videos to the parent width and preserve their intrinsic aspect ratio.
+// 2. Use height:auto instead of max-height:100% to prevent scaling issues.
+
+img,
+video {
+    max-width: 100%; // 1
+    height: auto; // 2
+}
+
+// 1. Correct the odd appearance in Chrome and Safari.
+// 2. Correct the outline style in Safari.
+
+[type='search'] {
+    -webkit-appearance: textfield; // 1
+    outline-offset: -2px; // 2
+}
+
+// Remove number spinner Chrome, Safari, Edge, Opera
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+// Remove number spinner Firefox
+input[type='number'] {
+    -moz-appearance: textfield;
 }

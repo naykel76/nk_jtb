@@ -5,8 +5,6 @@
 // ==========================================================================
 // -- Base Styles --
 // ==========================================================================
-
-
 $img-path: "/images" !default;
 
 // ==========================================================================
@@ -23,29 +21,3 @@ $footer-text-color: rgb(204, 204, 204) !default;
 $copyright-bg: color.adjust($footer-bg, $lightness: -2%) !default;
 $copyright-text-color: $footer-text-color !default;
 
-
-
-
-// ==========================================================================
-// -- Responsive Sizes and Breakpoints --
-// ==========================================================================
-$breakpoints: (
-    sm: 576px,
-    md: 768px,
-    lg: 992px,
-    xl: 1200px,
-    xxl: 1600px
-) !default;
-
-// create an empty map to update or add defaults
-$breakpoints-custom: () !default;
-// merge together
-$breakpoints: map.merge($breakpoints, $breakpoints-custom);
-
-// breakpoints are use to specify the max-width of the container as well as
-// the media query breakpoints.
-$sm: map.get($breakpoints, sm) !default;
-$md: map.get($breakpoints, md) !default;
-$lg: map.get($breakpoints, lg) !default;
-$xl: map.get($breakpoints, xl) !default;
-$xxl: map.get($breakpoints, xxl) !default;

@@ -1,10 +1,12 @@
-@use './base' as oldBase;
-@use './v1/base';
+@use './v1/base/index';
+@use './base/base' as *;
+@use './base/content_gap' as *;
 
-// -- ORDER MATTERS --
-// ----------------------------------------------------------------
-// Components need to be loaded before utility classes to make sure
-// they can be overridden
+// ==========================================================================
+// NOTE: ORDER MATTERS
+// Components must be loaded before utility classes to ensure that utility
+// classes can override component styles when necessary.
+// ==========================================================================
 
 @forward './components/accordion';
 @forward './components/banner';
@@ -22,10 +24,9 @@
 
 @forward './forms/';
 
-@forward './color/';
+// @forward './color/';
 
 @forward './utilities/border';
-@forward './utilities/container';
 @forward './utilities/display-visibility';
 @forward './utilities/effects';
 @forward './utilities/flexbox';
@@ -44,11 +45,5 @@
 @forward './utilities/typography';
 @forward './v1/utilities/backgrounds';
 @forward './v1/utilities/border';
+@forward './v1/utilities/container';
 @forward './v1/utilities/typography';
-
-// extras
-@use "./extras/code" as *;
-
-// These are opinionated styles for NK components. They are not part
-// of the core and will eventually be moved to a separate package.
-@use './nk' as *;

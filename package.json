@@ -14,8 +14,9 @@
         "jtb": "sass --watch --no-source-map ./src/jtb.scss:dist/css/jtb.css",
         "play": "sass --watch --no-source-map ./src/play.scss:dist/css/play.css",
         "dev": "vite --open",
-        "build": "vite build && npm run build:jtb && npm run build:jtb_basic",
-        "preview": "vite preview"
+        "build": "vite build",
+        "profile": "vite --profile",
+        "debug": "vite --debug"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.21",

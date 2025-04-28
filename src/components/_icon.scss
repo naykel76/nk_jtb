@@ -1,5 +1,7 @@
-@use '../variables' as *;
 
+@use '../variables/components' as *;
+@use '../v1/maps_and_variables/config' as *;
+@use '../v1/maps_and_variables/misc' as *;
 
 // 1. better alignment
 

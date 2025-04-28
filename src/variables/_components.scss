@@ -1,5 +1,6 @@
 @use './base' as *;
-@use '../v1/maps_and_variables/base' as *;
+@use '../v1/maps_and_variables/misc' as *;
+@use '../v1/maps_and_variables/typography' as *;
 @use '../v1/functions/color-functions' as *;
 @use 'sass:color';
 
@@ -39,7 +40,6 @@ $icon-xy-sm: 1rem !default;
 $icon-xy: 1.5rem !default;
 $icon-xy-md: 2rem !default;
 $icon-xy-lg: 3rem !default;
-$icon-color: inherit !default;
 
 // -- menu --
 // ==============================================================

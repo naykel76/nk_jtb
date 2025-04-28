@@ -1,44 +1,8 @@
-@use '../v1/maps_and_variables/base' as *;
+@use '../v1/maps_and_variables/misc' as *;
 @use '../v1/maps_and_variables/colors' as *;
 @use '../variables/base' as *;
 @use './base' as *;
 @use 'sass:map';
-
-// ==========================================================================
-// -- AXIS TO POSITIONS MAP --
-// ==========================================================================
-// Uses the key to defines the mapping structure that can be used to
-// retrieve css positions for a axis or position.
-//
-// !--IMPORTANT--!  The order of this map matters
-
-// prettier-ignore
-$axis-position-map: (
-    xy: (top, bottom, left, right),
-    x: (left, right),
-    y: (top, bottom),
-    t: top,
-    b: bottom,
-    l: left,
-    r: right,
-);
-
-$tblr-positions-map: map.remove($axis-position-map, 'x', 'y');
-$xy-positions-map: map.remove($axis-position-map, 't', 'b', 'l', 'r');
-
-// maps edges to respective corners for border-radius
-
-// prettier-ignore
-$corners-map: (
-    t: (top-left, top-right),
-    b: (bottom-left, bottom-right),
-    l: (top-left, bottom-left),
-    r: (top-right, bottom-right),
-    tl: top-left,
-    tr: top-right,
-    bl: bottom-left,
-    br: bottom-right,
-);
 
 // grid column fr conversion map for two column layouts. The map key specifies the percentage width of the 1st column
 
@@ -72,18 +36,7 @@ $border-radius-variants: (
     full: 9999rem
 ) !default;
 
-// ==========================================================================
-//  Container sizes
-// ==========================================================================
-$base-container-size: 1200px !default;
-$container-variants: (
-    base: $base-container-size,
-    sm: $sm,
-    md: $md,
-    lg: $lg,
-    xl: $xl,
-    xxl: $xxl
-) !default;
+
 
 // ==========================================================================
 //  Space sizes and variants for margin and padding utilities
@@ -111,11 +64,11 @@ $sizing-rem: (0, 1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 12, 14, 16, 18, 20, 22
 // $sizing-variants: (xs: 20rem, sm: 24rem, md: 28rem, lg: 32rem, xl: 36rem, xxl: 42rem) !default;
 $sizing-variants: (
     xs: 20rem,
-    sm: $sm,
-    md: $md,
-    lg: $lg,
-    xl: $xl,
-    xxl: $xxl
+    // sm: $sm,
+    // md: $md,
+    // lg: $lg,
+    // xl: $xl,
+    // xxl: $xxl
 ) !default;
 
 // These maps are seperate because they will only be used for the width, and height properties. I

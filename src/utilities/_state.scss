@@ -1,7 +1,9 @@
-@use '../functions/helpers' as *;
-@use '../mixins/media' as *;
-@use '../v1/maps_and_variables/colors' as *;
-@use '../variables' as *;
+// @use '../functions/helpers' as *;
+// @use '../mixins/media' as *;
+// @use '../v1/maps_and_variables/colors' as *;
+
+
+@use '../v1/core-imports' as *;
 
 // ==========================================================================
 // -- DISABLED --

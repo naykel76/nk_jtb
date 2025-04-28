@@ -1,9 +1,12 @@
 @use '../mixins/common' as *;
-@use '../v1/maps_and_variables/base' as *;
+@use '../variables/utility_maps' as *;
+@use '../v1/maps_and_variables/misc' as *;
+@use '../v1/maps_and_variables/config' as *;
+@use '../v1/maps_and_variables/layout' as *;
 @use 'sass:map';
 
 // remove the following colours from the map
-$border-radius-merged: magic-merge($border-radius-variants, $border-radius-sizes);
+// $border-radius-merged: magic-merge($border-radius-variants, $border-radius-sizes);
 
 // this is not easy to override on the child element unless the
 // properties are set as !important but works great otherwise.
@@ -31,11 +34,11 @@ $border-properties-map: (
             prefix: #{$border-identifier},
             values: (solid, dashed, dotted, double, none),
         ),
-    border-radius: (
-        prefix: "rounded-",
-        values: $border-radius-merged,
-        unit: "rem"
-    ),
+    // border-radius: (
+    //     prefix: "rounded-",
+    //     values: $border-radius-merged,
+    //     unit: "rem"
+    // ),
 );
 
 @include generate-utilities($border-properties-map);

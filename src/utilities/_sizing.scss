@@ -1,4 +1,4 @@
-@use "../mixins/common" as *;
+@use '../v1/core-imports' as *;
 @use "sass:map";
 
 $sizing-merged: magic-merge($sizing-variants, $sizing-pixels, $sizing-rem);

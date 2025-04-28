@@ -1,0 +1,14 @@
+// these are common imports for creating utilities and classes
+@forward '../mixins/generate-classes';
+@forward '../mixins/generate-utilities';
+@forward '../v1/maps_and_variables/colors';
+@forward '../v1/maps_and_variables/config';
+@forward '../v1/maps_and_variables/layout';
+@forward '../v1/maps_and_variables/misc';
+@forward '../v1/maps_and_variables/typography';
+
+// deprecated maps and variables
+@forward '../functions/helpers';
+@forward '../mixins/class-helpers';
+@forward '../mixins/media';
+@forward '../variables/utility_maps';
