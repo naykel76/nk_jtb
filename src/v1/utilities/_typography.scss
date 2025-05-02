@@ -1,8 +1,7 @@
-@use '../maps_and_variables/tailwind-colors' as *;
+@use '../../v1/core-imports' as *;
 @use 'sass:map';
 
 // NK::TD Consider if I really need place holder color utility classes
-
 @each $color-name, $color-map in $tailwind-colors {
     @each $key, $value in $color-map {
         .txt-#{$color-name}-#{$key} {

@@ -1,0 +1,16 @@
+@use '../../v1/core-imports' as *;
+@use 'sass:map';
+
+$margin-sizes: map.merge($margin-variants, listToMap($space-rem-sizes));
+
+// prettier-ignore
+$margin-properties-map: (
+    margin: (
+        prefix: #{$margin-identifier},
+        values: $margin-sizes,
+        unit: 'rem',
+        positions: $axis-position-map
+    )
+);
+
+@include build-utilities($margin-properties-map, $responsive: true);

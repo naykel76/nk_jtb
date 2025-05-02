@@ -1,5 +1,4 @@
-@use '../v1/maps_and_variables/misc' as *;
-@use '../mixins/media' as *;
+@use '../v1/core-imports' as *;
 
 $hero-title-color: #eee !default;
 $hero-title-lg: 3rem !default;

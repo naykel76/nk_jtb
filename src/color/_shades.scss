@@ -9,4 +9,4 @@ $colors-map: (
     ),
 );
 
-@include generate-utilities($colors-map);
+@include build-utilities($colors-map);

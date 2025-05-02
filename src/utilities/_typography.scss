@@ -1,4 +1,4 @@
-@use '../mixins/common' as *;
+@use '../v1/core-imports' as *;
 @use '../v1/maps_and_variables/misc' as *;
 @use '../v1/maps_and_variables/colors' as *;
 @use '../v1/maps_and_variables/typography' as *;
@@ -129,4 +129,4 @@ $typography-properties-map: (
     )
 );
 
-@include generate-utilities($typography-properties-map);
+@include build-utilities($typography-properties-map, $responsive: true);

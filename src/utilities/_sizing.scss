@@ -18,7 +18,7 @@ $sizing-properties-map: (
     min-width: (prefix: "minw-", values: $sizing-merged, unit: "rem")
 );
 
-@include generate-utilities($sizing-properties-map);
+@include build-utilities($sizing-properties-map, $responsive: true);
 
 // ==========================================================================
 // -- WIDTH AND HEIGHT UTILITY CLASSES --

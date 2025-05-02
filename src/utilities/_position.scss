@@ -1,4 +1,4 @@
-@use "../mixins/common" as *;
+@use '../v1/core-imports' as *;
 
 $position-properties-map: (
     position: (
@@ -6,7 +6,7 @@ $position-properties-map: (
     ),
 );
 
-@include generate-utilities($position-properties-map);
+@include build-utilities($position-properties-map, $responsive: true);
 
 // prettier-ignore
 .pos {

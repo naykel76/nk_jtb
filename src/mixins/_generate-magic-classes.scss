@@ -1,6 +1,6 @@
 @use '../v1/core-imports' as *;
-@use './class-helpers' as *;
-@use './media' as *;
+@use '../v1/mixins/property-makers' as *;
+@use '../v1/mixins/media' as *;
 @use 'sass:list';
 @use 'sass:map';
 

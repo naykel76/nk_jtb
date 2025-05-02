@@ -1,8 +1,4 @@
-@use '../mixins/common' as *;
-@use '../variables/utility_maps' as *;
-@use '../v1/maps_and_variables/misc' as *;
-@use '../v1/maps_and_variables/config' as *;
-@use '../v1/maps_and_variables/layout' as *;
+@use '../v1/core-imports' as *;
 @use 'sass:map';
 
 // remove the following colours from the map
@@ -41,7 +37,7 @@ $border-properties-map: (
     // ),
 );
 
-@include generate-utilities($border-properties-map);
+@include build-utilities($border-properties-map, $responsive: true);
 
 // ----------------------------------------------------------------
 // This map and the following mixin is used to generate

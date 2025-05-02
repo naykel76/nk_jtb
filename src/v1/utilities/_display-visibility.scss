@@ -1,5 +1,5 @@
-@use '../mixins/common' as *;
-@use '../mixins/make-responsive-class-mixins' as *;
+@use '../../v1/core-imports' as *;
+@use '../../v1/mixins/class-makers' as *;
 
 $breakpoints: ('sm', 'md', 'lg', 'xl', 'xxl');
 
@@ -24,7 +24,7 @@ $display-visibility-properties: (
     )
 );
 
-@include generate-utilities($display-visibility-properties);
+@include build-utilities($display-visibility-properties);
 
 // ----------------------------------------------------------------
 // DISPLAY AND HIDE 'FROM' THE SELECTED SCREEN SIZE

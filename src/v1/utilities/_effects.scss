@@ -1,0 +1,11 @@
+@use '../../v1/core-imports' as *;
+
+// prettier-ignore
+$effect-properties-map: (
+    opacity: (
+        prefix: 'opacity-',
+        values: ( $opacity-values )
+    ),
+);
+
+@include build-utilities($effect-properties-map, $responsive: true);

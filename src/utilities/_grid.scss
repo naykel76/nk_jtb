@@ -1,12 +1,11 @@
 @use '../config' as *;
 @use '../functions/get' as *;
-@use '../mixins/common' as *;
+@use '../v1/core-imports' as *;
 @use '../mixins/generate-magic-classes' as *;
 @use '../mixins/magicGridGenerators' as *;
-@use '../mixins/make-responsive-class-mixins' as *;
+@use '../v1/mixins/class-makers' as *;
 
 $gap: get('grid.default-gap', $config);
-$gap-sizes: (0, 0.25, 0.5, 1, 1.25, 1.5, 2, 3, 4, 5) !default;
 $num-grid-cols: get('grid.num-grid-cols', $config);
 
 // ==========================================================================
@@ -30,41 +29,6 @@ $num-grid-cols: get('grid.num-grid-cols', $config);
 .gap {
     gap: $gap;
 }
-
-// ==========================================================================
-// -- GENERAL --
-// ==========================================================================
-
-// prettier-ignore
-$grid-properties-map: (
-    gap: (
-        prefix: "gap-",
-        values: $gap-sizes,
-        unit: "rem",
-        breakpoints: ("sm", "md", "lg", "xl")
-    ),
-    justify-items: (
-        prefix: "justify-items-",
-        values: ( center, end, start, stretch ) ),
-    justify-self: (
-        prefix: "justify-self-",
-        values: ( auto, center, end, start, stretch )
-    ),
-    place-content: (
-        prefix: "place-content-",
-        values: ( baseline, center, end, space-around, space-between, space-evenly, start, stretch )
-    ),
-    place-items: (
-        prefix: "place-items-",
-        values: ( baseline, center, end, start, stretch )
-    ),
-    place-self: (
-        prefix: "place-self-",
-        values: ( auto, center, end, start, stretch )
-    )
-);
-
-@include generate-utilities($grid-properties-map);
 
 // ==========================================================================
 // -- GRID SPANNING --

@@ -1,0 +1,15 @@
+@use '../../v1/core-imports' as *;
+@use 'sass:map';
+
+$padding-sizes: map.merge($padding-variants, listToMap($space-rem-sizes));
+
+$padding-properties-map: (
+    padding: (
+        prefix: #{$padding-identifier},
+        values: $padding-sizes,
+        unit: 'rem',
+        positions: $axis-position-map
+    )
+);
+
+@include build-utilities($padding-properties-map, $responsive: true);

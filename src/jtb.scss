@@ -27,15 +27,9 @@
 // @forward './color/';
 
 @forward './utilities/border';
-@forward './utilities/display-visibility';
 @forward './utilities/effects';
-@forward './utilities/flexbox';
 @forward './utilities/grid';
-@forward './utilities/layout';
-@forward './utilities/margin';
 @forward './utilities/misc';
-@forward './utilities/opacity';
-@forward './utilities/padding';
 @forward './utilities/position';
 @forward './utilities/sizing';
 @forward './utilities/space';
@@ -43,7 +37,15 @@
 @forward './utilities/transforms';
 @forward './utilities/transition';
 @forward './utilities/typography';
+@forward './utils-to-add';
 @forward './v1/utilities/backgrounds';
 @forward './v1/utilities/border';
 @forward './v1/utilities/container';
+@forward './v1/utilities/display-visibility';
+@forward './v1/utilities/effects';
+@forward './v1/utilities/flexbox';
+@forward './v1/utilities/grid';
+@forward './v1/utilities/layout';
+@forward './v1/utilities/margin';
+@forward './v1/utilities/padding';
 @forward './v1/utilities/typography';

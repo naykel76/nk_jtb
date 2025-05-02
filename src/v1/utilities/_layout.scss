@@ -1,4 +1,4 @@
-@use "../mixins/common" as *;
+@use '../../v1/core-imports' as *;
 
 // prettier-ignore
 $layout-properties-map: (
@@ -9,11 +9,5 @@ $layout-properties-map: (
     z-index: ( prefix: "z-", values: ( 0, 1, 50, 100, (bottom: -1), (top: 999)) )
 );
 
-@include generate-utilities($layout-properties-map);
+@include build-utilities($layout-properties-map, $responsive: true);
 
-// only stick while parent is in view
-.sticky {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}

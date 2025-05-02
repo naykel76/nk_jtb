@@ -1,5 +1,8 @@
+@use '../../functions/helpers/strippers' as *;
 @use '../../v1/mixins/media' as *;
 @use '../../v1/mixins/property-makers' as *;
+@use 'sass:map';
+
 
 ////
 /// @group class-makers
@@ -37,6 +40,7 @@
         @include make-from-breakpoint(($property: $value), $class-name, $breakpoints);
     }
 }
+
 
 /// Generate responsive class for one or more properties, starting FROM the
 /// specified breakpoints, across a range of breakpoints.
@@ -167,6 +171,31 @@
                     @include make-properties($props);
                 }
             }
+        }
+    }
+}
+
+
+
+// 1. initialise props to be used for responsive classes
+// 2. pass in identifier to strip-invalid to remove unwanted characters
+// 3. merge the props for each position into a single map so it can
+//    be used for responsive classes which expects a map of props
+//    not a seperate `property` and `value
+
+@mixin make-position-based-class($property, $value, $positions-map, $identifier, $variant, $breakpoints) {
+    @each $axis-or-position-key, $positions in $positions-map {
+        $props: (); // 1.
+        $derived-class: strip-invalid(#{$identifier}#{$axis-or-position-key}-#{$variant}, $identifier); // 2.
+
+        .#{$derived-class} {
+            @each $position in $positions {
+                #{$property}-#{$position}: #{$value};
+                $props: map.merge($props, (#{$property}-#{$position}: $value)); // 3.
+            }
+        }
+        @if ($breakpoints) {
+            @include make-from-breakpoint($props, $derived-class, $breakpoints);
         }
     }
 }
