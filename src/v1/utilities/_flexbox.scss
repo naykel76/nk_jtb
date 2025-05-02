@@ -1,4 +1,5 @@
-@use '../v1/core-imports' as *;
+@use '../../v1/core-imports' as *;
+@use 'sass:map';
 
 // prettier-ignore
 $flex-properties-map: (
@@ -13,7 +14,7 @@ $flex-properties-map: (
             content-normal: normal,
             content-start: flex-start,
             content-stretch: stretch
-        )
+        ),
     ),
     align-items: (
         values: (
@@ -22,13 +23,30 @@ $flex-properties-map: (
             items-end: flex-end,
             items-start: flex-start,
             items-stretch: stretch,
+            // NK::TD move these to a custom alias map and merge
             va-b: flex-end,
             va-c: center,
             va-t: flex-start
+        ),
+    ),
+    justify-content: (
+        values: (
+            space-between: space-between,
+            justify-around: space-around,
+            justify-center: center,
+            justify-end: flex-end,
+            justify-evenly: space-evenly,
+            justify-normal: normal,
+            justify-start: flex-start,
+            justify-stretch: stretch,
+            // NK::TD move these to a custom alias map and merge
+            ha-c: center,
+            ha-l: flex-start,
+            ha-r: flex-end,
         )
     ),
     align-self: (
-        prefix: "self-",
+        prefix: 'self-',
         values: (
             auto: auto,
             baseline: baseline,
@@ -36,16 +54,11 @@ $flex-properties-map: (
             end: flex-end,
             start: flex-start,
             stretch: stretch
-        )
+        ),
     ),
     flex: (
         prefix: #{$flex-identifier},
-        values: (1, 2,
-            ('auto': 1 1 auto),
-            ('initial': 0 1 auto),
-            'none'
-        ),
-        breakpoints: ("sm", "md", "lg", "xl")
+        values: ( 1, 2, ( 'auto': 1 1 auto ), ( 'initial': 0 1 auto ), 'none' ),
     ),
     flex-direction: (
         prefix: #{$flex-identifier},
@@ -68,60 +81,39 @@ $flex-properties-map: (
     flex-wrap: (
         values: ( nowrap, wrap-reverse, wrap )
     ),
-    justify-content: (
-        values: (
-            ha-c: center,
-            ha-l: flex-start,
-            ha-r: flex-end,
-            space-between: space-between,
-            justify-around: space-around,
-            justify-center: center,
-            justify-end: flex-end,
-            justify-evenly: space-evenly,
-            justify-normal: normal,
-            justify-start: flex-start,
-            justify-stretch: stretch
-        )
-    ),
     order: (
         property: order,
         prefix: "order-",
-        values: ( 1, 2, 3, 4, 5, 6, 7, 8 ),
-        breakpoints: ("sm", "md", "lg", "xl")
+        values: $order-map,
     ),
 );
 
-@include generate-utilities($flex-properties-map);
+@include build-utilities($flex-properties-map, $responsive: true);
+
+// ----------------------------------------------------------------
+// CUSTOM FLEXBOX CLASSES
+// ----------------------------------------------------------------
 
 // prettier-ignore
 $flex-classes-map: (
     flex-col: (
-        props: ( display: flex, flex-direction: column ),
-        breakpoints: ("sm", "md", "lg", "xl")
+        props: ( display: flex, flex-direction: column )
     ),
     flex-row: (
-        props: ( display: flex, flex-direction: row ),
-        breakpoints: ("sm", "md", "lg", "xl")
+        props: ( display: flex, flex-direction: row )
     )
 );
 
-@include generate-classes($flex-classes-map);
-
-// I am not convinced this should be a permanent part of the framework.
+// prettier-ignore
 $special-classes: (
     flex-centered: (
         props: (
             display: flex,
             align-items: center,
             justify-content: center
-        ),
-        breakpoints: (
-            'sm',
-            'md',
-            'lg',
-            'xl'
         )
     )
 );
 
-@include generate-classes($special-classes);
+$merged-classes: map.merge($flex-classes-map, $special-classes);
+@include build-custom-classes($merged-classes, $responsive: true);

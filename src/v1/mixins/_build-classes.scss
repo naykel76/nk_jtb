@@ -1,9 +1,36 @@
-@use '../functions/helpers' as *;
-@use './make-class-mixins' as *;
-@use './make-position-based-class' as *;
+@use '../../functions/helpers/' as *;
+@use '../../v1/mixins/class-makers' as *;
+@use '../../v1/mixins/property-makers' as *;
+// @use './make-position-based-class' as *;
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:string';
+
+// allows you to override the default breakpoints in the map for cases where you
+// you do not want the full range of breakpoints.
+@function get-breakpoints($breakpoints) {
+    $default-breakpoints: ('sm', 'md', 'lg', 'xl');
+    @return if($breakpoints == null, $default-breakpoints, $breakpoints);
+}
+
+@mixin build-custom-classes($properties-map, $responsive: false) {
+    @each $class, $map in $properties-map {
+        $props: map.get($map, 'props');
+        $map-breakpoints: map.get($map, "breakpoints"); // optional
+        // if responsive is true, get the breakpoints from the map or use the default
+        $breakpoints: if($responsive, get-breakpoints($map-breakpoints), $map-breakpoints );
+
+        .#{$class} {
+            @include make-properties($props);
+        }
+
+        @if ($breakpoints) {
+            @include make-from-breakpoint($props, $class, $breakpoints);
+        }
+    }
+}
+
+
 
 // 1. The `key`can be a single value e.g. `1.5` or a key-value pair represented
 //    as list e.g. `sm 1.5`. This allows you to pass in a list of values or a
@@ -19,8 +46,18 @@
 //    single string. This creates the unique identifier which is used to create
 //    the class name.
 
+// Generates utility classes based on the provided $properties-map.
+//
+// Responsive logic:
+// - If $responsive is true, breakpoints will be derived from the map entry
+//   (`breakpoints`) or fall back to default ('sm', 'md', 'lg', 'xl').
+// - If $responsive is false, only breakpoints explicitly defined in the map will be used.
+// - If no breakpoints are found and $responsive is false, only base classes will be created.
+//
+// This allows flexible per-property control while enabling global responsive toggling.
+
 // prettier-ignore
-@mixin generate-utilities($properties-map) {
+@mixin build-utilities($properties-map, $responsive: false) {
 
     @each $property, $map in $properties-map {
 
@@ -29,9 +66,11 @@
         $identifier: map.get($map, "prefix");
         $unit: map.get($map, "unit"); // optional
         $positions-map: map.get($map, "positions"); // optional
-        $breakpoints: map.get($map, "breakpoints"); // optional
+        $map-breakpoints: map.get($map, "breakpoints"); // optional
 
-        // loop through the values and create classes
+        // if responsive is true, get the breakpoints from the map or use the default
+        $breakpoints: if($responsive, get-breakpoints($map-breakpoints), $map-breakpoints );
+
         @each $key, $value in $values { // 1.
 
             // Process the key and value to get the variant and value

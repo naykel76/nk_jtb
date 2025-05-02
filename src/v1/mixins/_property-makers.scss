@@ -34,7 +34,7 @@
 ///
 /// @example scss - Usage
 ///     .my-class {
-///         @include create-properties((color: blue, background-color: white));
+///         @include make-properties((color: blue, background-color: white));
 ///     }
 ///
 /// @example css - Output
@@ -44,35 +44,32 @@
 ///     }
 ///
 
-@mixin create-properties($props) {
+@mixin make-properties($props) {
     @each $property, $value in $props {
         @include create-property($property, $value);
     }
 }
 
-//
-//
-//
-// NEED TO ADD TO SASS DOC
-//
-//
-//
+// NK::TD update for SassDoc
+// 
 
 // ==========================================================================
-// Generate properties based on positional requirements. For
-// example, when `margin-top` requires a value for `top`, and
-// `margin-x` requires values for `left` and `right`.
+// Generate a single directional property, e.g. margin-top or inset-left.
+// Skips unit if value is 'auto' or 0.
 // ==========================================================================
-// This mixin iterates through a list of positions, creating the
-// appropriate property (e.g., `top`, `bottom`, `left`, `right`)
-// based on the provided value.
-//
-// You can specify the unit of measurement with the optional `$unit`
-// parameter, with the default unit being "rem".
+
+@mixin create-position-property($property, $value, $position, $unit: 'rem') {
+    $derivedUnit: if(($value == 'auto' or $value == 0), null, $unit);
+    #{$property}-#{$position}: #{$value}#{$derivedUnit};
+}
+
+// ==========================================================================
+// Generate directional properties for a list of positions.
+// Useful for applying the same value across multiple sides.
+// ==========================================================================
 
 @mixin create-position-properties($property, $value, $positions, $unit: 'rem') {
     @each $position in $positions {
-        $derivedUnit: if(($value == 'auto' or $value == 0), null, $unit);
-        #{$property}-#{$position}: #{$value}#{$derivedUnit};
+        @include create-position-property($property, $value, $position, $unit);
     }
 }

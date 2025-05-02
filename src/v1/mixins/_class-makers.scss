@@ -1,9 +1,42 @@
-@use './media' as *;
-@use './class-helpers' as *;
+@use '../../v1/mixins/media' as *;
+@use '../../v1/mixins/property-makers' as *;
 
 ////
-/// @group responsive-class-makers
+/// @group class-makers
 ////
+
+/// Generate class for a single property and optionally creates responsive
+/// classes for a range of breakpoints.
+///
+/// **NOTE:** This mixin will create the base class as well as responsive classes.
+///
+/// @param {String} $class-name - The full class name.
+/// @param {String} $property - The CSS property.
+/// @param {String} $value - The value of the CSS property.
+/// @param {List} $breakpoints - The list of breakpoints (optional).
+///
+/// @example scss - Usage
+///     @include make-single-property-class('txt-red', 'color', 'red', ('sm', 'md'));
+///
+/// @example scss - Output
+///     .txt-red { color: "red"; }
+///
+///     @media (min-width: 576px) {
+///         .sm\:txt-red { color: "red"; }
+///     }
+///
+///     @media (min-width: 768px) {
+///       .md\:txt-red { color: "red"; }
+///     }
+
+@mixin make-single-property-class($class-name, $property, $value, $breakpoints: ()) {
+    .#{$class-name} {
+        #{$property}: $value;
+    }
+    @if ($breakpoints) {
+        @include make-from-breakpoint(($property: $value), $class-name, $breakpoints);
+    }
+}
 
 /// Generate responsive class for one or more properties, starting FROM the
 /// specified breakpoints, across a range of breakpoints.
@@ -44,23 +77,23 @@
         .#{$derived-class} {
             @if ($bp == 'sm') {
                 @include from-sm {
-                    @include create-properties($props);
+                    @include make-properties($props);
                 }
             } @else if($bp == 'md') {
                 @include from-md {
-                    @include create-properties($props);
+                    @include make-properties($props);
                 }
             } @else if($bp == 'lg') {
                 @include from-lg {
-                    @include create-properties($props);
+                    @include make-properties($props);
                 }
             } @else if($bp == 'xl') {
                 @include from-xl {
-                    @include create-properties($props);
+                    @include make-properties($props);
                 }
             } @else if($bp == 'xxl') {
                 @include from-xxl {
-                    @include create-properties($props);
+                    @include make-properties($props);
                 }
             }
         }
@@ -81,19 +114,19 @@
         .to-#{$derived-class} {
             @if ($bp == 'sm') {
                 @include to-sm {
-                    @include create-properties($props);
+                    @include make-properties($props);
                 }
             } @else if($bp == 'md') {
                 @include to-md {
-                    @include create-properties($props);
+                    @include make-properties($props);
                 }
             } @else if($bp == 'lg') {
                 @include to-lg {
-                    @include create-properties($props);
+                    @include make-properties($props);
                 }
             } @else if($bp == 'xl') {
                 @include to-xl {
-                    @include create-properties($props);
+                    @include make-properties($props);
                 }
             } @else {
                 @error 'The device '#{$bp}' is not available for this mixin, you need to remove it from the args list.';
@@ -115,23 +148,23 @@
         .on-#{$derived-class} {
             @if ($bp == 'sm') {
                 @include on-sm {
-                    @include create-properties($props);
+                    @include make-properties($props);
                 }
             } @else if($bp == 'md') {
                 @include on-md {
-                    @include create-properties($props);
+                    @include make-properties($props);
                 }
             } @else if($bp == 'lg') {
                 @include on-lg {
-                    @include create-properties($props);
+                    @include make-properties($props);
                 }
             } @else if($bp == 'xl') {
                 @include on-xl {
-                    @include create-properties($props);
+                    @include make-properties($props);
                 }
             } @else if($bp == 'xxl') {
                 @include on-xxl {
-                    @include create-properties($props);
+                    @include make-properties($props);
                 }
             }
         }
