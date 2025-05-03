@@ -3,59 +3,6 @@
 
 // prettier-ignore
 $flex-properties-map: (
-    align-content: (
-        values: (
-            content-around: space-around,
-            content-baseline: baseline,
-            content-between: space-between,
-            content-center: center,
-            content-end: flex-end,
-            content-evenly: space-evenly,
-            content-normal: normal,
-            content-start: flex-start,
-            content-stretch: stretch
-        ),
-    ),
-    align-items: (
-        values: (
-            items-baseline: baseline,
-            items-center: center,
-            items-end: flex-end,
-            items-start: flex-start,
-            items-stretch: stretch,
-            // NK::TD move these to a custom alias map and merge
-            va-b: flex-end,
-            va-c: center,
-            va-t: flex-start
-        ),
-    ),
-    justify-content: (
-        values: (
-            space-between: space-between,
-            justify-around: space-around,
-            justify-center: center,
-            justify-end: flex-end,
-            justify-evenly: space-evenly,
-            justify-normal: normal,
-            justify-start: flex-start,
-            justify-stretch: stretch,
-            // NK::TD move these to a custom alias map and merge
-            ha-c: center,
-            ha-l: flex-start,
-            ha-r: flex-end,
-        )
-    ),
-    align-self: (
-        prefix: 'self-',
-        values: (
-            auto: auto,
-            baseline: baseline,
-            center: center,
-            end: flex-end,
-            start: flex-start,
-            stretch: stretch
-        ),
-    ),
     flex: (
         prefix: #{$flex-identifier},
         values: ( 1, 2, ( 'auto': 1 1 auto ), ( 'initial': 0 1 auto ), 'none' ),
@@ -90,9 +37,9 @@ $flex-properties-map: (
 
 @include build-utilities($flex-properties-map, $responsive: true);
 
-// ----------------------------------------------------------------
+// ==========================================================================
 // CUSTOM FLEXBOX CLASSES
-// ----------------------------------------------------------------
+// ==========================================================================
 
 // prettier-ignore
 $flex-classes-map: (

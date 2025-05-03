@@ -1,7 +1,5 @@
 @use '../v1/maps_and_variables/misc' as *;
 @use '../v1/maps_and_variables/colors' as *;
-@use '../variables/base' as *;
-@use './base' as *;
 @use 'sass:map';
 
 // grid column fr conversion map for two column layouts. The map key specifies the percentage width of the 1st column
@@ -24,39 +22,40 @@ $fr-conversion-2-col: (
 // ==========================================================================
 //  Border, and border-radius sizes
 // ==========================================================================
-$border-colors: map.remove($color-map, 'danger', 'dark', 'info', 'light', 'success', 'warning') !default;
+$border-colors: map.remove(
+    $color-map,
+    'danger',
+    'dark',
+    'info',
+    'light',
+    'success',
+    'warning'
+) !default;
 
-$border-radius-sizes: (0, 0.25, 0.5, 0.75, 1, 1.5, 2) !default;
 $border-radius-variants: (
     xs: 0.125rem,
     sm: 0.25rem,
     base: 0.375,
     lg: 0.5rem,
     xl: 0.75rem,
-    full: 9999rem
+    full: 9999rem,
 ) !default;
-
-
 
 // ==========================================================================
 //  Space sizes and variants for margin and padding utilities
 // ==========================================================================
 
-$space-rem-sizes: (0, 0.125, 0.25, 0.5, 0.75, 0.875, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 4, 5) !default;
 $margin-variants: (
     base: 1.5,
-    auto: auto
+    auto: auto,
 ) !default;
 $padding-variants: (
-    default: $content-padding
+    default: $content-padding,
 ) !default;
 
 // ==========================================================================
 //  Sizing maps and variants
 // ==========================================================================
-
-$sizing-pixels: (200px, 250px, 300px, 400px, 600px) !default; // include unit to make merge easier
-$sizing-rem: (0, 1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24) !default;
 
 // The debate is if these should be related to the breakpoints or not. I think it would be better if
 // they are related to the breakpoints because it makes it easier to think in terms of the layout. I
@@ -68,7 +67,7 @@ $sizing-variants: (
     // md: $md,
     // lg: $lg,
     // xl: $xl,
-    // xxl: $xxl
+     // xxl: $xxl
 ) !default;
 
 // These maps are seperate because they will only be used for the width, and height properties. I
@@ -80,16 +79,12 @@ $sizing-base-heights: (
     full: 100%,
     fit: fit-content,
     max: max-content,
-    min: min-content
+    min: min-content,
 );
 $sizing-base-widths: (
     screen: 100vw,
     full: 100%,
     fit: fit-content,
     max: max-content,
-    min: min-content
+    min: min-content,
 );
-
-// ==========================================================================
-//  Text maps and variants
-// ==========================================================================

@@ -1,5 +1,5 @@
 // https://itnext.io/advanced-use-of-sass-maps-bd5a47ca0d1a
-// ----------------------------------------------------------------
+// ==========================================================================
 // Search for any value contained within nested maps, by using dot
 // notation as the key argument
 //
@@ -10,7 +10,7 @@
 // Dependencies: deepMapCheck, deepMapGet, strExplode
 //
 // @return Anything
-// ----------------------------------------------------------------
+// ==========================================================================
 
 @use './deepMapCheck' as *;
 @use './deepMapGet' as *;

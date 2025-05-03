@@ -1,0 +1,11 @@
+@use '../../v1/functions/color-functions' as *;
+@use '../../v1/maps_and_variables' as *;
+@use 'sass:color';
+@use 'sass:map';
+
+
+@mixin make-basic-theme($base, $border-color: calculate-border-shade($base), $font-color: text-color($base)) {
+    background-color: $base;
+    border: 2px solid $border-color;
+    color: $font-color;
+}

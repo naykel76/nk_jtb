@@ -1,7 +1,7 @@
 @use '../../v1/core-imports' as *;
 @use 'sass:map';
 
-$padding-sizes: map.merge($padding-variants, listToMap($space-rem-sizes));
+$padding-sizes: map.merge($padding-variants, listToMap($spacing-sizes));
 
 $padding-properties-map: (
     padding: (

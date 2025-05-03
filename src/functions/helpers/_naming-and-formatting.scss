@@ -4,9 +4,9 @@
 @use 'sass:meta';
 @use 'sass:string';
 
-// ----------------------------------------------------------------
+// ==========================================================================
 // escape invalid charters to be used in class names
-// ----------------------------------------------------------------
+// ==========================================================================
 @function handle-invalid($input) {
     $input: toString($input);
 
@@ -21,9 +21,9 @@
     @return $output;
 }
 
-// ----------------------------------------------------------------
+// ==========================================================================
 // Remove unwanted unit for certain values, e.g. 0, %, and auto
-// ----------------------------------------------------------------
+// ==========================================================================
 
 // Define a list of units to be excluded
 $exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
@@ -36,17 +36,17 @@ $exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
     @return $value + $derived-unit;
 }
 
-// ----------------------------------------------------------------
+// ==========================================================================
 // Remove 'rem' unit from class names because it is the default
-// ----------------------------------------------------------------
+// ==========================================================================
 @function handle-class-unit($unit) {
     @return if($unit != "rem", $unit, "");
 }
 
-// ----------------------------------------------------------------
+// ==========================================================================
 // Process the variant and value based on the key and value passed
 // in to be used in the class name and property value
-// ----------------------------------------------------------------
+// ==========================================================================
 // 1. escape or convert any invalid characters in the key so it c an
 //    be uses in the class name.
 // 2. If there is no value, then a key-value pair was not passed in

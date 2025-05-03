@@ -24,9 +24,10 @@
 
 @forward './forms/';
 
-// @forward './color/';
+// @forward './color/shades';
 
-@forward './utilities/border';
+@forward './utils-to-add';
+
 @forward './utilities/effects';
 @forward './utilities/grid';
 @forward './utilities/misc';
@@ -37,7 +38,7 @@
 @forward './utilities/transforms';
 @forward './utilities/transition';
 @forward './utilities/typography';
-@forward './utils-to-add';
+@forward './v1/utilities/alignment';
 @forward './v1/utilities/backgrounds';
 @forward './v1/utilities/border';
 @forward './v1/utilities/container';
@@ -48,4 +49,5 @@
 @forward './v1/utilities/layout';
 @forward './v1/utilities/margin';
 @forward './v1/utilities/padding';
+@forward './v1/utilities/themes';
 @forward './v1/utilities/typography';

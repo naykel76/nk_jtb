@@ -1,4 +1,5 @@
-@use '../maps_and_variables/tailwind-colors' as *;
+@use '../../v1/core-imports' as *;
+@use 'sass:map';
 
 // NK::TD Update to use build tools including responsive breakpoints
 @each $color-name, $color-map in $tailwind-colors {
@@ -8,3 +9,48 @@
         }
     }
 }
+
+// prettier-ignore
+$border-properties-map: (
+    border: (
+        prefix: #{$border-identifier},
+        values: (
+            default: $border,
+            none: none,
+        ),
+        positions: $axis-position-map,
+    ),
+    border-width: (
+        prefix: #{$border-identifier},
+        values: $border-width-sizes,
+    ),
+    border-style: (
+        prefix: #{$border-identifier},
+        values: (solid, dashed, dotted, double, none),
+    ),
+    // `border-radius` is handled separately below because it is a little
+    // different from other position-based classes
+);
+
+// ==========================================================================
+// This map and the following mixin is used to generate `border-radius` classes
+// for corners. It has been separated because it is a little different from
+// other position-based classes.
+// ==========================================================================
+
+// NK::TD update to logical properties and move to maps
+// prettier-ignore
+$border-radius-properties-map: (
+    border: (
+        prefix: "rounded-",
+        values: $border-radius-sizes,
+        unit: "rem",
+        positions: $border-radius-corners-map
+    ),
+);
+
+// ==========================================================================
+// Builds
+// ==========================================================================
+@include build-utilities($border-properties-map, $responsive: true);
+@include build-utilities($border-radius-properties-map, $responsive: true);

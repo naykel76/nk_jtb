@@ -1,0 +1,130 @@
+@use '../../v1/core-imports' as *;
+
+// prettier-ignore
+$alignment-properties-map: (
+    // Content alignment for grid and flex layouts
+    align-content: (
+        values: (
+            content-around: space-around,
+            content-baseline: baseline,
+            content-between: space-between,
+            content-center: center,
+            content-end: flex-end,
+            content-evenly: space-evenly,
+            content-normal: normal,
+            content-start: flex-start,
+            content-stretch: stretch
+        ),
+    ),
+    // Aligns items within their container (flex or grid) on the cross axis
+    align-items: (
+        values: (
+            items-baseline: baseline,
+            items-center: center,
+            items-end: flex-end,
+            items-start: flex-start,
+            items-stretch: stretch,
+            // Custom aliases for vertical alignment
+            va-b: flex-end,
+            va-c: center,
+            va-t: flex-start
+        ),
+    ),
+    // Aligns a single item on the cross axis (flex or grid)
+    align-self: (
+        prefix: 'self-',
+        values: (
+            auto: auto,
+            baseline: baseline,
+            center: center,
+            end: flex-end,
+            start: flex-start,
+            stretch: stretch
+        ),
+    ),
+    // Aligns items along the main axis (flex or grid)
+    justify-content: (
+        values: (
+            space-between: space-between,
+            justify-around: space-around,
+            justify-center: center,
+            justify-end: flex-end,
+            justify-evenly: space-evenly,
+            justify-normal: normal,
+            justify-start: flex-start,
+            justify-stretch: stretch,
+            // Custom aliases for horizontal alignment
+            ha-c: center,
+            ha-l: flex-start,
+            ha-r: flex-end,
+        )
+    ),
+    // Aligns the entire content block within the container (grid)
+    place-content: (
+        values: (
+            space-between: space-between,
+            justify-around: space-around,
+            justify-center: center,
+            justify-end: flex-end,
+            justify-evenly: space-evenly,
+            justify-normal: normal,
+            justify-start: flex-start,
+            justify-stretch: stretch,
+            // Align content within grid areas
+            baseline: baseline,
+            center: center,
+            end: flex-end,
+            start: flex-start,
+            stretch: stretch
+        )
+    ),
+    // Aligns grid items within their grid areas (grid)
+    place-items: (
+        prefix: "place-items-",
+        values: (
+            baseline: baseline,
+            center: center,
+            end: flex-end,
+            start: flex-start,
+            stretch: stretch
+        )
+    ),
+    // Aligns a single grid item within its grid area (grid)
+    place-self: (
+        prefix: "place-self-",
+        values: (
+            auto: auto,
+            baseline: baseline,
+            center: center,
+            end: flex-end,
+            start: flex-start,
+            stretch: stretch
+        )
+    ),
+    // Text alignment properties (general)
+    // text-align: (
+    //     prefix: "text-",
+    //     values: (
+    //         left: left,
+    //         center: center,
+    //         right: right,
+    //         justify: justify
+    //     )
+    // ),
+    // Vertical alignment (for inline-block elements)
+    // vertical-align: (
+    //     prefix: "valign-",
+    //     values: (
+    //         baseline: baseline,
+    //         top: top,
+    //         middle: middle,
+    //         bottom: bottom,
+    //         sub: sub,
+    //         super: super,
+    //         text-top: text-top,
+    //         text-bottom: text-bottom
+    //     )
+    // )
+);
+
+@include build-utilities($alignment-properties-map, $responsive: true);

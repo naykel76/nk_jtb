@@ -1,7 +1,7 @@
 @use '../../v1/core-imports' as *;
 @use 'sass:map';
 
-$margin-sizes: map.merge($margin-variants, listToMap($space-rem-sizes));
+$margin-sizes: map.merge($margin-variants, listToMap($spacing-sizes));
 
 // prettier-ignore
 $margin-properties-map: (

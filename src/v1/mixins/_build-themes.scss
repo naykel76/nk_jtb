@@ -1,0 +1,21 @@
+@use '../../v1/mixins/theme-makers' as *;
+@use '../../v1/functions/color-functions' as *;
+@use 'sass:map';
+@use 'sass:color';
+
+@mixin build-basic-theme($identifier, $map) {
+    $base: map.get($map, 'base');
+
+    $color: if(map.get($map, 'color'), map.get($map, 'color'), text-color($base));
+    $border-color: if(map.get($map, 'border-color'), map.get($map, 'border-color'), adjust-border($base));
+
+    $hover-bg: if(map.get($map, 'hover-bg'), map.get($map, 'hover-bg'), color.adjust($base, $lightness: -15%));
+    $hover-color: if(map.get($map, 'hover-color'), map.get($map, 'hover-color'), text-color($hover-bg));
+
+    $active-bg: if(map.get($map, 'active-bg'), map.get($map, 'active-bg'), color.adjust($base, $lightness: -5%));
+    $active-color: if(map.get($map, 'active-color'), map.get($map, 'active-color'), text-color($active-bg));
+
+    .#{$identifier} {
+        @include make-basic-theme($base, $border-color, $color);
+    }
+}

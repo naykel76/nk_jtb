@@ -1,6 +1,6 @@
 @use '../v1/core-imports' as *;
 
-$space-rem-sizes: (0, 0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4, 5);
+$spacing-sizes: (0, 0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4, 5);
 
 // these are the base sizes and should be updated to use size variants.
 .space-x > *:not(:first-child) {
@@ -10,7 +10,7 @@ $space-rem-sizes: (0, 0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4, 5);
     margin-top: $content-gap;
 }
 
-@each $value in $space-rem-sizes {
+@each $value in $spacing-sizes {
     $variant: #{handle-invalid($value)};
     .space-x-#{$variant} > *:not(:first-child) {
         margin-left: #{$value}rem;

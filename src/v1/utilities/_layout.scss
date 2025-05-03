@@ -2,12 +2,26 @@
 
 // prettier-ignore
 $layout-properties-map: (
-    float: ( prefix: "float-", values: ( left, right, none ) ),
-    overflow: ( prefix:'overflow-', values: ( auto, clip, hidden, scroll, visible ) ),
-    overflow-x: ( prefix:'overflow-x-', values: ( auto, clip, hidden, scroll, visible ) ),
-    overflow-y: ( prefix:'overflow-y-', values: ( auto, clip, hidden, scroll, visible ) ),
-    z-index: ( prefix: "z-", values: ( 0, 1, 50, 100, (bottom: -1), (top: 999)) )
+    float: (
+        prefix: "float-",
+        values: (left, right, none)
+    ),
+    overflow: (
+        prefix:'overflow-', 
+        values: (auto, clip, hidden, scroll, visible)
+    ),
+    overflow-x: (
+        prefix:'overflow-x-', 
+        values: (auto, clip, hidden, scroll, visible)
+    ),
+    overflow-y: (
+        prefix:'overflow-y-', 
+        values: (auto, clip, hidden, scroll, visible)
+    ),
+    z-index: (
+        prefix: "z-", 
+        values: ($z-index-values)
+    )
 );
 
 @include build-utilities($layout-properties-map, $responsive: true);
-

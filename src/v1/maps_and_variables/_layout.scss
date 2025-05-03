@@ -1,6 +1,18 @@
+@use "sass:color";
 @use 'sass:map';
 
+// -- Theme Styles --
+// ==========================================================================
+$main-bg: transparent !default;
+
+$footer-bg: #1d1d1c !default;
+$footer-text-color: rgb(204, 204, 204) !default;
+
+$copyright-bg: color.adjust($footer-bg, $lightness: -2%) !default;
+$copyright-text-color: $footer-text-color !default;
+
 // -- Breakpoint Sizes --
+// ==========================================================================
 $breakpoints: (
     sm: 576px,
     md: 768px,
@@ -41,19 +53,18 @@ $tblr-positions-map: map.remove($axis-position-map, 'x', 'y');
 $xy-positions-map: map.remove($axis-position-map, 't', 'b', 'l', 'r');
 
 // maps edges to respective corners for border-radius
-
+// NK::TD update to logical
 // prettier-ignore
-$corners-map: (
-    t: (top-left, top-right),
-    b: (bottom-left, bottom-right),
-    l: (top-left, bottom-left),
-    r: (top-right, bottom-right),
-    tl: top-left,
-    tr: top-right,
-    bl: bottom-left,
-    br: bottom-right,
+$border-radius-corners-map: (
+    t: (top-left-radius, top-right-radius),
+    b: (bottom-left-radius, bottom-right-radius),
+    l: (top-left-radius, bottom-left-radius),
+    r: (top-right-radius, bottom-right-radius),
+    tl: top-left-radius,
+    tr: top-right-radius,
+    bl: bottom-left-radius,
+    br: bottom-right-radius
 );
-
 
 // ==========================================================================
 //  Container sizes

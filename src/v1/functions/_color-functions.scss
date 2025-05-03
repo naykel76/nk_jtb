@@ -29,7 +29,10 @@
     $threshold: 186; // Lightness threshold for detecting dark/light backgrounds
 
     // Calculate the brightness of the background colour
-    $brightness: (0.2126 * color.channel($bg-color, 'red', $space: rgb) + 0.7152 * color.channel($bg-color, 'green', $space: rgb) + 0.0722 * color.channel($bg-color, 'blue', $space: rgb));
+    $brightness: (
+        0.2126 * color.channel($bg-color, 'red', $space: rgb) + 0.7152 * color.channel($bg-color, 'green', $space: rgb) +
+            0.0722 * color.channel($bg-color, 'blue', $space: rgb)
+    );
 
     @if $brightness > $threshold {
         @return $dark-text;
@@ -37,3 +40,46 @@
         @return $light-text;
     }
 }
+
+// ==========================================================================
+// Calculate a semi-transparent border colour that contrasts with the background.
+// ==========================================================================
+// This uses the HSL lightness of the background colour to decide whether to
+// return a black or white overlay. It's a basic approach and may not always
+// produce ideal results, especially for colours where perceived brightness
+// doesn’t align well with HSL lightness. Still, it's a reasonable fallback.
+
+@function calculate-border-shade($bg, $opacity: 0.15) {
+    $lightness: color.channel($bg, 'lightness', $space: hsl);
+
+    @if $lightness > 50 {
+        @return color.change(black, $alpha: $opacity);
+    } @else {
+        @return color.change(white, $alpha: $opacity);
+    }
+}
+
+// ==========================================================================
+// Create a subtle border using the base colour with reduced opacity.
+// This maintains harmony while keeping borders visible across themes.
+// ==========================================================================
+@function subtle-border($color, $opacity: 0.3) {
+    @return color.change($color, $alpha: $opacity);
+}
+
+@function adjust-border($bg, $amount: 15%) {
+    $lightness: color.channel($bg, 'lightness', $space: hsl);
+    @if $lightness > 50 {
+        @return color.adjust($bg, $lightness: -$amount);
+    } @else {
+        @return color.adjust($bg, $lightness: $amount);
+    }
+}
+
+// // ==========================================================================
+// // Create a subtle text color using the base colour with reduced opacity.
+// // ==========================================================================
+
+// @function subtle-text-color($color, $opacity: 0.2) {
+//     @return color.change($color, $alpha: $opacity);
+// }

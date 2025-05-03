@@ -1,11 +1,11 @@
 @use 'sass:list';
 @use 'sass:string';
-// ----------------------------------------------------------------
+// ==========================================================================
 // Strips 'rem' if last three characters in a string
-// ----------------------------------------------------------------
+// ==========================================================================
 // Usage: $class: stripDash("maxw-20rem");
 // Outputs $class: 'maxw-20';
-// ----------------------------------------------------------------
+// ==========================================================================
 @function stripRem($string) {
     @if string.slice($string, -3) == "rem" {
         @return string.slice($string, 1, -4);
@@ -14,9 +14,9 @@
     @return $string;
 }
 
-// ----------------------------------------------------------------
+// ==========================================================================
 // Strip unwanted characters from class names
-// ----------------------------------------------------------------
+// ==========================================================================
 // used to exclude the -xy suffix from the class name, for example
 // `bdr-xy` will be `bdr` and `bdr-xy-sm` will be `bdr-sm`. This is
 // kind of a hack and some people may prefer to have the `xy` suffix

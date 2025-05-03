@@ -5,14 +5,12 @@
 // ==========================================================================
 //
 // EXAMPLE:
-// $colors: mapMerge($map-a, $map-b, $map-c);
+// $colors: merge-maps($map-a, $map-b, $map-c);
 
-@function mapMerge($maps...) {
-    $collection: ();
-
+@function merge-maps($maps...) {
+    $merged-map: ();
     @each $map in $maps {
-        $collection: map.merge($collection, $map);
+        $merged-map: map.merge($merged-map, $map);
     }
-
-    @return $collection;
+    @return $merged-map;
 }
