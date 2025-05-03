@@ -1,4 +1,4 @@
-@use '../maps_and_variables/misc' as *;
+@use '../maps_and_variables/base' as *;
 @use '../maps_and_variables/tailwind-colors' as *;
 
 @each $color-name, $color-map in $tailwind-colors {
@@ -15,6 +15,7 @@
 .zebra > *:nth-child(2n + 2):not(.primary):not(.secondary) {
     background: $zebra-alt-bg;
 }
+
 
 .bg-stripes-blue {
     background-color: #60a5fa1a;

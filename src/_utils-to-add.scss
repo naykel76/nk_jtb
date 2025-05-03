@@ -39,3 +39,16 @@ $magic-padding-y: ((5, 3, 2), (5, 3, 2, 2), (3, 2, 1)) !default;
 .divide-y > :not([hidden]) ~ :not([hidden]) {
     border-top: 1px solid $border-color;
 }
+
+
+
+
+
+
+
+
+
+// mark {
+//     background-color: var(--bgColor-attention-muted, var(--color-attention-subtle));
+//     color: var(--fgColor-default, var(--color-fg-default));
+// }

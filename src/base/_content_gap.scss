@@ -1,4 +1,4 @@
-@use '../v1/maps_and_variables/misc' as *;
+@use '../v1/maps_and_variables/base' as *;
 
 // don't be tempted to add div here, it creates more problems than it solves
 $html-elements: blockquote, p, pre, form, table, ol, ul, h1, h2, h3, h4, h5, h6;

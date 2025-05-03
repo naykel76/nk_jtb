@@ -1,4 +1,4 @@
-@use '../maps_and_variables/misc' as *;
+@use '../maps_and_variables/base' as *;
 @use '../maps_and_variables/typography' as *;
 @use 'sass:list';
 
@@ -57,6 +57,12 @@ samp {
     border-radius: 0.25rem;
 }
 
+pre {
+    overflow: auto;
+    white-space: pre;
+    word-wrap: normal;
+}
+
 // ==========================================================================
 // -- Links --
 // ==========================================================================
@@ -75,6 +81,48 @@ samp {
 // -- Lists --
 // ==========================================================================
 
-// ==========================================================================
-// -- Lists --
-// ==========================================================================
+// 1. set style-position outside to align text when wrapping
+// 2. indent to align text with the rest of the content
+ul,
+ol {
+    list-style-position: outside; // 1
+    margin-inline-start: $content-padding; // 2
+}
+
+li {
+    margin-block-start: $base-list-spacing; // Add consistent spacing for list items
+}
+
+ul {
+    list-style-type: disc;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+//  NK?? this is very specific, consider removing it and use utilities instead
+ol ol,
+ul ol {
+    list-style-type: lower-roman;
+}
+
+//  NK?? this is very specific, consider removing it and use utilities instead
+ul ul ol,
+ul ol ol,
+ol ul ol,
+ol ol ol {
+    list-style-type: lower-alpha;
+}
+
+li ul,
+li ol {
+    margin-top: $base-list-spacing; // 1
+}
+
+// This is quite opinionated but it works for the current design.
+
+nav ul {
+    list-style: none;
+    margin: 0; // reset nested
+}

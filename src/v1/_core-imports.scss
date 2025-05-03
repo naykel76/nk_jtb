@@ -1,11 +1,11 @@
 // maps and variables
+@forward '../v1/maps_and_variables/base';
 @forward '../v1/maps_and_variables/colors';
-@forward '../v1/maps_and_variables/tailwind-colors';
 @forward '../v1/maps_and_variables/config';
 @forward '../v1/maps_and_variables/layout';
-@forward '../v1/maps_and_variables/misc';
-@forward '../v1/maps_and_variables/utility-maps';
+@forward '../v1/maps_and_variables/tailwind-colors';
 @forward '../v1/maps_and_variables/typography';
+@forward '../v1/maps_and_variables/utility-maps';
 
 // build tools
 @forward '../v1/mixins/build-classes';

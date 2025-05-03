@@ -1,0 +1,38 @@
+@use '../../v1/maps_and_variables/colors' as *;
+@use 'sass:color';
+@use 'sass:map';
+
+// -- Theme Styles --
+// ==========================================================================
+
+$body-bg: #ffffff !default;
+$header-bg: $secondary !default;
+$main-bg: transparent !default;
+
+$footer-bg: #1d1d1c !default;
+$footer-text-color: rgb(204, 204, 204) !default;
+
+$copyright-bg: color.adjust($footer-bg, $lightness: -2%) !default;
+$copyright-text-color: $footer-text-color !default;
+
+$zebra-alt-bg: rgb(245, 245, 245) !default;
+
+// -- Borders --
+// ==========================================================================
+$border-color: #b6b6b6 !default;
+$border: 1px solid $border-color !default;
+$border-radius: 8px !default;
+
+// -- Spacing --
+// ==========================================================================
+$base-list-spacing: 0.25em !default;
+$content-gap: 1.25rem !default; 
+$content-padding: 1rem !default; 
+
+// -- Misc --
+// ==========================================================================
+$icon-color: inherit !default;
+
+
+// -- Styles --
+// ==========================================================================
