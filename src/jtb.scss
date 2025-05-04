@@ -28,6 +28,9 @@
 
 @forward './utils-to-add';
 
+@forward './v1/color/themes';
+
+
 @forward './utilities/effects';
 @forward './utilities/grid';
 @forward './utilities/misc';
@@ -49,5 +52,4 @@
 @forward './v1/utilities/layout';
 @forward './v1/utilities/margin';
 @forward './v1/utilities/padding';
-@forward './v1/utilities/themes';
 @forward './v1/utilities/typography';

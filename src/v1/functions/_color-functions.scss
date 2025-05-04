@@ -42,14 +42,24 @@
 }
 
 // ==========================================================================
-// Calculate a semi-transparent border colour that contrasts with the background.
+// border-contrast($bg, $opacity)
 // ==========================================================================
-// This uses the HSL lightness of the background colour to decide whether to
-// return a black or white overlay. It's a basic approach and may not always
-// produce ideal results, especially for colours where perceived brightness
-// doesn’t align well with HSL lightness. Still, it's a reasonable fallback.
+// Returns a semi-transparent black or white based on background lightness.
+//
+// Uses HSL lightness to determine which gives better contrast.
+// Good for accessibility, though may lack visual harmony.
+//
+// Pros:
+// - Ensures reliable contrast on any background
+// - Ideal for accessibility overlays and outlines
+//
+// Cons:
+// - Not derived from the original colour
+// - Can feel visually disconnected
+//
+// Best for: High-contrast elements where legibility is key
 
-@function calculate-border-shade($bg, $opacity: 0.15) {
+@function border-contrast($bg, $opacity: 0.15) {
     $lightness: color.channel($bg, 'lightness', $space: hsl);
 
     @if $lightness > 50 {
@@ -60,26 +70,29 @@
 }
 
 // ==========================================================================
-// Create a subtle border using the base colour with reduced opacity.
-// This maintains harmony while keeping borders visible across themes.
+// border-tone($bg, $amount)
 // ==========================================================================
-@function subtle-border($color, $opacity: 0.3) {
-    @return color.change($color, $alpha: $opacity);
-}
+// Adjusts lightness of the base colour for subtle, theme-aligned contrast.
+//
+// Maintains hue and saturation, adjusting only lightness.
+// Results in a softer, more integrated border shade.
+//
+// Pros:
+// - Harmonious and adaptive
+// - Works with both light and dark backgrounds
+//
+// Cons:
+// - Can be inconsistent across edge-case hues
+// - May not provide strong contrast
+//
+// Best for: Low-contrast UI borders that blend with the theme
 
-@function adjust-border($bg, $amount: 15%) {
+@function border-tone($bg, $amount: 10%) {
     $lightness: color.channel($bg, 'lightness', $space: hsl);
+
     @if $lightness > 50 {
         @return color.adjust($bg, $lightness: -$amount);
     } @else {
         @return color.adjust($bg, $lightness: $amount);
     }
 }
-
-// // ==========================================================================
-// // Create a subtle text color using the base colour with reduced opacity.
-// // ==========================================================================
-
-// @function subtle-text-color($color, $opacity: 0.2) {
-//     @return color.change($color, $alpha: $opacity);
-// }

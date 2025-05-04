@@ -1,5 +1,6 @@
 @use './mixins/make-position-based-class' as *;
-// @forward './color/themes';
+@forward './v1/color/themes';
+
 @use './v1/utilities/border' as *;
 @use './v1/core-imports' as *;
 @use './functions/get' as *;

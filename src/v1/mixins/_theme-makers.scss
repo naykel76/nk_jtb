@@ -4,7 +4,7 @@
 @use 'sass:map';
 
 
-@mixin make-basic-theme($base, $border-color: calculate-border-shade($base), $font-color: text-color($base)) {
+@mixin make-basic-theme($base, $border-color: border-contrast($base), $font-color: text-color($base)) {
     background-color: $base;
     border: 2px solid $border-color;
     color: $font-color;

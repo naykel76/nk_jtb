@@ -7,7 +7,7 @@
     $base: map.get($map, 'base');
 
     $color: if(map.get($map, 'color'), map.get($map, 'color'), text-color($base));
-    $border-color: if(map.get($map, 'border-color'), map.get($map, 'border-color'), adjust-border($base));
+    $border-color: if(map.get($map, 'border-color'), map.get($map, 'border-color'), border-contrast($base));
 
     $hover-bg: if(map.get($map, 'hover-bg'), map.get($map, 'hover-bg'), color.adjust($base, $lightness: -15%));
     $hover-color: if(map.get($map, 'hover-color'), map.get($map, 'hover-color'), text-color($hover-bg));
@@ -19,3 +19,4 @@
         @include make-basic-theme($base, $border-color, $color);
     }
 }
+
