@@ -15,7 +15,6 @@
         "play": "sass --watch --no-source-map ./src/play.scss:dist/css/play.css",
         "dev": "vite --open",
         "build": "vite build",
-        "profile": "vite --profile",
         "debug": "vite --debug"
     },
     "devDependencies": {

@@ -1,5 +1,3 @@
-$img-path: "/images" !default;
-
 $button-identifier: "btn" !default;
 $container-identifier: "container" !default;
 $dropdown-identifier: "dd" !default;
@@ -25,3 +23,18 @@ $flex-shrink-identifier: "fs" !default;
 $margin-identifier: "m" !default; 
 $padding-identifier: "p" !default; 
 $text-align-identifier: "ta" !default; 
+
+
+
+$config: (
+    "shades": (
+        "create-base": true,
+        "create-theme": false,
+        "step": 20,
+        // "num": 9,
+    ),
+    "grid": (
+        "num-grid-cols": 12,
+        "default-gap": 1.25rem,
+    ),
+) !default;

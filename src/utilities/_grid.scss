@@ -1,8 +1,7 @@
-@use '../config' as *;
 @use '../functions/get' as *;
-@use '../v1/core-imports' as *;
 @use '../mixins/generate-magic-classes' as *;
 @use '../mixins/magicGridGenerators' as *;
+@use '../v1/core-imports' as *;
 @use '../v1/mixins/class-makers' as *;
 
 $gap: get('grid.default-gap', $config);

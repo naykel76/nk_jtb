@@ -1,11 +1,14 @@
+// @use './v1/maps_and_variables/colors' as * with (
+//     $primary: pink
+// );
+
+// make sure to import and make changes to the maps and variables first before
+// importing the rest of the components and utilities. Otherwise, you are in for
+// a world of pain trying to debug why your styles are not working as expected. 
+
+
 @use './v1/base/index';
 @use './base/content_gap' as *;
-
-// ==========================================================================
-// NOTE: ORDER MATTERS
-// Components must be loaded before utility classes to ensure that utility
-// classes can override component styles when necessary.
-// ==========================================================================
 
 @forward './components/accordion';
 @forward './components/banner';
@@ -22,8 +25,6 @@
 @forward './v1/components/navbar';
 
 @forward './forms/';
-
-// @forward './color/shades';
 
 @forward './utils-to-add';
 

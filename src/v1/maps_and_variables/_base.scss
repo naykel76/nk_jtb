@@ -5,7 +5,9 @@
 // -- Theme Styles --
 // ==========================================================================
 
-$body-bg: #ffffff !default;
+// $body-bg: #ffffff !default;
+$body-bg: hsl(30, 12%, 94%) !default;
+
 $header-bg: $secondary !default;
 $main-bg: transparent !default;
 
@@ -31,6 +33,7 @@ $content-padding: 1rem !default;
 
 // -- Misc --
 // ==========================================================================
+$img-path: "/images" !default;
 $icon-color: inherit !default;
 
 
