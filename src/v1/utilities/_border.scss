@@ -1,24 +1,16 @@
 @use '../../v1/core-imports' as *;
 @use 'sass:map';
 
-// NK::TD Update to use build tools including responsive breakpoints
-@each $color-name, $color-map in $tailwind-colors {
-    @each $key, $value in $color-map {
-        .bdr-#{$color-name}-#{$key} {
-            border-color: $value;
-        }
-    }
-}
-
 // prettier-ignore
 $border-properties-map: (
     border: (
         prefix: #{$border-identifier},
-        values: (
-            default: $border,
-            none: none,
-        ),
+        values: ( default: $border, none: none, ),
         positions: $axis-position-map,
+    ),
+    border-color: (
+        prefix: #{$border-identifier},
+        values: flatten-map($tailwind-colors),
     ),
     border-width: (
         prefix: #{$border-identifier},
@@ -38,12 +30,17 @@ $border-properties-map: (
 // other position-based classes.
 // ==========================================================================
 
-// NK::TD update to logical properties and move to maps
+// NK::TD need to remove positions from the "full"
+// 
+// .rounded-br-full {
+//     border-bottom-right-radius: 9999rem;
+//   }
+
 // prettier-ignore
 $border-radius-properties-map: (
     border: (
         prefix: "rounded-",
-        values: $border-radius-sizes,
+        values: $border-radius-map,
         unit: "rem",
         positions: $border-radius-corners-map
     ),

@@ -1,8 +1,6 @@
 @use '../../v1/maps_and_variables/colors' as *;
-@use "sass:color";
+@use 'sass:color';
 @use 'sass:map';
-
-
 
 // -- Breakpoint Sizes --
 // ==========================================================================
@@ -45,10 +43,11 @@ $axis-position-map: (
 $tblr-positions-map: map.remove($axis-position-map, 'x', 'y');
 $xy-positions-map: map.remove($axis-position-map, 't', 'b', 'l', 'r');
 
-// maps edges to respective corners for border-radius
-// NK::TD update to logical
+// NK::TD update to logical properties and move to maps
 // prettier-ignore
 $border-radius-corners-map: (
+    // xy: (block-start, block-end, inline-start, inline-end),
+    // x: (inline-start, inline-end),    
     t: (top-left-radius, top-right-radius),
     b: (bottom-left-radius, bottom-right-radius),
     l: (top-left-radius, bottom-left-radius),
@@ -62,7 +61,6 @@ $border-radius-corners-map: (
 // ==========================================================================
 //  Container sizes
 // ==========================================================================
-
 
 // // maps edges to respective corners for border-radius
 // $edges: (

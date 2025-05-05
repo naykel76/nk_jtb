@@ -22,7 +22,7 @@ $text-variant-sizes: (
 ) !default;
 
 // convert 'rem' sizes to map and merge with variant sizes
-$text-sizes: map.merge(listToMap($text-rem-sizes), $text-variant-sizes);
+$text-sizes: map.merge(list-to-map($text-rem-sizes), $text-variant-sizes);
 
 // ==========================================================================
 // -- OPINIONATED TEXT CLASSES --

@@ -10,6 +10,7 @@
 // build tools
 @forward '../v1/mixins/build-classes';
 @forward '../v1/mixins/media';
+@forward '../v1/functions/map-and-list-helpers';
 
 // deprecated maps and variables
 @forward '../variables/utility_maps';

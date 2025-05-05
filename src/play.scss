@@ -1,12 +1,23 @@
-@use './mixins/make-position-based-class' as *;
-@forward './v1/color/themes';
-
-@use './v1/utilities/border' as *;
+// @use './v1/utilities/border' as *;
 @use './v1/core-imports' as *;
 @use './functions/get' as *;
-
 @use 'sass:color';
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:string';
 
+
+// prettier-ignore
+$border-radius-properties-map: (
+    border: (
+        prefix: "rounded-",
+        values: $border-radius-map,
+        unit: "rem",
+        positions: $border-radius-corners-map
+    ),
+);
+
+// ==========================================================================
+// Builds
+// ==========================================================================
+@include build-utilities($border-radius-properties-map, $responsive: true);

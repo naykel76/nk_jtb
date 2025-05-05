@@ -1,16 +1,34 @@
-// ************************************************************************** 
-// This file is ignored by Prettier (.prettierignore). 
-// ************************************************************************** 
-
 @use '../../v1/maps_and_variables/layout' as *;
+@use '../../v1/maps_and_variables/colors' as *;
+@use '../../v1/functions/map-and-list-helpers' as *;
+@use 'sass:map';
 
 //  Border, and border-radius sizes
 // ==========================================================================
-$border-radius-sizes: (0, 0.25, 0.5, 0.75, 1, 1.5, 2) !default;
+$border-radius-values: (0, 0.25, 0.5, 0.75, 1, 1.5, 2) !default;
+$border-radius-variants: ( xs: 0.125rem, sm: 0.25rem, base: 0.375, lg: 0.5rem, xl: 0.75rem, full: 9999rem, ) !default;
+$border-radius-map: smart-merge($border-radius-values, $border-radius-variants) !default;
+
+
 // is it possible to just pass in the size or do i need both the key and value?
 // For the time being use key-value pair instead of values to make it easier
 // manage unit and class name
 $border-width-sizes: (0: 0, 1: 1px, 2: 2px, 3: 3px, 4: 4px, 5: 5px) !default;
+
+
+// ==========================================================================
+//  Border, and border-radius sizes
+// ==========================================================================
+$border-colors: map.remove(
+    $color-map,
+    'danger',
+    'dark',
+    'info',
+    'light',
+    'success',
+    'warning'
+) !default;
+
 
 
 

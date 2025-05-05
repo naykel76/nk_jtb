@@ -9,21 +9,22 @@
     "private": false,
     "type": "module",
     "scripts": {
-        "docs": "sassdoc ./src --dest ./docs",
-        "utils": "sass --style compressed ./src/utilities.scss:dist/utilities.css",
-        "jtb": "sass --watch --no-source-map ./src/jtb.scss:dist/css/jtb.css",
-        "play": "sass --watch --no-source-map ./src/play.scss:dist/css/play.css",
-        "dev": "vite --open",
         "build": "vite build",
-        "debug": "vite --debug"
+        "debug": "vite --debug",
+        "dev": "concurrently \"vite --open\" \"npm run watch:jtb\"",
+        "dev1": "vite --open",
+        "docs": "sassdoc ./src --dest ./docs",
+        "play1": "sass --watch --no-source-map ./src/play.scss:dist/css/play.css",
+        "play": "concurrently \"sass --watch --no-source-map ./src/play.scss:dist/css/play.css\" \"code src/play.scss\" \"code dist/css/play.css\"",
+        "utils": "sass --style compressed ./src/utilities.scss:dist/utilities.css",
+        "watch:jtb": "sass --watch ./src/jtb.scss:dist/css/jtb.css"
     },
     "devDependencies": {
+        "@primer/css": "^21.5.1",
         "autoprefixer": "^10.4.21",
+        "concurrently": "^9.1.2",
         "postcss": "^8.5.3",
         "sass": "^1.86.3",
         "vite": "^6.2.6"
-    },
-    "dependencies": {
-        "@primer/css": "^21.5.1"
     }
 }

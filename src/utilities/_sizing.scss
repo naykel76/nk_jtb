@@ -1,7 +1,7 @@
 @use '../v1/core-imports' as *;
 @use "sass:map";
 
-$sizing-merged: magic-merge($sizing-variants, $sizing-pixels, $sizing-rem);
+$sizing-merged:smart-merge($sizing-variants, $sizing-pixels, $sizing-rem);
 
 // Build the base properties for width and height separately. This allows for
 // more flexibility when you want to add a custom size to either the width or

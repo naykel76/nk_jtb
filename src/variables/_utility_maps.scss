@@ -19,27 +19,7 @@ $fr-conversion-2-col: (
     80: ( 4fr, 1fr )
 );
 
-// ==========================================================================
-//  Border, and border-radius sizes
-// ==========================================================================
-$border-colors: map.remove(
-    $color-map,
-    'danger',
-    'dark',
-    'info',
-    'light',
-    'success',
-    'warning'
-) !default;
 
-$border-radius-variants: (
-    xs: 0.125rem,
-    sm: 0.25rem,
-    base: 0.375,
-    lg: 0.5rem,
-    xl: 0.75rem,
-    full: 9999rem,
-) !default;
 
 // ==========================================================================
 //  Space sizes and variants for margin and padding utilities

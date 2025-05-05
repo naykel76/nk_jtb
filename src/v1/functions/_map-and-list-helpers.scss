@@ -1,4 +1,9 @@
-@use "sass:map";
+@use 'sass:map';
+@use 'sass:meta';
+
+/// @group map-and-list-functions
+///
+/// 
 
 // ==========================================================================
 // merge two or more maps into a single map.
@@ -13,4 +18,108 @@
         $merged-map: map.merge($merged-map, $map);
     }
     @return $merged-map;
+}
+
+// ==========================================================================
+// Converts a list of values into a map where each value is used as both key and value.
+// Useful for generating utility maps from shorthand lists.
+//
+// Example usage:
+//   list-to-map(("green", 5, 16px)) → (green: green, 5: 5, 16px: 16px)
+//
+// Note: Values must be wrapped in parentheses to be treated as a single list.
+// ==========================================================================
+
+@function list-to-map($list) {
+    $map: ();
+    @each $value in $list {
+        $map: map.merge(
+            $map,
+            (
+                $value: $value
+            )
+        );
+    }
+    @return $map;
+}
+
+// ==========================================================================
+// Accepts any number of maps or lists and merges them into a single map.
+// Lists are first converted to maps using `list-to-map`.
+//
+// Example usage:
+//  smart-merge((a: 1), (b, c), (d: 2))
+//   → (a: 1, b: b, c: c, d: 2)
+//
+// All arguments must be passed directly — do not pass a list of maps.
+// ==========================================================================
+
+@function smart-merge($collections...) {
+    $map: ();
+    @each $collection in $collections {
+        @if meta.type-of($collection) == 'list' {
+            $collection: list-to-map($collection);
+        }
+        $map: map.merge($map, $collection);
+    }
+    @return $map;
+}
+
+/// Flattens a nested map into a single-level map, with each key concatenated
+/// with its parent key. This is useful for converting nested data structures
+/// into a flat format.
+///
+/// @param {Map} $map - The map to flatten.
+/// @param {String} [$prefix=''] - An optional prefix to prepend to each key
+///                                 in the map (used for nesting).
+///
+/// @return {Map} Returns a flattened map with concatenated keys.
+///
+/// @example scss - Usage
+///
+/// $nested-map: (
+///   'primary': (
+///     'light': #f0f,
+///     'dark': #900
+///   ),
+///   'secondary': (
+///     'light': #ff0,
+///     'dark': #900
+///   )
+/// );
+///
+/// $flattened-map: flatten-map($nested-map);
+/// // Result: (
+/// //   'primary-light': #f0f,
+/// //   'primary-dark': #900,
+/// //   'secondary-light': #ff0,
+/// //   'secondary-dark': #900
+/// // )
+
+@function flatten-map($map, $prefix: '') {
+    // Initialize an empty map to store the flattened key-value pairs
+    $result: ();
+
+    // Iterate over each key-value pair in the map
+    @each $key, $value in $map {
+        // Create a new key by adding the prefix if it exists
+        $new-key: if($prefix == '', $key, '#{$prefix}-#{$key}');
+
+        // If the value is a map, recursively flatten it
+        @if meta.type-of($value) == 'map' {
+            $nested: flatten-map($value, $new-key); // Recursively flatten nested maps
+            // Merge the flattened nested map into the result
+            $result: map.merge($result, $nested);
+        } @else {
+            // If the value is not a map, add the current key-value pair to the result
+            $result: map.merge(
+                $result,
+                (
+                    $new-key: $value
+                )
+            );
+        }
+    }
+
+    @return $result;
 }
