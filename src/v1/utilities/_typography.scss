@@ -16,41 +16,14 @@
     }
 }
 
-// NK::TD Update to use build tools including responsive breakpoints
-$text-variants: (
-    xs: (
-        font-size: 0.75rem,
-        line-height: 1
-    ),
-    sm: (
-        font-size: 0.875rem,
-        line-height: 1.25
-    ),
-    base: (
-        font-size: 1rem,
-        line-height: 1.5
-    ),
-    lg: (
-        font-size: 1.125rem,
-        line-height: 1.5
-    ),
-    xl: (
-        font-size: 1.25rem,
-        line-height: 1.5
-    ),
-    xxl: (
-        font-size: 1.5rem,
-        line-height: 1.5
-    )
+$text-classes-map: (
+    txt-xs: ( props: ( font-size: 0.75rem, line-height: 1 ) ),
+    txt-sm: ( props: ( font-size: 0.875rem, line-height: 1.25 ) ),
+    txt-base: ( props: ( font-size: 1rem, line-height: 1.5 ) ),
+    txt-lg: ( props: ( font-size: 1.125rem, line-height: 1.5 ) ),
+    txt-xl: ( props: ( font-size: 1.25rem, line-height: 1.6 ) ),
+    txt-xxl: ( props: ( font-size: 1.5rem, line-height: 1.6 ) )
 );
 
-@mixin generate-text-variants($map) {
-    @each $name, $props in $map {
-        .txt-#{$name} {
-            font-size: map.get($props, font-size);
-            line-height: map.get($props, line-height);
-        }
-    }
-}
+@include build-composite-classes($text-classes-map, $responsive: true)
 
-@include generate-text-variants($text-variants);

@@ -3,46 +3,31 @@
 
 $breakpoints: ('sm', 'md', 'lg', 'xl', 'xxl');
 
-$display-visibility-properties: (
-    display: (
-        values: (
-            block,
-            contents,
-            flex,
-            ( hidden: none ),
-            inline-block,
-            inline-flex,
-            inline
-        )
-    ),
-    visibility: (
-        values: (
-            collapse,
-            ( invisible: hidden ),
-            visible
-        )
-    )
+// prettier-ignore
+$display-values: ( block, flex, inline, inline-block, inline-flex, ( hidden: none ), table, table-cell);
+// prettier-ignore
+$visibility-values: ( collapse, ( invisible: hidden ), visible);
+
+$display-visibility-properties-map: (
+    display: ( values: $display-values ),
+    visibility: ( values: $visibility-values )
 );
-
-@include build-utilities($display-visibility-properties);
-
-// ==========================================================================
-// DISPLAY AND HIDE 'FROM' THE SELECTED SCREEN SIZE
-// ==========================================================================
-@include make-from-breakpoint((display: block), "block", $breakpoints);
-@include make-from-breakpoint((display: none), "hidden", $breakpoints);
-@include make-from-breakpoint((display: none), "hide", $breakpoints); // DEPRECATED
 
 // ==========================================================================
 // DISPLAY AND HIDE 'ON' THE SELECTED SCREEN SIZE
 // ==========================================================================
 @include make-on-breakpoint((display: block), "block", $breakpoints);
 @include make-on-breakpoint((display: none), "hidden", $breakpoints);
-@include make-on-breakpoint((display: none), "hide", $breakpoints); // DEPRECATED
 
 // ==========================================================================
 // DISPLAY AND HIDE 'TO' THE SELECTED SCREEN SIZE
 // ==========================================================================
 @include make-to-breakpoint((display: block), "block", ("sm", "md", "lg", "xl"));
 @include make-to-breakpoint((display: none), "hidden", ("sm", "md", "lg", "xl"));
-@include make-to-breakpoint((display: none), "hide", ("sm", "md", "lg", "xl")); // DEPRECATED
+
+
+// ==========================================================================
+// Builds
+// ==========================================================================
+@include build-property-classes($display-visibility-properties-map, $responsive: true);
+

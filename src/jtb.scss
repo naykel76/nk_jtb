@@ -1,12 +1,3 @@
-// @use './v1/maps_and_variables/colors' as * with (
-//     $primary: pink
-// );
-
-// make sure to import and make changes to the maps and variables first before
-// importing the rest of the components and utilities. Otherwise, you are in for
-// a world of pain trying to debug why your styles are not working as expected. 
-
-
 @use './v1/base/index';
 @use './base/content_gap' as *;
 
@@ -30,26 +21,4 @@
 
 @forward './v1/color/themes';
 
-
-@forward './utilities/effects';
-@forward './utilities/grid';
-@forward './utilities/misc';
-@forward './utilities/position';
-@forward './utilities/sizing';
-@forward './utilities/space';
-@forward './utilities/state';
-@forward './utilities/transforms';
-@forward './utilities/transition';
-@forward './utilities/typography';
-@forward './v1/utilities/alignment';
-@forward './v1/utilities/backgrounds';
-@forward './v1/utilities/border';
-@forward './v1/utilities/container';
-@forward './v1/utilities/display-visibility';
-@forward './v1/utilities/effects';
-@forward './v1/utilities/flexbox';
-@forward './v1/utilities/grid';
-@forward './v1/utilities/layout';
-@forward './v1/utilities/margin';
-@forward './v1/utilities/padding';
-@forward './v1/utilities/typography';
+@use './build_utilities' as *;

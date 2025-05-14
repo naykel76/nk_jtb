@@ -129,4 +129,4 @@ $typography-properties-map: (
     )
 );
 
-@include build-utilities($typography-properties-map, $responsive: true);
+@include build-property-classes($typography-properties-map, $responsive: true);

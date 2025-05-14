@@ -13,4 +13,4 @@ $margin-properties-map: (
     )
 );
 
-@include build-utilities($margin-properties-map, $responsive: true);
+@include build-property-classes($margin-properties-map, $responsive: true);

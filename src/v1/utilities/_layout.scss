@@ -24,4 +24,4 @@ $layout-properties-map: (
     )
 );
 
-@include build-utilities($layout-properties-map, $responsive: true);
+@include build-property-classes($layout-properties-map, $responsive: true);

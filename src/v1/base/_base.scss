@@ -141,6 +141,7 @@ button {
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
+    font-weight: inherit; // 1. easier to use
 }
 
 ::placeholder {
@@ -242,22 +243,23 @@ legend {
 
 table {
     text-indent: 0;
-    border-color: inherit;
     border-collapse: collapse;
+    border-color: inherit;
     width: 100%;
 }
 
 th {
     font-weight: 600;
     vertical-align: middle;
+    text-transform: $table-header-text-transform;
 }
 
 th,
 td {
-    font-size: 0.875rem;
-    padding-inline: 0.75rem;
-    padding-block: 0.75rem;
-    vertical-align: inherit;
+    font-size: $table-font-size;
+    padding-inline: $table-padding-x;
+    padding-block: $table-padding-y;
+    text-align: left;;
 }
 
 // -- Controls --

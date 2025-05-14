@@ -5,7 +5,7 @@
 // -- Theme Styles --
 // ==========================================================================
 
-$body-bg: hsl(30, 12%, 97%) !default;
+$body-bg: hsl(0, 0%, 100%) !default;
 
 $header-bg: $secondary !default;
 $main-bg: transparent !default;
@@ -20,7 +20,7 @@ $zebra-alt-bg: rgb(245, 245, 245) !default;
 
 // -- Borders --
 // ==========================================================================
-$border-color: #b6b6b6 !default;
+$border-color: #f1f5f9 !default;
 $border: 1px solid $border-color !default;
 $border-radius: 8px !default;
 
@@ -35,6 +35,10 @@ $content-padding: 1rem !default;
 $img-path: "/images" !default;
 $icon-color: inherit !default;
 
-
-// -- Styles --
+// -- Base Element Styles --
 // ==========================================================================
+$table-font-size: 0.875rem !default;
+$table-header-text-transform: uppercase !default;
+$table-letter-spacing: 0.05em !default;
+$table-padding-x: 0.75rem !default;
+$table-padding-y: 0.75rem !default;

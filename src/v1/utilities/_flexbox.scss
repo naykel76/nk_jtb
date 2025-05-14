@@ -35,7 +35,7 @@ $flex-properties-map: (
     ),
 );
 
-@include build-utilities($flex-properties-map, $responsive: true);
+@include build-property-classes($flex-properties-map, $responsive: true);
 
 // ==========================================================================
 // CUSTOM FLEXBOX CLASSES
@@ -63,4 +63,4 @@ $special-classes: (
 );
 
 $merged-classes: map.merge($flex-classes-map, $special-classes);
-@include build-custom-classes($merged-classes, $responsive: true);
+@include build-composite-classes($merged-classes, $responsive: true);

@@ -8,4 +8,4 @@ $effect-properties-map: (
     ),
 );
 
-@include build-utilities($effect-properties-map, $responsive: true);
+@include build-property-classes($effect-properties-map, $responsive: true);

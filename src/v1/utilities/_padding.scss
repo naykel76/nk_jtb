@@ -12,4 +12,4 @@ $padding-properties-map: (
     )
 );
 
-@include build-utilities($padding-properties-map, $responsive: true);
+@include build-property-classes($padding-properties-map, $responsive: true);

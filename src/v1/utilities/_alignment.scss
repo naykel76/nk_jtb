@@ -127,4 +127,4 @@ $alignment-properties-map: (
     // )
 );
 
-@include build-utilities($alignment-properties-map, $responsive: true);
+@include build-property-classes($alignment-properties-map, $responsive: true);

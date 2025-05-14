@@ -13,7 +13,7 @@
     @return if($breakpoints == null, $default-breakpoints, $breakpoints);
 }
 
-@mixin build-custom-classes($properties-map, $responsive: false) {
+@mixin build-composite-classes($properties-map, $responsive: false) {
     @each $class, $map in $properties-map {
         $props: map.get($map, 'props');
         $map-breakpoints: map.get($map, "breakpoints"); // optional
@@ -57,7 +57,7 @@
 // This allows flexible per-property control while enabling global responsive toggling.
 
 // prettier-ignore
-@mixin build-utilities($properties-map, $responsive: false) {
+@mixin build-property-classes($properties-map, $responsive: false) {
 
     @each $property, $map in $properties-map {
 

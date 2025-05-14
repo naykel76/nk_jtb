@@ -28,4 +28,4 @@ $grid-properties-map: (
     )
 );
 
-@include build-utilities($grid-properties-map, $responsive: true);
+@include build-property-classes($grid-properties-map, $responsive: true);

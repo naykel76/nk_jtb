@@ -6,7 +6,7 @@ $position-properties-map: (
     ),
 );
 
-@include build-utilities($position-properties-map, $responsive: true);
+@include build-property-classes($position-properties-map, $responsive: true);
 
 // prettier-ignore
 .pos {
