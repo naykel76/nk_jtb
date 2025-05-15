@@ -20,10 +20,37 @@
 -->
 
 <body>
+
+
+
     <!-- dev area -->
     <div class="container py">
-
-
+        Clickable table header are buttons inside <code>th</code>
+        <table>
+            <thead class="bg-gray-100 bdr-b">
+                <tr>
+                    <!-- use flex to control alignment -->
+                    <!--  -->
+                    <th class="bdr bdr-red ">
+                        <button class="bdr bdr-green flex w-full ha-c">
+                            <span>TITLE</span>
+                            <svg class="icon txt-primary" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="m12.191 15.865 4.973-6.321c.13-.163.211-.39.211-.634 0-.488-.325-.91-.715-.91H6.715C6.325 8 6 8.406 6 8.91c0 .244.081.471.211.634l4.973 6.321a.65.65 0 0 0 .504.26c.194 0 .357-.098.503-.26Z"></path>
+                            </svg>
+                        </button>
+                    </th>
+                    <!-- or just add text alignment classes to the `th` -->
+                    <th class="bdr bdr-green tac">
+                        <button class="bdr bdr-red w-full">
+                            <span>TITLE</span>
+                            <svg class="icon txt-primary" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="m12.191 15.865 4.973-6.321c.13-.163.211-.39.211-.634 0-.488-.325-.91-.715-.91H6.715C6.325 8 6 8.406 6 8.91c0 .244.081.471.211.634l4.973 6.321a.65.65 0 0 0 .504.26c.194 0 .357-.098.503-.26Z"></path>
+                            </svg>
+                        </button>
+                    </th>
+                </tr>
+            </thead>
+        </table>
     </div>
     <main class="main-content-quick-hide-wrapper zebra">
         <!-- basic theme examples -->
@@ -67,24 +94,6 @@
         </section>
         <!-- table and components -->
         <section id="table" class="py-3">
-
-            <th class="bdr bdr-red">
-                <button class="flex px-0 bdr-0 va-b ha-c">
-                    <span class="">TITLE</span>
-                    <svg class="wh-1 ml-025 txt-pink" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" class=""></path>
-                    </svg>
-                </button>
-            </th>
-
-            <th>
-                <button class="flex px-0 bdr-0 va-b ha-c">
-                    <span>TITLE</span>
-                    <svg class="wh-1 ml-025 txt-pink" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path>
-                    </svg>
-                </button>
-            </th>
             <div class="container">
                 <h2 class="title txt-3">Tables</h2>
                 <!-- base table -->
@@ -118,24 +127,49 @@
                         </tr>
                     </tbody>
                 </table>
-                <hr class="bdr-red">
+                <hr class="bdr-secondary">
+
+
+
+
+                <!-- When using sortable tables, you need to apply some additional styles as they are buttons -->
+                <table class="w-20">
+                    <tr>
+                        <th class="bdr bdr-red tac">
+                            <button class="btn">
+                                <span>Product</span>
+                                <svg class="icon txt-primary" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="m12.191 15.865 4.973-6.321c.13-.163.211-.39.211-.634 0-.488-.325-.91-.715-.91H6.715C6.325 8 6 8.406 6 8.91c0 .244.081.471.211.634l4.973 6.321a.65.65 0 0 0 .504.26c.194 0 .357-.098.503-.26Z"></path>
+                                </svg>
+                            </button>
+                        </th>
+                    </tr>
+                </table>
+                <svg class="wh-1 txt-muted" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="m7.191 20.865 4.973-6.321c.13-.163.211-.39.211-.634 0-.488-.325-.91-.715-.91H1.715c-.39 0-.715.406-.715.91 0 .244.081.471.211.634l4.973 6.321c.13.163.308.26.503.26.196 0 .358-.098.504-.26ZM6.184 2.26 1.21 8.581c-.13.163-.211.39-.211.634 0 .488.325.91.715.91h9.945c.39 0 .715-.406.715-.91 0-.244-.081-.471-.211-.634L7.19 2.26A.647.647 0 0 0 6.688 2c-.196 0-.358.098-.504.26Z" />
+                </svg>
+                <svg class="wh-1 txt-primary" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M11.184 8.26 6.21 14.581c-.13.163-.211.39-.211.634 0 .488.325.91.715.91h9.945c.39 0 .715-.406.715-.91 0-.244-.081-.471-.211-.634L12.19 8.26a.647.647 0 0 0-.504-.26c-.194 0-.357.098-.503.26Z" />
+                </svg>
+                <svg class="wh-1 txt-purple" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="m12.191 15.865 4.973-6.321c.13-.163.211-.39.211-.634 0-.488-.325-.91-.715-.91H6.715C6.325 8 6 8.406 6 8.91c0 .244.081.471.211.634l4.973 6.321a.65.65 0 0 0 .504.26c.194 0 .357-.098.503-.26Z" />
+                </svg>
                 <table>
                     <thead>
                         <tr>
                             <th class="bdr bdr-red">
-                                <button class="flex px-0 bdr-0 va-b ha-c">
-                                    <span class="">Product</span>
-                                    <svg class="wh-1 ml-025 txt-pink" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" class=""></path>
+                                <button class="btn">
+                                    <span>Product</span>
+                                    <svg class="icon txt-primary" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="m12.191 15.865 4.973-6.321c.13-.163.211-.39.211-.634 0-.488-.325-.91-.715-.91H6.715C6.325 8 6 8.406 6 8.91c0 .244.081.471.211.634l4.973 6.321a.65.65 0 0 0 .504.26c.194 0 .357-.098.503-.26Z"></path>
                                     </svg>
                                 </button>
                             </th>
-
-                            <th>
-                                <button class="flex px-0 bdr-0 va-b ha-c">
+                            <th class="bdr bdr-blue">
+                                <button class="" btn>
                                     <span>Product</span>
-                                    <svg class="wh-1 ml-025 txt-pink" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path>
+                                    <svg class="icon txt-primary" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="m12.191 15.865 4.973-6.321c.13-.163.211-.39.211-.634 0-.488-.325-.91-.715-.91H6.715C6.325 8 6 8.406 6 8.91c0 .244.081.471.211.634l4.973 6.321a.65.65 0 0 0 .504.26c.194 0 .357-.098.503-.26Z"></path>
                                     </svg>
                                 </button>
                             </th>

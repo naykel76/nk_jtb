@@ -20,7 +20,6 @@
         "watch:jtb": "sass --watch ./src/jtb.scss:dist/css/jtb.css"
     },
     "devDependencies": {
-        "@primer/css": "^21.5.1",
         "autoprefixer": "^10.4.21",
         "concurrently": "^9.1.2",
         "postcss": "^8.5.3",

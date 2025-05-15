@@ -11,16 +11,16 @@ $header-bg: $secondary !default;
 $main-bg: transparent !default;
 
 $footer-bg: #1d1d1c !default;
-$footer-text-color: rgb(204, 204, 204) !default;
+$footer-text-color: hsl(0, 0%, 80%) !default;
 
 $copyright-bg: color.adjust($footer-bg, $lightness: -2%) !default;
 $copyright-text-color: $footer-text-color !default;
 
-$zebra-alt-bg: rgb(245, 245, 245) !default;
+$zebra-alt-bg: hsl(0, 0%, 96%) !default;
 
 // -- Borders --
 // ==========================================================================
-$border-color: #f1f5f9 !default;
+$border-color: hsl(0, 0%, 90%) !default;
 $border: 1px solid $border-color !default;
 $border-radius: 8px !default;
 

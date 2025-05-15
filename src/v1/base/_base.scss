@@ -171,19 +171,6 @@ button,
     background-image: none; // 2.
 }
 
-// 1. Set the default cursor for buttons.
-
-button,
-[role='button'] {
-    cursor: pointer; // 1
-}
-
-// Make sure disabled buttons don't get the pointer cursor.
-
-:disabled {
-    cursor: default;
-}
-
 textarea {
     overflow: auto;
 }
@@ -259,7 +246,7 @@ td {
     font-size: $table-font-size;
     padding-inline: $table-padding-x;
     padding-block: $table-padding-y;
-    text-align: left;;
+    text-align: left;
 }
 
 // -- Controls --
@@ -276,15 +263,6 @@ button,
 
 :disabled {
     cursor: default;
-}
-
-// 1. Constrain images and videos to the parent width and preserve their intrinsic aspect ratio.
-// 2. Use height:auto instead of max-height:100% to prevent scaling issues.
-
-img,
-video {
-    max-width: 100%; // 1
-    height: auto; // 2
 }
 
 // 1. Correct the odd appearance in Chrome and Safari.
