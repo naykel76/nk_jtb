@@ -2,6 +2,14 @@
 @use './mixins/generate-magic-classes' as *;
 @use 'sass:map';
 
+.overlay {
+    position: fixed;
+    inset: 0;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 30;
+    margin: 0;
+}
 
 // magic classes
 $magic-margin-y: ((5, 3, 2), (3, 2, 1)) !default;

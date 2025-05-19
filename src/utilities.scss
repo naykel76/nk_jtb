@@ -2,7 +2,6 @@
 
 @forward './utilities/effects';
 @forward './utilities/grid';
-@forward './utilities/misc';
 @forward './utilities/position';
 @forward './utilities/space';
 @forward './utilities/state';
@@ -20,7 +19,8 @@
 @forward './v1/utilities/padding';
 @forward './v1/utilities/table';
 @forward './v1/utilities/typography';
-@use './v1/utilities/sizing' as *;
 @use './v1/utilities/border' as *;
 @use './v1/utilities/display-visibility' as *;
+@use './v1/utilities/interactivity' as *;
+@use './v1/utilities/sizing' as *;
 

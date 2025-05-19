@@ -1,0 +1,16 @@
+@use '../../v1/core-imports' as *;
+@use 'sass:map';
+
+
+// prettier-ignore
+$properties-map: (
+    cursor: (
+        prefix: 'cursor-',
+        values: ( auto, default, grab, grabbing, move, none, not-allowed, pointer, text )
+    )
+);
+
+// ==========================================================================
+// Builds
+// ==========================================================================
+@include build-property-classes($properties-map, $responsive: true);
