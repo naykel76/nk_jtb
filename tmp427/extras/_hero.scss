@@ -1,0 +1,34 @@
+@use '../build-core' as *;
+
+$hero-title-color: #eee !default;
+$hero-title-lg: 3rem !default;
+$hero-title-sm: 2rem !default;
+
+$hero-subtitle-color: #eee !default;
+$hero-subtitle-lg: 2.5rem !default;
+$hero-subtitle-sm: 1.75rem !default;
+
+$hero-gradient: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)) !default;
+
+$hero-text-padding: $content-gap !default;
+
+.hero {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    .title {
+        color: $hero-title-color;
+        font-size: $hero-title-sm;
+        @include from-md {
+            font-size: $hero-title-lg;
+        }
+    }
+    .subtitle {
+        color: $hero-subtitle-color;
+        font-size: $hero-subtitle-sm;
+        @include from-md {
+            font-size: $hero-subtitle-lg;
+        }
+    }
+}

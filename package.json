@@ -11,13 +11,11 @@
     "scripts": {
         "build": "vite build",
         "debug": "vite --debug",
-        "dev": "concurrently \"vite --open\" \"npm run watch:jtb\"",
-        "dev1": "vite --open",
+        "dev": "concurrently \"vite --open\" \"npm run watch:build\"",
         "docs": "sassdoc ./src --dest ./docs",
         "play1": "sass --watch --no-source-map ./src/play.scss:dist/css/play.css",
         "play": "concurrently \"sass --watch --no-source-map ./src/play.scss:dist/css/play.css\" \"code src/play.scss\" \"code dist/css/play.css\"",
-        "utils": "sass --style compressed ./src/utilities.scss:dist/utilities.css",
-        "watch:jtb": "sass --watch ./src/jtb.scss:dist/css/jtb.css"
+        "watch": "sass --watch ./src/build.scss:dist/css/build.css"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.21",

@@ -1,258 +1,48 @@
-@use '../v1/core-imports' as *;
-@use '../v1/maps_and_variables/base' as *;
-@use '../v1/maps_and_variables/tailwind-colors' as *;
-@use 'sass:map';
-
-// // ==========================================================================
-// // NAYKEL DOCS --
-// // ==========================================================================
-// //
-// // NOTE: The styles in this file are specifically designed for the Naykel
-// // documentation. They should be wrapped in the `nk-docs` class to prevent
-// // conflicts. These styles are not included in the main build by default and
-// // need to be manually imported.
-// //
-// // tr:not(.ignore-nk-styles + table tr - ignores the next table from the styles
-
-// $table-bg: white !default;
-
-// $th-bdr-color: map.get($tailwind-colors, 'slate', '200') !default;
-// $td-bdr-color: map.get($tailwind-colors, 'slate', '100') !default;
-
-// $code-color: #f0506e !default;
-// $question-color: #2299dd !default;
-
-// // ==========================================================================
-// // -- SPACING --
-// // ==========================================================================
-
-// .nk-docs {
-//     // Fix spacing issues caused by common mark wrapping all li in p tags
-//     // whenever you add any elements in a markdown list.
-//     //
-//     // <ul>
-//     //     <li>
-//     //         <p>List item one</p>
-//     //         <p>This paragraph will add <li> to to all <li></p>
-//     //     </li>
-//     // </ul>
-//     li > :is(p, pre) {
-//         margin-block-start: $base-list-spacing;
-//     }
+// code.torchlight .line-number,
+// code.torchlight .summary-caret {
+//     margin-inline-start: 1rem;
 // }
 
-// .nk-docs {
-//     // ==========================================================================
-//     // -- TABLE --
-//     // ==========================================================================
-//     // table {
-//     //     border: 1px solid #dddddd;
-//     // }
+/*
+ Margin and rounding are personal preferences,
+ overflow-x-auto is recommended.
+*/
+pre {
+    border-radius: 0.25rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    overflow-x: auto;
+}
 
-//     th:not(.ignore-nk-styles + table th) {
-//         border-bottom: 1px solid $th-bdr-color;
-//     }
+/*
+ Add some vertical padding and expand the width
+ to fill its container. The horizontal padding
+ comes at the line level so that background
+ colors extend edge to edge.
+*/
+pre code.torchlight {
+    display: block;
+    min-width: -webkit-max-content;
+    min-width: -moz-max-content;
+    min-width: max-content;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
 
-//     td:not(.ignore-nk-styles + table td) {
-//         border-top: 1px solid $td-bdr-color;
-//     }
+/*
+ Horizontal line padding to match the vertical
+ padding from the code block above.
+*/
+pre code.torchlight .line {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
 
-//     tr:not(.ignore-nk-styles + table tr) {
-//         background: $table-bg;
-//     }
-
-//     // .compress-tables ~ {
-//     //     th,
-//     //     td {
-//     //         padding-block: 0.25rem;
-//     //         padding-inline: 0.75rem;
-//     //     }
-//     // }
-
-//     .all-list-spacing-05 ~ ul li {
-//         margin-top: 0.5rem;
-//         margin-bottom: 0.5rem;
-//     }
-// }
-
-// // ==========================================================================
-// // -- MARKDOWN AND CODE BLOCKS --
-// // ==========================================================================
-
-// %code {
-//     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-//     color: $code-color;
-//     // color: rgb(14, 165, 233);
-//     border-radius: 0.25rem;
-// }
-
-// // %markdown-table {
-// //     margin-top: $content-gap;
-// //     font-size: 0.85em;
-// // }
-
-// // change these to classes so they don't automatically get placed in a p tag
-// .code-first-col {
-//     + table tbody {
-//         // @extend %markdown-table;
-//         tr td:first-child {
-//             @extend %code;
-//         }
-//     }
-// }
-
-// .code-second-col {
-//     + table tbody {
-//         // @extend %markdown-table;
-//         tr td:nth-child(2) {
-//             @extend %code;
-//         }
-//     }
-// }
-// .code-first-second-col {
-//     + table tbody {
-//         // @extend %markdown-table;
-//         tr td:is(:first-child, :nth-child(2)) {
-//             @extend %code;
-//         }
-//     }
-// }
-
-// // ==========================================================================
-// // -- QUESTION AND ANSWER --
-// // ==========================================================================
-
-// question {
-//     color: $question-color;
-//     margin-block-start: $content-gap;
-//     font-weight: 700;
-//     font-style: italic;
-//     display: block;
-// }
-
-// // make the margin between the question and the following content smaller.
-// //
-// // <p><question></question></p>
-// // <p></p>
-// //
-// p:has(question) > p {
-//     margin-block-start: 0.5rem;
-// }
-
-// // removed 14-02-25 i do not think this is needed
-// // h3:has(question) + p {
-// //     + ul {
-// //         margin-top: 0.5rem;
-// //         margin-left: 1.5rem;
-// //     }
-// // }
-
-// // // this is a hack to make the question play nice with the `h3` tag
-// // h3 {
-// //     > question {
-// //         margin-top: 0;
-// //     }
-// //     &:has(question) {
-// //         display: inline-flex;
-// //         align-items: center;
-// //         a {
-// //             margin-right: 0.5rem;
-// //         }
-// //     }
-// // }
-
-// // ==========================================================================
-// // --  --
-// // ==========================================================================
-
-// :is(h1, h2, h3, h4, h5, h6) {
-//     code:not(.hljs) {
-//         font-size: inherit;
-//     }
-// }
-
-// // code color for alerts
-// .info-light code {
-//     color: #ec4899;
-// }
-
-// .markdown {
-//     .compare + pre,
-//     .compare + pre + pre {
-//         float: left;
-//         width: 49%;
-//     }
-
-//     .compare + pre {
-//         margin-right: 1%;
-//     }
-//     .compare + pre + pre {
-//         margin-left: 1%;
-//     }
-
-//     .clear {
-//         clear: both;
-//     }
-
-//     hr {
-//         border-color: #3d5ea5;
-//     }
-
-//     .spaced-out + ul li {
-//         margin-top: 0.5rem !important;
-//     }
-
-//     .spaced-out-all ~ ul li {
-//         background: red;
-//         margin-top: 0.5rem !important;
-//     }
-// }
-
-// .mermaid > svg {
-//     background: #fff;
-//     padding: 1rem;
-// }
-
-// // this is good when making a list when you want to use the toc for an overview
-// .small-headings {
-//     ~ h1 {
-//         font-size: 2em;
-//     }
-//     ~ h3 {
-//         font-size: 1.25em;
-//     }
-// }
-
-// ////
-// /// @group spacing-hacks
-// ////
-
-// /// Increase the space between adjacent list items. This eliminates the need to
-// /// add a class to the `ul` or each `li`.
-// ///
-// ///
-// /// @example scss - Usage
-// /// <div class="adjacent-list-space-1"></div>
-// /// - List item one
-// /// - List item two
-// ///
-
-// .adjacent-list-space-1 + ul li:not(:first-child) {
-//     margin-block-start: 1rem;
-// }
-
-// .adjacent-list-space-05 + ul li:not(:first-child) {
-//     margin-block-start: 0.5rem;
-// }
-
-// .indent-all-lists-2 ~ ul {
-//     margin-inline-start: 2rem;
-// }
-
-
-// // all lists on a page
-// .list-space-all-1 {
-//     ~ ul li {
-//         margin-top: 1rem;
-//     }
-// }
+/*
+ Push the code away from the line numbers and
+ summary caret indicators.
+*/
+pre code.torchlight .line-number,
+pre code.torchlight .summary-caret {
+    margin-right: 1rem;
+}

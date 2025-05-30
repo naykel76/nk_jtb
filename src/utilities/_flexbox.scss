@@ -1,0 +1,66 @@
+@use '../../build-core' as *;
+@use 'sass:map';
+
+// prettier-ignore
+$flex-properties-map: (
+    flex: (
+        prefix: #{$flex-identifier},
+        values: ( 1, 2, ( 'auto': 1 1 auto ), ( 'initial': 0 1 auto ), 'none' ),
+    ),
+    flex-direction: (
+        prefix: #{$flex-identifier},
+        values: (
+            // `flex-col` and `flex-row` are handled in the
+            // flex.scss utility file to include the display
+            // property as well.
+            column-reverse,
+            row-reverse
+        )
+    ),
+    flex-grow: (
+        prefix: #{$flex-grow-identifier},
+        values: ( 0, 1)
+    ),
+    flex-shrink: (
+        prefix: #{$flex-shrink-identifier},
+        values: ( 0, 1)
+    ),
+    flex-wrap: (
+        values: ( nowrap, wrap-reverse, wrap )
+    ),
+    order: (
+        property: order,
+        prefix: "order-",
+        values: $order-map,
+    ),
+);
+
+@include build-property-classes($flex-properties-map, $responsive: true);
+
+// ==========================================================================
+// CUSTOM FLEXBOX CLASSES
+// ==========================================================================
+
+// prettier-ignore
+$flex-classes-map: (
+    flex-col: (
+        props: ( display: flex, flex-direction: column )
+    ),
+    flex-row: (
+        props: ( display: flex, flex-direction: row )
+    )
+);
+
+// prettier-ignore
+$special-classes: (
+    flex-centered: (
+        props: (
+            display: flex,
+            align-items: center,
+            justify-content: center
+        )
+    )
+);
+
+$merged-classes: map.merge($flex-classes-map, $special-classes);
+@include build-composite-classes($merged-classes, $responsive: true);

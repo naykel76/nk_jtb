@@ -1,0 +1,62 @@
+@use './build-core' as *;
+@use './mixins/generate-magic-classes' as *;
+@use 'sass:map';
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 30;
+    margin: 0;
+}
+
+// magic classes
+$magic-margin-y: ((5, 3, 2), (3, 2, 1)) !default;
+@include generate-magic-classes(margin, $magic-margin-y, 'my', $position-or-axis: y);
+
+// magic classes
+$magic-padding-y: ((5, 3, 2), (5, 3, 2, 2), (3, 2, 1)) !default;
+@include generate-magic-classes(padding, $magic-padding-y, "py", $position-or-axis: y);
+
+.c-py-025 > * {
+    padding-block: 0.25rem;
+}
+.c-py-3 > * {
+    padding-block: 3rem;
+}
+
+
+.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+@each $value in $opacity-values {
+    $variant: handle-invalid($value);
+    .hover\:opacity-#{$variant}:hover {
+        opacity: $value;
+    }
+}
+
+
+// this is not easy to override on the child element unless the
+// properties are set as !important but works great otherwise.
+.divide-y > :not([hidden]) ~ :not([hidden]) {
+    border-top: 1px solid $border-color;
+}
+
+
+
+
+
+
+
+
+
+// mark {
+//     background-color: var(--bgColor-attention-muted, var(--color-attention-subtle));
+//     color: var(--fgColor-default, var(--color-fg-default));
+// }

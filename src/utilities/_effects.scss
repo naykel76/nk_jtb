@@ -1,3 +1,11 @@
-.animate-spin {
-    animation: spin 1s linear infinite;
-}
+@use '../../build-core' as *;
+
+// prettier-ignore
+$effect-properties-map: (
+    opacity: (
+        prefix: 'opacity-',
+        values: ( $opacity-values )
+    ),
+);
+
+@include build-property-classes($effect-properties-map, $responsive: true);

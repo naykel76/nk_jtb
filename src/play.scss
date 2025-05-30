@@ -2,7 +2,7 @@
 // @use './v1/utilities/typography' as *;
 // @use './build_utilities' as *;
 @use './functions/get' as *;
-@use './v1/core-imports' as *;
+@use './build-core' as *;
 @use 'sass:color';
 @use 'sass:list';
 @use 'sass:map';

@@ -1,0 +1,59 @@
+@use '../../build-core' as *;
+@use 'sass:map';
+
+// prettier-ignore
+$border-properties-map: (
+    border: (
+        prefix: #{$border-identifier},
+        values: ( default: $border, none: none, ),
+        positions: $axis-position-map,
+    ),
+    border-color: (
+        prefix: #{$border-identifier},
+        // NK!! This creates excessive classed. Revisit and decide if we want to
+        // keep or just use the tailwind system. Consider separating and make it
+        // an option, or just leave it for vite to strip out as it is.
+        values: smart-merge(flatten-map($tailwind-colors), $theme-colors, $color-map),
+    ),
+    border-width: (
+        prefix: #{$border-identifier},
+        values: $border-width-sizes,
+    ),
+    border-style: (
+        prefix: #{$border-identifier},
+        values: (solid, dashed, dotted, double, none),
+    ),
+    // This only deals with the complete border-radius, not the corners
+    // which are handled separately below.
+    border-radius: (
+        prefix: "rounded-",
+        values: $border-radius-map,
+        unit: "rem" // NK!! the unit is not defaulting to rem,
+    ),
+);
+
+// ==========================================================================
+// This map and the following mixin is used to generate `border-radius` classes
+// for corners. It has been separated because it is a little different from
+// other position-based classes.
+// ==========================================================================
+// This only handles the corners, not the complete border-radius, which is
+// handled separately above.
+
+// NK::TD need to remove positions from the "full"
+
+$border-radius-properties-map: (
+    border: (
+        prefix: 'rounded-',
+        values: $border-radius-map,
+        unit: 'rem',
+        // NK!! the unit is not defaulting to rem,
+        positions: $border-radius-corners-map
+    )
+);
+
+// ==========================================================================
+// Builds
+// ==========================================================================
+@include build-property-classes($border-properties-map, $responsive: true);
+@include build-property-classes($border-radius-properties-map, $responsive: true);

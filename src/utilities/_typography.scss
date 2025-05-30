@@ -1,121 +1,29 @@
-@use '../v1/core-imports' as *;
-@use '../v1/maps_and_variables/base' as *;
-@use '../v1/maps_and_variables/colors' as *;
-@use '../v1/maps_and_variables/typography' as *;
-@use '../v1/maps_and_variables/config' as *;
+@use '../../build-core' as *;
 @use 'sass:map';
 
-// ==========================================================================
-// -- PROPERTY MAPS --
-// ==========================================================================
-// remove from the colour map
-$text-colors: map.remove($color-map, 'danger', 'dark', 'info', 'light', 'success', 'warning');
-
-$text-rem-sizes: (1, 1.5, 2, 2.5, 3, 4) !default;
-
-// ==========================================================================
-// -- OPINIONATED TEXT CLASSES --
-// ==========================================================================
-//
-.lead {
-    font-size: 1.2rem;
-}
-
-.title {
-    color: $primary;
-    font-size: 3rem;
-    font-weight: 700;
-    line-height: 1.125;
-}
-
-.subtitle {
-    color: $primary;
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1.125;
-}
-
-// this seems a little out of place here, oh well!
-.link {
-    background-color: transparent;
-    background-image: none;
-    border: none;
-    color: $link-color;
-    padding: 0;
-
-    &:hover,
-    &:active {
-        color: $link-hover-color;
-        background-color: transparent;
+// NK::TD Consider if I really need place holder color utility classes
+@each $color-name, $color-map in $tailwind-colors {
+    @each $key, $value in $color-map {
+        .txt-#{$color-name}-#{$key} {
+            color: $value;
+        }
+        .placeholder-#{$color-name}-#{$key}::placeholder {
+            color: $value;
+        }
+        .hover\:txt-#{$color-name}-#{$key}:hover {
+            color: $value;
+        }
     }
 }
 
-// This needs to be included in the properties map. I have left seperate for now
-// because 'base' is automatically stripped out
-.txt-base {
-    color: $text-color;
-}
-// ==========================================================================
-// -- UTILITY CLASS MAP --
-// ==========================================================================
-
-// prettier-ignore
-$typography-properties-map: (
-    color: (
-        prefix: "#{$text-identifier}",
-        values: $text-colors
-    ),
-    font-size: (
-        prefix: "#{$text-identifier}",
-        values: $text-rem-sizes,
-        // TXT BREAKPOINTS ARE NOT WORKING CORRECTLY WITH THE UNIT
-        // breakpoints: ("sm", "md", "lg", "xl"),
-        unit: "rem"
-    ),
-    font-style: (
-        prefix: "#{$text-identifier}",
-        values: ( italic, normal )
-    ),
-    font-family: (
-        prefix: "#{$font-identifier}",
-        values: (
-            serif: ( ui-serif, Georgia, Cambria, "Times New Roman", Times, serif ),
-            sans: ( ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" ),
-            mono: ( ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace ),
-        )
-    ),
-    font-weight: (
-        prefix: "fw",
-        values: ( 2: 200, 4: 400, 5: 500, 6: 600, 7: 700, 9: 900 )
-    ),
-    line-height: (
-        prefix: "#{$line-height-identifier}",
-        values: ( 1, 1.5, 2 )
-    ),
-    text-align: (
-        prefix: "#{$text-align-identifier}",
-        values: ( l: left, r: right, c: center, j: justify )
-    ),
-    text-decoration: (
-        prefix: "#{$text-identifier}",
-        values: ( strike: line-through, underline: underline, overline: overline, underline-overline: underline overline )
-    ),
-    text-transform: (
-        prefix: "#{$text-identifier}",
-        values: ( upper: uppercase, lower: lowercase, capitalize: capitalize, normal-case: none )
-    ),
-    white-space: (
-        prefix: "#{$whitespace-identifier}",
-        values: ( normal, nowrap, pre, pre-line, pre-wrap )
-    ),
-    text-wrap: (
-        prefix: "#{$text-identifier}",
-        values: ( wrap, balance, nowrap, pretty )
-    ),
-    list-style-type: (
-        prefix: "list-",
-        values: (none, disc, decimal, circle, square)
-    )
+$text-classes-map: (
+    txt-xs: ( props: ( font-size: 0.75rem, line-height: 1.1 ) ),
+    txt-sm: ( props: ( font-size: 0.875rem, line-height: 1.25 ) ),
+    txt-base: ( props: ( font-size: 1rem, line-height: 1.5 ) ),
+    txt-lg: ( props: ( font-size: 1.125rem, line-height: 1.5 ) ),
+    txt-xl: ( props: ( font-size: 1.25rem, line-height: 1.6 ) ),
+    txt-xxl: ( props: ( font-size: 1.5rem, line-height: 1.6 ) )
 );
 
-@include build-property-classes($typography-properties-map, $responsive: true);
+@include build-composite-classes($text-classes-map, $responsive: true)
+

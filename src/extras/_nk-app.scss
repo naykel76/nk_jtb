@@ -1,0 +1,53 @@
+@use '../../build-core' as *;
+@use "../../forms/control" as *;
+
+
+// match the control padding, used for selectable elements
+.control-padding {
+    padding-inline: $ctrl-padding-x;
+    padding-block: $ctrl-padding-y;
+    border: 1px solid transparent;
+}
+
+// ==========================================================================
+// -- LAYOUT ELEMENTS --
+// ==========================================================================
+
+body {
+    min-height: 100vh; // set height to push footer to the bottom
+    display: flex;
+    flex-direction: column;
+}
+
+:where(.nk-main) {
+    flex: 1; // 1. allow to grow to fill height
+    background-color: $main-bg;
+}
+
+:where(.nk-footer) {
+    background-color: $footer-bg;
+    margin-top: auto; // force footer to the bottom
+    color: #ccc;
+}
+
+.copyright {
+    color: $copyright-text-color;
+    background-color: $copyright-bg;
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    border: 0; // remove border from colour scheme
+    width: 100%;
+    margin-top: 0;
+}
+
+// ==========================================================================
+// -- NAYKEL ADMIN STYLES --
+// ==========================================================================
+
+.nk-admin {
+    .navbar {
+        background-image: linear-gradient(to right top, #20242a, #1e1f27, #1e1a23, #1f141d, #1f0e16, #250e15, #2c0e12, #310f0c, #40140e, #4e1a0e, #5c210c, #692906);
+    }
+}
+

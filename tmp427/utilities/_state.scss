@@ -1,0 +1,37 @@
+// @use '../functions/helpers' as *;
+// @use '../mixins/media' as *;
+// @use '../v1/maps_and_variables/colors' as *;
+
+
+@use '../build-core' as *;
+
+// ==========================================================================
+// -- DISABLED --
+// ==========================================================================
+:disabled,
+.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+// ==========================================================================
+// -- REVIEW --
+// ==========================================================================
+
+.hover\:txt-primary:hover {
+    color: $primary;
+}
+
+.hover\:txt-secondary:hover {
+    color: $secondary;
+}
+
+.hover\:txt-white:hover {
+    color: #fff;
+}
+
+// .hover\:text-white:hover {
+//     --tw-text-opacity: 1;
+//     color: rgb(15 23 42 / var(--tw-text-opacity));
+// }
+
