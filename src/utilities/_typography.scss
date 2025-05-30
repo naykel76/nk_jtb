@@ -13,17 +13,6 @@ $text-colors: map.remove($color-map, 'danger', 'dark', 'info', 'light', 'success
 
 $text-rem-sizes: (1, 1.5, 2, 2.5, 3, 4) !default;
 
-$text-variant-sizes: (
-    xs: 0.75rem,
-    sm: 0.875rem,
-    base: 1rem,
-    lg: 1.125rem,
-    xl: 1.5rem
-) !default;
-
-// convert 'rem' sizes to map and merge with variant sizes
-$text-sizes: map.merge(list-to-map($text-rem-sizes), $text-variant-sizes);
-
 // ==========================================================================
 // -- OPINIONATED TEXT CLASSES --
 // ==========================================================================
@@ -78,7 +67,7 @@ $typography-properties-map: (
     ),
     font-size: (
         prefix: "#{$text-identifier}",
-        values: $text-sizes,
+        values: $text-rem-sizes,
         // TXT BREAKPOINTS ARE NOT WORKING CORRECTLY WITH THE UNIT
         // breakpoints: ("sm", "md", "lg", "xl"),
         unit: "rem"
