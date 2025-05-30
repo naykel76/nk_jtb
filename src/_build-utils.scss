@@ -1,26 +1,26 @@
-@use './mixins/build-classes' as *;
+// @use './mixins/build-classes' as *;
 
-@forward './utilities/effects';
-@forward './utilities/grid';
-@forward './utilities/position';
-@forward './utilities/space';
-@forward './utilities/state';
-@forward './utilities/transforms';
-@forward './utilities/transition';
-@forward './utilities/typography';
-@forward './utilities/alignment';
-@forward './utilities/backgrounds';
-@forward './utilities/container';
-@forward './utilities/effects';
-@forward './utilities/flexbox';
-@forward './utilities/grid';
-@forward './utilities/layout';
-@forward './utilities/margin';
-@forward './utilities/padding';
-@forward './utilities/table';
-@forward './utilities/typography';
+// @forward './utilities/effects';
+// @forward './utilities/grid';
+// @forward './utilities/position';
+// @forward './utilities/space';
+// @forward './utilities/state';
+// @forward './utilities/transforms';
+// @forward './utilities/transition';
+// @forward './utilities/typography';
+// @forward './utilities/alignment';
+// @forward './utilities/backgrounds';
+// @forward './utilities/container';
+// @forward './utilities/effects';
+// @forward './utilities/flexbox';
+// @forward './utilities/grid';
+// @forward './utilities/layout';
+// @forward './utilities/margin';
+// @forward './utilities/padding';
+// @forward './utilities/table';
+// @forward './utilities/typography';
+
 @use './utilities/border' as *;
 @use './utilities/display-visibility' as *;
 @use './utilities/interactivity' as *;
 @use './utilities/sizing' as *;
-

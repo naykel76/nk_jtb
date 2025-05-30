@@ -1,4 +1,4 @@
-@use '../../build-core' as *;
+@use '../build-core' as *;
 @use 'sass:map';
 
 $padding-sizes: map.merge($padding-variants, list-to-map($spacing-sizes));

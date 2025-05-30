@@ -16,3 +16,14 @@ npm install sassdoc -g
 ```bash
 sassdoc ./src --dest ./docs
 ```
+
+Use the Sass built-in `meta.function-exists()` to check if a function is available in the current scope.
+
+Example usage in your SCSS file:
+
+```scss
+@use 'sass:meta';
+
+@debug meta.function-exists('get-variant-value'); // Outputs 'true' if accessible, 'false' otherwise
+@debug meta.function-exists('non-existent-function'); // Outputs 'false'
+```

@@ -1,4 +1,4 @@
-@use '../../build-core' as *;
+@use '../build-core' as *;
 
 // 1. Use capital M in min() function to prevent clash between sass
 //    and css. This works because sass is case-sensitive, but CSS is

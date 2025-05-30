@@ -1,4 +1,4 @@
-@use '../../build-core' as *;
+@use '../build-core' as *;
 @use 'sass:map';
 
 $margin-sizes: map.merge($margin-variants, list-to-map($spacing-sizes));

@@ -1,4 +1,4 @@
-@use '../functions/get' as *;
+@use '../functions/map-helpers' as *;
 @use '../mixins/generate-magic-classes' as *;
 @use '../mixins/magicGridGenerators' as *;
 @use '../build-core' as *;

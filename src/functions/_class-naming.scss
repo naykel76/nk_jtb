@@ -1,5 +1,5 @@
-@use './utility.scss' as *;
-@use './strippers.scss' as *;
+@use './class-sanitisers' as *;
+@use './string-helpers' as *;
 @use 'sass:list';
 @use 'sass:meta';
 @use 'sass:string';

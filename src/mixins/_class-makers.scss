@@ -1,6 +1,6 @@
-@use '../../functions/helpers/strippers' as *;
-@use '../../v1/mixins/media' as *;
-@use '../../v1/mixins/property-makers' as *;
+@use '../functions/class-sanitisers' as *;
+@use '../mixins/media' as *;
+@use '../mixins/property-makers' as *;
 @use 'sass:map';
 
 

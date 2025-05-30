@@ -1,7 +1,6 @@
-@use '../../functions/helpers/' as *;
-@use '../../v1/mixins/class-makers' as *;
-@use '../../v1/mixins/property-makers' as *;
-// @use './make-position-based-class' as *;
+@use '../functions/class-naming' as *;
+@use '../mixins/class-makers' as *;
+@use '../mixins/property-makers' as *;
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:string';
@@ -78,19 +77,19 @@
             $variant: list.nth($variant-value, 1);
             $value: list.nth($variant-value, 2);
 
-            // Derived variables simplify and standardize value and unit
-            // handling in utility class generation, improving code readability
-            // and reducing complexity.
-            $derived-unit: if(value-has-unit($value), null, ($unit)); // 2.
-            $derived-value: #{handle-class-value($value, $derived-unit)}; // 3.
-            $derived-variant: #{$variant}#{handle-class-unit($derived-unit)}; // 4.
+            // // Derived variables simplify and standardize value and unit
+            // // handling in utility class generation, improving code readability
+            // // and reducing complexity.
+            // $derived-unit: if(value-has-unit($value), null, ($unit)); // 2.
+            // $derived-value: #{handle-class-value($value, $derived-unit)}; // 3.
+            // $derived-variant: #{$variant}#{handle-class-unit($derived-unit)}; // 4.
 
-            @if $positions-map {
-                @include make-position-based-class($property, $derived-value, $positions-map, $identifier, $derived-variant, $breakpoints);
-            } @else{
-                $derived-class: strip-invalid(#{$identifier}#{$derived-variant});
-                @include make-single-property-class(#{$derived-class}, $property, #{$derived-value}, $breakpoints);
-            }
+            // @if $positions-map {
+            //     @include make-position-based-class($property, $derived-value, $positions-map, $identifier, $derived-variant, $breakpoints);
+            // } @else{
+            //     $derived-class: strip-invalid(#{$identifier}#{$derived-variant});
+            //     @include make-single-property-class(#{$derived-class}, $property, #{$derived-value}, $breakpoints);
+            // }
         }
     }
 }

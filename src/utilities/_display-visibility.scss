@@ -1,5 +1,5 @@
-@use '../../build-core' as *;
-@use '../../v1/mixins/class-makers' as *;
+@use '../build-core' as *;
+@use '../mixins/class-makers' as *;
 
 $breakpoints: ('sm', 'md', 'lg', 'xl', 'xxl');
 

@@ -1,4 +1,5 @@
-@use '../../build-core' as *;
+@use '../build-core' as *;
+@use '../functions/class-naming' as *;
 @use 'sass:map';
 
 // prettier-ignore
@@ -15,10 +16,10 @@ $sizing-properties-map: (
 // -- WIDTH & HEIGHT --
 @each $size in $sizing-rem {
     $class: handle-invalid($size);
-    .wh-#{$class} {
-        width: #{$size}rem;
-        height: #{$size}rem;
-    }
+    // .wh-#{$class} {
+    //     width: #{$size}rem;
+    //     height: #{$size}rem;
+    // }
 }
 
 // ==========================================================================

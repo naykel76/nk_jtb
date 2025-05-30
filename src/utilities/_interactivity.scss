@@ -1,6 +1,5 @@
-@use '../../build-core' as *;
+@use '../build-core' as *;
 @use 'sass:map';
-
 
 // prettier-ignore
 $properties-map: (

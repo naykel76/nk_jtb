@@ -1,17 +1,19 @@
 // maps and variables
-@forward '../v1/maps_and_variables/base';
-@forward '../v1/maps_and_variables/colors';
-@forward '../v1/maps_and_variables/config';
-@forward '../v1/maps_and_variables/layout';
-@forward '../v1/maps_and_variables/tailwind-colors';
-@forward '../v1/maps_and_variables/typography';
-@forward '../v1/maps_and_variables/utility-maps';
+@forward './maps_and_variables/base';
+
+@forward './maps_and_variables/colors';
+@forward './maps_and_variables/config';
+@forward './maps_and_variables/layout';
+@forward './maps_and_variables/tailwind-colors';
+@forward './maps_and_variables/typography';
+@forward './maps_and_variables/utility-maps';
 
 // build tools
-@forward '../v1/mixins/build-classes';
-@forward '../v1/mixins/media';
-@forward '../v1/functions/map-and-list-helpers';
+@forward './mixins/build-classes';
+@forward './mixins/media';
+@forward './functions/map-and-list-helpers';
 
-// deprecated maps and variables
-@forward '../variables/utility_maps';
-@forward '../functions/helpers';
+@forward './functions/class-naming';
+@forward './functions/class-sanitisers';
+@forward './functions/string-helpers';
+@forward './functions/validation-helpers';

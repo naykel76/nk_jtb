@@ -3,9 +3,6 @@
 // ==========================================================================
 // Strips 'rem' if last three characters in a string
 // ==========================================================================
-// Usage: $class: stripDash("maxw-20rem");
-// Outputs $class: 'maxw-20';
-// ==========================================================================
 @function stripRem($string) {
     @if string.slice($string, -3) == "rem" {
         @return string.slice($string, 1, -4);

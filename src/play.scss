@@ -1,25 +1,5 @@
-@use './utilities/border' as *;
 // @use './utilities/typography' as *;
-// @use './build_utilities' as *;
-@use './functions/get' as *;
-@use './build-core' as *;
 @use 'sass:color';
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:string';
-
-// @include build-property-classes($border-properties-map, $responsive: true);
-// @include build-property-classes($border-radius-properties-map, $responsive: true);
-// @include build-property-classes($display-visibility-properties-map, $responsive: true);
-
-// $text-variants: (
-//     xs: ( font-size: 0.75rem, line-height: 1 ),
-//     sm: ( font-size: 0.875rem, line-height: 1.25 ),
-//     base: ( font-size: 1rem, line-height: 1.5 ),
-//     lg: ( font-size: 1.125rem, line-height: 1.5 ),
-//     xl: ( font-size: 1.25rem, line-height: 1.6 ),
-//     xxl: ( font-size: 1.5rem, line-height: 1.6 )
-// );
-
-
-// @include build-composite-classes($text-variants, $responsive: false)
