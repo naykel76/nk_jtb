@@ -1,5 +1,5 @@
-@use '../v1/maps_and_variables/base' as *;
-@use '../v1/maps_and_variables/typography' as *;
+@use '../../src/maps_and_variables/base' as *;
+@use '../../src/maps_and_variables/typography' as *;
 @use 'sass:color';
 
 $accordion-color: $text-color !default;

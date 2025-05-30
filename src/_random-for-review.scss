@@ -1,5 +1,5 @@
 @use './build-core' as *;
-@use './mixins/generate-magic-classes' as *;
+@use '../tmp427/mixins/generate-magic-classes' as *;
 @use 'sass:map';
 
 .overlay {

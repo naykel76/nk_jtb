@@ -1,5 +1,5 @@
-@use '../build-core' as *;
-@use '../v1/functions/color-functions' as *;
+@use '../../src/build-core' as *;
+@use '../../src/functions/color-functions' as *;
 @use 'sass:color';
 
 // ==========================================================================

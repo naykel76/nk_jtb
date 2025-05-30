@@ -1,8 +1,8 @@
 @use '../functions/map-helpers' as *;
 @use '../mixins/generate-magic-classes' as *;
 @use '../mixins/magicGridGenerators' as *;
-@use '../build-core' as *;
-@use '../v1/mixins/class-makers' as *;
+@use '../../src/build-core' as *;
+@use '../../src/mixins/class-makers' as *;
 
 $gap: get('grid.default-gap', $config);
 $num-grid-cols: get('grid.num-grid-cols', $config);

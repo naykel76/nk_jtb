@@ -1,5 +1,5 @@
-@use '../v1/maps_and_variables/base' as *;
-@use '../v1/maps_and_variables/colors' as *;
+@use '../../src/maps_and_variables/base' as *;
+@use '../../src/maps_and_variables/colors' as *;
 @use 'sass:map';
 
 // grid column fr conversion map for two column layouts. The map key specifies the percentage width of the 1st column
