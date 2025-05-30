@@ -1,7 +1,7 @@
 @use '../../functions/get' as *;
 @use '../../build-core' as *;
 @use '../../v1/functions/map-and-list-helpers' as *;
-@use '../../v1/maps_and_variables/' as *;
+@use '../maps_and_variables/' as *;
 @use '../../v1/mixins/build-themes' as *;
 @use 'sass:map';
 

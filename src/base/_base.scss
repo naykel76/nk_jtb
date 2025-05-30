@@ -1,6 +1,6 @@
-@use '../../v1/maps_and_variables/base' as *;
-@use '../../v1/maps_and_variables/layout' as *;
-@use '../../v1/maps_and_variables/typography' as *;
+@use '../maps_and_variables/base' as *;
+@use '../maps_and_variables/layout' as *;
+@use '../maps_and_variables/typography' as *;
 
 // Remove all default borders to ensure consistency and avoid unexpected border
 // widths from browsers.
