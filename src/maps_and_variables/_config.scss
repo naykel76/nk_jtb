@@ -1,40 +1,41 @@
-$button-identifier: "btn" !default;
-$container-identifier: "container" !default;
-$dropdown-identifier: "dd" !default;
-$icon-identifier: "icon" !default;
-$list-identifier: "lst" !default;
+$button-identifier: 'btn' !default;
+$container-identifier: 'container' !default;
+$dropdown-identifier: 'dd' !default;
+$icon-identifier: 'icon' !default;
+$list-identifier: 'lst' !default;
 
 // -- Utility Class Identifiers --
 // NOTE: Make sure to include a dash (-) for identifiers that are used in the class name.
-$bg-identifier: "bg-" !default;
-$border-identifier: "bdr-" !default;
-$flex-identifier: "flex-" !default;
-$font-identifier: "font-" !default;
-$line-height-identifier: "lh-" !default;
-$position-identifier: "pos-" !default;
-$table-identifier: "tbl-" !default;
-$text-identifier: "txt-" !default;
-$whitespace-identifier: "whitespace-" !default;
+$bg-identifier: 'bg-' !default;
+$border-identifier: 'bdr-' !default;
+$flex-identifier: 'flex-' !default;
+$font-identifier: 'font-' !default;
+$line-height-identifier: 'lh-' !default;
+$position-identifier: 'pos-' !default;
+$table-identifier: 'tbl-' !default;
+$text-identifier: 'txt-' !default;
+$whitespace-identifier: 'whitespace-' !default;
 
 // these do not include a dash (-) in the class name. this needs to be reviewed
 // and updated to be consistent with the rest of the identifiers.
-$flex-grow-identifier: "fg" !default; 
-$flex-shrink-identifier: "fs" !default; 
-$margin-identifier: "m" !default; 
-$padding-identifier: "p" !default; 
-$text-align-identifier: "ta" !default; 
+$flex-grow-identifier: 'fg' !default;
+$flex-shrink-identifier: 'fs' !default;
+$margin-identifier: 'm' !default;
+$padding-identifier: 'p' !default;
+$text-align-identifier: 'ta' !default;
 
+// grid configuration options
+$grid-num-cols: 12 !default;
 
-
-$config: (
-    "shades": (
-        "create-base": true,
-        "create-theme": false,
-        "step": 20,
-        // "num": 9,
-    ),
-    "grid": (
-        "num-grid-cols": 12,
-        "default-gap": 1.25rem,
-    ),
-) !default;
+// $config: (
+//     "shades": (
+//         "create-base": true,
+//         "create-theme": false,
+//         "step": 20,
+//         // "num": 9,
+//     ),
+//     "grid": (
+//         "num-grid-cols": 12,
+//         "default-gap": 1.25rem,
+//     ),
+// ) !default;

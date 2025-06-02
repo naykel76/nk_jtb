@@ -1,4 +1,4 @@
-@use '../build-core' as *;
+@use '../common-tools' as *;
 @use '../functions/class-naming' as *;
 @use 'sass:map';
 
@@ -16,6 +16,7 @@ $sizing-properties-map: (
 // -- WIDTH & HEIGHT --
 @each $size in $sizing-rem {
     $class: handle-invalid($size);
+
     // .wh-#{$class} {
     //     width: #{$size}rem;
     //     height: #{$size}rem;

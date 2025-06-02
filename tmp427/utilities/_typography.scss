@@ -1,4 +1,4 @@
-@use '../../src/build-core' as *;
+@use '../../src/common-tools' as *;
 @use '../../src/maps_and_variables/base' as *;
 @use '../../src/maps_and_variables/colors' as *;
 @use '../../src/maps_and_variables/typography' as *;
@@ -10,7 +10,6 @@
 // ==========================================================================
 // remove from the colour map
 $text-colors: map.remove($color-map, 'danger', 'dark', 'info', 'light', 'success', 'warning');
-
 $text-rem-sizes: (1, 1.5, 2, 2.5, 3, 4) !default;
 
 // ==========================================================================
@@ -55,6 +54,7 @@ $text-rem-sizes: (1, 1.5, 2, 2.5, 3, 4) !default;
 .txt-base {
     color: $text-color;
 }
+
 // ==========================================================================
 // -- UTILITY CLASS MAP --
 // ==========================================================================

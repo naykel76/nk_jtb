@@ -19,16 +19,5 @@ $fr-conversion-2-col: (
     80: ( 4fr, 1fr )
 );
 
-// ==========================================================================
-//  Space sizes and variants for margin and padding utilities
-// ==========================================================================
-
-$margin-variants: (
-    base: 1.5,
-    auto: auto
-) !default;
-$padding-variants: (
-    default: $content-padding
-) !default;
 
 

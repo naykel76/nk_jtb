@@ -1,8 +1,7 @@
-@use '../build-core' as *;
+@use '../common-tools' as *;
 @use 'sass:map';
 
 $padding-sizes: map.merge($padding-variants, list-to-map($spacing-sizes));
-
 $padding-properties-map: (
     padding: (
         prefix: #{$padding-identifier},

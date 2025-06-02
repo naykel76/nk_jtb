@@ -1,13 +1,13 @@
-@use '../build-core' as *;
+@use '../common-tools' as *;
 @use '../mixins/class-makers' as *;
 
 $breakpoints: ('sm', 'md', 'lg', 'xl', 'xxl');
 
 // prettier-ignore
 $display-values: ( block, flex, inline, inline-block, inline-flex, ( hidden: none ), table, table-cell);
+
 // prettier-ignore
 $visibility-values: ( collapse, ( invisible: hidden ), visible);
-
 $display-visibility-properties-map: (
     display: ( values: $display-values ),
     visibility: ( values: $visibility-values )

@@ -1,4 +1,4 @@
-@use '../../src/build-core' as *;
+@use '../../src/common-tools' as *;
 @use "sass:math";
 
 // ==========================================================================
@@ -22,10 +22,9 @@ $toggle-height: 1.5rem;
 $toggle-width: $toggle-height * 2;
 $toggle-ball-size: $toggle-height - 0.5rem;
 $toggle-padding: math.div($toggle-height - $toggle-ball-size, 2);
-
-$toggle-off-bg: rgb(229, 231, 235) !default;
+$toggle-off-bg: rgb(229 231 235) !default;
 $toggle-on-bg: $primary !default;
-$toggle-ball-bg: rgb(253, 253, 253) !default;
+$toggle-ball-bg: rgb(253 253 253) !default;
 
 
 .toggle {
@@ -53,7 +52,7 @@ $toggle-ball-bg: rgb(253, 253, 253) !default;
         padding: $toggle-padding;
         margin-right: 0.5rem;
 
-        &:before {
+        &::before {
             position: absolute;
             content: "";
             height: $toggle-ball-size;
@@ -72,7 +71,7 @@ $toggle-ball-bg: rgb(253, 253, 253) !default;
         box-shadow: 0 0 1px #2196f3;
     }
 
-    input:checked + .slider:before {
+    input:checked + .slider::before {
         transform: translateX($toggle-width - $toggle-ball-size - 2 * $toggle-padding);
     }
 

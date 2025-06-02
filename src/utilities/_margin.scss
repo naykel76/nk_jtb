@@ -1,4 +1,4 @@
-@use '../build-core' as *;
+@use '../common-tools' as *;
 @use 'sass:map';
 
 $margin-sizes: map.merge($margin-variants, list-to-map($spacing-sizes));
@@ -12,5 +12,6 @@ $margin-properties-map: (
         positions: $axis-position-map
     )
 );
+
 
 @include build-property-classes($margin-properties-map, $responsive: true);

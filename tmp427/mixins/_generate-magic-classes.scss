@@ -1,7 +1,6 @@
-@use '../../src/build-core' as *;
+@use '../../src/common-tools' as *;
 @use '../../src/mixins/property-makers' as *;
 @use '../../src/mixins/media' as *;
-
 @use 'sass:list';
 @use 'sass:map';
 
@@ -15,9 +14,10 @@
 // units
 
 @mixin handleMagicProperties($property, $value, $positions) {
-    @if ($positions == '' or $positions == null) {
+    @if $positions == '' or $positions == null {
         // always uses rem as the unit
         $unit: rem;
+
         @include create-property($property, #{$value}#{$unit});
     } @else {
         @include create-position-properties($property, $value, $positions);
@@ -28,6 +28,7 @@
 @function derivedClass($identifier, $list, $is-parent) {
     $numBreakPoints: list.length($list);
     $class: null;
+
     @for $i from $numBreakPoints through 1 {
         $class: if($class == null, list.nth($list, -$i), #{$class}-#{list.nth($list, -$i)});
     }
@@ -66,7 +67,7 @@
 
     @each $list in $values-list {
         // exclude empty list when creating single list
-        @if ($list != ()) {
+        @if $list != () {
             $numBreakPoints: list.length($list);
 
             // set the value of the BP based on position using negative
@@ -75,8 +76,7 @@
             $smValue: list.nth($list, -2);
             $mdValue: if($numBreakPoints >= 3, list.nth($list, -3), null);
             $lgValue: if($numBreakPoints >= 4, list.nth($list, -4), null);
-
-            $derived-class: derivedClass($identifier, $list, $is-parent);
+            $derived-class: derivedclass($identifier, $list, $is-parent);
 
             // DO NOT use else-if statements when building the classes.
             // You want to give all classes to the opportunity to build.
@@ -87,19 +87,19 @@
                     @include handleMagicProperties($property, $smValue, $positions);
                 }
 
-                @if ($numBreakPoints >= 3) {
+                @if $numBreakPoints >= 3 {
                     @include from-md {
                         @include handleMagicProperties($property, $mdValue, $positions);
                     }
                 }
 
-                @if ($numBreakPoints >= 4) {
+                @if $numBreakPoints >= 4 {
                     @include from-lg {
                         @include handleMagicProperties($property, $lgValue, $positions);
                     }
                 }
 
-                @if ($numBreakPoints >= 5) {
+                @if $numBreakPoints >= 5 {
                     @include from-xl {
                         @include handleMagicProperties($property, $xlValue, $positions);
                     }

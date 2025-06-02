@@ -1,10 +1,10 @@
-@use '../build-core' as *;
+@use '../common-tools' as *;
 
 // prettier-ignore
 $grid-properties-map: (
     gap: (
         prefix: "gap-",
-        values: $gap-sizes,
+        values: $gap-map,
         unit: "rem",
     ),
     justify-items: (
@@ -28,4 +28,8 @@ $grid-properties-map: (
     )
 );
 
+
+// ==========================================================================
+// Builds
+// ==========================================================================
 @include build-property-classes($grid-properties-map, $responsive: true);

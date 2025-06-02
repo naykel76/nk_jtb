@@ -1,4 +1,8 @@
-@use '../build-core' as *;
+@use '../common-tools' as *;
+
+.apples{
+    background-color: #fff;
+}
 
 // prettier-ignore
 $alignment-properties-map: (

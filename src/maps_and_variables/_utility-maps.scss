@@ -1,7 +1,22 @@
+@use '../maps_and_variables/base' as *;
 @use '../maps_and_variables/layout' as *;
 @use '../maps_and_variables/colors' as *;
 @use '../functions/map-and-list-helpers' as *;
 @use 'sass:map';
+
+// convention examples
+// 
+// $gap-sizes: (1, 2) !default;
+// $gap-variants: () !default;
+// $gap-map: smart-merge($gap-sizes, $gap-variants) !default;
+// $gap-sizes: (0, 0.25, 0.5, 1, 1.25, 1.5, 2, 3, 4, 5) !default;
+// $gap-variants: (sm:.75, base: 1.25, lg:2) !default;
+// $gap-map: smart-merge($gap-sizes, $gap-variants) !default;
+// // Color utility maps
+// $color-values: (primary, secondary, accent, muted) !default;
+// $color-variants: ( primary: #007bff, secondary: #6c757d, accent: #6610f2, muted: #f8f9fa ) !default;
+// $color-map: smart-merge($color-values, $color-variants) !default;
+
 
 // ==========================================================================
 //  Border, and border-radius sizes
@@ -35,12 +50,16 @@ $opacity-values: (0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1);
 
 //  Flex and Grid
 // ==========================================================================
-$order-map:  (1, 2, 3, 4, 5, 6, 7, 8) !default;
+$order-map: (1, 2, 3, 4, 5, 6, 7, 8) !default;
 $gap-sizes: (0, 0.25, 0.5, 1, 1.25, 1.5, 2, 3, 4, 5) !default;
+$gap-variants: (sm:.75, base: 1.25, lg:2) !default;
+$gap-map: smart-merge($gap-sizes, $gap-variants) !default;
 
 //  Space sizes and variants for margin and padding utilities
 // ==========================================================================
 $spacing-sizes: (0, 0.125, 0.25, 0.5, 0.75, 0.875, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 4, 5) !default;
+$margin-variants: ( base: 1.5, auto: auto ) !default;
+$padding-variants: ( default: $content-padding ) !default;
 
 // ==========================================================================
 //  Sizing maps and variants
@@ -53,7 +72,6 @@ $spacing-sizes: (0, 0.125, 0.25, 0.5, 0.75, 0.875, 1, 1.25, 1.5, 1.75, 2, 2.25, 
 
 $sizing-pixels: (200px, 250px, 300px, 400px, 600px) !default;
 $sizing-rem: (0, 1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24) !default;
-
 $sizing-breakpoint-variants: ( xs: 20rem, sm: $sm, md: $md, lg: $lg, xl: $xl, xxl: $xxl ) !default;
 $sizing-height-variants: ( screen: 100vh, full: 100%, fit: fit-content, max: max-content, min: min-content ) !default;
 $sizing-width-variants: ( screen: 100vw, full: 100%, fit: fit-content, max: max-content, min: min-content ) !default;

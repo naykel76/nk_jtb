@@ -1,22 +1,23 @@
-@use './base/index';
-@use './../tmp427/base/content_gap' as *;
+@use './base';
 
-@forward './../tmp427/components/accordion';
-@forward './../tmp427/components/banner';
-@forward './../tmp427/components/box';
-@forward './../tmp427/components/button';
-@forward './../tmp427/components/dropdown';
-@forward './../tmp427/components/icon';
-@forward './../tmp427/components/list';
-@forward './../tmp427/components/menu';
-@forward './../tmp427/components/other';
-@forward './../tmp427/components/sidebar';
-@forward './../tmp427/components/tabs';
+// @use './base/content_gap' as *;
+// @forward './components/accordion';
+// @forward './components/banner';
+// @forward './components/box';
+// @forward './components/button';
+// @forward './components/dropdown';
+// @forward './components/icon';
+// @forward './components/list';
+// @forward './components/menu';
+// @forward './components/misc';
+// @forward './components/other';
+// @forward './components/sidebar';
+// @forward './components/tabs';
+// @forward './v1/components/navbar';
 
-@forward './../tmp427/forms/';
+// @forward './forms/';
 
-@forward './random-for-review';
+// // @forward './color/shades';
 
-@forward './color/themes'; 
 
-@use 'build-utils' as *;
+@use './utilities';

@@ -1,4 +1,4 @@
-@use '../../src/build-core' as *;
+@use '../../src/common-tools' as *;
 @use '../../src/functions/color-functions' as *;
 @use 'sass:color';
 
@@ -8,8 +8,7 @@
 $bx-bg: #fff !default;
 $bx-padding: $content-padding !default;
 $bx-border-radius: 0.5rem !default;
-
-$bx-header-bg: rgb(250, 250, 250) !default;
+$bx-header-bg: rgb(250 250 250) !default;
 $bx-title-font-weight: 600 !default;
 $bx-title-font-size: 1.2rem !default;
 
@@ -24,12 +23,10 @@ $bx-title-font-size: 1.2rem !default;
 
 // -- button --
 // ==============================================================
-$btn-bg: rgb(240, 240, 240) !default;
+$btn-bg: rgb(240 240 240) !default;
 $btn-color: text-color($btn-bg) !default;
-
 $btn-link-color: $link-color !default;
 $btn-link-hover-color: $link-hover-color !default;
-
 $btn-text-transform: capitalize;
 
 // -- icons --
@@ -43,8 +40,7 @@ $icon-xy-lg: 3rem !default;
 // ==============================================================
 $menu-padding-y: 0.5rem !default;
 $menu-padding-x: 0.5rem !default;
-
-$menu-hover-bg: hsl(0, 0%, 95%) !default;
+$menu-hover-bg: hsl(0deg 0% 95%) !default;
 
 // $menu-link-color: $color !default;
 $menu-link-hover-color: text-color($menu-hover-bg) !default;

@@ -1,4 +1,4 @@
-@use '../build-core' as *;
+@use '../common-tools' as *;
 @use 'sass:map';
 
 // prettier-ignore
@@ -61,6 +61,6 @@ $special-classes: (
         )
     )
 );
-
 $merged-classes: map.merge($flex-classes-map, $special-classes);
+
 @include build-composite-classes($merged-classes, $responsive: true);
