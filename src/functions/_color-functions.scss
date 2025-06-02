@@ -1,5 +1,11 @@
-@use '../maps_and_variables/typography' as *;
+// @use '../maps_and_variables/typography' as *;
 @use 'sass:color';
+
+// NKTD: review this, I have hardcoded the text colors here, because importing
+// them is causing "already loaded" errors in the build process.
+$light-text: #fff !default;
+$dark-text: #333 !default;
+$text-color: $dark-text !default;
 
 /// @group color-functions
 ///

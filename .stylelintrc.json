@@ -1,5 +1,8 @@
 {
     "extends": "stylelint-config-standard-scss",
-    "rules": {
-    }
+    "ignoreFiles": [
+        "dist/**/*",
+        "**/*.min.css"
+    ],
+    "rules": {}
 }

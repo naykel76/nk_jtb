@@ -1,23 +1,7 @@
 @use './base';
+@use '../tmp427/base/content_gap';
 
-// @use './base/content_gap' as *;
-// @forward './components/accordion';
-// @forward './components/banner';
-// @forward './components/box';
-// @forward './components/button';
-// @forward './components/dropdown';
-// @forward './components/icon';
-// @forward './components/list';
-// @forward './components/menu';
-// @forward './components/misc';
-// @forward './components/other';
-// @forward './components/sidebar';
-// @forward './components/tabs';
-// @forward './v1/components/navbar';
+// @forward '../tmp427forms/';
 
-// @forward './forms/';
-
-// // @forward './color/shades';
-
-
+@use './components';
 @use './utilities';
