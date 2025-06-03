@@ -1,13 +1,10 @@
+@use './base';
 @use 'sass:map';
 
-$primary: #2563eb !default;
-$secondary: #181e20 !default;
-$accent: #ffbb1c !default;
-
 $theme-colors: (
-    "primary": $primary,
-    "secondary": $secondary,
-    "accent": $accent,
+    "primary": base.$primary,
+    "secondary": base.$secondary,
+    "accent": base.$accent,
     "light": #fafafa,
     "dark": #212121,
     "danger": #dc3848,
@@ -15,7 +12,6 @@ $theme-colors: (
     "success": #29a847,
     "warning": #ffdd57,
 ) !default;
-
 $base-colors: (
     "muted": #6d767e,
     "stone": #78716c,
@@ -36,7 +32,6 @@ $base-colors: (
     "fuchsia": #d946ef,
     "pink": #ec4899,
     "rose": #f43f5e,
-    "white": #ffffff,
+    "white": #fff,
 ) !default;
-
 $color-map: map.merge($theme-colors, $base-colors) !default;

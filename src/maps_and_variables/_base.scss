@@ -1,38 +1,67 @@
-@use '../maps_and_variables/colors' as *;
+// ==========================================================================
+// BASE VARIABLES
+// ==========================================================================
+// Base variables are the foundation for the entire system: core layout,
+// spacing, breakpoints, and essential colours and typography tokens that
+// underpin the design.  They provide a consistent base for all components and
+// utilities.
+// ==========================================================================
 @use 'sass:color';
 @use 'sass:map';
 
-// -- Theme Styles --
-// ==========================================================================
+// -- Colors --
+$primary: #2563eb !default;
+$secondary: #181e20 !default;
+$accent: #ffbb1c !default;
 
-$body-bg: hsl(0, 0%, 100%) !default;
+// -- Text Colors --
+$light-text: #fff !default;
+$dark-text: #333 !default;
+$text-color: $dark-text !default; 
 
-$header-bg: $secondary !default;
-$main-bg: transparent !default;
+// -- Fonts --
+$font-size: 1rem !default;
 
-$footer-bg: #1d1d1c !default;
-$footer-text-color: hsl(0, 0%, 80%) !default;
+// -- Font Stacks --
+$base-font: -apple-system, blinkmacsystemfont, 'Segoe UI', 'Noto Sans', helvetica, arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji' !default;
+$mono-font: var(--fontStack-monospace, ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace) !default;
 
-$copyright-bg: color.adjust($footer-bg, $lightness: -2%) !default;
-$copyright-text-color: $footer-text-color !default;
+// -- Links --
+$link-color: #5850ec !default;
+$link-hover-color: indianred !default;
 
-$zebra-alt-bg: hsl(0, 0%, 96%) !default;
+// -- Line Heights --
+$line-height: 1.5 !default;
+$line-height-condensed: 1.25 !default;
 
-// -- Borders --
-// ==========================================================================
-$border-color: hsl(0, 0%, 90%) !default;
-$border: 1px solid $border-color !default;
-$border-radius: 8px !default;
+// 
+$body-bg: hsl(0deg 0% 100%) !default;
+
 
 // -- Spacing --
 // ==========================================================================
 $base-list-spacing: 0.25em !default;
-$content-gap: 1.25rem !default; 
-$content-padding: 1rem !default; 
+$content-gap: 1.25rem !default;
+$content-padding: 1rem !default;
+$header-bg: $secondary !default;
+$main-bg: transparent !default;
+$footer-bg: #1d1d1c !default;
+$footer-text-color: hsl(0deg 0% 80%) !default;
+$copyright-bg: color.adjust($footer-bg, $lightness: -2%) !default;
+$copyright-text-color: $footer-text-color !default;
+$zebra-alt-bg: hsl(0deg 0% 96%) !default;
+
+// -- Borders --
+// ==========================================================================
+$border-color: hsl(0deg 0% 90%) !default;
+$border: 1px solid $border-color !default;
+$border-radius: 8px !default;
+
+
 
 // -- Misc --
 // ==========================================================================
-$img-path: "/images" !default;
+$img-path: '/images' !default;
 $icon-color: inherit !default;
 
 // -- Base Element Styles --

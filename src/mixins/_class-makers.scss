@@ -36,7 +36,8 @@
     .#{$class-name} {
         #{$property}: $value;
     }
-    @if ($breakpoints) {
+
+    @if $breakpoints {
         @include make-from-breakpoint(($property: $value), $class-name, $breakpoints);
     }
 }
@@ -79,23 +80,23 @@
     @each $bp in $breakpoints {
         $derived-class: #{$bp}\:#{$identifier};
         .#{$derived-class} {
-            @if ($bp == 'sm') {
+            @if $bp == 'sm' {
                 @include from-sm {
                     @include make-properties($props);
                 }
-            } @else if($bp == 'md') {
+            } @else if $bp == 'md' {
                 @include from-md {
                     @include make-properties($props);
                 }
-            } @else if($bp == 'lg') {
+            } @else if $bp == 'lg' {
                 @include from-lg {
                     @include make-properties($props);
                 }
-            } @else if($bp == 'xl') {
+            } @else if $bp == 'xl' {
                 @include from-xl {
                     @include make-properties($props);
                 }
-            } @else if($bp == 'xxl') {
+            } @else if $bp == 'xxl' {
                 @include from-xxl {
                     @include make-properties($props);
                 }
@@ -116,19 +117,19 @@
     @each $bp in $breakpoints {
         $derived-class: #{$bp}\:#{$identifier};
         .to-#{$derived-class} {
-            @if ($bp == 'sm') {
+            @if $bp == 'sm' {
                 @include to-sm {
                     @include make-properties($props);
                 }
-            } @else if($bp == 'md') {
+            } @else if $bp == 'md' {
                 @include to-md {
                     @include make-properties($props);
                 }
-            } @else if($bp == 'lg') {
+            } @else if $bp == 'lg' {
                 @include to-lg {
                     @include make-properties($props);
                 }
-            } @else if($bp == 'xl') {
+            } @else if $bp == 'xl' {
                 @include to-xl {
                     @include make-properties($props);
                 }
@@ -150,23 +151,23 @@
     @each $bp in $breakpoints {
         $derived-class: #{$bp}\:#{$identifier};
         .on-#{$derived-class} {
-            @if ($bp == 'sm') {
+            @if $bp == 'sm' {
                 @include on-sm {
                     @include make-properties($props);
                 }
-            } @else if($bp == 'md') {
+            } @else if $bp == 'md' {
                 @include on-md {
                     @include make-properties($props);
                 }
-            } @else if($bp == 'lg') {
+            } @else if $bp == 'lg' {
                 @include on-lg {
                     @include make-properties($props);
                 }
-            } @else if($bp == 'xl') {
+            } @else if $bp == 'xl' {
                 @include on-xl {
                     @include make-properties($props);
                 }
-            } @else if($bp == 'xxl') {
+            } @else if $bp == 'xxl' {
                 @include on-xxl {
                     @include make-properties($props);
                 }
@@ -191,10 +192,12 @@
         .#{$derived-class} {
             @each $position in $positions {
                 #{$property}-#{$position}: #{$value};
+
                 $props: map.merge($props, (#{$property}-#{$position}: $value)); // 3.
             }
         }
-        @if ($breakpoints) {
+
+        @if $breakpoints {
             @include make-from-breakpoint($props, $derived-class, $breakpoints);
         }
     }

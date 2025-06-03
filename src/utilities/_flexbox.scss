@@ -61,6 +61,11 @@ $special-classes: (
         )
     )
 );
+
+
+// ==========================================================================
+// Builds
+// ==========================================================================
 $merged-classes: map.merge($flex-classes-map, $special-classes);
 
 @include build-composite-classes($merged-classes, $responsive: true);

@@ -1,0 +1,11 @@
+// https://www.realtimecolors.com/?colors=eee9e0-090705-d2c0ab-3b4f6f-9966ae&fonts=Inter-Inter
+// https://www.realtimecolors.com/blog-post?colors=eee9e0-090705-d2c0ab-3b4f6f-9966ae&fonts=Inter-Inter
+// https://www.realtimecolors.com/dashboard?colors=eee9e0-090705-d2c0ab-3b4f6f-9966ae&fonts=Inter-Inter
+@use './maps_and_variables/base' as * with (
+    $text-color: #eee9e0,
+    $body-bg: #090705,
+    
+    $primary: #d2c0ab,
+    $secondary: #3b4f6f,
+    $accent: #9966ae
+);

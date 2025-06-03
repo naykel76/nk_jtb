@@ -1,16 +1,3 @@
-// -- Base Colors --
-$light-text: #fff !default;
-$dark-text: #333 !default;
-$text-color: $dark-text !default; // Default site text color
-
-
-
-// -- Fonts --
-$font-size: 1rem !default;
-
-// -- Font Stacks --
-$base-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji' !default;
-$mono-font: var(--fontStack-monospace, ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace) !default;
 
 // -- Font Weights --
 $font-weight-bold: var(--base-text-weight-semibold, 600) !default;
@@ -23,14 +10,8 @@ $heading-sizes: 2.25em, 1.75em, 1.5em, 1.25em, 1.125em, 1em !default;
 $heading-font-weight: 700 !default;
 $heading-color: inherit !default;
 
-// -- Links --
-$link-color: #5850ec !default;
-$link-hover-color: indianred !default;
 
-// -- Line Heights --
-$line-height: 1.5 !default;
-// $line-height-condensed-ultra: 1 !default;
-// $line-height-condensed: 1.25 !default;
+
 
 
 // // The base body size

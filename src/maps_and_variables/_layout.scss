@@ -20,43 +20,8 @@ $lg: map.get($breakpoints, lg) !default;
 $xl: map.get($breakpoints, xl) !default;
 $xxl: map.get($breakpoints, xxl) !default;
 
-// ==========================================================================
-// -- AXIS TO POSITIONS MAP --
-// ==========================================================================
-// This map defines the relationship between axis keys and their corresponding
-// CSS position values. It can be used to retrieve CSS positions for a given
-// axis or position key.
-//
-// IMPORTANT: The order of this map matters for certain operations.
 
-// prettier-ignore
-$axis-position-map: (
-    xy: (top, bottom, left, right), // Both x and y axes
-    x: (left, right),               // Horizontal axis
-    y: (top, bottom),               // Vertical axis
-    t: top,                         // Top position
-    b: bottom,                      // Bottom position
-    l: left,                        // Left position
-    r: right                        // Right position
-);
 
-$tblr-positions-map: map.remove($axis-position-map, 'x', 'y');
-$xy-positions-map: map.remove($axis-position-map, 't', 'b', 'l', 'r');
-
-// NK::TD update to logical properties and move to maps
-// prettier-ignore
-$border-radius-corners-map: (
-    // xy: (block-start, block-end, inline-start, inline-end),
-    // x: (inline-start, inline-end),    
-    t: (top-left-radius, top-right-radius),
-    b: (bottom-left-radius, bottom-right-radius),
-    l: (top-left-radius, bottom-left-radius),
-    r: (top-right-radius, bottom-right-radius),
-    tl: top-left-radius,
-    tr: top-right-radius,
-    bl: bottom-left-radius,
-    br: bottom-right-radius
-);
 
 // ==========================================================================
 //  Container sizes

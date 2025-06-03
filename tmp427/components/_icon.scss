@@ -1,5 +1,5 @@
 
-@use '../variables/components' as *;
+@use '../../src/maps_and_variables/components' as *;
 @use '../../src/maps_and_variables/config' as *;
 @use '../../src/maps_and_variables/base' as *;
 
@@ -16,10 +16,12 @@
         height: $icon-xy-sm;
         width: $icon-xy-sm;
     }
+
     &.md {
         height: $icon-xy-md;
         width: $icon-xy-md;
     }
+
     &.lg {
         height: $icon-xy-lg;
         width: $icon-xy-lg;

@@ -4,19 +4,29 @@
 @use '../functions/map-and-list-helpers' as *;
 @use 'sass:map';
 
-// convention examples
-// 
-// $gap-sizes: (1, 2) !default;
-// $gap-variants: () !default;
-// $gap-map: smart-merge($gap-sizes, $gap-variants) !default;
-// $gap-sizes: (0, 0.25, 0.5, 1, 1.25, 1.5, 2, 3, 4, 5) !default;
-// $gap-variants: (sm:.75, base: 1.25, lg:2) !default;
-// $gap-map: smart-merge($gap-sizes, $gap-variants) !default;
-// // Color utility maps
-// $color-values: (primary, secondary, accent, muted) !default;
-// $color-variants: ( primary: #007bff, secondary: #6c757d, accent: #6610f2, muted: #f8f9fa ) !default;
-// $color-map: smart-merge($color-values, $color-variants) !default;
+// ### Core Convention
 
+// * **`$<name>-values`** — raw or ordered values used in class generation
+// * **`$<name>-variants`** — named key\:value pairs for semantic or responsive variants
+// * **`$<name>-map`** — final merged map, used in class generators
+
+// ```
+// $spacing-values: (0, 0.25, 0.5, 1, 1.5, 2, 3, 4) !default;
+// $spacing-variants: (sm: 0.75, md: 1.25, lg: 2) !default;
+// $spacing-map: smart-merge($spacing-values, $spacing-variants) !default;
+// ```
+
+// ```
+// $size-values: (auto, full, screen) !default;
+// $size-variants: (sm: 16rem, md: 32rem, lg: 64rem) !default;
+// $size-map: smart-merge($size-values, $size-variants) !default;
+// ```
+
+// ```
+// $color-values: (primary, secondary, accent, muted) !default;
+// $color-variants: ( primary: #007bff, secondary: #6c757d) !default;
+// $color-map: smart-merge($color-values, $color-variants) !default;
+// ```
 
 // ==========================================================================
 //  Border, and border-radius sizes
@@ -57,9 +67,11 @@ $gap-map: smart-merge($gap-sizes, $gap-variants) !default;
 
 //  Space sizes and variants for margin and padding utilities
 // ==========================================================================
-$spacing-sizes: (0, 0.125, 0.25, 0.5, 0.75, 0.875, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 4, 5) !default;
-$margin-variants: ( base: 1.5, auto: auto ) !default;
+$spacing-values: (0, 0.125, 0.25, 0.5, 0.75, 0.875, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 4, 5) !default;
 $padding-variants: ( default: $content-padding ) !default;
+$margin-variants: ( base: 1.5, auto: auto ) !default;
+$padding-map: map.merge($margin-variants, list-to-map($spacing-values));
+$margin-map: map.merge($margin-variants, list-to-map($spacing-values));
 
 // ==========================================================================
 //  Sizing maps and variants

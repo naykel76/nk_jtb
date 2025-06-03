@@ -18,10 +18,17 @@ $layout-properties-map: (
         prefix:'overflow-y-', 
         values: (auto, clip, hidden, scroll, visible)
     ),
+     position: (
+        values: ( absolute, fixed, relative)
+    ),
     z-index: (
         prefix: "z-", 
         values: ($z-index-values)
-    )
+    ),
 );
 
+
+// ==========================================================================
+// Builds
+// ==========================================================================
 @include build-property-classes($layout-properties-map, $responsive: true);
