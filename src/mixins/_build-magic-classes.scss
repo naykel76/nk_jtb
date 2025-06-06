@@ -1,4 +1,5 @@
-@use '../common-tools' as *;
+@use '../maps_and_variables/position-maps' as *;
+@use '../mixins/media' as *;
 @use '../mixins/property-makers' as *;
 @use 'sass:list';
 @use 'sass:map';

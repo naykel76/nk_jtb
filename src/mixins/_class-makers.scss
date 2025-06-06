@@ -4,34 +4,13 @@
 @use 'sass:map';
 
 
-////
-/// @group class-makers
-////
 
-/// Generate class for a single property and optionally creates responsive
-/// classes for a range of breakpoints.
-///
-/// **NOTE:** This mixin will create the base class as well as responsive classes.
-///
-/// @param {String} $class-name - The full class name.
-/// @param {String} $property - The CSS property.
-/// @param {String} $value - The value of the CSS property.
-/// @param {List} $breakpoints - The list of breakpoints (optional).
-///
-/// @example scss - Usage
-///     @include make-single-property-class('txt-red', 'color', 'red', ('sm', 'md'));
-///
-/// @example scss - Output
-///     .txt-red { color: "red"; }
-///
-///     @media (min-width: 576px) {
-///         .sm\:txt-red { color: "red"; }
-///     }
-///
-///     @media (min-width: 768px) {
-///       .md\:txt-red { color: "red"; }
-///     }
-
+// ==========================================================================
+// Generate class for a single property and optionally creates responsive
+// classes for a range of breakpoints.
+// --------------------------------------------------------------------------
+// NOTE: This mixin will create the base class as well as responsive classes.
+// ==========================================================================
 @mixin make-single-property-class($class-name, $property, $value, $breakpoints: ()) {
     .#{$class-name} {
         #{$property}: $value;
@@ -42,40 +21,12 @@
     }
 }
 
-
-/// Generate responsive class for one or more properties, starting FROM the
-/// specified breakpoints, across a range of breakpoints.
-///
-/// @param {Map} $props - The map of properties and values.
-/// @param {String} $identifier - A part of the base class name.
-/// @param {List} $breakpoints - The list of breakpoints.
-///
-/// @example scss - Usage
-///     @include make-from-breakpoint(
-///         (display: flex, flex-direction: column),
-///         'flex-column',
-///         ('sm', 'md')
-///     );
-/// @example scss - Usage (Named Arguments)
-///      @include make-from-breakpoint(
-///          $props: (display: flex, flex-direction: column),
-///          $identifier: 'flex-column',
-///          $breakpoints: ('sm', 'md')
-///      );
-/// @example scss - Output
-///     @media (min-width: 576px) {
-///         .sm\:flex-column {
-///             display: flex;
-///             flex-direction: column;
-///         }
-///     }
-///     @media (min-width: 768px) {
-///         .md\:flex-column {
-///             display: flex;
-///             flex-direction: column;
-///         }
-///     }
-
+// ==========================================================================
+// Generate responsive class for one or more properties, starting FROM the
+// specified breakpoints, across a range of breakpoints.
+// --------------------------------------------------------------------------
+// 
+// ==========================================================================
 @mixin make-from-breakpoint($props, $identifier, $breakpoints) {
     @each $bp in $breakpoints {
         $derived-class: #{$bp}\:#{$identifier};
@@ -105,14 +56,15 @@
     }
 }
 
-/// Generate responsive classes for one or more properties, up TO the specified
-/// breakpoints, across a range of breakpoints.
-/// 
-/// @param {Map} $props - The map of properties and values.
-/// @param {String} $identifier - A part of the base class name.
-/// @param {List} $breakpoints - The list of breakpoints.
-/// 
-
+// ==========================================================================
+// Generate responsive classes for one or more properties, up TO the specified
+// breakpoints, across a range of breakpoints.
+// --------------------------------------------------------------------------
+// 
+// @param {Map} $props - The map of properties and values.
+// @param {String} $identifier - A part of the base class name.
+// @param {List} $breakpoints - The list of breakpoints.
+// ==========================================================================
 @mixin make-to-breakpoint($props, $identifier, $breakpoints) {
     @each $bp in $breakpoints {
         $derived-class: #{$bp}\:#{$identifier};
@@ -140,13 +92,13 @@
     }
 }
 
-/// Generate responsive classes for one or more properties, starting ON the
-/// specified breakpoints, across a range of breakpoints.
-///
-/// @param {Map} $props - The map of properties and values.
-/// @param {String} $identifier - A part of the base class name.
-/// @param {List} $breakpoints - The list of breakpoints.
 
+// ==========================================================================
+// Generate responsive classes for one or more properties, starting ON the
+// specified breakpoints, across a range of breakpoints.
+// --------------------------------------------------------------------------
+// 
+// ==========================================================================
 @mixin make-on-breakpoint($props, $identifier, $breakpoints) {
     @each $bp in $breakpoints {
         $derived-class: #{$bp}\:#{$identifier};

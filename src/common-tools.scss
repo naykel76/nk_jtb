@@ -1,12 +1,13 @@
 @forward './maps_and_variables';
 
-// build tools
-@forward './mixins/build-classes';
-@forward './mixins/media';
-@forward './functions/map-and-list-helpers';
+// functions
 @forward './functions/class-naming';
 @forward './functions/class-sanitisers';
+@forward './functions/map-and-list-helpers';
 @forward './functions/string-helpers';
 @forward './functions/validation-helpers';
 
-
+// mixins
+@forward './mixins/build-classes';
+@forward './mixins/build-magic-classes';
+@forward './mixins/media';

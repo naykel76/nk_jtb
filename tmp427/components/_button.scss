@@ -1,6 +1,6 @@
-@use "../forms/control" as *;
-@use "../mixins/state" as *;
-@use "../utilities/transition" as *;
+@use '../forms/control' as *;
+@use '../mixins/state' as *;
+@use '../../src/utilities/transition' as *;
 @use '../../src/functions/color-functions' as *;
 @use '../../src/maps_and_variables/colors' as *;
 @use '../../src/maps_and_variables/config' as *;
@@ -17,6 +17,7 @@
 .#{$button-identifier} {
     @extend %control;
     @extend %transition;
+
     background: $btn-bg;
     color: $btn-color;
     text-transform: $btn-text-transform;
@@ -26,7 +27,7 @@
     white-space: nowrap; // prevent text wrapping
     padding-inline: 1.25rem;
 
-    &:not(:disabled):not(.disabled) {
+    &:not(:disabled, .disabled) {
         cursor: pointer;
     }
 

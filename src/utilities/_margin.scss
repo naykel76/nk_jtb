@@ -15,3 +15,4 @@ $margin-properties-map: (
 // Builds
 // ==========================================================================
 @include build-property-classes($margin-properties-map, $responsive: true);
+@include build-magic-classes(margin, $magic-margin-y, 'my', $position-or-axis: y);

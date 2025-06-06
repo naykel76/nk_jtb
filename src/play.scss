@@ -1,4 +1,6 @@
-@use './utilities/margin' as *;
+@use './utilities/typography' as *;
+@use './mixins/build-magic-grid' as *;
+@use './mixins/class-makers' as *;
 @use './common-tools' as *;
 @use 'sass:color';
 @use 'sass:list';

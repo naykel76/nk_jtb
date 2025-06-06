@@ -85,6 +85,6 @@ $text-classes-map: (
 // ==========================================================================
 // Builds
 // ==========================================================================
-// @include build-property-classes($typography-properties-map, $responsive: true);
+@include build-property-classes($typography-properties-map, $responsive: true);
 @include build-composite-classes($text-classes-map, $responsive: true)
 
