@@ -12,19 +12,17 @@ $sizing-properties-map: (
     min-width: (prefix: "minw-", values: $sizing-map, unit: "rem")
 );
 
-
-// -- WIDTH & HEIGHT --
+// NKTD: Update to use build-composite-classes
 @each $size in $sizing-rem {
     $class: handle-invalid($size);
 
-    // .wh-#{$class} {
-    //     width: #{$size}rem;
-    //     height: #{$size}rem;
-    // }
+    .wh-#{$class} {
+        width: #{$size}rem;
+        height: #{$size}rem;
+    }
 }
 
 // ==========================================================================
 // Builds
 // ==========================================================================
-
 @include build-property-classes($sizing-properties-map, $responsive: true);

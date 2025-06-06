@@ -1,16 +1,7 @@
 @use 'sass:list';
 @use 'sass:string';
-// ==========================================================================
-// Strips 'rem' if last three characters in a string
-// ==========================================================================
-@function stripRem($string) {
-    @if string.slice($string, -3) == "rem" {
-        @return string.slice($string, 1, -4);
-        @return $string;
-    }
-    @return $string;
-}
 
+// NKTD: deal with '$xy-exclusions', refactor and move to string helpers
 // ==========================================================================
 // Strip unwanted characters from class names
 // ==========================================================================
@@ -24,11 +15,11 @@ $xy-exclusions: ("bdr-");
 @function strip-invalid($class, $identifier: "") {
     // allows variants with base classes to be used without the
     // '-base' suffix. For example, `pxy-base` will be `pxy`.
-    @if (string.slice($class, -5) == "-base") {
+    @if string.slice($class, -5) == "-base" {
         $class: string.slice($class, 1, -6);
     }
 
-    @if (string.slice($class, -8) == "-default") {
+    @if string.slice($class, -8) == "-default" {
         $class: string.slice($class, 1, -9);
     }
 
@@ -37,5 +28,6 @@ $xy-exclusions: ("bdr-");
     @if list.index($xy-exclusions, $identifier) and (string.slice($class, -3) == "-xy") {
         $class: string.slice($class, 1, -4);
     }
+
     @return $class;
 }

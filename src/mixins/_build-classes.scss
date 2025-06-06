@@ -9,6 +9,10 @@
 
 // allows you to override the default breakpoints in the map for cases where you
 // you do not want the full range of breakpoints.
+
+// Returns the provided breakpoints or defaults to ('sm', 'md', 'lg', 'xl') if
+// none are specified.
+
 @function get-breakpoints($breakpoints) {
     $default-breakpoints: ('sm', 'md', 'lg', 'xl');
 

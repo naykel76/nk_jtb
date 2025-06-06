@@ -1,58 +1,73 @@
 @use 'sass:string';
-////
-/// @group Utility-Helpers
-////
+@use 'sass:meta';
+@use 'sass:list';
 
-/// Escape decimals in a string. Works with both quoted and unquoted values.
-///
-///
-/// @param {Number} $int - The number with a decimal to escape.
-///
-/// @example scss - Usage
-///   escapeDecimal(9.5);
-///   // Outputs '9\.5';
-///
-/// @return {String} - The string with the decimal escaped.
+// Escape decimal for use in selectors, e.g. 20.5 → 20\.5
+@function escape-decimal($int) {
+    $escaped: '#{$int}';
 
-@function escapeDecimal($int) {
-    $escaped: "#{$int}";
-    @return strReplace($escaped, ".", "\\.");
+    @return str-replace($escaped, '.', '\\.');
 }
 
-/// Search and replace all occurrences of a substring within a string.
-///
-///
-/// @param {String} $string - The original string.
-/// @param {String} $search - The substring to replace.
-/// @param {String} $replace - The string to replace the substring with. Defaults to an empty string.
-/// @example scss - Usage
-///   strReplace("maxw-20rem", "rem", "");
-///   // Outputs 'maxw-20';
-///
-/// @return {String} - The string with all occurrences of the substring replaced.
-
-@function strReplace($string, $search, $replace: "") {
+// Replace all occurrences of `$search` in `$string` with `$replace`.
+@function str-replace($string, $search, $replace: '') {
     $index: string.index($string, $search);
 
     @if $index {
+        /* stylelint-disable-next-line scss/operator-no-newline-after */
         @return string.slice($string, 1, $index - 1) + $replace +
-            strReplace(string.slice($string, $index + string.length($search)), $search, $replace);
+            str-replace(string.slice($string, $index + string.length($search)), $search, $replace);
     }
 
     @return $string;
 }
 
-/// Cast a number to a string.
-///
-///
-/// @param {Number} $int - The number to cast.
-///
-/// @example scss - Usage
-///   toString(123);
-///   // Outputs '123';
-///
-/// @return {String} - The number cast to a string.
+// Split a string into a list by a given delimiter.
+@function str-explode($string, $delimiter: '') {
+    @if meta.type-of($string) != 'string' or meta.type-of($delimiter) != 'string' {
+        @error '$string must be a String, got `#{meta.type-of($string)}` (`#{$string}`)';
+    }
 
-@function toString($int) {
-    @return "#{$int}";
+    $result: ();
+
+    @if string.length($delimiter) == 0 {
+        @for $i from 1 through string.length($string) {
+            $result: list.append($result, string.slice($string, $i, $i));
+        }
+
+        @return $result;
+    }
+
+    @while true {
+        $index: string.index($string, $delimiter);
+
+        @if $index {
+            $result: list.append($result, string.slice($string, 1, $index - 1));
+            $string: string.slice($string, $index + string.length($delimiter));
+        } @else {
+            @return list.append($result, $string);
+        }
+    }
+}
+
+// ==============================================================================
+// CASTING HELPERS
+// ==============================================================================
+
+// Cast a number to a string.
+@function to-string($int) {
+    @return '#{$int}';
+}
+
+// ==============================================================================
+//
+// ==============================================================================
+
+// Remove trailing 'rem' from a string if present
+@function strip-rem($string) {
+    @if string.slice($string, -3) == 'rem' {
+        @return string.slice($string, 1, -4);
+    }
+
+    @return $string;
 }

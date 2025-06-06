@@ -8,15 +8,15 @@
 // escape invalid charters to be used in class names
 // ==========================================================================
 @function handle-invalid($input) {
-    $input: toString($input);
+    $input: to-string($input);
 
     // if the value starts with '0.' remove the decimal
-    @if (string.slice($input, 1, 2) == "0.") {
-        $input: strReplace($input, "0.", "0");
+    @if string.slice($input, 1, 2) == "0." {
+        $input: str-replace($input, "0.", "0");
     }
 
-    $output: escapeDecimal($input);
-    $output: stripRem($output);
+    $output: escape-decimal($input);
+    $output: strip-rem($output);
 
     @return $output;
 }
@@ -65,7 +65,7 @@ $exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
 
     // If the key is a list, set the variant and value as the first
     // and second elements of the list
-    @if (meta.type-of($key) == list) { // 3.
+    @if meta.type-of($key) == list { // 3.
         $variant: list.nth($key, 1);
         $value: list.nth($key, 2);
     }
