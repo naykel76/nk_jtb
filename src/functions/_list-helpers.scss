@@ -1,0 +1,21 @@
+@use 'sass:map';
+
+// ==========================================================================
+// Converts a list of values into a map where each value is used as both key and
+// value.  Useful for generating utility maps from shorthand lists.
+//
+// Example usage: 
+//  list-to-map(("green", 5, 16px)) → (green: green, 5: 5, 16px: 16px)
+//
+// Note: Values must be wrapped in parentheses to be treated as a single list.
+// ==========================================================================
+
+@function list-to-map($list) {
+    $map: ();
+
+    @each $value in $list {
+        $map: map.merge( $map, ( $value: $value ) );
+    }
+
+    @return $map;
+}

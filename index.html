@@ -20,6 +20,64 @@
 -->
 
 <body>
+    <!-- structure -->
+    <div class="navbar bdr-amber bdr-5">
+        <div class="pxy-025 bdr bdr-2">
+            LOGO
+        </div>
+        <div class="bdr flex">
+            <div class="pxy-025 bdr bdr-2">
+                NAV
+            </div>
+            <div class="pxy-025 bdr bdr-2">
+                LOGIN
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="navbar bdr-amber bdr-5">
+        <a href="/" aria-label="Home">
+            <img src="/images/logo.svg" alt="NayKel JTB logo" loading="lazy" />
+        </a>
+        <div class="bdr flex va-c space-x-3">
+            <div class="flex va-c">
+                <nav>
+                    <ul>
+                        <li><a class="active" href="#">Home</a></li>
+                        <li class="relative" x-data="{ show: false }" x-on:mouseenter="show=true" x-on:mouseleave="show=false">
+                            <a class="w-full inline-flex va-b">
+                                Courses
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                            <div class="absolute mt-05 flex w-10 z-100" x-show="show"
+                                x-transition.duration.200ms style="display: none;">
+                                <ul class="menu bx pxy-0 w-full">
+                                    <li><a href="#">Graphic Design</a></li>
+                                    <li><a href="#">Digital Marketing</a></li>
+                                    <li><a href="#">Mobile App Development</a></li>
+                                    <li><a href="#">IT Consulting</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div>
+                <button class="btn">Sign in</button>
+                <button class="btn primary">Sign up</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
 
     <div class="container pxy bdr">
         <div class="bx">

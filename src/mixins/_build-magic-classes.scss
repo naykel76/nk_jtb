@@ -1,0 +1,105 @@
+@use '../common-tools' as *;
+@use '../mixins/property-makers' as *;
+@use 'sass:list';
+@use 'sass:map';
+
+// ==========================================================================
+// Property handler for value and position combinations
+// --------------------------------------------------------------------------
+// If `$positions` is empty or falsey, applies a single property.
+// If `$positions` is a direction map (e.g. `x` or `y`), uses directional mixin.
+// Always appends unit to value (default is `rem`).
+// ==========================================================================
+@mixin handle-magic-properties($property, $value, $positions, $unit: rem) {
+    @if $positions == '' or not $positions {
+        @include create-property($property, #{$value}#{$unit});
+    } @else {
+        @include create-position-properties($property, $value, $positions);
+    }
+}
+
+// ==========================================================================
+// Generate a responsive class name from a value list
+// --------------------------------------------------------------------------
+// Builds a compound class name using each item in `$list`, preserving order.
+// If `$is-parent` is true, adds `c-` prefix and appends `> *` selector.
+// Used for creating utility class names with breakpoint suffixes.
+// ==========================================================================
+@function derived-class($identifier, $list, $is-parent) {
+    $num-breakpoints: list.length($list);
+    $class: null;
+
+    @for $i from $num-breakpoints through 1 {
+        $class: if($class == null, list.nth($list, -$i), #{$class}-#{list.nth($list, -$i)});
+    }
+
+    // if the class is a parent class, add the prefix
+    @if $is-parent {
+        $class: 'c-#{$identifier}-#{$class} > *';
+    } @else {
+        $class: '#{$identifier}-#{$class}';
+    }
+
+    @return $class;
+}
+
+// ==========================================================================
+// Generate utility classes with breakpoint support
+// --------------------------------------------------------------------------
+// Generates a class for each list of values in `$values-list`, assigning a
+// value per breakpoint tier: base, sm, md, lg, xl.
+// Supports optional axis-based property maps (e.g. `margin-x` → `left/right`).
+// Can apply to child elements if `$is-parent` is true.
+// --------------------------------------------------------------------------
+// Example:
+//   $values-list: ((5, 3, 2), (4, 2))
+//   → Outputs: .gap-2-3-5, .gap-2-4, with responsive styles
+// ==========================================================================
+@mixin build-magic-classes($property, $values-list, $identifier, $unit: 'rem', $position-or-axis: '', $is-parent: false) {
+    // get the positions required to build up the class
+    // (x:(left, right), y:(top, bottom) ... etc)
+    $positions: map.get($axis-position-map, $position-or-axis);
+
+    @each $list in $values-list {
+        // exclude empty list when creating single list
+        @if $list != () {
+            $num-breakpoints: list.length($list);
+
+            // set the value of the BP based on position using negative
+            // numbers. This makes sure the position is always the same
+            $base-value: list.nth($list, -1);
+            $sm-value: list.nth($list, -2);
+            $md-value: if($num-breakpoints >= 3, list.nth($list, -3), null);
+            $lg-value: if($num-breakpoints >= 4, list.nth($list, -4), null);
+            $derived-class: derived-class($identifier, $list, $is-parent);
+
+            // DO NOT use else-if statements when building the classes.
+            // You want to give all classes to the opportunity to build.
+            .#{$derived-class} {
+                @include handle-magic-properties($property, $base-value, $positions);
+
+                @include from-sm {
+                    @include handle-magic-properties($property, $sm-value, $positions);
+                }
+
+                @if $num-breakpoints >= 3 {
+                    @include from-md {
+                        @include handle-magic-properties($property, $md-value, $positions);
+                    }
+                }
+
+                @if $num-breakpoints >= 4 {
+                    @include from-lg {
+                        @include handle-magic-properties($property, $lg-value, $positions);
+                    }
+                }
+
+                @if $num-breakpoints >= 5 {
+                    @include from-xl {
+                        @include handle-magic-properties($property, $xlValue, $positions);
+                    }
+                }
+            }
+        }
+    }
+}
