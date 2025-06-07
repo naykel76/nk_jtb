@@ -1,17 +1,18 @@
-@use '../../src/maps_and_variables/components' as *;
-@use '../../src/functions/color-functions' as *;
+@use '../maps_and_variables/components' as *;
+@use '../functions/color-functions' as *;
 
 %box {
     padding: $bx-padding;
     border-radius: $bx-border-radius;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgb(0 0 0 / 12.5%);
+    box-shadow: 1px 2px 3px rgb(0 0 0 / 10%);
     background-color: $bx-bg;
     color: text-color($bx-bg);
 }
 
 .bx {
     @extend %box;
+
     overflow: hidden; // prevent image from overflowing when using border-radius
     // remove margin from any first element in a box to allow box padding to do the work
     & > *:first-child {
@@ -30,8 +31,7 @@
 
 .bx-header,
 .bx-footer {
-    margin-left: -$bx-padding; // 1
-    margin-right: -$bx-padding; // 1
+    margin-left: -$bx-padding; // 1 // 1
     margin-right: -$bx-padding; // 1
     padding: 0.75rem $bx-padding;
 }
@@ -39,7 +39,7 @@
 .bx-header {
     margin-top: -$bx-padding !important;
     border-bottom: 1px solid;
-    border-color: rgba(0, 0, 0, 0.15);
+    border-color: rgb(0 0 0 / 15%);
     border-radius: $bx-border-radius $bx-border-radius 0 0;
     border-left: none;
 }
@@ -47,7 +47,7 @@
 .bx-footer {
     margin-bottom: -$bx-padding !important;
     border-top: 1px solid;
-    border-color: rgba(0, 0, 0, 0.15);
+    border-color: rgb(0 0 0 / 15%);
     border-radius: 0 0 $bx-border-radius $bx-border-radius;
 }
 

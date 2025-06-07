@@ -1,12 +1,11 @@
-@use '../../src/functions/color-functions' as *;
-@use '../../src/maps_and_variables/base' as *;
-@use '../../src/maps_and_variables/components' as *;
+@use '../functions/color-functions' as *;
+@use '../maps_and_variables/base' as *;
+@use '../maps_and_variables/components' as *;
 
 
 .menu {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
+    flex-flow: column wrap;
     line-height: 1.25;
     list-style: none;
     margin-left: 0; // remove margin for ul

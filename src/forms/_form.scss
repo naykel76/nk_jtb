@@ -1,5 +1,6 @@
-@use '../../src/mixins/media' as *;
+@use '../mixins/media' as *;
 @use "../forms/control" as *;
+@use '../maps_and_variables/form-controls' as *;
 
 // -- Base Elements --
 // ==========================================================================
@@ -7,6 +8,7 @@
 label {
     font-weight: 600;
     font-size: 0.875rem;
+
     // Excludes labels with any class to prevent margin issues with elements
     // like .file or .accordion. This could be a problem if you want the margin
     // but apply a class to the label. In that case, you will need to handle it
@@ -67,11 +69,13 @@ label:has(input[type="checkbox"], input[type="radio"]) {
 
         label {
             margin: 0;
+
             //         // exclude width class to make it easier to override or
             //         // can also use flex-basis to override width
             &:not([class*="w-"]) {
                 width: 10rem;
             }
+
             //         flex-shrink: 0; // prevent shrink for 100%
             //         margin-top: 4px; // better alignment
         }
@@ -104,6 +108,7 @@ label:has(input[type="checkbox"], input[type="radio"]) {
     .leadingAddon {
         border-top-left-radius: $ctrl-border-radius;
         border-bottom-left-radius: $ctrl-border-radius;
+
         ~ input {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;

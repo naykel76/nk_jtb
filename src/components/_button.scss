@@ -1,10 +1,10 @@
 @use '../forms/control' as *;
-@use '../mixins/state' as *;
-@use '../../src/utilities/transition' as *;
-@use '../../src/functions/color-functions' as *;
-@use '../../src/maps_and_variables/colors' as *;
-@use '../../src/maps_and_variables/config' as *;
-@use '../../src/maps_and_variables/components' as *;
+@use '../../tmp427/state' as *;
+@use '../utilities/transition' as *;
+@use '../functions/color-functions' as *;
+@use '../maps_and_variables/colors' as *;
+@use '../maps_and_variables/config' as *;
+@use '../maps_and_variables/components' as *;
 
 // ==========================================================================
 // -- BASE CLASS --

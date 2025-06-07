@@ -1,11 +1,11 @@
-@use '../../src/maps_and_variables/base' as *;
-@use '../../src/maps_and_variables/typography' as *;
+@use '../maps_and_variables/base' as *;
+@use '../maps_and_variables/typography' as *;
 @use 'sass:color';
 
 $accordion-color: $text-color !default;
 $accordion-font-size: $font-size !default;
 $accordion-font-weight: 600 !default;
-$accordion-bg: rgb(245, 245, 245) !default;
+$accordion-bg: rgb(245 245 245) !default;
 $accordion-border: $border !default; // entire accordion border
 $accordion-padding: 1rem !default; // entire accordion border
 
@@ -82,14 +82,17 @@ $accordion-hover-bg: color.adjust($accordion-bg, $lightness: -5%) !default;
         position: absolute;
         opacity: 0;
         z-index: -1;
+
         // checked toggles open and closed
         &:checked {
             + label {
                 background: $accordion-hover-bg;
+
                 &::after {
                     transform: rotate(90deg);
                 }
             }
+
             ~ .accordion-content {
                 max-height: 999vh; // prevent cutting off content
                 padding: 1em;

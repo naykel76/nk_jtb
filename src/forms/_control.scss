@@ -1,20 +1,6 @@
 @use '../../src/functions/color-functions' as *;
+@use '../maps_and_variables/form-controls' as *;
 
-$ctrl-border-radius: 0.25rem !default;
-$ctrl-border: 1px solid rgba(0, 0, 0, 0.15);
-
-$ctrl-font-size-xs: 0.75rem !default;
-$ctrl-font-size-sm: 0.875rem !default;
-$ctrl-font-size: 0.875rem !default;
-$ctrl-font-size-lg-xl: 1rem !default;
-
-$ctrl-bg-color: #fff !default;
-$ctrl-color: text-color($ctrl-bg-color) !default;
-
-$ctrl-padding-x: 0.875rem !default;
-$ctrl-padding-y: 0.625rem !default;
-
-$ctrl-line-height: 1.5 !default;
 
 // The control placeholder is the basis for all inputs, buttons and controls
 
@@ -33,9 +19,7 @@ $ctrl-line-height: 1.5 !default;
     background-color: $ctrl-bg-color;
     color: $ctrl-color;
     max-width: 100%; // prevent overflow
-
     font-size: $ctrl-font-size;
-
     padding-inline: $ctrl-padding-x;
     padding-block: $ctrl-padding-y;
 

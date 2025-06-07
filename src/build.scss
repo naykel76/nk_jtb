@@ -1,22 +1,10 @@
-// @use './vars';
 @use './base';
 
 // Load components before utility classes to allow for easier overrides
 @forward './components';
-
-// @forward '../tmp427/forms/choices';
-@forward '../tmp427/forms/file';
-@forward '../tmp427/forms/toggle';
-@forward '../tmp427/forms/form';
-@forward '../tmp427/forms/toggle';
-
-// why does this work? i am only forwarding so when are they build?
+@forward './forms';
 @forward './color/themes';
 @forward './utilities';
-
-
-
-
 
 // $themes: (
 //  light: (

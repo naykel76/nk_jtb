@@ -1,4 +1,4 @@
-@use '../../src/maps_and_variables/config' as *;
+@use '../maps_and_variables/config' as *;
 @use "./box" as *;
 
 .#{$dropdown-identifier} {
