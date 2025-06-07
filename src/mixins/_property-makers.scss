@@ -50,8 +50,6 @@
     }
 }
 
-// NK::TD update for SassDoc
-// 
 
 // ==========================================================================
 // Generate a single directional property, e.g. margin-top or inset-left.
@@ -59,8 +57,9 @@
 // ==========================================================================
 
 @mixin create-position-property($property, $value, $position, $unit: 'rem') {
-    $derivedUnit: if(($value == 'auto' or $value == 0), null, $unit);
-    #{$property}-#{$position}: #{$value}#{$derivedUnit};
+    $derived-unit: if(($value == 'auto' or $value == 0), null, $unit);
+
+    #{$property}-#{$position}: #{$value}#{$derived-unit};
 }
 
 // ==========================================================================

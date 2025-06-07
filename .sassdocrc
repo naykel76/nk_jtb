@@ -1,7 +1,0 @@
-groups:
-  class-generators: Class Generators
-  class-helpers: Class Helpers
-  class-makers: Class Makers
-  helpers: Helpers
-  property-makers: Property Makers
-  spacing-hacks: Spacing Hacks

@@ -12,7 +12,6 @@
         "build": "vite build",
         "debug": "vite --debug",
         "dev": "concurrently \"vite --open\" \"npm run watch\"",
-        "docs": "sassdoc ./src --dest ./docs",
         "play1": "sass --watch --no-source-map ./src/play.scss:dist/css/play.css",
         "play": "concurrently \"sass --watch --no-source-map ./src/play.scss:dist/css/play.css\" \"code src/play.scss\" \"code dist/css/play.css\"",
         "watch": "sass --watch --no-source-map ./src/build.scss:dist/css/build.css",

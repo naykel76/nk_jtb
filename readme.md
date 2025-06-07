@@ -7,16 +7,6 @@ Why!
 > Because without reinventing the wheel we wouldn’t have fast cars.
 > -- Nathan Watts
 
-## Create documentation
-
-```bash
-npm install sassdoc -g
-```
-
-```bash
-sassdoc ./src --dest ./docs
-```
-
 Use the Sass built-in `meta.function-exists()` to check if a function is available in the current scope.
 
 Example usage in your SCSS file:
