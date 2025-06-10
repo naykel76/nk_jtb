@@ -1,40 +1,6 @@
 @use '../src/common-tools.scss' as *;
 @use 'sass:map';
 
-// ==========================================================================
-// Space Utilities
-// ==========================================================================
-
-// & > :not(:last-child) {
-//   --tw-space-x-reverse: 0;
-//   margin-inline-start: calc(calc(var(--spacing) * <number>) * var(--tw-space-x-reverse));
-//   margin-inline-end: calc(calc(var(--spacing) * <number>) * calc(1 - var(--tw-space-x-reverse)));
-// };
-
-.space-x > *:not(:first-child) {
-    margin-left: $content-gap;
-}
-
-.space-y > *:not(:first-child) {
-    margin-top: $content-gap;
-}
-
-@each $value in (2,3,4) {
-    $variant: #{handle-invalid($value)};
-    .space-x-#{$variant} > *:not(:first-child) {
-        margin-left: #{$value}rem;
-    }
-    .space-y-#{$variant} > *:not(:first-child) {
-        margin-top: #{$value}rem;
-    }
-}
-
-@include from-xl {
-    .lg\:space-x > *:not(:first-child) {
-        margin-left: 1rem;
-    }
-}
-
 
 
 // ==========================================================================

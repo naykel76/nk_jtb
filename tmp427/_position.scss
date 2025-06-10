@@ -1,4 +1,4 @@
-@use '../../src/common-tools' as *;
+@use '../common-tools' as *;
 
 
 
@@ -9,6 +9,7 @@
     &-y { top: 0; bottom: 0; }
     &-t { top: 0; }
     &-b { bottom: 0; }
+
     // reset for flex ?? dd requires to shrink ??
     &-l { left: 0; right: auto; }
     &-r { right: 0; left: auto; }

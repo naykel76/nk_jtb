@@ -1,4 +1,4 @@
-@use '../../src/functions/color-functions' as *;
+@use '../functions/color-functions' as *;
 @use '../maps_and_variables/form-controls' as *;
 
 
@@ -40,14 +40,14 @@
     }
 
     &.lg {
-        font-size: $ctrl-font-size-lg-xl;
+        font-size: $ctrl-font-size-lg;
         padding-block: 0.75rem;
         padding-inline: 1.25rem;
         line-height: 1.5rem;
     }
 
     &.xl {
-        font-size: $ctrl-font-size-lg-xl;
+        font-size: $ctrl-font-size-lg;
         padding-block: 0.875rem;
         padding-inline: 1.5rem;
         line-height: 1.5rem;
