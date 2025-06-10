@@ -41,7 +41,6 @@
     @include make-from-breakpoint($props, $class, $breakpoints);
 }
 
-
 // prettier-ignore
 $grid-properties-map: (
     gap: (
@@ -73,11 +72,9 @@ $grid-properties-map: (
 // ==========================================================================
 // Builds
 // ==========================================================================
+// -- Property Classes --
 @include build-property-classes($grid-properties-map, $responsive: true);
 
-// ==========================================================================
-// -- MAGIC CLASSES --
-// ==========================================================================
-
+// -- Magic Classes --
 @include build-magic-classes(grid-gap, ($magic-gap-patterns), 'gap');
 @include build-magic-grid($magic-grid-patterns);
