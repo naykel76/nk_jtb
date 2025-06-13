@@ -1,0 +1,109 @@
+@use 'sass:string';
+@use 'sass:meta';
+@use 'sass:list';
+
+// ==========================================================================
+// Escape a decimal number for use in CSS class names.
+// ==========================================================================
+// Replaces the decimal point with an escaped version (e.g. 20.5 → 20\.5).
+@function escape-decimal($int) {
+    $escaped: '#{$int}';
+    @return str-replace($escaped, '.', '\\.');
+}
+
+// ==========================================================================
+// Replace all occurrences of `$search` in `$string` with `$replace`.
+// ==========================================================================
+// Recursively replaces each instance of the substring.
+// Example: str-replace('10.5rem', '.', '-') → '10-5rem'
+@function str-replace($string, $search, $replace: '') {
+    $index: string.index($string, $search);
+
+    @if $index {
+        /* stylelint-disable-next-line scss/operator-no-newline-after */
+        @return string.slice($string, 1, $index - 1) + $replace +
+            str-replace(string.slice($string, $index + string.length($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+
+// ==========================================================================
+// Split a string into a list using a delimiter.
+// ==========================================================================
+// If no delimiter is provided, the string is split into individual characters.
+// Example: str-explode('abc') → ('a', 'b', 'c')
+// Example: str-explode('a-b-c', '-') → ('a', 'b', 'c')
+@function str-explode($string, $delimiter: '') {
+    @if meta.type-of($string) != 'string' or meta.type-of($delimiter) != 'string' {
+        @error '$string must be a String, got `#{meta.type-of($string)}` (`#{$string}`)';
+    }
+
+    $result: ();
+
+    @if string.length($delimiter) == 0 {
+        @for $i from 1 through string.length($string) {
+            $result: list.append($result, string.slice($string, $i, $i));
+        }
+
+        @return $result;
+    }
+
+    @while true {
+        $index: string.index($string, $delimiter);
+
+        @if $index {
+            $result: list.append($result, string.slice($string, 1, $index - 1));
+            $string: string.slice($string, $index + string.length($delimiter));
+        } @else {
+            @return list.append($result, $string);
+        }
+    }
+}
+
+// ==========================================================================
+// Cast a number or value to a string.
+// ==========================================================================
+// Example: to-string(10px) → "10px"
+@function to-string($int) {
+    @return '#{$int}';
+}
+
+// ==========================================================================
+// Remove trailing 'rem' from a string if present.
+// ==========================================================================
+// Example: strip-rem('1.5rem') → '1.5'
+@function strip-rem($string) {
+    @if string.slice($string, -3) == 'rem' {
+        @return string.slice($string, 1, -4);
+    }
+
+    @return $string;
+}
+
+// ==========================================================================
+// Check if a value includes a recognised unit.
+// ==========================================================================
+// Determines whether a string contains a CSS unit such as 'px', 'rem', etc.
+// 
+// Recognised units:
+//   - px, rem, em, vh, vw, vmin, vmax, %
+// 
+// Returns:
+//   true if the value contains any of the recognised units, otherwise false.
+// 
+// Example:
+//   value-has-unit(1rem) → true
+//   value-has-unit(10)   → false
+// ==========================================================================
+$units: ('px', 'rem', 'em', 'vh', 'vw', 'vmin', 'vmax', '%');
+
+@function value-has-unit($value) {
+    $value: toString($value);
+    @each $unit in $units {
+        @if string.index($value, $unit) {
+            @return true;
+        }
+    }
+    @return false;
+}

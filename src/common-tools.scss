@@ -1,11 +1,9 @@
 @forward './maps_and_variables';
 
 // functions
-@forward './functions/class-naming';
-@forward './functions/class-sanitisers';
+@forward './functions/classes';
 @forward './functions/map-and-list-helpers';
-@forward './functions/string-helpers';
-@forward './functions/validation-helpers';
+@forward './functions/strings';
 
 // mixins
 @forward './mixins/build-classes';

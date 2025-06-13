@@ -3,6 +3,12 @@
 
 $question-color: #c40c9a !default;
 
+:is(h1, h2, h3, h4, h5, h6, question) {
+    code {
+        font-size: inherit;
+    }
+}
+
 // ==========================================================================
 // -- Custom Selectors --
 // ==========================================================================
@@ -13,10 +19,6 @@ question {
     font-style: italic;
     display: block;
     font-size: 1.15rem;
-
-    code {
-        font-size: inherit;
-    }
 }
 
 // Reduce margin between a <question> and the following paragraph.
@@ -143,63 +145,13 @@ pre code.torchlight .summary-caret {
 //     }
 // }
 
-// // ==========================================================================
-// // -- MARKDOWN AND CODE BLOCKS --
-// // ==========================================================================
 
-// %code {
-//     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-//     color: $code-color;
-//     // color: rgb(14, 165, 233);
-//     border-radius: 0.25rem;
-// }
-
-// // %markdown-table {
-// //     margin-top: $content-gap;
-// //     font-size: 0.85em;
-// // }
-
-// // change these to classes so they don't automatically get placed in a p tag
-// .code-first-col {
-//     + table tbody {
-//         // @extend %markdown-table;
-//         tr td:first-child {
-//             @extend %code;
-//         }
-//     }
-// }
-
-// .code-second-col {
-//     + table tbody {
-//         // @extend %markdown-table;
-//         tr td:nth-child(2) {
-//             @extend %code;
-//         }
-//     }
-// }
-// .code-first-second-col {
-//     + table tbody {
-//         // @extend %markdown-table;
-//         tr td:is(:first-child, :nth-child(2)) {
-//             @extend %code;
-//         }
-//     }
-// }
 
 // // ==========================================================================
 // // --  --
 // // ==========================================================================
 
-// :is(h1, h2, h3, h4, h5, h6) {
-//     code:not(.hljs) {
-//         font-size: inherit;
-//     }
-// }
 
-// // code color for alerts
-// .info-light code {
-//     color: #ec4899;
-// }
 
 // .markdown {
 //     .compare + pre,

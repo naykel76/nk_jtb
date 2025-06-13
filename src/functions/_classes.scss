@@ -1,0 +1,118 @@
+@use './strings' as *;
+@use 'sass:list';
+@use 'sass:meta';
+@use 'sass:string';
+
+// ==========================================================================
+// Sanitize and escape class names for safe use in CSS.
+// ==========================================================================
+// Converts the input to a string and formats it for safe use in CSS class names.
+//
+// - Removes the decimal point if the value starts with '0.' (e.g., '0.5' → '05').
+// - Escapes decimal points to avoid invalid class names (e.g., '20.5' → '20\.5').
+// - Removes 'rem' units if present.
+//
+// Example:
+//      .my-class-#{sanitize-class-name(20.5rem)} { ... }
+//      Outputs: .my-class-20\.5 { ... }
+// ==========================================================================
+@function sanitize-class-name($input) {
+    $input: to-string($input);
+
+    // Remove decimal point if value starts with '0.'
+    @if string.slice($input, 1, 2) == '0.' {
+        $input: str-replace($input, '0.', '0');
+    }
+
+    $output: escape-decimal($input);
+    $output: strip-rem($output);
+
+    @return $output;
+}
+
+// ==========================================================================
+// Strip invalid or unnecessary suffixes from class names.
+// ==========================================================================
+// Cleans up class names by removing specific suffixes used for logic,
+// but unnecessary or undesired in the final class output.
+//
+// - Removes '-base' suffix (e.g., 'pxy-base' → 'pxy').
+// - Removes '-default' suffix (e.g., 'bdr-default' → 'bdr').
+// - Removes '-xy' suffix from known exclusions (e.g., 'bdr-xy' → 'bdr').
+//
+// This function supports dynamic class generation by stripping context-specific
+// markers used internally.
+//
+// Example:
+//     strip-invalid('bdr-xy-sm', 'bdr-') → 'bdr-sm'
+//     strip-invalid('pxy-base') → 'pxy'
+// ==========================================================================
+
+$xy-exclusions: ('bdr-');
+
+@function strip-class-suffixes($class, $identifier: '') {
+    @if string.slice($class, -5) == '-base' {
+        $class: string.slice($class, 1, -6);
+    }
+
+    @if string.slice($class, -8) == '-default' {
+        $class: string.slice($class, 1, -9);
+    }
+
+    @if list.index($xy-exclusions, $identifier) and (string.slice($class, -3) == '-xy') {
+        $class: string.slice($class, 1, -4);
+    }
+
+    @return $class;
+}
+
+
+// ==========================================================================
+// Exclude units from being appended to class names.
+// ==========================================================================
+// Defines values that should not receive a unit suffix in class names.
+// Example: 0, %, and auto remain unchanged.
+// ==========================================================================
+
+$exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
+
+@function handle-class-value($value, $unit) {
+    $derived-unit: if(list.index($exclude-units, $value), null, $unit);
+
+    @return $value + $derived-unit;
+}
+
+// ==========================================================================
+// Remove default 'rem' unit from class names.
+// ==========================================================================
+// Removes 'rem' from unit string if present, as it's treated as default.
+// ==========================================================================
+
+@function handle-class-unit($unit) {
+    @return if($unit != 'rem', $unit, '');
+}
+
+// ==========================================================================
+// Determine class name variant and value from a map entry.
+// ==========================================================================
+// - Sanitises the key for safe use in class names.
+// - If value is missing, uses key as value.
+// - If key is a list, unpacks it into variant and value.
+//
+// Example:
+//     ('10': '2rem')         → ('10', '2rem')
+//     (('10', '2rem'), null) → ('10', '2rem')
+//     ('10', null)           → ('10', '10')
+// ==========================================================================
+
+@function get-variant-value($key, $value) {
+    $variant: sanitize-class-name($key);
+    $value: if($value, $value, $key);
+
+    @if meta.type-of($key) == list {
+        $variant: list.nth($key, 1);
+        $value: list.nth($key, 2);
+    }
+
+    @return ($variant, $value);
+}

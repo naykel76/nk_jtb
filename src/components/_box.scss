@@ -13,8 +13,8 @@
 .bx {
     @extend %box;
 
-    overflow: hidden; // prevent image from overflowing when using border-radius
-    // remove margin from any first element in a box to allow box padding to do the work
+    // overflow: hidden; // prevent image from overflowing when using border-radius
+
     & > *:first-child {
         margin-top: 0;
     }

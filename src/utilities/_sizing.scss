@@ -1,5 +1,4 @@
 @use '../common-tools' as *;
-@use '../functions/class-naming' as *;
 @use 'sass:map';
 
 // prettier-ignore
@@ -14,7 +13,7 @@ $sizing-properties-map: (
 
 // NKTD: Update to use build-composite-classes
 @each $size in $sizing-rem {
-    $class: handle-invalid($size);
+    $class: sanitize-class-name($size);
 
     .wh-#{$class} {
         width: #{$size}rem;

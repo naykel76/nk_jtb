@@ -32,7 +32,7 @@
 
 
 @each $value in $opacity-values {
-    $variant: handle-invalid($value);
+    $variant: sanitize-class-name($value);
     .hover\:opacity-#{$variant}:hover {
         opacity: $value;
     }

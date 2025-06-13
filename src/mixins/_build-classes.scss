@@ -1,6 +1,5 @@
-@use '../functions/validation-helpers' as *;
-@use '../functions/class-naming' as *;
-@use '../functions/class-sanitisers' as *;
+@use '../functions/classes' as *;
+@use '../functions/strings' as *;
 @use '../mixins/class-makers' as *;
 @use '../mixins/property-makers' as *;
 @use 'sass:list';
@@ -92,7 +91,7 @@
             @if $positions-map {
                 @include make-position-based-class($property, $derived-value, $positions-map, $identifier, $derived-variant, $breakpoints);
             } @else{
-                $derived-class: strip-invalid(#{$identifier}#{$derived-variant});
+                $derived-class: strip-class-suffixes(#{$identifier}#{$derived-variant});
 
                 @include make-single-property-class(#{$derived-class}, $property, #{$derived-value}, $breakpoints);
             }

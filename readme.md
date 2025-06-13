@@ -56,3 +56,10 @@ Example usage in your SCSS file:
 // --------------------------------------------------------------------------
 // 
 // ==========================================================================
+
+
+    functions/
+    ├── strings.scss      # Generic string utilities
+    ├── values.scss       # Value transformations and logic
+    ├── classes.scss      # Class name formatting helpers
+    └── variants.scss     # Map input and variant logic

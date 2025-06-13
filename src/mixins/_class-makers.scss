@@ -1,4 +1,4 @@
-@use '../functions/class-sanitisers' as *;
+@use '../functions/classes' as *;
 @use '../mixins/media' as *;
 @use '../mixins/property-makers' as *;
 @use 'sass:map';
@@ -139,7 +139,7 @@
 @mixin make-position-based-class($property, $value, $positions-map, $identifier, $variant, $breakpoints) {
     @each $axis-or-position-key, $positions in $positions-map {
         $props: (); // 1.
-        $derived-class: strip-invalid(#{$identifier}#{$axis-or-position-key}-#{$variant}, $identifier); // 2.
+        $derived-class: strip-class-suffixes(#{$identifier}#{$axis-or-position-key}-#{$variant}, $identifier); // 2.
 
         .#{$derived-class} {
             @each $position in $positions {

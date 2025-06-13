@@ -60,9 +60,9 @@ $themes-map: ();
 // Builds
 // ==========================================================================
 // 
-// @each $theme-name, $map in $alert-themes {
-//     @include build-basic-theme($theme-name, $map);
-// }
+@each $theme-name, $map in $alert-themes {
+    @include build-basic-theme($theme-name, $map);
+}
 
 // build basic themes from base colors
 @each $theme-name, $map in $themes-map {

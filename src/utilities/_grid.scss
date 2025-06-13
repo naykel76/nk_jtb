@@ -12,6 +12,14 @@
     gap: #{map.get($gap-map, 'base')}rem;
 }
 
+@each $size in $gap-values {
+    $variant: escape-decimal($size);
+    .grid-#{$variant} {
+        display: grid;
+        gap: #{$size}rem;
+    }
+}
+
 // ==========================================================================
 // -- GRID SPANNING --
 // ==========================================================================

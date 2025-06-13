@@ -4,7 +4,7 @@
 //    Sass treats function names as case-sensitive, while CSS does not.
 
 @each $variant, $size in $container-variants {
-    $class: strip-invalid(#{$container-identifier}-#{$variant});
+    $class: strip-class-suffixes(#{$container-identifier}-#{$variant});
 
     // 95% is a good default for most cases, but this may need to be
     // adjusted for smaller screens.
