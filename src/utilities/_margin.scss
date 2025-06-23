@@ -12,30 +12,30 @@ $margin-properties-map: (
 );
 
 
-// // NKTD: Refactor to use build tools
-// .space-x > *:not(:first-child) {
-//     margin-left: $content-gap;
-// }
+// NKTD: Refactor to use build tools
+.space-x > *:not(:first-child) {
+    margin-left: $content-gap;
+}
 
-// .space-y > *:not(:first-child) {
-//     margin-top: $content-gap;
-// }
+.space-y > *:not(:first-child) {
+    margin-top: $content-gap;
+}
 
-// @each $value in $spacing-values {
-//     $variant: #{sanitize-class-name($value)};
-//     .space-x-#{$variant} > *:not(:first-child) {
-//         margin-left: #{$value}rem;
-//     }
-//     .space-y-#{$variant} > *:not(:first-child) {
-//         margin-top: #{$value}rem;
-//     }
-// }
+@each $value in $spacing-values {
+    $variant: #{sanitize-class-name($value)};
+    .space-x-#{$variant} > *:not(:first-child) {
+        margin-left: #{$value}rem;
+    }
+    .space-y-#{$variant} > *:not(:first-child) {
+        margin-top: #{$value}rem;
+    }
+}
 
-// @include from-xl {
-//     .lg\:space-x > *:not(:first-child) {
-//         margin-left: 1rem;
-//     }
-// }
+@include from-xl {
+    .lg\:space-x > *:not(:first-child) {
+        margin-left: 1rem;
+    }
+}
 
 // ==========================================================================
 // Builds

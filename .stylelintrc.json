@@ -1,10 +1,16 @@
 {
     "extends": "stylelint-config-standard-scss",
+    "plugins": [
+        "stylelint-order"
+    ],
     "ignoreFiles": [
         "dist/**/*",
         "**/*.min.css"
     ],
     "rules": {
-       "scss/comment-no-empty": null
+        "scss/comment-no-empty": null,
+        "order/properties-alphabetical-order": true,
+        "scss/dollar-variable-colon-space-after": "always",
+        "scss/dollar-variable-empty-line-before": null
     }
 }

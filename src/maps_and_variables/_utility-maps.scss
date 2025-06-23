@@ -98,6 +98,13 @@ $sizing-width-variants: ( screen: 100vw, full: 100%, fit: fit-content, max: max-
 $sizing-map: smart-merge($sizing-rem, $sizing-pixels, $sizing-breakpoint-variants) !default;
 
 // ==========================================================================
+// 
+// ==========================================================================
+$positional-values: (0, 0.25, 0.5, 1, 1.5, 2, 3, 4) !default;
+$positional-variants: (auto: 'auto') !default;
+$positional-map: smart-merge($positional-values, $positional-variants) !default;
+
+// ==========================================================================
 // Typography, fonts and text properties
 // ==========================================================================
 $letter-spacing-variants: ( tighter: -0.1em, tight: -0.05em, normal: 0em, wide: 0.05em, wider: 0.1em, widest: 0.25em) !default;
@@ -111,7 +118,6 @@ $text-color-map: smart-merge($text-color-values, $text-color-variants) !default;
 $font-size-values: (1, 1.5, 2, 2.5, 3, 4) !default;
 $font-size-variants: () !default;
 $font-size-map: smart-merge($font-size-values, $font-size-variants) !default;
-
 
 // ==========================================================================
 // Magic Properties

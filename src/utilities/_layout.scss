@@ -2,33 +2,19 @@
 
 // prettier-ignore
 $layout-properties-map: (
-    float: (
-        prefix: "float-",
-        values: (left, right, none)
-    ),
-    overflow: (
-        prefix:'overflow-', 
-        values: (auto, clip, hidden, scroll, visible)
-    ),
-    overflow-x: (
-        prefix:'overflow-x-', 
-        values: (auto, clip, hidden, scroll, visible)
-    ),
-    overflow-y: (
-        prefix:'overflow-y-', 
-        values: (auto, clip, hidden, scroll, visible)
-    ),
-     position: (
-        values: ( absolute, fixed, relative)
-    ),
-    z-index: (
-        prefix: "z-", 
-        values: ($z-index-values)
-    ),
+    float: ( values: (left, right, none) ),
+    overflow: ( values: (auto, clip, hidden, scroll, visible) ),
+    overflow-x: ( values: (auto, clip, hidden, scroll, visible) ),
+    overflow-y: ( values: (auto, clip, hidden, scroll, visible) ),
+    position: ( values: $position, omit-prefix: true ),
+    z-index: ( prefix: "z-", values: ($z-index-values) ),
+    top: ( values: $positional-map, unit: 'rem' ),
+    bottom: ( values: $positional-map, unit: 'rem' ),
+    left: ( values: $positional-map, unit: 'rem' ),
+    right: ( values: $positional-map, unit: 'rem' )
 );
-
 
 // ==========================================================================
 // Builds
 // ==========================================================================
-@include build-property-classes($layout-properties-map, $responsive: true);
+@include build-property-classes($layout-properties-map, $responsive: false);

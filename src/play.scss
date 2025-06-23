@@ -1,4 +1,4 @@
-@use './utilities/typography' as *;
+// @use './utilities/alignment' as *;
 @use './mixins/build-magic-grid' as *;
 @use './mixins/class-makers' as *;
 @use './common-tools' as *;
@@ -6,3 +6,25 @@
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:string';
+
+// $values: (0, 1, 1.5);
+// // prettier-ignore
+// $properties: (block, flex, ( hidden: none ));
+
+// // prettier-ignore
+// $variants: ( sm: 5rem );
+
+// $properties-map: (
+//     // omit the prefix amd just use the property as the prefix
+//     display: ( values: $properties, omit-prefix: true ),
+//     top: (
+//         values: smart-merge($variants, $values),
+//         unit: 'rem'
+//     ),
+//     color: (
+//         prefix: "txt-",
+//         values: (red, green)
+//     ),
+// );
+
+// @include build-property-classes($properties-map, $responsive: false);

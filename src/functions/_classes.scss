@@ -92,20 +92,21 @@ $exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
     @return if($unit != 'rem', $unit, '');
 }
 
+
+
 // ==========================================================================
-// Determine class name variant and value from a map entry.
+// Normalise key and value into a variant and CSS value pair for class generation.
 // ==========================================================================
 // - Sanitises the key for safe use in class names.
-// - If value is missing, uses key as value.
-// - If key is a list, unpacks it into variant and value.
+// - If value is missing, falls back to using the key as the value.
+// - Supports keys as strings, numbers, or lists [variant, value].
 //
-// Example:
-//     ('10': '2rem')         → ('10', '2rem')
-//     (('10', '2rem'), null) → ('10', '2rem')
-//     ('10', null)           → ('10', '10')
+// Examples:
+//  - (1)         → ('1', 1)
+//  - ('sm', 1)   → ('sm', 1)
 // ==========================================================================
 
-@function get-variant-value($key, $value) {
+@function normalise-variant-value($key, $value) {
     $variant: sanitize-class-name($key);
     $value: if($value, $value, $key);
 

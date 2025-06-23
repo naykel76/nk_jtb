@@ -1,0 +1,100 @@
+// ==========================================================================
+// CSS Property Maps
+// ==========================================================================
+// These individual property maps hold the possible values for each CSS
+// property.  They are structured as Sass maps, where each map is named exactly
+// after the related CSS property (e.g., $display,
+// $visibility) to clearly indicate which property the values belong
+// to.  This keeps the structure logical and consistent, making it easy to
+// create conventions for using these maps in your Sass code.
+
+$align-content: (
+    space-around: space-around,
+    space-baseline: baseline,
+    space-between: space-between,
+    center: center,
+    end: flex-end,
+    space-evenly: space-evenly,
+    normal: normal,
+    start: flex-start,
+    stretch: stretch
+);
+
+$align-items: (
+    items-baseline: baseline,
+    items-center: center,
+    items-end: flex-end,
+    items-start: flex-start,
+    items-stretch: stretch,
+    // Custom aliases for vertical alignment
+    va-b: flex-end,
+    va-c: center,
+    va-t: flex-start
+);
+
+$align-self: (
+    auto: auto,
+    baseline: baseline,
+    center: center,
+    end: flex-end,
+    start: flex-start,
+    stretch: stretch
+);
+
+// prettier-ignore
+$display: ( block, flex, inline, inline-block, inline-flex, ( hidden: none ), table, table-cell);
+
+$justify-content: (
+    space-between: space-between,
+    justify-around: space-around,
+    justify-center: center,
+    justify-end: flex-end,
+    justify-evenly: space-evenly,
+    justify-normal: normal,
+    justify-start: flex-start,
+    justify-stretch: stretch,
+    // Custom aliases for horizontal alignment
+    ha-c: center,
+    ha-l: flex-start,
+    ha-r: flex-end
+);
+
+$place-content: (
+    space-between: space-between,
+    justify-around: space-around,
+    justify-center: center,
+    justify-end: flex-end,
+    justify-evenly: space-evenly,
+    justify-normal: normal,
+    justify-start: flex-start,
+    justify-stretch: stretch,
+    // Align content within grid areas
+    baseline: baseline,
+    center: center,
+    end: flex-end,
+    start: flex-start,
+    stretch: stretch
+);
+
+$place-items: (
+    auto: auto,
+    baseline: baseline,
+    center: center,
+    end: flex-end,
+    start: flex-start,
+    stretch: stretch
+);
+
+$place-self: (
+    auto: auto,
+    baseline: baseline,
+    center: center,
+    end: flex-end,
+    start: flex-start,
+    stretch: stretch
+);
+
+$position: (static, absolute, fixed, relative, sticky);
+
+// prettier-ignore
+$visibility: ( collapse, ( invisible: hidden ), visible);
