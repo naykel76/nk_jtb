@@ -11,7 +11,8 @@ $layout-properties-map: (
     top: ( values: $positional-map, unit: 'rem' ),
     bottom: ( values: $positional-map, unit: 'rem' ),
     left: ( values: $positional-map, unit: 'rem' ),
-    right: ( values: $positional-map, unit: 'rem' )
+    right: ( values: $positional-map, unit: 'rem' ),
+    inset: ( values: $positional-map, unit: 'rem' ),
 );
 
 // ==========================================================================

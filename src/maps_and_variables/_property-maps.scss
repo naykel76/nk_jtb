@@ -44,6 +44,9 @@ $align-self: (
 // prettier-ignore
 $display: ( block, flex, inline, inline-block, inline-flex, ( hidden: none ), table, table-cell);
 
+// prettier-ignore
+$inset: ( auto: auto, full: 100%, );
+
 $justify-content: (
     space-between: space-between,
     justify-around: space-around,

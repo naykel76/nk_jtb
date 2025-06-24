@@ -59,6 +59,12 @@ $special-classes: (
             align-items: center,
             justify-content: center
         )
+    ),
+    flex-vac: (
+        props: (
+            display: flex,
+            align-items: center
+        )
     )
 );
 

@@ -1,5 +1,6 @@
 @use '../maps_and_variables/base' as *;
 @use '../maps_and_variables/layout' as *;
+@use '../maps_and_variables/property-maps' as *;
 @use '../maps_and_variables/colors' as *;
 @use '../functions/list-helpers' as *;
 @use '../functions/map-and-list-helpers' as *;
@@ -98,11 +99,12 @@ $sizing-width-variants: ( screen: 100vw, full: 100%, fit: fit-content, max: max-
 $sizing-map: smart-merge($sizing-rem, $sizing-pixels, $sizing-breakpoint-variants) !default;
 
 // ==========================================================================
-// 
+//  Positional values and map
+// --------------------------------------------------------------------------
+//  Used for top, right, bottom, left, and inset utility classes.
 // ==========================================================================
 $positional-values: (0, 0.25, 0.5, 1, 1.5, 2, 3, 4) !default;
-$positional-variants: (auto: 'auto') !default;
-$positional-map: smart-merge($positional-values, $positional-variants) !default;
+$positional-map: smart-merge($positional-values, $inset) !default;
 
 // ==========================================================================
 // Typography, fonts and text properties
