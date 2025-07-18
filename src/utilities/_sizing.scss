@@ -3,8 +3,12 @@
 
 // prettier-ignore
 $sizing-properties-map: (
-    height: (prefix: "h-", values: map.merge($sizing-map, $sizing-height-variants), unit: "rem"),
-    width: (prefix: "w-", values: map.merge($sizing-map, $sizing-width-variants), unit: "rem"),
+    height: (prefix: "h-", values: map.merge($sizing-map, $height), unit: "rem"),
+    width: (prefix: "w-", values: map.merge($sizing-map, $width), unit: "rem"),
+
+    // height: (prefix: "h-", values: $height, unit: "rem"),
+    // width: (prefix: "w-", values: $width, unit: "rem"),
+
     max-height: (prefix: "maxh-", values: $sizing-map, unit: "rem"),
     max-width: (prefix: "maxw-", values: $sizing-map, unit: "rem"),
     min-height: (prefix: "minh-", values: $sizing-map, unit: "rem"),
@@ -16,8 +20,8 @@ $sizing-properties-map: (
     $class: sanitize-class-name($size);
 
     .wh-#{$class} {
-        width: #{$size}rem;
         height: #{$size}rem;
+        width: #{$size}rem;
     }
 }
 

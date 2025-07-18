@@ -1,26 +1,22 @@
 @use '../mixins/media' as *;
-@use "../forms/control" as *;
+@use '../forms/control' as *;
 @use '../maps_and_variables/form-controls' as *;
 
 // -- Base Elements --
 // ==========================================================================
 
 label {
-    font-weight: 600;
     font-size: 0.875rem;
+    font-weight: 600;
 
-    // Excludes labels with any class to prevent margin issues with elements
-    // like .file or .accordion. This could be a problem if you want the margin
-    // but apply a class to the label. In that case, you will need to handle it
-    // in the specific component.
+    // Only apply margin to labels without classes to avoid conflicts with
+    // specialized components like .file or .accordion that need custom spacing.
+    // Note: If you need both a class AND this margin, add the margin manually
+    // to your component's styles.
     &:not([class]) {
         margin-block-end: 0.375rem;
     }
 }
-
-// !! Do not include a width here, the `frm-row` class will handle
-// it. This allows more flexibility when using the form elements
-// outside of the `frm-row` class
 
 textarea,
 select,
@@ -28,43 +24,33 @@ input {
     @extend %control;
 }
 
-button,
-select {
-    cursor: pointer;
-}
-
-// 1. :has is not supported in firefox yet. Expected release is
-//    2023-12-19 This is not really a problem when you use the
-//    default height of 1rem because everything aligns well enough.
-//    But if you change the height, you will need add utility
-//    classes to the label to align the input.
-
-label:has(input[type="checkbox"], input[type="radio"]) {
-    display: inline-flex;
+label:has(input[type='checkbox'], input[type='radio']) {
     align-items: center;
+    display: inline-flex;
 }
 
 // 1. handle the case when the input is nested inside the label and
 //    use :where selector to prevent specificity issues
 
-:where(label > input[type="checkbox"], label > input[type="radio"]) {
+:where(label > input[type='checkbox'], label > input[type='radio']) {
     height: 1rem;
-    width: 1rem;
     margin-inline-end: 0.5rem;
+    width: 1rem;
 }
 
 // -- frm-row --
 // ==========================================================================
 
 .frm-row {
-    position: relative;
     display: flex;
     flex-direction: column;
+    position: relative;
+
 
     &.inline {
+        align-items: center;
         display: flex;
         flex-direction: row;
-        align-items: center;
         gap: 1rem;
 
         label {
@@ -72,7 +58,7 @@ label:has(input[type="checkbox"], input[type="radio"]) {
 
             //         // exclude width class to make it easier to override or
             //         // can also use flex-basis to override width
-            &:not([class*="w-"]) {
+            &:not([class*='w-']) {
                 width: 10rem;
             }
 
@@ -95,34 +81,34 @@ label:has(input[type="checkbox"], input[type="radio"]) {
     flex-direction: row;
 
     :where(.leadingAddon, .trailingAddon) {
-        display: inline-flex;
         align-items: center;
-        padding-inline: $ctrl-padding-x;
-        border: $ctrl-border;
-        font-size: $ctrl-font-size;
-        color: #333;
         background: #fafafa;
+        border: $ctrl-border;
+        color: #333;
+        display: inline-flex;
+        font-size: $ctrl-font-size;
+        padding-inline: $ctrl-padding-x;
         z-index: 1; // 2.
     }
 
     .leadingAddon {
-        border-top-left-radius: $ctrl-border-radius;
         border-bottom-left-radius: $ctrl-border-radius;
+        border-top-left-radius: $ctrl-border-radius;
 
         ~ input {
-            border-top-left-radius: 0;
             border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
             margin-left: -1px; // prevent double border
         }
     }
 
     .trailingAddon {
-        border-top-right-radius: $ctrl-border-radius;
         border-bottom-right-radius: $ctrl-border-radius;
+        border-top-right-radius: $ctrl-border-radius;
         order: 3; // 3.
         ~ input {
-            border-top-right-radius: 0;
             border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
             margin-right: -1px; // prevent double border
         }
     }

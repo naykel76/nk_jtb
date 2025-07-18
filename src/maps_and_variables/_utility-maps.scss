@@ -79,23 +79,18 @@ $margin-map: map.merge($margin-variants, list-to-map($spacing-values));
 $magic-margin-y: ((5, 3, 2), (3, 2, 1)) !default;
 $magic-padding-y: ((5, 3, 2), (5, 3, 2, 2), (3, 2, 1)) !default;
 
-
 // ==========================================================================
 //  Sizing maps and variants
 // ==========================================================================
-// Sizing variants are tied directly to the breakpoint scale. This keeps things
-// consistent, reduces mental overhead, and makes it easier to think in terms of
-// layout.
-//
-// Variant names match specific breakpoints or carry semantic meaning.
+// height and width properties
+$height-width: ( auto: auto, full: 100%, fit: fit-content, max: max-content, min: min-content ) !default;
+$height: smart-merge((screen: 100vh), $height-width) !default;
+$width: smart-merge((screen: 100vw), $height-width) !default;
 
+// sizing values
 $sizing-pixels: (200px, 250px, 300px, 400px, 600px) !default;
 $sizing-rem: (0, 1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24) !default;
-$sizing-breakpoint-variants: ( xs: 20rem, sm: $sm, md: $md, lg: $lg, xl: $xl, xxl: $xxl ) !default;
-$sizing-height-variants: ( screen: 100vh, full: 100%, fit: fit-content, max: max-content, min: min-content ) !default;
-$sizing-width-variants: ( screen: 100vw, full: 100%, fit: fit-content, max: max-content, min: min-content ) !default;
-
-// this is not the complete map of all the sizes, variants, and pixels
+$sizing-breakpoint-variants: ( xs: 30rem, sm: $sm, md: $md, lg: $lg, xl: $xl, xxl: $xxl ) !default;
 $sizing-map: smart-merge($sizing-rem, $sizing-pixels, $sizing-breakpoint-variants) !default;
 
 // ==========================================================================
