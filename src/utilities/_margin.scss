@@ -11,28 +11,28 @@ $margin-properties-map: (
     )
 );
 
-
-// NKTD: Refactor to use build tools
-.space-x > *:not(:first-child) {
-    margin-left: $content-gap;
+// NKTD: Refactor to use build tools and include custom variants
+:where(.space-x > *:not(:first-child)) {
+    margin-left: $base-gap;
 }
 
-.space-y > *:not(:first-child) {
-    margin-top: $content-gap;
+:where(.space-y > *:not(:first-child)) {
+    margin-top: $base-gap;
 }
 
+// the problem here is that the spacing values do not include variants.
 @each $value in $spacing-values {
     $variant: #{sanitize-class-name($value)};
-    .space-x-#{$variant} > *:not(:first-child) {
+    :where(.space-x-#{$variant} > *:not(:first-child)) {
         margin-left: #{$value}rem;
     }
-    .space-y-#{$variant} > *:not(:first-child) {
+    :where(.space-y-#{$variant} > *:not(:first-child)) {
         margin-top: #{$value}rem;
     }
 }
 
 @include from-xl {
-    .lg\:space-x > *:not(:first-child) {
+    :where(.lg\:space-x > *:not(:first-child)) {
         margin-left: 1rem;
     }
 }
@@ -41,4 +41,4 @@ $margin-properties-map: (
 // Builds
 // ==========================================================================
 @include build-property-classes($margin-properties-map, $responsive: true);
-@include build-magic-classes(margin, $magic-margin-y, 'my', $position-or-axis: y);
+@include build-magic-classes(margin, $margin-magic-y, 'my', $position-or-axis: y);

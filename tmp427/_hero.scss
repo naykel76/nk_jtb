@@ -7,11 +7,11 @@ $hero-subtitle-color: #eee !default;
 $hero-subtitle-lg: 2.5rem !default;
 $hero-subtitle-sm: 1.75rem !default;
 $hero-gradient: linear-gradient(rgb(0 0 0 / 30%), rgb(0 0 0 / 40%)) !default;
-$hero-text-padding: $content-gap !default;
+$hero-text-padding: $content-padding !default;
 
 .hero {
-    background-repeat: no-repeat;
     background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
 
     .title {

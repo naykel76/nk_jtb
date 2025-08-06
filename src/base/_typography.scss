@@ -13,8 +13,8 @@
 }
 
 :where(h1, h2, h3, h4, h5, h6) {
-    font-weight: $heading-font-weight;
     color: $heading-color;
+    font-weight: $heading-font-weight;
     line-height: 1.25;
     text-wrap: balance;
 }
@@ -51,10 +51,10 @@ code,
 kbd,
 pre,
 samp {
+    border-radius: 0.25rem;
+    color: #d9558c;
     font-family: $mono-font;
     font-size: 0.875rem;
-    color: #d9558c;
-    border-radius: 0.25rem;
 }
 
 pre {
@@ -69,8 +69,8 @@ pre {
 
 :is(a) {
     color: $link-color;
-    text-decoration: inherit;
     cursor: pointer;
+    text-decoration: inherit;
 
     &:hover {
         color: $link-hover-color;
@@ -86,7 +86,7 @@ pre {
 ul,
 ol {
     list-style-position: outside; // 1
-    margin-inline-start: $content-padding; // 2
+    margin-inline-start: $base-padding; // 2
 }
 
 li {

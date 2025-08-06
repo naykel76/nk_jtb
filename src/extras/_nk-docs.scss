@@ -14,11 +14,11 @@ $question-color: #c40c9a !default;
 // ==========================================================================
 question {
     color: $question-color;
-    margin-block-start: $content-gap;
-    font-weight: 700;
-    font-style: italic;
     display: block;
     font-size: 1.15rem;
+    font-style: italic;
+    font-weight: 700;
+    margin-block-start: $base-gap;
 }
 
 // Reduce margin between a <question> and the following paragraph.
@@ -40,8 +40,8 @@ p:has(question) + p {
 */
 pre {
     border-radius: 0.25rem;
-    margin-top: 1rem;
     margin-bottom: 1rem;
+    margin-top: 1rem;
     overflow-x: auto;
 }
 
@@ -54,8 +54,8 @@ pre {
 pre code.torchlight {
     display: block;
     min-width: max-content;
-    padding-top: 1rem;
     padding-bottom: 1rem;
+    padding-top: 1rem;
 }
 
 /*

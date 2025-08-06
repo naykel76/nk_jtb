@@ -1,3 +1,4 @@
+/* stylelint-disable */
 @use '../maps_and_variables/base' as *;
 @use '../maps_and_variables/layout' as *;
 @use '../maps_and_variables/typography' as *;
@@ -36,7 +37,7 @@ body {
 
 hr {
     height: 0;
-    margin: $content-gap 0;
+    margin: $base-gap 0;
     border-color: $border-color;
     border-top-width: 2px;
 }

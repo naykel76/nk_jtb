@@ -2,23 +2,24 @@
 
 // don't be tempted to add div here, it creates more problems than it solves
 $html-elements: blockquote, p, pre, form, table, ol, ul, h1, h2, h3, h4, h5, h6;
-$common-classes: '.bx', '.bx-content', '.bx-title', "[class*='container']", '.frm-row', '.grid', "[class*='flex']:not(.inline-flex)";
+$common-classes: '.bx', '.bx-content', '.bx-title', "[class*='container']", '.frm-row', '.grid',
+    "[class*='flex']:not(.inline-flex)";
 
 // Content gap
 :where(#{$html-elements}, #{$common-classes}) + :where(*) {
-    margin-top: $content-gap;
+    margin-top: $base-gap;
 }
 
 // This is experimental and may be more hassle than it's worth. It is to cover
 // the case when there are hidden inputs in the form.
 :where(input) + :where(div:not(.slider), p) {
-    margin-top: $content-gap;
+    margin-top: $base-gap;
 }
 
 // catch the strays (use with caution). The :where selector is to kill the
 // specificity for easier override
-:where(*:not([class*='flex']):not([class*='grid'])) > :where(.frm-row, table, form, pre):not(:first-child) {
-    margin-top: $content-gap;
+:where(*:not([class*='flex'], [class*='grid'])) > :where(.frm-row, table, form, pre):not(:first-child) {
+    margin-top: $base-gap;
 }
 
 // opt out for `flex` and `grid` element and use `gap` instead.

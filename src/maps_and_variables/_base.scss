@@ -37,12 +37,14 @@ $line-height-condensed: 1.25 !default;
 // 
 $body-bg: hsl(0deg 0% 100%) !default;
 
-
 // -- Spacing --
 // ==========================================================================
 $base-list-spacing: 0.25em !default;
-$content-gap: 1.25rem !default;
-$content-padding: 1rem !default;
+$base-gap: 1.25rem !default;        // default gap between content blocks
+$base-padding: 1.25rem !default;    // default padding inside content blocks
+
+// 
+// ==========================================================================
 $header-bg: $secondary !default;
 $main-bg: transparent !default;
 $footer-bg: #1d1d1c !default;

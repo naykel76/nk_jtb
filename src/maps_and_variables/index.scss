@@ -4,7 +4,10 @@
 @forward './config';
 @forward './layout';
 @forward './position-maps';
-@forward './property-maps';
 @forward './tailwind-colors';
 @forward './typography';
+@forward './values-variants-and-properties';
+
+// DEPRECATED
+@forward './property-maps';
 @forward './utility-maps';

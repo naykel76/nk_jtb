@@ -15,26 +15,26 @@
     }
 
     :where(a, li a, .menu-item) {
-        color: inherit;
-        padding: $menu-padding-y $menu-padding-x;
-        display: flex;
         align-items: center;
+        color: inherit;
+        display: flex;
+        padding: $menu-padding-y $menu-padding-x;
 
         &:is(.active, :hover):not(.disabled) {
-            cursor: pointer;
-            color: $menu-link-hover-color;
             background-color: $menu-hover-bg;
+            color: $menu-link-hover-color;
+            cursor: pointer;
         }
     }
 
     .menu-title {
         font-weight: 600;
         letter-spacing: 0.05em;
-        margin-left: $menu-padding-x;
         margin-bottom: 0.5em;
+        margin-left: $menu-padding-x;
 
         &:not(:first-child) {
-            margin-top: $content-gap;
+            margin-top: $base-gap;
         }
     }
 }

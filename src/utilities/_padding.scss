@@ -10,9 +10,8 @@ $padding-properties-map: (
     )
 );
 
+// ==========================================================================
+// Builds
+// ==========================================================================
 @include build-property-classes($padding-properties-map, $responsive: true);
-
-// magic classes
-$magic-padding-y: ((5, 3, 2), (5, 3, 2, 2), (3, 2, 1)) !default;
-
-@include build-magic-classes(padding, $magic-padding-y, "py", $position-or-axis: y);
+@include build-magic-classes(padding, $padding-magic-y, 'py', $position-or-axis: y);
