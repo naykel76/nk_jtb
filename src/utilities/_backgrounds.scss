@@ -1,5 +1,4 @@
 @use '../maps_and_variables/base' as *;
-@use '../maps_and_variables/tailwind-colors' as *;
 
 .zebra > *:nth-child(2n + 2):not(.primary, .secondary) {
     background: $zebra-alt-bg;
