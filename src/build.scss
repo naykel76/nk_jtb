@@ -4,33 +4,29 @@
 @forward './components';
 @forward './forms';
 @forward './color/themes';
-@forward './utilities';
 
-// $themes: (
-//  light: (
-//    text: #1e1910,
-//    background: #faf7f5,
-//    primary: #53412d,
-//    secondary: #91a5c5,
-//    accent: #85519a,
-//  ),
-//  dark: (
-//    text: #eee9e0,
-//    background: #090705,
-//    primary: #d2c0ab,
-//    secondary: #3b4f6f,
-//    accent: #9966ae,
-//  ),
-// );
+// 
+@forward './../tmp427/utils-to-add';
+@forward './utilities/alignment';
+@forward './utilities/backgrounds';
+@forward './utilities/border';
+@forward './utilities/container';
+@forward './utilities/display-visibility';
+@forward './utilities/effects';
+@forward './utilities/effects';
+@forward './utilities/flexbox';
+@forward './utilities/grid';
+@forward './utilities/interactivity';
+@forward './utilities/layout';
+@forward './utilities/margin';
+@forward './utilities/padding';
+@forward './utilities/sizing';
+@forward './utilities/transforms';
+@forward './utilities/transition';
+@forward './utilities/typography';
 
-// --linearPrimarySecondary: linear-gradient(#d2c0ab, #3b4f6f);
-// --linearPrimaryAccent: linear-gradient(#d2c0ab, #9966ae);
-// --linearSecondaryAccent: linear-gradient(#3b4f6f, #9966ae);
-// --radialPrimarySecondary: radial-gradient(#d2c0ab, #3b4f6f);
-// --radialPrimaryAccent: radial-gradient(#d2c0ab, #9966ae);
-// --radialSecondaryAccent: radial-gradient(#3b4f6f, #9966ae);
-
-// // forward the files to make them available in the main scss file
-// @forward 'nk_jtb/src/v1/maps_and_variables/colors';
-// @forward 'nk_jtb/src/v1/maps_and_variables/base';
-// @forward 'nk_jtb/src/v1/maps_and_variables/components';
+// Updated and ready to go!
+// @forward './utilities/border';
+// @forward './utilities/color';
+// @forward './utilities/spacing';
+// @forward './utilities/themes';

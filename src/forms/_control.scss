@@ -1,27 +1,26 @@
 @use '../functions/color-functions' as *;
 @use '../maps_and_variables/form-controls' as *;
 
-
 // The control placeholder is the basis for all inputs, buttons and controls
 
 // 1. line height is required to get consistent heights
 // 2. creates control and button sizes sm, md, lg
 %control {
-    border-top: $ctrl-border;
+    align-items: center;
+    background-color: $ctrl-bg-color;
     border-bottom: $ctrl-border;
     border-left: $ctrl-border;
-    border-right: $ctrl-border;
     border-radius: $ctrl-border-radius;
-    line-height: $ctrl-line-height; // 1
-    display: inline-flex;
-    align-items: center;
-    position: relative;
-    background-color: $ctrl-bg-color;
+    border-right: $ctrl-border;
+    border-top: $ctrl-border;
     color: $ctrl-color;
-    max-width: 100%; // prevent overflow
+    display: inline-flex;
     font-size: $ctrl-font-size;
-    padding-inline: $ctrl-padding-x;
+    line-height: $ctrl-line-height; // 1
+    max-width: 100%; // prevent overflow
     padding-block: $ctrl-padding-y;
+    padding-inline: $ctrl-padding-x;
+    position: relative;
 
     // this is ok for now but i think the input and buttons should
     // be separated, they really should have different x padding values
@@ -34,23 +33,22 @@
 
     &.sm {
         font-size: $ctrl-font-size-sm;
+        line-height: $ctrl-line-height;
         padding-block: 0.375rem;
         padding-inline: 0.75rem;
-        line-height: $ctrl-line-height;
     }
 
     &.lg {
         font-size: $ctrl-font-size-lg;
+        line-height: 1.5rem;
         padding-block: 0.75rem;
         padding-inline: 1.25rem;
-        line-height: 1.5rem;
     }
 
     &.xl {
         font-size: $ctrl-font-size-lg;
+        line-height: 1.5rem;
         padding-block: 0.875rem;
         padding-inline: 1.5rem;
-        line-height: 1.5rem;
     }
-
 }

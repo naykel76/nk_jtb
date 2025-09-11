@@ -1,10 +1,13 @@
 @use 'sass:map';
 
 // ==========================================================================
-// LOGICAL POSITION MAP
+// LOGICAL POSITION MAPPING
 // ==========================================================================
-// Defines directional logical properties and their shorthand equivalents.
-// Used for generating margin, padding, and related utility classes.
+// Maps position keys to their corresponding logical CSS properties. 
+//
+// NOTE: Uses individual longhand properties (margin-block-start, etc.) instead
+// of shorthand (margin-block) to ensure easy overridability of individual
+// directions.
 // --------------------------------------------------------------------------
 // prettier-ignore
 $logical-position-map: (
@@ -18,10 +21,6 @@ $logical-position-map: (
     b: block-end,
     l: inline-start,
     r: inline-end,
-
-    // Shorthand logical properties
-    // block: margin-block,
-    // inline: margin-inline
 );
 
 // ==========================================================================
