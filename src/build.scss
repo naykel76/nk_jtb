@@ -18,8 +18,6 @@
 @forward './utilities/grid';
 @forward './utilities/interactivity';
 @forward './utilities/layout';
-@forward './utilities/margin';
-@forward './utilities/padding';
 @forward './utilities/sizing';
 @forward './utilities/transforms';
 @forward './utilities/transition';
@@ -27,7 +25,7 @@
 
 // Updated and ready to go!
 @forward './utilities/color';
+@forward './utilities/spacing';
 
 // @forward './utilities/border';
-// @forward './utilities/spacing';
 // @forward './utilities/themes';

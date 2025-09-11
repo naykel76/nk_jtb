@@ -1,0 +1,25 @@
+// _spacing.scss
+@use '../common-tools' as *;
+
+// ==========================================================================
+// MARGIN & PADDING CONFIGURATION
+// ==========================================================================
+$spacing-properties-map: (
+    margin: (
+        prefix: #{$margin-identifier},
+        values: $margin-map,
+        unit: 'rem',
+        positions: $logical-position-map
+    ),
+    padding: (
+        prefix: #{$padding-identifier},
+        values: $padding-map,
+        unit: 'rem',
+        positions: $logical-position-map
+    )
+);
+
+// ==========================================================================
+// BUILDS
+// ==========================================================================
+@include build-property-classes($spacing-properties-map, $responsive: true);
