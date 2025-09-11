@@ -2,38 +2,13 @@
 
 // prettier-ignore
 $alignment-properties-map: (
-    align-content: ( omit-prefix: true, values: $align-content ),
-    align-items: ( omit-prefix: true, values: $align-items ),
+    align-content: ( prefix: false, values: $align-content ),
+    align-items: ( prefix: false, values: $align-items ),
     align-self: ( prefix: 'self-', values: $align-self ),
-    justify-content: (omit-prefix: true, values: $justify-content ),
-    place-content: (omit-prefix: true, values: $place-content ),
-    place-items: (omit-prefix: true, values: $place-items ),
-    place-self: (omit-prefix: true, values: $place-self ),
-
-    // Text alignment properties (general)
-    // text-align: (
-    //     prefix: "text-",
-    //     values: (
-    //         left: left,
-    //         center: center,
-    //         right: right,
-    //         justify: justify
-    //     )
-    // ),
-    // Vertical alignment (for inline-block elements)
-    // vertical-align: (
-    //     prefix: "valign-",
-    //     values: (
-    //         baseline: baseline,
-    //         top: top,
-    //         middle: middle,
-    //         bottom: bottom,
-    //         sub: sub,
-    //         super: super,
-    //         text-top: text-top,
-    //         text-bottom: text-bottom
-    //     )
-    // )
+    justify-content: (prefix: false, values: $justify-content ),
+    place-content: (prefix: false, values: $place-content ),
+    place-items: (prefix: false, values: $place-items ),
+    place-self: (prefix: false, values: $place-self ),
 );
 
 // ==========================================================================

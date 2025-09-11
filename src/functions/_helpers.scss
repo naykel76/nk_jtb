@@ -1,0 +1,7 @@
+@use 'sass:math';
+
+// intentionally return with the unit. it will be automatically removed where
+// necessary to prevent duplication errors
+@function px-to-rem($px, $base: 16) {
+    @return math.div($px, $base) * 1rem;
+}

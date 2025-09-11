@@ -1,0 +1,27 @@
+@use '../common-tools' as *;
+@use 'sass:map';
+
+// `$base-colors` are used to create simplified color utilities without value
+// suffixes. Examples: txt-red, bg-red, bdr-red all use the same base color
+// value.
+
+$color-properties: (
+    color: (
+        prefix: '#{$text-identifier}',
+        values: smart-merge($base-colors, $oklch-colors)
+    ),
+    background-color: (
+        prefix: '#{$background-identifier}',
+        values: smart-merge($base-colors, $oklch-colors)
+    ),
+    border-color: (
+        prefix: '#{$border-identifier}',
+        values: smart-merge($base-colors, $oklch-colors)
+    ),
+    outline-color: (
+        prefix: '#{$outline-identifier}',
+        values: smart-merge($base-colors, $oklch-colors)
+    )
+);
+
+@include build-property-classes($color-properties, $responsive: false, $with-state: true);

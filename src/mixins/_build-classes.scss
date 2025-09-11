@@ -57,7 +57,7 @@
 // ==========================================================================
 
 // prettier-ignore
-@mixin build-property-classes($properties-map, $responsive: false) {
+@mixin build-property-classes($properties-map, $responsive: false, $with-state: false) {
     @each $property, $map in $properties-map {
         $map-values: map.get($map, "values");
         $map-unit: map.get($map, "unit"); 

@@ -2,8 +2,8 @@
 @use '../mixins/class-makers' as *;
 
 $display-visibility-properties-map: (
-    display: ( omit-prefix: true, values: $display ),
-    visibility: ( omit-prefix: true, values: $visibility )
+    display: ( prefix: false, values: $display ),
+    visibility: ( prefix: false, values: $visibility )
 );
 
 // ==========================================================================
