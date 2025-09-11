@@ -11,13 +11,26 @@
 // --------------------------------------------------------------------------
 // NOTE: This mixin will create the base class as well as responsive classes.
 // ==========================================================================
-@mixin make-single-property-class($class-name, $property, $value, $breakpoints: ()) {
+// prettier-ignore
+@mixin make-single-property-class($property, $class-name, $value, $breakpoints: (), $states: ()) {
     .#{$class-name} {
         #{$property}: $value;
     }
 
     @if $breakpoints {
-        @include make-from-breakpoint(($property: $value), $class-name, $breakpoints);
+        @include make-from-breakpoint( ( $property: $value ), $class-name, $breakpoints );
+    }
+
+    @if $states {
+        @include make-state-based-class( ( $property: $value ), $class-name, $states );
+    }
+}
+
+@mixin make-state-based-class($props, $class-name, $states) {
+    @each $state in $states {
+        .#{$state}\:#{$class-name}:#{$state} {
+            @include make-properties($props);
+        }
     }
 }
 

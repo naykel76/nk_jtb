@@ -1,0 +1,45 @@
+@use '../common-tools' as *;
+@use '../functions/map-and-list-helpers' as *;
+@use '../maps_and_variables/' as *;
+@use '../mixins/build-themes' as *;
+@use 'sass:map';
+@use 'sass:color';
+
+// ==========================================================================
+// BASIC THEMING SYSTEM
+// ==========================================================================
+$advanced-themes: (
+    'danger-light': (
+        'base': map-get-dot('red.50', $tailwind-colors),
+        'color': map-get-dot('red.700', $tailwind-colors),
+        'border-color': map-get-dot('red.500', $tailwind-colors)
+    ),
+    'info-light': (
+        'base': map-get-dot('blue.50', $tailwind-colors),
+        'color': map-get-dot('blue.700', $tailwind-colors),
+        'border-color': map-get-dot('blue.500', $tailwind-colors)
+    ),
+    'warning-light': (
+        'base': map-get-dot('yellow.50', $tailwind-colors),
+        'color': map-get-dot('yellow.700', $tailwind-colors),
+        'border-color': map-get-dot('yellow.500', $tailwind-colors)
+    ),
+    'success-light': (
+        'base': map-get-dot('green.50', $tailwind-colors),
+        'color': map-get-dot('green.700', $tailwind-colors),
+        'border-color': map-get-dot('green.500', $tailwind-colors)
+    )
+);
+
+$themes-map: ();
+
+// Add each color as a theme with 'base' property
+@each $color, $value in $color-map {
+    // prettier-ignore
+    $themes-map: map.set( $themes-map, $color, ( 'base': $value ) );
+}
+
+// Merge basic color themes with alert themes and build all
+@each $theme-name, $map in map.merge($themes-map, $advanced-themes) {
+    @include build-basic-theme($theme-name, $map);
+}

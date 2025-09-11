@@ -28,13 +28,7 @@
 // ==========================================================================
 // -- SPACING -- (margin, padding, gap, inset)
 // ==========================================================================
-$spacing-values: (0, 0.125, 0.25, 0.5, 0.75, 0.875, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 4, 5) !default;
 
-$margin-variants: ( base: $base-gap, auto: auto ) !default;
-$margin-map: map.merge($margin-variants, list-to-map($spacing-values));
-
-$padding-variants: ( base: $base-padding ) !default;
-$padding-map: map.merge($padding-variants, list-to-map($spacing-values));
 
 // Magic Variants
 $margin-magic-y: ((5, 3, 2), (3, 2, 1)) !default;

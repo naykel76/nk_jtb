@@ -3,7 +3,6 @@
 // Load components before utility classes to allow for easier overrides
 @forward './components';
 @forward './forms';
-@forward './color/themes';
 
 // 
 @forward './../tmp427/utils-to-add';
@@ -26,6 +25,6 @@
 // Updated and ready to go!
 @forward './utilities/color';
 @forward './utilities/spacing';
+@forward './utilities/themes';
 
 // @forward './utilities/border';
-// @forward './utilities/themes';
