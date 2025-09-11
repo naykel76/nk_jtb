@@ -2,25 +2,11 @@
 @use '../functions/strings' as *;
 @use '../mixins/class-makers' as *;
 @use '../mixins/property-makers' as *;
+@use '../mixins/helpers' as *;
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:string';
-
-// ==========================================================================
-// get-breakpoints()
-// --------------------------------------------------------------------------
-// Ensures a valid list of breakpoints is returned. Allows properties to define
-// custom breakpoint sets, or fall back to a default set when none are provided.
-// --------------------------------------------------------------------------
-// Example:
-//  - get-breakpoints(null) => ('sm', 'md', 'lg', 'xl')
-//  - get-breakpoints(('xs', 'md')) => ('xs', 'md')
-// ==========================================================================
-@function get-breakpoints($breakpoints) {
-    $default-breakpoints: ('sm', 'md', 'lg', 'xl');
-
-    @return if($breakpoints == null, $default-breakpoints, $breakpoints);
-}
+@use 'sass:meta';
 
 @mixin build-composite-classes($properties-map, $responsive: false) {
     @each $class, $map in $properties-map {
@@ -42,68 +28,98 @@
 // ==========================================================================
 // Generates utility classes for CSS properties using a configuration map.
 // Supports responsive variants, automatic value-unit handling, and
-// position-based class.
+// position-based classes.
 // --------------------------------------------------------------------------
-// 2. $derived-unit: Checks if the $value includes a unit (12px, 1em, 100vh,
-//    etc.). If it does, $derived-unit is set to null. If it doesn't,
-//    $derived-unit is set to $unit.This is used to prevent the unit from being
-//    added twice when values include units.
-// 3. $derived-value: This variable holds the processed value of the class,
-//    which is derived from the original $value. It's created to ensure that the
-//    class value is handled correctly based on its unit.
-// 4. $derived-suffix: This variable combines the variant and the unit into a
-//    single string. This creates the unique identifier which is used to create
-//    the class name.
+// Key variables in the value processing logic:
+//
+// 1. $derived-unit: Prevents double-unit application by checking if the $value
+//    already includes a unit (12px, 1em, 100vh, etc.). If it does,
+//    $derived-unit is set to null to avoid adding the map's unit. If it doesn't,
+//    $derived-unit is set to $map-unit to apply the default unit.
+//
+// 2. $derived-value: The final processed CSS value for the property, created by
+//    combining the original $value with the appropriate unit (if needed). This
+//    ensures values are properly formatted for CSS output.
+//
+// 3. $derived-suffix: The unique identifier portion of the class name, created
+//    by combining the variant label with the processed unit string. This forms
+//    the distinctive part of each utility class (e.g., "12px" in "margin-12px").
 // ==========================================================================
 
 // prettier-ignore
-@mixin build-property-classes($properties-map, $responsive: false, $with-state: false) {
+@mixin build-property-classes($properties-map, $responsive: true, $with-state: false, $debug: false) {
     @each $property, $map in $properties-map {
-        $map-values: map.get($map, "values");
-        $map-unit: map.get($map, "unit"); 
-        $map-positions: map.get($map, "positions"); 
-        $map-breakpoints: map.get($map, "breakpoints"); 
+        $map-unit: map.get($map, 'unit');
+        $map-positions: map.get($map, 'positions');
 
-        // if the prefix is specifically omitted, use an empty string
-        // otherwise, use the prefix from the map or the property name with a dash
-        $prefix: if( map.get($map, 'omit-prefix'), '',
-            if(map.has-key($map, 'prefix'), map.get($map, 'prefix'), $property + '-')
-        );
+        $prefix: resolve-prefix(map.get($map, 'prefix'), $property);
+        $breakpoints: resolve-breakpoints($responsive, map.get($map, 'breakpoints'));
+        $states: resolve-states($with-state, map.get($map, 'states'));
 
-        // If responsive is true, resolve breakpoints (using defaults);
-        // otherwise, use breakpoints from the map as provided (may be null).
-        $breakpoints: if($responsive, get-breakpoints($map-breakpoints), $map-breakpoints);
-   
-        @each $key, $value in $map-values {
-            // Normalise each item to ensure it has a valid variant and value
-            // for consistent class generation.
+        @each $key, $value in map.get($map, 'values') {
+            // Normalize each key-value pair to ensure consistent variant label and value
+            // for reliable class generation across different input formats
             $item: normalise-variant-value($key, $value);
             $label: list.nth($item, 1);
             $value: list.nth($item, 2);
-            
-            // Create the derived class name and value based on the map values.
-            $derived-unit: if(value-has-unit($value), null, ($map-unit)); // 2.
-            $derived-value: #{handle-class-value($value, $derived-unit)}; // 3.
-            $derived-suffix: #{$label}#{handle-class-unit($derived-unit)}; // 4.
 
+            // Process the value and create class name components
+            $derived-unit: if(value-has-unit($value), null, ($map-unit)); // 1.
+            $derived-value: #{handle-class-value($value, $derived-unit)}; // 2.
+            $derived-suffix: #{$label}#{handle-class-unit($derived-unit)}; // 3.
+
+            // Generate the final class name by combining prefix and suffix,
+            // then clean up any unwanted suffixes
             $derived-class: strip-class-suffixes(#{$prefix}#{$derived-suffix});
 
-            // DO NOT DELETE THIS, IT IS FOR DEBUGGING PURPOSES
-            // item-details{
-            //     content: "Property: #{$property}"; 
-            //     content: "Prefix: #{$prefix}"; 
-            //     content: "Label: #{$label}";
-            //     content: "Value: #{$value}";
-            //     content: ------------------------------;
-            //     content: "Derived Suffix: #{$derived-suffix}";
-            //     content: "Derived Unit: #{$derived-unit}";
-            //     content: "Derived Value: #{$derived-value}";
-            // }
-
+            // always create individual directions and avoid shorthands like
+            // margin-inline, margin-block, and margin. This ensures maximum
+            // flexibility and avoids unintended overrides in complex layouts.
             @if $map-positions {
                 @include make-position-based-class($property, $derived-value, $map-positions, $prefix, $derived-suffix, $breakpoints);
             } @else{
-                @include make-single-property-class(#{$derived-class}, $property, #{$derived-value}, $breakpoints);
+                @include make-single-property-class( $property, #{$derived-class}, #{$derived-value}, $breakpoints, $states );
+            }
+        }
+    }
+}
+
+@mixin debug-property-classes($properties-map, $responsive: false, $with-state: false, $show-classes: false) {
+    @each $property, $map in $properties-map {
+        $map-unit: map.get($map, 'unit');
+        $map-positions: map.get($map, 'positions');
+
+        $prefix: resolve-prefix(map.get($map, 'prefix'), $property);
+        $breakpoints: resolve-breakpoints($responsive, map.get($map, 'breakpoints'));
+        $states: resolve-states($with-state, map.get($map, 'states'));
+
+        DEBUG #{$property} {
+            /** Map Render Options */
+            --responsive: #{$responsive};
+            --with-state: #{$with-state};
+
+            /** Map Item Details */
+            --property-name: #{$property};
+            --values-count: #{list.length(map.get($map, 'values'))};
+            --resolved-prefix: #{if($prefix != '', $prefix, 'NONE')};
+            --resolved-breakpoints: #{if($breakpoints != null, meta.inspect($breakpoints), 'NONE')};
+            --resolved-states: #{if($states != null, meta.inspect($states), 'NONE')};
+
+            // --map-positions: #{if($map-positions, meta.inspect($map-positions), 'NONE')};
+            // --map-unit: #{if($map-unit, $map-unit, 'NONE')};
+
+            @if $show-classes {
+                @each $key, $value in map.get($map, 'values') {
+                    $item: normalise-variant-value($key, $value);
+                    $label: list.nth($item, 1);
+                    $value: list.nth($item, 2);
+
+                    $derived-unit: if(value-has-unit($value), null, ($map-unit));
+                    $derived-suffix: #{$label}#{handle-class-unit($derived-unit)};
+                    $derived-class: strip-class-suffixes(#{$prefix}#{$derived-suffix});
+
+                    --class: #{$derived-class};
+                }
             }
         }
     }
