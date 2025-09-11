@@ -1,9 +1,9 @@
 @use '../functions/classes' as *;
 @use '../mixins/media' as *;
 @use '../mixins/property-makers' as *;
+@use '../functions/strings' as *;
 @use 'sass:map';
-
-
+@use 'sass:list';
 
 // ==========================================================================
 // Generate class for a single property and optionally creates responsive
@@ -38,7 +38,7 @@
 // Generate responsive class for one or more properties, starting FROM the
 // specified breakpoints, across a range of breakpoints.
 // --------------------------------------------------------------------------
-// 
+//
 // ==========================================================================
 @mixin make-from-breakpoint($props, $identifier, $breakpoints) {
     @each $bp in $breakpoints {
@@ -73,7 +73,7 @@
 // Generate responsive classes for one or more properties, up TO the specified
 // breakpoints, across a range of breakpoints.
 // --------------------------------------------------------------------------
-// 
+//
 // @param {Map} $props - The map of properties and values.
 // @param {String} $identifier - A part of the base class name.
 // @param {List} $breakpoints - The list of breakpoints.
@@ -105,12 +105,11 @@
     }
 }
 
-
 // ==========================================================================
 // Generate responsive classes for one or more properties, starting ON the
 // specified breakpoints, across a range of breakpoints.
 // --------------------------------------------------------------------------
-// 
+//
 // ==========================================================================
 @mixin make-on-breakpoint($props, $identifier, $breakpoints) {
     @each $bp in $breakpoints {
@@ -141,24 +140,48 @@
     }
 }
 
+// leave for future use
+// 'border-color': 'color',
+// 'scroll-margin': null,
+// 'scroll-padding': null,
+// 'outline-width': 'width',
+// 'outline-color': 'color',
+// 'outline-style': 'style'
 
+// List of properties that use the split pattern for position-based classes
+$split-properties: ('border-width', 'border-style', 'border-color', 'border-radius');
 
-// 1. initialise props to be used for responsive classes
-// 2. pass in identifier to strip-invalid to remove unwanted characters
-// 3. merge the props for each position into a single map so it can
-//    be used for responsive classes which expects a map of props
-//    not a seperate `property` and `value
+@function get-position-property($property, $position) {
+    // Check if this property uses the split pattern
+    @if list.index($split-properties, $property) {
+        $property-start: str-first-segment($property);
+        $property-end: str-last-segment($property);
 
-@mixin make-position-based-class($property, $value, $positions-map, $identifier, $variant, $breakpoints) {
-    @each $axis-or-position-key, $positions in $positions-map {
-        $props: (); // 1.
-        $derived-class: strip-class-suffixes(#{$identifier}#{$axis-or-position-key}-#{$variant}, $identifier); // 2.
+        @return #{$property-start}-#{$position}-#{$property-end};
+    }
 
+    // Otherwise use suffix pattern
+    @return #{$property}-#{$position};
+}
+
+@mixin make-position-based-class($property, $value, $positions-map, $identifier, $variant, $breakpoints, $states: ()) {
+    // Iterate through each axis or position grouping in the positions map
+    @each $position-key, $positions in $positions-map {
+        // Initialize props map to collect all properties for responsive classes
+        $props: ();
+
+        // Generate clean class name by stripping unwanted suffixes
+        $derived-class: strip-class-suffixes(#{$identifier}#{$position-key}-#{$variant}, $identifier);
+
+        @debug 'Derived class: #{$derived-class}';
         .#{$derived-class} {
             @each $position in $positions {
-                #{$property}-#{$position}: #{$value};
+                $css-property: _get-position-property($property, $position);
 
-                $props: map.merge($props, (#{$property}-#{$position}: $value)); // 3.
+                #{$css-property}: #{$value};
+
+                // Collect each property-value pair into props map for responsive class generation
+                $props: map.merge($props, (#{$css-property}: $value));
             }
         }
 

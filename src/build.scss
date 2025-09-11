@@ -4,11 +4,10 @@
 @forward './components';
 @forward './forms';
 
-// 
+//
 @forward './../tmp427/utils-to-add';
 @forward './utilities/alignment';
 @forward './utilities/backgrounds';
-@forward './utilities/border';
 @forward './utilities/container';
 @forward './utilities/display-visibility';
 @forward './utilities/effects';
@@ -23,8 +22,7 @@
 @forward './utilities/typography';
 
 // Updated and ready to go!
+@forward './utilities/border';
 @forward './utilities/color';
 @forward './utilities/spacing';
 @forward './utilities/themes';
-
-// @forward './utilities/border';

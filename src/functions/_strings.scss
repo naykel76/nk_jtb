@@ -85,13 +85,13 @@
 // Check if a value includes a recognised unit.
 // ==========================================================================
 // Determines whether a string contains a CSS unit such as 'px', 'rem', etc.
-// 
+//
 // Recognised units:
 //   - px, rem, em, vh, vw, vmin, vmax, %
-// 
+//
 // Returns:
 //   true if the value contains any of the recognised units, otherwise false.
-// 
+//
 // Example:
 //   value-has-unit(1rem) → true
 //   value-has-unit(10)   → false
@@ -106,4 +106,27 @@ $units: ('px', 'rem', 'em', 'vh', 'vw', 'vmin', 'vmax', '%');
         }
     }
     @return false;
+}
+
+// Get first segment (before first delimiter)
+@function str-first-segment($string, $delimiter: '-') {
+    $index: string.index($string, $delimiter);
+
+    @if $index {
+        @return string.slice($string, 1, $index - 1);
+    }
+
+    @return $string;
+}
+
+// Get last segment (after last delimiter)
+@function str-last-segment($string, $delimiter: '-') {
+    $index: string.index($string, $delimiter);
+
+    @while $index {
+        $string: string.slice($string, $index + 1);
+        $index: string.index($string, $delimiter);
+    }
+
+    @return $string;
 }
