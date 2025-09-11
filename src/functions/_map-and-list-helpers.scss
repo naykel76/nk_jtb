@@ -1,15 +1,58 @@
-@use './list-helpers' as *;
 @use './strings' as *;
+@use 'sass:list';
 @use 'sass:map';
 @use 'sass:meta';
 
 // ==========================================================================
-// merge two or more maps into a single map.
+// LIST UTILITIES
 // ==========================================================================
-//
-// EXAMPLE:
-// $colors: merge-maps($map-a, $map-b, $map-c);
 
+// Converts a list of values into a map where each value is used as both
+// key and value. Useful for generating utility maps from shorthand lists.
+//
+// Example: list-to-map((green, 5, 16px)) → (green: green, 5: 5, 16px: 16px)
+// Note: Values must be wrapped in parentheses to be treated as a single list.
+// --------------------------------------------------------------------------
+@function list-to-map($list) {
+    $map: ();
+
+    @each $value in $list {
+        $map: map.merge(
+            $map,
+            (
+                $value: $value
+            )
+        );
+    }
+
+    @return $map;
+}
+
+// Remove an item from a Sass list while preserving order.
+// Does not modify the original list.
+//
+// Example: remove-from-list((sm, md, lg, xl), lg) → (sm, md, xl)
+// --------------------------------------------------------------------------
+@function remove-from-list($list, $value) {
+    $result: ();
+
+    @each $item in $list {
+        @if $item != $value {
+            $result: list.append($result, $item);
+        }
+    }
+
+    @return $result;
+}
+
+// ==========================================================================
+// MAP MERGING UTILITIES
+// ==========================================================================
+
+// Merge two or more maps into a single map.
+//
+// Example: merge-maps($colors, $spacing, $typography)
+// --------------------------------------------------------------------------
 @function merge-maps($maps...) {
     $merged-map: ();
 
@@ -20,17 +63,12 @@
     @return $merged-map;
 }
 
-// ==========================================================================
-// Accepts any number of maps or lists and merges them into a single map.
-// Lists are first converted to maps using `list-to-map`.
+// Merge any combination of maps and lists into a single map.
+// Lists are automatically converted to maps using list-to-map.
 //
-// Example usage:
-//  smart-merge((a: 1), (b, c), (d: 2))
-//   → (a: 1, b: b, c: c, d: 2)
-//
-// All arguments must be passed directly — do not pass a list of maps.
-// ==========================================================================
-
+// Example: smart-merge((a: 1), (b, c), (d: 2)) → (a: 1, b: b, c: c, d: 2)
+// Note: All arguments must be passed directly — do not pass a list of maps.
+// --------------------------------------------------------------------------
 @function smart-merge($collections...) {
     $map: ();
 
@@ -45,53 +83,26 @@
     @return $map;
 }
 
-/// Flattens a nested map into a single-level map, with each key concatenated
-/// with its parent key. This is useful for converting nested data structures
-/// into a flat format.
-///
-/// @param {Map} $map - The map to flatten.
-/// @param {String} [$prefix=''] - An optional prefix to prepend to each key
-///                                 in the map (used for nesting).
-///
-/// @return {Map} Returns a flattened map with concatenated keys.
-///
-/// @example scss - Usage
-///
-/// $nested-map: (
-///   'primary': (
-///     'light': #f0f,
-///     'dark': #900
-///   ),
-///   'secondary': (
-///     'light': #ff0,
-///     'dark': #900
-///   )
-/// );
-///
-/// $flattened-map: flatten-map($nested-map);
-/// // Result: (
-/// //   'primary-light': #f0f,
-/// //   'primary-dark': #900,
-/// //   'secondary-light': #ff0,
-/// //   'secondary-dark': #900
-/// // )
+// ==========================================================================
+// NESTED MAP UTILITIES
+// ==========================================================================
 
+// Flatten a nested map into a single-level map with concatenated keys.
+//
+// Example:
+//   $nested: (primary: (light: #f0f, dark: #900))
+//   flatten-map($nested) → (primary-light: #f0f, primary-dark: #900)
+// --------------------------------------------------------------------------
 @function flatten-map($map, $prefix: '') {
-    // Initialize an empty map to store the flattened key-value pairs
     $result: ();
 
-    // Iterate over each key-value pair in the map
     @each $key, $value in $map {
-        // Create a new key by adding the prefix if it exists
         $new-key: if($prefix == '', $key, '#{$prefix}-#{$key}');
 
-        // If the value is a map, recursively flatten it
         @if meta.type-of($value) == 'map' {
-            $nested: flatten-map($value, $new-key); // Recursively flatten nested maps
-            // Merge the flattened nested map into the result
+            $nested: flatten-map($value, $new-key);
             $result: map.merge($result, $nested);
         } @else {
-            // If the value is not a map, add the current key-value pair to the result
             $result: map.merge(
                 $result,
                 (
@@ -104,35 +115,32 @@
     @return $result;
 }
 
-// ---------------------------------------------------------
-// Check if nested map has a value by the keys
+// Check if nested map has a value by the given keys.
 //
-// Example: map-deep-check($nested-map, 'key-1', 'key-2')
-// ---------------------------------------------------------
+// Example: map-deep-check($config, 'colors', 'primary', 'light')
+// --------------------------------------------------------------------------
 @function map-deep-check($map, $keys...) {
     @if meta.type-of($map) != 'map' {
-        @error 'The argument $map: `#{$map}` is of incorrect type: `#{meta.type-of($map)}`. Type of `Map` is required!';
+        @error 'Expected map, got #{meta.type-of($map)}: #{$map}';
     }
 
     @each $key in $keys {
         @if not map.has-key($map, $key) {
             @return false;
         }
-
         $map: map.get($map, $key);
     }
 
     @return true;
 }
 
-// ---------------------------------------------------------
-// Get a value from nested map by the keys
+// Get a value from nested map by the given keys.
 //
-// Example: map-deep-get($dfr-spacing, 'xs', 'y')
-// ---------------------------------------------------------
+// Example: map-deep-get($config, 'spacing', 'xs', 'y')
+// --------------------------------------------------------------------------
 @function map-deep-get($map, $keys...) {
     @if meta.type-of($map) != 'map' {
-        @error 'The argument $map: `#{$map}` is of incorrect type: `#{meta.type-of($map)}`. Type of `Map` is required!';
+        @error 'Expected map, got #{meta.type-of($map)}: #{$map}';
     }
 
     @each $key in $keys {
@@ -142,16 +150,16 @@
     @return $map;
 }
 
-// ---------------------------------------------------------
-// Get value from nested map using dot notation string
+// Get value from nested map using dot notation string.
+// Requires the strings utility for str-explode function.
 //
-// Example: get('border.radius.xs')
-// ---------------------------------------------------------
+// Example: map-get-dot('border.radius.xs', $config)
+// --------------------------------------------------------------------------
 @function map-get-dot($key, $map) {
     $keys: str-explode($key, '.');
 
     @if not map-deep-check($map, $keys...) {
-        @error 'The argument $map: `#{$map}` doesn\'t has some of the $keys: `#{$keys}`!';
+        @error 'Path "#{$key}" not found in map';
     }
 
     @return map-deep-get($map, $keys...);
