@@ -1,92 +1,104 @@
 @use '../maps_and_variables/layout' as *;
 
-// |-- on-device --|
 // ==========================================================================
+// Media Query Mixins
+// ==========================================================================
+// Responsive breakpoint mixins for handling different screen sizes
+//
+// Available patterns:
+// - on-{size}: Target specific breakpoint range only
+// - from-{size}: Target breakpoint and larger (mobile-first)
+// - to-{size}: Target up to but not including breakpoint
+//
+// Examples:
+// @include on-md { ... }    // Only on medium screens
+// @include from-lg { ... }  // Large screens and up
+// @include to-sm { ... }    // Smaller than small screens
+// ==========================================================================
+
+// Target specific breakpoint ranges only
 @mixin on-sm {
-    @media (min-width: $sm) and (max-width: calc($md - 1px)) {
+    @media ($sm <= width < $md) {
         @content;
     }
 }
 
 @mixin on-md {
-    @media (min-width: $md) and (max-width: calc($lg - 1px)) {
+    @media ($md <= width < $lg) {
         @content;
     }
 }
 
 @mixin on-lg {
-    @media (min-width: $lg) and (max-width: calc($xl - 1px)) {
+    @media ($lg <= width < $xl) {
         @content;
     }
 }
 
 @mixin on-xl {
-    @media (min-width: $xl) and (max-width: calc($xxl - 1px)) {
+    @media ($xl <= width < $xxl) {
         @content;
     }
 }
 
 @mixin on-xxl {
-    @media (min-width: $xxl) {
+    @media (width >= $xxl) {
         @content;
     }
 }
 
-// |-- from-device (device and larger) --|
-// ==========================================================================
-
+// Target breakpoint and larger (mobile-first approach)
 @mixin from-sm {
-    @media (min-width: $sm) {
+    @media (width >= $sm) {
         @content;
     }
 }
 
 @mixin from-md {
-    @media (min-width: $md) {
+    @media (width >= $md) {
         @content;
     }
 }
 
 @mixin from-lg {
-    @media (min-width: $lg) {
+    @media (width >= $lg) {
         @content;
     }
 }
 
 @mixin from-xl {
-    @media (min-width: $xl) {
+    @media (width >= $xl) {
         @content;
     }
 }
 
 @mixin from-xxl {
-    @media (min-width: $xxl) {
+    @media (width >= $xxl) {
         @content;
     }
 }
 
-// |-- to-device (up-to but not including) --|
-// ==========================================================================
+// Target up to but not including breakpoint
 @mixin to-sm {
-    @media (max-width: calc($sm - 1px)) {
+    @media (width < $sm) {
         @content;
     }
 }
 
 @mixin to-md {
-    @media (max-width: calc($md - 1px)) {
+    @media (width < $md) {
         @content;
     }
 }
 
 @mixin to-lg {
-    @media (max-width: calc($lg - 1px)) {
+    @media (width < $lg) {
         @content;
     }
 }
 
 @mixin to-xl {
-    @media (max-width: calc($xl - 1px)) {
+    @media (width < $xl) {
         @content;
     }
 }
