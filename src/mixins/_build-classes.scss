@@ -27,8 +27,8 @@
 
 // ==========================================================================
 // Generates utility classes for CSS properties using a configuration map.
-// Supports responsive variants, automatic value-unit handling, and
-// position-based classes.
+// Supports responsive variants, automatic value-unit handling, position-based 
+// classes, and optional axis key omission for cleaner class names.
 // --------------------------------------------------------------------------
 // Key variables in the value processing logic:
 //
@@ -44,13 +44,42 @@
 // 3. $derived-suffix: The unique identifier portion of the class name, created
 //    by combining the variant label with the processed unit string. This forms
 //    the distinctive part of each utility class (e.g., "12px" in "margin-12px").
+//
+// New in this version:
+// 4. $omit-axis-keys: Optional configuration to omit specific axis keys from
+//    class names. For example, omitting 'xy' creates '.padding' instead of 
+//    '.padding-xy' while preserving '.padding-x', '.padding-y', etc.
+//
+// @example scss - Using omit-axis-keys
+//   $properties-map: (
+//     padding: (
+//       values: $spacing-values,
+//       unit: 'rem',
+//       positions: $logical-position-map,
+//       omit-axis-keys: (xy)  // Creates .padding instead of .padding-xy
+//     )
+//   );
 // ==========================================================================
 
+// should i consider Taking Arbitrary ArgumentsTaking Arbitrary Arguments permalink
+// Sometimes it’s useful for a function to b
+
+
+// SassPlayground
+// SCSS Syntax
+// @function sum($numbers...) {
+//   $sum: 0;
+//   @each $number in $numbers {
+//     $sum: $sum + $number;
+//   }
+//   @return $sum;
+// }
 // prettier-ignore
 @mixin build-property-classes($properties-map, $responsive: true, $with-state: false, $debug: false) {
     @each $property, $map in $properties-map {
         $map-unit: map.get($map, 'unit');
         $map-positions: map.get($map, 'positions');
+        $omit-axis-keys: map.get($map, 'omit-axis-keys'); // NEW: extract omit-axis-keys config
 
         $prefix: resolve-prefix(map.get($map, 'prefix'), $property);
         $breakpoints: resolve-breakpoints($responsive, map.get($map, 'breakpoints'));
@@ -76,7 +105,7 @@
             // margin-inline, margin-block, and margin. This ensures maximum
             // flexibility and avoids unintended overrides in complex layouts.
             @if $map-positions {
-                @include make-position-based-class($property, $derived-value, $map-positions, $prefix, $derived-suffix, $breakpoints);
+                @include make-position-based-class($property, $derived-value, $map-positions, $prefix, $derived-suffix, $breakpoints, $states, $omit-axis-keys);
             } @else{
                 @include make-single-property-class( $property, #{$derived-class}, #{$derived-value}, $breakpoints, $states );
             }

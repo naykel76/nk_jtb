@@ -3,16 +3,512 @@
 
 <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
     <title>NayKel JTB</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
-<body class="zebra c-py-5-3-2">
 
+<body class="zebra c-py-5-3-2">
+    <section class="py-3">
+        <div class="container">
+            <h2 class="title txt-blue">Outline</h2>
+            <h4>Outline Widths</h4>
+            <p class="txt-red">Note: An outline style class must be applied for outlines to be visible.</p>
+            <div class="grid lg:cols-3 tac c-pxy-1">
+                <div class="outline outline-blue bdr-2 bdr-gray-200">
+                    <code>outline</code><br> Default outline
+                </div>
+                <div class="outline-2 outline-blue bdr-2 bdr-gray-200">
+                    <code>outline-2</code><br> 2px outline
+                </div>
+                <div class="outline-3 outline-blue bdr-2 bdr-gray-200">
+                    <code>outline-3</code><br> 3px outline
+                </div>
+            </div>
+            <hr>
+            <h4>Outline Styles</h4>
+            <div class="grid lg:cols-2 tac c-pxy-1">
+                <div class="outline-solid outline-3 outline-blue bdr-2 bdr-gray-200 bdr-2 bdr-gray-200 bdr-2 bdr-gray-200">
+                    <code class="txt-red">outline-solid</code>
+                </div>
+                <div class="outline-dashed outline-3 outline-blue  bdr-2 bdr-gray-200 bdr-2 bdr-gray-200 bdr-2 bdr-gray-200">
+                    <code class="txt-red">outline-dashed</code>
+                </div>
+                <div class="outline-dotted outline-3 outline-blue  bdr-2 bdr-gray-200 bdr-2 bdr-gray-200 bdr-2 bdr-gray-200">
+                    <code class="txt-red">outline-dotted</code>
+                </div>
+                <div class="outline-double outline-3 outline-blue  bdr-2 bdr-gray-200 bdr-2 bdr-gray-200 bdr-2 bdr-gray-200">
+                    <code class="txt-red">outline-double</code>
+                </div>
+            </div>
+            <hr>
+            <h4>Outline Offset</h4>
+            <div class="flex gap-3 tac c-pxy-1">
+                <div class="w-10 outline-offset outline-solid outline-3 outline-blue bdr-2 bdr-gray-200 bdr-2 bdr-gray-200 bdr-2 bdr-gray-200">
+                    <code class="txt-red">outline-offset</code>
+                </div>
+                <div class="w-10 outline-offset-3 outline-solid outline-3 outline-blue bdr-2 bdr-gray-200 bdr-2 bdr-gray-200 bdr-2 bdr-gray-200">
+                    <code class="txt-red">outline-offset-3</code>
+                </div>
+                <div class="w-10 outline-offset-5 outline-solid outline-3 outline-blue bdr-2 bdr-gray-200 bdr-2 bdr-gray-200 bdr-2 bdr-gray-200">
+                    <code class="txt-red">outline-offset-5</code>
+                </div>
+
+            </div>
+            <hr>
+
+        </div>
+    </section>
+    <section class="py-3">
+        <div class="container">
+            <h2 class="title txt-blue">Borders</h2>
+            <h4>Border Widths</h4>
+            <div class="grid lg:cols-3 tac c-pxy-1">
+                <div class="bdr">
+                    <code>bdr</code><br> Default border
+                </div>
+                <div class="bdr-2">
+                    <code>bdr-2</code><br> 2px border
+                </div>
+                <div class="bdr-3">
+                    <code>bdr-3</code><br> 3px border
+                </div>
+            </div>
+            <hr>
+            <h4>Border Radius</h4>
+            <div class="grid lg:cols-4 tac c-pxy-1">
+                <div class="bdr rounded">
+                    <code>rounded</code><br> Default radius
+                </div>
+                <div class="bdr-2 rounded-05">
+                    <code>rounded-05</code><br> 0.5rem radius
+                </div>
+                <div class="bdr-2 rounded-1">
+                    <code>rounded-1</code><br> 1rem radius
+                </div>
+                <div class="bdr-3 rounded-full">
+                    <code>rounded-full</code><br> full radius
+                </div>
+            </div>
+            <h4>Border Radius</h4>
+            <div class="grid lg:cols-4 tac c-pxy-1">
+                <div class="py bdr rounded-t-075">
+                    <code>rounded-t</code><br>
+                </div>
+                <div class="py bdr rounded-r-075">
+                    <code>rounded-r</code><br>
+                </div>
+
+                <div class="py bdr rounded-b-075">
+                    <code>rounded-b</code><br>
+                </div>
+                <div class="py bdr rounded-l-075">
+                    <code>rounded-l</code><br>
+                </div>
+
+                <div class="py bdr rounded-tl-075">
+                    <code>rounded-tl</code><br>
+                </div>
+                <div class="py bdr rounded-tr-075">
+                    <code>rounded-tr</code><br>
+                </div>
+                <div class="py bdr rounded-br-075">
+                    <code>rounded-br</code><br>
+                </div>
+                <div class="py bdr rounded-bl-075">
+                    <code>rounded-bl</code><br>
+                </div>
+            </div>
+            <hr>
+            <h4>Border Styles</h4>
+            <div class="grid lg:cols-2 tac c-pxy-1">
+                <div class="bdr-3 bdr-solid">
+                    <code class="txt-red">bdr-solid</code>
+                </div>
+                <div class="bdr-3 bdr-dashed">
+                    <code class="txt-red">bdr-dashed</code>
+                </div>
+                <div class="bdr-3 bdr-dotted">
+                    <code class="txt-red">bdr-dotted</code>
+                </div>
+                <div class="bdr-3 bdr-double">
+                    <code class="txt-red">bdr-double</code>
+                </div>
+            </div>
+            <hr>
+            <h4>Border Sides</h4>
+            <div class="grid gap-3 lg:cols-4 tac c-pxy-1">
+                <div class="bdr-t-4"> bdr-t-4 </div>
+                <div class="bdr-r-4"> bdr-r-4 </div>
+                <div class="bdr-b-4"> bdr-b-4 </div>
+                <div class="bdr-l-4"> bdr-l-4 </div>
+            </div>
+
+            <h4>Border Horizontal and Vertical Sides</h4>
+            <div class="grid gap-3 lg:cols-4 tac c-pxy-1">
+                <div class="bdr-x-4"> bdr-4 </div>
+                <div class="bdr-y-4"> bdr-4 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="colors" class="py-3">
+        <div class="container-xl">
+            <h2 class="title">Colors</h2>
+            <p>This compares the tailwind <code>-500</code> color to the colors in the <code>base-colors</code></p>
+            <!-- tailwind -500 vs base color comparison -->
+            <div class="grid md:cols-6 font-mono tac">
+                <div class="bdr">
+                    <div class="py-1 bg-red-500">red-500</div>
+                    <div class="py-1 bg-red">red</div>
+                </div>
+                <div class="bdr">
+                    <div class="py-1 bg-orange-500">orange-500</div>
+                    <div class="py-1 bg-orange">orange</div>
+                </div>
+                <div class="bdr">
+                    <div class="py-1 bg-amber-500">amber-500</div>
+                    <div class="py-1 bg-amber">amber</div>
+                </div>
+                <div class="bdr">
+                    <div class="py-1 bg-yellow-500">yellow-500</div>
+                    <div class="py-1 bg-yellow">yellow</div>
+                </div>
+                <div class="bdr">
+                    <div class="py-1 bg-lime-500">lime-500</div>
+                    <div class="py-1 bg-lime">lime</div>
+                </div>
+                <div class="bdr">
+                    <div class="py-1 bg-green-500">green-500</div>
+                    <div class="py-1 bg-green">green</div>
+                </div>
+                <div class="bdr">
+                    <div class="py-1 bg-emerald-500">emerald-500</div>
+                    <div class="py-1 bg-emerald">emerald</div>
+                </div>
+                <div class="bdr">
+                    <div class="py-1 bg-teal-500">teal-500</div>
+                    <div class="py-1 bg-teal">teal</div>
+                </div>
+                <div class="bdr">
+                    <div class="py-1 bg-cyan-500">cyan-500</div>
+                    <div class="py-1 bg-cyan">cyan</div>
+                </div>
+                <div class="bdr">
+                    <div class="py-1 bg-sky-500">sky-500</div>
+                    <div class="py-1 bg-sky">sky</div>
+                </div>
+                <div class="bdr">
+                    <div class="py-1 bg-blue-500">blue-500</div>
+                    <div class="py-1 bg-blue">blue</div>
+                </div>
+                <div class="bdr">
+                    <div class="py-1 bg-indigo-500">indigo-500</div>
+                    <div class="py-1 bg-indigo">indigo</div>
+                </div>
+                <div class="bdr">
+                    <div class="py-1 bg-violet-500">violet-500</div>
+                    <div class="py-1 bg-violet">violet</div>
+                </div>
+                <div class="bdr">
+                    <div class="py-1 bg-purple-500">purple-500</div>
+                    <div class="py-1 bg-purple">purple</div>
+                </div>
+                <div class="bdr">
+                    <div class="py-1 bg-fuchsia-500">fuchsia-500</div>
+                    <div class="py-1 bg-fuchsia">fuchsia</div>
+                </div>
+                <div class="bdr">
+                    <div class="py-1 bg-pink-500">pink-500</div>
+                    <div class="py-1 bg-pink">pink</div>
+                </div>
+                <div class="bdr">
+                    <div class="py-1 bg-rose-500">rose-500</div>
+                    <div class="py-1 bg-rose">rose</div>
+                </div>
+                <div class="bdr">
+                    <div class="py-1 bg-slate-500">slate-500</div>
+                    <div class="py-1 bg-slate">slate</div>
+                </div>
+                <div class="bdr">
+                    <div class="py-1 bg-gray-500">gray-500</div>
+                    <div class="py-1 bg-gray">gray</div>
+                </div>
+                <div class="bdr">
+                    <div class="py-1 bg-zinc-500">zinc-500</div>
+                    <div class="py-1 bg-zinc">zinc</div>
+                </div>
+                <div class="bdr">
+                    <div class="py-1 bg-neutral-500">neutral-500</div>
+                    <div class="py-1 bg-neutral">neutral</div>
+                </div>
+                <div class="bdr">
+                    <div class="py-1 bg-stone-500">stone-500</div>
+                    <div class="py-1 bg-stone">stone</div>
+                </div>
+            </div>
+            <hr>
+            <!-- text base colors demo -->
+            <div class="flex txt-xl space-between">
+                <p class="txt-xl txt-red">red</p>
+                <p class="txt-xl txt-orange">orange</p>
+                <p class="txt-xl txt-amber">amber</p>
+                <p class="txt-xl txt-yellow">yellow</p>
+                <p class="txt-xl txt-lime">lime</p>
+                <p class="txt-xl txt-green">green</p>
+                <p class="txt-xl txt-emerald">emerald</p>
+                <p class="txt-xl txt-teal">teal</p>
+                <p class="txt-xl txt-cyan">cyan</p>
+                <p class="txt-xl txt-sky">sky</p>
+                <p class="txt-xl txt-blue">blue</p>
+                <p class="txt-xl txt-indigo">indigo</p>
+                <p class="txt-xl txt-violet">violet</p>
+                <p class="txt-xl txt-purple">purple</p>
+                <p class="txt-xl txt-fuchsia">fuchsia</p>
+                <p class="txt-xl txt-pink">pink</p>
+                <p class="txt-xl txt-rose">rose</p>
+                <p class="txt-xl txt-slate">slate</p>
+                <p class="txt-xl txt-gray">gray</p>
+                <p class="txt-xl txt-zinc">zinc</p>
+                <p class="txt-xl txt-neutral">neutral</p>
+                <p class="txt-xl txt-stone">stone</p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <h2>Positional Utilities</h2>
+            <div class="flex gap justify-between items-start">
+                <div class="bg-stripes-pink rounded">
+                    <div class="bx bg-pink-100 pxy mxy-1"><code>pxy</code></div>
+                </div>
+                <div class="bg-stripes-pink rounded">
+                    <div class="bx bg-pink-100 pxy-2 mxy-1"><code>pxy-2</code></div>
+                </div>
+                <div class="bg-stripes-blue bdr-blue">
+                    <div class="bx lh-1 mxy"><code>mxy</code></div>
+                </div>
+                <div class="bg-stripes-blue bdr-blue">
+                    <div class="bx lh-1 mxy-2"><code>mxy-2</code></div>
+                </div>
+            </div>
+            <div class="flex gap justify-between items-start">
+
+                <div class="bg-stripes-pink rounded">
+                    <div class="bx bg-pink-100 pxy-3 mxy-1"><code>pxy-3</code></div>
+                </div>
+
+                <div class="bg-stripes-blue bdr-blue">
+                    <div class="bx lh-1 mxy-3"><code>mxy-3</code></div>
+                </div>
+            </div>
+            <div class="flex gap justify-between items-start">
+                <div class="bg-stripes-blue bdr-blue">
+                    <div class="bx lh-1 mx"><code>mx</code></div>
+                </div>
+                <div class="bg-stripes-blue bdr-blue">
+                    <div class="bx lh-1 my"><code>my</code></div>
+                </div>
+                <div class="bg-stripes-blue bdr-blue">
+                    <div class="bx lh-1 mt"><code>mt</code></div>
+                </div>
+                <div class="bg-stripes-blue bdr-blue">
+                    <div class="bx lh-1 mb"><code>mb</code></div>
+                </div>
+                <div class="bg-stripes-blue bdr-blue">
+                    <div class="bx lh-1 ml"><code>ml</code></div>
+                </div>
+                <div class="bg-stripes-blue bdr-blue">
+                    <div class="bx lh-1 mr"><code>mr</code></div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <h2>Positional Utilities</h2>
+            <div class="flex gap justify-between items-start">
+                <div class="bg-stripes-pink rounded">
+                    <div class="bx bg-pink-100 pxy mxy-1"><code>pxy</code></div>
+                </div>
+                <div class="bg-stripes-pink rounded">
+                    <div class="bx bg-pink-100 pxy-2 mxy-1"><code>pxy-2</code></div>
+                </div>
+                <div class="bg-stripes-pink rounded">
+                    <div class="bx bg-pink-100 pxy-3 mxy-1"><code>pxy-3</code></div>
+                </div>
+            </div>
+            <div class="flex gap justify-between items-start">
+                <div class="bg-stripes-blue bdr-blue">
+                    <div class="bx lh-1 mxy"><code>mxy</code></div>
+                </div>
+                <div class="bg-stripes-blue bdr-blue">
+                    <div class="bx lh-1 mxy-2"><code>mxy-2</code></div>
+                </div>
+                <div class="bg-stripes-blue bdr-blue">
+                    <div class="bx lh-1 mxy-3"><code>mxy-3</code></div>
+                </div>
+            </div>
+            <div class="flex gap justify-between items-start">
+                <div class="bg-stripes-blue bdr-blue">
+                    <div class="bx lh-1 mx"><code>mx</code></div>
+                </div>
+                <div class="bg-stripes-blue bdr-blue">
+                    <div class="bx lh-1 my"><code>my</code></div>
+                </div>
+                <div class="bg-stripes-blue bdr-blue">
+                    <div class="bx lh-1 mt"><code>mt</code></div>
+                </div>
+                <div class="bg-stripes-blue bdr-blue">
+                    <div class="bx lh-1 mb"><code>mb</code></div>
+                </div>
+                <div class="bg-stripes-blue bdr-blue">
+                    <div class="bx lh-1 ml"><code>ml</code></div>
+                </div>
+                <div class="bg-stripes-blue bdr-blue">
+                    <div class="bx lh-1 mr"><code>mr</code></div>
+                </div>
+
+            </div>
+            <div class="flex gap justify-between items-start">
+                <div class="bg-stripes-blue bdr-blue">
+                    <div class="bx lh-1 my"><code>my</code></div>
+                </div>
+                <div class="bg-stripes-blue bdr-blue">
+                    <div class="bx lh-1 my-2"><code>my-2</code></div>
+                </div>
+                <div class="bg-stripes-blue bdr-blue">
+                    <div class="bx lh-1 my-3"><code>my-3</code></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="container-sm py-5">
+
+        <div class="bx space-y">
+            <div class="pxy-1 outline-solid"><code>outline-solid</code></div>
+            <div class="outline-solid outline-width-1 outline-red-500"><code>outline-solid outline-width-1 outline-red-500</code></div>
+            <div class="outline-solid outline-width-2 outline-red-500"><code>outline-solid outline-width-2 outline-red-500</code></div>
+            <div class="outline-solid outline-width-3 outline-red-500"><code>outline-solid outline-width-3 outline-red-500</code></div>
+            <div class="outline-solid outline-width-4 outline-red-500"><code>outline-solid outline-width-4 outline-red-500</code></div>
+            <div class="outline-solid outline-width-5 outline-red-500"><code>outline-solid outline-width-5 outline-red-500</code></div>
+        </div>
+
+
+        <div class="x px-075 py-05 txt-white txt-sm font-medium cursor-pointer rounded-lg
+          bg-pink-700 
+        ring-4 ring-yellow  ">Pink</div>
+        <hr>
+
+        <div class="px-075 py-05 txt-white txt-sm font-medium cursor-pointer rounded-lg
+          bg-pink-700 hover:bg-pink-800 
+        focus:ring-4 focus:ring-pink-300  ">Pink</div>
+
+        <!-- <button class="bg-violet-500 hover:bg-violet-600 focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700 ...">
+            Save changes
+        </button> -->
+
+        <button class="px-075 py-05 txt-white txt-sm font-medium cursor-pointer rounded-lg
+          bg-pink-700 hover:bg-pink-800 
+        focus:ring-4 focus:ring-pink-300  dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-900" type="button">Pink</button>
+
+        <!-- bdr 0 bdr-2 -->
+        <button class="px-075 py-05 txt-white txt-sm font-medium cursor-pointer rounded-lg
+          
+
+
+        focus:outline-none  
+        bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+            type="button">Purple</button>
+
+        <button class="px-075 py-05 txt-white txt-sm font-medium cursor-pointer rounded-lg
+            bdr bdr-blue-500 bdr-2
+            bg-blue-700 hover:bg-blue-800
+            active:bg-orange-500"
+            type="button">BUTTON</button>
+
+
+        <div class="px-075 py-05 cursor-pointer rounded
+            txt-white txt-sm font-medium
+            bdr bdr-blue-500 bdr-2
+            bg-blue-700 hover:bg-blue-800 active:bg-orange-500">DIV</div>
+    </div>
+
+
+
+
+
+
+    <p class="font-light">The quick brown fox ...</p>
+    <p class="font-normal">The quick brown fox ...</p>
+    <p class="font-medium">The quick brown fox ...</p>
+    <p class="font-semibold">The quick brown fox ...</p>
+    <p class="font-bold">The quick brown fox ...</p>
+    <p class="fw1">The quick brown fox ...</p>
+    <p class="fw2">The quick brown fox ...</p>
+    <p class="fw3">The quick brown fox ...</p>
+    <p class="fw4">The quick brown fox ...</p>
+    <p class="fw5">The quick brown fox ...</p>
+    <p class="fw6">The quick brown fox ...</p>
+    <p class="fw7">The quick brown fox ...</p>
+    <p class="fw8">The quick brown fox ...</p>
+    <p class="fw9">The quick brown fox ...</p>
+    <!-- basic theme examples -->
+    <section id="basic-themes" class="py-3">
+        <div class="container">
+            <h2 class="title txt-3">Basic Themes</h2>
+            <h4>Base Colors</h4>
+            <p class="txt-red"><strong>Note:</strong> The border width has been increased in these examples for better visibility.</p>
+            <div class="grid gap-05 cols-6">
+                <div class="bdr-5 primary pxy">primary</div>
+                <div class="bdr-5 secondary pxy">secondary</div>
+                <div class="bdr-5 accent pxy">accent</div>
+                <div class="bdr-5 light pxy">light</div>
+                <div class="bdr-5 dark pxy">dark</div>
+                <div class="bdr-5 danger pxy">danger</div>
+                <div class="bdr-5 info pxy">info</div>
+                <div class="bdr-5 success pxy">success</div>
+                <div class="bdr-5 warning pxy">warning</div>
+                <div class="bdr-5 muted pxy">muted</div>
+                <div class="bdr-5 stone pxy">stone</div>
+                <div class="bdr-5 brown pxy">brown</div>
+                <div class="bdr-5 red pxy">red</div>
+                <div class="bdr-5 orange pxy">orange</div>
+                <div class="bdr-5 amber pxy">amber</div>
+                <div class="bdr-5 yellow pxy">yellow</div>
+                <div class="bdr-5 lime pxy">lime</div>
+                <div class="bdr-5 emerald pxy">emerald</div>
+                <div class="bdr-5 green pxy">green</div>
+                <div class="bdr-5 teal pxy">teal</div>
+                <div class="bdr-5 cyan pxy">cyan</div>
+                <div class="bdr-5 sky pxy">sky</div>
+                <div class="bdr-5 blue pxy">blue</div>
+                <div class="bdr-5 indigo pxy">indigo</div>
+                <div class="bdr-5 purple pxy">purple</div>
+                <div class="bdr-5 fuchsia pxy">fuchsia</div>
+                <div class="bdr-5 pink pxy">pink</div>
+                <div class="bdr-5 rose pxy">rose</div>
+                <div class="bdr-5 white pxy">white</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container-sm py-5">
+        <div class="bx bg-red-100 bdr-red-300 txt-red-800 hover:bg-blue-200 hover:bdr-blue-400 hover:txt-blue-900">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </div>
+    </div>
+
+
+    <div class="green pxy">sdf</div>
     <section id="form-controls" class="py-3">
         <div class="container">
             <div class="txt-red txt-4">moved to JTB docs</div>
@@ -52,11 +548,11 @@
                 </div>
                 <div id="label-with-tooltip">
                     <h5 class="my">Label with Tooltip</h5>
-                    <div class="flex va-c space-between mb-05 bdr">
+                    <div class="flex va-c gap space-between mb-05 bdr">
                         <label> My Label </label>
                         <span x-data="{open:false}" class="relative" x-on:mouseenter="open=true"
                             x-on:mouseleave="open=false">
-                            <div class="flex va-c">
+                            <div class="flex va-c gap-1 fw6 mt-1">
                                 <svg class="txt-muted" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                     aria-hidden="true" data-slot="icon">
@@ -301,8 +797,8 @@
                     <a href="/" aria-label="Home">
                         <img src="/images/logo.svg" alt="NayKel JTB logo" loading="lazy" />
                     </a>
-                    <div class="bdr flex va-c space-x-3">
-                        <div class="flex va-c">
+                    <div class="bdr flex va-c gap space-x-3">
+                        <div class="flex va-c gap-1 fw6 mt-1">
                             <nav>
                                 <ul>
                                     <li><a class="active" href="#">Home</a></li>
@@ -446,45 +942,7 @@
             </table>
         </div>
         <main class="main-content-quick-hide-wrapper zebra">
-            <!-- basic theme examples -->
-            <section id="basic-themes" class="py-3">
-                <div class="container">
-                    <h2 class="title txt-3">Basic Themes</h2>
-                    <h4>Base Colors</h4>
-                    <p class="txt-red"><strong>Note:</strong> The border width has been increased in these examples for better visibility.</p>
-                    <div class="grid gap-05 cols-6">
-                        <div class="bdr-5 primary pxy">primary</div>
-                        <div class="bdr-5 secondary pxy">secondary</div>
-                        <div class="bdr-5 accent pxy">accent</div>
-                        <div class="bdr-5 light pxy">light</div>
-                        <div class="bdr-5 dark pxy">dark</div>
-                        <div class="bdr-5 danger pxy">danger</div>
-                        <div class="bdr-5 info pxy">info</div>
-                        <div class="bdr-5 success pxy">success</div>
-                        <div class="bdr-5 warning pxy">warning</div>
-                        <div class="bdr-5 muted pxy">muted</div>
-                        <div class="bdr-5 stone pxy">stone</div>
-                        <div class="bdr-5 brown pxy">brown</div>
-                        <div class="bdr-5 red pxy">red</div>
-                        <div class="bdr-5 orange pxy">orange</div>
-                        <div class="bdr-5 amber pxy">amber</div>
-                        <div class="bdr-5 yellow pxy">yellow</div>
-                        <div class="bdr-5 lime pxy">lime</div>
-                        <div class="bdr-5 emerald pxy">emerald</div>
-                        <div class="bdr-5 green pxy">green</div>
-                        <div class="bdr-5 teal pxy">teal</div>
-                        <div class="bdr-5 cyan pxy">cyan</div>
-                        <div class="bdr-5 sky pxy">sky</div>
-                        <div class="bdr-5 blue pxy">blue</div>
-                        <div class="bdr-5 indigo pxy">indigo</div>
-                        <div class="bdr-5 purple pxy">purple</div>
-                        <div class="bdr-5 fuchsia pxy">fuchsia</div>
-                        <div class="bdr-5 pink pxy">pink</div>
-                        <div class="bdr-5 rose pxy">rose</div>
-                        <div class="bdr-5 white pxy">white</div>
-                    </div>
-                </div>
-            </section>
+
             <!-- table and components -->
             <section id="table" class="py-3">
                 <div class="container">
@@ -970,13 +1428,13 @@
                         adipisci sunt ad voluptatem quam. </p>
                 </div>
                 <button x-on:click="expanded =! expanded" class="link mt">
-                    <div class="flex va-c" x-show="!expanded">
+                    <div class="flex va-c" ap x-show="!expanded">
                         Show more
                         <svg class="icon sm ml-05">
                             <use xlink:href="svg/naykel-ui.svg#chevron-down"></use>
                         </svg>
                     </div>
-                    <span class="flex va-c" x-show="expanded">
+                    <span class="flex va-c" ap x-show="expanded">
                         Show less
                         <svg class="icon sm ml-05">
                             <use xlink:href="svg/naykel-ui.svg#chevron-up"></use>
@@ -1228,7 +1686,7 @@
             <section id="notifications" class="py-3">
                 <div class="container">
                     <div class="grid cols-3">
-                        <div class="bx pxy-1 flex va-c">
+                        <div class="bx pxy-1 flex va-c" ap>
                             <svg class="txt-green wh-2">
                                 <use xlink:href="svg/naykel-ui.svg#check-circle"></use>
                             </svg>
@@ -1246,12 +1704,12 @@
                 <div class="container">
                     <h2>Alignment Techniques</h2>
                     <div class="grid cols-3">
-                        <div class="bdr flex va-c">
+                        <div class="bdr flex va-c" ap>
                             <div class="wh-3 pink"></div>
                             <div class="wh-4 blue"></div>
                             <div class="ml-auto wh-3 pink"></div>
                         </div>
-                        <div class="bdr flex va-c">
+                        <div class="bdr flex va-c" ap>
                             <span class="wh-3 pink"></span>
                             <div class="fg1 wh-4 blue"></div>
                             <span class="wh-3 pink"></span>
@@ -1526,28 +1984,8 @@
                 </section>
                 <section id="theme-examples-with-state">
                     <div class="container">
-                        <h2 class="title txt-3">Themes With State</h2>
                         <h4>Base Colors</h4>
-                        <div class="grid-1 cols-6">
-                            <div class="pxy bdr-3 tac withState stone">stone</div>
-                            <div class="pxy bdr-3 tac withState brown">brown</div>
-                            <div class="pxy bdr-3 tac withState red">red</div>
-                            <div class="pxy bdr-3 tac withState orange">orange</div>
-                            <div class="pxy bdr-3 tac withState amber">amber</div>
-                            <div class="pxy bdr-3 tac withState yellow">yellow</div>
-                            <div class="pxy bdr-3 tac withState lime">lime</div>
-                            <div class="pxy bdr-3 tac withState emerald">emerald</div>
-                            <div class="pxy bdr-3 tac withState green">green</div>
-                            <div class="pxy bdr-3 tac withState teal">teal</div>
-                            <div class="pxy bdr-3 tac withState cyan">cyan</div>
-                            <div class="pxy bdr-3 tac withState sky">sky</div>
-                            <div class="pxy bdr-3 tac withState blue">blue</div>
-                            <div class="pxy bdr-3 tac withState indigo">indigo</div>
-                            <div class="pxy bdr-3 tac withState purple">purple</div>
-                            <div class="pxy bdr-3 tac withState fuchsia">fuchsia</div>
-                            <div class="pxy bdr-3 tac withState pink">pink</div>
-                            <div class="pxy bdr-3 tac withState rose">rose</div>
-                        </div>
+
                         <h4>Theme Colors and Alert Colors</h4>
                         <div class="grid cols-5">
                             <div class="pxy bdr-3 tac withState primary">primary</div>
@@ -1726,626 +2164,8 @@
                             </tr>
                         </tbody>
                     </table>
-
                 </section>
             </main>
-
-            <footer id="nk-footer">
-
-            </footer>
-
-
-            <section id="base-color-shades">
-                <div class="grid-0 cols-12 tac va-c">
-                    <p class="tal">Stone</p>
-                    <div class="py stone-1">1</div>
-                    <div class="py stone-2">2</div>
-                    <div class="py stone-3">3</div>
-                    <div class="py stone-4">4</div>
-                    <div class="py stone-5">5</div>
-                    <div class="py stone-6">6</div>
-                    <div class="py stone-7">7</div>
-                    <div class="py stone-8">8</div>
-                    <div class="py stone-9">9</div>
-                    <div class="py stone-10">10</div>
-                    <div class="py stone-11">11</div>
-                </div>
-                <div class="grid-0 cols-12 tac va-c">
-                    <p class="tal">Brown</p>
-                    <div class="py brown-1">1</div>
-                    <div class="py brown-2">2</div>
-                    <div class="py brown-3">3</div>
-                    <div class="py brown-4">4</div>
-                    <div class="py brown-5">5</div>
-                    <div class="py brown-6">6</div>
-                    <div class="py brown-7">7</div>
-                    <div class="py brown-8">8</div>
-                    <div class="py brown-9">9</div>
-                    <div class="py brown-10">10</div>
-                    <div class="py brown-11">11</div>
-                </div>
-                <div class="grid-0 cols-12 tac va-c">
-                    <p class="tal">Red</p>
-                    <div class="py red-1">1</div>
-                    <div class="py red-2">2</div>
-                    <div class="py red-3">3</div>
-                    <div class="py red-4">4</div>
-                    <div class="py red-5">5</div>
-                    <div class="py red-6">6</div>
-                    <div class="py red-7">7</div>
-                    <div class="py red-8">8</div>
-                    <div class="py red-9">9</div>
-                    <div class="py red-10">10</div>
-                    <div class="py red-11">11</div>
-                </div>
-                <div class="grid-0 cols-12 tac va-c">
-                    <p class="tal">Orange</p>
-                    <div class="py orange-1">1</div>
-                    <div class="py orange-2">2</div>
-                    <div class="py orange-3">3</div>
-                    <div class="py orange-4">4</div>
-                    <div class="py orange-5">5</div>
-                    <div class="py orange-6">6</div>
-                    <div class="py orange-7">7</div>
-                    <div class="py orange-8">8</div>
-                    <div class="py orange-9">9</div>
-                    <div class="py orange-10">10</div>
-                    <div class="py orange-11">11</div>
-                </div>
-                <div class="grid-0 cols-12 tac va-c">
-                    <p class="tal">Amber</p>
-                    <div class="py amber-1">1</div>
-                    <div class="py amber-2">2</div>
-                    <div class="py amber-3">3</div>
-                    <div class="py amber-4">4</div>
-                    <div class="py amber-5">5</div>
-                    <div class="py amber-6">6</div>
-                    <div class="py amber-7">7</div>
-                    <div class="py amber-8">8</div>
-                    <div class="py amber-9">9</div>
-                    <div class="py amber-10">10</div>
-                    <div class="py amber-11">11</div>
-                </div>
-                <div class="grid-0 cols-12 tac va-c">
-                    <p class="tal">Yellow</p>
-                    <div class="py yellow-1">1</div>
-                    <div class="py yellow-2">2</div>
-                    <div class="py yellow-3">3</div>
-                    <div class="py yellow-4">4</div>
-                    <div class="py yellow-5">5</div>
-                    <div class="py yellow-6">6</div>
-                    <div class="py yellow-7">7</div>
-                    <div class="py yellow-8">8</div>
-                    <div class="py yellow-9">9</div>
-                    <div class="py yellow-10">10</div>
-                    <div class="py yellow-11">11</div>
-                </div>
-                <div class="grid-0 cols-12 tac va-c">
-                    <p class="tal">Lime</p>
-                    <div class="py lime-1">1</div>
-                    <div class="py lime-2">2</div>
-                    <div class="py lime-3">3</div>
-                    <div class="py lime-4">4</div>
-                    <div class="py lime-5">5</div>
-                    <div class="py lime-6">6</div>
-                    <div class="py lime-7">7</div>
-                    <div class="py lime-8">8</div>
-                    <div class="py lime-9">9</div>
-                    <div class="py lime-10">10</div>
-                    <div class="py lime-11">11</div>
-                </div>
-                <div class="grid-0 cols-12 tac va-c">
-                    <p class="tal">Emerald</p>
-                    <div class="py emerald-1">1</div>
-                    <div class="py emerald-2">2</div>
-                    <div class="py emerald-3">3</div>
-                    <div class="py emerald-4">4</div>
-                    <div class="py emerald-5">5</div>
-                    <div class="py emerald-6">6</div>
-                    <div class="py emerald-7">7</div>
-                    <div class="py emerald-8">8</div>
-                    <div class="py emerald-9">9</div>
-                    <div class="py emerald-10">10</div>
-                    <div class="py emerald-11">11</div>
-                </div>
-                <div class="grid-0 cols-12 tac va-c">
-                    <p class="tal">Green</p>
-                    <div class="py green-1">1</div>
-                    <div class="py green-2">2</div>
-                    <div class="py green-3">3</div>
-                    <div class="py green-4">4</div>
-                    <div class="py green-5">5</div>
-                    <div class="py green-6">6</div>
-                    <div class="py green-7">7</div>
-                    <div class="py green-8">8</div>
-                    <div class="py green-9">9</div>
-                    <div class="py green-10">10</div>
-                    <div class="py green-11">11</div>
-                </div>
-                <div class="grid-0 cols-12 tac va-c">
-                    <p class="tal">Teal</p>
-                    <div class="py teal-1">1</div>
-                    <div class="py teal-2">2</div>
-                    <div class="py teal-3">3</div>
-                    <div class="py teal-4">4</div>
-                    <div class="py teal-5">5</div>
-                    <div class="py teal-6">6</div>
-                    <div class="py teal-7">7</div>
-                    <div class="py teal-8">8</div>
-                    <div class="py teal-9">9</div>
-                    <div class="py teal-10">10</div>
-                    <div class="py teal-11">11</div>
-                </div>
-                <div class="grid-0 cols-12 tac va-c">
-                    <p class="tal">Cyan</p>
-                    <div class="py cyan-1">1</div>
-                    <div class="py cyan-2">2</div>
-                    <div class="py cyan-3">3</div>
-                    <div class="py cyan-4">4</div>
-                    <div class="py cyan-5">5</div>
-                    <div class="py cyan-6">6</div>
-                    <div class="py cyan-7">7</div>
-                    <div class="py cyan-8">8</div>
-                    <div class="py cyan-9">9</div>
-                    <div class="py cyan-10">10</div>
-                    <div class="py cyan-11">11</div>
-                </div>
-                <div class="grid-0 cols-12 tac va-c">
-                    <p class="tal">Sky</p>
-                    <div class="py sky-1">1</div>
-                    <div class="py sky-2">2</div>
-                    <div class="py sky-3">3</div>
-                    <div class="py sky-4">4</div>
-                    <div class="py sky-5">5</div>
-                    <div class="py sky-6">6</div>
-                    <div class="py sky-7">7</div>
-                    <div class="py sky-8">8</div>
-                    <div class="py sky-9">9</div>
-                    <div class="py sky-10">10</div>
-                    <div class="py sky-11">11</div>
-                </div>
-                <div class="grid-0 cols-12 tac va-c">
-                    <p class="tal">Blue</p>
-                    <div class="py blue-1">1</div>
-                    <div class="py blue-2">2</div>
-                    <div class="py blue-3">3</div>
-                    <div class="py blue-4">4</div>
-                    <div class="py blue-5">5</div>
-                    <div class="py blue-6">6</div>
-                    <div class="py blue-7">7</div>
-                    <div class="py blue-8">8</div>
-                    <div class="py blue-9">9</div>
-                    <div class="py blue-10">10</div>
-                    <div class="py blue-11">11</div>
-                </div>
-                <div class="grid-0 cols-12 tac va-c">
-                    <p class="tal">Indigo</p>
-                    <div class="py indigo-1">1</div>
-                    <div class="py indigo-2">2</div>
-                    <div class="py indigo-3">3</div>
-                    <div class="py indigo-4">4</div>
-                    <div class="py indigo-5">5</div>
-                    <div class="py indigo-6">6</div>
-                    <div class="py indigo-7">7</div>
-                    <div class="py indigo-8">8</div>
-                    <div class="py indigo-9">9</div>
-                    <div class="py indigo-10">10</div>
-                    <div class="py indigo-11">11</div>
-                </div>
-                <div class="grid-0 cols-12 tac va-c">
-                    <p class="tal">Purple</p>
-                    <div class="py purple-1">1</div>
-                    <div class="py purple-2">2</div>
-                    <div class="py purple-3">3</div>
-                    <div class="py purple-4">4</div>
-                    <div class="py purple-5">5</div>
-                    <div class="py purple-6">6</div>
-                    <div class="py purple-7">7</div>
-                    <div class="py purple-8">8</div>
-                    <div class="py purple-9">9</div>
-                    <div class="py purple-10">10</div>
-                    <div class="py purple-11">11</div>
-                </div>
-                <div class="grid-0 cols-12 tac va-c">
-                    <p class="tal">Fuchsia</p>
-                    <div class="py fuchsia-1">1</div>
-                    <div class="py fuchsia-2">2</div>
-                    <div class="py fuchsia-3">3</div>
-                    <div class="py fuchsia-4">4</div>
-                    <div class="py fuchsia-5">5</div>
-                    <div class="py fuchsia-6">6</div>
-                    <div class="py fuchsia-7">7</div>
-                    <div class="py fuchsia-8">8</div>
-                    <div class="py fuchsia-9">9</div>
-                    <div class="py fuchsia-10">10</div>
-                    <div class="py fuchsia-11">11</div>
-                </div>
-                <div class="grid-0 cols-12 tac va-c">
-                    <p class="tal">Pink</p>
-                    <div class="py pink-1">1</div>
-                    <div class="py pink-2">2</div>
-                    <div class="py pink-3">3</div>
-                    <div class="py pink-4">4</div>
-                    <div class="py pink-5">5</div>
-                    <div class="py pink-6">6</div>
-                    <div class="py pink-7">7</div>
-                    <div class="py pink-8">8</div>
-                    <div class="py pink-9">9</div>
-                    <div class="py pink-10">10</div>
-                    <div class="py pink-11">11</div>
-                </div>
-                <div class="grid-0 cols-12 tac va-c">
-                    <p class="tal">Rose</p>
-                    <div class="py rose-1">1</div>
-                    <div class="py rose-2">2</div>
-                    <div class="py rose-3">3</div>
-                    <div class="py rose-4">4</div>
-                    <div class="py rose-5">5</div>
-                    <div class="py rose-6">6</div>
-                    <div class="py rose-7">7</div>
-                    <div class="py rose-8">8</div>
-                    <div class="py rose-9">9</div>
-                    <div class="py rose-10">10</div>
-                    <div class="py rose-11">11</div>
-                </div>
-            </section>
-
-
-            <section id="tailwind-colors">
-                <div>
-                    <div class="grid-0 cols-12 tac va-c">
-                        <p class="tal">Slate</p>
-                        <div class="h-4 bg-slate-50 tac">50</div>
-                        <div class="h-4 bg-slate-100">100</div>
-                        <div class="h-4 bg-slate-200">200</div>
-                        <div class="h-4 bg-slate-300">300</div>
-                        <div class="h-4 bg-slate-400">400</div>
-                        <div class="h-4 bg-slate-500">500</div>
-                        <div class="h-4 bg-slate-600">600</div>
-                        <div class="h-4 bg-slate-700">700</div>
-                        <div class="h-4 bg-slate-800">800</div>
-                        <div class="h-4 bg-slate-900">900</div>
-                        <div class="h-4 bg-slate-950">950</div>
-                    </div>
-                </div>
-                <div>
-                    <div class="grid-0 cols-12 tac va-c">
-                        <p class="tal">Gray</p>
-                        <div class="h-4 bg-gray-50">50</div>
-                        <div class="h-4 bg-gray-100">100</div>
-                        <div class="h-4 bg-gray-200">200</div>
-                        <div class="h-4 bg-gray-300">300</div>
-                        <div class="h-4 bg-gray-400">400</div>
-                        <div class="h-4 bg-gray-500">500</div>
-                        <div class="h-4 bg-gray-600">600</div>
-                        <div class="h-4 bg-gray-700">700</div>
-                        <div class="h-4 bg-gray-800">800</div>
-                        <div class="h-4 bg-gray-900">900</div>
-                        <div class="h-4 bg-gray-950">950</div>
-                    </div>
-                </div>
-                <div>
-                    <div class="grid-0 cols-12 tac va-c">
-                        <p class="tal">Zinc</p>
-                        <div class="h-4 bg-zinc-50">50</div>
-                        <div class="h-4 bg-zinc-100">100</div>
-                        <div class="h-4 bg-zinc-200">200</div>
-                        <div class="h-4 bg-zinc-300">300</div>
-                        <div class="h-4 bg-zinc-400">400</div>
-                        <div class="h-4 bg-zinc-500">500</div>
-                        <div class="h-4 bg-zinc-600">600</div>
-                        <div class="h-4 bg-zinc-700">700</div>
-                        <div class="h-4 bg-zinc-800">800</div>
-                        <div class="h-4 bg-zinc-900">900</div>
-                        <div class="h-4 bg-zinc-950">950</div>
-                    </div>
-                </div>
-                <div>
-                    <div class="grid-0 cols-12 tac va-c">
-                        <p class="tal">Neutral</p>
-                        <div class="h-4 bg-neutral-50">50</div>
-                        <div class="h-4 bg-neutral-100">100</div>
-                        <div class="h-4 bg-neutral-200">200</div>
-                        <div class="h-4 bg-neutral-300">300</div>
-                        <div class="h-4 bg-neutral-400">400</div>
-                        <div class="h-4 bg-neutral-500">500</div>
-                        <div class="h-4 bg-neutral-600">600</div>
-                        <div class="h-4 bg-neutral-700">700</div>
-                        <div class="h-4 bg-neutral-800">800</div>
-                        <div class="h-4 bg-neutral-900">900</div>
-                        <div class="h-4 bg-neutral-950">950</div>
-                    </div>
-                </div>
-                <div>
-                    <div class="grid-0 cols-12 tac va-c">
-                        <p class="tal">Stone</p>
-                        <div class="h-4 bg-stone-50">50</div>
-                        <div class="h-4 bg-stone-100">100</div>
-                        <div class="h-4 bg-stone-200">200</div>
-                        <div class="h-4 bg-stone-300">300</div>
-                        <div class="h-4 bg-stone-400">400</div>
-                        <div class="h-4 bg-stone-500">500</div>
-                        <div class="h-4 bg-stone-600">600</div>
-                        <div class="h-4 bg-stone-700">700</div>
-                        <div class="h-4 bg-stone-800">800</div>
-                        <div class="h-4 bg-stone-900">900</div>
-                        <div class="h-4 bg-stone-950">950</div>
-                    </div>
-                </div>
-                <div>
-                    <div class="grid-0 cols-12 tac va-c">
-                        <p class="tal">Red</p>
-                        <div class="h-4 bg-red-50">50</div>
-                        <div class="h-4 bg-red-100">100</div>
-                        <div class="h-4 bg-red-200">200</div>
-                        <div class="h-4 bg-red-300">300</div>
-                        <div class="h-4 bg-red-400">400</div>
-                        <div class="h-4 bg-red-500">500</div>
-                        <div class="h-4 bg-red-600">600</div>
-                        <div class="h-4 bg-red-700">700</div>
-                        <div class="h-4 bg-red-800">800</div>
-                        <div class="h-4 bg-red-900">900</div>
-                        <div class="h-4 bg-red-950">950</div>
-                    </div>
-                </div>
-                <div>
-                    <div class="grid-0 cols-12 tac va-c">
-                        <p class="tal">Orange</p>
-                        <div class="h-4 bg-orange-50">50</div>
-                        <div class="h-4 bg-orange-100">100</div>
-                        <div class="h-4 bg-orange-200">200</div>
-                        <div class="h-4 bg-orange-300">300</div>
-                        <div class="h-4 bg-orange-400">400</div>
-                        <div class="h-4 bg-orange-500">500</div>
-                        <div class="h-4 bg-orange-600">600</div>
-                        <div class="h-4 bg-orange-700">700</div>
-                        <div class="h-4 bg-orange-800">800</div>
-                        <div class="h-4 bg-orange-900">900</div>
-                        <div class="h-4 bg-orange-950">950</div>
-                    </div>
-                </div>
-                <div>
-                    <div class="grid-0 cols-12 tac va-c">
-                        <p class="tal">Amber</p>
-                        <div class="h-4 bg-amber-50">50</div>
-                        <div class="h-4 bg-amber-100">100</div>
-                        <div class="h-4 bg-amber-200">200</div>
-                        <div class="h-4 bg-amber-300">300</div>
-                        <div class="h-4 bg-amber-400">400</div>
-                        <div class="h-4 bg-amber-500">500</div>
-                        <div class="h-4 bg-amber-600">600</div>
-                        <div class="h-4 bg-amber-700">700</div>
-                        <div class="h-4 bg-amber-800">800</div>
-                        <div class="h-4 bg-amber-900">900</div>
-                        <div class="h-4 bg-amber-950">950</div>
-                    </div>
-                </div>
-                <div>
-                    <div class="grid-0 cols-12 tac va-c">
-                        <p class="tal">Yellow</p>
-                        <div class="h-4 bg-yellow-50">50</div>
-                        <div class="h-4 bg-yellow-100">100</div>
-                        <div class="h-4 bg-yellow-200">200</div>
-                        <div class="h-4 bg-yellow-300">300</div>
-                        <div class="h-4 bg-yellow-400">400</div>
-                        <div class="h-4 bg-yellow-500">500</div>
-                        <div class="h-4 bg-yellow-600">600</div>
-                        <div class="h-4 bg-yellow-700">700</div>
-                        <div class="h-4 bg-yellow-800">800</div>
-                        <div class="h-4 bg-yellow-900">900</div>
-                        <div class="h-4 bg-yellow-950">950</div>
-                    </div>
-                </div>
-                <div>
-                    <div class="grid-0 cols-12 tac va-c">
-                        <p class="tal">Lime</p>
-                        <div class="h-4 bg-lime-50">50</div>
-                        <div class="h-4 bg-lime-100">100</div>
-                        <div class="h-4 bg-lime-200">200</div>
-                        <div class="h-4 bg-lime-300">300</div>
-                        <div class="h-4 bg-lime-400">400</div>
-                        <div class="h-4 bg-lime-500">500</div>
-                        <div class="h-4 bg-lime-600">600</div>
-                        <div class="h-4 bg-lime-700">700</div>
-                        <div class="h-4 bg-lime-800">800</div>
-                        <div class="h-4 bg-lime-900">900</div>
-                        <div class="h-4 bg-lime-950">950</div>
-                    </div>
-                </div>
-                <div>
-                    <div class="grid-0 cols-12 tac va-c">
-                        <p class="tal">Green</p>
-                        <div class="h-4 bg-green-50">50</div>
-                        <div class="h-4 bg-green-100">100</div>
-                        <div class="h-4 bg-green-200">200</div>
-                        <div class="h-4 bg-green-300">300</div>
-                        <div class="h-4 bg-green-400">400</div>
-                        <div class="h-4 bg-green-500">500</div>
-                        <div class="h-4 bg-green-600">600</div>
-                        <div class="h-4 bg-green-700">700</div>
-                        <div class="h-4 bg-green-800">800</div>
-                        <div class="h-4 bg-green-900">900</div>
-                        <div class="h-4 bg-green-950">950</div>
-                    </div>
-                </div>
-                <div>
-                    <div class="grid-0 cols-12 tac va-c">
-                        <p class="tal">Emerald</p>
-                        <div class="h-4 bg-emerald-50">50</div>
-                        <div class="h-4 bg-emerald-100">100</div>
-                        <div class="h-4 bg-emerald-200">200</div>
-                        <div class="h-4 bg-emerald-300">300</div>
-                        <div class="h-4 bg-emerald-400">400</div>
-                        <div class="h-4 bg-emerald-500">500</div>
-                        <div class="h-4 bg-emerald-600">600</div>
-                        <div class="h-4 bg-emerald-700">700</div>
-                        <div class="h-4 bg-emerald-800">800</div>
-                        <div class="h-4 bg-emerald-900">900</div>
-                        <div class="h-4 bg-emerald-950">950</div>
-                    </div>
-                </div>
-                <div>
-                    <div class="grid-0 cols-12 tac va-c">
-                        <p class="tal">Teal</p>
-                        <div class="h-4 bg-teal-50">50</div>
-                        <div class="h-4 bg-teal-100">100</div>
-                        <div class="h-4 bg-teal-200">200</div>
-                        <div class="h-4 bg-teal-300">300</div>
-                        <div class="h-4 bg-teal-400">400</div>
-                        <div class="h-4 bg-teal-500">500</div>
-                        <div class="h-4 bg-teal-600">600</div>
-                        <div class="h-4 bg-teal-700">700</div>
-                        <div class="h-4 bg-teal-800">800</div>
-                        <div class="h-4 bg-teal-900">900</div>
-                        <div class="h-4 bg-teal-950">950</div>
-                    </div>
-                </div>
-                <div>
-                    <div class="grid-0 cols-12 tac va-c">
-                        <p class="tal">Cyan</p>
-                        <div class="h-4 bg-cyan-50">50</div>
-                        <div class="h-4 bg-cyan-100">100</div>
-                        <div class="h-4 bg-cyan-200">200</div>
-                        <div class="h-4 bg-cyan-300">300</div>
-                        <div class="h-4 bg-cyan-400">400</div>
-                        <div class="h-4 bg-cyan-500">500</div>
-                        <div class="h-4 bg-cyan-600">600</div>
-                        <div class="h-4 bg-cyan-700">700</div>
-                        <div class="h-4 bg-cyan-800">800</div>
-                        <div class="h-4 bg-cyan-900">900</div>
-                        <div class="h-4 bg-cyan-950">950</div>
-                    </div>
-                </div>
-                <div>
-                    <div class="grid-0 cols-12 tac va-c">
-                        <p class="tal">Sky</p>
-                        <div class="h-4 bg-sky-50">50</div>
-                        <div class="h-4 bg-sky-100">100</div>
-                        <div class="h-4 bg-sky-200">200</div>
-                        <div class="h-4 bg-sky-300">300</div>
-                        <div class="h-4 bg-sky-400">400</div>
-                        <div class="h-4 bg-sky-500">500</div>
-                        <div class="h-4 bg-sky-600">600</div>
-                        <div class="h-4 bg-sky-700">700</div>
-                        <div class="h-4 bg-sky-800">800</div>
-                        <div class="h-4 bg-sky-900">900</div>
-                        <div class="h-4 bg-sky-950">950</div>
-                    </div>
-                </div>
-                <div>
-                    <div class="grid-0 cols-12 tac va-c">
-                        <p class="tal">Blue</p>
-                        <div class="h-4 bg-blue-50">50</div>
-                        <div class="h-4 bg-blue-100">100</div>
-                        <div class="h-4 bg-blue-200">200</div>
-                        <div class="h-4 bg-blue-300">300</div>
-                        <div class="h-4 bg-blue-400">400</div>
-                        <div class="h-4 bg-blue-500">500</div>
-                        <div class="h-4 bg-blue-600">600</div>
-                        <div class="h-4 bg-blue-700">700</div>
-                        <div class="h-4 bg-blue-800">800</div>
-                        <div class="h-4 bg-blue-900">900</div>
-                        <div class="h-4 bg-blue-950">950</div>
-                    </div>
-                </div>
-                <div>
-                    <div class="grid-0 cols-12 tac va-c">
-                        <p class="tal">Indigo</p>
-                        <div class="h-4 bg-indigo-50">50</div>
-                        <div class="h-4 bg-indigo-100">100</div>
-                        <div class="h-4 bg-indigo-200">200</div>
-                        <div class="h-4 bg-indigo-300">300</div>
-                        <div class="h-4 bg-indigo-400">400</div>
-                        <div class="h-4 bg-indigo-500">500</div>
-                        <div class="h-4 bg-indigo-600">600</div>
-                        <div class="h-4 bg-indigo-700">700</div>
-                        <div class="h-4 bg-indigo-800">800</div>
-                        <div class="h-4 bg-indigo-900">900</div>
-                        <div class="h-4 bg-indigo-950">950</div>
-                    </div>
-                </div>
-                <div>
-                    <div class="grid-0 cols-12 tac va-c">
-                        <p class="tal">Violet</p>
-                        <div class="h-4 bg-violet-50">50</div>
-                        <div class="h-4 bg-violet-100">100</div>
-                        <div class="h-4 bg-violet-200">200</div>
-                        <div class="h-4 bg-violet-300">300</div>
-                        <div class="h-4 bg-violet-400">400</div>
-                        <div class="h-4 bg-violet-500">500</div>
-                        <div class="h-4 bg-violet-600">600</div>
-                        <div class="h-4 bg-violet-700">700</div>
-                        <div class="h-4 bg-violet-800">800</div>
-                        <div class="h-4 bg-violet-900">900</div>
-                        <div class="h-4 bg-violet-950">950</div>
-                    </div>
-                </div>
-                <div>
-                    <div class="grid-0 cols-12 tac va-c">
-                        <p class="tal">Purple</p>
-                        <div class="h-4 bg-purple-50">50</div>
-                        <div class="h-4 bg-purple-100">100</div>
-                        <div class="h-4 bg-purple-200">200</div>
-                        <div class="h-4 bg-purple-300">300</div>
-                        <div class="h-4 bg-purple-400">400</div>
-                        <div class="h-4 bg-purple-500">500</div>
-                        <div class="h-4 bg-purple-600">600</div>
-                        <div class="h-4 bg-purple-700">700</div>
-                        <div class="h-4 bg-purple-800">800</div>
-                        <div class="h-4 bg-purple-900">900</div>
-                        <div class="h-4 bg-purple-950">950</div>
-                    </div>
-                </div>
-                <div>
-                    <div class="grid-0 cols-12 tac va-c">
-                        <p class="tal">Fuchsia</p>
-                        <div class="h-4 bg-fuchsia-50">50</div>
-                        <div class="h-4 bg-fuchsia-100">100</div>
-                        <div class="h-4 bg-fuchsia-200">200</div>
-                        <div class="h-4 bg-fuchsia-300">300</div>
-                        <div class="h-4 bg-fuchsia-400">400</div>
-                        <div class="h-4 bg-fuchsia-500">500</div>
-                        <div class="h-4 bg-fuchsia-600">600</div>
-                        <div class="h-4 bg-fuchsia-700">700</div>
-                        <div class="h-4 bg-fuchsia-800">800</div>
-                        <div class="h-4 bg-fuchsia-900">900</div>
-                        <div class="h-4 bg-fuchsia-950">950</div>
-                    </div>
-                </div>
-                <div>
-                    <div class="grid-0 cols-12 tac va-c">
-                        <p class="tal">Pink</p>
-                        <div class="h-4 bg-pink-50">50</div>
-                        <div class="h-4 bg-pink-100">100</div>
-                        <div class="h-4 bg-pink-200">200</div>
-                        <div class="h-4 bg-pink-300">300</div>
-                        <div class="h-4 bg-pink-400">400</div>
-                        <div class="h-4 bg-pink-500">500</div>
-                        <div class="h-4 bg-pink-600">600</div>
-                        <div class="h-4 bg-pink-700">700</div>
-                        <div class="h-4 bg-pink-800">800</div>
-                        <div class="h-4 bg-pink-900">900</div>
-                        <div class="h-4 bg-pink-950">950</div>
-                    </div>
-                </div>
-                <div>
-                    <div class="grid-0 cols-12 tac va-c">
-                        <p class="tal">Rose</p>
-                        <div class="h-4 bg-rose-50">50</div>
-                        <div class="h-4 bg-rose-100">100</div>
-                        <div class="h-4 bg-rose-200">200</div>
-                        <div class="h-4 bg-rose-300">300</div>
-                        <div class="h-4 bg-rose-400">400</div>
-                        <div class="h-4 bg-rose-500">500</div>
-                        <div class="h-4 bg-rose-600">600</div>
-                        <div class="h-4 bg-rose-700">700</div>
-                        <div class="h-4 bg-rose-800">800</div>
-                        <div class="h-4 bg-rose-900">900</div>
-                        <div class="h-4 bg-rose-950">950</div>
-                    </div>
-                </div>
-            </section>
-
         </div>
         <div id="app"></div>
         <script type="module" src="/main.js"></script>

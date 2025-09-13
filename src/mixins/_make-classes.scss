@@ -164,19 +164,65 @@ $split-properties: ('border-width', 'border-style', 'border-color', 'border-radi
     @return #{$property}-#{$position};
 }
 
-@mixin make-position-based-class($property, $value, $positions-map, $identifier, $variant, $breakpoints, $states: ()) {
+// ==========================================================================
+// Generate position-based utility classes with optional axis key omission
+// --------------------------------------------------------------------------
+// Creates utility classes for CSS properties that apply to multiple positions
+// (e.g., padding, margin, border). Supports omitting specific axis keys from
+// class names for cleaner, more semantic class names.
+//
+// @param {String} $property - The base CSS property name
+// @param {String} $value - The CSS value to apply
+// @param {Map} $positions-map - Map of position keys to CSS positions
+// @param {String} $identifier - Base class identifier/prefix
+// @param {String} $variant - Variant suffix for the class name
+// @param {List} $breakpoints - List of responsive breakpoints
+// @param {List} $states - List of pseudo-class states
+// @param {List} $omit-axis-keys - List of axis keys to omit from class names
+//
+// @example scss - Basic usage with omit-axis-keys
+//   $positions: (xy: (top, bottom, left, right), x: (left, right));
+//   @include make-position-based-class(
+//     'padding', '1rem', $positions, 'p-', '1', (), (), (xy)
+//   );
+//   // Generates: .p-1 (instead of .p-xy-1) and .p-x-1
+//
+// @example scss - Without omit-axis-keys (default behavior)
+//   @include make-position-based-class(
+//     'margin', '1rem', $positions, 'm-', '1', (), (), ()
+//   );
+//   // Generates: .m-xy-1 and .m-x-1 (includes all axis keys)
+// ==========================================================================
+@mixin make-position-based-class($property, $value, $positions-map, $identifier, $variant, $breakpoints, $states: (), $omit-axis-keys: ()) {
     // Iterate through each axis or position grouping in the positions map
     @each $position-key, $positions in $positions-map {
         // Initialize props map to collect all properties for responsive classes
         $props: ();
 
-        // Generate clean class name by stripping unwanted suffixes
-        $derived-class: strip-class-suffixes(#{$identifier}#{$position-key}-#{$variant}, $identifier);
+        // Check if this position key should be omitted from the class name
+        $should-omit-key: false;
 
-        @debug 'Derived class: #{$derived-class}';
+        @if $omit-axis-keys {
+            @each $omit-key in $omit-axis-keys {
+                @if $position-key == $omit-key {
+                    $should-omit-key: true;
+                }
+            }
+        }
+
+        // Generate clean class name by stripping unwanted suffixes
+        // If the axis key should be omitted, don't include it in the class name
+        $derived-class: null;
+
+        @if $should-omit-key {
+            $derived-class: strip-class-suffixes(#{$identifier}#{$variant}, $identifier);
+        } @else {
+            $derived-class: strip-class-suffixes(#{$identifier}#{$position-key}-#{$variant}, $identifier);
+        }
+
         .#{$derived-class} {
             @each $position in $positions {
-                $css-property: _get-position-property($property, $position);
+                $css-property: get-position-property($property, $position);
 
                 #{$css-property}: #{$value};
 
