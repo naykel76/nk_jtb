@@ -30,62 +30,25 @@
 // Supports responsive variants, automatic value-unit handling, position-based 
 // classes, and optional axis key omission for cleaner class names.
 // --------------------------------------------------------------------------
-// Key variables in the value processing logic:
-//
-// 1. $derived-unit: Prevents double-unit application by checking if the $value
-//    already includes a unit (12px, 1em, 100vh, etc.). If it does,
-//    $derived-unit is set to null to avoid adding the map's unit. If it doesn't,
-//    $derived-unit is set to $map-unit to apply the default unit.
-//
-// 2. $derived-value: The final processed CSS value for the property, created by
-//    combining the original $value with the appropriate unit (if needed). This
-//    ensures values are properly formatted for CSS output.
-//
-// 3. $derived-suffix: The unique identifier portion of the class name, created
-//    by combining the variant label with the processed unit string. This forms
-//    the distinctive part of each utility class (e.g., "12px" in "margin-12px").
-//
-// New in this version:
-// 4. $omit-axis-keys: Optional configuration to omit specific axis keys from
-//    class names. For example, omitting 'xy' creates '.padding' instead of 
-//    '.padding-xy' while preserving '.padding-x', '.padding-y', etc.
-//
-// @example scss - Using omit-axis-keys
-//   $properties-map: (
-//     padding: (
-//       values: $spacing-values,
-//       unit: 'rem',
-//       positions: $logical-position-map,
-//       omit-axis-keys: (xy)  // Creates .padding instead of .padding-xy
-//     )
-//   );
+// 
 // ==========================================================================
 
-// should i consider Taking Arbitrary ArgumentsTaking Arbitrary Arguments permalink
-// Sometimes it’s useful for a function to b
-
-
-// SassPlayground
-// SCSS Syntax
-// @function sum($numbers...) {
-//   $sum: 0;
-//   @each $number in $numbers {
-//     $sum: $sum + $number;
-//   }
-//   @return $sum;
-// }
 // prettier-ignore
 @mixin build-property-classes($properties-map, $responsive: true, $with-state: false, $debug: false) {
-    @each $property, $map in $properties-map {
-        $map-unit: map.get($map, 'unit');
-        $map-positions: map.get($map, 'positions');
-        $omit-axis-keys: map.get($map, 'omit-axis-keys'); // NEW: extract omit-axis-keys config
+    // NK?? add option to create different responsive builds. (on, from, to)
+    // - should this be done on a per-property basis?
+    // - should this be done on a global basis?
 
-        $prefix: resolve-prefix(map.get($map, 'prefix'), $property);
-        $breakpoints: resolve-breakpoints($responsive, map.get($map, 'breakpoints'));
-        $states: resolve-states($with-state, map.get($map, 'states'));
+    @each $property, $config in $properties-map {
+        $config-unit: map.get($config, 'unit');
+        $config-positions: map.get($config, 'positions');
+        $omit-axis-keys: map.get($config, 'omit-axis-keys'); 
 
-        @each $key, $value in map.get($map, 'values') {
+        $prefix: resolve-prefix(map.get($config, 'prefix'), $property);
+        $breakpoints: resolve-breakpoints($responsive, map.get($config, 'breakpoints'));
+        $states: resolve-states($with-state, map.get($config, 'states'));
+
+        @each $key, $value in map.get($config, 'values') {
             // Normalize each key-value pair to ensure consistent variant label and value
             // for reliable class generation across different input formats
             $item: normalise-variant-value($key, $value);
@@ -93,19 +56,15 @@
             $value: list.nth($item, 2);
 
             // Process the value and create class name components
-            $derived-unit: if(value-has-unit($value), null, ($map-unit)); // 1.
-            $derived-value: #{handle-class-value($value, $derived-unit)}; // 2.
-            $derived-suffix: #{$label}#{handle-class-unit($derived-unit)}; // 3.
+            $derived-unit: if(value-has-unit($value), null, ($config-unit)); 
+            $derived-value: #{handle-class-value($value, $derived-unit)}; 
+            $derived-suffix: #{$label}#{handle-class-unit($derived-unit)}; 
 
-            // Generate the final class name by combining prefix and suffix,
             // then clean up any unwanted suffixes
             $derived-class: strip-class-suffixes(#{$prefix}#{$derived-suffix});
 
-            // always create individual directions and avoid shorthands like
-            // margin-inline, margin-block, and margin. This ensures maximum
-            // flexibility and avoids unintended overrides in complex layouts.
-            @if $map-positions {
-                @include make-position-based-class($property, $derived-value, $map-positions, $prefix, $derived-suffix, $breakpoints, $states, $omit-axis-keys);
+            @if $config-positions {
+                @include make-position-based-class($property, $derived-value, $config-positions, $prefix, $derived-suffix, $breakpoints, $states, $omit-axis-keys);
             } @else{
                 @include make-single-property-class( $property, #{$derived-class}, #{$derived-value}, $breakpoints, $states );
             }
