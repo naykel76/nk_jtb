@@ -1,0 +1,55 @@
+// =========================================================================
+// Getter Functions
+// --------------------------------------------------------------------------
+// These functions return default values when none are provided, ensuring
+// consistent data access.
+// =========================================================================
+
+@function get-breakpoints($breakpoints) {
+    $default-breakpoints: ('sm', 'md', 'lg', 'xl');
+
+    @return if($breakpoints == null, $default-breakpoints, $breakpoints);
+}
+
+@function get-states($states) {
+    $default-states: ('hover', 'focus', 'active');
+
+    @return if($states == null, $default-states, $states);
+}
+
+// =========================================================================
+// Resolver Functions
+// --------------------------------------------------------------------------
+// These functions conditionally resolve values based on configuration modes.
+// They ensure valid lists or values are returned, preserving original values
+// when the mode is disabled.
+// =========================================================================
+
+@function resolve-breakpoints($responsive, $breakpoints) {
+    @return if($responsive, get-breakpoints($breakpoints), $breakpoints);
+}
+
+@function resolve-states($with-state, $map-states) {
+    @return if($with-state, get-states($map-states), $map-states);
+}
+
+@function resolve-prefix($prefix, $property) {
+    @return if($prefix == false, '', if($prefix == null, $property + '-', $prefix));
+}
+
+// @function resolve-prefix($raw-prefix, $fallback-name) {
+//     @return if($raw-prefix, $raw-prefix, $fallback-name);
+// }
+
+
+// @function resolve-unit($value, $fallback-unit) {
+//     @return if(value-has-unit($value), null, $fallback-unit);
+// }
+
+// @function resolve-class-suffix($label, $unit) {
+//     @return #{$label}#{handle-class-unit($unit)};
+// }
+
+// @function resolve-class-name($prefix, $suffix) {
+//     @return strip-class-suffixes(#{$prefix}#{$suffix});
+// }
