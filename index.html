@@ -13,7 +13,272 @@
 
 
 <body class="zebra c-py-5-3-2">
-    <section class="py-3">
+    <div class="container py-5">
+        <div class="overflow-x-uto rounded-lg br bd-neutral-200">
+            <!-- just adding bdr is enough and it will inherit the border-color -->
+            <table class="bdr bdr-green">
+                <thead class="txt-upper bdr-b  bg-neutral-100">
+                    <tr>
+                        <th scope="col"> Product name </th>
+                        <th scope="col"> Color </th>
+                        <th scope="col"> Category </th>
+                        <th scope="col"> Price </th>
+                        <th scope="col"> Action </th>
+                    </tr>
+                </thead>
+
+
+                <tbody class="divide-y">
+                    <tr>
+                        <th scope="row"> Apple MacBook Pro 17" </th>
+                        <td> Silver </td>
+                        <td> Laptop </td>
+                        <td> $2999 </td>
+                        <td> <a href="#">Edit</a> </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"> Microsoft Surface Pro </th>
+                        <td> White </td>
+                        <td> Laptop PC </td>
+                        <td> $1999 </td>
+                        <td> <a href="#">Edit</a> </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"> Magic Mouse 2 </th>
+                        <td> Black </td>
+                        <td> Accessories </td>
+                        <td> $99 </td>
+                        <td> <a href="#">Edit</a> </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"> Google Pixel Phone </th>
+                        <td> Gray </td>
+                        <td> Phone </td>
+                        <td> $799 </td>
+                        <td> <a href="#">Edit</a> </td>
+                    </tr>
+                    <tr class="bdr-blue-40">
+                        <th scope="row"> Apple Watch 5 </th>
+                        <td> Red </td>
+                        <td> Wearables </td>
+                        <td> $999 </td>
+                        <td> <a href="#">Edit</a> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        <div class="overflow-x-auto rounded-lg">
+            <table>
+                <thead class="txt-upper txt-white bg-blue-600">
+                    <tr>
+                        <th scope="col"> Product name </th>
+                        <th scope="col"> Color </th>
+                        <th scope="col"> Category </th>
+                        <th scope="col"> Price </th>
+                        <th scope="col"> Action </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-blue-500 bdr-b bdr-light">
+                        <th scope="row"> Apple MacBook Pro 17" </th>
+                        <td> Silver </td>
+                        <td> Laptop </td>
+                        <td> $2999 </td>
+                        <td> <a href="#">Edit</a> </td>
+                    </tr>
+                    <tr class="bg-blue-500 bdr-b bdr-light">
+                        <th scope="row">
+                            Microsoft Surface Pro
+                        </th>
+                        <td> White </td>
+                        <td> Laptop PC </td>
+                        <td> $1999 </td>
+                        <td> <a href="#">Edit</a> </td>
+                    </tr>
+                    <tr class="bg-blue-500 bdr-b bdr-light">
+                        <th scope="row"> Magic Mouse 2 </th>
+                        <td> Black </td>
+                        <td> Accessories </td>
+                        <td> $99 </td>
+                        <td> <a href="#">Edit</a> </td>
+                    </tr>
+                    <tr class="bg-blue-500 bdr-b bdr-light">
+                        <th scope="row"> Google Pixel Phone </th>
+                        <td> Gray </td>
+                        <td> Phone </td>
+                        <td> $799 </td>
+                        <td> <a href="#">Edit</a> </td>
+                    </tr>
+                    <tr class="bg-blue-500 bdr-blue-40">
+                        <th scope="row"> Apple Watch 5 </th>
+                        <td> Red </td>
+                        <td> Wearables </td>
+                        <td> $999 </td>
+                        <td> <a href="#">Edit</a> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <section id="tailwind-pagination-example">
+        <nav aria-label="Page navigation example">
+            <ul class="flex items-center -space-x-px h-8 text-sm">
+                <li>
+                    <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                        <span class="sr-only">Previous</span>
+                        <svg class="w-2.5 h-2.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                </li>
+                <li>
+                    <a href="#" aria-current="page" class="z-10 flex items-center justify-center px-3 h-8 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                        <span class="sr-only">Next</span>
+                        <svg class="w-2.5 h-2.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <nav aria-label="Page navigation example">
+            <ul class="flex items-center -space-x-px h-10 text-base">
+                <li>
+                    <a href="#" class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                        <span class="sr-only">Previous</span>
+                        <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                </li>
+                <li>
+                    <a href="#" aria-current="page" class="z-10 flex items-center justify-center px-4 h-10 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                        <span class="sr-only">Next</span>
+                        <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </section>
+    <section id="table-testing" class="py-3">
+        <div class="container">
+            <h2 class="title txt-blue">Tables</h2>
+            <h4>Base Table</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Wireless Mouse</td>
+                        <td>Ergonomic mouse with USB receiver</td>
+                        <td>$29.95</td>
+                        <td>54</td>
+                    </tr>
+                    <tr>
+                        <td>Keyboard</td>
+                        <td>Compact mechanical keyboard</td>
+                        <td>$69.00</td>
+                        <td>21</td>
+                    </tr>
+                    <tr>
+                        <td>Monitor</td>
+                        <td>24" 1080p IPS display</td>
+                        <td>$189.50</td>
+                        <td>12</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <section id="responsive-testing" class="py-3">
+        <div class="container">
+            <h2 class="title txt-blue">Responsive Testing</h2>
+
+            <h4>Hide 'ON' Screen Size</h4>
+            <p>The box should not be visible on the current screen size.</p>
+            <div class="grid cols-5 tac my">
+                <div>
+                    <div class="py px-025 pink on-sm:hidden"><code class="txt-sm txt-white">on-sm:hidden</code></div>
+                </div>
+                <div>
+                    <div class="py px-025 pink on-md:hidden"><code class="txt-sm txt-white">on-md:hidden</code></div>
+                </div>
+                <div>
+                    <div class="py px-025 pink on-lg:hidden"><code class="txt-sm txt-white">on-lg:hidden</code></div>
+                </div>
+                <div>
+                    <div class="py px-025 pink on-xl:hidden"><code class="txt-sm txt-white">on-xl:hidden</code></div>
+                </div>
+                <div>
+                    <div class="py px-025 pink on-xxl:hidden"><code class="txt-sm txt-white">on-xxl:hidden</code></div>
+                </div>
+            </div>
+
+            <h4>Display 'ON' Screen Size</h4>
+
+            <p>Hidden by default, you should only see a single box on the current screen size.</p>
+
+            <div class="grid cols-5 tac my">
+                <div>
+                    <div class="py px-025 blue hidden on-sm:block"><code class="txt-sm txt-white">on-sm:block</code></div>
+                </div>
+                <div>
+                    <div class="py px-025 blue hidden on-md:block"><code class="txt-sm txt-white">on-md:block</code></div>
+                </div>
+                <div>
+                    <div class="py px-025 blue hidden on-lg:block"><code class="txt-sm txt-white">on-lg:block</code></div>
+                </div>
+                <div>
+                    <div class="py px-025 blue hidden on-xl:block"><code class="txt-sm txt-white">on-xl:block</code></div>
+                </div>
+                <div>
+                    <div class="py px-025 blue hidden on-xxl:block"><code class="txt-sm txt-white">on-xxl:block</code></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="outline-testing" class="py-3">
         <div class="container">
             <h2 class="title txt-blue">Outline</h2>
             <h4>Outline Widths</h4>
@@ -63,7 +328,7 @@
 
         </div>
     </section>
-    <section class="py-3">
+    <section id="border-testing" class="py-3">
         <div class="container">
             <h2 class="title txt-blue">Borders</h2>
             <h4>Border Widths</h4>
@@ -155,8 +420,7 @@
             </div>
         </div>
     </section>
-
-    <section id="colors" class="py-3">
+    <section id="colortesting" class="py-3">
         <div class="container-xl">
             <h2 class="title">Colors</h2>
             <p>This compares the tailwind <code>-500</code> color to the colors in the <code>base-colors</code></p>
@@ -279,7 +543,7 @@
             </div>
         </div>
     </section>
-    <section>
+    <section id="positional-utilities" class="py-3">
         <div class="container">
             <h2>Positional Utilities</h2>
             <div class="flex gap justify-between items-start">
@@ -330,65 +594,7 @@
 
         </div>
     </section>
-    <section>
-        <div class="container">
-            <h2>Positional Utilities</h2>
-            <div class="flex gap justify-between items-start">
-                <div class="bg-stripes-pink rounded">
-                    <div class="bx bg-pink-100 pxy mxy-1"><code>pxy</code></div>
-                </div>
-                <div class="bg-stripes-pink rounded">
-                    <div class="bx bg-pink-100 pxy-2 mxy-1"><code>pxy-2</code></div>
-                </div>
-                <div class="bg-stripes-pink rounded">
-                    <div class="bx bg-pink-100 pxy-3 mxy-1"><code>pxy-3</code></div>
-                </div>
-            </div>
-            <div class="flex gap justify-between items-start">
-                <div class="bg-stripes-blue bdr-blue">
-                    <div class="bx lh-1 mxy"><code>mxy</code></div>
-                </div>
-                <div class="bg-stripes-blue bdr-blue">
-                    <div class="bx lh-1 mxy-2"><code>mxy-2</code></div>
-                </div>
-                <div class="bg-stripes-blue bdr-blue">
-                    <div class="bx lh-1 mxy-3"><code>mxy-3</code></div>
-                </div>
-            </div>
-            <div class="flex gap justify-between items-start">
-                <div class="bg-stripes-blue bdr-blue">
-                    <div class="bx lh-1 mx"><code>mx</code></div>
-                </div>
-                <div class="bg-stripes-blue bdr-blue">
-                    <div class="bx lh-1 my"><code>my</code></div>
-                </div>
-                <div class="bg-stripes-blue bdr-blue">
-                    <div class="bx lh-1 mt"><code>mt</code></div>
-                </div>
-                <div class="bg-stripes-blue bdr-blue">
-                    <div class="bx lh-1 mb"><code>mb</code></div>
-                </div>
-                <div class="bg-stripes-blue bdr-blue">
-                    <div class="bx lh-1 ml"><code>ml</code></div>
-                </div>
-                <div class="bg-stripes-blue bdr-blue">
-                    <div class="bx lh-1 mr"><code>mr</code></div>
-                </div>
 
-            </div>
-            <div class="flex gap justify-between items-start">
-                <div class="bg-stripes-blue bdr-blue">
-                    <div class="bx lh-1 my"><code>my</code></div>
-                </div>
-                <div class="bg-stripes-blue bdr-blue">
-                    <div class="bx lh-1 my-2"><code>my-2</code></div>
-                </div>
-                <div class="bg-stripes-blue bdr-blue">
-                    <div class="bx lh-1 my-3"><code>my-3</code></div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 
     <div class="container-sm py-5">
@@ -507,6 +713,11 @@
         </div>
     </div>
 
+
+    <blockquote class="border-l-4 border-gray-500 italic">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <cite class="block tar txt-gray-600">- John Doe</cite>
+    </blockquote>
 
     <div class="green pxy">sdf</div>
     <section id="form-controls" class="py-3">
@@ -907,153 +1118,8 @@
 
 
 
-        <!-- dev area -->
-        <div class="container py">
-            <blockquote class="border-l-4 border-gray-500 italic">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <cite class="block tar txt-gray-600">- John Doe</cite>
-            </blockquote>
-            <hr>
-            Clickable table header are buttons inside <code>th</code>
-            <table>
-                <thead class="bg-gray-100 bdr-b">
-                    <tr>
-                        <!-- use flex to control alignment -->
-                        <!--  -->
-                        <th class="bdr bdr-red ">
-                            <button class="bdr bdr-green flex w-full ha-c">
-                                <span>TITLE</span>
-                                <svg class="icon txt-primary" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="m12.191 15.865 4.973-6.321c.13-.163.211-.39.211-.634 0-.488-.325-.91-.715-.91H6.715C6.325 8 6 8.406 6 8.91c0 .244.081.471.211.634l4.973 6.321a.65.65 0 0 0 .504.26c.194 0 .357-.098.503-.26Z"></path>
-                                </svg>
-                            </button>
-                        </th>
-                        <!-- or just add text alignment classes to the `th` -->
-                        <th class="bdr bdr-green tac">
-                            <button class="bdr bdr-red w-full">
-                                <span>TITLE</span>
-                                <svg class="icon txt-primary" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="m12.191 15.865 4.973-6.321c.13-.163.211-.39.211-.634 0-.488-.325-.91-.715-.91H6.715C6.325 8 6 8.406 6 8.91c0 .244.081.471.211.634l4.973 6.321a.65.65 0 0 0 .504.26c.194 0 .357-.098.503-.26Z"></path>
-                                </svg>
-                            </button>
-                        </th>
-                    </tr>
-                </thead>
-            </table>
-        </div>
-        <main class="main-content-quick-hide-wrapper zebra">
-
-            <!-- table and components -->
-            <section id="table" class="py-3">
-                <div class="container">
-                    <h2 class="title txt-3">Tables</h2>
-                    <!-- base table -->
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Product</th>
-                                <th>Description</th>
-                                <th>Price</th>
-                                <th>Stock</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Wireless Mouse</td>
-                                <td>Ergonomic mouse with USB receiver</td>
-                                <td>$29.95</td>
-                                <td>54</td>
-                            </tr>
-                            <tr>
-                                <td>Keyboard</td>
-                                <td>Compact mechanical keyboard</td>
-                                <td>$69.00</td>
-                                <td>21</td>
-                            </tr>
-                            <tr>
-                                <td>Monitor</td>
-                                <td>24" 1080p IPS display</td>
-                                <td>$189.50</td>
-                                <td>12</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <hr class="bdr-secondary">
 
 
-
-
-                    <!-- When using sortable tables, you need to apply some additional styles as they are buttons -->
-                    <table class="w-20">
-                        <tr>
-                            <th class="bdr bdr-red tac">
-                                <button class="btn">
-                                    <span>Product</span>
-                                    <svg class="icon txt-primary" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="m12.191 15.865 4.973-6.321c.13-.163.211-.39.211-.634 0-.488-.325-.91-.715-.91H6.715C6.325 8 6 8.406 6 8.91c0 .244.081.471.211.634l4.973 6.321a.65.65 0 0 0 .504.26c.194 0 .357-.098.503-.26Z"></path>
-                                    </svg>
-                                </button>
-                            </th>
-                        </tr>
-                    </table>
-                    <svg class="wh-1 txt-muted" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="m7.191 20.865 4.973-6.321c.13-.163.211-.39.211-.634 0-.488-.325-.91-.715-.91H1.715c-.39 0-.715.406-.715.91 0 .244.081.471.211.634l4.973 6.321c.13.163.308.26.503.26.196 0 .358-.098.504-.26ZM6.184 2.26 1.21 8.581c-.13.163-.211.39-.211.634 0 .488.325.91.715.91h9.945c.39 0 .715-.406.715-.91 0-.244-.081-.471-.211-.634L7.19 2.26A.647.647 0 0 0 6.688 2c-.196 0-.358.098-.504.26Z" />
-                    </svg>
-                    <svg class="wh-1 txt-primary" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M11.184 8.26 6.21 14.581c-.13.163-.211.39-.211.634 0 .488.325.91.715.91h9.945c.39 0 .715-.406.715-.91 0-.244-.081-.471-.211-.634L12.19 8.26a.647.647 0 0 0-.504-.26c-.194 0-.357.098-.503.26Z" />
-                    </svg>
-                    <svg class="wh-1 txt-purple" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="m12.191 15.865 4.973-6.321c.13-.163.211-.39.211-.634 0-.488-.325-.91-.715-.91H6.715C6.325 8 6 8.406 6 8.91c0 .244.081.471.211.634l4.973 6.321a.65.65 0 0 0 .504.26c.194 0 .357-.098.503-.26Z" />
-                    </svg>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th class="bdr bdr-red">
-                                    <button class="btn">
-                                        <span>Product</span>
-                                        <svg class="icon txt-primary" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="m12.191 15.865 4.973-6.321c.13-.163.211-.39.211-.634 0-.488-.325-.91-.715-.91H6.715C6.325 8 6 8.406 6 8.91c0 .244.081.471.211.634l4.973 6.321a.65.65 0 0 0 .504.26c.194 0 .357-.098.503-.26Z"></path>
-                                        </svg>
-                                    </button>
-                                </th>
-                                <th class="bdr bdr-blue">
-                                    <button class="" btn>
-                                        <span>Product</span>
-                                        <svg class="icon txt-primary" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="m12.191 15.865 4.973-6.321c.13-.163.211-.39.211-.634 0-.488-.325-.91-.715-.91H6.715C6.325 8 6 8.406 6 8.91c0 .244.081.471.211.634l4.973 6.321a.65.65 0 0 0 .504.26c.194 0 .357-.098.503-.26Z"></path>
-                                        </svg>
-                                    </button>
-                                </th>
-                                <th>Product</th>
-                                <th>Description</th>
-                                <th>Price</th>
-                                <th>Stock</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Wireless Mouse</td>
-                                <td>Ergonomic mouse with USB receiver</td>
-                                <td>$29.95</td>
-                                <td>54</td>
-                            </tr>
-                            <tr>
-                                <td>Keyboard</td>
-                                <td>Compact mechanical keyboard</td>
-                                <td>$69.00</td>
-                                <td>21</td>
-                            </tr>
-                            <tr>
-                                <td>Monitor</td>
-                                <td>24" 1080p IPS display</td>
-                                <td>$189.50</td>
-                                <td>12</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-        </main>
 
 
 
@@ -1779,167 +1845,7 @@
             </section>
         </div>
 
-        <!--  -->
-        <!--  -->
-        <!-- THIS IS ALL OVER THE PLACE AND NEEDS TO BE TIDIED UP! -->
-        <!--  -->
-        <!--  -->
-        <div class="container py-5">
-            <div class="overflow-x-auto rounded-lg bdr">
-                <table>
-                    <thead class="txt-upper">
-                        <tr>
-                            <th scope="col" class=""> Product name </th>
-                            <th scope="col" class=""> Color </th>
-                            <th scope="col" class=""> Category </th>
-                            <th scope="col" class=""> Price </th>
-                            <th scope="col" class=""> Action </th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y bdr-t">
-                        <tr class="">
-                            <th scope="row" class=""> Apple MacBook Pro 17" </th>
-                            <td class=""> Silver </td>
-                            <td class=""> Laptop </td>
-                            <td class=""> $2999 </td>
-                            <td class=""> <a href="#">Edit</a> </td>
-                        </tr>
-                        <tr class="bdr-green bdr5">
-                            <th scope="row" class=""> Microsoft Surface Pro </th>
-                            <td class=""> White </td>
-                            <td class=""> Laptop PC </td>
-                            <td class=""> $1999 </td>
-                            <td class=""> <a href="#">Edit</a> </td>
-                        </tr>
-                        <tr class="">
-                            <th scope="row" class=""> Magic Mouse 2 </th>
-                            <td class=""> Black </td>
-                            <td class=""> Accessories </td>
-                            <td class=""> $99 </td>
-                            <td class=""> <a href="#">Edit</a> </td>
-                        </tr>
-                        <tr class="">
-                            <th scope="row" class=""> Google Pixel Phone </th>
-                            <td class=""> Gray </td>
-                            <td class=""> Phone </td>
-                            <td class=""> $799 </td>
-                            <td class=""> <a href="#">Edit</a> </td>
-                        </tr>
-                        <tr class="">
-                            <th scope="row" class=""> Apple Watch 5 </th>
-                            <td class=""> Red </td>
-                            <td class=""> Wearables </td>
-                            <td class=""> $999 </td>
-                            <td class=""> <a href="#">Edit</a> </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <hr>
-            <div class="overflow-x-auto rounded-lg bdr">
-                <table>
-                    <thead class="txt-upper">
-                        <tr>
-                            <th scope="col" class=""> Product name </th>
-                            <th scope="col" class=""> Color </th>
-                            <th scope="col" class=""> Category </th>
-                            <th scope="col" class=""> Price </th>
-                            <th scope="col" class=""> Action </th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y">
-                        <tr class="bdr-b bdr-light">
-                            <th scope="row" class=""> Apple MacBook Pro 17" </th>
-                            <td class=""> Silver </td>
-                            <td class=""> Laptop </td>
-                            <td class=""> $2999 </td>
-                            <td class=""> <a href="#">Edit</a> </td>
-                        </tr>
-                        <tr class="bdr-b bdr-light">
-                            <th scope="row" class=""> Microsoft Surface Pro </th>
-                            <td class=""> White </td>
-                            <td class=""> Laptop PC </td>
-                            <td class=""> $1999 </td>
-                            <td class=""> <a href="#">Edit</a> </td>
-                        </tr>
-                        <tr class="bdr-b bdr-light">
-                            <th scope="row" class=""> Magic Mouse 2 </th>
-                            <td class=""> Black </td>
-                            <td class=""> Accessories </td>
-                            <td class=""> $99 </td>
-                            <td class=""> <a href="#">Edit</a> </td>
-                        </tr>
-                        <tr class="bdr-b bdr-light">
-                            <th scope="row" class=""> Google Pixel Phone </th>
-                            <td class=""> Gray </td>
-                            <td class=""> Phone </td>
-                            <td class=""> $799 </td>
-                            <td class=""> <a href="#">Edit</a> </td>
-                        </tr>
-                        <tr class="bdr-blue-40">
-                            <th scope="row" class=""> Apple Watch 5 </th>
-                            <td class=""> Red </td>
-                            <td class=""> Wearables </td>
-                            <td class=""> $999 </td>
-                            <td class=""> <a href="#">Edit</a> </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <hr>
-            <div class="overflow-x-auto rounded-lg">
-                <table>
-                    <thead class="txt-upper txt-white bg-blue-600">
-                        <tr>
-                            <th scope="col" class=""> Product name </th>
-                            <th scope="col" class=""> Color </th>
-                            <th scope="col" class=""> Category </th>
-                            <th scope="col" class=""> Price </th>
-                            <th scope="col" class=""> Action </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="bg-blue-500 bdr-b bdr-light">
-                            <th scope="row" class=""> Apple MacBook Pro 17" </th>
-                            <td class=""> Silver </td>
-                            <td class=""> Laptop </td>
-                            <td class=""> $2999 </td>
-                            <td class=""> <a href="#">Edit</a> </td>
-                        </tr>
-                        <tr class="bg-blue-500 bdr-b bdr-light">
-                            <th scope="row" class="">
-                                Microsoft Surface Pro
-                            </th>
-                            <td class=""> White </td>
-                            <td class=""> Laptop PC </td>
-                            <td class=""> $1999 </td>
-                            <td class=""> <a href="#">Edit</a> </td>
-                        </tr>
-                        <tr class="bg-blue-500 bdr-b bdr-light">
-                            <th scope="row" class=""> Magic Mouse 2 </th>
-                            <td class=""> Black </td>
-                            <td class=""> Accessories </td>
-                            <td class=""> $99 </td>
-                            <td class=""> <a href="#">Edit</a> </td>
-                        </tr>
-                        <tr class="bg-blue-500 bdr-b bdr-light">
-                            <th scope="row" class=""> Google Pixel Phone </th>
-                            <td class=""> Gray </td>
-                            <td class=""> Phone </td>
-                            <td class=""> $799 </td>
-                            <td class=""> <a href="#">Edit</a> </td>
-                        </tr>
-                        <tr class="bg-blue-500 bdr-blue-40">
-                            <th scope="row" class=""> Apple Watch 5 </th>
-                            <td class=""> Red </td>
-                            <td class=""> Wearables </td>
-                            <td class=""> $999 </td>
-                            <td class=""> <a href="#">Edit</a> </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+
 
         <div>
             <div class="quick-hide-wrapper zebra c-py-5-3-2">

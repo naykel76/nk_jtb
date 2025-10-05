@@ -242,6 +242,10 @@ table {
     width: 100%;
 }
 
+thead { 
+    border-color: inherit;
+}
+
 th {
     font-weight: 600;
     vertical-align: middle;
@@ -250,10 +254,11 @@ th {
 
 th,
 td {
-    font-size: $table-font-size;
+    font-size: inherit; // allow font sizing to be set on table
     padding-inline: $table-padding-x;
     padding-block: $table-padding-y;
     text-align: left;
+    border-color: inherit;
 }
 
 // -- Controls --

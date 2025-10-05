@@ -27,11 +27,7 @@
 }
 
 
-// this is not easy to override on the child element unless the
-// properties are set as !important but works great otherwise.
-.divide-y > :not([hidden]) ~ :not([hidden]) {
-    border-top: 1px solid $border-color;
-}
+
 
 //
 // -----------------------------------
