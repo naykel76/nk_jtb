@@ -1,7 +1,13 @@
 @use '../functions/color-functions' as *;
 @use '../maps_and_variables/form-controls' as *;
 
-// The control placeholder is the basis for all inputs, buttons and controls
+// ==========================================================================
+// -- CONTROL BASE PLACEHOLDER --
+// ==========================================================================
+// Common structure for inputs, selects, textareas, and buttons.
+// 1. Ensures consistent height/spacing across components
+// 2. Supports size modifiers
+
 
 // 1. line height is required to get consistent heights
 // 2. creates control and button sizes sm, md, lg

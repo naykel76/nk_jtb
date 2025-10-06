@@ -11,116 +11,212 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
+<!-- <section id="" class="py-3">
+    <div class="container">
+        <h2 class="title txt-blue">Title</h2>
+    </div>
+</section> -->
 
 <body class="zebra c-py-5-3-2">
-    <div class="container py-5">
-        <div class="overflow-x-uto rounded-lg br bd-neutral-200">
-            <!-- just adding bdr is enough and it will inherit the border-color -->
-            <table class="bdr bdr-green">
-                <thead class="txt-upper bdr-b  bg-neutral-100">
-                    <tr>
-                        <th scope="col"> Product name </th>
-                        <th scope="col"> Color </th>
-                        <th scope="col"> Category </th>
-                        <th scope="col"> Price </th>
-                        <th scope="col"> Action </th>
-                    </tr>
-                </thead>
 
 
-                <tbody class="divide-y">
-                    <tr>
-                        <th scope="row"> Apple MacBook Pro 17" </th>
-                        <td> Silver </td>
-                        <td> Laptop </td>
-                        <td> $2999 </td>
-                        <td> <a href="#">Edit</a> </td>
-                    </tr>
-                    <tr>
-                        <th scope="row"> Microsoft Surface Pro </th>
-                        <td> White </td>
-                        <td> Laptop PC </td>
-                        <td> $1999 </td>
-                        <td> <a href="#">Edit</a> </td>
-                    </tr>
-                    <tr>
-                        <th scope="row"> Magic Mouse 2 </th>
-                        <td> Black </td>
-                        <td> Accessories </td>
-                        <td> $99 </td>
-                        <td> <a href="#">Edit</a> </td>
-                    </tr>
-                    <tr>
-                        <th scope="row"> Google Pixel Phone </th>
-                        <td> Gray </td>
-                        <td> Phone </td>
-                        <td> $799 </td>
-                        <td> <a href="#">Edit</a> </td>
-                    </tr>
-                    <tr class="bdr-blue-40">
-                        <th scope="row"> Apple Watch 5 </th>
-                        <td> Red </td>
-                        <td> Wearables </td>
-                        <td> $999 </td>
-                        <td> <a href="#">Edit</a> </td>
-                    </tr>
-                </tbody>
-            </table>
+    <section id="" class="py-3">
+        <div class="container">
+            <h2 class="title txt-blue">Title</h2>
+
+
+            <button type="button" class="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                <svg class="w-3 h-3 text-white me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
+                    <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
+                    <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
+                </svg>
+                Extra small
+            </button>
+            <button type="button" class="px-3 py-2 text-sm font-medium text-center inline-flex items-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                <svg class="w-3 h-3 text-white me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
+                    <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
+                    <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
+                </svg>
+                Small
+            </button>
+            <button type="button" class="px-5 py-2.5 text-sm font-medium text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                <svg class="w-3.5 h-3.5 text-white me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
+                    <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
+                    <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
+                </svg>
+                Base
+            </button>
+            <button type="button" class="px-5 py-3 text-base font-medium text-center inline-flex items-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                <svg class="w-4 h-4 text-white me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
+                    <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
+                    <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
+                </svg>
+                Large
+            </button>
+            <button type="button" class="px-6 py-3.5 text-base font-medium text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                <svg class="w-4 h-4 text-white me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
+                    <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
+                    <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
+                </svg>
+                Extra large
+            </button>
+
+            <!-- buttons with icons -->
         </div>
-        <hr>
-        <div class="overflow-x-auto rounded-lg">
+    </section>
+
+    <section id="table-testing" class="py-3">
+        <div class="container">
+            <h2 class="title txt-blue">Tables</h2>
+            <h4>Base Table</h4>
             <table>
-                <thead class="txt-upper txt-white bg-blue-600">
+                <thead>
                     <tr>
-                        <th scope="col"> Product name </th>
-                        <th scope="col"> Color </th>
-                        <th scope="col"> Category </th>
-                        <th scope="col"> Price </th>
-                        <th scope="col"> Action </th>
+                        <th>Product</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Stock</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="bg-blue-500 bdr-b bdr-light">
-                        <th scope="row"> Apple MacBook Pro 17" </th>
-                        <td> Silver </td>
-                        <td> Laptop </td>
-                        <td> $2999 </td>
-                        <td> <a href="#">Edit</a> </td>
+                    <tr>
+                        <td>Wireless Mouse</td>
+                        <td>Ergonomic mouse with USB receiver</td>
+                        <td>$29.95</td>
+                        <td>54</td>
                     </tr>
-                    <tr class="bg-blue-500 bdr-b bdr-light">
-                        <th scope="row">
-                            Microsoft Surface Pro
-                        </th>
-                        <td> White </td>
-                        <td> Laptop PC </td>
-                        <td> $1999 </td>
-                        <td> <a href="#">Edit</a> </td>
+                    <tr>
+                        <td>Keyboard</td>
+                        <td>Compact mechanical keyboard</td>
+                        <td>$69.00</td>
+                        <td>21</td>
                     </tr>
-                    <tr class="bg-blue-500 bdr-b bdr-light">
-                        <th scope="row"> Magic Mouse 2 </th>
-                        <td> Black </td>
-                        <td> Accessories </td>
-                        <td> $99 </td>
-                        <td> <a href="#">Edit</a> </td>
-                    </tr>
-                    <tr class="bg-blue-500 bdr-b bdr-light">
-                        <th scope="row"> Google Pixel Phone </th>
-                        <td> Gray </td>
-                        <td> Phone </td>
-                        <td> $799 </td>
-                        <td> <a href="#">Edit</a> </td>
-                    </tr>
-                    <tr class="bg-blue-500 bdr-blue-40">
-                        <th scope="row"> Apple Watch 5 </th>
-                        <td> Red </td>
-                        <td> Wearables </td>
-                        <td> $999 </td>
-                        <td> <a href="#">Edit</a> </td>
+                    <tr>
+                        <td>Monitor</td>
+                        <td>24" 1080p IPS display</td>
+                        <td>$189.50</td>
+                        <td>12</td>
                     </tr>
                 </tbody>
             </table>
+            <div class="overflow-x-auto rounded-lg br bd-neutral-200">
+                <table class="bdr bdr-green">
+                    <thead class="txt-upper bdr-b  bg-neutral-100">
+                        <tr>
+                            <th scope="col"> Product name </th>
+                            <th scope="col"> Color </th>
+                            <th scope="col"> Category </th>
+                            <th scope="col"> Price </th>
+                            <th scope="col"> Action </th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y">
+                        <tr>
+                            <th scope="row"> Apple MacBook Pro 17" </th>
+                            <td> Silver </td>
+                            <td> Laptop </td>
+                            <td> $2999 </td>
+                            <td> <a href="#">Edit</a> </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"> Microsoft Surface Pro </th>
+                            <td> White </td>
+                            <td> Laptop PC </td>
+                            <td> $1999 </td>
+                            <td> <a href="#">Edit</a> </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"> Magic Mouse 2 </th>
+                            <td> Black </td>
+                            <td> Accessories </td>
+                            <td> $99 </td>
+                            <td> <a href="#">Edit</a> </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"> Google Pixel Phone </th>
+                            <td> Gray </td>
+                            <td> Phone </td>
+                            <td> $799 </td>
+                            <td> <a href="#">Edit</a> </td>
+                        </tr>
+                        <tr class="bdr-blue-40">
+                            <th scope="row"> Apple Watch 5 </th>
+                            <td> Red </td>
+                            <td> Wearables </td>
+                            <td> $999 </td>
+                            <td> <a href="#">Edit</a> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <hr>
+            <div class="overflow-x-auto rounded-lg">
+                <table>
+                    <thead class="txt-upper txt-white bg-blue-600">
+                        <tr>
+                            <th scope="col"> Product name </th>
+                            <th scope="col"> Color </th>
+                            <th scope="col"> Category </th>
+                            <th scope="col"> Price </th>
+                            <th scope="col"> Action </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-blue-500 bdr-b bdr-light">
+                            <th scope="row"> Apple MacBook Pro 17" </th>
+                            <td> Silver </td>
+                            <td> Laptop </td>
+                            <td> $2999 </td>
+                            <td> <a href="#">Edit</a> </td>
+                        </tr>
+                        <tr class="bg-blue-500 bdr-b bdr-light">
+                            <th scope="row">
+                                Microsoft Surface Pro
+                            </th>
+                            <td> White </td>
+                            <td> Laptop PC </td>
+                            <td> $1999 </td>
+                            <td> <a href="#">Edit</a> </td>
+                        </tr>
+                        <tr class="bg-blue-500 bdr-b bdr-light">
+                            <th scope="row"> Magic Mouse 2 </th>
+                            <td> Black </td>
+                            <td> Accessories </td>
+                            <td> $99 </td>
+                            <td> <a href="#">Edit</a> </td>
+                        </tr>
+                        <tr class="bg-blue-500 bdr-b bdr-light">
+                            <th scope="row"> Google Pixel Phone </th>
+                            <td> Gray </td>
+                            <td> Phone </td>
+                            <td> $799 </td>
+                            <td> <a href="#">Edit</a> </td>
+                        </tr>
+                        <tr class="bg-blue-500 bdr-blue-40">
+                            <th scope="row"> Apple Watch 5 </th>
+                            <td> Red </td>
+                            <td> Wearables </td>
+                            <td> $999 </td>
+                            <td> <a href="#">Edit</a> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <section id="button-testing" class="py-3">
+        <div class="container">
+            <h2 class="title txt-blue">Buttons</h2>
+            <button type="button" class="btn bg-transparent txt-blue-700 hover:txt-white bdr bdr-blue-700 hover:bg-blue-800">Default</button>
+            <button type="button" class="btn bg-transparent txt-green-700 hover:txt-white bdr bdr-green-700 hover:bg-green-800">Green</button>
+            <button type="button" class="btn bg-transparent txt-red-700 hover:txt-white bdr bdr-red-700 hover:bg-red-800">Red</button>
+            <button type="button" class="btn bg-transparent txt-yellow-400 hover:txt-white bdr bdr-yellow-400 hover:bg-yellow-500">Yellow</button>
+            <button type="button" class="btn bg-transparent txt-purple-700 hover:txt-white bdr bdr-purple-700 hover:bg-purple-800">Purple</button>
+        </div>
+    </section>
+
+
 
 
     <section id="tailwind-pagination-example">
@@ -195,42 +291,7 @@
             </ul>
         </nav>
     </section>
-    <section id="table-testing" class="py-3">
-        <div class="container">
-            <h2 class="title txt-blue">Tables</h2>
-            <h4>Base Table</h4>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Product</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                        <th>Stock</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Wireless Mouse</td>
-                        <td>Ergonomic mouse with USB receiver</td>
-                        <td>$29.95</td>
-                        <td>54</td>
-                    </tr>
-                    <tr>
-                        <td>Keyboard</td>
-                        <td>Compact mechanical keyboard</td>
-                        <td>$69.00</td>
-                        <td>21</td>
-                    </tr>
-                    <tr>
-                        <td>Monitor</td>
-                        <td>24" 1080p IPS display</td>
-                        <td>$189.50</td>
-                        <td>12</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
+
     <section id="responsive-testing" class="py-3">
         <div class="container">
             <h2 class="title txt-blue">Responsive Testing</h2>
@@ -422,7 +483,7 @@
     </section>
     <section id="colortesting" class="py-3">
         <div class="container-xl">
-            <h2 class="title">Colors</h2>
+            <h2 class="title txt-blue">Colors</h2>
             <p>This compares the tailwind <code>-500</code> color to the colors in the <code>base-colors</code></p>
             <!-- tailwind -500 vs base color comparison -->
             <div class="grid md:cols-6 font-mono tac">
@@ -1652,31 +1713,7 @@
                     </div>
                 </div>
             </section>
-            <section id="button-control-sizes-examples" class="py-3">
-                <div class="container space-y">
-                    <h2 class="title txt-3">Button and Control Sizes</h2>
-                    <div>
-                        <button class="btn primary xs">Extra Small</button>
-                        <input class="xs" placeholder="Text Input">
-                    </div>
-                    <div>
-                        <button class="btn primary sm">Small</button>
-                        <input class="sm" placeholder="Text Input">
-                    </div>
-                    <div>
-                        <button class="btn primary">Base</button>
-                        <input placeholder="Text Input">
-                    </div>
-                    <div>
-                        <button class="btn primary lg">Large</button>
-                        <input class="lg" placeholder="Text Input">
-                    </div>
-                    <div>
-                        <button class="btn primary xl">Extra Large</button>
-                        <input class="xl" placeholder="Text Input">
-                    </div>
-                </div>
-            </section>
+
 
             <section id="menu-component" class="py-3">
                 <div class="container space-y">

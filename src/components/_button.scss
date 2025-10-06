@@ -20,19 +20,19 @@
 
     background: $btn-bg;
     color: $btn-color;
-    text-transform: $btn-text-transform;
-    text-align: center;
-    justify-content: center;
     font-weight: 600;
-    white-space: nowrap; // prevent text wrapping
+    justify-content: center;
     padding-inline: 1.25rem;
+    text-align: center;
+    text-transform: $btn-text-transform;
+
+    // !-WARNING-! changing the vertical alignment affects buttons with icons
+    vertical-align: bottom; // keep buttons aligned to inputs
+    white-space: nowrap; // prevent text wrapping
 
     &:not(:disabled, .disabled) {
         cursor: pointer;
     }
-
-    // !-WARNING-! changing the vertical alignment affects buttons with icons
-    vertical-align: bottom; // keep buttons aligned to inputs
 
     @include hover($btn-bg);
     @include active($btn-bg);

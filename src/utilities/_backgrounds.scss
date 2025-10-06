@@ -1,5 +1,17 @@
 @use '../maps_and_variables/base' as *;
 
+.bg-inherit {
+    background-color: inherit;
+}
+
+.bg-current {
+    background-color: currentcolor;
+}
+
+.bg-transparent {
+    background-color: transparent;
+}
+
 .zebra > *:nth-child(2n + 2):not(.primary, .secondary) {
     background: $zebra-alt-bg;
 }
