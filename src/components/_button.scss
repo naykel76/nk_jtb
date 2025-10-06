@@ -5,14 +5,13 @@
 @use '../maps_and_variables/colors' as *;
 @use '../maps_and_variables/config' as *;
 @use '../maps_and_variables/components' as *;
+@use '../maps_and_variables/form-controls' as *;
 
 // ==========================================================================
-// -- BASE CLASS --
+// -- BASE BUTTON --
 // ==========================================================================
-// items that are in themes are more difficult to override in the
-// base class. For example, setting the border-width in the base
-// class will do nothing because the theme border takes precedence.
-// I don't really see it as a problem because utilities are king!
+// Extends %control and %transition
+// Neutral base, ready for utilities or theme overrides
 
 .#{$button-identifier} {
     @extend %control;
@@ -21,17 +20,51 @@
     background: $btn-bg;
     color: $btn-color;
     font-weight: 600;
+    gap: 0.5rem; // spacing for icons
     justify-content: center;
     padding-inline: 1.25rem;
     text-align: center;
     text-transform: $btn-text-transform;
-
-    // !-WARNING-! changing the vertical alignment affects buttons with icons
-    vertical-align: bottom; // keep buttons aligned to inputs
-    white-space: nowrap; // prevent text wrapping
+    white-space: nowrap;
 
     &:not(:disabled, .disabled) {
         cursor: pointer;
+    }
+
+    &:disabled,
+    &.disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+
+    // ICON SUPPORT
+    > svg,
+    > i {
+        flex-shrink: 0; // prevent the icon from shrinking when button resizes or text wraps
+        height: 1em; // match the icon height to the button's font-size for automatic scaling
+        width: 1em; // match the icon width to the button's font-size for consistent sizing
+    }
+
+    // ICON-ONLY BUTTON
+    &.icon-only {
+        line-height: 0; // remove extra vertical height
+        padding-inline: $ctrl-padding-y; // make horizontal = vertical for square
+    }
+
+    &.xs.icon-only {
+        padding-inline: $ctrl-padding-y-xs;
+    }
+
+    &.sm.icon-only {
+        padding-inline: $ctrl-padding-y-sm;
+    }
+
+    &.lg.icon-only {
+        padding-inline: $ctrl-padding-y-lg;
+    }
+
+    &.xl.icon-only {
+        padding-inline: $ctrl-padding-y-xl;
     }
 
     @include hover($btn-bg);
@@ -41,10 +74,6 @@
 // ==========================================================================
 // -- THEMES AND VARIATIONS --
 // ==========================================================================
-//
-//  must explicitly create btn state to override base class because
-//  theme only apply when the `withState` modifier is included
-//
 
 @each $key, $color in $color-map {
     .#{$button-identifier}.#{$key} {

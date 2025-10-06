@@ -73,3 +73,17 @@ margin-<top|right|bottom|left>
   
 - **Suffix pattern**: When setting all aspects of a property for a particular side at once
   - Example: `border-top: 2px solid red` sets width, style, and color for the top border
+
+
+
+| px  | rem      |
+| --- | -------- |
+| 4   | 0.25rem  |
+| 6   | 0.375rem |
+| 8   | 0.5rem   |
+| 10  | 0.625rem |
+| 12  | 0.75rem  |
+| 14  | 0.875rem |
+| 16  | 1rem     |
+| 20  | 1.25rem  |
+| 24  | 1.5rem   |
