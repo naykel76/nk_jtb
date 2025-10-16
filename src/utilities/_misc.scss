@@ -1,4 +1,5 @@
 @use '../common-tools' as *;
+@use '../maps_and_variables/config' as *;
 
 // ==========================================================================
 // Miscellaneous Utilities
@@ -6,6 +7,28 @@
 // Several of these should be added to the main build. They are placed here
 // temporarily for quick testing before being integrated into the main build.
 
+// ==========================================================================
+// Aspect Ratio Utilities
+// ==========================================================================
+.aspect-square {
+    aspect-ratio: 1 / 1;
+}
+
+.aspect-video {
+    aspect-ratio: 16 / 9;
+}
+
+.aspect-photo {
+    aspect-ratio: 4 / 3;
+}
+
+.aspect-auto {
+    aspect-ratio: auto;
+}
+
+// ==========================================================================
+// Dividers
+// ==========================================================================
 // this is not easy to override on the child element unless the
 // properties are set as !important but works great otherwise.
 .divide-y > :not([hidden]) ~ :not([hidden]) {

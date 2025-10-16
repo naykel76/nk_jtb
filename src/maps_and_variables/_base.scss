@@ -23,8 +23,8 @@ $text-color: $dark-text !default;
 $font-size: 1rem !default;
 
 // -- Font Stacks --
-$base-font: -apple-system, blinkmacsystemfont, 'Segoe UI', 'Noto Sans', helvetica, arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji' !default;
-$mono-font: var(--fontStack-monospace, ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace) !default;
+$base-font: -apple-system, blinkmacsystemfont, 'Segoe UI', sans-serif !default;
+$mono-font: ui-monospace, 'SF Mono', 'Cascadia Code', 'Roboto Mono', monospace !default;
 
 // -- Links --
 $link-color: #5850ec !default;

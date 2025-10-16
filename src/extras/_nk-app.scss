@@ -1,35 +1,43 @@
 @use '../common-tools' as *;
 
+// grid areas for layout elements
+header { grid-area: header; }
+main { grid-area: main; }
+footer { grid-area: footer; }
+.sidebar { grid-area: sidebar; }
+.sidebar-left { grid-area: sidebar-left; }
+.sidebar-right { grid-area: sidebar-right; }
+
 // ==========================================================================
 // -- LAYOUT ELEMENTS --
 // ==========================================================================
 
 body {
-    min-height: 100vh; // set height to push footer to the bottom
     display: flex;
     flex-direction: column;
+    min-height: 100vh; // set height to push footer to the bottom
 }
 
 :where(.nk-main) {
-    flex: 1; // 1. allow to grow to fill height
     background-color: $main-bg;
+    flex: 1; // 1. allow to grow to fill height
 }
 
 :where(.nk-footer) {
     background-color: $footer-bg;
-    margin-top: auto; // force footer to the bottom
     color: #ccc;
+    margin-top: auto; // force footer to the bottom
 }
 
 .copyright {
-    color: $copyright-text-color;
     background-color: $copyright-bg;
+    border: 0; // remove border from colour scheme
+    color: $copyright-text-color;
+    font-size: 0.9rem;
+    margin-top: 0;
     padding: 0.5rem;
     text-align: center;
-    font-size: 0.9rem;
-    border: 0; // remove border from colour scheme
     width: 100%;
-    margin-top: 0;
 }
 
 // ==========================================================================

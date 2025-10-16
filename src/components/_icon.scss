@@ -6,11 +6,11 @@
 // 1. better alignment
 
 .#{$icon-identifier} {
+    color: $icon-color;
+    height: $icon-xy;
     padding: 1px; // 1
     vertical-align: bottom; // 1
-    color: $icon-color;
     width: $icon-xy;
-    height: $icon-xy;
 
     &.sm {
         height: $icon-xy-sm;
