@@ -1,16 +1,37 @@
 <p align="center"><a href="https://naykel.com.au" target="_blank"><img src="https://avatars0.githubusercontent.com/u/32632005?s=460&u=d1df6f6e0bf29668f8a4845271e9be8c9b96ed83&v=4" width="120"></a></p>
 
-# NAYKEL JTB
+# JTB – Just the Basics
 
-Why!
+*Sensible defaults without over-styling.*
 
-> Because without reinventing the wheel we wouldn’t have fast cars.  -- Nathan Watts
+> JTB is a Sass framework that gives you structure without dictating style. Build with
+> composable classes, override anything, and keep your markup readable.
+
+---
+
+**Why build another CSS framework?**
+
+> "Because without reinventing the wheel we wouldn't have fast cars."  
+> -- Nathan Watts
+
+---
+
+## Key Features
+
+- **Context-aware modifiers** – `.primary` works on buttons, boxes, badges. No
+  `.btn-primary` bloat.
+- **Predictable naming** – `m-1` = 1rem, `p-2` = 2rem. Numbers mean what they say.
+- **Minimal components** – Structure without decoration. Customize with utilities.
+- **Build-time focused** – No JavaScript. No runtime magic. Just Sass.
+
+---
 
 ## To Do's
 
 - remove themes from color variables
 
-- Fix the positional class names. When adding the positions map the class names are not correct.
+- Fix the positional class names. When adding the positions map the class names are not
+  correct.
 
 ## FAQ's
 
@@ -19,33 +40,6 @@ Why!
 For example, instead of generating a class like `bdr-xy` to represent both the x and y
 axes, I want to use just `bdr`. Similarly, I want to change `m-xy` to either `m` or `mxy`,
 removing the explicit axis notation.
-
-## Color List
-
-```html
-<p class="txt-red">red</p>
-<p class="txt-orange">orange</p>
-<p class="txt-amber">amber</p>
-<p class="txt-yellow">yellow</p>
-<p class="txt-lime">lime</p>
-<p class="txt-green">green</p>
-<p class="txt-emerald">emerald</p>
-<p class="txt-teal">teal</p>
-<p class="txt-cyan">cyan</p>
-<p class="txt-sky">sky</p>
-<p class="txt-blue">blue</p>
-<p class="txt-indigo">indigo</p>
-<p class="txt-violet">violet</p>
-<p class="txt-purple">purple</p>
-<p class="txt-fuchsia">fuchsia</p>
-<p class="txt-pink">pink</p>
-<p class="txt-rose">rose</p>
-<p class="txt-slate">slate</p>
-<p class="txt-gray">gray</p>
-<p class="txt-zinc">zinc</p>
-<p class="txt-neutral">neutral</p>
-<p class="txt-stone">stone</p>
-```
 
 
 ## CSS Positional Properties Patterns
@@ -74,16 +68,16 @@ margin-<top|right|bottom|left>
 - **Suffix pattern**: When setting all aspects of a property for a particular side at once
   - Example: `border-top: 2px solid red` sets width, style, and color for the top border
 
+## Spacing Scale
 
-
-| px  | rem      |
-| --- | -------- |
-| 4   | 0.25rem  |
-| 6   | 0.375rem |
-| 8   | 0.5rem   |
-| 10  | 0.625rem |
-| 12  | 0.75rem  |
-| 14  | 0.875rem |
-| 16  | 1rem     |
-| 20  | 1.25rem  |
-| 24  | 1.5rem   |
+| px  | rem      | tailwind |
+| --- | -------- | -------- |
+| 4   | 0.25rem  | 1        |
+| 6   | 0.375rem | 1.5      |
+| 8   | 0.5rem   | 2        |
+| 10  | 0.625rem | 2.5      |
+| 12  | 0.75rem  | 3        |
+| 14  | 0.875rem | 3.5      |
+| 16  | 1rem     | 4        |
+| 20  | 1.25rem  | 5        |
+| 24  | 1.5rem   | 6        |
