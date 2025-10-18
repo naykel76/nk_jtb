@@ -1,47 +1,40 @@
 @use '../maps_and_variables/base' as *;
+@use '../maps_and_variables/colors' as *;
+@use 'sass:map';
+@use 'sass:list';
 
-.bg-inherit {
-    background-color: inherit;
+// ==========================================================================
+// Stripe Background Mixin
+// ==========================================================================
+// Creates diagonal striped backgrounds using Tailwind color scales.
+//
+// @param {String} $color-name - Name from $color-scale-names (e.g., 'blue')
+// @param {Number} $stripe-width - Width of each stripe (default: 10px)
+// @param {Number} $angle - Angle of the stripes (default: 45deg)
+// ---------------------------------------------------------------------------
+@mixin bg-stripes($color-name, $stripe-width: 3px, $angle: 135deg) {
+    $light: map.get($tailwind-colors, $color-name, '50');
+    $dark: map.get($tailwind-colors, $color-name, '200');
+
+    background: repeating-linear-gradient(
+        $angle,
+        $light,
+        $light $stripe-width,
+        $dark $stripe-width,
+        $dark ($stripe-width * 2)
+    );
 }
 
-.bg-current {
-    background-color: currentcolor;
-}
+@each $color-name in $color-scale-names {
+    .bg-stripes-#{$color-name} {
+        @include bg-stripes($color-name);
+    }
 
-.bg-transparent {
-    background-color: transparent;
+    .bg-stripes-wide-#{$color-name} {
+        @include bg-stripes($color-name, $stripe-width: 15px);
+    }
 }
 
 .zebra > *:nth-child(2n + 2):not(.primary, .secondary) {
     background: $zebra-alt-bg;
-}
-
-.bg-stripes-blue {
-    background-color: #60a5fa1a;
-    background-image: linear-gradient(135deg, #3b82f680 10%, #0000 0, #0000 50%, #3b82f680 0, #3b82f680 60%, #0000 0, #0000);
-    background-size: 7.07px 7.07px;
-}
-
-.bg-stripes-pink {
-    background-color: #f472b61a;
-    background-image: linear-gradient(135deg, #ec489980 10%, #0000 0, #0000 50%, #ec489980 0, #ec489980 60%, #0000 0, #0000);
-    background-size: 7.07px 7.07px;
-}
-
-.bg-stripes-violet {
-    background-color: #a78bfa1a;
-    background-image: linear-gradient(135deg, #8b5cf680 10%, #0000 0, #0000 50%, #8b5cf680 0, #8b5cf680 60%, #0000 0, #0000);
-    background-size: 7.07px 7.07px;
-}
-
-.bg-stripes-gray-light {
-    background-color: #d1d5db1a; 
-    background-image: linear-gradient( 135deg, #9ca3af80 10%, #0000 0, #0000 50%, #9ca3af80 0, #9ca3af80 60%, #0000 0, #0000 );
-    background-size: 7.07px 7.07px;
-}
-
-.bg-stripes-gray-dark {
-    background-color: #3741511a;
-    background-image: linear-gradient( 135deg, #4b556380 10%, #0000 0, #0000 50%, #4b556380 0, #4b556380 60%, #0000 0, #0000 );
-    background-size: 7.07px 7.07px;
 }

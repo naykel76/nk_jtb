@@ -6,20 +6,351 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
     <title>NayKel JTB</title>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 </head>
 
 <!-- <section id="" class="py-3">
     <div class="container">
-        <h2 class="title txt-blue">Title</h2>
+        <h2 class="txt-blue">Title</h2>
     </div>
 </section> -->
 
+
+<!-- <div>
+    <button>
+        <span>
+            <svg class="bdr bdr-pink bg-stripes-pink"></svg>
+            Parent Toggle (Opened)
+        </span>
+        <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path d="m6 15 6-6 6 6" />
+        </svg>
+    </button>
+    <ul>
+       
+    </ul>
+</div> -->
+
+
+
 <body class="zebra pxy">
+
+    <section id="background-examples" class="py-3">
+        <style>
+            .bg-stripe-examples {
+                grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr));
+                grid-auto-rows: 5rem;
+                display: grid;
+                gap: 1rem;
+            }
+
+            .bg-stripe-examples>* {
+                display: grid;
+                place-items: center;
+            }
+        </style>
+        <div class="container">
+            <h2 class="txt-blue">Background Examples</h2>
+
+            <h4><code>.bg-stripes-{color}</code></h4>
+            <div class="bg-stripe-examples">
+                <div class="rounded bdr-2 bdr-red bg-stripes-red">red</div>
+                <div class="rounded bdr-2 bdr-orange bg-stripes-orange">orange</div>
+                <div class="rounded bdr-2 bdr-amber bg-stripes-amber">amber</div>
+                <div class="rounded bdr-2 bdr-yellow bg-stripes-yellow">yellow</div>
+                <div class="rounded bdr-2 bdr-lime bg-stripes-lime">lime</div>
+                <div class="rounded bdr-2 bdr-green bg-stripes-green">green</div>
+                <div class="rounded bdr-2 bdr-emerald bg-stripes-emerald">emerald</div>
+                <div class="rounded bdr-2 bdr-teal bg-stripes-teal">teal</div>
+                <div class="rounded bdr-2 bdr-cyan bg-stripes-cyan">cyan</div>
+                <div class="rounded bdr-2 bdr-sky bg-stripes-sky">sky</div>
+                <div class="rounded bdr-2 bdr-blue bg-stripes-blue">blue</div>
+                <div class="rounded bdr-2 bdr-indigo bg-stripes-indigo">indigo</div>
+                <div class="rounded bdr-2 bdr-violet bg-stripes-violet">violet</div>
+                <div class="rounded bdr-2 bdr-purple bg-stripes-purple">purple</div>
+                <div class="rounded bdr-2 bdr-fuchsia bg-stripes-fuchsia">fuchsia</div>
+                <div class="rounded bdr-2 bdr-pink bg-stripes-pink">pink</div>
+                <div class="rounded bdr-2 bdr-rose bg-stripes-rose">rose</div>
+                <div class="rounded bdr-2 bdr-slate bg-stripes-slate">slate</div>
+                <div class="rounded bdr-2 bdr-gray bg-stripes-gray">gray</div>
+                <div class="rounded bdr-2 bdr-zinc bg-stripes-zinc">zinc</div>
+                <div class="rounded bdr-2 bdr-neutral bg-stripes-neutral">neutral</div>
+                <div class="rounded bdr-2 bdr-stone bg-stripes-stone">stone</div>
+            </div>
+            <hr>
+            <h4><code>.bg-stripes-wide-{color}</code></h4>
+            <div class="grid bg-stripe-examples">
+                <div class="rounded bdr-2 bdr-red bg-stripes-wide-red">red</div>
+                <div class="rounded bdr-2 bdr-orange bg-stripes-wide-orange">orange</div>
+                <div class="rounded bdr-2 bdr-amber bg-stripes-wide-amber">amber</div>
+                <div class="rounded bdr-2 bdr-yellow bg-stripes-wide-yellow">yellow</div>
+                <div class="rounded bdr-2 bdr-lime bg-stripes-wide-lime">lime</div>
+                <div class="rounded bdr-2 bdr-green bg-stripes-wide-green">green</div>
+                <div class="rounded bdr-2 bdr-emerald bg-stripes-wide-emerald">emerald</div>
+                <div class="rounded bdr-2 bdr-teal bg-stripes-wide-teal">teal</div>
+                <div class="rounded bdr-2 bdr-cyan bg-stripes-wide-cyan">cyan</div>
+                <div class="rounded bdr-2 bdr-sky bg-stripes-wide-sky">sky</div>
+                <div class="rounded bdr-2 bdr-blue bg-stripes-wide-blue">blue</div>
+                <div class="rounded bdr-2 bdr-indigo bg-stripes-wide-indigo">indigo</div>
+                <div class="rounded bdr-2 bdr-violet bg-stripes-wide-violet">violet</div>
+                <div class="rounded bdr-2 bdr-purple bg-stripes-wide-purple">purple</div>
+                <div class="rounded bdr-2 bdr-fuchsia bg-stripes-wide-fuchsia">fuchsia</div>
+                <div class="rounded bdr-2 bdr-pink bg-stripes-wide-pink">pink</div>
+                <div class="rounded bdr-2 bdr-rose bg-stripes-wide-rose">rose</div>
+                <div class="rounded bdr-2 bdr-slate bg-stripes-wide-slate">slate</div>
+                <div class="rounded bdr-2 bdr-gray bg-stripes-wide-gray">gray</div>
+                <div class="rounded bdr-2 bdr-zinc bg-stripes-wide-zinc">zinc</div>
+                <div class="rounded bdr-2 bdr-neutral bg-stripes-wide-neutral">neutral</div>
+                <div class="rounded bdr-2 bdr-stone bg-stripes-wide-stone">stone</div>
+            </div>
+    </section>
+
+    <section id="menu-examples" class="py-3">
+        <div class="container">
+            <h2 class="txt-blue">Menu Examples</h2>
+            <div class="flex space-between">
+                <div id="menu-class-examples">
+                    <h3>Menu Class</h3>
+                    <p>Examples using the <code>menu</code> class for layout.</p>
+                    <div class="flex gap">
+                        <div class="bdr w-16">
+                            <nav class="menu">
+                                <div class="menu-title"><code>nav > a</code></div>
+                                <a href="#"> <svg class="bdr bdr-pink bg-stripes-pink"></svg> Item </a>
+                                <a href="#"> <svg class="bdr bdr-pink bg-stripes-pink"></svg> Active </a>
+                                <div>
+                                    <button>
+                                        <span>
+                                            <svg class="bdr bdr-pink bg-stripes-pink"></svg>
+                                            Parent Toggle (Opened)
+                                        </span>
+                                        <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                            <path d="m6 15 6-6 6 6" />
+                                        </svg>
+                                    </button>
+                                    <ul>
+                                        <li> <a href="#"> Child Item </a> </li>
+                                        <li> <a href="#"> Child Item </a> </li>
+                                    </ul>
+                                </div>
+                                <a href="#">
+                                    <span>
+                                        <svg class="bdr bdr-pink bg-stripes-pink"></svg>
+                                        Parent Link (Closed)
+                                    </span>
+                                    <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                        <path d="m6 9 6 6 6-6" />
+                                    </svg>
+                                </a>
+                            </nav>
+                        </div>
+                        <div class="bdr w-16">
+                            <nav class="menu">
+                                <div class="menu-title"><code>nav > ul > li > a</code></div>
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <svg class="bdr bdr-blue bg-stripes-blue"></svg>
+                                            Item
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="bg-gray-200 px-075 py-05 rounded-lg txt-green-900">
+                                            <svg class="bdr bdr-blue bg-stripes-blue"></svg>
+                                            Active
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <button>
+                                            <span>
+                                                <svg class="bdr bdr-blue bg-stripes-blue"></svg>
+                                                Parent Toggle (Opened)
+                                            </span>
+                                            <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                                <path d="m6 15 6-6 6 6" />
+                                            </svg>
+                                        </button>
+                                        <ul class="pl-2">
+                                            <li>
+                                                <a href="#">
+                                                    Child Item
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    Child Item
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span>
+                                                <svg class="bdr bdr-blue bg-stripes-blue"></svg>
+                                                Parent Link (Closed)
+                                            </span>
+                                            <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                                <path d="m6 9 6 6 6-6" />
+                                            </svg>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div id="menu-utilities-examples">
+                    <h3>Utilities Only</h3>
+                    <p>Examples using only utility classes for menu layout.</p>
+                    <div id="menu-utilities-only" class="flex gap">
+                        <nav class="bx pxy-1 bdr bdr-pink w-18 space-y-025 txt-sm">
+                            <div class="font-medium"> Menu Title </div>
+                            <a href="#" class="flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
+                                <svg class="wh-1.25 bdr bdr-pink bg-stripes-pink"></svg>
+                                Item
+                            </a>
+                            <a href="#" class="bg-gray-200 flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900">
+                                <svg class="wh-1.25 bdr bdr-pink bg-stripes-pink"></svg>
+                                Active
+                            </a>
+                            <div>
+                                <button class="flex items-center space-between w-full px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
+                                    <span class="flex items-center gap-075">
+                                        <svg class="wh-1.25 bdr bdr-pink bg-stripes-pink"></svg>
+                                        Parent Toggle (Opened)
+                                    </span>
+                                    <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                        <path d="m6 15 6-6 6 6" />
+                                    </svg>
+                                </button>
+                                <ul class="pl-2">
+                                    <li>
+                                        <a href="#" class="flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
+                                            Child Item
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
+                                            Child Item
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="#" class="flex items-center space-between w-full gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
+                                <span class="flex items-center gap-075">
+                                    <svg class="wh-1.25 bdr bdr-pink bg-stripes-pink"></svg>
+                                    Parent Link (Closed)
+                                </span>
+                                <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                    <path d="m6 9 6 6 6-6" />
+                                </svg>
+                            </a>
+                        </nav>
+                        <nav class="bx pxy-1 bdr bdr-blue w-18">
+                            <div class="font-medium"> Menu Title </div>
+                            <ul class="txt-sm">
+                                <li>
+                                    <a href="#" class="flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
+                                        <svg class="wh-1.25 bdr bdr-blue bg-stripes-blue"></svg>
+                                        Item
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="bg-gray-200 flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900">
+                                        <svg class="wh-1.25 bdr bdr-blue bg-stripes-blue"></svg>
+                                        Active
+                                    </a>
+                                </li>
+                                <li>
+                                    <button class="flex items-center space-between w-full px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
+                                        <span class="flex items-center gap-075">
+                                            <svg class="wh-1.25 bdr bdr-blue bg-stripes-blue"></svg>
+                                            Parent Toggle (Opened)
+                                        </span>
+                                        <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                            <path d="m6 15 6-6 6 6" />
+                                        </svg>
+                                    </button>
+                                    <ul class="pl-2">
+                                        <li>
+                                            <a href="#" class="flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
+                                                Child Item
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
+                                                Child Item
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" class="flex items-center space-between w-full gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
+                                        <span class="flex items-center gap-075">
+                                            <svg class="wh-1.25 bdr bdr-blue bg-stripes-blue"></svg>
+                                            Parent Link (Closed)
+                                        </span>
+                                        <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                            <path d="m6 9 6 6 6-6" />
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+            <div class="flex va-t gap">
+                <div class="w-24 rounded-lg bdr bdr-gray-200">
+                    <div class="bg-blue-600 txt-white px-1.25 py-1 rounded-t-lg">
+                        <h2 class="txt-xl font-bold">Navigation Menu</h2>
+                    </div>
+                    <nav class="pxy-1">
+                        <ul>
+                            <li>
+                                <a href="#" class="flex items-center gap-075 px-1.25 py-075 txt-gray-700 hover:bg-gray-50">
+                                    <svg class="wh-1.25 bdr bdr-blue bg-stripes-blue"></svg>
+                                    <span class="font-medium">Item</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center gap-075 px-1.25 py-075 txt-gray-700 hover:bg-gray-50">
+                                    <svg class="wh-1.25 bdr bdr-pink bg-stripes-pink"></svg>
+                                    <span class="font-medium">Parent Link (Closed)</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center gap-075 px-1.25 py-075 txt-gray-700 hover:bg-gray-50">
+                                    <svg class="wh-1.25 bdr bdr-violet bg-stripes-violet"></svg>
+                                    <span class="font-medium">Parent Opened</span>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="#" class="block gap-075 px-1.25 py-05 pl-3 txt-gray-600 hover:bg-gray-100 txt-sm">Child Item</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="block gap-075 px-1.25 py-05 pl-3 txt-gray-600 hover:bg-gray-100 txt-sm">Child Item</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center gap-075 px-1.25 py-075 txt-gray-700 hover:bg-gray-50">
+                                    <svg class="wh-1.25 bdr bdr-blue bg-stripes-blue"></svg>
+                                    <span class="font-medium">Item</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="button-alignment-testing" class="py-3">
         <div class="container bdr-red bdr-3 pxy">
-            <h2 class="title txt-blue">Button Alignment Testing</h2>
+            <h2 class="txt-blue">Button Alignment Testing</h2>
             <p class="txt-red txt-lg">The SVG icons should align properly within the buttons but there is an issue with the vertical alignment.</p>
             <div class="space-y-05">
                 <div class="bdr">
@@ -119,7 +450,7 @@
     </section>
     <section id="buttons-with-icons" class="py-3">
         <div class="container">
-            <h2 class="title txt-blue">Buttons with Icons</h2>
+            <h2 class="txt-blue">Buttons with Icons</h2>
 
             there is a minor alignment issue
             div is 44.5, buttons are 43 but and they are not perfectly aligned
@@ -200,7 +531,7 @@
     </section>
     <section id="button-and-control-sizes" class="py-3">
         <div class="container">
-            <h2 class="title txt-blue">Button and Control Sizes</h2>
+            <h2 class="txt-blue">Button and Control Sizes</h2>
             <div class="space-y">
                 <div>
                     <button class="btn primary xs">Extra Small</button>
@@ -254,7 +585,7 @@
     </section> -
     <section id="table-examples" class="py-3">
         <div class="container">
-            <h2 class="title txt-blue">Tables</h2>
+            <h2 class="txt-blue">Tables</h2>
             <h4>Base Table</h4>
             <table>
                 <thead>
@@ -393,7 +724,7 @@
     </section>
     <section id="button-examples" class="py-3">
         <div class="container">
-            <h2 class="title txt-blue">Buttons</h2>
+            <h2 class="txt-blue">Buttons</h2>
             <button type="button" class="btn bg-transparent txt-blue-700 hover:txt-white bdr bdr-blue-700 hover:bg-blue-800">Default</button>
             <button type="button" class="btn bg-transparent txt-green-700 hover:txt-white bdr bdr-green-700 hover:bg-green-800">Green</button>
             <button type="button" class="btn bg-transparent txt-red-700 hover:txt-white bdr bdr-red-700 hover:bg-red-800">Red</button>
@@ -403,7 +734,7 @@
     </section>
     <section id="responsive-examples" class="py-3">
         <div class="container">
-            <h2 class="title txt-blue">Responsive Testing</h2>
+            <h2 class="txt-blue">Responsive Testing</h2>
 
             <h4>Hide 'ON' Screen Size</h4>
             <p>The box should not be visible on the current screen size.</p>
@@ -450,7 +781,7 @@
     </section>
     <section id="outline-examples" class="py-3">
         <div class="container">
-            <h2 class="title txt-blue">Outline</h2>
+            <h2 class="txt-blue">Outline</h2>
             <h4>Outline Widths</h4>
             <p class="txt-red">Note: An outline style class must be applied for outlines to be visible.</p>
             <div class="grid lg:cols-3 tac c-pxy-1">
@@ -500,7 +831,7 @@
     </section>
     <section id="border-examples" class="py-3">
         <div class="container">
-            <h2 class="title txt-blue">Borders</h2>
+            <h2 class="txt-blue">Borders</h2>
             <h4>Border Widths</h4>
             <div class="grid lg:cols-3 tac c-pxy-1">
                 <div class="bdr">
@@ -592,7 +923,7 @@
     </section>
     <section id="colortesting" class="py-3">
         <div class="container-xl">
-            <h2 class="title txt-blue">Colors</h2>
+            <h2 class="txt-blue">Colors</h2>
             <p>This compares the tailwind <code>-500</code> color to the colors in the <code>base-colors</code></p>
             <!-- tailwind -500 vs base color comparison -->
             <div class="grid md:cols-6 font-mono tac">
@@ -766,7 +1097,7 @@
     </section>
     <section id="typhoraphy-examples" class="py-3">
         <div class="container">
-            <h2 class="title txt-blue">Font Weights</h2>
+            <h2 class="txt-blue">Font Weights</h2>
             <p class="font-light">The quick brown fox ...</p>
             <p class="font-normal">The quick brown fox ...</p>
             <p class="font-medium">The quick brown fox ...</p>

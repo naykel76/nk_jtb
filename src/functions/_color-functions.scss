@@ -7,44 +7,67 @@ $light-text: #fff !default;
 $dark-text: #333 !default;
 $text-color: $dark-text !default;
 
-/// @group color-functions
-///
-/// Determines the appropriate text color (light or dark) based on the
-/// brightness of the given background color.
-///
-/// Note: the return colors are linked to the light or dark text color variables
-/// defined in the base variables file.
-///
-/// @param {Color} $bg-color - The background color to evaluate.
-///
-/// @return {Color} Returns `$dark-text` if the background is light, otherwise returns
-/// `$light-text`.
-///
-/// @example scss - Usage
-///
-/// .light-bg-dark-text { color: text-color(white); }
-///
-/// .dark-bg-light-text { color: text-color(black); }
+// ==========================================================================
+// OKLCH Lightness Check
+// ==========================================================================
+// Determines if an OKLCH color is light or dark based on its lightness channel.
+// OKLCH lightness in Sass is represented as a percentage (0-100), not decimal.
+//
+// @param {Color} $color - The OKLCH color to evaluate
+// @param {Number} $threshold - Lightness threshold (0-100 scale, default: 60)
+// @return {Boolean} - True if light, false if dark
+// ---------------------------------------------------------------------------
+@function oklch-is-light($color, $threshold: 60) {
+    // Extract the lightness channel from the OKLCH color (0-100 scale in Sass)
+    $lightness: color.channel($color, 'lightness', $space: oklch);
 
+    // Return true if lightness exceeds threshold (light background)
+    @return $lightness > $threshold;
+}
+
+// ==========================================================================
+// RGB Brightness Check
+// ==========================================================================
+// Determines if an RGB color is light or dark using relative luminance.
+// Uses the WCAG formula based on human eye sensitivity to different colors.
+// Human eyes are most sensitive to green (71.52%), red (21.26%), blue (7.22%).
+//
+// @param {Color} $color - The color to evaluate (converted to RGB if needed)
+// @param {Number} $threshold - Brightness threshold (0-255 scale, default: 186)
+// @return {Boolean} - True if light, false if dark
+// ---------------------------------------------------------------------------
+@function rgb-is-light($color, $threshold: 186) {
+    // Convert color to RGB space to ensure we can extract RGB channels
+    $rgb-color: color.to-space($color, rgb);
+
+    // Calculate relative luminance using WCAG formula for perceived brightness
+    $brightness: 0.2126 * color.channel($rgb-color, 'red') + 0.7152 * color.channel($rgb-color, 'green') + 0.0722 *
+        color.channel($rgb-color, 'blue');
+
+    // Return true if brightness exceeds threshold (light background)
+    @return $brightness > $threshold;
+}
+
+// ==========================================================================
+// Text Color Selector
+// ==========================================================================
+// Returns appropriate text color (dark or light) based on background color.
+// Automatically detects color space and uses optimal calculation method:
+// - OKLCH colors use native lightness channel
+// - All other colors (RGB, HSL, etc.) use RGB brightness calculation
+//
+// @param {Color} $bg-color - The background color to evaluate
+// @return {Color} - Either $dark-text or $light-text for optimal contrast
+// ---------------------------------------------------------------------------
 @function text-color($bg-color) {
-    // return the default color if transparent
-    @if color.alpha($bg-color) == 0 {
-        @return $text-color;
-    }
+    // Detect which color space the background color is using
+    $color-space: color.space($bg-color);
 
-    $threshold: 186; // Lightness threshold for detecting dark/light backgrounds
+    // Choose appropriate lightness calculation based on color space
+    $is-light: if($color-space == oklch, oklch-is-light($bg-color), rgb-is-light($bg-color));
 
-    // Calculate the brightness of the background colour
-    $brightness: (
-        0.2126 * color.channel($bg-color, 'red', $space: rgb) + 0.7152 * color.channel($bg-color, 'green', $space: rgb) +
-            0.0722 * color.channel($bg-color, 'blue', $space: rgb)
-    );
-
-    @if $brightness > $threshold {
-        @return $dark-text;
-    } @else {
-        @return $light-text;
-    }
+    // Return dark text for light backgrounds, light text for dark backgrounds
+    @return if($is-light, $dark-text, $light-text);
 }
 
 // ==========================================================================
@@ -72,33 +95,5 @@ $text-color: $dark-text !default;
         @return color.change(black, $alpha: $opacity);
     } @else {
         @return color.change(white, $alpha: $opacity);
-    }
-}
-
-// ==========================================================================
-// border-tone($bg, $amount)
-// ==========================================================================
-// Adjusts lightness of the base colour for subtle, theme-aligned contrast.
-//
-// Maintains hue and saturation, adjusting only lightness.
-// Results in a softer, more integrated border shade.
-//
-// Pros:
-// - Harmonious and adaptive
-// - Works with both light and dark backgrounds
-//
-// Cons:
-// - Can be inconsistent across edge-case hues
-// - May not provide strong contrast
-//
-// Best for: Low-contrast UI borders that blend with the theme
-
-@function border-tone($bg, $amount: 10%) {
-    $lightness: color.channel($bg, 'lightness', $space: hsl);
-
-    @if $lightness > 50 {
-        @return color.adjust($bg, $lightness: -$amount);
-    } @else {
-        @return color.adjust($bg, $lightness: $amount);
     }
 }

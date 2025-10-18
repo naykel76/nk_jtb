@@ -1,6 +1,10 @@
 @use './base';
 @use 'sass:map';
 
+// this is a list of all color names used in tailwind. 
+// prettier-ignore
+$color-scale-names: ( 'amber', 'blue', 'cyan', 'emerald', 'fuchsia', 'gray', 'green', 'indigo', 'lime', 'neutral', 'orange', 'pink', 'purple', 'red', 'rose', 'sky', 'slate', 'stone', 'teal', 'violet', 'yellow', 'zinc' );
+
 $theme-colors: (
     'primary': base.$primary,
     'secondary': base.$secondary,

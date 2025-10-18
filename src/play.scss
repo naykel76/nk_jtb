@@ -1,95 +1,10 @@
 // @use './utilities/border' as *;
 @use './common-tools' as *;
-@use './functions/resolvers' as *; 
+@use './functions/resolvers' as *;
 @use './mixins/build-magic-grid' as *;
 @use './mixins/make-classes' as *;
 @use 'sass:color';
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:string';
-
-$display: ( block, flex,  ( hidden: none ));
-$display: (  ( hidden: none ));
-
-$display-visibility-properties-map: (
-    display: ( prefix: false, values: $display ),
-    // visibility: ( prefix: false, values: $visibility )
-);
-
-// ==========================================================================
-// Builds
-// ==========================================================================
-@include build-property-classes($display-visibility-properties-map, $responsive: true);
-
-
-// Additional responsive display utilities for convienence with display and visibility
-
-// DISPLAY AND HIDE 'ON' THE SELECTED SCREEN SIZE
-@include make-on-breakpoint((display: flex), "flex", $responsive-variants);
-@include make-on-breakpoint((display: block), "block", $responsive-variants);
-@include make-on-breakpoint((display: none), "hidden", $responsive-variants);
-
-// DISPLAY AND HIDE 'TO' THE SELECTED SCREEN SIZE
-@include make-to-breakpoint((display: block), "block", remove-from-list($responsive-variants, xxl));
-@include make-to-breakpoint((display: none), "hidden", remove-from-list($responsive-variants, xxl));
-
-
-
-
-
-
-
-// ==========================================================================
-// COMMON MAPS AND VARIABLES FOR TESTING
-// ==========================================================================
-
-// prettier-ignore
-$colors: ( red: #82181a, blue: #1c398e );
-
-// prettier-ignore
-$pixel-widths: ( base: px-to-rem(1), 2: px-to-rem(2), 3: px-to-rem(3));
-
-// prettier-ignore
-$rem-widths: ( ( base: 1 ),  );
-
-// prettier-ignore
-$logical-position-map: (
-    xy: (block-start, block-end, inline-start, inline-end),
-    // x: (inline-start, inline-end),
-    // y: (block-start, block-end),
-    // t: block-start,
-    // b: block-end,
-    // l: inline-start,
-    // r: inline-end
-);
-
-// ==========================================================================
-// TESTING POSITION-BASED AND OMIT-AXIS-KEYS FEATURE
-// ==========================================================================
-
-
-// prettier-ignore
-$properties-map: (
-
-);
-
-@include build-property-classes($properties-map, $responsive: false);
-
-// prettier-ignore
-$properties-map: (
-    // 1. Compiles with axis keys like m-xy, m-x, m-y
-    margin: ( values: $rem-widths, unit: 'rem', positions: $logical-position-map ),
-
-    // 2. Add omit-axis-keys to remove specific axis combinations. May be bit
-    //    weird because typically, only 'xy' would be omitted.
-    padding: ( values: $rem-widths, unit: 'rem', positions: $logical-position-map, omit-axis-keys: (xy) ),
-
-    // what about manually defining the key, and putting it in the map? then add
-    // empty string for no key???
-    // mxy vs m-xy
-);
-
-// @include build-property-classes($properties-map, $responsive: false);
-
-
 

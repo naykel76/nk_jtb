@@ -1,0 +1,13 @@
+@use './functions/color-functions' as *;
+
+
+.text-color-function-tests {
+    content: 'HEX' #000 to text-color(#000);
+    content: 'RGB' rgb(0 0 0) to text-color(rgb(0 0 0));
+    content: 'OKLCH gray-100' oklch(96.7% 0.003 264.542deg) to text-color(oklch(96.7% 0.003 264.542deg));
+    content: 'OKLCH gray-900' oklch(21% 0.034 264.665deg) to text-color(oklch(21% 0.034 264.665deg));
+    content: 'OKLCH gray-100' map.get($oklch-colors, gray-100) to text-color(map.get($oklch-colors, gray-100));
+    content: 'OKLCH gray-900' map.get($oklch-colors, gray-900) to text-color(map.get($oklch-colors, gray-900));
+    content: 'OKLCH red-100' map.get($oklch-colors, red-100) to text-color(map.get($oklch-colors, red-100));
+    content: 'OKLCH red-900' map.get($oklch-colors, red-900) to text-color(map.get($oklch-colors, red-900));
+}

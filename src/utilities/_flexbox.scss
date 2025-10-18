@@ -26,6 +26,7 @@ $flex-properties-map: (
         values: ( 0, 1)
     ),
     flex-wrap: (
+        prefix: 'flex-',
         values: ( nowrap, wrap-reverse, wrap )
     ),
     order: (

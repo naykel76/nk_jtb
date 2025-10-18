@@ -3,6 +3,7 @@
 @use './typography' as *;
 @use './colors' as *;
 @use 'sass:color';
+@use 'sass:map';
 
 // -- navbar --
 // ==============================================================
@@ -68,9 +69,7 @@ $icon-xy-lg: 3rem !default;
 // -- menu --
 // ==============================================================
 $menu-padding-y: 0.5rem !default;
-$menu-padding-x: 0.5rem !default;
-$menu-hover-bg: hsl(0deg 0% 95%) !default;
-
-// $menu-link-color: $color !default;
-$menu-link-hover-color: text-color($menu-hover-bg) !default;
+$menu-padding-x: 0.75rem !default;
+$menu-hover-bg: map.get($oklch-colors, gray-100) !default;
+$menu-link-hover-color: map.get($oklch-colors, gray-900) !default;
 
