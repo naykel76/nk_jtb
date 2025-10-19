@@ -2,39 +2,64 @@
 @use '../maps_and_variables/base' as *;
 @use '../maps_and_variables/components' as *;
 
+// ==========================================================================
+// -- MENU COMPONENT --
+// ==========================================================================
 
+// menu-title, menu-icon are added for clarity, but not strictly necessary
 .menu {
     display: flex;
-    flex-flow: column wrap;
-    line-height: 1.25;
-    list-style: none;
-    margin-left: 0; // remove margin for ul
+    flex-direction: column;
+    font-size: 0.875rem;
 
-    li {
-        margin: 0;
-    }
-
-    :where(a, li a, .menu-item) {
+    :where(.menu-item, a, li a, button) {
         align-items: center;
         color: inherit;
         display: flex;
+        gap: 0.75rem; // space between icon and text
         padding: $menu-padding-y $menu-padding-x;
+        width: 100%; // buttons need this, doesn't hurt links
 
-        &:is(.active, :hover):not(.disabled) {
+        &:is(.active, :hover, :focus-visible):not(.disabled, :disabled) {
             background-color: $menu-hover-bg;
             color: $menu-link-hover-color;
             cursor: pointer;
         }
     }
 
-    .menu-title {
-        font-weight: 600;
-        letter-spacing: 0.05em;
-        margin-bottom: 0.5em;
-        margin-left: $menu-padding-x;
+    // Only for expandable parent items with dropdown indicators
+    button:has(+ ul) {
+        justify-content: space-between;
+    }
 
-        &:not(:first-child) {
-            margin-top: $base-gap;
-        }
+    button + ul {
+        margin-inline-start: $menu-padding-x; // default (no icon)
+    }
+
+    button:has(span > svg) + ul {
+        margin-inline-start: calc($menu-icon-size + $menu-padding-x);
+    }
+
+    // Icons container
+    :where(.menu-icon, span:has(> svg)) {
+        align-items: center;
+        display: flex;
+        gap: 0.75rem;
+    }
+
+    :where(svg) {
+        height: $menu-icon-size;
+        width: $menu-icon-size;
+    }
+}
+
+.menu-title {
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5em;
+    margin-left: $menu-padding-x;
+
+    &:not(:first-child) {
+        margin-top: $base-gap;
     }
 }

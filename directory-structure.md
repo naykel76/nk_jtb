@@ -1,5 +1,20 @@
 # SCSS Directory Structure
 
+
+```bash
+scss/
+    ├── base/
+    │   ├── _index.scss           # Main entry point
+    │   ├── _base.scss            # html, body, box-sizing
+    │   ├── _typography.scss      # headings, p, text elements
+    │   ├── _lists.scss           # ul, ol, li
+    │   ├── _tables.scss          # table, td, th
+    │   ├── _forms.scss           # input, button, select, textarea
+    │   ├── _media.scss           # img, svg, video
+    │   └── _interactive.scss     # a, button, details/summary
+```
+
+
 ## Current Structure
 
 ```bash

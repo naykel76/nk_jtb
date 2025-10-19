@@ -1,0 +1,44 @@
+@use '../maps_and_variables/base' as *;
+
+// ==========================================================================
+// -- Lists --
+// ==========================================================================
+
+// 1. set style-position outside to align text when wrapping
+// 2. indent to align text with the rest of the content
+ul,
+ol {
+    list-style-position: outside; // 1.
+    margin-inline-start: $base-padding; // 2.
+}
+
+// 1. Apply consistent spacing between list items by default.  This is
+//    opinionated but appropriate for most content lists. Override in specific
+//    contexts (nav, compact lists, etc.) as needed.
+li {
+    margin-block-start: $base-list-spacing; // 1.
+}
+
+ul {
+    list-style-type: disc;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+// 1. Add spacing between nested lists and their parent item
+li ul,
+li ol {
+    margin-top: $base-list-spacing; // 1.
+}
+
+// Reset for navigation menus
+nav ul {
+    list-style: none;
+    margin: 0;
+
+    li {
+        margin: 0;
+    }
+}

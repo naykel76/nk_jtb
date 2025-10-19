@@ -10,47 +10,393 @@
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 </head>
 
-<!-- <section id="" class="py-3">
-    <div class="container">
+<!-- <section id="">
         <h2 class="txt-blue">Title</h2>
     </div>
 </section> -->
 
+<body class="bg-gray-100">
+    <a href="/dev.html" class="btn pink fixed">DEV</a>
+    <div class="container c-py-2 divide-y-gradient">
+        <section id="flexbox-grid-layout-comparisons">
+            <h2 class="txt-blue">Flexbox Grid Layout Comparisons</h2>
+            <h3>Grid Layout</h3>
+            <div class="grid md:cols-2 gap">
+                <div class="grid sm:cols-2 gap bg-stripes-violet">
+                    <div class="bx pxy-1 bdr bdr-pink"></div>
+                    <div class="bx pxy-1 bdr bdr-blue"></div>
+                </div>
+                <div class="grid sm:cols-2 gap bg-stripes-violet">
+                    <div class="bx pxy-1 bdr bdr-pink"></div>
+                    <div class="bx pxy-1 bdr bdr-blue"></div>
+                </div>
+            </div>
+            <h3>Flex Layout</h3>
+            <div class="flex gap">
+                <div class="flex gap bg-stripes-teal flex-1">
+                    <div class="bx pxy-1 bdr bdr-pink flex-1">
 
-<!-- <div>
-    <button>
-        <span>
-            <svg class="bdr bdr-pink bg-stripes-pink"></svg>
-            Parent Toggle (Opened)
-        </span>
-        <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <path d="m6 15 6-6 6 6" />
-        </svg>
-    </button>
-    <ul>
-       
-    </ul>
-</div> -->
+                    </div>
+                    <div class="bx pxy-1 bdr bdr-blue flex-1">
+                    </div>
+                </div>
+                <div class="flex gap bg-stripes-teal flex-1">
+                    <div class="bx pxy-1 bdr bdr-pink flex-1">
 
+                    </div>
+                    <div class="bx pxy-1 bdr bdr-blue flex-1">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="menu-examples">
+            <h2 class="txt-blue">Menu Examples</h2>
+            <div class="flex justify-between bdr bdr-gray-300 pxy-05 rounded-025 w-24">
+                <div class="flex gap-075 outline outline-dashed outline-2">
+                    <div class="wh-1.5 bdr-2 bdr-pink bg-stripes-pink"></div>
+                    <div class="w-10 bdr-2 bdr-pink bg-stripes-pink"></div>
+                </div>
+                <div class="wh-1.5 bdr-2 bdr-pink bg-stripes-pink"></div>
+            </div>
+            <div class="grid md:cols-2 gap">
+                <!-- menu class with icon -->
+                <div class="grid sm:cols-2 gap">
+                    <div class="col-span-2">
+                        <h3>Menu Class</h3>
+                        <p>Menu layouts created using the <code>menu</code> class.</p>
+                    </div>
+                    <div class="flex-1 bx pxy-1 bdr bdr-pink">
+                        <nav class="menu">
+                            <div class="menu-title">Menu Title One</div>
+                            <a href="#"> <svg class="bdr bdr-pink bg-stripes-pink"></svg> Item </a>
+                            <a href="#"> <svg class="bdr bdr-pink bg-stripes-pink"></svg> Active </a>
+                            <div>
+                                <button>
+                                    <span>
+                                        <svg class="bdr bdr-pink bg-stripes-pink"></svg>
+                                        Parent Toggle (Opened)
+                                    </span>
+                                    <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                        <path d="m6 15 6-6 6 6" />
+                                    </svg>
+                                </button>
+                                <ul>
+                                    <li> <a href="#"> Child Item </a> </li>
+                                    <li> <a href="#"> Child Item </a> </li>
+                                </ul>
+                            </div>
+                            <a href="#">
+                                <span>
+                                    <svg class="bdr bdr-pink bg-stripes-pink"></svg>
+                                    Parent Link (Closed)
+                                </span>
+                                <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                    <path d="m6 9 6 6 6-6" />
+                                </svg>
+                            </a>
+                        </nav>
+                    </div>
 
+                    <!-- utilities -->
+                    <div class="flex-1 bx pxy-1 bdr bdr-blue">
+                        <nav class="menu">
+                            <div class="menu-title">Menu Title Two</div>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <svg class="bdr bdr-blue bg-stripes-blue"></svg>
+                                        Item
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <svg class="bdr bdr-blue bg-stripes-blue"></svg>
+                                        Active
+                                    </a>
+                                </li>
+                                <li>
+                                    <button>
+                                        <span>
+                                            <svg class="bdr bdr-blue bg-stripes-blue"></svg>
+                                            Parent Toggle (Opened)
+                                        </span>
+                                        <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                            <path d="m6 15 6-6 6 6" />
+                                        </svg>
+                                    </button>
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                Child Item
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Child Item
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span>
+                                            <svg class="bdr bdr-blue bg-stripes-blue"></svg>
+                                            Parent Link (Closed)
+                                        </span>
+                                        <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                            <path d="m6 9 6 6 6-6" />
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <!-- menu class -->
+                <div class="grid sm:cols-2 gap">
+                    <!-- menu class with icon -->
+                    <div class="col-span-2">
+                        <h3>Menu Class</h3>
+                        <p>Menu layouts created using the <code>menu</code> class.</p>
+                    </div>
+                    <div class="flex-1 bx pxy-1 bdr bdr-pink">
+                        <nav class="menu">
+                            <div class="menu-title">Menu Title One</div>
+                            <a href="#"> Item </a>
+                            <a href="#"> Active </a>
+                            <div>
+                                <button>
+                                    Parent Toggle (Opened)
+                                    <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                        <path d="m6 15 6-6 6 6" />
+                                    </svg>
+                                </button>
+                                <ul>
+                                    <li> <a href="#"> Child Item </a> </li>
+                                    <li> <a href="#"> Child Item </a> </li>
+                                </ul>
+                            </div>
+                            <a href="#">
+                                Parent Link (Closed)
+                                <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                    <path d="m6 9 6 6 6-6" />
+                                </svg>
+                            </a>
+                        </nav>
+                    </div>
 
-<body class="zebra pxy">
+                    <!-- utilities -->
+                    <div class="flex-1 bx pxy-1 bdr bdr-blue">
+                        <nav class="menu">
+                            <div class="menu-title">Menu Title Two</div>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <svg class="bdr bdr-blue bg-stripes-blue"></svg>
+                                        Item
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <svg class="bdr bdr-blue bg-stripes-blue"></svg>
+                                        Active
+                                    </a>
+                                </li>
+                                <li>
+                                    <button>
+                                        <span>
+                                            <svg class="bdr bdr-blue bg-stripes-blue"></svg>
+                                            Parent Toggle (Opened)
+                                        </span>
+                                        <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                            <path d="m6 15 6-6 6 6" />
+                                        </svg>
+                                    </button>
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                Child Item
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Child Item
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span>
+                                            <svg class="bdr bdr-blue bg-stripes-blue"></svg>
+                                            Parent Link (Closed)
+                                        </span>
+                                        <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                            <path d="m6 9 6 6 6-6" />
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="grid sm:cols-2 gap">
+                    <div class="col-span-2">
+                        <h3>Utilities Only</h3>
+                        <p>Menu layouts created using only utility classes.</p>
+                    </div>
+                    <nav class="bx pxy-1 bdr bdr-pink w-18 space-y-025 txt-sm">
+                        <div class="font-medium">Menu Title One</div>
+                        <a href="#" class="flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
+                            <svg class="wh-1.25 bdr bdr-pink bg-stripes-pink"></svg>
+                            Item
+                        </a>
+                        <a href="#" class="bg-gray-200 flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900">
+                            <svg class="wh-1.25 bdr bdr-pink bg-stripes-pink"></svg>
+                            Active
+                        </a>
+                        <div>
+                            <button class="flex items-center justify-between w-full px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
+                                <span class="flex items-center gap-075">
+                                    <svg class="wh-1.25 bdr bdr-pink bg-stripes-pink"></svg>
+                                    Parent Toggle (Opened)
+                                </span>
+                                <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                    <path d="m6 15 6-6 6 6" />
+                                </svg>
+                            </button>
+                            <ul class="pl-2">
+                                <li>
+                                    <a href="#" class="flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
+                                        Child Item
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
+                                        Child Item
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="#" class="flex items-center justify-between w-full gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
+                            <span class="flex items-center gap-075">
+                                <svg class="wh-1.25 bdr bdr-pink bg-stripes-pink"></svg>
+                                Parent Link (Closed)
+                            </span>
+                            <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </a>
+                    </nav>
+                    <nav class="bx pxy-1 bdr bdr-blue w-18">
+                        <div class="font-medium">Menu Title Two</div>
+                        <ul class="txt-sm">
+                            <li>
+                                <a href="#" class="flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
+                                    <svg class="wh-1.25 bdr bdr-blue bg-stripes-blue"></svg>
+                                    Item
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="bg-gray-200 flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900">
+                                    <svg class="wh-1.25 bdr bdr-blue bg-stripes-blue"></svg>
+                                    Active
+                                </a>
+                            </li>
+                            <li>
+                                <button class="flex items-center justify-between w-full px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
+                                    <span class="flex items-center gap-075">
+                                        <svg class="wh-1.25 bdr bdr-blue bg-stripes-blue"></svg>
+                                        Parent Toggle (Opened)
+                                    </span>
+                                    <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                        <path d="m6 15 6-6 6 6" />
+                                    </svg>
+                                </button>
+                                <ul class="pl-2">
+                                    <li>
+                                        <a href="#" class="flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
+                                            Child Item
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
+                                            Child Item
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center justify-between w-full gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
+                                    <span class="flex items-center gap-075">
+                                        <svg class="wh-1.25 bdr bdr-blue bg-stripes-blue"></svg>
+                                        Parent Link (Closed)
+                                    </span>
+                                    <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                        <path d="m6 9 6 6 6-6" />
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
 
-    <section id="background-examples" class="py-3">
-        <style>
-            .bg-stripe-examples {
-                grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr));
-                grid-auto-rows: 5rem;
-                display: grid;
-                gap: 1rem;
-            }
+                </div>
+            </div>
+            <div class="w-24 rounded-lg bdr bdr-gray-200">
+                <div class="bg-blue-600 txt-white px-1.25 py-1 rounded-t-lg">
+                    <h2 class="txt-xl font-bold">Navigation Menu</h2>
+                </div>
+                <nav class="pxy-1">
+                    <ul>
+                        <li>
+                            <a href="#" class="flex items-center gap-075 px-1.25 py-075 txt-gray-700 hover:bg-gray-50">
+                                <svg class="wh-1.25 bdr bdr-blue bg-stripes-blue"></svg>
+                                <span class="font-medium">Item</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center gap-075 px-1.25 py-075 txt-gray-700 hover:bg-gray-50">
+                                <svg class="wh-1.25 bdr bdr-pink bg-stripes-pink"></svg>
+                                <span class="font-medium">Parent Link (Closed)</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center gap-075 px-1.25 py-075 txt-gray-700 hover:bg-gray-50">
+                                <svg class="wh-1.25 bdr bdr-violet bg-stripes-violet"></svg>
+                                <span class="font-medium">Parent Opened</span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="#" class="block gap-075 px-1.25 py-05 pl-3 txt-gray-600 hover:bg-gray-100 txt-sm">Child Item</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block gap-075 px-1.25 py-05 pl-3 txt-gray-600 hover:bg-gray-100 txt-sm">Child Item</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center gap-075 px-1.25 py-075 txt-gray-700 hover:bg-gray-50">
+                                <svg class="wh-1.25 bdr bdr-blue bg-stripes-blue"></svg>
+                                <span class="font-medium">Item</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+        </section>
+        <section id="background-examples">
+            <style>
+                .bg-stripe-examples {
+                    grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr));
+                    grid-auto-rows: 5rem;
+                    display: grid;
+                    gap: 1rem;
+                }
 
-            .bg-stripe-examples>* {
-                display: grid;
-                place-items: center;
-            }
-        </style>
-        <div class="container">
+                .bg-stripe-examples>* {
+                    display: grid;
+                    place-items: center;
+                }
+            </style>
             <h2 class="txt-blue">Background Examples</h2>
 
             <h4><code>.bg-stripes-{color}</code></h4>
@@ -78,7 +424,6 @@
                 <div class="rounded bdr-2 bdr-neutral bg-stripes-neutral">neutral</div>
                 <div class="rounded bdr-2 bdr-stone bg-stripes-stone">stone</div>
             </div>
-            <hr>
             <h4><code>.bg-stripes-wide-{color}</code></h4>
             <div class="grid bg-stripe-examples">
                 <div class="rounded bdr-2 bdr-red bg-stripes-wide-red">red</div>
@@ -103,353 +448,107 @@
                 <div class="rounded bdr-2 bdr-zinc bg-stripes-wide-zinc">zinc</div>
                 <div class="rounded bdr-2 bdr-neutral bg-stripes-wide-neutral">neutral</div>
                 <div class="rounded bdr-2 bdr-stone bg-stripes-wide-stone">stone</div>
-            </div>
-    </section>
-
-    <section id="menu-examples" class="py-3">
-        <div class="container">
-            <h2 class="txt-blue">Menu Examples</h2>
-            <div class="flex space-between">
-                <div id="menu-class-examples">
-                    <h3>Menu Class</h3>
-                    <p>Examples using the <code>menu</code> class for layout.</p>
-                    <div class="flex gap">
-                        <div class="bdr w-16">
-                            <nav class="menu">
-                                <div class="menu-title"><code>nav > a</code></div>
-                                <a href="#"> <svg class="bdr bdr-pink bg-stripes-pink"></svg> Item </a>
-                                <a href="#"> <svg class="bdr bdr-pink bg-stripes-pink"></svg> Active </a>
-                                <div>
-                                    <button>
-                                        <span>
-                                            <svg class="bdr bdr-pink bg-stripes-pink"></svg>
-                                            Parent Toggle (Opened)
-                                        </span>
-                                        <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                                            <path d="m6 15 6-6 6 6" />
-                                        </svg>
-                                    </button>
-                                    <ul>
-                                        <li> <a href="#"> Child Item </a> </li>
-                                        <li> <a href="#"> Child Item </a> </li>
-                                    </ul>
-                                </div>
-                                <a href="#">
-                                    <span>
-                                        <svg class="bdr bdr-pink bg-stripes-pink"></svg>
-                                        Parent Link (Closed)
-                                    </span>
-                                    <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                                        <path d="m6 9 6 6 6-6" />
-                                    </svg>
-                                </a>
-                            </nav>
-                        </div>
-                        <div class="bdr w-16">
-                            <nav class="menu">
-                                <div class="menu-title"><code>nav > ul > li > a</code></div>
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                            <svg class="bdr bdr-blue bg-stripes-blue"></svg>
-                                            Item
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="bg-gray-200 px-075 py-05 rounded-lg txt-green-900">
-                                            <svg class="bdr bdr-blue bg-stripes-blue"></svg>
-                                            Active
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <button>
-                                            <span>
-                                                <svg class="bdr bdr-blue bg-stripes-blue"></svg>
-                                                Parent Toggle (Opened)
-                                            </span>
-                                            <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                                                <path d="m6 15 6-6 6 6" />
-                                            </svg>
-                                        </button>
-                                        <ul class="pl-2">
-                                            <li>
-                                                <a href="#">
-                                                    Child Item
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    Child Item
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span>
-                                                <svg class="bdr bdr-blue bg-stripes-blue"></svg>
-                                                Parent Link (Closed)
-                                            </span>
-                                            <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                                                <path d="m6 9 6 6 6-6" />
-                                            </svg>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
+        </section>
+        <section id="button-alignment-testing">
+            <div class="container bdr-red bdr-3 pxy">
+                <h2 class="txt-blue">Button Alignment Testing</h2>
+                <p class="txt-red txt-lg">The SVG icons should align properly within the buttons but there is an issue with the vertical alignment.</p>
+                <div class="space-y-05">
+                    <div class="bdr">
+                        <button type="button" class="btn dark xs" wire:click="clearFilter('department')" text="department: Doohickeys" icon="close">
+                            <svg class="green" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+                            </svg>
+                            Clear Filter
+                        </button>
+                        <button type="button" class="btn dark sm" wire:click="clearFilter('department')" text="department: Doohickeys" icon="close">
+                            <svg class="green" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+                            </svg>
+                            Clear Filter
+                        </button>
+                        <button type="button" class="btn dark" wire:click="clearFilter('department')" text="department: Doohickeys" icon="close">
+                            <svg class="green" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+                            </svg>
+                            Clear Filter
+                        </button>
+                        <button type="button" class="btn dark lg" wire:click="clearFilter('department')" text="department: Doohickeys" icon="close">
+                            <svg class="green" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+                            </svg>
+                            Clear Filter
+                        </button>
+                        <button type="button" class="btn dark xl" wire:click="clearFilter('department')" text="department: Doohickeys" icon="close">
+                            <svg class="green" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+                            </svg>
+                            Clear Filter
+                        </button>
+                        <button type="button" class="btn icon-only" icon="user">
+                            <svg class="order-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"></path>
+                            </svg>
+                        </button>
+                        <button type="button" class="btn">
+                            Base
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
+                                <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
+                                <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
+                            </svg>
+                        </button>
+                        <button type="button" class="btn">
+                            Base
+                        </button>
+                        <button type="button" class="btn">
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
+                                <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
+                                <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
+                            </svg>
+                            Base
+                        </button>
+                    </div>
+                    <div class="bdr">
+                        <button type="button" class="btn txt-2">
+                            Base
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
+                                <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
+                                <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
+                            </svg>
+                        </button>
+                        <button type="button" class="btn txt-2">
+                            Base
+                        </button>
+                        <button type="button" class="btn txt-2">
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
+                                <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
+                                <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
+                            </svg>
+                            Base
+                        </button>
+                    </div>
+                    <div class="bdr">
+                        <button type="button" class="btn txt-3">
+                            Base
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
+                                <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
+                                <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
+                            </svg>
+                        </button>
+                        <button type="button" class="btn txt-3">
+                            Base
+                        </button>
+                        <button type="button" class="btn txt-3">
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
+                                <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
+                                <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
+                            </svg>
+                            Base
+                        </button>
                     </div>
                 </div>
-                <div id="menu-utilities-examples">
-                    <h3>Utilities Only</h3>
-                    <p>Examples using only utility classes for menu layout.</p>
-                    <div id="menu-utilities-only" class="flex gap">
-                        <nav class="bx pxy-1 bdr bdr-pink w-18 space-y-025 txt-sm">
-                            <div class="font-medium"> Menu Title </div>
-                            <a href="#" class="flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
-                                <svg class="wh-1.25 bdr bdr-pink bg-stripes-pink"></svg>
-                                Item
-                            </a>
-                            <a href="#" class="bg-gray-200 flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900">
-                                <svg class="wh-1.25 bdr bdr-pink bg-stripes-pink"></svg>
-                                Active
-                            </a>
-                            <div>
-                                <button class="flex items-center space-between w-full px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
-                                    <span class="flex items-center gap-075">
-                                        <svg class="wh-1.25 bdr bdr-pink bg-stripes-pink"></svg>
-                                        Parent Toggle (Opened)
-                                    </span>
-                                    <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                                        <path d="m6 15 6-6 6 6" />
-                                    </svg>
-                                </button>
-                                <ul class="pl-2">
-                                    <li>
-                                        <a href="#" class="flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
-                                            Child Item
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
-                                            Child Item
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <a href="#" class="flex items-center space-between w-full gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
-                                <span class="flex items-center gap-075">
-                                    <svg class="wh-1.25 bdr bdr-pink bg-stripes-pink"></svg>
-                                    Parent Link (Closed)
-                                </span>
-                                <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                                    <path d="m6 9 6 6 6-6" />
-                                </svg>
-                            </a>
-                        </nav>
-                        <nav class="bx pxy-1 bdr bdr-blue w-18">
-                            <div class="font-medium"> Menu Title </div>
-                            <ul class="txt-sm">
-                                <li>
-                                    <a href="#" class="flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
-                                        <svg class="wh-1.25 bdr bdr-blue bg-stripes-blue"></svg>
-                                        Item
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="bg-gray-200 flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900">
-                                        <svg class="wh-1.25 bdr bdr-blue bg-stripes-blue"></svg>
-                                        Active
-                                    </a>
-                                </li>
-                                <li>
-                                    <button class="flex items-center space-between w-full px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
-                                        <span class="flex items-center gap-075">
-                                            <svg class="wh-1.25 bdr bdr-blue bg-stripes-blue"></svg>
-                                            Parent Toggle (Opened)
-                                        </span>
-                                        <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                                            <path d="m6 15 6-6 6 6" />
-                                        </svg>
-                                    </button>
-                                    <ul class="pl-2">
-                                        <li>
-                                            <a href="#" class="flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
-                                                Child Item
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
-                                                Child Item
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#" class="flex items-center space-between w-full gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
-                                        <span class="flex items-center gap-075">
-                                            <svg class="wh-1.25 bdr bdr-blue bg-stripes-blue"></svg>
-                                            Parent Link (Closed)
-                                        </span>
-                                        <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                                            <path d="m6 9 6 6 6-6" />
-                                        </svg>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-
-            <hr>
-            <div class="flex va-t gap">
-                <div class="w-24 rounded-lg bdr bdr-gray-200">
-                    <div class="bg-blue-600 txt-white px-1.25 py-1 rounded-t-lg">
-                        <h2 class="txt-xl font-bold">Navigation Menu</h2>
-                    </div>
-                    <nav class="pxy-1">
-                        <ul>
-                            <li>
-                                <a href="#" class="flex items-center gap-075 px-1.25 py-075 txt-gray-700 hover:bg-gray-50">
-                                    <svg class="wh-1.25 bdr bdr-blue bg-stripes-blue"></svg>
-                                    <span class="font-medium">Item</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="flex items-center gap-075 px-1.25 py-075 txt-gray-700 hover:bg-gray-50">
-                                    <svg class="wh-1.25 bdr bdr-pink bg-stripes-pink"></svg>
-                                    <span class="font-medium">Parent Link (Closed)</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="flex items-center gap-075 px-1.25 py-075 txt-gray-700 hover:bg-gray-50">
-                                    <svg class="wh-1.25 bdr bdr-violet bg-stripes-violet"></svg>
-                                    <span class="font-medium">Parent Opened</span>
-                                </a>
-                                <ul>
-                                    <li>
-                                        <a href="#" class="block gap-075 px-1.25 py-05 pl-3 txt-gray-600 hover:bg-gray-100 txt-sm">Child Item</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="block gap-075 px-1.25 py-05 pl-3 txt-gray-600 hover:bg-gray-100 txt-sm">Child Item</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#" class="flex items-center gap-075 px-1.25 py-075 txt-gray-700 hover:bg-gray-50">
-                                    <svg class="wh-1.25 bdr bdr-blue bg-stripes-blue"></svg>
-                                    <span class="font-medium">Item</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="button-alignment-testing" class="py-3">
-        <div class="container bdr-red bdr-3 pxy">
-            <h2 class="txt-blue">Button Alignment Testing</h2>
-            <p class="txt-red txt-lg">The SVG icons should align properly within the buttons but there is an issue with the vertical alignment.</p>
-            <div class="space-y-05">
-                <div class="bdr">
-                    <button type="button" class="btn dark xs" wire:click="clearFilter('department')" text="department: Doohickeys" icon="close">
-                        <svg class="green" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
-                        </svg>
-                        Clear Filter
-                    </button>
-                    <button type="button" class="btn dark sm" wire:click="clearFilter('department')" text="department: Doohickeys" icon="close">
-                        <svg class="green" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
-                        </svg>
-                        Clear Filter
-                    </button>
-                    <button type="button" class="btn dark" wire:click="clearFilter('department')" text="department: Doohickeys" icon="close">
-                        <svg class="green" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
-                        </svg>
-                        Clear Filter
-                    </button>
-                    <button type="button" class="btn dark lg" wire:click="clearFilter('department')" text="department: Doohickeys" icon="close">
-                        <svg class="green" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
-                        </svg>
-                        Clear Filter
-                    </button>
-                    <button type="button" class="btn dark xl" wire:click="clearFilter('department')" text="department: Doohickeys" icon="close">
-                        <svg class="green" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
-                        </svg>
-                        Clear Filter
-                    </button>
-                    <button type="button" class="btn icon-only" icon="user">
-                        <svg class="order-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"></path>
-                        </svg>
-                    </button>
-                    <button type="button" class="btn">
-                        Base
-                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                            <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
-                            <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
-                        </svg>
-                    </button>
-                    <button type="button" class="btn">
-                        Base
-                    </button>
-                    <button type="button" class="btn">
-                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                            <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
-                            <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
-                        </svg>
-                        Base
-                    </button>
-                </div>
-                <div class="bdr">
-                    <button type="button" class="btn txt-2">
-                        Base
-                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                            <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
-                            <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
-                        </svg>
-                    </button>
-                    <button type="button" class="btn txt-2">
-                        Base
-                    </button>
-                    <button type="button" class="btn txt-2">
-                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                            <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
-                            <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
-                        </svg>
-                        Base
-                    </button>
-                </div>
-                <div class="bdr">
-                    <button type="button" class="btn txt-3">
-                        Base
-                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                            <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
-                            <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
-                        </svg>
-                    </button>
-                    <button type="button" class="btn txt-3">
-                        Base
-                    </button>
-                    <button type="button" class="btn txt-3">
-                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                            <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
-                            <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
-                        </svg>
-                        Base
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="buttons-with-icons" class="py-3">
-        <div class="container">
+        </section>
+        <section id="buttons-with-icons">
             <h2 class="txt-blue">Buttons with Icons</h2>
 
             there is a minor alignment issue
@@ -466,7 +565,6 @@
                 Base
             </button>
             <!-- </div> -->
-            <hr>
             <div id="icon-buttons">
                 <button type="button" class="btn xs">
                     <svg class="wh-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
@@ -527,10 +625,8 @@
                     </svg>
                 </button>
             </div>
-        </div>
-    </section>
-    <section id="button-and-control-sizes" class="py-3">
-        <div class="container">
+        </section>
+        <section id="button-and-control-sizes">
             <h2 class="txt-blue">Button and Control Sizes</h2>
             <div class="space-y">
                 <div>
@@ -554,7 +650,6 @@
                     <input class="xl" placeholder="Text Input">
                 </div>
             </div>
-            <hr>
             <button type="button" class="btn teal xs icon-only rounded-full" aria-label="Icon button Description">
                 <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
                     <path d="M3 7H1a1 1 0 0 0-1 1v8a2 2 0 0 0 4 0V8a1 1 0 0 0-1-1Zm12.954 0H12l1.558-4.5a1.778 1.778 0 0 0-3.331-1.06A24.859 24.859 0 0 1 6 6.8v9.586h.114C8.223 16.969 11.015 18 13.6 18c1.4 0 1.592-.526 1.88-1.317l2.354-7A2 2 0 0 0 15.954 7Z" />
@@ -580,11 +675,8 @@
                     <path d="M3 7H1a1 1 0 0 0-1 1v8a2 2 0 0 0 4 0V8a1 1 0 0 0-1-1Zm12.954 0H12l1.558-4.5a1.778 1.778 0 0 0-3.331-1.06A24.859 24.859 0 0 1 6 6.8v9.586h.114C8.223 16.969 11.015 18 13.6 18c1.4 0 1.592-.526 1.88-1.317l2.354-7A2 2 0 0 0 15.954 7Z" />
                 </svg>
             </button>
-
-        </div>
-    </section> -
-    <section id="table-examples" class="py-3">
-        <div class="container">
+        </section>
+        <section id="table-examples">
             <h2 class="txt-blue">Tables</h2>
             <h4>Base Table</h4>
             <table>
@@ -667,7 +759,6 @@
                     </tbody>
                 </table>
             </div>
-            <hr>
             <div class="overflow-x-auto rounded-lg">
                 <table>
                     <thead class="txt-upper txt-white bg-blue-600">
@@ -719,23 +810,17 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
-        </div>
-    </section>
-    <section id="button-examples" class="py-3">
-        <div class="container">
+        </section>
+        <section id="button-examples">
             <h2 class="txt-blue">Buttons</h2>
             <button type="button" class="btn bg-transparent txt-blue-700 hover:txt-white bdr bdr-blue-700 hover:bg-blue-800">Default</button>
             <button type="button" class="btn bg-transparent txt-green-700 hover:txt-white bdr bdr-green-700 hover:bg-green-800">Green</button>
             <button type="button" class="btn bg-transparent txt-red-700 hover:txt-white bdr bdr-red-700 hover:bg-red-800">Red</button>
             <button type="button" class="btn bg-transparent txt-yellow-400 hover:txt-white bdr bdr-yellow-400 hover:bg-yellow-500">Yellow</button>
             <button type="button" class="btn bg-transparent txt-purple-700 hover:txt-white bdr bdr-purple-700 hover:bg-purple-800">Purple</button>
-        </div>
-    </section>
-    <section id="responsive-examples" class="py-3">
-        <div class="container">
+        </section>
+        <section id="responsive-examples">
             <h2 class="txt-blue">Responsive Testing</h2>
-
             <h4>Hide 'ON' Screen Size</h4>
             <p>The box should not be visible on the current screen size.</p>
             <div class="grid cols-5 tac my">
@@ -776,11 +861,8 @@
                 <div>
                     <div class="py px-025 blue hidden on-xxl:block"><code class="txt-sm txt-white">on-xxl:block</code></div>
                 </div>
-            </div>
-        </div>
-    </section>
-    <section id="outline-examples" class="py-3">
-        <div class="container">
+        </section>
+        <section id="outline-examples">
             <h2 class="txt-blue">Outline</h2>
             <h4>Outline Widths</h4>
             <p class="txt-red">Note: An outline style class must be applied for outlines to be visible.</p>
@@ -795,7 +877,6 @@
                     <code>outline-3</code><br> 3px outline
                 </div>
             </div>
-            <hr>
             <h4>Outline Styles</h4>
             <div class="grid lg:cols-2 tac c-pxy-1">
                 <div class="outline-solid outline-3 outline-blue bdr-2 bdr-gray-200 bdr-2 bdr-gray-200 bdr-2 bdr-gray-200">
@@ -811,7 +892,6 @@
                     <code class="txt-red">outline-double</code>
                 </div>
             </div>
-            <hr>
             <h4>Outline Offset</h4>
             <div class="flex gap-3 tac c-pxy-1">
                 <div class="w-10 outline-offset outline-solid outline-3 outline-blue bdr-2 bdr-gray-200 bdr-2 bdr-gray-200 bdr-2 bdr-gray-200">
@@ -825,12 +905,9 @@
                 </div>
 
             </div>
-            <hr>
 
-        </div>
-    </section>
-    <section id="border-examples" class="py-3">
-        <div class="container">
+        </section>
+        <section id="border-examples">
             <h2 class="txt-blue">Borders</h2>
             <h4>Border Widths</h4>
             <div class="grid lg:cols-3 tac c-pxy-1">
@@ -844,7 +921,6 @@
                     <code>bdr-3</code><br> 3px border
                 </div>
             </div>
-            <hr>
             <h4>Border Radius</h4>
             <div class="grid lg:cols-4 tac c-pxy-1">
                 <div class="bdr rounded">
@@ -889,7 +965,6 @@
                     <code>rounded-bl</code><br>
                 </div>
             </div>
-            <hr>
             <h4>Border Styles</h4>
             <div class="grid lg:cols-2 tac c-pxy-1">
                 <div class="bdr-3 bdr-solid">
@@ -905,7 +980,6 @@
                     <code class="txt-red">bdr-double</code>
                 </div>
             </div>
-            <hr>
             <h4>Border Sides</h4>
             <div class="grid gap-3 lg:cols-4 tac c-pxy-1">
                 <div class="bdr-t-4"> bdr-t-4 </div>
@@ -919,133 +993,129 @@
                 <div class="bdr-x-4"> bdr-4 </div>
                 <div class="bdr-y-4"> bdr-4 </div>
             </div>
-        </div>
-    </section>
-    <section id="colortesting" class="py-3">
-        <div class="container-xl">
-            <h2 class="txt-blue">Colors</h2>
-            <p>This compares the tailwind <code>-500</code> color to the colors in the <code>base-colors</code></p>
-            <!-- tailwind -500 vs base color comparison -->
-            <div class="grid md:cols-6 font-mono tac">
-                <div class="bdr">
-                    <div class="py-1 bg-red-500">red-500</div>
-                    <div class="py-1 bg-red">red</div>
+        </section>
+        <section id="colortesting">
+            <div class="container-xl">
+                <h2 class="txt-blue">Colors</h2>
+                <p>This compares the tailwind <code>-500</code> color to the colors in the <code>base-colors</code></p>
+                <!-- tailwind -500 vs base color comparison -->
+                <div class="grid md:cols-6 font-mono tac">
+                    <div class="bdr">
+                        <div class="py-1 bg-red-500">red-500</div>
+                        <div class="py-1 bg-red">red</div>
+                    </div>
+                    <div class="bdr">
+                        <div class="py-1 bg-orange-500">orange-500</div>
+                        <div class="py-1 bg-orange">orange</div>
+                    </div>
+                    <div class="bdr">
+                        <div class="py-1 bg-amber-500">amber-500</div>
+                        <div class="py-1 bg-amber">amber</div>
+                    </div>
+                    <div class="bdr">
+                        <div class="py-1 bg-yellow-500">yellow-500</div>
+                        <div class="py-1 bg-yellow">yellow</div>
+                    </div>
+                    <div class="bdr">
+                        <div class="py-1 bg-lime-500">lime-500</div>
+                        <div class="py-1 bg-lime">lime</div>
+                    </div>
+                    <div class="bdr">
+                        <div class="py-1 bg-green-500">green-500</div>
+                        <div class="py-1 bg-green">green</div>
+                    </div>
+                    <div class="bdr">
+                        <div class="py-1 bg-emerald-500">emerald-500</div>
+                        <div class="py-1 bg-emerald">emerald</div>
+                    </div>
+                    <div class="bdr">
+                        <div class="py-1 bg-teal-500">teal-500</div>
+                        <div class="py-1 bg-teal">teal</div>
+                    </div>
+                    <div class="bdr">
+                        <div class="py-1 bg-cyan-500">cyan-500</div>
+                        <div class="py-1 bg-cyan">cyan</div>
+                    </div>
+                    <div class="bdr">
+                        <div class="py-1 bg-sky-500">sky-500</div>
+                        <div class="py-1 bg-sky">sky</div>
+                    </div>
+                    <div class="bdr">
+                        <div class="py-1 bg-blue-500">blue-500</div>
+                        <div class="py-1 bg-blue">blue</div>
+                    </div>
+                    <div class="bdr">
+                        <div class="py-1 bg-indigo-500">indigo-500</div>
+                        <div class="py-1 bg-indigo">indigo</div>
+                    </div>
+                    <div class="bdr">
+                        <div class="py-1 bg-violet-500">violet-500</div>
+                        <div class="py-1 bg-violet">violet</div>
+                    </div>
+                    <div class="bdr">
+                        <div class="py-1 bg-purple-500">purple-500</div>
+                        <div class="py-1 bg-purple">purple</div>
+                    </div>
+                    <div class="bdr">
+                        <div class="py-1 bg-fuchsia-500">fuchsia-500</div>
+                        <div class="py-1 bg-fuchsia">fuchsia</div>
+                    </div>
+                    <div class="bdr">
+                        <div class="py-1 bg-pink-500">pink-500</div>
+                        <div class="py-1 bg-pink">pink</div>
+                    </div>
+                    <div class="bdr">
+                        <div class="py-1 bg-rose-500">rose-500</div>
+                        <div class="py-1 bg-rose">rose</div>
+                    </div>
+                    <div class="bdr">
+                        <div class="py-1 bg-slate-500">slate-500</div>
+                        <div class="py-1 bg-slate">slate</div>
+                    </div>
+                    <div class="bdr">
+                        <div class="py-1 bg-gray-500">gray-500</div>
+                        <div class="py-1 bg-gray">gray</div>
+                    </div>
+                    <div class="bdr">
+                        <div class="py-1 bg-zinc-500">zinc-500</div>
+                        <div class="py-1 bg-zinc">zinc</div>
+                    </div>
+                    <div class="bdr">
+                        <div class="py-1 bg-neutral-500">neutral-500</div>
+                        <div class="py-1 bg-neutral">neutral</div>
+                    </div>
+                    <div class="bdr">
+                        <div class="py-1 bg-stone-500">stone-500</div>
+                        <div class="py-1 bg-stone">stone</div>
+                    </div>
                 </div>
-                <div class="bdr">
-                    <div class="py-1 bg-orange-500">orange-500</div>
-                    <div class="py-1 bg-orange">orange</div>
+                <!-- text base colors demo -->
+                <div class="flex txt-xl justify-between">
+                    <p class="txt-xl txt-red">red</p>
+                    <p class="txt-xl txt-orange">orange</p>
+                    <p class="txt-xl txt-amber">amber</p>
+                    <p class="txt-xl txt-yellow">yellow</p>
+                    <p class="txt-xl txt-lime">lime</p>
+                    <p class="txt-xl txt-green">green</p>
+                    <p class="txt-xl txt-emerald">emerald</p>
+                    <p class="txt-xl txt-teal">teal</p>
+                    <p class="txt-xl txt-cyan">cyan</p>
+                    <p class="txt-xl txt-sky">sky</p>
+                    <p class="txt-xl txt-blue">blue</p>
+                    <p class="txt-xl txt-indigo">indigo</p>
+                    <p class="txt-xl txt-violet">violet</p>
+                    <p class="txt-xl txt-purple">purple</p>
+                    <p class="txt-xl txt-fuchsia">fuchsia</p>
+                    <p class="txt-xl txt-pink">pink</p>
+                    <p class="txt-xl txt-rose">rose</p>
+                    <p class="txt-xl txt-slate">slate</p>
+                    <p class="txt-xl txt-gray">gray</p>
+                    <p class="txt-xl txt-zinc">zinc</p>
+                    <p class="txt-xl txt-neutral">neutral</p>
+                    <p class="txt-xl txt-stone">stone</p>
                 </div>
-                <div class="bdr">
-                    <div class="py-1 bg-amber-500">amber-500</div>
-                    <div class="py-1 bg-amber">amber</div>
-                </div>
-                <div class="bdr">
-                    <div class="py-1 bg-yellow-500">yellow-500</div>
-                    <div class="py-1 bg-yellow">yellow</div>
-                </div>
-                <div class="bdr">
-                    <div class="py-1 bg-lime-500">lime-500</div>
-                    <div class="py-1 bg-lime">lime</div>
-                </div>
-                <div class="bdr">
-                    <div class="py-1 bg-green-500">green-500</div>
-                    <div class="py-1 bg-green">green</div>
-                </div>
-                <div class="bdr">
-                    <div class="py-1 bg-emerald-500">emerald-500</div>
-                    <div class="py-1 bg-emerald">emerald</div>
-                </div>
-                <div class="bdr">
-                    <div class="py-1 bg-teal-500">teal-500</div>
-                    <div class="py-1 bg-teal">teal</div>
-                </div>
-                <div class="bdr">
-                    <div class="py-1 bg-cyan-500">cyan-500</div>
-                    <div class="py-1 bg-cyan">cyan</div>
-                </div>
-                <div class="bdr">
-                    <div class="py-1 bg-sky-500">sky-500</div>
-                    <div class="py-1 bg-sky">sky</div>
-                </div>
-                <div class="bdr">
-                    <div class="py-1 bg-blue-500">blue-500</div>
-                    <div class="py-1 bg-blue">blue</div>
-                </div>
-                <div class="bdr">
-                    <div class="py-1 bg-indigo-500">indigo-500</div>
-                    <div class="py-1 bg-indigo">indigo</div>
-                </div>
-                <div class="bdr">
-                    <div class="py-1 bg-violet-500">violet-500</div>
-                    <div class="py-1 bg-violet">violet</div>
-                </div>
-                <div class="bdr">
-                    <div class="py-1 bg-purple-500">purple-500</div>
-                    <div class="py-1 bg-purple">purple</div>
-                </div>
-                <div class="bdr">
-                    <div class="py-1 bg-fuchsia-500">fuchsia-500</div>
-                    <div class="py-1 bg-fuchsia">fuchsia</div>
-                </div>
-                <div class="bdr">
-                    <div class="py-1 bg-pink-500">pink-500</div>
-                    <div class="py-1 bg-pink">pink</div>
-                </div>
-                <div class="bdr">
-                    <div class="py-1 bg-rose-500">rose-500</div>
-                    <div class="py-1 bg-rose">rose</div>
-                </div>
-                <div class="bdr">
-                    <div class="py-1 bg-slate-500">slate-500</div>
-                    <div class="py-1 bg-slate">slate</div>
-                </div>
-                <div class="bdr">
-                    <div class="py-1 bg-gray-500">gray-500</div>
-                    <div class="py-1 bg-gray">gray</div>
-                </div>
-                <div class="bdr">
-                    <div class="py-1 bg-zinc-500">zinc-500</div>
-                    <div class="py-1 bg-zinc">zinc</div>
-                </div>
-                <div class="bdr">
-                    <div class="py-1 bg-neutral-500">neutral-500</div>
-                    <div class="py-1 bg-neutral">neutral</div>
-                </div>
-                <div class="bdr">
-                    <div class="py-1 bg-stone-500">stone-500</div>
-                    <div class="py-1 bg-stone">stone</div>
-                </div>
-            </div>
-            <hr>
-            <!-- text base colors demo -->
-            <div class="flex txt-xl space-between">
-                <p class="txt-xl txt-red">red</p>
-                <p class="txt-xl txt-orange">orange</p>
-                <p class="txt-xl txt-amber">amber</p>
-                <p class="txt-xl txt-yellow">yellow</p>
-                <p class="txt-xl txt-lime">lime</p>
-                <p class="txt-xl txt-green">green</p>
-                <p class="txt-xl txt-emerald">emerald</p>
-                <p class="txt-xl txt-teal">teal</p>
-                <p class="txt-xl txt-cyan">cyan</p>
-                <p class="txt-xl txt-sky">sky</p>
-                <p class="txt-xl txt-blue">blue</p>
-                <p class="txt-xl txt-indigo">indigo</p>
-                <p class="txt-xl txt-violet">violet</p>
-                <p class="txt-xl txt-purple">purple</p>
-                <p class="txt-xl txt-fuchsia">fuchsia</p>
-                <p class="txt-xl txt-pink">pink</p>
-                <p class="txt-xl txt-rose">rose</p>
-                <p class="txt-xl txt-slate">slate</p>
-                <p class="txt-xl txt-gray">gray</p>
-                <p class="txt-xl txt-zinc">zinc</p>
-                <p class="txt-xl txt-neutral">neutral</p>
-                <p class="txt-xl txt-stone">stone</p>
-            </div>
-        </div>
-    </section>
-    <section id="positional-utilities" class="py-3">
-        <div class="container">
+        </section>
+        <section id="positional-utilities">
             <h2>Positional Utilities</h2>
             <div class="flex gap justify-between items-start">
                 <div class="bg-stripes-pink rounded">
@@ -1093,10 +1163,8 @@
 
             </div>
 
-        </div>
-    </section>
-    <section id="typhoraphy-examples" class="py-3">
-        <div class="container">
+        </section>
+        <section id="typhoraphy-examples">
             <h2 class="txt-blue">Font Weights</h2>
             <p class="font-light">The quick brown fox ...</p>
             <p class="font-normal">The quick brown fox ...</p>
@@ -1112,8 +1180,71 @@
             <p class="fw7">The quick brown fox ...</p>
             <p class="fw8">The quick brown fox ...</p>
             <p class="fw9">The quick brown fox ...</p>
-        </div>
-    </section>
+        </section>
+        <section id="lists">
+            <div class="container">
+                <h2 class="txt-blue">Lists</h2>
+                <div class="bx">
+                    <div class="bx-title">Base Lists</div>
+                    <div class="inline-flex gap-3">
+                        <ul>
+                            <li>List item one</li>
+                            <li>List item two</li>
+                            <li>List item three</li>
+                        </ul>
+                        <ol>
+                            <li>List item one</li>
+                            <li>List item two</li>
+                            <li>List item three</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="bx">
+                    <div class="bx-title">List Styles</div>
+                    <p class="txt-red">Check list styles to make sure bullets align correctly.</p>
+                    <div class="flex space-x">
+                        <ul class="bx list-none">
+                            <li>Item one</li>
+                            <li>Item two</li>
+                            <li>Item three</li>
+                        </ul>
+                        <ul class="bx list-decimal">
+                            <li>Item one</li>
+                            <li>Item two</li>
+                            <li>Item three</li>
+                        </ul>
+                        <ul class="bx list-square">
+                            <li>Item one</li>
+                            <li>Item two</li>
+                            <li>Item three</li>
+                        </ul>
+                        <ul class="bx list-circle">
+                            <li>Item one</li>
+                            <li>Item two</li>
+                            <li>Item three</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bx">
+                    <div class="bx-title">Nested Lists</div>
+                    <ul>
+                        <li>
+                            List item one
+                            <ol>
+                                <li>Nested list item one</li>
+                                <li>Nested list item two</li>
+                                <li>Nested list item three</li>
+                            </ol>
+                        </li>
+                        <li>
+                            List item two
+                            <p>paragraph inside a list item</p>
+                        </li>
+                        <li>List item three</li>
+                    </ul>
+                </div>
+        </section>
+    </div>
     <script type="module" src="/main.js"></script>
 </body>
 

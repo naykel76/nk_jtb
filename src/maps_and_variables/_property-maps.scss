@@ -4,103 +4,14 @@
 @use 'sass:map';
 
 // ==========================================================================
-// CSS Property Maps
+// Positioning, Display, and Visibility Property Maps
 // ==========================================================================
-// These individual property maps hold the possible values for each CSS
-// property.  They are structured as Sass maps, where each map is named exactly
-// after the related CSS property (e.g., $display,
-// $visibility) to clearly indicate which property the values belong
-// to.  This keeps the structure logical and consistent, making it easy to
-// create conventions for using these maps in your Sass code.
-
-$align-content: (
-    space-around: space-around,
-    space-baseline: baseline,
-    space-between: space-between,
-    center: center,
-    end: flex-end,
-    space-evenly: space-evenly,
-    normal: normal,
-    start: flex-start,
-    stretch: stretch
-);
-
-$align-items: (
-    items-baseline: baseline,
-    items-center: center,
-    items-end: flex-end,
-    items-start: flex-start,
-    items-stretch: stretch,
-    // Custom aliases for vertical alignment
-    va-b: flex-end,
-    va-c: center,
-    va-t: flex-start
-);
-
-$align-self: (
-    auto: auto,
-    baseline: baseline,
-    center: center,
-    end: flex-end,
-    start: flex-start,
-    stretch: stretch
-);
 
 // prettier-ignore
 $display: ( block, flex, inline, inline-block, inline-flex, ( hidden: none ), table, table-cell);
 
 // prettier-ignore
 $inset: ( auto: auto, full: 100%, );
-
-$justify-content: (
-    space-between: space-between,
-    justify-around: space-around,
-    justify-center: center,
-    justify-end: flex-end,
-    justify-evenly: space-evenly,
-    justify-normal: normal,
-    justify-start: flex-start,
-    justify-stretch: stretch,
-    // Custom aliases for horizontal alignment
-    ha-c: center,
-    ha-l: flex-start,
-    ha-r: flex-end
-);
-
-$place-content: (
-    space-between: space-between,
-    justify-around: space-around,
-    justify-center: center,
-    justify-end: flex-end,
-    justify-evenly: space-evenly,
-    justify-normal: normal,
-    justify-start: flex-start,
-    justify-stretch: stretch,
-    // Align content within grid areas
-    baseline: baseline,
-    center: center,
-    end: flex-end,
-    start: flex-start,
-    stretch: stretch
-);
-
-$place-items: (
-    auto: auto,
-    baseline: baseline,
-    center: center,
-    end: flex-end,
-    start: flex-start,
-    stretch: stretch
-);
-
-$place-self: (
-    auto: auto,
-    baseline: baseline,
-    center: center,
-    end: flex-end,
-    start: flex-start,
-    stretch: stretch
-);
 
 $position: (static, absolute, fixed, relative, sticky);
 
@@ -115,10 +26,24 @@ $visibility: ( collapse, ( invisible: hidden ), visible);
 // outlines do not.
 
 $border-styles: (solid, dashed, dotted, double, hidden, none);
-$border-widths: ( base: 1px, 1: px-to-rem(1), 2: px-to-rem(2), 3: px-to-rem(3), 4: px-to-rem(4), 5: px-to-rem(5) ) !default;
+$border-widths: (
+    base: 1px,
+    1: px-to-rem(1),
+    2: px-to-rem(2),
+    3: px-to-rem(3),
+    4: px-to-rem(4),
+    5: px-to-rem(5)
+) !default;
 
-$border-radius-values: ( 0, 0.25, 0.5, 0.75, 1, 1.5, 2 ) !default;
-$border-radius-variants: ( xs: 0.125rem, sm: 0.25rem, base: 0.375, lg: 0.5rem, xl: 0.75rem, full: 9999rem) !default;
+$border-radius-values: (0, 0.25, 0.5, 0.75, 1, 1.5, 2) !default;
+$border-radius-variants: (
+    xs: 0.125rem,
+    sm: 0.25rem,
+    base: 0.375,
+    lg: 0.5rem,
+    xl: 0.75rem,
+    full: 9999rem
+) !default;
 $border-radius: smart-merge($border-radius-values, $border-radius-variants) !default;
 
 $outline-styles: $border-styles !default;
@@ -129,10 +54,15 @@ $outline-widths: $border-widths !default;
 // ==========================================================================
 $spacing-values: (0, 0.125, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 4, 5) !default;
 
-$margin-variants: ( base: $base-gap, auto: auto ) !default;
+$margin-variants: (
+    base: $base-gap,
+    auto: auto
+) !default;
 $margin-map: map.merge($margin-variants, list-to-map($spacing-values));
 
-$padding-variants: ( base: $base-padding ) !default;
+$padding-variants: (
+    base: $base-padding
+) !default;
 $padding-map: map.merge($padding-variants, list-to-map($spacing-values));
 
 // ==========================================================================
@@ -141,7 +71,27 @@ $padding-map: map.merge($padding-variants, list-to-map($spacing-values));
 // Font weights are not combined because the variants use the `font-` prefix,
 // while the values use the `fw-` prefix.
 
-$font-weight-values: ( 1: 100, 2: 200, 3: 300, 4: 400, 5: 500, 6: 600, 7: 700, 8: 800, 9: 900 ) !default;
-$font-weight-variants: ( thin: 100, extralight: 200, light: 300, normal: 400, medium: 500, semibold: 600, bold: 700, extrabold: 800, black: 900 ) !default;
+$font-weight-values: (
+    1: 100,
+    2: 200,
+    3: 300,
+    4: 400,
+    5: 500,
+    6: 600,
+    7: 700,
+    8: 800,
+    9: 900
+) !default;
+$font-weight-variants: (
+    thin: 100,
+    extralight: 200,
+    light: 300,
+    normal: 400,
+    medium: 500,
+    semibold: 600,
+    bold: 700,
+    extrabold: 800,
+    black: 900
+) !default;
 
 // $font-weight: smart-merge($font-weight-values, $font-weight-variants) !default;

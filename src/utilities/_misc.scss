@@ -1,11 +1,24 @@
 @use '../common-tools' as *;
 @use '../maps_and_variables/config' as *;
+@use 'sass:map';
 
 // ==========================================================================
 // Miscellaneous Utilities
 // ==========================================================================
 // Several of these should be added to the main build. They are placed here
 // temporarily for quick testing before being integrated into the main build.
+
+.c-py-025 > * {
+    padding-block: 0.25rem;
+}
+
+.c-py-2 > * {
+    padding-block: 2rem;
+}
+
+.c-py-3 > * {
+    padding-block: 3rem;
+}
 
 // ==========================================================================
 // Aspect Ratio Utilities
@@ -29,16 +42,93 @@
 // ==========================================================================
 // Dividers
 // ==========================================================================
-// this is not easy to override on the child element unless the
-// properties are set as !important but works great otherwise.
-.divide-y > :not([hidden]) ~ :not([hidden]) {
-    border-top: 1px solid $border-color;
+.divide-y > :not(:last-child) {
+    border-block-end-width: 2px;
 }
 
-// .divide-y {
-//     --divide-color: #{$border-color};
+
+.divide-y-gradient > :not(:last-child) {
+    border-block-end-width: 3px;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(
+        90deg,
+        transparent,
+        map.get($oklch-colors, red-200) 35%,
+        map.get($oklch-colors, red-300) 50%,
+        map.get($oklch-colors, red-200) 65%,
+        transparent
+    );
+}
+
+// .divide-y-gradient > :not(:last-child) {
+//     border-block-end-width: 3px;
+//     border-image-slice: 1;
+//     border-image-source: linear-gradient(
+//         90deg,
+//         transparent,
+//         #dfdddb 15%,
+//         #8e6cb1 40%,
+//         #430d79 50%,
+//         #8e6cb1 60%,
+//         #dfdddb 85%,
+//         transparent
+//     );
 // }
 
-// .divide-y > :not([hidden]) ~ :not([hidden]) {
-//     border-top: 1px solid var(--divide-color, #{$border-color});
-// }
+.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+@each $value in $opacity-values {
+    $variant: sanitize-class-name($value);
+    .hover\:opacity-#{$variant}:hover {
+        opacity: $value;
+    }
+}
+
+//
+// -----------------------------------
+.close {
+    color: rgb(199 197 197);
+    cursor: pointer;
+
+    &:hover {
+        color: rgb(163 69 88);
+        cursor: pointer;
+    }
+
+    &:active {
+        color: rgb(220 20 60);
+        cursor: pointer;
+    }
+}
+
+//
+// -----------------------------------
+.spinner {
+    animation: spin 2s linear infinite;
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #3498db;
+    height: 38px;
+    width: 38px;
+
+    &.sm {
+        border: 0.25rem solid #f3f3f3;
+        border-top: 0.25rem solid #3498db;
+        height: 1.25rem;
+        width: 1.25rem;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,12 +1,25 @@
 @use '../maps_and_variables/base' as *;
 
-// don't be tempted to add div here, it creates more problems than it solves
-$html-elements: blockquote, p, pre, form, table, ol, ul, h1, h2, h3, h4, h5, h6;
-$common-classes: '.bx', '.bx-content', '.bx-title', "[class*='container']", '.frm-row', '.grid',
-    "[class*='flex']:not(.inline-flex)";
+// section, article, aside, header, footer, nav, main are not included because
+// they are typically used as layout elements and should not have content gap
+// applied to them. div is also excluded to prevent unintended spacing issues.
 
-// Content gap
-:where(#{$html-elements}, #{$common-classes}) + :where(*) {
+// inline elements such as span, a, strong, em, etc. are not included because
+// they should not have margin applied to them. Similarly, svg is excluded to
+// prevent unintended spacing issues.
+
+// don't be tempted to add div here, it creates more problems than it solves
+$spacing-targets: blockquote, p, pre, form, table, ol, ul, h1, h2, h3, h4, h5, h6;
+$common-classes: "[class*='container']", '.frm-row', '.grid', "[class*='flex']:not(.inline-flex)";
+$bx: '.bx', '.bx-content', '.bx-title';
+
+// Excluded inline elements (expand as issues are discovered):
+// - svg: causes spacing issues when used as icons adjacent to text
+// - span: inline element, should not receive block-level spacing
+$inline-exclusions: svg, span;
+
+// Content gap - only apply to block-level elements
+:where(#{$spacing-targets}, #{$common-classes}, #{$bx}) + :where(*:not(#{$inline-exclusions})) {
     margin-top: $base-gap;
 }
 

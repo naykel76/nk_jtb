@@ -13,8 +13,8 @@
 // @param {Number} $angle - Angle of the stripes (default: 45deg)
 // ---------------------------------------------------------------------------
 @mixin bg-stripes($color-name, $stripe-width: 3px, $angle: 135deg) {
-    $light: map.get($tailwind-colors, $color-name, '50');
-    $dark: map.get($tailwind-colors, $color-name, '200');
+    $light: map.get($tailwind-colors, $color-name, '100');
+    $dark: map.get($tailwind-colors, $color-name, '300');
 
     background: repeating-linear-gradient(
         $angle,

@@ -1,14 +1,58 @@
 @use '../common-tools' as *;
 
+// ==========================================================================
+// Alignment Property Value Maps
+// ==========================================================================
+
+// prettier-ignore
+$align-content: ( 
+    normal, center, ( start: flex-start ), (end: flex-end), (between:space-between), (around:space-around), (evenly:space-evenly), baseline, stretch,
+    // Custom aliases for horizontal alignment
+    (ha-c: center), (ha-l: flex-start), (ha-r: flex-end) );
+
+// prettier-ignore
+$align-items: ( 
+    baseline, center, (end: flex-end),(start: flex-start), (baseline-last: last baseline), (center-safe: safe center), (end-safe: safe flex-end), stretch,
+    // Custom aliases for vertical alignment
+    (va-b: flex-end), (va-c: center), (va-t: flex-start )
+);
+
+// prettier-ignore
+$align-self: ( auto, baseline, center, (end: flex-end), (start: flex-start), (baseline-last: last baseline), (center-safe: safe center), (end-safe: safe flex-end), stretch );
+
+// prettier-ignore
+$justify-content: ( (start: flex-start), (end: flex-end), center, (between: space-between), (around: space-around), (evenly: space-evenly), stretch );
+
+// prettier-ignore
+$justify-items: ( (start: flex-start), (end: flex-end), center, stretch );
+
+// prettier-ignore
+$justify-self: ( auto, (start: flex-start), (end: flex-end), center, stretch );
+
+// prettier-ignore
+$place-content: ( normal, center, ( start: flex-start ), (end: flex-end), (between:space-between), (around:space-around), (evenly:space-evenly), baseline, stretch );
+
+// prettier-ignore
+$place-items: ( baseline, center, (end: flex-end),(start: flex-start), (baseline-last: last baseline), (center-safe: safe center), (end-safe: safe flex-end), stretch );
+
+// prettier-ignore
+$place-self: ( auto, baseline, center, (end: flex-end), (start: flex-start), (baseline-last: last baseline),(center-safe: safe center), (end-safe: safe flex-end), stretch );
+
+// ==========================================================================
+// Alignment Properties Maps
+// ==========================================================================
+
 // prettier-ignore
 $alignment-properties-map: (
-    align-content: ( prefix: false, values: $align-content ),
-    align-items: ( prefix: false, values: $align-items ),
+    align-content: ( prefix: 'content-', values: $align-content ),
+    align-items: ( prefix: 'items-', values: $align-items ),
     align-self: ( prefix: 'self-', values: $align-self ),
-    justify-content: (prefix: false, values: $justify-content ),
-    place-content: (prefix: false, values: $place-content ),
-    place-items: (prefix: false, values: $place-items ),
-    place-self: (prefix: false, values: $place-self ),
+    justify-content: (prefix: 'justify-', values: $justify-content ),
+    justify-items: (values: $justify-items ),
+    justify-self: (values: $justify-self ),
+    place-content: (values: $place-content ),
+    place-items: (values: $place-items ),
+    place-self: (values: $place-self ),
 );
 
 // ==========================================================================
