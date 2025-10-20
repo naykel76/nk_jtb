@@ -4,7 +4,7 @@
 // ==========================================================================
 // MARGIN & PADDING CONFIGURATION
 // ==========================================================================
-$spacing-properties-map: (
+$spacing-properties: (
     margin: (
         prefix: #{$margin-identifier},
         values: $margin-map,
@@ -19,7 +19,23 @@ $spacing-properties-map: (
     )
 );
 
+// prettier-ignore
+$spacing-combinator-properties: (
+    margin: (
+        prefix: 'space-',
+        values: $spacing-values,
+        unit: 'rem',
+        positions: ( 
+            x: ( inline-start ),
+            y: ( block-start )
+        ),
+        child-combinator: true  
+    ),
+);
+
 // ==========================================================================
 // BUILDS
 // ==========================================================================
-@include build-property-classes($spacing-properties-map, $responsive: true);
+
+@include build-property-classes($spacing-properties, $responsive: true);
+@include build-property-classes($spacing-combinator-properties, $responsive: true);
