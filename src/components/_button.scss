@@ -15,7 +15,6 @@
 
 .#{$button-identifier} {
     @extend %control;
-    @extend %transition;
 
     background: $btn-bg;
     color: $btn-color;
