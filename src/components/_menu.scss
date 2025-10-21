@@ -56,10 +56,10 @@
 .menu-title {
     font-weight: 600;
     letter-spacing: 0.05em;
-    margin-bottom: 0.5em;
-    margin-left: $menu-padding-x;
+    margin-block-end: 0.5em;
+    margin-inline-start: $menu-padding-x;
 
     &:not(:first-child) {
-        margin-top: $base-gap;
+        margin-block-start: $base-gap;
     }
 }

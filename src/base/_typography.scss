@@ -21,7 +21,7 @@
 
 // add top margin to all headings unless they are H1 or first child.
 :is(h2, h3, h4, h5, h6):not(:first-child) {
-    margin-top: 1.5em;
+    margin-block-start: 1.5em;
 }
 
 // ==========================================================================

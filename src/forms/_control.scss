@@ -13,11 +13,8 @@
 %control {
     align-items: center;
     background-color: $ctrl-bg-color;
-    border-bottom: $ctrl-border;
-    border-left: $ctrl-border;
+    border: $ctrl-border;
     border-radius: $ctrl-border-radius;
-    border-right: $ctrl-border;
-    border-top: $ctrl-border;
     color: $ctrl-color;
     display: inline-flex;
     font-size: $ctrl-font-size;

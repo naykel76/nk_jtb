@@ -1,5 +1,5 @@
-// _spacing.scss
 @use '../common-tools' as *;
+@use 'sass:map';
 
 // ==========================================================================
 // MARGIN & PADDING CONFIGURATION
@@ -23,7 +23,7 @@ $spacing-properties: (
 $spacing-combinator-properties: (
     margin: (
         prefix: 'space-',
-        values: $spacing-values,
+        values: map.merge((base: $base-gap), list-to-map($spacing-values)),
         unit: 'rem',
         positions: ( 
             x: ( inline-start ),

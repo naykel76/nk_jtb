@@ -188,7 +188,7 @@ $exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
 //
 // Examples:
 //   build-property-map('margin', (top, bottom), '1rem') 
-//     → (margin-top: 1rem, margin-bottom: 1rem)
+//     → (margin-block-start: 1rem, margin-block-end: 1rem)
 //   build-property-map('padding', (inline-start), '2rem')
 //     → (padding-inline-start: 2rem)
 // ==========================================================================
