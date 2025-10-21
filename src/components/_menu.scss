@@ -22,6 +22,7 @@
 
         &:is(.active, :hover, :focus-visible):not(.disabled, :disabled) {
             background-color: $menu-hover-bg;
+            border-radius: $menu-item-border-radius;
             color: $menu-link-hover-color;
             cursor: pointer;
         }

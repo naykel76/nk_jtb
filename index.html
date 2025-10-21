@@ -18,6 +18,76 @@
 
 <body class="bg-gray-100">
 
+    <div class="container">
+
+
+        <!-- li spacing is taking over space utility -->
+        this is the problem but i would like to leave because it makes sense for lists to have default spacing
+
+        li {
+        margin-block-start: 0.25em;
+        }
+
+        <div class="space-y-2">
+            # List with default spacing
+            <ul class="bdr bdr-red">
+                <li class="h-2 blue">List item (default spacing)</li>
+                <li class="h-2 blue">List item (default spacing)</li>
+                <li class="h-2 blue">List item (default spacing)</li>
+            </ul>
+
+            <div class="bdr bdr-red">
+                <ul class="dark space-y-05">
+                    <li class="blue">List item (spacing from space utility)</li>
+                    <li class="blue">List item (spacing from space utility)</li>
+                    <li class="blue mt-1">List item (spacing overridden with mt-1)</li>
+                </ul>
+            </div>
+
+            <div class="bdr bdr-red">
+                <div class="dark space-y-05">
+                    <div class="blue">Block (spacing from space utility)</div>
+                    <div class="blue">Block (spacing from space utility)</div>
+                    <div class="blue mt-2">Block (spacing overridden with mt-2)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="flex justify-between items-end txt-sm">
+        <div class="bdr-pink bdr-2 bg-stripes-pink">
+            <h1 class="light">Heading 1</h1>
+            <p class="light">Content after ...</p>
+        </div>
+        <div class="bdr-pink bdr-2 bg-stripes-pink">
+            <p class="light">Content before ...</p>
+            <h2 class="light">Heading 2</h2>
+            <p class="light">Content after ...</p>
+        </div>
+        <div class="bdr-pink bdr-2 bg-stripes-pink">
+            <p class="light">Content before ...</p>
+            <h3 class="light">Heading 3</h3>
+            <p class="light">Content after ...</p>
+        </div>
+        <div class="bdr-pink bdr-2 bg-stripes-pink">
+            <p class="light">Content before ...</p>
+            <h4 class="light">Heading 4</h4>
+            <p class="light">Content after ...</p>
+        </div>
+        <div class="bdr-pink bdr-2 bg-stripes-pink">
+            <p class="light">Content before ...</p>
+            <h5 class="light">Heading 5</h5>
+            <p class="light">Content after ...</p>
+        </div>
+        <div class="bdr-pink bdr-2 bg-stripes-pink">
+            <p class="light">Content before ...</p>
+            <h6 class="light">Heading 6</h6>
+            <p class="light">Content after ...</p>
+        </div>
+    </div>
+
+
     <a href="/dev.html" class="btn pink fixed">DEV</a>
     <div class="container c-py-2 divide-y-gradient">
         <section id="flexbox-grid-layout-comparisons">

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <title>NayKel JTB</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+
+<body class="zebra container-md py-5-3-2">
+    <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 inherited-styles-for-exported-element" placeholder="name@flowbite.com" required="">
+
+    <style>
+        :root {
+            --radius-lg: 0.5rem;
+            --color-gray-50: oklch(98.5% 0.002 247.839);
+            --spacing: 0.25rem;
+            --text-sm: 0.875rem;
+            --tw-leading: ;
+            --text-sm--line-height: calc(1.25 / 0.875);
+            --color-gray-900: oklch(21% 0.034 264.665);
+        }
+
+        *,
+        ::after,
+        ::before {
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        ::after,
+        ::before {
+            border-style: solid;
+            border-width: 0;
+            padding: 0;
+        }
+
+        .inherited-styles-for-exported-element {
+            font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+            tab-size: 4;
+        }
+
+        .block {
+            display: block;
+        }
+
+        .w-full {
+            width: 100%;
+        }
+
+        input {
+            font-size-adjust: inherit;
+            font-variant: inherit;
+            font-weight: inherit;
+            letter-spacing: inherit;
+            opacity: 1;
+        }
+
+        .rounded-lg {
+            border-radius: var(--radius-lg);
+        }
+
+        ::placeholder {
+            color: currentcolor;
+            opacity: 1;
+        }
+
+        .border {
+            border-style: solid;
+            border-width: 1px;
+        }
+
+        .border-gray-300 {
+            border-color: oklch(.872 .01 258.338);
+        }
+
+        .bg-gray-50 {
+            background-color: var(--color-gray-50);
+        }
+
+        input:where([type="button"], [type="reset"], [type="submit"]) {
+            appearance: button;
+        }
+
+        .p-2\.5 {
+            padding: calc(var(--spacing)*2.5);
+        }
+
+        .text-sm {
+            font-size: var(--text-sm);
+            line-height: var(--tw-leading, var(--text-sm--line-height));
+        }
+
+        .text-gray-900 {
+            color: var(--color-gray-900);
+        }
+    </style>
+
+    <section id="pagination-examples">
+        <h2>Square Pagination Buttons</h2>
+
+        <!-- Using aspect-square utility for square buttons -->
+        <nav aria-label="Page navigation example" class="mb-4">
+            <ul class="flex items-center gap-025">
+                <li>
+                    <a href="#" class="btn w-3 aspect-square green"> <span class="sr-only">Previous</span>
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+                        </svg>
+                    </a>
+                </li>
+                <li> <a href="#" class="btn w-3 aspect-square">1</a> </li>
+                <li> <a href="#" class="btn w-3 aspect-square">2</a> </li>
+                <li> <a href="#" aria-current="page" class="btn w-3 aspect-square bg-red">3</a> </li>
+                <li> <a href="#" class="btn w-3 aspect-square">4</a> </li>
+                <li> <a href="#" class="btn w-3 aspect-square">5</a> </li>
+                <li>
+                    <a href="#" class="btn w-3 aspect-square green"> <span class="sr-only">Next</span>
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Small size with aspect-square -->
+        <nav aria-label="Small pagination" class="mb-4">
+            <ul class="flex items-center gap-1">
+                <li> <a href="#" class="btn sm aspect-square">1</a> </li>
+                <li> <a href="#" class="btn sm aspect-square">2</a> </li>
+                <li> <a href="#" class="btn sm aspect-square bg-primary">3</a> </li>
+            </ul>
+        </nav>
+
+        <!-- Large size with aspect-square -->
+        <nav aria-label="Large pagination">
+            <ul class="flex items-center gap-1">
+                <li> <a href="#" class="btn w-8 aspect-square">1</a> </li>
+                <li> <a href="#" class="btn w-8 aspect-square">2</a> </li>
+                <li> <a href="#" class="btn w-8 aspect-square bg-accent">3</a> </li>
+            </ul>
+        </nav>
+    </section>
+    <script type="module" src="/main.js"></script>
+</body>
+
+</html>
