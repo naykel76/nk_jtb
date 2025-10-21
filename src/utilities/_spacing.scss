@@ -39,3 +39,5 @@ $spacing-combinator-properties: (
 
 @include build-property-classes($spacing-properties, $responsive: true);
 @include build-property-classes($spacing-combinator-properties, $responsive: true);
+@include build-magic-classes(padding, $padding-magic-y, 'py', $position-or-axis: y);
+@include build-magic-classes(margin, $margin-magic-y, 'my', $position-or-axis: y);
