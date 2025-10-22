@@ -130,3 +130,32 @@ $units: ('px', 'rem', 'em', 'vh', 'vw', 'vmin', 'vmax', '%');
 
     @return $string;
 }
+
+// ==========================================================================
+// Check if a string contains any of the provided patterns.
+// ==========================================================================
+// Iterates through a list of patterns and returns true if any pattern is found
+// within the string.
+//
+// Parameters:
+//   $string   - The string to search within
+//   $patterns - A list of pattern strings to search for
+//
+// Returns:
+//   true if any pattern is found in the string, otherwise false.
+//
+// Example:
+//   contains-any('background-color', ('background', 'color')) → true
+//   contains-any('padding', ('margin', 'border'))             → false
+// ==========================================================================
+@function contains-any($string, $patterns) {
+    @each $pattern in $patterns {
+        @if string.index($string, $pattern) {
+            @return true;
+        }
+    }
+
+    @return false;
+}
+
+

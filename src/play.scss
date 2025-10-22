@@ -1,27 +1,10 @@
-// @use './utilities/border' as *;
 // @use './components/menu' as *;
+// @use './utilities/border' as *;
 @use './common-tools' as *;
 @use './functions/resolvers' as *;
 @use './mixins/make-classes' as *;
+@use './mixins/transition' as *;
 @use 'sass:color';
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:string';
-
-
-// $margin-map: map.merge((base: $base-gap), list-to-map($spacing-values));
-
-// prettier-ignore
-$spacing-combinator-properties: (
-    margin: (
-        prefix: 'space-',
-        values: map.merge((base: $base-gap), list-to-map($spacing-values)),
-        unit: 'rem',
-        positions: ( 
-            y: ( block-start )
-        ),
-        child-combinator: true  
-    ),
-);
-
-@include build-property-classes($spacing-combinator-properties, $responsive: false);

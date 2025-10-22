@@ -1,12 +1,13 @@
 @use '../functions/color-functions' as *;
 @use '../maps_and_variables/base' as *;
 @use '../maps_and_variables/components' as *;
+@use '../mixins/transition' as *;
 
 // ==========================================================================
 // -- MENU COMPONENT --
 // ==========================================================================
-
 // menu-title, menu-icon are added for clarity, but not strictly necessary
+
 .menu {
     display: flex;
     flex-direction: column;
@@ -14,15 +15,17 @@
 
     :where(.menu-item, a, li a, button) {
         align-items: center;
+        border-radius: $menu-item-border-radius;
         color: inherit;
         display: flex;
         gap: 0.75rem; // space between icon and text
         padding: $menu-padding-y $menu-padding-x;
         width: 100%; // buttons need this, doesn't hurt links
 
+        @include transition(background-color color);
+
         &:is(.active, :hover, :focus-visible):not(.disabled, :disabled) {
             background-color: $menu-hover-bg;
-            border-radius: $menu-item-border-radius;
             color: $menu-link-hover-color;
             cursor: pointer;
         }
@@ -55,6 +58,7 @@
 }
 
 .menu-title {
+    font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.05em;
     margin-block-end: 0.5em;
