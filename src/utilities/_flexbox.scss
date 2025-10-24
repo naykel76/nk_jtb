@@ -4,11 +4,11 @@
 // prettier-ignore
 $flex-properties-map: (
     flex: (
-        prefix: #{$flex-identifier},
+        prefix: 'flex-',
         values: ( 1, 2, ( 'auto': 1 1 auto ), ( 'initial': 0 1 auto ), 'none' ),
     ),
     flex-direction: (
-        prefix: #{$flex-identifier},
+        prefix: 'flex-',
         values: (
             // `flex-col` and `flex-row` are handled in the
             // flex.scss utility file to include the display
@@ -18,11 +18,11 @@ $flex-properties-map: (
         )
     ),
     flex-grow: (
-        prefix: #{$flex-grow-identifier},
+        prefix: #{$flex-grow-prefix},
         values: ( 0, 1)
     ),
     flex-shrink: (
-        prefix: #{$flex-shrink-identifier},
+        prefix: #{$flex-shrink-prefix},
         values: ( 0, 1)
     ),
     flex-wrap: (
@@ -36,9 +36,9 @@ $flex-properties-map: (
     ),
 );
 
-// ==========================================================================
+// ============================================================================
 // COMPOSITE CLASSES
-// ==========================================================================
+// ============================================================================
 
 // prettier-ignore
 $flexbox-composite-classes: (
@@ -49,9 +49,11 @@ $flexbox-composite-classes: (
     flex-hac: ( props: ( display: flex, justify-content: center ) ),
 );
 
-// ==========================================================================
+// ------------------------------------------------------------------------
 // Builds
-// ==========================================================================
+// ============================================================================
 
 @include build-property-classes($flex-properties-map, $responsive: true);
 @include build-composite-classes($flexbox-composite-classes, $responsive: true);
+
+// ------------------------------------------------------------------------

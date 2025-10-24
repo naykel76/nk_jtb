@@ -4,9 +4,9 @@
 @use 'sass:meta';
 @use 'sass:string';
 
-// ==========================================================================
+// ============================================================================
 // Sanitize and escape class names for safe use in CSS.
-// ==========================================================================
+// ============================================================================
 // Converts the input to a string and formats it for safe use in CSS class names.
 //
 // - Removes the decimal point if the value starts with '0.' (e.g., '0.5' → '05').
@@ -16,7 +16,7 @@
 // Example:
 //      .my-class-#{sanitize-class-name(20.5rem)} { ... }
 //      Outputs: .my-class-20\.5 { ... }
-// ==========================================================================
+// ----------------------------------------------------------------------------
 @function sanitize-class-name($input) {
     $input: to-string($input);
 
@@ -31,9 +31,9 @@
     @return $output;
 }
 
-// ==========================================================================
+// ============================================================================
 // Strip invalid or unnecessary suffixes from class names.
-// ==========================================================================
+// ============================================================================
 // Cleans up class names by removing specific suffixes used for logic,
 // but unnecessary or undesired in the final class output.
 //
@@ -47,7 +47,7 @@
 // Example:
 //     strip-invalid('bdr-xy-sm', 'bdr-') → 'bdr-sm'
 //     strip-invalid('pxy-base') → 'pxy'
-// ==========================================================================
+// ----------------------------------------------------------------------------
 
 $xy-exclusions: ('bdr-');
 
@@ -67,13 +67,12 @@ $xy-exclusions: ('bdr-');
     @return $class;
 }
 
-
-// ==========================================================================
+// ============================================================================
 // Exclude units from being appended to class names.
-// ==========================================================================
+// ============================================================================
 // Defines values that should not receive a unit suffix in class names.
 // Example: 0, %, and auto remain unchanged.
-// ==========================================================================
+// ----------------------------------------------------------------------------
 
 $exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
 
@@ -83,21 +82,19 @@ $exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
     @return $value + $derived-unit;
 }
 
-// ==========================================================================
+// ============================================================================
 // Remove default 'rem' unit from class names.
-// ==========================================================================
+// ============================================================================
 // Removes 'rem' from unit string if present, as it's treated as default.
-// ==========================================================================
+// ----------------------------------------------------------------------------
 
 @function handle-class-unit($unit) {
     @return if($unit != 'rem', $unit, '');
 }
 
-
-
-// ==========================================================================
+// ============================================================================
 // Normalise key and value into a variant and CSS value pair for class generation.
-// ==========================================================================
+// ============================================================================
 // - Sanitises the key for safe use in class names.
 // - If value is missing, falls back to using the key as the value.
 // - Supports keys as strings, numbers, or lists [variant, value].
@@ -105,7 +102,7 @@ $exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
 // Examples:
 //  - (1)         → ('1', 1)
 //  - ('sm', 1)   → ('sm', 1)
-// ==========================================================================
+// ----------------------------------------------------------------------------
 
 @function normalise-variant-value($key, $value) {
     $variant: sanitize-class-name($key);
@@ -119,9 +116,9 @@ $exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
     @return ($variant, $value);
 }
 
-// ==========================================================================
+// ============================================================================
 // Check if an axis key should be omitted from the class name.
-// ==========================================================================
+// ============================================================================
 // Determines whether a position key (e.g., 'x', 'y', 'xy') should be excluded
 // from the generated class name based on the omit-axis-keys configuration.
 //
@@ -133,7 +130,7 @@ $exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
 //   should-omit-axis-key('xy', ('xy')) → true
 //   should-omit-axis-key('x', ('xy'))  → false
 //   should-omit-axis-key('x', null)    → false
-// ==========================================================================
+// ----------------------------------------------------------------------------
 @function should-omit-axis-key($position-key, $omit-axis-keys) {
     @if not $omit-axis-keys {
         @return false;
@@ -148,9 +145,9 @@ $exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
     @return false;
 }
 
-// ==========================================================================
+// ============================================================================
 // Build a position-based class name with optional axis key omission.
-// ==========================================================================
+// ============================================================================
 // Generates the final class name for position-based utilities by combining
 // the identifier, position key, and variant, then stripping unwanted suffixes.
 //
@@ -164,7 +161,7 @@ $exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
 //   build-position-class-name('m-', '1', 'x', null) → 'm-x-1'
 //   build-position-class-name('m-', '1', 'xy', ('xy')) → 'm-1'
 //   build-position-class-name('p-', '2', 'y', null) → 'p-y-2'
-// ==========================================================================
+// ----------------------------------------------------------------------------
 @function build-position-class-name($identifier, $variant, $position-key, $omit-axis-keys) {
     @if should-omit-axis-key($position-key, $omit-axis-keys) {
         @return strip-class-suffixes(#{$identifier}#{$variant}, $identifier);
@@ -173,9 +170,9 @@ $exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
     }
 }
 
-// ==========================================================================
+// ============================================================================
 // Build a map of CSS properties from positions for a given base property.
-// ==========================================================================
+// ============================================================================
 // Creates a map of CSS property-value pairs by applying a value to each
 // position in the positions list. Handles special properties that require
 // split patterns (like border-width).
@@ -187,11 +184,11 @@ $exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
 // @return {Map} - Map of CSS properties and values
 //
 // Examples:
-//   build-property-map('margin', (top, bottom), '1rem') 
+//   build-property-map('margin', (top, bottom), '1rem')
 //     → (margin-block-start: 1rem, margin-block-end: 1rem)
 //   build-property-map('padding', (inline-start), '2rem')
 //     → (padding-inline-start: 2rem)
-// ==========================================================================
+// ----------------------------------------------------------------------------
 @function build-property-map($property, $positions, $value, $get-property-fn) {
     $props: ();
 
@@ -203,9 +200,9 @@ $exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
     @return $props;
 }
 
-// ==========================================================================
+// ============================================================================
 // Build a CSS selector with optional child combinator support.
-// ==========================================================================
+// ============================================================================
 // Creates a selector string that can be either a standard class selector
 // or a child combinator selector (for utilities like space-x/space-y).
 //
@@ -217,20 +214,20 @@ $exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
 // @return {String} - The complete selector
 //
 // Examples:
-//   build-selector('m-x-1', false) 
+//   build-selector('m-x-1', false)
 //     → '.m-x-1'
-//   build-selector('space-x-1', '> *:not(:first-child)') 
+//   build-selector('space-x-1', '> *:not(:first-child)')
 //     → ':where(.space-x-1 > *:not(:first-child))'
 //   build-selector('space-y-2', true)
 //     → ':where(.space-y-2 > *:not(:first-child))'
-// ==========================================================================
+// ----------------------------------------------------------------------------
 @function build-selector($class-name, $child-combinator: false) {
     @if not $child-combinator {
         @return '.#{$class-name}';
     }
-    
+
     // If true, use default combinator
     $combinator: if($child-combinator == true, '> *:not(:first-child)', $child-combinator);
-    
+
     @return ':where(.#{$class-name} #{$combinator})';
 }

@@ -11,27 +11,27 @@ $accordion-padding: 1rem !default; // entire accordion border
 
 $accordion-hover-bg: color.adjust($accordion-bg, $lightness: -5%) !default;
 
-// ==========================================================================
+// ============================================================================
 // -- GENERIC ACCORDION STYLES --
-// ==========================================================================
+// ============================================================================
 // These styles provide the basic structure for the accordion and work
 // with both the CSS and Alpine versions.
 
 .accordion {
-    overflow: hidden;
     border: $accordion-border;
+    overflow: hidden;
 
     &-title {
         background: $accordion-bg;
         color: $accordion-color;
+        cursor: pointer;
+        display: flex;
         font-size: $accordion-font-size;
         font-weight: $accordion-font-weight;
-        padding: $accordion-padding;
-        width: 100%;
-        transition: 0.3s;
-        display: flex;
         justify-content: space-between;
-        cursor: pointer;
+        padding: $accordion-padding;
+        transition: 0.3s;
+        width: 100%;
 
         &:hover {
             background: $accordion-hover-bg;
@@ -46,8 +46,8 @@ $accordion-hover-bg: color.adjust($accordion-bg, $lightness: -5%) !default;
 
     // this class should only be used in the CSS version
     &-content {
-        padding: 0 $accordion-padding;
         max-height: 0; // hide content when using CSS
+        padding: 0 $accordion-padding;
         transition: all 0.3s;
     }
 
@@ -68,9 +68,9 @@ $accordion-hover-bg: color.adjust($accordion-bg, $lightness: -5%) !default;
     //     }
 }
 
-// ==========================================================================
+// ============================================================================
 // -- CSS ACCORDION STYLES --
-// ==========================================================================
+// ============================================================================
 // These styles are specific to the CSS accordion.
 
 // use :where to lower specificity allowing for easier customization
@@ -79,8 +79,8 @@ $accordion-hover-bg: color.adjust($accordion-bg, $lightness: -5%) !default;
     // will need to manually set the position, opacity, and z-index to get the
     // input to appear.
     input {
-        position: absolute;
         opacity: 0;
+        position: absolute;
         z-index: -1;
 
         // checked toggles open and closed

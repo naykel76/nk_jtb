@@ -25,13 +25,13 @@
     }
 }
 
-// ==========================================================================
+// ============================================================================
 // Generates utility classes for CSS properties using a configuration map.
 // Supports responsive variants, automatic value-unit handling, position-based 
 // classes, and optional axis key omission for cleaner class names.
 // --------------------------------------------------------------------------
 // 
-// ==========================================================================
+// ============================================================================
 
 // prettier-ignore
 @mixin build-property-classes($properties-map, $responsive: true, $with-state: false, $debug: false) {

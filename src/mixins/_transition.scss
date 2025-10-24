@@ -3,9 +3,9 @@
 @use 'sass:meta';
 @use 'sass:string';
 
-// ==========================================================================
+// ============================================================================
 // TRANSITION MIXIN
-// ==========================================================================
+// ============================================================================
 // Creates smooth transitions with intelligent defaults based on property type.
 //
 // USAGE:
@@ -27,7 +27,7 @@
 //   - Wrap multiple properties in parentheses: (prop1, prop2)
 //   - Auto durations apply only when duration is not specified
 //   - Avoid 'all' in production - specify exact properties for performance
-// ==========================================================================
+// ============================================================================
 
 @mixin transition($properties: all, $duration: null, $timing: cubic-bezier(0.4, 0, 0.2, 1), $delay: 0s) {
     @if meta.type-of($properties) == 'list' and list.length($properties) > 1 {
@@ -46,9 +46,9 @@
     }
 }
 
-// ==========================================================================
+// ============================================================================
 // Get smart default duration based on property type.
-// ==========================================================================
+// ============================================================================
 @function get-transition-duration($property) {
     $prop-str: string.to-lower-case(#{$property});
 

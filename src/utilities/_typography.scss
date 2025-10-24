@@ -4,7 +4,7 @@
 // these variants use a different map and prefix
 $typography-variants-map: (
     font-weight: (
-        prefix: '#{$font-identifier}',
+        prefix: 'font-',
         values: $font-weight-variants
     )
 );
@@ -12,16 +12,16 @@ $typography-variants-map: (
 // prettier-ignore
 $typography-properties-map: (
     font-size: (
-        prefix: "#{$text-identifier}",
+        prefix: "#{$text-prefix}",
         values: $font-size-map,
         unit: "rem"
     ),
     font-style: (
-        prefix: "#{$text-identifier}",
+        prefix: "#{$text-prefix}",
         values: ( italic, normal )
     ),
     font-family: (
-        prefix: "#{$font-identifier}",
+        prefix: "font-",
         values: (
             serif: ( ui-serif, Georgia, Cambria, "Times New Roman", Times, serif ),
             sans: ( ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" ),
@@ -29,31 +29,31 @@ $typography-properties-map: (
         )
     ),
     font-weight: (
-        prefix: "#{$font-weight-identifier}",
+        prefix: "#{$font-weight-prefix}",
         values: $font-weight-values
     ),
     line-height: (
-        prefix: "#{$line-height-identifier}",
+        prefix: "#{$line-height-prefix}",
         values: ( 1, 1.5, 2 )
     ),
     text-align: (
-        prefix: "#{$text-align-identifier}",
+        prefix: "#{$text-align-prefix}",
         values: ( l: left, r: right, c: center, j: justify )
     ),
     text-decoration: (
-        prefix: "#{$text-identifier}",
+        prefix: "#{$text-prefix}",
         values: ( strike: line-through, underline: underline, overline: overline, underline-overline: underline overline )
     ),
     text-transform: (
-        prefix: "#{$text-identifier}",
+        prefix: "#{$text-prefix}",
         values: ( upper: uppercase, lower: lowercase, capitalize: capitalize, normal-case: none )
     ),
     white-space: (
-        prefix: "#{$whitespace-identifier}",
+        prefix: "whitespace-",
         values: ( normal, nowrap, pre, pre-line, pre-wrap )
     ),
     text-wrap: (
-        prefix: "#{$text-identifier}",
+        prefix: "#{$text-prefix}",
         values: ( wrap, balance, nowrap, pretty )
     ),
     list-style-type: (
@@ -71,9 +71,9 @@ $text-classes-map: (
     lead: ( props: ( font-size: 1.2rem ) )
 );
 
-// ==========================================================================
+// ============================================================================
 // Builds
-// ==========================================================================
+// ============================================================================
 @include build-property-classes($typography-properties-map, $responsive: true);
 @include build-property-classes($typography-variants-map, $responsive: true);
 @include build-composite-classes($text-classes-map, $responsive: true);

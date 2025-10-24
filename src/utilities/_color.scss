@@ -7,19 +7,19 @@
 
 $color-properties: (
     color: (
-        prefix: '#{$text-identifier}',
+        prefix: '#{$text-prefix}',
         values: smart-merge($base-colors, $oklch-colors)
     ),
     background-color: (
-        prefix: '#{$background-identifier}',
+        prefix: 'bg-',
         values: smart-merge($base-colors, $oklch-colors)
     ),
     border-color: (
-        prefix: '#{$border-identifier}',
+        prefix: '#{$border-prefix}',
         values: smart-merge($base-colors, $oklch-colors)
     ),
     outline-color: (
-        prefix: '#{$outline-identifier}',
+        prefix: 'outline-',
         values: smart-merge($base-colors, $oklch-colors)
     )
 );

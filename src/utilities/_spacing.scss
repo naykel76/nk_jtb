@@ -1,18 +1,18 @@
 @use '../common-tools' as *;
 @use 'sass:map';
 
-// ==========================================================================
+// ============================================================================
 // MARGIN & PADDING CONFIGURATION
-// ==========================================================================
+// ============================================================================
 $spacing-properties: (
     margin: (
-        prefix: #{$margin-identifier},
+        prefix: 'm-',
         values: $margin-map,
         unit: 'rem',
         positions: $logical-position-map
     ),
     padding: (
-        prefix: #{$padding-identifier},
+        prefix: 'p-',
         values: $padding-map,
         unit: 'rem',
         positions: $logical-position-map
@@ -33,9 +33,9 @@ $spacing-combinator-properties: (
     ),
 );
 
-// ==========================================================================
+// ============================================================================
 // BUILDS
-// ==========================================================================
+// ============================================================================
 
 @include build-property-classes($spacing-properties, $responsive: true);
 @include build-property-classes($spacing-combinator-properties, $responsive: true);

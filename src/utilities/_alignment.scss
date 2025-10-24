@@ -1,8 +1,8 @@
 @use '../common-tools' as *;
 
-// ==========================================================================
+// ============================================================================
 // Common Value Patterns
-// ==========================================================================
+// ============================================================================
 
 // prettier-ignore
 $flex-positions: ( start: flex-start, end: flex-end );
@@ -13,9 +13,9 @@ $space-distribution: ( between: space-between, around: space-around, evenly: spa
 // prettier-ignore
 $safe-alignment: ( baseline-last: last baseline, center-safe: safe center, end-safe: safe flex-end );
 
-// ==========================================================================
+// ============================================================================
 // Standard Alignment Value Maps
-// ==========================================================================
+// ============================================================================
 
 $align-content: smart-merge((normal, center, baseline, stretch), $flex-positions, $space-distribution);
 $align-items: smart-merge((baseline, center, stretch), $flex-positions, $safe-alignment);
@@ -27,9 +27,9 @@ $place-content: smart-merge((normal, center, baseline, stretch), $flex-positions
 $place-items: smart-merge((baseline, center, stretch), $flex-positions, $safe-alignment);
 $place-self: smart-merge((auto, baseline, center, stretch), $flex-positions, $safe-alignment);
 
-// ==========================================================================
+// ============================================================================
 // Custom Alignment Value Maps
-// ==========================================================================
+// ============================================================================
 
 // prettier-ignore
 $align-content-custom: ( ha-c: center, ha-l: flex-start, ha-r: flex-end );
@@ -37,9 +37,9 @@ $align-content-custom: ( ha-c: center, ha-l: flex-start, ha-r: flex-end );
 // prettier-ignore
 $align-items-custom: ( va-b: flex-end, va-c: center, va-t: flex-start );
 
-// ==========================================================================
+// ============================================================================
 // Property Configuration Maps
-// ==========================================================================
+// ============================================================================
 
 // prettier-ignore
 $alignment-properties-map: (
@@ -60,9 +60,9 @@ $custom-alignment-properties-map: (
   align-items:   (prefix: false, values: $align-items-custom),
 );
 
-// ==========================================================================
+// ============================================================================
 // Build Classes
-// ==========================================================================
+// ============================================================================
 
 @include build-property-classes($alignment-properties-map, $responsive: true);
 @include build-property-classes($custom-alignment-properties-map, $responsive: true);
