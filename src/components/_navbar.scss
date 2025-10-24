@@ -2,75 +2,42 @@
 
 .navbar,
 .navbar > .container {
+    align-items: center;
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
+
 
 .navbar {
     background: $navbar-bg;
     padding: $navbar-padding-y $navbar-padding-x;
     position: relative;
 
-    ul {
-        display: flex;
-    }
+    // // Override menu for horizontal layout
+    // .menu {
+    //     flex-direction: row;
 
+    //     :where(.menu-item, a, li a, button) {
+    //         background: $navbar-nav-item-bg;
+    //         color: $navbar-nav-item-color;
+    //         padding: $navbar-nav-padding-y $navbar-nav-padding-x;
+    //         width: auto;
 
-    // 
+    //         &:is(.active, :hover, :focus-visible):not(.disabled, :disabled) {
+    //             background: $navbar-nav-hover-bg;
+    //             color: $navbar-nav-hover-color;
+    //         }
 
-    // remove specificity to make easier to override
-    :where(ul a) {
-        color: $navbar-nav-item-color;
-        padding: $navbar-nav-padding-y $navbar-nav-padding-x;
-        display: block; // 1. allowing the navbar to grow in height
-        line-height: 1.2rem;
+    //         &:active {
+    //             background: $navbar-nav-active-bg;
+    //             color: $navbar-nav-active-color;
+    //         }
+    //     }
 
-        &:hover {
-            color: $navbar-nav-hover-color;
-        }
-
-        &.active,
-        &:active {
-            color: $navbar-nav-active-color;
-        }
-    }
-
-    .nav-item {
-        // disabled because it causes issues when there are icons
-        // display: block; // 1. allowing the navbar to grow in height
-        background: $navbar-nav-item-bg;
-        color: $navbar-nav-item-color;
-        line-height: 1.2rem;
-
-        &:hover {
-            color: $navbar-nav-hover-color;
-            background: $navbar-nav-hover-bg;
-        }
-
-        &.active,
-        &:active {
-            color: $navbar-nav-active-color;
-            background: $navbar-nav-active-bg;
-        }
-    }
-
-    // this is a quick and dirt solution to prevent to work with
-    // .bx.menu which is likely set in the dropdowns
-    .menu {
-        :where(a, li a, .menu-item) {
-            color: #333;
-        }
-
-        li {
-            &:first-child a {
-                // border-top-left-radius: $bx-border-radius;
-                // border-top-right-radius: $bx-border-radius;
-            }
-            &:last-child a {
-                // border-bottom-left-radius: $bx-border-radius;
-                // border-bottom-right-radius: $bx-border-radius;
-            }
-        }
-    }
+    //     // Dropdowns should be vertical and positioned absolutely
+    //     button + ul {
+    //         flex-direction: column;
+    //         position: absolute;
+    //     }
+    // }
 }

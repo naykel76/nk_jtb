@@ -10,18 +10,17 @@
 //
 // USAGE:
 //   @include transition();                                    // all properties, 300ms
-//   @include transition(color);                               // auto: 150ms (fast)
-//   @include transition(opacity);                             // auto: 250ms (smooth)
-//   @include transition((background-color, color));           // auto: 150ms for both
-//   @include transition(transform, 200ms);                    // override with custom
-//   @include transition(width, 350ms, ease-in-out, 100ms);    // full control
+//   @include transition(color);                               // auto: 200ms (fast)
+//   @include transition(opacity);                             // auto: 300ms (smooth)
+//   @include transition((background-color, color));           // auto: 200ms for both
+//   @include transition(transform, 250ms);                    // override with custom
+//   @include transition(width, 400ms, ease-in-out, 100ms);    // full control
 //
 // AUTO DURATIONS BY PROPERTY:
-//   - color, background*:     150ms  (fast feedback)
-//   - border*, box-shadow:    200ms  (subtle effects)
-//   - opacity, visibility:    250ms  (smooth fades)
-//   - transform:              200ms  (balanced movement)
-//   - width, height, max-*:   300ms  (layout changes)
+//   - color, background*:     200ms  (fast feedback)
+//   - border*, box-shadow:    250ms  (subtle effects)
+//   - opacity, visibility:    300ms  (smooth fades)
+//   - width, height, max-*:   400ms  (layout changes)
 //   - all, other:             300ms  (safe default)
 //
 // NOTES:
@@ -53,39 +52,37 @@
 @function get-transition-duration($property) {
     $prop-str: string.to-lower-case(#{$property});
 
-    // Fast: colors and text (150ms)
+    // Fast: colors and text (200ms)
     $fast-props: ('color', 'fill', 'stroke');
     $fast-patterns: ('background', 'text');
 
-    // Medium-fast: borders and shadows (200ms)
+    // Medium-fast: borders and shadows (250ms)
     $medium-fast-props: ('box-shadow', 'transform');
     $medium-fast-patterns: ('border', 'outline', 'translate', 'rotate', 'scale');
 
-    // Medium-slow: opacity (250ms)
+    // Medium-slow: opacity (300ms)
     $medium-slow-props: ('opacity', 'visibility');
 
-    // Slower: layout (300ms)
+    // Slow: layout (400ms)
     $slow-props: ('width', 'height', 'flex', 'flex-basis');
     $slow-patterns: ('max-', 'min-');
 
     // Check exact matches and patterns
     @if list.index($fast-props, $prop-str) or contains-any($prop-str, $fast-patterns) {
-        @return 150ms;
-    }
-
-    @if list.index($medium-fast-props, $prop-str) or contains-any($prop-str, $medium-fast-patterns) {
         @return 200ms;
     }
 
-    @if list.index($medium-slow-props, $prop-str) {
+    @if list.index($medium-fast-props, $prop-str) or contains-any($prop-str, $medium-fast-patterns) {
         @return 250ms;
     }
 
-    @if list.index($slow-props, $prop-str) or contains-any($prop-str, $slow-patterns) {
+    @if list.index($medium-slow-props, $prop-str) {
         @return 300ms;
+    }
+
+    @if list.index($slow-props, $prop-str) or contains-any($prop-str, $slow-patterns) {
+        @return 400ms;
     }
 
     @return 300ms; // Default
 }
-
-
