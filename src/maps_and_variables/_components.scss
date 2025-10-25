@@ -1,6 +1,7 @@
 @use '../functions/color-functions' as *;
-@use './base' as *;
-@use './colors' as *;
+@use '../maps_and_variables/base' as *;
+@use '../maps_and_variables/core' as *;
+@use '../color-and-themes/colors' as *;
 @use 'sass:color';
 @use 'sass:map';
 

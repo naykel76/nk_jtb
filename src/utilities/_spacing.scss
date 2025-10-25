@@ -6,13 +6,13 @@
 // ============================================================================
 $spacing-properties: (
     margin: (
-        prefix: 'm-',
+        prefix: 'm',
         values: $margin-map,
         unit: 'rem',
         positions: $logical-position-map
     ),
     padding: (
-        prefix: 'p-',
+        prefix: 'p',
         values: $padding-map,
         unit: 'rem',
         positions: $logical-position-map

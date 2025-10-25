@@ -1,0 +1,39 @@
+@use '../color-and-themes/themes' as *;
+@use '../color-and-themes/colors' as *;
+@use 'sass:map';
+
+$mode: light;
+
+// ----------------------------------------------------------------------------
+// Colors - Brand/Primary Palette
+// ----------------------------------------------------------------------------
+$primary: map.get($themes, $mode, primary) !default;
+$secondary: map.get($themes, $mode, secondary) !default;
+$accent: map.get($themes, $mode, accent) !default;
+
+
+// NK::TD This needs to be moved. There are a few side effects so i will leave
+// it here for now.
+$theme-colors: (
+    'primary': $primary,
+    'secondary': $secondary,
+    'accent': $accent,
+    'light': #fafafa,
+    'dark': #212121,
+    'danger': #dc3848,
+    'info': #249beb,
+    'success': #29a847,
+    'warning': #ffdd57
+) !default;
+
+// ----------------------------------------------------------------------------
+// Typography - Colors
+// ----------------------------------------------------------------------------
+$text-light: map.get($themes, light, text-color) !default;
+$text-dark: map.get($themes, dark, text-color) !default;
+$text-color: map.get($themes, $mode, text-color) !default;
+
+// ----------------------------------------------------------------------------
+// Backgrounds - Colors
+// ----------------------------------------------------------------------------
+$body-bg: map.get($themes, $mode, body-bg) !default;

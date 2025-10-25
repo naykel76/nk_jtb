@@ -16,43 +16,63 @@
 
 </section> -->
 
-<body class="bg-gray-100">
-
-    <div class="container">
+<body class="py-3">
 
 
-        <!-- li spacing is taking over space utility -->
-        this is the problem but i would like to leave because it makes sense for lists to have default spacing
-
-        li {
-        margin-block-start: 0.25em;
-        }
-
-        <div class="space-y-2">
-            # List with default spacing
-            <ul class="bdr bdr-red">
-                <li class="h-2 blue">List item (default spacing)</li>
-                <li class="h-2 blue">List item (default spacing)</li>
-                <li class="h-2 blue">List item (default spacing)</li>
-            </ul>
-
-            <div class="bdr bdr-red">
-                <ul class="dark space-y-05">
-                    <li class="blue">List item (spacing from space utility)</li>
-                    <li class="blue">List item (spacing from space utility)</li>
-                    <li class="blue mt-1">List item (spacing overridden with mt-1)</li>
-                </ul>
+    <div class="container-md">
+        <main class="bx pxy-2">
+            <h1>Super Awesome Page Title</h1>
+            <p class="lead">This is some lead text. It is generally a bit bigger and used to introduce the main content of your page, giving readers a quick overview of what they can expect.</p>
+            <h2>Typography</h2>
+            <p>This is some normal paragraph text to demonstrate the default typography styles applied to body text. It should be easy to read and visually appealing.</p>
+            <h2>Theme Colors</h2>
+            <div class="flex gap">
+                <div class="fg1 bx primary">Primary</div>
+                <div class="fg1 bx secondary">Secondary</div>
+                <div class="fg1 bx accent">Accent</div>
             </div>
 
-            <div class="bdr bdr-red">
-                <div class="dark space-y-05">
-                    <div class="blue">Block (spacing from space utility)</div>
-                    <div class="blue">Block (spacing from space utility)</div>
-                    <div class="blue mt-2">Block (spacing overridden with mt-2)</div>
+            <hr>
+            <hr>
+            <hr>
+
+            <h2>Typography Showcase</h2>
+            <p>This page demonstrates various text styles including <strong>bold text</strong>, <em>italic text</em>, and <code>inline code</code>. You can combine these to create rich, engaging content.</p>
+
+            <div class="highlight-box">
+                <strong>💡 Pro Tip:</strong> Use highlight boxes to draw attention to important information or special notes.
+            </div>
+
+            <h2>Interactive Components</h2>
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="alert('Primary button clicked!')">Primary Button</button>
+                <button class="btn btn-secondary" onclick="alert('Secondary button clicked!')">Secondary Button</button>
+            </div>
+
+            <h2>Card Layout</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Feature One</h3>
+                    <p>This card demonstrates a clean, modern design pattern. Hover over it to see the effect.</p>
+                </div>
+                <div class="card">
+                    <h3>Feature Two</h3>
+                    <p>Cards are perfect for organizing content into digestible, visually appealing sections.</p>
+                </div>
+                <div class="card">
+                    <h3>Feature Three</h3>
+                    <p>They work great for portfolios, product features, team members, and more.</p>
                 </div>
             </div>
-        </div>
+
+            <h2>Responsive Design</h2>
+            <p>This page is fully responsive and adapts beautifully to different screen sizes. Try resizing your browser window to see it in action!</p>
+        </main>
     </div>
+
+
+
+
 
 
     <div class="flex justify-between items-end txt-sm">

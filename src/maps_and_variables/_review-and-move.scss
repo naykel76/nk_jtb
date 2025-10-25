@@ -1,7 +1,7 @@
 @use '../functions/helpers' as *;
 @use '../functions/map-and-list-helpers' as *;
 @use '../maps_and_variables/base' as *;
-@use '../maps_and_variables/colors' as *;
+@use '../color-and-themes/colors' as *;
 @use 'sass:map';
 
 // ============================================================================
@@ -36,27 +36,7 @@ $border-radius: smart-merge($border-radius-values, $border-radius-variants) !def
 $outline-styles: $border-styles !default;
 $outline-widths: $border-widths !default;
 
-// ============================================================================
-// Spacing Property Maps (margin, padding, gap, inset)
-// ============================================================================
-$spacing-values: (0, 0.125, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 4, 5) !default;
 
-$margin-variants: ( base: $base-gap, auto: auto ) !default;
-$margin-map: map.merge($margin-variants, list-to-map($spacing-values));
-
-$padding-variants: ( base: $base-padding ) !default;
-$padding-map: map.merge($padding-variants, list-to-map($spacing-values));
-
-// ============================================================================
-// Typography Property Maps
-// ============================================================================
-// Font weights are not combined because the variants use the `font-` prefix,
-// while the values use the `fw-` prefix.
-
-$font-weight-values: ( 1: 100, 2: 200, 3: 300, 4: 400, 5: 500, 6: 600, 7: 700, 8: 800, 9: 900 ) !default;
-$font-weight-variants: ( thin: 100, extralight: 200, light: 300, normal: 400, medium: 500, semibold: 600, bold: 700, extrabold: 800, black: 900 ) !default;
-
-// $font-weight: smart-merge($font-weight-values, $font-weight-variants) !default;
 
 
 
@@ -104,20 +84,7 @@ $sizing-map: smart-merge($sizing-rem, $sizing-pixels, $sizing-breakpoint-variant
 $positional-values: (0, 0.25, 0.5, 1, 1.5, 2, 3, 4) !default;
 $positional-map: smart-merge($positional-values, $inset) !default;
 
-// ============================================================================
-// Typography, fonts and text properties
-// ============================================================================
-$letter-spacing-variants: ( tighter: -0.1em, tight: -0.05em, normal: 0em, wide: 0.05em, wider: 0.1em, widest: 0.25em) !default;
 
-// -- text colors --
-$text-color-values: $base-colors !default;
-$text-color-variants: map.remove($theme-colors, 'danger', 'dark', 'info', 'light', 'success', 'warning') !default;
-$text-color-map: smart-merge($text-color-values, $text-color-variants) !default;
-
-// -- font sizes --
-$font-size-values: (1, 1.5, 2, 2.5, 3, 4) !default;
-$font-size-variants: () !default;
-$font-size-map: smart-merge($font-size-values, $font-size-variants) !default;
 
 // ============================================================================
 // Magic Properties

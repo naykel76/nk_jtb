@@ -1,4 +1,5 @@
 @use '../maps_and_variables/base' as *;
+@use '../maps_and_variables/core' as *;
 @use 'sass:color';
 
 $accordion-color: $text-color !default;

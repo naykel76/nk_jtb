@@ -1,22 +1,11 @@
 // @use './components/menu' as *;
-// @use './utilities/border' as *;
-@use './common-tools' as *;
-@use './functions/resolvers' as *;
-@use './mixins/make-classes' as *;
-@use './mixins/transition' as *;
-@use 'sass:color';
-@use 'sass:list';
-@use 'sass:map';
-@use 'sass:string';
+// @use './utilities/spacing' as *;
+// @use './common-tools' as *;
+// @use './functions/resolvers' as *;
+// @use './mixins/make-classes' as *;
+// @use './mixins/transition' as *;
+// @use 'sass:color';
+// @use 'sass:list';
+// @use 'sass:map';
+// @use 'sass:string';
 
-@each $variant, $size in $container-variants {
-    $class: strip-class-suffixes(container-#{$variant});
-
-    // 95% is a good default for most cases, but this may need to be
-    // adjusted for smaller screens.
-    .#{$class} {
-        margin-inline: auto;
-        /* stylelint-disable-next-line function-name-case */
-        width: Min(95%, $size); // 1.
-    }
-}

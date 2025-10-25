@@ -1,0 +1,23 @@
+@use 'colors' as c;
+@use 'sass:map';
+
+$themes: (
+    light: (
+        primary: #2563eb,
+        secondary: #181e20,
+        accent: #ffbb1c,
+        // typography
+        text-color: #333333,
+        // backgrounds
+        body-bg: map.get(c.$oklch-colors, slate-200)
+    ),
+    dark: (
+        primary: #1e1e1e,
+        secondary: #252526,
+        accent: #007acc,
+        // typography
+        text-color: #f0efef,
+        // backgrounds
+        body-bg: map.get(c.$oklch-colors, slate-800)
+    )
+);

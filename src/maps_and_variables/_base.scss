@@ -9,15 +9,9 @@
 @use 'sass:color';
 @use 'sass:map';
 
-// -- Colors --
-$primary: #2563eb !default;
-$secondary: #181e20 !default;
-$accent: #ffbb1c !default;
 
-// -- Text Colors --
-$light-text: #fff !default;
-$dark-text: #333 !default;
-$text-color: $dark-text !default; 
+
+
 
 // -- Fonts --
 $font-size: 1rem !default;
@@ -35,7 +29,6 @@ $line-height: 1.5 !default;
 $line-height-condensed: 1.25 !default;
 
 // 
-$body-bg: hsl(0deg 0% 100%) !default;
 
 // -- Spacing --
 // ============================================================================
@@ -45,12 +38,6 @@ $base-padding: 1.25rem !default;    // default padding inside content blocks
 
 // 
 // ============================================================================
-$header-bg: $secondary !default;
-$main-bg: transparent !default;
-$footer-bg: #1d1d1c !default;
-$footer-text-color: hsl(0deg 0% 80%) !default;
-$copyright-bg: color.adjust($footer-bg, $lightness: -2%) !default;
-$copyright-text-color: $footer-text-color !default;
 $zebra-alt-bg: hsl(0deg 0% 96%) !default;
 
 // -- Borders --
