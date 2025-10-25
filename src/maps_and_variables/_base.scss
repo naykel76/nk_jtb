@@ -73,3 +73,32 @@ $table-padding-y: 0.75rem !default;
 
 $transition-default-duration: 300ms !default;
 $transition-default-timing: cubic-bezier(0.4, 0, 0.2, 1) !default;
+
+// -- Breakpoint Sizes --
+// ============================================================================
+$breakpoints: (
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1600px
+) !default;
+
+$sm: map.get($breakpoints, sm) !default;
+$md: map.get($breakpoints, md) !default;
+$lg: map.get($breakpoints, lg) !default;
+$xl: map.get($breakpoints, xl) !default;
+$xxl: map.get($breakpoints, xxl) !default;
+
+$responsive-variants: map.keys($breakpoints) !default;
+
+// -- Font Weights --
+$font-weight-bold: var(--base-text-weight-semibold, 600) !default;
+$font-weight-semibold: var(--base-text-weight-medium, 500) !default;
+$font-weight-normal: var(--base-text-weight-normal, 400) !default;
+$font-weight-light: var(--base-text-weight-light, 300) !default;
+
+// -- Headings --
+$heading-sizes: 2.25em, 1.75em, 1.5em, 1.25em, 1.125em, 1em !default;
+$heading-font-weight: 700 !default;
+$heading-color: inherit !default;

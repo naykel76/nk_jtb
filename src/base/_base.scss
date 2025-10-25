@@ -1,7 +1,6 @@
 /* stylelint-disable */
 @use '../maps_and_variables/base' as *;
-@use '../maps_and_variables/layout' as *;
-@use '../maps_and_variables/typography' as *;
+
 
 // Remove all default borders to ensure consistency and avoid unexpected border
 // widths from browsers.
@@ -209,10 +208,9 @@ button,
     cursor: pointer; // 1
 }
 
-// Make sure disabled buttons don't get the pointer cursor.
-
 :disabled {
-    cursor: default;
+    cursor: not-allowed;
+    opacity: 0.6;
 }
 
 // 1. Correct the odd appearance in Chrome and Safari.
