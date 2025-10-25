@@ -12,10 +12,8 @@ $themes: (
         text-base: #cbd5e1,
         text-heading: #f1f5f9,
         text-lead: #94a3b8,
-        // text-muted: #64748b,
-        // text-meta: #475569,
         link-color: #38bdf8,
-        link-color-hover: #38bdf8,
+        link-color-hover: #0ea5e9,
 
         // Typography Colors
         bg-body: #0f172a,
@@ -23,6 +21,8 @@ $themes: (
         bg-nav-link-hover: #334155,
         bg-nav-link-active: #1e40af,
         // Borders
-        border-color: hsl(180deg 15% 20%)
+        border-color: hsl(180deg 15% 20%) //
+        // bg-note: #1e3a5f,
+        // border-note: #3b82f6
     )
 );

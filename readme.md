@@ -81,3 +81,26 @@ margin-<top|right|bottom|left>
 | 16  | 1rem     | 4        |
 | 20  | 1.25rem  | 5        |
 | 24  | 1.5rem   | 6        |
+
+
+
+// $font-system: -apple-system, blinkmacsystemfont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif;
+
+// GitHub/Modern Stack
+// $font-github: -apple-system, blinkmacsystemfont, 'Segoe UI', 'Noto Sans', helvetica, arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+
+// Elegant/Editorial (Georgia-based serif fallback adds sophistication)
+// $font-elegant: 'Segoe UI', candara, 'Bitstream Vera Sans', 'DejaVu Sans', 'Trebuchet MS', verdana, sans-serif;
+
+// Geometric/Modern (clean, precise feel)
+// $font-geometric: 'Avenir Next', 'Avenir', 'Nunito Sans', -apple-system, blinkmacsystemfont, 'Segoe UI', sans-serif;
+
+
+// Modern Mono
+// $font-mono-modern: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+
+// IBM Plex Mono
+// $font-mono-ibm: 'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Consolas', monospace;
+
+// Ligature-friendly
+// $font-mono-ligature: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', 'Victor Mono', monospace;
