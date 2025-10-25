@@ -1,11 +1,5 @@
-// 
+@use '../maps_and_variables/base' as base;
 @use 'sass:color';
-
-// NKTD: review this, I have hardcoded the text colors here, because importing
-// them is causing "already loaded" errors in the build process.
-$light-text: #fff !default;
-$dark-text: #333 !default;
-$text-color: $dark-text !default;
 
 // ============================================================================
 // OKLCH Lightness Check
@@ -41,8 +35,7 @@ $text-color: $dark-text !default;
     $rgb-color: color.to-space($color, rgb);
 
     // Calculate relative luminance using WCAG formula for perceived brightness
-    $brightness: 0.2126 * color.channel($rgb-color, 'red') + 0.7152 * color.channel($rgb-color, 'green') + 0.0722 *
-        color.channel($rgb-color, 'blue');
+    $brightness: 0.2126 * color.channel($rgb-color, 'red') + 0.7152 * color.channel($rgb-color, 'green') + 0.0722 * color.channel($rgb-color, 'blue');
 
     // Return true if brightness exceeds threshold (light background)
     @return $brightness > $threshold;
@@ -57,7 +50,7 @@ $text-color: $dark-text !default;
 // - All other colors (RGB, HSL, etc.) use RGB brightness calculation
 //
 // @param {Color} $bg-color - The background color to evaluate
-// @return {Color} - Either $dark-text or $light-text for optimal contrast
+// @return {Color} - Either base.$text-dark or base.$text-light for optimal contrast
 // ----------------------------------------------------------------------------
 @function text-color($bg-color) {
     // Detect which color space the background color is using
@@ -67,7 +60,7 @@ $text-color: $dark-text !default;
     $is-light: if($color-space == oklch, oklch-is-light($bg-color), rgb-is-light($bg-color));
 
     // Return dark text for light backgrounds, light text for dark backgrounds
-    @return if($is-light, $dark-text, $light-text);
+    @return if($is-light, base.$text-dark, base.$text-light);
 }
 
 // ============================================================================

@@ -1,0 +1,28 @@
+$themes: (
+    light: (
+        text: hsl(180deg 4% 5%),
+        body-background: hsl(180deg 23% 95%),
+        primary: hsl(186deg 41% 25%),
+        secondary: hsl(185deg 60% 68%),
+        accent: hsl(185deg 78% 49%),
+        // Interactive
+        link-color: hsl(186deg 41% 25%),
+        link-hover-color: hsl(185deg 78% 49%),
+        focus: hsl(185deg 78% 49%),
+        // Borders
+        border-color: hsl(180deg 15% 85%)
+    ),
+    dark: (
+        text: hsl(180deg 4% 95%),
+        body-background: hsl(180deg 23% 5%),
+        primary: hsl(186deg 41% 75%),
+        secondary: hsl(185deg 59% 32%),
+        accent: hsl(185deg 78% 51%),
+        // Interactive
+        link-color: hsl(186deg 41% 75%),
+        link-hover-color: hsl(185deg 78% 51%),
+        focus: hsl(185deg 78% 51%),
+        // Borders
+        border-color: hsl(180deg 15% 20%)
+    )
+);
