@@ -1,5 +1,5 @@
 @use '../functions/color-functions' as *;
-@use './base' as *;
+@use '../maps_and_variables/core' as *;
 @use './colors' as *;
 @use 'sass:color';
 @use 'sass:map';
