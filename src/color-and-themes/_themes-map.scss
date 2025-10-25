@@ -1,27 +1,27 @@
 $themes: (
     light: (
-        text: hsl(180deg 4% 5%),
-        body-background: hsl(180deg 23% 95%),
-        primary: hsl(186deg 41% 25%),
-        secondary: hsl(185deg 60% 68%),
-        accent: hsl(185deg 78% 49%),
-        // Interactive
-        link-color: hsl(186deg 41% 25%),
-        link-hover-color: hsl(185deg 78% 49%),
-        focus: hsl(185deg 78% 49%),
-        // Borders
-        border-color: hsl(180deg 15% 85%)
+        text-base: hsl(180deg 4% 5%)
     ),
     dark: (
-        text: hsl(180deg 4% 95%),
-        body-background: hsl(180deg 23% 5%),
-        primary: hsl(186deg 41% 75%),
-        secondary: hsl(185deg 59% 32%),
-        accent: hsl(185deg 78% 51%),
+        // Primary Palette
+        primary: #1e40af,
+        secondary: #334155,
+        accent: #38bdf8,
+
+        // Typography Colors
+        text-base: #cbd5e1,
+        text-heading: #f1f5f9,
+        text-lead: #94a3b8,
+        // text-muted: #64748b,
+        // text-meta: #475569,
+        link-color: #38bdf8,
+        link-color-hover: #38bdf8,
+
+        // Typography Colors
+        bg-body: #0f172a,
         // Interactive
-        link-color: hsl(186deg 41% 75%),
-        link-hover-color: hsl(185deg 78% 51%),
-        focus: hsl(185deg 78% 51%),
+        bg-nav-link-hover: #334155,
+        bg-nav-link-active: #1e40af,
         // Borders
         border-color: hsl(180deg 15% 20%)
     )

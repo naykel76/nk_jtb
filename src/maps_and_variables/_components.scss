@@ -55,7 +55,7 @@ $bx-title-font-size: 1.2rem !default;
 $btn-bg: rgb(240 240 240) !default;
 $btn-color: text-color($btn-bg) !default;
 $btn-link-color: $link-color !default;
-$btn-link-hover-color: $link-hover-color !default;
+$btn-link-color-hover: $link-color-hover !default;
 $btn-text-transform: capitalize;
 
 // -- icons --
@@ -70,6 +70,6 @@ $icon-xy-lg: 3rem !default;
 $menu-hover-bg: map.get($oklch-colors, gray-100) !default;
 $menu-icon-size: 1.25rem !default;
 $menu-item-border-radius: 0.5rem !default;
-$menu-link-hover-color: map.get($oklch-colors, gray-900) !default;
+$menu-link-color-hover: map.get($oklch-colors, gray-900) !default;
 $menu-padding-x: 0.75rem !default;
 $menu-padding-y: 0.5rem !default;

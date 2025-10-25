@@ -19,9 +19,9 @@
 $letter-spacing-variants: ( tighter: -0.1em, tight: -0.05em, normal: 0em, wide: 0.05em, wider: 0.1em, widest: 0.25em) !default;
 
 // -- text colors --
-$text-color-values: $base-colors !default;
-$text-color-variants: map.remove($theme-colors, 'danger', 'dark', 'info', 'light', 'success', 'warning') !default;
-$text-color-map: smart-merge($text-color-values, $text-color-variants) !default;
+$text-base-values: $base-colors !default;
+$text-base-variants: map.remove($theme-colors, 'danger', 'dark', 'info', 'light', 'success', 'warning') !default;
+$text-base-map: smart-merge($text-base-values, $text-base-variants) !default;
 
 // -- font sizes --
 $font-size-values: (1, 1.5, 2, 2.5, 3, 4) !default;

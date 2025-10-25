@@ -14,24 +14,19 @@ $accent: map.get($themes, $mode, accent) !default;
 // ----------------------------------------------------------------------------
 // Typography - Colors
 // ----------------------------------------------------------------------------
-$text-light: map.get($themes, light, text) !default;
-$text-dark: map.get($themes, dark, text) !default;
-$text-color: map.get($themes, $mode, text) !default;
+$text-light: map.get($themes, light, text-base) !default;
+$text-dark: map.get($themes, dark, text-base) !default;
+$text-base: map.get($themes, $mode, text-base) !default;
 
-// $text-heading-color: inherit !default;
+$text-heading: map.get($themes, $mode, text-heading) !default;
+$text-lead: map.get($themes, $mode, text-lead) !default;
 
-// $text-lead: #94a3b8 !default;
-// $text-muted: #64748b !default;
-// $text-meta: #475569 !default;
-// $text-active: #fff !default; // white
-// $text-disabled: #475569 !default;
+// $text-muted: map.get($themes, $mode, text-muted) !default;
+// $text-meta: map.get($themes, $mode, text-meta) !default;
 
-// $text-note-title: #60a5fa !default;
-// $text-code: #38bdf8 !default;
-// $text-code-inline: #e879f9 !default; // fuchsia-400
+$link-color: map.get($themes, $mode, link-color) !default;
+$link-color-hover: map.get($themes, $mode, link-color-hover) !default;
 
-//
-//
 
 // -- Fonts --
 $font-size: 1rem !default;
@@ -40,32 +35,23 @@ $font-size: 1rem !default;
 $base-font: -apple-system, blinkmacsystemfont, 'Segoe UI', sans-serif !default;
 $mono-font: ui-monospace, 'SF Mono', 'Cascadia Code', 'Roboto Mono', monospace !default;
 
-// -- Links --
-$link-color: #5850ec !default;
-$link-hover-color: indianred !default;
 
 // -- Line Heights --
 $line-height: 1.5 !default;
 $line-height-condensed: 1.25 !default;
 
-//
-$body-bg: hsl(0deg 0% 100%) !default;
+// ----------------------------------------------------------------------------
+// Backgrounds
+// ----------------------------------------------------------------------------
+$bg-body: map.get($themes, $mode, bg-body) !default;
+$zebra-alt-bg: hsl(0deg 0% 96%) !default;
+
 
 // -- Spacing --
 // ============================================================================
 $base-list-spacing: 0.25em !default;
 $base-gap: 1.25rem !default; // default gap between content blocks
 $base-padding: 1.25rem !default; // default padding inside content blocks
-
-//
-// ============================================================================
-$header-bg: $secondary !default;
-$main-bg: transparent !default;
-$footer-bg: #1d1d1c !default;
-$footer-text-color: hsl(0deg 0% 80%) !default;
-$copyright-bg: color.adjust($footer-bg, $lightness: -2%) !default;
-$copyright-text-color: $footer-text-color !default;
-$zebra-alt-bg: hsl(0deg 0% 96%) !default;
 
 // -- Borders --
 // ============================================================================
