@@ -11,6 +11,7 @@
         "scss/comment-no-empty": null,
         "order/properties-alphabetical-order": true,
         "scss/dollar-variable-colon-space-after": "always",
-        "scss/dollar-variable-empty-line-before": null
+        "scss/dollar-variable-empty-line-before": null,
+        "hue-degree-notation": null
     }
 }

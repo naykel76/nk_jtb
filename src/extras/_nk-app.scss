@@ -12,27 +12,6 @@
 //     min-height: 100vh; // set height to push footer to the bottom
 // }
 
-:where(.nk-main) {
-    background-color: $main-bg;
-    flex: 1; // 1. allow to grow to fill height
-}
-
-:where(.nk-footer) {
-    background-color: $footer-bg;
-    color: #ccc;
-    margin-block-start: auto; // force footer to the bottom
-}
-
-.copyright {
-    background-color: $copyright-bg;
-    border: 0; // remove border from colour scheme
-    color: $copyright-text-color;
-    font-size: 0.9rem;
-    margin-block-start: 0;
-    padding: 0.5rem;
-    text-align: center;
-    width: 100%;
-}
 
 // ============================================================================
 // -- NAYKEL ADMIN STYLES --

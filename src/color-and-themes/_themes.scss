@@ -7,7 +7,7 @@ $themes: (
         secondary: #181e20,
         accent: #ffbb1c,
         // typography
-        text-color: #333333,
+        text-color: #3333,
         // backgrounds
         body-bg: map.get(c.$oklch-colors, slate-200)
     ),
@@ -20,4 +20,33 @@ $themes: (
         // backgrounds
         body-bg: map.get(c.$oklch-colors, slate-800)
     )
+);
+
+// prettier-ignore
+$docs-theme: (
+    // Primary Palette
+    primary: hsl(224 76% 40%),
+    secondary: hsl(215 25% 27%),
+    accent: hsl(217 91% 60%),
+    accent-bg: hsl(211 51% 24%),
+    
+    // Typography Colors
+    text-color: hsl(214 32% 83%),      
+    text-muted: hsl(215 16% 47%),     // Menu titles, TOC titles, labels
+    text-secondary: hsl(215 20% 65%), // TOC links, less prominent text
+    heading-color: hsl(210 40% 96%),   
+    
+    // Links
+    link-color: hsl(199 89% 61%),
+    link-color-hover: hsl(199 89% 58%),
+    
+    // Backgrounds
+    body-bg: hsl(222 47% 11%),
+    surface-bg: hsl(217 33% 17%),     // Sidebar, code blocks
+    
+    // Borders
+    border-color: hsl(215 25% 27%),   // Main borders
+    
+    // Utility
+    white: hsl(0 0% 100%),
 );

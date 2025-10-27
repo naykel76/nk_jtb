@@ -1,4 +1,5 @@
 @use '../maps_and_variables/base' as *;
+@use '../maps_and_variables/theme' as *;
 @use 'sass:list';
 
 // ============================================================================
@@ -35,11 +36,6 @@ p {
 
 small {
     font-size: 80%;
-}
-
-b,
-strong {
-    font-weight: $font-weight-bold;
 }
 
 // ============================================================================

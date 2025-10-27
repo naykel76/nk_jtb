@@ -6,14 +6,14 @@
 // ============================================================================
 // -- MENU COMPONENT --
 // ============================================================================
-// menu-title, menu-icon are added for clarity, but not strictly necessary
+// menu-title, menu-link, etc. are added for clarity, but not strictly necessary
 
 .menu {
     display: flex;
     flex-direction: column;
     font-size: 0.875rem;
 
-    :where(.menu-item, a, li a, button) {
+    :where(.menu-link, a, li a, button) {
         align-items: center;
         border-radius: $menu-item-border-radius;
         color: inherit;

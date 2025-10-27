@@ -1,23 +1,13 @@
+@use '../color-and-themes/colors' as *;
 @use '../functions/helpers' as *;
 @use '../functions/map-and-list-helpers' as *;
 @use '../maps_and_variables/base' as *;
-@use '../color-and-themes/colors' as *;
-@use '../maps_and_variables/core' as *;
+@use '../maps_and_variables/theme' as *;
 @use 'sass:map';
 
-// ============================================================================
-// COLOR SYSTEM
-// ============================================================================
-$color-map: map.merge($theme-colors, $base-colors) !default;
-// ----------------------------------------------------------------------------
-
-// ============================================================================
-// Map Formats
-// ============================================================================
 // $size-values: () !default;
 // $size-variants: () !default;
 // $size-map: smart-merge($sizes-values, $sizes-variants) !default;
-// ----------------------------------------------------------------------------
 
 // ============================================================================
 // Spacing Property Maps (margin, padding, gap, inset)
@@ -45,11 +35,18 @@ $font-size-values: (1, 1.5, 2, 2.5, 3, 4) !default;
 $font-size-variants: () !default;
 $font-size-map: smart-merge($font-size-values, $font-size-variants) !default;
 
+// -- font weights --
 $font-weight-values: ( 1: 100, 2: 200, 3: 300, 4: 400, 5: 500, 6: 600, 7: 700, 8: 800, 9: 900 ) !default;
 $font-weight-variants: ( thin: 100, extralight: 200, light: 300, normal: 400, medium: 500, semibold: 600, bold: 700, extrabold: 800, black: 900 ) !default;
+
 // $font-weight: smart-merge($font-weight-values, $font-weight-variants) !default;
 
 // -- line heights --
 $line-height-values: (1.25, 1.5, 1.75, 2) !default;
 $line-height-variants: ( tight: 1.25, normal: $line-height, relaxed: 1.75, loose: 2 ) !default;
 $line-height-map: smart-merge($line-height-values, $line-height-variants) !default;
+
+// ============================================================================
+// COLOR SYSTEM
+// ============================================================================
+$color-map: map.merge($theme-colors, $base-colors) !default;
