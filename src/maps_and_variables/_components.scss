@@ -1,7 +1,7 @@
 @use '../color-and-themes/colors' as *;
 @use '../functions/color-functions' as *;
 @use '../maps_and_variables/base' as *;
-@use '../maps_and_variables/theme' as *;
+@use '../color-and-themes/buildtime-theme' as *;
 @use 'sass:color';
 @use 'sass:map';
 

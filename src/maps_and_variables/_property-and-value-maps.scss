@@ -2,7 +2,7 @@
 @use '../functions/helpers' as *;
 @use '../functions/map-and-list-helpers' as *;
 @use '../maps_and_variables/base' as *;
-@use '../maps_and_variables/theme' as *;
+@use '../color-and-themes/buildtime-theme' as *;
 @use 'sass:map';
 
 // $size-values: () !default;
