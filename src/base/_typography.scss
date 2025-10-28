@@ -13,7 +13,7 @@
 }
 
 :where(h1, h2, h3, h4, h5, h6) {
-    color: $heading-color;
+    color: var(--text-heading);
     font-weight: $heading-font-weight;
     line-height: 1.25;
     text-wrap: balance;
@@ -63,11 +63,11 @@ pre {
 // ============================================================================
 
 :is(a) {
-    color: $link-color;
+    color: var(--text-link);
     cursor: pointer;
     text-decoration: inherit;
 
     &:hover {
-        color: $link-hover-color;
+        color: var(--text-link-hover);
     }
 }

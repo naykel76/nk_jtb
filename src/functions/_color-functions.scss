@@ -5,8 +5,7 @@
 // them is causing "already loaded" errors in the build process.
 $light-text: #fff !default;
 $dark-text: #333 !default;
-// $text-color: $dark-text !default;
-$text-color: red;
+$text-color: $dark-text !default;
 
 // ============================================================================
 // OKLCH Lightness Check

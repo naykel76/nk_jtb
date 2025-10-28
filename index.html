@@ -13,14 +13,36 @@
 
 <!-- <section id="">
         <h2 class="txt-blue">Title</h2>
-
 </section> -->
 
 <body class="py-3">
+    <script>
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        }
 
+        // Restore saved theme on page load
+        const savedTheme = localStorage.getItem('theme') || 'docs';
+        setTheme(savedTheme);
+    </script>
+
+    <div class="theme-switcher">
+        <button class="btn" onclick="setTheme('light')">Light</button>
+        <button class="btn" onclick="setTheme('dark')">Dark</button>
+        <button class="btn" onclick="setTheme('docs')">Docs</button>
+    </div>
 
     <div class="container-md">
-        <main class="bx pxy-2">
+        <div class="bdr-3 bdr-green pxy rounded-1 space-y-05">
+            <h3>Typography</h3>
+            <h6>Heading</h6>
+            <p>Primary text adapts to theme</p>
+            <p class="lead">Lead text</p>
+            <p class="txt-muted">Muted text for subtle information</p>
+            <a href="#" class="block">Link color changes with theme</a>
+        </div>
+        <main class="pxy-2">
             <h1>Super Awesome Page Title</h1>
             <p class="lead">This is some lead text. It is generally a bit bigger and used to introduce the main content of your page, giving readers a quick overview of what they can expect.</p>
             <h2>Typography</h2>

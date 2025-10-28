@@ -1,4 +1,4 @@
-@use '../color-and-themes/buildtime-theme' as *;
+
 @use '../maps_and_variables/base' as *;
 
 
@@ -29,13 +29,13 @@ html {
 // Inherit from html to allow setting line-height on html directly.
 
 body {
-    background-color: $body-bg;
-    color: $text-color;
+    background-color: var(--bg-body);
+    color: var(--text-base);
     line-height: inherit;
 }
 
 hr {
-    border-color: $border-color;
+    border-color: var(--border-color);
     border-top-width: 2px;
     height: 0;
     margin: $base-gap 0;
@@ -68,7 +68,7 @@ progress {
 }
 
 blockquote {
-    border-inline-start: 5px solid $primary;
+    border-inline-start: 5px solid var(--primary-color);
     padding: 0.4rem;
     padding-inline-start: 1rem;
 }

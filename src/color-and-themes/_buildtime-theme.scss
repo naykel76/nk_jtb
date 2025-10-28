@@ -2,43 +2,17 @@
 @use '../color-and-themes/colors' as *;
 @use 'sass:map';
 
-$mode: light;
-
-$theme-colors: (
-    // 'primary': $primary,
-    // 'secondary': $secondary,
-    // 'accent': $accent,
-) !default;
+$default-theme: $docs !default;
 
 // ----------------------------------------------------------------------------
 // Colors - Brand/Primary Palette
 // ----------------------------------------------------------------------------
-$primary: map.get($docs-theme, primary) !default;
-$secondary: map.get($docs-theme, secondary) !default;
-$accent: map.get($docs-theme, accent) !default;
-$accent-bg: map.get($docs-theme, accent-bg) !default;
+$primary: map.get($default-theme, color-primary) !default;
+$secondary: map.get($default-theme, color-secondary) !default;
+$accent: map.get($default-theme, color-accent) !default;
 
-// ----------------------------------------------------------------------------
-// Typography - Colors
-// ----------------------------------------------------------------------------
-$text-light: map.get($themes, light, text-color) !default;
-$text-dark: map.get($themes, dark, text-color) !default;
-$text-color: map.get($docs-theme, text-color) !default;
-
-$text-muted: map.get($docs-theme, text-muted) !default;
-$text-secondary: map.get($docs-theme, text-secondary) !default;
-$heading-color: map.get($docs-theme, heading-color) !default;
-
-$link-color: map.get($docs-theme, link-color) !default;
-$link-hover-color: map.get($docs-theme, link-hover-color) !default;
-
-// ----------------------------------------------------------------------------
-// Backgrounds - Colors
-// ----------------------------------------------------------------------------
-$body-bg: map.get($docs-theme, body-bg) !default;
-
-// ----------------------------------------------------------------------------
-// Borders
-// ----------------------------------------------------------------------------
-$border-color: map.get($docs-theme, border-color) !default;
-$border: 1px solid $border-color !default;
+$theme-colors: (
+    'primary': $primary,
+    'secondary': $secondary,
+    'accent': $accent,
+) !default;

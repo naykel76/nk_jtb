@@ -55,8 +55,8 @@ $bx-title-font-size: 1.2rem !default;
 // ==============================================================
 $btn-bg: rgb(240 240 240) !default;
 $btn-color: text-color($btn-bg) !default;
-$btn-link-color: $link-color !default;
-$btn-link-hover-color: $link-hover-color !default;
+$btn-link-color: var(--text-link) !default;
+$btn-link-hover-color: var(--text-link-hover) !default;
 $btn-text-transform: capitalize;
 
 // -- icons --

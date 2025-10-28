@@ -2,11 +2,11 @@
 @use '../color-and-themes/buildtime-theme' as *;
 @use 'sass:color';
 
-$accordion-color: $text-color !default;
+$accordion-color: var(--text-color) !default;
 $accordion-font-size: $font-size !default;
 $accordion-font-weight: 600 !default;
 $accordion-bg: rgb(245 245 245) !default;
-$accordion-border: $border !default; // entire accordion border
+$accordion-border: 1px solid var(--border-color) !default; // entire accordion border
 $accordion-padding: 1rem !default; // entire accordion border
 
 $accordion-hover-bg: color.adjust($accordion-bg, $lightness: -5%) !default;
