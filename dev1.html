@@ -6,12 +6,215 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
     <title>DEV 1</title>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <style>
+        /* Transform Transitions */
+        .scale-box {
+            background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+            transition: transform 0.3s ease;
+        }
+
+        .scale-box:hover {
+            transform: scale(1.2);
+        }
+
+        .rotate-box {
+            background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
+            transition: transform 0.5s ease;
+        }
+
+        .rotate-box:hover {
+            transform: rotate(180deg);
+        }
+
+        .translate-box {
+            background: linear-gradient(45deg, #fa709a 0%, #fee140 100%);
+            transition: transform 0.4s ease;
+        }
+
+        .translate-box:hover {
+            transform: translateY(-20px);
+        }
+
+        /* Opacity Transition */
+        .fade-box {
+            background: linear-gradient(45deg, #a8edea 0%, #fed6e3 100%);
+            color: #333;
+            transition: opacity 0.5s ease;
+        }
+
+        .fade-box:hover {
+            opacity: 0.3;
+        }
+
+        /* Multiple Properties */
+        .multi-box {
+            background: linear-gradient(45deg, #ffecd2 0%, #fcb69f 100%);
+            box-shadow: 0 5px 15px rgb(0 0 0 / 10%);
+            color: #333;
+            transition: all 0.4s ease;
+        }
+
+        .multi-box:hover {
+            background: linear-gradient(45deg, #ff9a9e 0%, #fecfef 100%);
+            box-shadow: 0 15px 35px rgb(0 0 0 / 30%);
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Timing Functions Demo */
+        .timing-demo {
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .timing-row {
+            gap: 15px;
+        }
+
+        .timing-label {
+            color: #333;
+        }
+
+        .timing-bar {
+            background: #3498db;
+            border-radius: 5px;
+            flex: 1;
+            height: 50px;
+            transition-duration: 2s;
+            transition-property: transform;
+        }
+
+        .timing-bar.linear {
+            transition-timing-function: linear;
+        }
+
+        .timing-bar.ease {
+            transition-timing-function: ease;
+        }
+
+        .timing-bar.ease-in {
+            transition-timing-function: ease-in;
+        }
+
+        .timing-bar.ease-out {
+            transition-timing-function: ease-out;
+        }
+
+        .timing-bar.ease-in-out {
+            transition-timing-function: ease-in-out;
+        }
+
+        .timing-bar.active {
+            transform: translateX(200px);
+        }
+
+        .reset-btn {
+            background: #667eea;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-block-start: 15px;
+            padding: 12px 30px;
+            transition: all 0.3s ease;
+        }
+
+        .reset-btn:hover {
+            background: #764ba2;
+            box-shadow: 0 5px 15px rgb(0 0 0 / 20%);
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
 
 <body class="pxy">
 
+    <!-- The key thing to remember is that transitions need two states (like
+    normal and :hover) and a transition property that tells the browser how to
+    animate between them. -->
+
+    <div class="container-md">
+        <h1>CSS Transitions Interactive Demo</h1>
+        <div class="bx">
+            <h2>1. Color Transition</h2>
+            <p>Hover over the box to see the color change smoothly. Uses: <code>transition: background-color 0.5s ease;</code></p>
+            <div class="bx light flex-centered gap">
+                <div class="transition wh-8 rounded-1 flex-centered txt-white blue hover:bg-red">Hover Me!</div>
+            </div>
+        </div>
+
+        <div class="bx">
+            <h2>2. Transform Transitions</h2>
+            <p>Hover over each box to see different transform effects:</p>
+            <div class="bx light flex-centered gap">
+                <div class="wh-8 rounded-1 flex-centered txt-white scale-box">Scale</div>
+                <div class="wh-8 rounded-1 flex-centered txt-white rotate-box">Rotate</div>
+                <div class="wh-8 rounded-1 flex-centered txt-white translate-box">Translate</div>
+            </div>
+        </div>
+
+        <div class="bx">
+            <h2>3. Opacity Transition</h2>
+            <p>Hover to fade. Uses: <code>transition: opacity 0.5s ease;</code></p>
+            <div class="bx light flex-centered gap">
+                <div class="wh-8 rounded-1 flex-centered txt-white fade-box">Fade Me!</div>
+            </div>
+        </div>
+
+        <div class="bx">
+            <h2>4. Multiple Properties</h2>
+            <p>This box transitions multiple properties at once: color, transform, and shadow. Uses: <code>transition: all 0.4s ease;</code></p>
+            <div class="bx light flex-centered gap">
+                <div class="multi-box">All Together!</div>
+            </div>
+        </div>
+
+        <div class="bx">
+            <h2>5. Timing Functions</h2>
+            <p>Click the button to see how different timing functions affect animation speed. All take 2 seconds but move differently:</p>
+            <div class="bx light flex-centered gap">
+                <div class="timing-demo">
+                    <div class="timing-row">
+                        <div class="timing-label">linear</div>
+                        <div class="timing-bar linear"></div>
+                    </div>
+                    <div class="timing-row">
+                        <div class="timing-label">ease</div>
+                        <div class="timing-bar ease"></div>
+                    </div>
+                    <div class="timing-row">
+                        <div class="timing-label">ease-in</div>
+                        <div class="timing-bar ease-in"></div>
+                    </div>
+                    <div class="timing-row">
+                        <div class="timing-label">ease-out</div>
+                        <div class="timing-bar ease-out"></div>
+                    </div>
+                    <div class="timing-row">
+                        <div class="timing-label">ease-in-out</div>
+                        <div class="timing-bar ease-in-out"></div>
+                    </div>
+                    <button class="reset-btn" onclick="animateBars()">Animate Bars</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function animateBars() {
+            const bars = document.querySelectorAll('.timing-bar');
+            bars.forEach(bar => bar.classList.remove('active'));
+
+            setTimeout(() => {
+                bars.forEach(bar => bar.classList.add('active'));
+            }, 50);
+
+            setTimeout(() => {
+                bars.forEach(bar => bar.classList.remove('active'));
+            }, 2500);
+        }
+    </script>
     <script type="module" src="/main.js"></script>
 </body>
 

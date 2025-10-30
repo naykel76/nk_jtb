@@ -6,16 +6,130 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
     <title>NayKel JTB</title>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <!-- order matters, make sure the plugin comes before alpine.js -->
+    <!-- <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script> -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
 <!-- <section id="">
         <h2 class="txt-blue">Title</h2>
-    </div>
 </section> -->
 
-<body class="bg-gray-100">
+<body class="py-3">
+    <script>
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        }
+
+        // Restore saved theme on page load
+        const savedTheme = localStorage.getItem('theme') || 'docs';
+        setTheme(savedTheme);
+    </script>
+
+    <div class="theme-switcher">
+        <button class="btn" onclick="setTheme('light')">Light</button>
+        <button class="btn" onclick="setTheme('dark')">Dark</button>
+        <button class="btn" onclick="setTheme('docs')">Docs</button>
+    </div>
+
+    <div class="container-md">
+        <div class="bdr-3 bdr-green pxy rounded-1 space-y-05">
+            <h3>Typography</h3>
+            <h6>Heading</h6>
+            <p>Primary text adapts to theme</p>
+            <p class="lead">Lead text</p>
+            <p class="txt-muted">Muted text for subtle information</p>
+            <a href="#" class="block">Link color changes with theme</a>
+        </div>
+        <main class="pxy-2">
+            <h1>Super Awesome Page Title</h1>
+            <p class="lead">This is some lead text. It is generally a bit bigger and used to introduce the main content of your page, giving readers a quick overview of what they can expect.</p>
+            <h2>Typography</h2>
+            <p>This is some normal paragraph text to demonstrate the default typography styles applied to body text. It should be easy to read and visually appealing.</p>
+            <h2>Theme Colors</h2>
+            <div class="flex gap">
+                <div class="fg1 bx primary">Primary</div>
+                <div class="fg1 bx secondary">Secondary</div>
+                <div class="fg1 bx accent">Accent</div>
+            </div>
+
+            <hr>
+            <hr>
+            <hr>
+
+            <h2>Typography Showcase</h2>
+            <p>This page demonstrates various text styles including <strong>bold text</strong>, <em>italic text</em>, and <code>inline code</code>. You can combine these to create rich, engaging content.</p>
+
+            <div class="highlight-box">
+                <strong>💡 Pro Tip:</strong> Use highlight boxes to draw attention to important information or special notes.
+            </div>
+
+            <h2>Interactive Components</h2>
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="alert('Primary button clicked!')">Primary Button</button>
+                <button class="btn btn-secondary" onclick="alert('Secondary button clicked!')">Secondary Button</button>
+            </div>
+
+            <h2>Card Layout</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Feature One</h3>
+                    <p>This card demonstrates a clean, modern design pattern. Hover over it to see the effect.</p>
+                </div>
+                <div class="card">
+                    <h3>Feature Two</h3>
+                    <p>Cards are perfect for organizing content into digestible, visually appealing sections.</p>
+                </div>
+                <div class="card">
+                    <h3>Feature Three</h3>
+                    <p>They work great for portfolios, product features, team members, and more.</p>
+                </div>
+            </div>
+
+            <h2>Responsive Design</h2>
+            <p>This page is fully responsive and adapts beautifully to different screen sizes. Try resizing your browser window to see it in action!</p>
+        </main>
+    </div>
+
+
+
+
+
+
+    <div class="flex justify-between items-end txt-sm">
+        <div class="bdr-pink bdr-2 bg-stripes-pink">
+            <h1 class="light">Heading 1</h1>
+            <p class="light">Content after ...</p>
+        </div>
+        <div class="bdr-pink bdr-2 bg-stripes-pink">
+            <p class="light">Content before ...</p>
+            <h2 class="light">Heading 2</h2>
+            <p class="light">Content after ...</p>
+        </div>
+        <div class="bdr-pink bdr-2 bg-stripes-pink">
+            <p class="light">Content before ...</p>
+            <h3 class="light">Heading 3</h3>
+            <p class="light">Content after ...</p>
+        </div>
+        <div class="bdr-pink bdr-2 bg-stripes-pink">
+            <p class="light">Content before ...</p>
+            <h4 class="light">Heading 4</h4>
+            <p class="light">Content after ...</p>
+        </div>
+        <div class="bdr-pink bdr-2 bg-stripes-pink">
+            <p class="light">Content before ...</p>
+            <h5 class="light">Heading 5</h5>
+            <p class="light">Content after ...</p>
+        </div>
+        <div class="bdr-pink bdr-2 bg-stripes-pink">
+            <p class="light">Content before ...</p>
+            <h6 class="light">Heading 6</h6>
+            <p class="light">Content after ...</p>
+        </div>
+    </div>
+
+
     <a href="/dev.html" class="btn pink fixed">DEV</a>
     <div class="container c-py-2 divide-y-gradient">
         <section id="flexbox-grid-layout-comparisons">
@@ -49,340 +163,7 @@
                 </div>
             </div>
         </section>
-        <section id="menu-examples">
-            <h2 class="txt-blue">Menu Examples</h2>
-            <div class="flex justify-between bdr bdr-gray-300 pxy-05 rounded-025 w-24">
-                <div class="flex gap-075 outline outline-dashed outline-2">
-                    <div class="wh-1.5 bdr-2 bdr-pink bg-stripes-pink"></div>
-                    <div class="w-10 bdr-2 bdr-pink bg-stripes-pink"></div>
-                </div>
-                <div class="wh-1.5 bdr-2 bdr-pink bg-stripes-pink"></div>
-            </div>
-            <div class="grid md:cols-2 gap">
-                <!-- menu class with icon -->
-                <div class="grid sm:cols-2 gap">
-                    <div class="col-span-2">
-                        <h3>Menu Class</h3>
-                        <p>Menu layouts created using the <code>menu</code> class.</p>
-                    </div>
-                    <div class="flex-1 bx pxy-1 bdr bdr-pink">
-                        <nav class="menu">
-                            <div class="menu-title">Menu Title One</div>
-                            <a href="#"> <svg class="bdr bdr-pink bg-stripes-pink"></svg> Item </a>
-                            <a href="#"> <svg class="bdr bdr-pink bg-stripes-pink"></svg> Active </a>
-                            <div>
-                                <button>
-                                    <span>
-                                        <svg class="bdr bdr-pink bg-stripes-pink"></svg>
-                                        Parent Toggle (Opened)
-                                    </span>
-                                    <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                                        <path d="m6 15 6-6 6 6" />
-                                    </svg>
-                                </button>
-                                <ul>
-                                    <li> <a href="#"> Child Item </a> </li>
-                                    <li> <a href="#"> Child Item </a> </li>
-                                </ul>
-                            </div>
-                            <a href="#">
-                                <span>
-                                    <svg class="bdr bdr-pink bg-stripes-pink"></svg>
-                                    Parent Link (Closed)
-                                </span>
-                                <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                                    <path d="m6 9 6 6 6-6" />
-                                </svg>
-                            </a>
-                        </nav>
-                    </div>
 
-                    <!-- utilities -->
-                    <div class="flex-1 bx pxy-1 bdr bdr-blue">
-                        <nav class="menu">
-                            <div class="menu-title">Menu Title Two</div>
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <svg class="bdr bdr-blue bg-stripes-blue"></svg>
-                                        Item
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <svg class="bdr bdr-blue bg-stripes-blue"></svg>
-                                        Active
-                                    </a>
-                                </li>
-                                <li>
-                                    <button>
-                                        <span>
-                                            <svg class="bdr bdr-blue bg-stripes-blue"></svg>
-                                            Parent Toggle (Opened)
-                                        </span>
-                                        <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                                            <path d="m6 15 6-6 6 6" />
-                                        </svg>
-                                    </button>
-                                    <ul>
-                                        <li>
-                                            <a href="#">
-                                                Child Item
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                Child Item
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span>
-                                            <svg class="bdr bdr-blue bg-stripes-blue"></svg>
-                                            Parent Link (Closed)
-                                        </span>
-                                        <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                                            <path d="m6 9 6 6 6-6" />
-                                        </svg>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-                <!-- menu class -->
-                <div class="grid sm:cols-2 gap">
-                    <!-- menu class with icon -->
-                    <div class="col-span-2">
-                        <h3>Menu Class</h3>
-                        <p>Menu layouts created using the <code>menu</code> class.</p>
-                    </div>
-                    <div class="flex-1 bx pxy-1 bdr bdr-pink">
-                        <nav class="menu">
-                            <div class="menu-title">Menu Title One</div>
-                            <a href="#"> Item </a>
-                            <a href="#"> Active </a>
-                            <div>
-                                <button>
-                                    Parent Toggle (Opened)
-                                    <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                                        <path d="m6 15 6-6 6 6" />
-                                    </svg>
-                                </button>
-                                <ul>
-                                    <li> <a href="#"> Child Item </a> </li>
-                                    <li> <a href="#"> Child Item </a> </li>
-                                </ul>
-                            </div>
-                            <a href="#">
-                                Parent Link (Closed)
-                                <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                                    <path d="m6 9 6 6 6-6" />
-                                </svg>
-                            </a>
-                        </nav>
-                    </div>
-
-                    <!-- utilities -->
-                    <div class="flex-1 bx pxy-1 bdr bdr-blue">
-                        <nav class="menu">
-                            <div class="menu-title">Menu Title Two</div>
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <svg class="bdr bdr-blue bg-stripes-blue"></svg>
-                                        Item
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <svg class="bdr bdr-blue bg-stripes-blue"></svg>
-                                        Active
-                                    </a>
-                                </li>
-                                <li>
-                                    <button>
-                                        <span>
-                                            <svg class="bdr bdr-blue bg-stripes-blue"></svg>
-                                            Parent Toggle (Opened)
-                                        </span>
-                                        <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                                            <path d="m6 15 6-6 6 6" />
-                                        </svg>
-                                    </button>
-                                    <ul>
-                                        <li>
-                                            <a href="#">
-                                                Child Item
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                Child Item
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span>
-                                            <svg class="bdr bdr-blue bg-stripes-blue"></svg>
-                                            Parent Link (Closed)
-                                        </span>
-                                        <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                                            <path d="m6 9 6 6 6-6" />
-                                        </svg>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-                <div class="grid sm:cols-2 gap">
-                    <div class="col-span-2">
-                        <h3>Utilities Only</h3>
-                        <p>Menu layouts created using only utility classes.</p>
-                    </div>
-                    <nav class="bx pxy-1 bdr bdr-pink w-18 space-y-025 txt-sm">
-                        <div class="font-medium">Menu Title One</div>
-                        <a href="#" class="flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
-                            <svg class="wh-1.25 bdr bdr-pink bg-stripes-pink"></svg>
-                            Item
-                        </a>
-                        <a href="#" class="bg-gray-200 flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900">
-                            <svg class="wh-1.25 bdr bdr-pink bg-stripes-pink"></svg>
-                            Active
-                        </a>
-                        <div>
-                            <button class="flex items-center justify-between w-full px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
-                                <span class="flex items-center gap-075">
-                                    <svg class="wh-1.25 bdr bdr-pink bg-stripes-pink"></svg>
-                                    Parent Toggle (Opened)
-                                </span>
-                                <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                                    <path d="m6 15 6-6 6 6" />
-                                </svg>
-                            </button>
-                            <ul class="pl-2">
-                                <li>
-                                    <a href="#" class="flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
-                                        Child Item
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
-                                        Child Item
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="#" class="flex items-center justify-between w-full gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
-                            <span class="flex items-center gap-075">
-                                <svg class="wh-1.25 bdr bdr-pink bg-stripes-pink"></svg>
-                                Parent Link (Closed)
-                            </span>
-                            <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                                <path d="m6 9 6 6 6-6" />
-                            </svg>
-                        </a>
-                    </nav>
-                    <nav class="bx pxy-1 bdr bdr-blue w-18">
-                        <div class="font-medium">Menu Title Two</div>
-                        <ul class="txt-sm">
-                            <li>
-                                <a href="#" class="flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
-                                    <svg class="wh-1.25 bdr bdr-blue bg-stripes-blue"></svg>
-                                    Item
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="bg-gray-200 flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900">
-                                    <svg class="wh-1.25 bdr bdr-blue bg-stripes-blue"></svg>
-                                    Active
-                                </a>
-                            </li>
-                            <li>
-                                <button class="flex items-center justify-between w-full px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
-                                    <span class="flex items-center gap-075">
-                                        <svg class="wh-1.25 bdr bdr-blue bg-stripes-blue"></svg>
-                                        Parent Toggle (Opened)
-                                    </span>
-                                    <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                                        <path d="m6 15 6-6 6 6" />
-                                    </svg>
-                                </button>
-                                <ul class="pl-2">
-                                    <li>
-                                        <a href="#" class="flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
-                                            Child Item
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="flex items-center gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
-                                            Child Item
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#" class="flex items-center justify-between w-full gap-075 px-075 py-05 rounded-lg txt-green-900 hover:bg-gray-100">
-                                    <span class="flex items-center gap-075">
-                                        <svg class="wh-1.25 bdr bdr-blue bg-stripes-blue"></svg>
-                                        Parent Link (Closed)
-                                    </span>
-                                    <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                                        <path d="m6 9 6 6 6-6" />
-                                    </svg>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-
-                </div>
-            </div>
-            <div class="w-24 rounded-lg bdr bdr-gray-200">
-                <div class="bg-blue-600 txt-white px-1.25 py-1 rounded-t-lg">
-                    <h2 class="txt-xl font-bold">Navigation Menu</h2>
-                </div>
-                <nav class="pxy-1">
-                    <ul>
-                        <li>
-                            <a href="#" class="flex items-center gap-075 px-1.25 py-075 txt-gray-700 hover:bg-gray-50">
-                                <svg class="wh-1.25 bdr bdr-blue bg-stripes-blue"></svg>
-                                <span class="font-medium">Item</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex items-center gap-075 px-1.25 py-075 txt-gray-700 hover:bg-gray-50">
-                                <svg class="wh-1.25 bdr bdr-pink bg-stripes-pink"></svg>
-                                <span class="font-medium">Parent Link (Closed)</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex items-center gap-075 px-1.25 py-075 txt-gray-700 hover:bg-gray-50">
-                                <svg class="wh-1.25 bdr bdr-violet bg-stripes-violet"></svg>
-                                <span class="font-medium">Parent Opened</span>
-                            </a>
-                            <ul>
-                                <li>
-                                    <a href="#" class="block gap-075 px-1.25 py-05 pl-3 txt-gray-600 hover:bg-gray-100 txt-sm">Child Item</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="block gap-075 px-1.25 py-05 pl-3 txt-gray-600 hover:bg-gray-100 txt-sm">Child Item</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#" class="flex items-center gap-075 px-1.25 py-075 txt-gray-700 hover:bg-gray-50">
-                                <svg class="wh-1.25 bdr bdr-blue bg-stripes-blue"></svg>
-                                <span class="font-medium">Item</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-        </section>
         <section id="background-examples">
             <style>
                 .bg-stripe-examples {
