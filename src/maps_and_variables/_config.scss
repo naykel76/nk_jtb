@@ -1,3 +1,32 @@
+
+// ============================================================================
+// Utility Class Prefixes
+// ============================================================================
+// Short, consistent prefixes for utility classes. Customize these variables to
+// match your project's naming conventions (e.g., change 'txt-' to 'text-').
+// Note: This is not a comprehensive list of all available prefixes.
+// ----------------------------------------------------------------------------
+$border-prefix: 'bdr-' !default;
+$flex-grow-prefix: 'fg' !default;
+$flex-shrink-prefix: 'fs' !default;
+$font-weight-prefix: 'fw' !default;
+$line-height-prefix: 'lh-' !default;
+$text-align-prefix: 'ta' !default;
+$text-prefix: 'txt-' !default;
+
+// ============================================================================
+// Component Prefixes
+// ============================================================================
+// Short prefixes for component classes. Customize to match your naming style.
+// Note: This is not a comprehensive list of all available prefixes.
+// ----------------------------------------------------------------------------
+$button-prefix: 'btn' !default;
+$dropdown-prefix: 'dd' !default;
+$icon-prefix: 'icon' !default;
+$list-prefix: 'lst' !default;
+$table-prefix: 'tbl-' !default;
+
+
 // NOTE: Not all identifiers include a dash (-)
 $background-identifier: 'bg-' !default;
 $border-identifier: 'bdr-' !default;
@@ -5,12 +34,8 @@ $border-radius-identifier: 'rounded-' !default;
 $button-identifier: 'btn' !default;
 $container-identifier: 'container' !default;
 $dropdown-identifier: 'dd' !default;
-$flex-grow-identifier: 'fg' !default;
-$flex-identifier: 'flex-' !default;
-$flex-shrink-identifier: 'fs' !default;
 $font-identifier: 'font-' !default;
 $font-weight-identifier: 'fw' !default;
-$icon-identifier: 'icon' !default;
 $line-height-identifier: 'lh-' !default;
 $list-identifier: 'lst' !default;
 $margin-identifier: 'm' !default;
@@ -24,8 +49,3 @@ $text-align-identifier: 'ta' !default;
 $text-identifier: 'txt-' !default;
 $whitespace-identifier: 'whitespace-' !default;
 
-// theme configuration options
-$theme-prefix: '' !default; // e.g. 'theme-'
-
-// grid configuration options
-$grid-num-cols: 12 !default;

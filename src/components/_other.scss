@@ -1,10 +1,10 @@
 @use '../maps_and_variables/config' as *;
 
 .overlay {
-    position: fixed;
+    background: #000000b3;
     inset: 0;
     overflow-y: auto;
-    background: #000000b3;
+    position: fixed;
     z-index: 30;
 }
 
@@ -13,18 +13,18 @@
 // ==========================================================================
 
 .icon-button {
-    text-align: center;
-    position: relative;
     padding: 1rem 1.5rem;
+    position: relative;
+    text-align: center;
 
     &:not(a) {
         cursor: default;
     }
 
-    .#{$icon-identifier} {
+    .#{$icon-prefix} {
         height: 1.5rem;
-        width: 1.5rem;
         padding: 0;
+        width: 1.5rem;
     }
 
     .dd-content {
@@ -34,14 +34,14 @@
 
 // this is intended to be a round notification badge
 :where(.round-badge) {
-    display: inline-flex;
     align-items: center;
+    border-radius: 50%;
+    display: inline-flex;
+    font-size: 0.75rem;
+    height: 1.375rem;
     justify-content: center;
     position: absolute;
-    top: 3px;
     right: 3px;
+    top: 3px;
     width: 1.375rem;
-    height: 1.375rem;
-    border-radius: 50%;
-    font-size: 0.75rem;
 }

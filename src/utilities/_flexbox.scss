@@ -4,11 +4,11 @@
 // prettier-ignore
 $flex-properties-map: (
     flex: (
-        prefix: #{$flex-identifier},
+        prefix: 'flex-',
         values: ( 1, 2, ( 'auto': 1 1 auto ), ( 'initial': 0 1 auto ), 'none' ),
     ),
     flex-direction: (
-        prefix: #{$flex-identifier},
+        prefix: 'flex-',
         values: (
             // `flex-col` and `flex-row` are handled in the
             // flex.scss utility file to include the display
@@ -18,11 +18,11 @@ $flex-properties-map: (
         )
     ),
     flex-grow: (
-        prefix: #{$flex-grow-identifier},
+        prefix: #{$flex-grow-prefix},
         values: ( 0, 1)
     ),
     flex-shrink: (
-        prefix: #{$flex-shrink-identifier},
+        prefix: #{$flex-shrink-prefix},
         values: ( 0, 1)
     ),
     flex-wrap: (
@@ -36,43 +36,23 @@ $flex-properties-map: (
     ),
 );
 
-@include build-property-classes($flex-properties-map, $responsive: true);
-
-// ==========================================================================
-// CUSTOM FLEXBOX CLASSES
-// ==========================================================================
+// ============================================================================
+// COMPOSITE CLASSES
+// ============================================================================
 
 // prettier-ignore
-$flex-classes-map: (
-    flex-col: (
-        props: ( display: flex, flex-direction: column )
-    ),
-    flex-row: (
-        props: ( display: flex, flex-direction: row )
-    )
+$flexbox-composite-classes: (
+    flex-col: ( props: ( display: flex, flex-direction: column ) ),
+    flex-row: ( props: ( display: flex, flex-direction: row ) ),
+    flex-centered: ( props: ( display: flex, align-items: center, justify-content: center ) ),
+    flex-vac: ( props: ( display: flex, align-items: center ) ),
+    flex-hac: ( props: ( display: flex, justify-content: center ) ),
 );
 
-// prettier-ignore
-$special-classes: (
-    flex-centered: (
-        props: (
-            display: flex,
-            align-items: center,
-            justify-content: center
-        )
-    ),
-    flex-vac: (
-        props: (
-            display: flex,
-            align-items: center
-        )
-    )
-);
-
-
-// ==========================================================================
+// ============================================================================
 // Builds
-// ==========================================================================
-$merged-classes: map.merge($flex-classes-map, $special-classes);
+// ============================================================================
 
-@include build-composite-classes($merged-classes, $responsive: true);
+@include build-property-classes($flex-properties-map, $responsive: true);
+@include build-composite-classes($flexbox-composite-classes, $responsive: true);
+

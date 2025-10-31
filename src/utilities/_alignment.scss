@@ -1,61 +1,68 @@
 @use '../common-tools' as *;
 
-// ==========================================================================
-// Alignment Property Value Maps
-// ==========================================================================
+// ============================================================================
+// Common Value Patterns
+// ============================================================================
 
 // prettier-ignore
-$align-content: ( 
-    normal, center, ( start: flex-start ), (end: flex-end), (between:space-between), (around:space-around), (evenly:space-evenly), baseline, stretch,
-    // Custom aliases for horizontal alignment
-    (ha-c: center), (ha-l: flex-start), (ha-r: flex-end) );
+$flex-positions: ( start: flex-start, end: flex-end );
 
 // prettier-ignore
-$align-items: ( 
-    baseline, center, (end: flex-end),(start: flex-start), (baseline-last: last baseline), (center-safe: safe center), (end-safe: safe flex-end), stretch,
-    // Custom aliases for vertical alignment
-    (va-b: flex-end), (va-c: center), (va-t: flex-start )
-);
+$space-distribution: ( between: space-between, around: space-around, evenly: space-evenly );
 
 // prettier-ignore
-$align-self: ( auto, baseline, center, (end: flex-end), (start: flex-start), (baseline-last: last baseline), (center-safe: safe center), (end-safe: safe flex-end), stretch );
+$safe-alignment: ( baseline-last: last baseline, center-safe: safe center, end-safe: safe flex-end );
+
+// ============================================================================
+// Standard Alignment Value Maps
+// ============================================================================
+
+$align-content: smart-merge((normal, center, baseline, stretch), $flex-positions, $space-distribution);
+$align-items: smart-merge((baseline, center, stretch), $flex-positions, $safe-alignment);
+$align-self: smart-merge((auto, baseline, center, stretch), $flex-positions, $safe-alignment);
+$justify-content: smart-merge((center, stretch), $flex-positions, $space-distribution);
+$justify-items: smart-merge((center, stretch), $flex-positions);
+$justify-self: smart-merge((auto, center, stretch), $flex-positions);
+$place-content: smart-merge((normal, center, baseline, stretch), $flex-positions, $space-distribution);
+$place-items: smart-merge((baseline, center, stretch), $flex-positions, $safe-alignment);
+$place-self: smart-merge((auto, baseline, center, stretch), $flex-positions, $safe-alignment);
+
+// ============================================================================
+// Custom Alignment Value Maps
+// ============================================================================
 
 // prettier-ignore
-$justify-content: ( (start: flex-start), (end: flex-end), center, (between: space-between), (around: space-around), (evenly: space-evenly), stretch );
+$align-content-custom: ( ha-c: center, ha-l: flex-start, ha-r: flex-end );
 
 // prettier-ignore
-$justify-items: ( (start: flex-start), (end: flex-end), center, stretch );
+$align-items-custom: ( va-b: flex-end, va-c: center, va-t: flex-start );
 
-// prettier-ignore
-$justify-self: ( auto, (start: flex-start), (end: flex-end), center, stretch );
-
-// prettier-ignore
-$place-content: ( normal, center, ( start: flex-start ), (end: flex-end), (between:space-between), (around:space-around), (evenly:space-evenly), baseline, stretch );
-
-// prettier-ignore
-$place-items: ( baseline, center, (end: flex-end),(start: flex-start), (baseline-last: last baseline), (center-safe: safe center), (end-safe: safe flex-end), stretch );
-
-// prettier-ignore
-$place-self: ( auto, baseline, center, (end: flex-end), (start: flex-start), (baseline-last: last baseline),(center-safe: safe center), (end-safe: safe flex-end), stretch );
-
-// ==========================================================================
-// Alignment Properties Maps
-// ==========================================================================
+// ============================================================================
+// Property Configuration Maps
+// ============================================================================
 
 // prettier-ignore
 $alignment-properties-map: (
-    align-content: ( prefix: 'content-', values: $align-content ),
-    align-items: ( prefix: 'items-', values: $align-items ),
-    align-self: ( prefix: 'self-', values: $align-self ),
-    justify-content: (prefix: 'justify-', values: $justify-content ),
-    justify-items: (values: $justify-items ),
-    justify-self: (values: $justify-self ),
-    place-content: (values: $place-content ),
-    place-items: (values: $place-items ),
-    place-self: (values: $place-self ),
+    align-content:   (prefix: 'content-',  values: $align-content),
+    align-items:     (prefix: 'items-',    values: $align-items),
+    align-self:      (prefix: 'self-',     values: $align-self),
+    justify-content: (prefix: 'justify-',  values: $justify-content),
+    justify-items:   (values: $justify-items),
+    justify-self:    (values: $justify-self),
+    place-content:   (values: $place-content),
+    place-items:     (values: $place-items),
+    place-self:      (values: $place-self),
 );
 
-// ==========================================================================
-// Builds
-// ==========================================================================
+// prettier-ignore
+$custom-alignment-properties-map: (
+  align-content: (prefix: false, values: $align-content-custom),
+  align-items:   (prefix: false, values: $align-items-custom),
+);
+
+// ============================================================================
+// Build Classes
+// ============================================================================
+
 @include build-property-classes($alignment-properties-map, $responsive: true);
+@include build-property-classes($custom-alignment-properties-map, $responsive: true);

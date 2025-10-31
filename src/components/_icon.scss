@@ -5,7 +5,7 @@
 
 // 1. better alignment
 
-.#{$icon-identifier} {
+.#{$icon-prefix} {
     color: $icon-color;
     height: $icon-xy;
     padding: 1px; // 1
@@ -28,6 +28,6 @@
     }
 
     + span {
-        margin-left: 0.5rem;
+        margin-inline-start: 0.5rem;
     }
 }
