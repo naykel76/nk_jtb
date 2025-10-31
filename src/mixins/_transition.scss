@@ -1,0 +1,88 @@
+@use '../functions/strings' as *;
+@use 'sass:list';
+@use 'sass:meta';
+@use 'sass:string';
+
+// ============================================================================
+// TRANSITION MIXIN
+// ============================================================================
+// Creates smooth transitions with intelligent defaults based on property type.
+//
+// USAGE:
+//   @include transition();                                    // all properties, 300ms
+//   @include transition(color);                               // auto: 200ms (fast)
+//   @include transition(opacity);                             // auto: 300ms (smooth)
+//   @include transition((background-color, color));           // auto: 200ms for both
+//   @include transition(transform, 250ms);                    // override with custom
+//   @include transition(width, 400ms, ease-in-out, 100ms);    // full control
+//
+// AUTO DURATIONS BY PROPERTY:
+//   - color, background*:     200ms  (fast feedback)
+//   - border*, box-shadow:    250ms  (subtle effects)
+//   - opacity, visibility:    300ms  (smooth fades)
+//   - width, height, max-*:   400ms  (layout changes)
+//   - all, other:             300ms  (safe default)
+//
+// NOTES:
+//   - Wrap multiple properties in parentheses: (prop1, prop2)
+//   - Auto durations apply only when duration is not specified
+//   - Avoid 'all' in production - specify exact properties for performance
+// ============================================================================
+
+@mixin transition($properties: all, $duration: null, $timing: cubic-bezier(0.4, 0, 0.2, 1), $delay: 0s) {
+    @if meta.type-of($properties) == 'list' and list.length($properties) > 1 {
+        $transitions: ();
+
+        @each $prop in $properties {
+            $prop-duration: if($duration, $duration, get-transition-duration($prop));
+            $transitions: list.append($transitions, #{$prop} $prop-duration $timing $delay, $separator: comma);
+        }
+
+        transition: $transitions;
+    } @else {
+        $final-duration: if($duration, $duration, get-transition-duration($properties));
+
+        transition: $properties $final-duration $timing $delay;
+    }
+}
+
+// ============================================================================
+// Get smart default duration based on property type.
+// ============================================================================
+@function get-transition-duration($property) {
+    $prop-str: string.to-lower-case(#{$property});
+
+    // Fast: colors and text (200ms)
+    $fast-props: ('color', 'fill', 'stroke');
+    $fast-patterns: ('background', 'text');
+
+    // Medium-fast: borders and shadows (250ms)
+    $medium-fast-props: ('box-shadow', 'transform');
+    $medium-fast-patterns: ('border', 'outline', 'translate', 'rotate', 'scale');
+
+    // Medium-slow: opacity (300ms)
+    $medium-slow-props: ('opacity', 'visibility');
+
+    // Slow: layout (400ms)
+    $slow-props: ('width', 'height', 'flex', 'flex-basis');
+    $slow-patterns: ('max-', 'min-');
+
+    // Check exact matches and patterns
+    @if list.index($fast-props, $prop-str) or contains-any($prop-str, $fast-patterns) {
+        @return 200ms;
+    }
+
+    @if list.index($medium-fast-props, $prop-str) or contains-any($prop-str, $medium-fast-patterns) {
+        @return 250ms;
+    }
+
+    @if list.index($medium-slow-props, $prop-str) {
+        @return 300ms;
+    }
+
+    @if list.index($slow-props, $prop-str) or contains-any($prop-str, $slow-patterns) {
+        @return 400ms;
+    }
+
+    @return 300ms; // Default
+}

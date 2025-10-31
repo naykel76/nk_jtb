@@ -1,29 +1,29 @@
 @use '../common-tools' as *;
 @use 'sass:map';
 
-// Apply solid outline style to the base .outline class and outline width
-// utilities like .outline-1, .outline-2, etc. Does not affect other outline-*
-// classes such as outline-color or outline-offset. This ensures that outlines
-// are visible by default and you do not need to add an outline-style class.
-.outline,
-[class^='outline-'] {
-    outline-style: solid;
-}
+// // Apply solid outline style to the base .outline class and outline width
+// // utilities like .outline-1, .outline-2, etc. Does not affect other outline-*
+// // classes such as outline-color or outline-offset. This ensures that outlines
+// // are visible by default and you do not need to add an outline-style class.
+// .outline,
+// [class^='outline-'] {
+//     outline-style: solid;
+// }
 
-// prettier-ignore
-$border-properties-map: (
-    border-width: ( prefix: #{$border-identifier}, values: $border-widths, positions: $logical-position-map, omit-axis-keys: (xy) ),
-    border-style: ( prefix: #{$border-identifier}, values: $border-styles, positions: $logical-position-map, omit-axis-keys: (xy) ),
-    outline-style: ( prefix: #{$outline-identifier}, values: $outline-styles ),
-    outline-offset: ( values: $outline-widths, unit: 'rem' ), // do not use prefix so it uses the property name
-    outline-width: ( prefix: #{$outline-identifier}, values: $outline-widths, unit: 'rem' ),
-    // only handles full border-radius, not corners
-    border-radius: ( prefix: #{$border-radius-identifier}, values: $border-radius, unit: "rem" ),
-    // this is a little mystical but it works
-    border: ( prefix: 'rounded-', values: $border-radius, unit: 'rem', positions: $border-radius-corners-map )
-);
+// // prettier-ignore
+// $border-properties-map: (
+//     border-width: ( prefix: #{$border-prefix}, values: $border-widths, positions: $logical-position-map, omit-axis-keys: (xy) ),
+//     border-style: ( prefix: #{$border-prefix}, values: $border-styles, positions: $logical-position-map, omit-axis-keys: (xy) ),
+//     outline-style: ( prefix: 'outline-', values: $outline-styles ),
+//     outline-offset: ( values: $outline-widths, unit: 'rem' ), // do not use prefix so it uses the property name
+//     outline-width: ( prefix: 'outline-', values: $outline-widths, unit: 'rem' ),
+//     // only handles full border-radius, not corners
+//     border-radius: ( prefix: 'rounded-', values: $border-radius, unit: "rem" ),
+//     // this is a little mystical but it works
+//     border: ( prefix: 'rounded-', values: $border-radius, unit: 'rem', positions: $border-radius-corners-map )
+// );
 
-// ==========================================================================
-// Builds
-// ==========================================================================
-@include build-property-classes($border-properties-map, $responsive: true);
+// // ============================================================================
+// // Builds
+// // ============================================================================
+// @include build-property-classes($border-properties-map, $responsive: true);

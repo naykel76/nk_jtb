@@ -1,11 +1,11 @@
-// ==========================================================================
+// ============================================================================
 // BASE VARIABLES
-// ==========================================================================
+// ============================================================================
 // Base variables are the foundation for the entire system: core layout,
 // spacing, breakpoints, and essential colours and typography tokens that
 // underpin the design.  They provide a consistent base for all components and
 // utilities.
-// ==========================================================================
+// ============================================================================
 @use 'sass:color';
 @use 'sass:map';
 
@@ -35,16 +35,16 @@ $line-height: 1.5 !default;
 $line-height-condensed: 1.25 !default;
 
 // 
-$body-bg: hsl(0deg 0% 100%) !default;
+$bg-body: hsl(0deg 0% 100%) !default;
 
 // -- Spacing --
-// ==========================================================================
+// ============================================================================
 $base-list-spacing: 0.25em !default;
 $base-gap: 1.25rem !default;        // default gap between content blocks
 $base-padding: 1.25rem !default;    // default padding inside content blocks
 
 // 
-// ==========================================================================
+// ============================================================================
 $header-bg: $secondary !default;
 $main-bg: transparent !default;
 $footer-bg: #1d1d1c !default;
@@ -54,19 +54,40 @@ $copyright-text-color: $footer-text-color !default;
 $zebra-alt-bg: hsl(0deg 0% 96%) !default;
 
 // -- Borders --
-// ==========================================================================
+// ============================================================================
 $border-color: hsl(0deg 0% 90%) !default;
 $border: 1px solid $border-color !default;
 
 // -- Misc --
-// ==========================================================================
+// ============================================================================
 $img-path: '/images' !default;
 $icon-color: inherit !default;
 
 // -- Base Element Styles --
-// ==========================================================================
+// ============================================================================
 $table-font-size: 0.875rem !default;
 $table-header-text-transform: uppercase !default;
 $table-letter-spacing: 0.05em !default;
 $table-padding-x: 0.75rem !default;
 $table-padding-y: 0.75rem !default;
+
+$transition-default-duration: 300ms !default;
+$transition-default-timing: cubic-bezier(0.4, 0, 0.2, 1) !default;
+
+// -- Breakpoint Sizes --
+// ==========================================================================
+$breakpoints: (
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1600px
+) !default;
+
+$sm: map.get($breakpoints, sm) !default;
+$md: map.get($breakpoints, md) !default;
+$lg: map.get($breakpoints, lg) !default;
+$xl: map.get($breakpoints, xl) !default;
+$xxl: map.get($breakpoints, xxl) !default;
+
+$responsive-variants: map.keys($breakpoints) !default;

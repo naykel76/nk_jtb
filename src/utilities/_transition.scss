@@ -1,11 +1,48 @@
-// This is a generic transition that should work in most cases
+@use '../common-tools' as *;
+@use 'sass:map';
 
-%transition {
-    transition-duration: 300ms;
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+// ============================================================================
+// Transition Utilities
+// ============================================================================
+// these are built as a composite class as they combine multiple properties
+
+
+// prettier-ignore
+$transition-properties: (
+    transition: (color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter),
+    transition-all: all,
+    transition-colors: (color, background-color, border-color, text-decoration-color, fill, stroke),
+    transition-opacity: opacity,
+    transition-shadow: box-shadow,
+    transition-transform: transform,
+    transition-none: none
+);
+
+// Empty map to hold generated classes
+$transition-composite-classes: ();
+
+// prettier-ignore
+@each $key, $property-values in $transition-properties {
+    // Create a map with transition-property set to that value
+    $props: (transition-property: $property-values);
+
+
+    // Add duration and timing for everything except 'none'
+    @if $property-values != none {
+        $props: map.merge($props, (
+            transition-duration: $transition-default-duration,
+            transition-timing-function: $transition-default-timing
+        ));
+    }
+    
+    // Add this to the $transition-composite-classes map
+    $transition-composite-classes: map.merge($transition-composite-classes, (
+        #{$key}: (props: $props)
+    ));
 }
 
-.transition {
-    @extend %transition;
-}
+// ============================================================================
+// Builds
+// ============================================================================
+
+@include build-composite-classes($transition-composite-classes, $responsive: true);

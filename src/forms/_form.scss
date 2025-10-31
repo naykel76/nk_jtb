@@ -3,7 +3,7 @@
 @use '../maps_and_variables/form-controls' as *;
 
 // -- Base Elements --
-// ==========================================================================
+// ============================================================================
 
 label {
     font-size: 0.875rem;
@@ -39,7 +39,7 @@ label:has(input[type='checkbox'], input[type='radio']) {
 }
 
 // -- frm-row --
-// ==========================================================================
+// ============================================================================
 
 .frm-row {
     display: flex;
@@ -63,7 +63,7 @@ label:has(input[type='checkbox'], input[type='radio']) {
             }
 
             //         flex-shrink: 0; // prevent shrink for 100%
-            //         margin-top: 4px; // better alignment
+            //         margin-block-start: 4px; // better alignment
         }
     }
 }
@@ -98,7 +98,7 @@ label:has(input[type='checkbox'], input[type='radio']) {
         ~ input {
             border-bottom-left-radius: 0;
             border-top-left-radius: 0;
-            margin-left: -1px; // prevent double border
+            margin-inline-start: -1px; // prevent double border
         }
     }
 
@@ -109,7 +109,7 @@ label:has(input[type='checkbox'], input[type='radio']) {
         ~ input {
             border-bottom-right-radius: 0;
             border-top-right-radius: 0;
-            margin-right: -1px; // prevent double border
+            margin-inline-end: -1px; // prevent double border
         }
     }
 }

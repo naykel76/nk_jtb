@@ -1,16 +1,16 @@
-@use '../maps_and_variables/position-maps' as *;
+@use '../maps_and_variables/config' as *;
 @use '../mixins/media' as *;
 @use '../mixins/property-makers' as *;
 @use 'sass:list';
 @use 'sass:map';
 
-// ==========================================================================
+// ============================================================================
 // Property handler for value and position combinations
-// --------------------------------------------------------------------------
+// ============================================================================
 // If `$positions` is empty or falsey, applies a single property.
 // If `$positions` is a direction map (e.g. `x` or `y`), uses directional mixin.
 // Always appends unit to value (default is `rem`).
-// ==========================================================================
+// ============================================================================
 @mixin handle-magic-properties($property, $value, $positions, $unit: rem) {
     @if $positions == '' or not $positions {
         @include create-property($property, #{$value}#{$unit});
@@ -19,13 +19,13 @@
     }
 }
 
-// ==========================================================================
+// ============================================================================
 // Generate a responsive class name from a value list
-// --------------------------------------------------------------------------
+// ============================================================================
 // Builds a compound class name using each item in `$list`, preserving order.
 // If `$is-parent` is true, adds `c-` prefix and appends `> *` selector.
 // Used for creating utility class names with breakpoint suffixes.
-// ==========================================================================
+// ----------------------------------------------------------------------------
 @function derived-class($identifier, $list, $is-parent) {
     $num-breakpoints: list.length($list);
     $class: null;
@@ -44,19 +44,26 @@
     @return $class;
 }
 
-// ==========================================================================
+// ============================================================================
 // Generate utility classes with breakpoint support
-// --------------------------------------------------------------------------
+// ============================================================================
 // Generates a class for each list of values in `$values-list`, assigning a
 // value per breakpoint tier: base, sm, md, lg, xl.
 // Supports optional axis-based property maps (e.g. `margin-x` → `left/right`).
 // Can apply to child elements if `$is-parent` is true.
-// --------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 // Example:
 //   $values-list: ((5, 3, 2), (4, 2))
 //   → Outputs: .gap-2-3-5, .gap-2-4, with responsive styles
-// ==========================================================================
-@mixin build-magic-classes($property, $values-list, $identifier, $unit: 'rem', $position-or-axis: '', $is-parent: false) {
+// ----------------------------------------------------------------------------
+@mixin build-magic-classes(
+    $property,
+    $values-list,
+    $identifier,
+    $unit: 'rem',
+    $position-or-axis: '',
+    $is-parent: false
+) {
     // get the positions required to build up the class
     // (x:(left, right), y:(top, bottom) ... etc)
     $positions: map.get($axis-position-map, $position-or-axis);

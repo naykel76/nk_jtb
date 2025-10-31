@@ -1,3 +1,4 @@
+@use 'sass:map';
 
 // ============================================================================
 // Utility Class Prefixes
@@ -26,26 +27,62 @@ $icon-prefix: 'icon' !default;
 $list-prefix: 'lst' !default;
 $table-prefix: 'tbl-' !default;
 
+// ============================================================================
+// Logical Position Map
+// ============================================================================
+// Maps position keys to logical CSS properties for internationalization support.
+//
+// Uses individual longhand properties (margin-block-start, etc.) instead of
+// shorthand (margin-block) to allow fine-grained overrides of individual edges.
+// ----------------------------------------------------------------------------
+// prettier-ignore
+$logical-position-map: (
+    // Full axes
+    xy: (block-start, block-end, inline-start, inline-end),
+    x: (inline-start, inline-end),
+    y: (block-start, block-end),
 
-// NOTE: Not all identifiers include a dash (-)
-$background-identifier: 'bg-' !default;
-$border-identifier: 'bdr-' !default;
-$border-radius-identifier: 'rounded-' !default;
-$button-identifier: 'btn' !default;
-$container-identifier: 'container' !default;
-$dropdown-identifier: 'dd' !default;
-$font-identifier: 'font-' !default;
-$font-weight-identifier: 'fw' !default;
-$line-height-identifier: 'lh-' !default;
-$list-identifier: 'lst' !default;
-$margin-identifier: 'm' !default;
-$outline-identifier: 'outline-' !default;
-$padding-identifier: 'p' !default;
-$position-identifier: 'pos-' !default;
-$ring-identifier: 'ring-' !default;
-$ring-offset-identifier: 'ring-offset-' !default;
-$table-identifier: 'tbl-' !default;
-$text-align-identifier: 'ta' !default;
-$text-identifier: 'txt-' !default;
-$whitespace-identifier: 'whitespace-' !default;
+    // Individual directions
+    t: block-start,
+    b: block-end,
+    l: inline-start,
+    r: inline-end,
+) !default;
 
+// ============================================================================
+// Physical Position Map
+// ============================================================================
+// Maps position keys to physical CSS properties (top, left, etc.).
+// Used for absolute/fixed positioning utilities that don't need logical properties.
+// ----------------------------------------------------------------------------
+// prettier-ignore
+$axis-position-map: (
+    xy: (top, bottom, left, right),
+    x: (left, right),
+    y: (top, bottom),
+    t: top,
+    b: bottom,
+    l: left,
+    r: right
+) !default;
+
+// Subsets for specific use cases
+$tblr-positions-map: map.remove($axis-position-map, 'x', 'y') !default; // Individual edges only
+$xy-positions-map: map.remove($axis-position-map, 't', 'b', 'l', 'r') !default; // Axes only
+
+// ============================================================================
+// Border Radius Corners Map
+// ============================================================================
+// Maps corner keys to border-radius properties for corner-specific utilities.
+// ----------------------------------------------------------------------------
+// prettier-ignore
+$border-radius-corners-map: (
+    t: (top-left-radius, top-right-radius),
+    b: (bottom-left-radius, bottom-right-radius),
+    l: (top-left-radius, bottom-left-radius),
+    r: (top-right-radius, bottom-right-radius),
+    tl: top-left-radius,
+    tr: top-right-radius,
+    bl: bottom-left-radius,
+    br: bottom-right-radius
+) !default;

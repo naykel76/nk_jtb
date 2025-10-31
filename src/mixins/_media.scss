@@ -1,8 +1,8 @@
-@use '../maps_and_variables/layout' as *;
+@use '../maps_and_variables/base' as *;
 
-// ==========================================================================
+// ============================================================================
 // Media Query Mixins
-// ==========================================================================
+// ============================================================================
 // Responsive breakpoint mixins for handling different screen sizes
 //
 // Available patterns:
@@ -14,7 +14,7 @@
 // @include on-md { ... }    // Only on medium screens
 // @include from-lg { ... }  // Large screens and up
 // @include to-sm { ... }    // Smaller than small screens
-// ==========================================================================
+// ============================================================================
 
 // Target specific breakpoint ranges only
 @mixin on-sm {

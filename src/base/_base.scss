@@ -1,7 +1,6 @@
-/* stylelint-disable */
+
 @use '../maps_and_variables/base' as *;
-@use '../maps_and_variables/layout' as *;
-@use '../maps_and_variables/typography' as *;
+
 
 // Remove all default borders to ensure consistency and avoid unexpected border
 // widths from browsers.
@@ -9,8 +8,8 @@
 *,
 ::after,
 ::before {
-    box-sizing: border-box;
     border: 0 solid;
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -19,31 +18,31 @@
 // 2. Improve tab character spacing in code or pre elements.
 
 html {
-    line-height: $line-height;
-    -webkit-text-size-adjust: 100%; // 1
-    tab-size: 4; // 2
     font-family: $base-font;
     font-size: $font-size;
+    line-height: $line-height;
     scroll-behavior: smooth;
+    tab-size: 4; // 2
+    text-size-adjust: 100%; // 1
 }
 
 // Inherit from html to allow setting line-height on html directly.
 
 body {
+    background-color: var(--bg-body, $bg-body);
+    color: var(--text-base, $text-color);
     line-height: inherit;
-    color: $text-color;
-    background-color: $body-bg;
 }
 
 hr {
+    border-color: var(--border-color, $border-color);
+    border-top-width: 2px;
     height: 0;
     margin: $base-gap 0;
-    border-color: $border-color;
-    border-top-width: 2px;
 }
 
 // HTML5 elements
-// ==========================================================================
+// ============================================================================
 
 
 
@@ -52,8 +51,8 @@ hr {
 
 img,
 video {
-    max-width: 100%; // 1
     height: auto; // 2
+    max-width: 100%; // 1
 }
 
 summary {
@@ -69,9 +68,9 @@ progress {
 }
 
 blockquote {
-    border-left: 5px solid $primary;
+    border-inline-start: 5px solid var(--primary-color, $primary);
     padding: 0.4rem;
-    padding-left: 1rem;
+    padding-inline-start: 1rem;
 }
 
 abbr[title] {
@@ -100,7 +99,7 @@ sup {
 }
 
 // -- Forms --
-// ==========================================================================
+// ============================================================================
 
 input,
 select,
@@ -112,8 +111,8 @@ button {
 }
 
 ::placeholder {
-    opacity: 1;
     color: #c5c5c5;
+    opacity: 1;
 }
 
 // 1. Show the overflow in Edge.
@@ -130,7 +129,7 @@ button,
 [type='button'],
 [type='reset'],
 [type='submit'] {
-    -webkit-appearance: button; // 1.
+    appearance: auto; // 1.
     background-color: transparent; // 2.
     background-image: none; // 2.
 }
@@ -152,12 +151,12 @@ legend {
 
 [type='search']::-webkit-search-cancel-button,
 [type='search']::-webkit-search-decoration {
-    -webkit-appearance: none;
+    appearance: none;
 }
 
 // Correct the text style of placeholders in Chrome, Edge, and Safari.
 
-::-webkit-input-placeholder {
+::input-placeholder {
     color: inherit;
     opacity: 0.54;
 }
@@ -166,17 +165,17 @@ legend {
 // 2. Change font properties to `inherit` in Safari.
 
 ::-webkit-file-upload-button {
-    -webkit-appearance: button; // 1.
+    appearance: auto; // 1.
     font: inherit; // 2.
 }
 
 // -- Tables --
-// ==========================================================================
+// ============================================================================
 
 table {
-    text-indent: 0;
     border-collapse: collapse;
     border-color: inherit;
+    text-indent: 0;
     width: 100%;
 }
 
@@ -186,21 +185,21 @@ thead {
 
 th {
     font-weight: 600;
-    vertical-align: middle;
     text-transform: $table-header-text-transform;
+    vertical-align: middle;
 }
 
 th,
 td {
-    font-size: inherit; // allow font sizing to be set on table
-    padding-inline: $table-padding-x;
-    padding-block: $table-padding-y;
-    text-align: left;
     border-color: inherit;
+    font-size: inherit; // allow font sizing to be set on table
+    padding-block: $table-padding-y;
+    padding-inline: $table-padding-x;
+    text-align: left;
 }
 
 // -- Controls --
-// ==========================================================================
+// ============================================================================
 
 // 1. Set the default cursor for buttons.
 
@@ -209,27 +208,26 @@ button,
     cursor: pointer; // 1
 }
 
-// Make sure disabled buttons don't get the pointer cursor.
-
 :disabled {
-    cursor: default;
+    cursor: not-allowed;
+    opacity: 0.6;
 }
 
 // 1. Correct the odd appearance in Chrome and Safari.
 // 2. Correct the outline style in Safari.
 
 [type='search'] {
-    -webkit-appearance: textfield; // 1
+    appearance: textfield; // 1
     outline-offset: -2px; // 2
 }
 
 // Remove number spinner Chrome, Safari, Edge, Opera
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
+    appearance: none;
 }
 
 // Remove number spinner Firefox
 input[type='number'] {
-    -moz-appearance: textfield;
+    appearance: textfield;
 }

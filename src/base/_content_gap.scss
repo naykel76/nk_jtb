@@ -20,19 +20,19 @@ $inline-exclusions: svg, span;
 
 // Content gap - only apply to block-level elements
 :where(#{$spacing-targets}, #{$common-classes}, #{$bx}) + :where(*:not(#{$inline-exclusions})) {
-    margin-top: $base-gap;
+    margin-block-start: $base-gap;
 }
 
 // This is experimental and may be more hassle than it's worth. It is to cover
 // the case when there are hidden inputs in the form.
 :where(input) + :where(div:not(.slider), p) {
-    margin-top: $base-gap;
+    margin-block-start: $base-gap;
 }
 
 // catch the strays (use with caution). The :where selector is to kill the
 // specificity for easier override
 :where(*:not([class*='flex'], [class*='grid'])) > :where(.frm-row, table, form, pre):not(:first-child) {
-    margin-top: $base-gap;
+    margin-block-start: $base-gap;
 }
 
 // opt out for `flex` and `grid` element and use `gap` instead.
