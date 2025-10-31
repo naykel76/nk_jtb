@@ -3,6 +3,10 @@
 
 $question-color: #c40c9a !default;
 
+:root {
+    --question-color: #c40c9a;
+}
+
 :is(h1, h2, h3, h4, h5, h6, question) {
     code {
         font-size: inherit;
@@ -13,7 +17,7 @@ $question-color: #c40c9a !default;
 // -- Custom Selectors --
 // ============================================================================
 question {
-    color: $question-color;
+    color: var(--text-question-color, $question-color);
     display: block;
     font-size: 1.15rem;
     font-style: italic;
@@ -51,8 +55,7 @@ pre {
 pre code.torchlight {
     display: block;
     min-width: max-content;
-    padding-bottom: 1rem;
-    padding-top: 1rem;
+    padding-block: 1rem;
 }
 
 /*
@@ -60,8 +63,7 @@ pre code.torchlight {
  padding from the code block above.
 */
 pre code.torchlight .line {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-inline: 1rem;
 }
 
 /*
@@ -70,162 +72,5 @@ pre code.torchlight .line {
 */
 pre code.torchlight .line-number,
 pre code.torchlight .summary-caret {
-    margin-right: 1rem;
+    margin-inline-end: 1rem;
 }
-
-// // ============================================================================
-// // NAYKEL DOCS --
-// // ============================================================================
-// //
-// // NOTE: The styles in this file are specifically designed for the Naykel
-// // documentation. They should be wrapped in the `nk-docs` class to prevent
-// // conflicts. These styles are not included in the main build by default and
-// // need to be manually imported.
-// //
-// // tr:not(.ignore-nk-styles + table tr - ignores the next table from the styles
-
-// $table-bg: white !default;
-
-// $th-bdr-color: map.get($tailwind-colors, 'slate', '200') !default;
-// $td-bdr-color: map.get($tailwind-colors, 'slate', '100') !default;
-
-// // ============================================================================
-// // -- SPACING --
-// // ============================================================================
-
-// .nk-docs {
-//     // Fix spacing issues caused by common mark wrapping all li in p tags
-//     // whenever you add any elements in a markdown list.
-//     //
-//     // <ul>
-//     //     <li>
-//     //         <p>List item one</p>
-//     //         <p>This paragraph will add <li> to to all <li></p>
-//     //     </li>
-//     // </ul>
-//     li > :is(p, pre) {
-//         margin-block-start: $base-list-spacing;
-//     }
-// }
-
-// .nk-docs {
-//     // ============================================================================
-//     // -- TABLE --
-//     // ============================================================================
-//     // table {
-//     //     border: 1px solid #dddddd;
-//     // }
-
-//     th:not(.ignore-nk-styles + table th) {
-//         border-bottom: 1px solid $th-bdr-color;
-//     }
-
-//     td:not(.ignore-nk-styles + table td) {
-//         border-top: 1px solid $td-bdr-color;
-//     }
-
-//     tr:not(.ignore-nk-styles + table tr) {
-//         background: $table-bg;
-//     }
-
-//     // .compress-tables ~ {
-//     //     th,
-//     //     td {
-//     //         padding-block: 0.25rem;
-//     //         padding-inline: 0.75rem;
-//     //     }
-//     // }
-
-//     .all-list-spacing-05 ~ ul li {
-//         margin-top: 0.5rem;
-//         margin-bottom: 0.5rem;
-//     }
-// }
-
-
-
-// // ============================================================================
-// // --  --
-// // ============================================================================
-
-
-
-// .markdown {
-//     .compare + pre,
-//     .compare + pre + pre {
-//         float: left;
-//         width: 49%;
-//     }
-
-//     .compare + pre {
-//         margin-right: 1%;
-//     }
-//     .compare + pre + pre {
-//         margin-left: 1%;
-//     }
-
-//     .clear {
-//         clear: both;
-//     }
-
-//     hr {
-//         border-color: #3d5ea5;
-//     }
-
-//     .spaced-out + ul li {
-//         margin-top: 0.5rem !important;
-//     }
-
-//     .spaced-out-all ~ ul li {
-//         background: red;
-//         margin-top: 0.5rem !important;
-//     }
-// }
-
-// .mermaid > svg {
-//     background: #fff;
-//     padding: 1rem;
-// }
-
-// // this is good when making a list when you want to use the toc for an overview
-// .small-headings {
-//     ~ h1 {
-//         font-size: 2em;
-//     }
-//     ~ h3 {
-//         font-size: 1.25em;
-//     }
-// }
-
-// ////
-// /// @group spacing-hacks
-// ////
-
-// /// Increase the space between adjacent list items. This eliminates the need to
-// /// add a class to the `ul` or each `li`.
-// ///
-// ///
-// /// @example scss - Usage
-// /// <div class="adjacent-list-space-1"></div>
-// /// - List item one
-// /// - List item two
-// ///
-
-// .adjacent-list-space-1 + ul li:not(:first-child) {
-//     margin-block-start: 1rem;
-// }
-
-// .adjacent-list-space-05 + ul li:not(:first-child) {
-//     margin-block-start: 0.5rem;
-// }
-
-// .indent-all-lists-2 ~ ul {
-//     margin-inline-start: 2rem;
-// }
-
-// // all lists on a page
-// .list-space-all-1 {
-//     ~ ul li {
-//         margin-top: 1rem;
-//     }
-// }

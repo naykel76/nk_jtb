@@ -1,13 +1,5 @@
 @use '../common-tools' as *;
 
-// grid areas for layout elements
-header { grid-area: header; }
-main { grid-area: main; }
-footer { grid-area: footer; }
-.sidebar { grid-area: sidebar; }
-.sidebar-left { grid-area: sidebar-left; }
-.sidebar-right { grid-area: sidebar-right; }
-
 // ============================================================================
 // -- LAYOUT ELEMENTS --
 // ============================================================================
@@ -46,10 +38,20 @@ body {
 
 .nk-admin {
     .navbar {
-        background-image: linear-gradient(to right top, #20242a, #1e1f27, #1e1a23, #1f141d, #1f0e16, #250e15, #2c0e12, #310f0c, #40140e, #4e1a0e, #5c210c, #692906);
+        background-image: linear-gradient(
+            to right top,
+            #20242a,
+            #1e1f27,
+            #1e1a23,
+            #1f141d,
+            #1f0e16,
+            #250e15,
+            #2c0e12,
+            #310f0c,
+            #40140e,
+            #4e1a0e,
+            #5c210c,
+            #692906
+        );
     }
 }
-
-
-
-

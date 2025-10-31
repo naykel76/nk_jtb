@@ -2,12 +2,12 @@
 @use '../functions/color-functions' as *;
 
 %box {
-    padding: $bx-padding;
-    border-radius: $bx-border-radius;
-    border: 1px solid rgb(0 0 0 / 12.5%);
-    box-shadow: 1px 2px 3px rgb(0 0 0 / 10%);
     background-color: $bx-bg;
+    border: 1px solid rgb(0 0 0 / 12.5%);
+    border-radius: $bx-border-radius;
+    box-shadow: 1px 2px 3px rgb(0 0 0 / 10%);
     color: text-color($bx-bg);
+    padding: $bx-padding;
 }
 
 .bx {
@@ -16,7 +16,7 @@
     // overflow: hidden; // prevent image from overflowing when using border-radius
 
     & > *:first-child {
-        margin-top: 0;
+        margin-block-start: 0;
     }
 
     &-title {
@@ -31,30 +31,27 @@
 
 .bx-header,
 .bx-footer {
-    margin-left: -$bx-padding; // 1 // 1
-    margin-right: -$bx-padding; // 1
+    margin-inline: -$bx-padding; // 1
     padding: 0.75rem $bx-padding;
 }
 
 .bx-header {
-    margin-top: -$bx-padding !important;
     border-bottom: 1px solid;
     border-color: rgb(0 0 0 / 15%);
-    border-radius: $bx-border-radius $bx-border-radius 0 0;
     border-left: none;
+    border-radius: $bx-border-radius $bx-border-radius 0 0;
+    margin-block-start: -$bx-padding !important;
 }
 
 .bx-footer {
-    margin-bottom: -$bx-padding !important;
-    border-top: 1px solid;
     border-color: rgb(0 0 0 / 15%);
     border-radius: 0 0 $bx-border-radius $bx-border-radius;
+    border-top: 1px solid;
+    margin-block-end: -$bx-padding !important;
 }
 
 :where(.bx-header + .bx-content) {
+    margin-block-end: -$bx-padding;
+    margin-inline: -$bx-padding;
     padding: $bx-padding;
-    margin-bottom: -$bx-padding;
-    margin-left: -$bx-padding;
-    margin-right: -$bx-padding;
 }
-
