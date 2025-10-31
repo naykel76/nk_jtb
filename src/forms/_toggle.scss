@@ -1,9 +1,9 @@
 @use '../common-tools' as *;
 @use "sass:math";
 
-// ==========================================================================
+// ============================================================================
 // -- TOGGLE SWITCH --
-// ==========================================================================
+// ============================================================================
 // Variables:
 // - $toggle-height: The height of the toggle switch.
 //
@@ -28,38 +28,38 @@ $toggle-ball-bg: rgb(253 253 253) !default;
 
 
 .toggle {
-    position: relative;
-    display: inline-flex;
     align-items: center;
+    display: inline-flex;
     justify-content: flex-start;
+    position: relative;
     width: auto;
 
     input {
-        opacity: 0;
-        width: 0;
         height: 0;
         margin-inline-end: 0; // Override margin in form.scss
+        opacity: 0;
+        width: 0;
     }
 
     .slider {
-        position: relative;
-        cursor: pointer;
-        width: $toggle-width;
-        height: $toggle-height;
         background-color: $toggle-off-bg;
-        transition: 0.4s;
         border-radius: $toggle-height;
-        padding: $toggle-padding;
+        cursor: pointer;
+        height: $toggle-height;
         margin-right: 0.5rem;
+        padding: $toggle-padding;
+        position: relative;
+        transition: 0.4s;
+        width: $toggle-width;
 
         &::before {
-            position: absolute;
+            background-color: $toggle-ball-bg;
+            border-radius: 50%;
             content: "";
             height: $toggle-ball-size;
-            width: $toggle-ball-size;
-            background-color: $toggle-ball-bg;
+            position: absolute;
             transition: 0.4s;
-            border-radius: 50%;
+            width: $toggle-ball-size;
         }
     }
 

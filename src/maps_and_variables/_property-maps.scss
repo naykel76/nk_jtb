@@ -3,9 +3,9 @@
 @use '../functions/map-and-list-helpers' as *;
 @use 'sass:map';
 
-// ==========================================================================
+// ============================================================================
 // Positioning, Display, and Visibility Property Maps
-// ==========================================================================
+// ============================================================================
 
 // prettier-ignore
 $display: ( block, flex, inline, inline-block, inline-flex, ( hidden: none ), table, table-cell);
@@ -18,9 +18,9 @@ $position: (static, absolute, fixed, relative, sticky);
 // prettier-ignore
 $visibility: ( collapse, ( invisible: hidden ), visible);
 
-// ==========================================================================
+// ============================================================================
 // Border and Outline Property Maps
-// ==========================================================================
+// ============================================================================
 // Border and outline properties share the same style values in CSS.  The only
 // difference lies in their behavior: borders affect layout space, while
 // outlines do not.
@@ -49,49 +49,4 @@ $border-radius: smart-merge($border-radius-values, $border-radius-variants) !def
 $outline-styles: $border-styles !default;
 $outline-widths: $border-widths !default;
 
-// ==========================================================================
-// Spacing Property Maps (margin, padding, gap, inset)
-// ==========================================================================
-$spacing-values: (0, 0.125, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 4, 5) !default;
 
-$margin-variants: (
-    base: $base-gap,
-    auto: auto
-) !default;
-$margin-map: map.merge($margin-variants, list-to-map($spacing-values));
-
-$padding-variants: (
-    base: $base-padding
-) !default;
-$padding-map: map.merge($padding-variants, list-to-map($spacing-values));
-
-// ==========================================================================
-// Typography Property Maps
-// ==========================================================================
-// Font weights are not combined because the variants use the `font-` prefix,
-// while the values use the `fw-` prefix.
-
-$font-weight-values: (
-    1: 100,
-    2: 200,
-    3: 300,
-    4: 400,
-    5: 500,
-    6: 600,
-    7: 700,
-    8: 800,
-    9: 900
-) !default;
-$font-weight-variants: (
-    thin: 100,
-    extralight: 200,
-    light: 300,
-    normal: 400,
-    medium: 500,
-    semibold: 600,
-    bold: 700,
-    extrabold: 800,
-    black: 900
-) !default;
-
-// $font-weight: smart-merge($font-weight-values, $font-weight-variants) !default;

@@ -4,30 +4,29 @@
 @use '../functions/map-and-list-helpers' as *;
 @use 'sass:map';
 
-
 //  Container sizes
-// ==========================================================================
+// ============================================================================
 $base-container-size: 1200px !default;
 $container-variants: ( base: $base-container-size, sm: $sm, md: $md, lg: $lg, xl: $xl, xxl: $xxl ) !default;
 
 //  Layout property maps
-// ==========================================================================
+// ============================================================================
 $z-index-values: (0, 1, 50, 100, (bottom: -1), (top: 999)) !default;
 
 // Effects and Transitions
-// ==========================================================================
+// ============================================================================
 $opacity-values: (0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1);
 
 //  Flex and Grid
-// ==========================================================================
+// ============================================================================
 $order-map: (1, 2, 3, 4, 5, 6, 7, 8) !default;
 $gap-values: (0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 2, 3, 4, 5) !default;
 $gap-variants: (sm:.75, base: 1.25, lg:2) !default;
 $gap-map: smart-merge($gap-values, $gap-variants) !default;
 
-// ==========================================================================
+// ============================================================================
 //  Sizing maps and variants
-// ==========================================================================
+// ============================================================================
 // height and width properties
 $height-width: ( auto: auto, full: 100%, fit: fit-content, max: max-content, min: min-content ) !default;
 $height: smart-merge((screen: 100vh), $height-width) !default;
@@ -39,31 +38,16 @@ $sizing-rem: (0, 1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 12, 14, 16, 18, 20, 22
 $sizing-breakpoint-variants: ( xs: 30rem, sm: $sm, md: $md, lg: $lg, xl: $xl, xxl: $xxl ) !default;
 $sizing-map: smart-merge($sizing-rem, $sizing-pixels, $sizing-breakpoint-variants) !default;
 
-// ==========================================================================
+// ============================================================================
 //  Positional values and map
 // --------------------------------------------------------------------------
 //  Used for top, right, bottom, left, and inset utility classes.
-// ==========================================================================
+// ============================================================================
 $positional-values: (0, 0.25, 0.5, 1, 1.5, 2, 3, 4) !default;
 $positional-map: smart-merge($positional-values, $inset) !default;
 
-// ==========================================================================
-// Typography, fonts and text properties
-// ==========================================================================
-$letter-spacing-variants: ( tighter: -0.1em, tight: -0.05em, normal: 0em, wide: 0.05em, wider: 0.1em, widest: 0.25em) !default;
-
-// -- text colors --
-$text-color-values: $base-colors !default;
-$text-color-variants: map.remove($theme-colors, 'danger', 'dark', 'info', 'light', 'success', 'warning') !default;
-$text-color-map: smart-merge($text-color-values, $text-color-variants) !default;
-
-// -- font sizes --
-$font-size-values: (1, 1.5, 2, 2.5, 3, 4) !default;
-$font-size-variants: () !default;
-$font-size-map: smart-merge($font-size-values, $font-size-variants) !default;
-
-// ==========================================================================
+// ============================================================================
 // Magic Properties
-// ==========================================================================
+// ============================================================================
 $magic-grid-patterns: ((4, 2, 1), (4, 3, 2, 1), (3, 2, 1), (3, 1, 1)) !default;
 $magic-gap-patterns: ((5, 3, 2), (5, 3), (4, 2), (3, 1)) !default;

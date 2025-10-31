@@ -1,8 +1,8 @@
 @use '../maps_and_variables/components' as *;
 
-// ==========================================================================
+// ============================================================================
 // -- TICK ICON LIST --
-// ==========================================================================
+// ============================================================================
 //
 
 .icon-list {
@@ -17,10 +17,10 @@
     }
 
     & li {
-        display: flex;
         align-items: center;
-        background-repeat: no-repeat;
         background-position: left center;
+        background-repeat: no-repeat;
+        display: flex;
         padding-block: 0.25rem;
     }
 
