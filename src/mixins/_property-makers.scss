@@ -51,10 +51,10 @@
 }
 
 
-// ==========================================================================
-// Generate a single directional property, e.g. margin-top or inset-left.
+// ============================================================================
+// Generate a single directional property, e.g. margin-block-start or inset-left.
 // Skips unit if value is 'auto' or 0.
-// ==========================================================================
+// ============================================================================
 
 @mixin create-position-property($property, $value, $position, $unit: 'rem') {
     $derived-unit: if(($value == 'auto' or $value == 0), null, $unit);
@@ -62,10 +62,10 @@
     #{$property}-#{$position}: #{$value}#{$derived-unit};
 }
 
-// ==========================================================================
+// ============================================================================
 // Generate directional properties for a list of positions.
 // Useful for applying the same value across multiple sides.
-// ==========================================================================
+// ============================================================================
 
 @mixin create-position-properties($property, $value, $positions, $unit: 'rem') {
     @each $position in $positions {

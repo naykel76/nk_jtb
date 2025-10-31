@@ -1,4 +1,4 @@
-@use "../maps_and_variables/utility-maps" as *;
+@use "../common-tools.scss" as *;
 @use '../mixins/media' as *;
 @use "sass:list";
 @use 'sass:map';
@@ -25,13 +25,13 @@
     }
 }
 
-// ==========================================================================
+// ============================================================================
 // Grid Column Utilities
 // --------------------------------------------------------------------------
 // Builds responsive grid-template-columns classes like:
 //   .cols-3-2-1 → 1fr 1fr 1fr at base, 2fr at sm, 3fr at md
 // Each list must contain at least 2 values.
-// ==========================================================================
+// ============================================================================
 @mixin build-magic-grid($listsOfValues) {
     $identifier: cols;
 

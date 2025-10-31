@@ -25,13 +25,13 @@
     }
 }
 
-// ==========================================================================
+// ============================================================================
 // Generates utility classes for CSS properties using a configuration map.
 // Supports responsive variants, automatic value-unit handling, position-based 
 // classes, and optional axis key omission for cleaner class names.
 // --------------------------------------------------------------------------
 // 
-// ==========================================================================
+// ============================================================================
 
 // prettier-ignore
 @mixin build-property-classes($properties-map, $responsive: true, $with-state: false, $debug: false) {
@@ -43,6 +43,7 @@
         $config-unit: map.get($config, 'unit');
         $config-positions: map.get($config, 'positions');
         $omit-axis-keys: map.get($config, 'omit-axis-keys'); 
+        $child-combinator: map.get($config, 'child-combinator');
 
         $prefix: resolve-prefix(map.get($config, 'prefix'), $property);
         $breakpoints: resolve-breakpoints($responsive, map.get($config, 'breakpoints'));
@@ -64,9 +65,9 @@
             $derived-class: strip-class-suffixes(#{$prefix}#{$derived-suffix});
 
             @if $config-positions {
-                @include make-position-based-class($property, $derived-value, $config-positions, $prefix, $derived-suffix, $breakpoints, $states, $omit-axis-keys);
+                @include make-position-based-class($property, $derived-value, $config-positions, $prefix, $derived-suffix, $breakpoints, $states, $omit-axis-keys, $child-combinator);
             } @else{
-                @include make-single-property-class( $property, #{$derived-class}, #{$derived-value}, $breakpoints, $states );
+                @include make-single-property-class( $property, #{$derived-class}, #{$derived-value}, $breakpoints, $states, $child-combinator );
             }
         }
     }

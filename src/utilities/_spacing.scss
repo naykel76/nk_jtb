@@ -1,10 +1,10 @@
-// _spacing.scss
 @use '../common-tools' as *;
+@use 'sass:map';
 
-// ==========================================================================
+// ============================================================================
 // MARGIN & PADDING CONFIGURATION
-// ==========================================================================
-$spacing-properties-map: (
+// ============================================================================
+$spacing-properties: (
     margin: (
         prefix: 'm',
         values: $margin-map,
@@ -19,7 +19,27 @@ $spacing-properties-map: (
     )
 );
 
-// ==========================================================================
+// prettier-ignore
+$spacing-combinator-properties: (
+    margin: (
+        prefix: 'space-',
+        values: map.merge((base: $base-gap), list-to-map($spacing-values)),
+        unit: 'rem',
+        positions: ( 
+            x: ( inline-start ),
+            y: ( block-start )
+        ),
+        child-combinator: true  
+    ),
+);
+
+// ============================================================================
 // BUILDS
-// ==========================================================================
-@include build-property-classes($spacing-properties-map, $responsive: true);
+// ============================================================================
+
+@include build-property-classes($spacing-properties, $responsive: true);
+@include build-property-classes($spacing-combinator-properties, $responsive: true);
+
+// magic classes
+@include build-magic-classes('padding', $padding-magic-y, 'py', $position-or-axis: y);
+@include build-magic-classes('margin', $margin-magic-y, 'my', $position-or-axis: y);

@@ -1,4 +1,4 @@
-// @use '../maps_and_variables/typography' as *;
+// 
 @use 'sass:color';
 
 // NKTD: review this, I have hardcoded the text colors here, because importing
@@ -7,16 +7,16 @@ $light-text: #fff !default;
 $dark-text: #333 !default;
 $text-color: $dark-text !default;
 
-// ==========================================================================
+// ============================================================================
 // OKLCH Lightness Check
-// ==========================================================================
+// ============================================================================
 // Determines if an OKLCH color is light or dark based on its lightness channel.
 // OKLCH lightness in Sass is represented as a percentage (0-100), not decimal.
 //
 // @param {Color} $color - The OKLCH color to evaluate
 // @param {Number} $threshold - Lightness threshold (0-100 scale, default: 60)
 // @return {Boolean} - True if light, false if dark
-// ---------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 @function oklch-is-light($color, $threshold: 60) {
     // Extract the lightness channel from the OKLCH color (0-100 scale in Sass)
     $lightness: color.channel($color, 'lightness', $space: oklch);
@@ -25,9 +25,9 @@ $text-color: $dark-text !default;
     @return $lightness > $threshold;
 }
 
-// ==========================================================================
+// ============================================================================
 // RGB Brightness Check
-// ==========================================================================
+// ============================================================================
 // Determines if an RGB color is light or dark using relative luminance.
 // Uses the WCAG formula based on human eye sensitivity to different colors.
 // Human eyes are most sensitive to green (71.52%), red (21.26%), blue (7.22%).
@@ -35,7 +35,7 @@ $text-color: $dark-text !default;
 // @param {Color} $color - The color to evaluate (converted to RGB if needed)
 // @param {Number} $threshold - Brightness threshold (0-255 scale, default: 186)
 // @return {Boolean} - True if light, false if dark
-// ---------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 @function rgb-is-light($color, $threshold: 186) {
     // Convert color to RGB space to ensure we can extract RGB channels
     $rgb-color: color.to-space($color, rgb);
@@ -48,9 +48,9 @@ $text-color: $dark-text !default;
     @return $brightness > $threshold;
 }
 
-// ==========================================================================
+// ============================================================================
 // Text Color Selector
-// ==========================================================================
+// ============================================================================
 // Returns appropriate text color (dark or light) based on background color.
 // Automatically detects color space and uses optimal calculation method:
 // - OKLCH colors use native lightness channel
@@ -58,7 +58,7 @@ $text-color: $dark-text !default;
 //
 // @param {Color} $bg-color - The background color to evaluate
 // @return {Color} - Either $dark-text or $light-text for optimal contrast
-// ---------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 @function text-color($bg-color) {
     // Detect which color space the background color is using
     $color-space: color.space($bg-color);
@@ -70,9 +70,9 @@ $text-color: $dark-text !default;
     @return if($is-light, $dark-text, $light-text);
 }
 
-// ==========================================================================
+// ============================================================================
 // border-contrast($bg, $opacity)
-// ==========================================================================
+// ============================================================================
 // Returns a semi-transparent black or white based on background lightness.
 //
 // Uses HSL lightness to determine which gives better contrast.
@@ -87,6 +87,7 @@ $text-color: $dark-text !default;
 // - Can feel visually disconnected
 //
 // Best for: High-contrast elements where legibility is key
+// ----------------------------------------------------------------------------
 
 @function border-contrast($bg, $opacity: 0.15) {
     $lightness: color.channel($bg, 'lightness', $space: hsl);
