@@ -12,11 +12,11 @@ ol {
     margin-inline-start: $base-padding; // 2.
 }
 
-// 1. Apply consistent spacing between list items by default.  This is
-//    opinionated but appropriate for most content lists. Override in specific
-//    contexts (nav, compact lists, etc.) as needed.
-li {
-    margin-block-start: $base-list-spacing; // 1.
+// 1. Apply consistent spacing between list items by default
+// 2. Add spacing between nested lists and their parent item
+// 3. Use :where() to keep specificity low so utilities can easily override
+:where(li:not(:first-child), li ul, li ol) {
+    margin-block-start: $base-list-spacing;
 }
 
 ul {
@@ -27,18 +27,9 @@ ol {
     list-style-type: decimal;
 }
 
-// 1. Add spacing between nested lists and their parent item
-li ul,
-li ol {
-    margin-top: $base-list-spacing; // 1.
-}
-
 // Reset for navigation menus
+// do not add li here or get ready for the pain!
 nav ul {
     list-style: none;
     margin: 0;
-
-    li {
-        margin: 0;
-    }
 }

@@ -2,14 +2,16 @@
 @use '../maps_and_variables/typography' as *;
 @use 'sass:color';
 
-$accordion-color: $text-color !default;
+$accordion-bg: white !default;
+$accordion-border: $border !default;
 $accordion-font-size: $font-size !default;
 $accordion-font-weight: 600 !default;
-$accordion-bg: rgb(245 245 245) !default;
-$accordion-border: $border !default; // entire accordion border
-$accordion-padding: 1rem !default; // entire accordion border
+$accordion-padding: 1rem !default;
+$accordion-title-bg: rgb(245 245 245) !default;
+$accordion-title-color: $text-color !default;
 
-$accordion-hover-bg: color.adjust($accordion-bg, $lightness: -5%) !default;
+// must run after $accordion-title-bg and $accordion-title-color are defined
+$accordion-hover-bg: color.adjust($accordion-title-bg, $lightness: -5%) !default;
 
 // ============================================================================
 // -- GENERIC ACCORDION STYLES --
@@ -18,84 +20,74 @@ $accordion-hover-bg: color.adjust($accordion-bg, $lightness: -5%) !default;
 // with both the CSS and Alpine versions.
 
 .accordion {
+    background-color: $accordion-bg;
     border: $accordion-border;
     overflow: hidden;
 
-    &-title {
-        background: $accordion-bg;
-        color: $accordion-color;
+    // accordion trigger
+    :where(.accordion-title, button) {
+        align-items: center;
+        background: $accordion-title-bg;
+        color: $accordion-title-color;
         cursor: pointer;
         display: flex;
         font-size: $accordion-font-size;
         font-weight: $accordion-font-weight;
         justify-content: space-between;
         padding: $accordion-padding;
-        transition: 0.3s;
+        transition: background 0.3s ease;
         width: 100%;
 
         &:hover {
             background: $accordion-hover-bg;
         }
 
-        &::after {
-            content: '\276F';
-            text-align: center;
-            transition: all 0.3s;
+        // Handle SVG chevron rotation
+        svg {
+            transition: transform 0.3s ease;
         }
     }
 
-    // this class should only be used in the CSS version
+    // Base content styling (works with Alpine x-collapse)
     &-content {
-        max-height: 0; // hide content when using CSS
         padding: 0 $accordion-padding;
-        transition: all 0.3s;
     }
-
-    //     &-close {
-    //         display: flex;
-    //         justify-content: flex-end;
-    //         font-size: 0.75em;
-    //         cursor: pointer;
-    //     }
-
-    //     .active {
-    //         content: '\276F';
-    //         text-align: center;
-    //         transition: all 0.3s;
-    //         &::after {
-    //             transform: rotate(90deg);
-    //         }
-    //     }
 }
 
 // ============================================================================
 // -- CSS ACCORDION STYLES --
 // ============================================================================
-// These styles are specific to the CSS accordion.
+// Only apply these styles when NOT using Alpine (x-data)
 
-// use :where to lower specificity allowing for easier customization
-:where(.accordion) {
-    // This is a problem when you want to use an input inside the accordion. You
-    // will need to manually set the position, opacity, and z-index to get the
-    // input to appear.
-    input {
-        opacity: 0;
-        position: absolute;
-        z-index: -1;
+.accordion:not([x-data]) {
+    // CSS-only accordion content needs transitions
+    .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+            max-height 0.3s ease,
+            padding 0.3s ease;
+    }
 
-        // checked toggles open and closed
+    // Hide the input used for CSS accordion toggle
+    // Supports both checkbox (multiple open) and radio button (one open) methods
+    > input[data-accordion-toggle] {
+        display: none;
+
+        // checked/selected toggles open and closed
         &:checked {
             + label {
                 background: $accordion-hover-bg;
 
-                &::after {
-                    transform: rotate(90deg);
+                // Rotate the SVG chevron
+                svg {
+                    transform: rotate(180deg);
                 }
             }
 
             ~ .accordion-content {
-                max-height: 999vh; // prevent cutting off content
-                padding: 1em;
+                max-height: 100vh;
+                padding: 1rem;
             }
         }
     }

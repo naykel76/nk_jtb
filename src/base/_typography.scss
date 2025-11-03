@@ -13,7 +13,7 @@
 }
 
 :where(h1, h2, h3, h4, h5, h6) {
-    color: $heading-color;
+    color: var(--text-heading, $heading-color);
     font-weight: $heading-font-weight;
     line-height: 1.25;
     text-wrap: balance;
@@ -21,7 +21,7 @@
 
 // add top margin to all headings unless they are H1 or first child.
 :is(h2, h3, h4, h5, h6):not(:first-child) {
-    margin-top: 1.5em;
+    margin-block-start: 1.5em;
 }
 
 // ============================================================================
@@ -68,11 +68,11 @@ pre {
 // ============================================================================
 
 :is(a) {
-    color: $link-color;
+    color: var(--text-link, $link-color);
     cursor: pointer;
     text-decoration: inherit;
 
     &:hover {
-        color: $link-hover-color;
+        color: var(--text-link-hover, $link-hover-color);
     }
 }

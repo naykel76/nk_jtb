@@ -2,9 +2,9 @@
 
 .navbar,
 .navbar > .container {
+    align-items: center;
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 
 .navbar {
@@ -22,9 +22,9 @@
     // remove specificity to make easier to override
     :where(ul a) {
         color: $navbar-nav-item-color;
-        padding: $navbar-nav-padding-y $navbar-nav-padding-x;
         display: block; // 1. allowing the navbar to grow in height
         line-height: 1.2rem;
+        padding: $navbar-nav-padding-y $navbar-nav-padding-x;
 
         &:hover {
             color: $navbar-nav-hover-color;
@@ -44,14 +44,14 @@
         line-height: 1.2rem;
 
         &:hover {
-            color: $navbar-nav-hover-color;
             background: $navbar-nav-hover-bg;
+            color: $navbar-nav-hover-color;
         }
 
         &.active,
         &:active {
-            color: $navbar-nav-active-color;
             background: $navbar-nav-active-bg;
+            color: $navbar-nav-active-color;
         }
     }
 
@@ -60,17 +60,6 @@
     .menu {
         :where(a, li a, .menu-item) {
             color: #333;
-        }
-
-        li {
-            &:first-child a {
-                // border-top-left-radius: $bx-border-radius;
-                // border-top-right-radius: $bx-border-radius;
-            }
-            &:last-child a {
-                // border-bottom-left-radius: $bx-border-radius;
-                // border-bottom-right-radius: $bx-border-radius;
-            }
         }
     }
 }

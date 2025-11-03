@@ -9,11 +9,11 @@
     // leave as fallback?
     //     list-style: none;
     ul {
-        margin-left: 0;
+        margin-inline-start: 0;
     }
 
     :where(svg) {
-        margin-right: 1rem;
+        margin-inline-end: 1rem;
     }
 
     & li {
@@ -26,6 +26,6 @@
 
     &.tick-svg li {
         background-image: $icon-tick;
-        padding-left: 2rem;
+        padding-inline-start: 2rem;
     }
 }
