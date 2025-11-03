@@ -46,19 +46,22 @@ strong {
 // ============================================================================
 // -- Mono --
 // ============================================================================
+// $code-text: #24292e;
+$code-text: #d9558c;
 
 code,
-kbd,
-pre,
-samp {
+kbd {
+    background-color: rgb(0 0 0 / 8%);
     border-radius: 0.25rem;
-    color: #d9558c;
+    color: $code-text;
     font-family: $mono-font;
     font-size: 0.875rem;
+    padding: 0.15rem 0.3rem;
 }
 
 pre {
-    overflow: auto;
+    border-radius: 0.5rem; 
+    overflow-x: auto;
     white-space: pre;
     word-wrap: normal;
 }

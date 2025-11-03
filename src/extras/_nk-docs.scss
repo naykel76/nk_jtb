@@ -39,14 +39,6 @@ p:has(question) + p {
 // ============================================================================
 
 /*
- overflow-x-auto is recommended.
-*/
-pre {
-    border-radius: 0.25rem;
-    overflow-x: auto;
-}
-
-/*
  Add some vertical padding and expand the width
  to fill its container. The horizontal padding
  comes at the line level so that background
