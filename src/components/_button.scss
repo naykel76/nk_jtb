@@ -5,6 +5,7 @@
 @use '../maps_and_variables/config' as *;
 @use '../maps_and_variables/form-controls' as *;
 @use '../utilities/transition' as *;
+@use 'sass:color';
 
 // ============================================================================
 // -- BASE BUTTON --
@@ -73,31 +74,27 @@
 // -- THEMES AND VARIATIONS --
 // ============================================================================
 
-// @each $key, $color in $color-map {
-//     .#{$button-prefix}.#{$key} {
-//         @include hover($color);
-//         @include active($color);
-//     }
-// }
+@mixin hover($color, $by: 5%) {
+    &:hover {
+        @content;
 
+        background-color: color.adjust($color, $lightness: $by);
+        color: text-color($color);
+    }
+}
 
-// @use '../src/functions/color-functions' as *;
-// @use 'sass:color';
+@mixin active($color, $by: 5%) {
+    &:active {
+        @content;
 
-// @mixin hover($color, $by: 10%) {
-//     &:hover {
-//         @content;
+        background-color: color.adjust($color, $lightness: -$by);
+        color: text-color($color);
+    }
+}
 
-//         background-color: color.adjust($color, $lightness: $by);
-//         color: text-color($color);
-//     }
-// }
-
-// @mixin active($color, $by: 5%) {
-//     &:active {
-//         @content;
-
-//         background-color: color.adjust($color, $lightness: -$by);
-//         color: text-color($color);
-//     }
-// }
+@each $key, $color in $color-map {
+    .#{$button-prefix}.#{$key} {
+        @include hover($color);
+        @include active($color);
+    }
+}

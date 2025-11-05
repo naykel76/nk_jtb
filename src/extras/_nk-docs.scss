@@ -1,5 +1,7 @@
 /* stylelint-disable selector-type-no-unknown */
 @use '../common-tools.scss' as *;
+@use '../mixins/backgrounds' as *;
+@use 'sass:map';
 
 $question-color: #c40c9a !default;
 
@@ -12,6 +14,21 @@ $question-color: #c40c9a !default;
         font-size: inherit;
     }
 }
+
+// consider moving these to themes or backgrounds
+.ph-pink {
+    border: 1px solid map.get($base-colors, 'pink');
+
+    @include bg-stripes('pink');
+}
+
+.ph-purple {
+    border: 1px solid map.get($base-colors, 'purple');
+
+    @include bg-stripes('purple');
+}
+
+
 
 // ============================================================================
 // -- Custom Selectors --

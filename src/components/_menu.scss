@@ -31,13 +31,14 @@
         }
     }
 
-    // Only for expandable parent items with dropdown indicators
+    // Targets the BUTTON itself (if it has a sibling <ul> after it)
     button:has(+ ul) {
         justify-content: space-between;
     }
 
+    // Targets the UL (that comes immediately after a <button>)
     button + ul {
-        margin-inline-start: $menu-padding-x; // default (no icon)
+        margin-inline-start: $menu-padding-x;
     }
 
     button:has(span > svg) + ul {

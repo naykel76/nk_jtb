@@ -1,0 +1,47 @@
+@use '../maps_and_variables/base' as *;
+
+// section, article, aside, header, footer, nav, main are not included because
+// they are typically used as layout elements and should not have content gap
+// applied to them. div is also excluded to prevent unintended spacing issues.
+
+// Core spacing targets - block-level content elements
+$spacing-targets: blockquote, p, pre, form, table, ol, ul, h1, h2, h3, h4, h5, h6;
+$common-classes: "[class*='container']", '.frm-row', '.grid', "[class*='flex']:not(.inline-flex)";
+$bx: '.bx', '.bx-content', '.bx-title';
+
+// Inline elements that should never receive block-level spacing
+$inline-exclusions: svg, span;
+
+// RULE 1: Spacing target followed by any block element
+// Most reliable pattern - catches p + div, h2 + table, etc.
+:where(#{$spacing-targets}, #{$common-classes}, #{$bx}) + :where(*:not(#{$inline-exclusions})) {
+    margin-block-start: $base-gap;
+}
+
+
+// // RULE 2: Parent-child spacing for known patterns
+// // Only applies within non-flex/grid containers, skips first child
+// :where(*:not([class*='flex'], [class*='grid'])) > :where(#{$spacing-targets}, #{$common-classes}, #{$bx}):not(:first-child) {
+//     margin-block-start: $base-gap;
+// }
+
+
+
+
+
+// // catch the strays (use with caution). The :where selector is to kill the
+// // specificity for easier override
+// :where(*:not([class*='flex'], [class*='grid'])) > :where(.frm-row, table, form, pre):not(:first-child) {
+//     margin-block-start: $base-gap;
+// }
+
+// // opt out for `flex` and `grid` element and use `gap` instead.
+// :where([class*='flex'], [class*='grid']) > * {
+//     margin: 0;
+// }
+
+// // adjust margin for the `ul` when the `li` has `flex` class. This is needed
+// // because flex automatically removes the bullets leaving the margin
+// ul:has(.flex) {
+//     margin-inline: 0;
+// }
