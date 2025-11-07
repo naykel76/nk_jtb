@@ -1,0 +1,26 @@
+@use '../maps_and_variables/base' as *;
+
+table {
+    border: $table-border-width solid $table-border-color;
+    border-collapse: collapse;
+    font-size: $table-font-size;
+    text-indent: 0;
+    width: 100%;
+}
+
+th,
+td {
+    border: $table-border-width solid $table-border-color;
+    font-size: inherit;
+    padding-block: $table-padding-y;
+    padding-inline: $table-padding-x;
+    text-align: left;
+}
+
+th {
+    background-color: var(--bg-subtle, $table-header-bg);
+    font-weight: $table-header-font-weight;
+    letter-spacing: $table-header-letter-spacing;
+    text-transform: $table-header-text-transform;
+    vertical-align: middle;
+}

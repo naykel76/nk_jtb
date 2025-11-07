@@ -1,6 +1,4 @@
-
 @use '../maps_and_variables/base' as *;
-
 
 // Remove all default borders to ensure consistency and avoid unexpected border
 // widths from browsers.
@@ -44,8 +42,6 @@ hr {
 // HTML5 elements
 // ============================================================================
 
-
-
 // 1. Constrain images and videos to the parent width and preserve their intrinsic aspect ratio.
 // 2. Use height:auto instead of max-height:100% to prevent scaling issues.
 
@@ -74,9 +70,9 @@ blockquote {
 }
 
 abbr[title] {
-    border-bottom: none; 
-    text-decoration: underline; 
-    text-decoration: underline dotted; 
+    border-bottom: none;
+    text-decoration: underline;
+    text-decoration: underline dotted;
 }
 
 // Prevent `sub` and `sup` elements from affecting the line height in
@@ -167,35 +163,6 @@ legend {
 ::-webkit-file-upload-button {
     appearance: auto; // 1.
     font: inherit; // 2.
-}
-
-// -- Tables --
-// ============================================================================
-
-table {
-    border-collapse: collapse;
-    border-color: inherit;
-    text-indent: 0;
-    width: 100%;
-}
-
-thead { 
-    border-color: inherit;
-}
-
-th {
-    font-weight: 600;
-    text-transform: $table-header-text-transform;
-    vertical-align: middle;
-}
-
-th,
-td {
-    border-color: inherit;
-    font-size: inherit; // allow font sizing to be set on table
-    padding-block: $table-padding-y;
-    padding-inline: $table-padding-x;
-    text-align: left;
 }
 
 // -- Controls --

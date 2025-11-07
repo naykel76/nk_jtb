@@ -7,59 +7,65 @@
     justify-content: space-between;
 }
 
+// dont target nested, let menu do its job
 .navbar {
     background: $navbar-bg;
     padding: $navbar-padding-y $navbar-padding-x;
-    position: relative;
 
-    ul {
-        display: flex;
+    .menu {
+        flex-direction: row;
+        gap: .5rem;
     }
 
+    //     position: relative;
 
-    // 
+    // nav {
+    //     margin: 0;
+    // }
+
+    // ul {
+    //     display: flex;
+    //     flex-direction: row;
+
+        li {
+            margin: 0;
+        }
+
+    // }
 
     // remove specificity to make easier to override
     :where(ul a) {
-        color: $navbar-nav-item-color;
-        display: block; // 1. allowing the navbar to grow in height
-        line-height: 1.2rem;
-        padding: $navbar-nav-padding-y $navbar-nav-padding-x;
-
-        &:hover {
-            color: $navbar-nav-hover-color;
-        }
-
-        &.active,
-        &:active {
-            color: $navbar-nav-active-color;
-        }
-    }
-
-    .nav-item {
-        // disabled because it causes issues when there are icons
+        // color: $navbar-nav-item-color;
         // display: block; // 1. allowing the navbar to grow in height
-        background: $navbar-nav-item-bg;
-        color: $navbar-nav-item-color;
-        line-height: 1.2rem;
+        // line-height: 1.2rem;
+        // padding: $navbar-nav-padding-y $navbar-nav-padding-x;
 
-        &:hover {
-            background: $navbar-nav-hover-bg;
-            color: $navbar-nav-hover-color;
-        }
+        // &:hover {
+        //     color: $navbar-nav-hover-color;
+        // }
 
-        &.active,
-        &:active {
-            background: $navbar-nav-active-bg;
-            color: $navbar-nav-active-color;
-        }
+        // &.active,
+        // &:active {
+        //     color: $navbar-nav-active-color;
+        // }
     }
 
-    // this is a quick and dirt solution to prevent to work with
-    // .bx.menu which is likely set in the dropdowns
-    .menu {
-        :where(a, li a, .menu-item) {
-            color: #333;
-        }
-    }
+    //     .nav-item {
+    //         // disabled because it causes issues when there are icons
+    //         // display: block; // 1. allowing the navbar to grow in height
+    //         background: $navbar-nav-item-bg;
+    //         color: $navbar-nav-item-color;
+    //         line-height: 1.2rem;
+
+    //         &:hover {
+    //             background: $navbar-nav-hover-bg;
+    //             color: $navbar-nav-hover-color;
+    //         }
+
+    //         &.active,
+    //         &:active {
+    //             background: $navbar-nav-active-bg;
+    //             color: $navbar-nav-active-color;
+    //         }
+    //     }
 }
