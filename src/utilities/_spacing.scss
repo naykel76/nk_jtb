@@ -40,6 +40,34 @@ $spacing-combinator-properties: (
 @include build-property-classes($spacing-properties, $responsive: true);
 @include build-property-classes($spacing-combinator-properties, $responsive: true);
 
+// negative margin combinator
+@include build-property-classes((
+    margin: (
+        prefix: '-space-',
+        values: (px: -1px),
+        positions: ( x: ( inline-start ), y: ( block-start ) ),
+        child-combinator: true,
+    ),
+), $responsive: false);
+
 // magic classes
 @include build-magic-classes('padding', $padding-magic-y, 'py', $position-or-axis: y);
 @include build-magic-classes('margin', $margin-magic-y, 'my', $position-or-axis: y);
+
+
+$compound-spacing: (
+    'p-05-075': (
+        props: (
+            padding-block: 0.5rem,
+            padding-inline: 0.75rem
+        )
+    ),
+    'p-075-1': (
+        props: (
+            padding-block: 0.75rem,
+            padding-inline: 1rem
+        )
+    )
+);
+
+@include build-composite-classes($compound-spacing, $responsive: true);
