@@ -24,4 +24,17 @@ $color-properties: (
     )
 );
 
+// ============================================================================
+// Builds
+// ============================================================================
+
 @include build-property-classes($color-properties, $responsive: false, $with-state: true);
+
+// NKTD: Consider if I really need place holder color utility classes
+@each $color-name, $color-map in $tailwind-colors {
+    @each $key, $value in $color-map {
+        .placeholder-#{$color-name}-#{$key}::placeholder {
+            color: $value;
+        }
+    }
+}

@@ -1,33 +1,18 @@
-
+@use '../maps_and_variables/base' as *;
 @use '../maps_and_variables/components' as *;
 @use '../maps_and_variables/config' as *;
-@use '../maps_and_variables/base' as *;
-
-// 1. better alignment
 
 .#{$icon-prefix} {
-    color: $icon-color;
-    height: $icon-xy;
-    padding: 1px; // 1
-    vertical-align: bottom; // 1
-    width: $icon-xy;
+    flex-shrink: 0; // so icons don't collapse in flex containers
+    height: $icon-size;
+    width: $icon-size;
 
-    &.sm {
-        height: $icon-xy-sm;
-        width: $icon-xy-sm;
-    }
-
-    &.md {
-        height: $icon-xy-md;
-        width: $icon-xy-md;
-    }
-
-    &.lg {
-        height: $icon-xy-lg;
-        width: $icon-xy-lg;
-    }
-
-    + span {
-        margin-inline-start: 0.5rem;
+    @each $key, $value in $icon-sizes {
+        &.#{$key} {
+            height: $value;
+            width: $value;
+        }
     }
 }
+
+

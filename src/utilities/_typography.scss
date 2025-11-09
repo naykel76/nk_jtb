@@ -61,14 +61,14 @@ $typography-properties-map: (
         values: (none, disc, decimal, circle, square)
     )
 );
+
 $text-classes-map: (
-    txt-xs: ( props: ( font-size: 0.75rem, line-height: 1.1 ) ),
-    txt-sm: ( props: ( font-size: 0.875rem, line-height: 1.25 ) ),
-    txt-base: ( props: ( font-size: 1rem, line-height: 1.5 ) ),
+    txt-xs: ( props: ( font-size: 0.75rem, line-height: 1.25 ) ),
+    txt-sm: ( props: ( font-size: 0.875rem, line-height: 1.4 ) ),
+    txt-base: ( props: ( font-size: 1rem, line-height: 1.5 ) ), 
     txt-lg: ( props: ( font-size: 1.125rem, line-height: 1.5 ) ),
-    txt-xl: ( props: ( font-size: 1.25rem, line-height: 1.6 ) ),
-    txt-xxl: ( props: ( font-size: 1.5rem, line-height: 1.6 ) ),
-    lead: ( props: ( font-size: 1.2rem ) )
+    txt-xl: ( props: ( font-size: 1.25rem, line-height: 1.5 ) ),
+    lead: ( props: ( font-size: 1.125rem, line-height: 1.7 ) )
 );
 
 // ============================================================================

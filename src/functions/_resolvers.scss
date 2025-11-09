@@ -36,19 +36,3 @@
 @function resolve-prefix($prefix, $property) {
     @return if($prefix == false, '', if($prefix == null, $property + '-', $prefix));
 }
-
-// @function resolve-prefix($raw-prefix, $fallback-name) {
-//     @return if($raw-prefix, $raw-prefix, $fallback-name);
-// }
-
-// @function resolve-unit($value, $fallback-unit) {
-//     @return if(value-has-unit($value), null, $fallback-unit);
-// }
-
-// @function resolve-class-suffix($label, $unit) {
-//     @return #{$label}#{handle-class-unit($unit)};
-// }
-
-// @function resolve-class-name($prefix, $suffix) {
-//     @return strip-class-suffixes(#{$prefix}#{$suffix});
-// }
