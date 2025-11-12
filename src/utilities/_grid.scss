@@ -64,7 +64,7 @@ $grid-properties-map: (
 // Builds
 // ============================================================================
 // -- Property Classes --
-@include build-property-classes($grid-properties-map, $responsive: true);
+@include build-classes($grid-properties-map, $responsive: true);
 
 // -- Magic Classes --
 @include build-magic-classes(grid-gap, ($magic-gap-patterns), 'gap');

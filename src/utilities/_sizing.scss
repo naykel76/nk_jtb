@@ -28,4 +28,4 @@ $sizing-properties-map: (
 // ============================================================================
 // Builds
 // ============================================================================
-@include build-property-classes($sizing-properties-map, $responsive: true);
+@include build-classes($sizing-properties-map, $responsive: true);

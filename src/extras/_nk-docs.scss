@@ -28,8 +28,6 @@ $question-color: #c40c9a !default;
     @include bg-stripes('purple');
 }
 
-
-
 // ============================================================================
 // -- Custom Selectors --
 // ============================================================================
@@ -42,14 +40,14 @@ question {
     margin-block-start: $base-gap;
 }
 
-// Reduce margin between a <question> and the following paragraph.
-//
-// Example:
-// <p><question></question></p>
-// <p></p>
-p:has(question) + p {
-    margin-block-start: 0.5rem;
-}
+// // Reduce margin between a <question> and the following paragraph.
+// //
+// // Example:
+// // <p><question></question></p>
+// // <p></p>
+// p:has(question) + p {
+//     margin-block-start: 0.5rem;
+// }
 
 // ============================================================================
 // -- Torchlight --

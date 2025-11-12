@@ -37,11 +37,11 @@ $spacing-combinator-properties: (
 // BUILDS
 // ============================================================================
 
-@include build-property-classes($spacing-properties, $responsive: true);
-@include build-property-classes($spacing-combinator-properties, $responsive: true);
+@include build-classes($spacing-properties, $responsive: true);
+@include build-classes($spacing-combinator-properties, $responsive: true);
 
 // negative margin combinator
-@include build-property-classes((
+@include build-classes((
     margin: (
         prefix: '-space-',
         values: (px: -1px),

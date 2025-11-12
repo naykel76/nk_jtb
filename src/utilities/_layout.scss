@@ -18,4 +18,4 @@ $layout-properties-map: (
 // ============================================================================
 // Builds
 // ============================================================================
-@include build-property-classes($layout-properties-map, $responsive: false);
+@include build-classes($layout-properties-map, $responsive: false);

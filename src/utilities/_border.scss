@@ -26,4 +26,4 @@ $border-properties-map: (
 // ============================================================================
 // Builds
 // ============================================================================
-@include build-property-classes($border-properties-map, $responsive: true);
+@include build-classes($border-properties-map, $responsive: true);
