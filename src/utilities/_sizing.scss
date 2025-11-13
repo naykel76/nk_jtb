@@ -5,10 +5,14 @@
 $sizing-properties-map: (
     height: (prefix: "h-", values: map.merge($sizing-map, $height), unit: "rem"),
     width: (prefix: "w-", values: map.merge($sizing-map, $width), unit: "rem"),
+    max-height: (prefix: "max-h-", values: $sizing-map, unit: "rem"),
+    max-width: (prefix: "max-w-", values: $sizing-map, unit: "rem"),
+    min-height: (prefix: "min-h-", values: $sizing-map, unit: "rem"),
+    min-width: (prefix: "min-w-", values: $sizing-map, unit: "rem")
+);
 
-    // height: (prefix: "h-", values: $height, unit: "rem"),
-    // width: (prefix: "w-", values: $width, unit: "rem"),
-
+// DEPRECATED
+$deprecated-sizing-properties-map: (
     max-height: (prefix: "maxh-", values: $sizing-map, unit: "rem"),
     max-width: (prefix: "maxw-", values: $sizing-map, unit: "rem"),
     min-height: (prefix: "minh-", values: $sizing-map, unit: "rem"),
@@ -29,3 +33,4 @@ $sizing-properties-map: (
 // Builds
 // ============================================================================
 @include build-classes($sizing-properties-map, $responsive: true);
+@include build-classes($deprecated-sizing-properties-map, $responsive: true);

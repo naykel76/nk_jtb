@@ -28,8 +28,11 @@ ol {
 }
 
 // Reset for navigation menus
-// do not add li here or get ready for the pain!
 nav ul {
     list-style: none;
     margin: 0;
+
+    li{
+        margin: 0; // take it off for nav, its easier!
+    }
 }

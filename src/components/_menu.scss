@@ -27,7 +27,6 @@
         &:is(.active, :hover, :focus-visible):not(.disabled, :disabled) {
             background-color: $menu-hover-bg;
             color: $menu-link-hover-color;
-            cursor: pointer;
         }
     }
 

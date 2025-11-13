@@ -175,7 +175,7 @@ button,
     cursor: pointer; // 1
 }
 
-:disabled {
+:is(.disabled, :disabled, [aria-disabled]) {
     cursor: not-allowed;
     opacity: 0.6;
 }

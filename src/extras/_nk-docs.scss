@@ -15,6 +15,22 @@ $question-color: #c40c9a !default;
     }
 }
 
+[class^='example'] {
+    border: 2px solid;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.example {
+    &-jtb {
+        border-color: map.get($base-colors, 'pink');
+    }
+
+    &-utils {
+        border-color: map.get($base-colors, 'purple');
+    }
+}
+
 // consider moving these to themes or backgrounds
 .ph-pink {
     border: 1px solid map.get($base-colors, 'pink');

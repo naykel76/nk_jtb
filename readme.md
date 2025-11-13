@@ -9,9 +9,9 @@
 
 ---
 
-**Why build another CSS framework?**
+**Why build another framework?**
 
-> "Because without reinventing the wheel we wouldn't have fast cars."  
+> "Because without reinventing the wheel, we wouldn't have fast cars."  
 > -- Nathan Watts
 
 ---
@@ -26,33 +26,6 @@
 
 ---
 
-## Directory Structure
-
-```bash
-src/
-    ├──color-and-themes/
-    │  ├── _buildtime-theme.scss  # SASS variables from theme maps
-    │  ├── _colors.scss           # Color palette
-    │  ├── _runtime-themes.scss   # CSS custom properties from theme maps
-    │  └── _themes.scss           # Theme maps (source of truth)
-```
-
-## Theming Pattern
-
-```scss
-// Step 1: Define SASS variable (your existing system)
-$primary: #2563eb;
-
-// Step 2: Convert to CSS custom property (in theme file)
-:root {
-    --color-primary: #{$primary};  // Note the #{}
-}
-
-// Step 3: Use in component
-.button {
-    background: var(--color-primary);  // Can switch at runtime
-}
-```
 
 ## FAQ's
 

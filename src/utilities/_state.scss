@@ -1,0 +1,62 @@
+@use '../maps_and_variables/colors' as *;
+@use '../mixins/transition' as *;
+@use 'sass:map';
+
+:root {
+    /* Gray state */
+    --gray-bg: #{map.get($oklch-colors, gray-100)};
+    --gray-text: #{map.get($oklch-colors, gray-700)};
+    --gray-bg-hover: #{map.get($oklch-colors, gray-100)};
+    --gray-bg-active: #{map.get($oklch-colors, gray-200)};
+    --gray-border: #{map.get($oklch-colors, gray-200)};
+
+    /* Blue state */
+    --blue-bg: #dbeafe; /* blue-100 */
+    --blue-text: #1e40af; /* blue-800 */
+    --blue-bg-hover: #bfdbfe; /* blue-200 */
+    --blue-bg-active: #93c5fd; /* blue-300 */
+    --blue-border: #3b82f6; /* blue-500 */
+
+    /* Green state */
+    --green-bg: #d1fae5; /* green-100 */
+    --green-text: #065f46; /* green-800 */
+    --green-bg-hover: #a7f3d0; /* green-200 */
+    --green-bg-active: #6ee7b7; /* green-300 */
+    --green-border: #10b981; /* green-500 */
+
+    /* Red state */
+    --red-bg: #fee2e2; /* red-100 */
+    --red-text: #991b1b; /* red-800 */
+    --red-bg-hover: #fecaca; /* red-200 */
+    --red-bg-active: #fca5a5; /* red-300 */
+    --red-border: #ef4444; /* red-500 */
+
+    /* Yellow/Amber state */
+    --yellow-bg: #fef3c7; /* amber-100 */
+    --yellow-text: #92400e; /* amber-800 */
+    --yellow-bg-hover: #fde68a; /* amber-200 */
+    --yellow-bg-active: #fcd34d; /* amber-300 */
+    --yellow-border: #f59e0b; /* amber-500 */
+
+    /* Purple state */
+    --purple-bg: #ede9fe; /* purple-100 */
+    --purple-text: #5b21b6; /* purple-800 */
+    --purple-bg-hover: #ddd6fe; /* purple-200 */
+    --purple-bg-active: #c4b5fd; /* purple-300 */
+    --purple-border: #8b5cf6; /* purple-500 */
+}
+
+.state-nav {
+    &:hover:not(.disabled, :disabled, [aria-disabled]) {
+        background: var(--nav-bg-hover);
+    }
+
+    &:is(.active, :active, [aria-current]):not(.disabled, :disabled, [aria-disabled]) {
+        background: var(--nav-bg-active);
+    }
+
+    &:focus-visible:not(.disabled, :disabled, [aria-disabled]) {
+        outline: 2px solid var(--nav-border);
+        outline-offset: 2px;
+    }
+}
