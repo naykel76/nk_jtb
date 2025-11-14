@@ -23,6 +23,11 @@ $deprecated-sizing-properties-map: (
 @each $size in $sizing-rem {
     $class: sanitize-class-name($size);
 
+    .min-wh-#{$class} {
+        min-height: #{$size}rem;
+        min-width: #{$size}rem;
+    }
+
     .wh-#{$class} {
         height: #{$size}rem;
         width: #{$size}rem;

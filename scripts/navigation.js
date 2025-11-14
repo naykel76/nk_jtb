@@ -4,6 +4,7 @@ import { loadMarkdown } from './markdown-loader.js'
 document.querySelector('#nav').innerHTML = `
 <nav>
     <button class="btn xs primary" data-doc="wip.md">WIP</button>
+    <button class="btn xs primary" data-doc="components/pagination.md">pagination</button>
     <button class="btn xs primary" data-doc="components/accordion.md">accordion</button>
     <button class="btn xs primary" data-doc="installation.md">Installation</button>
     <button class="btn xs primary" data-doc="introduction.md">Introduction</button>
