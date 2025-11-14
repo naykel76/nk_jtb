@@ -37,12 +37,47 @@ function loadMarkdown(filename) {
     })
 }
 
+
+// 
+// 
+// 
+// 
+// 
+// wip.md
+// components\accordion.md
+// components\menu.md
+// components\table.md
+// jtb-for review\color-and-themes.md
+// jtb-for review\conventions.md
+// jtb-for review\faqs.md
+// jtb-for review\layout-techniques.md
+// jtb-for review\magic-classes.md
+// jtb-for review\responsive-design.md
+// jtb-for review\components\forms.md
+// jtb-for review\components\navbar.md
+// jtb-for review\utilities\alignment.md
+// jtb-for review\utilities\border.md
+// jtb-for review\utilities\display-and-visibility.md
+// jtb-for review\utilities\layout.md
+// jtb-for review\utilities\margin-padding-spacing.md
+// wip\aria.md
+// wip\buzz.md
+// wip\directory-structure.md
+// wip\resolvers.md
+
 // Create navigation
 document.querySelector('#nav').innerHTML = `
 <nav>
     <button class="btn xs primary" data-doc="wip.md">WIP</button>
     <button class="btn xs primary" data-doc="installation.md">Installation</button>
     <button class="btn xs primary" data-doc="introduction.md">Introduction</button>
+
+    <button class="btn xs primary" data-doc="core-architecture.md">core-architecture</button>
+    <button class="btn xs primary" data-doc="installation.md">installation</button>
+    <button class="btn xs primary" data-doc="introduction.md">introduction</button>
+    <button class="btn xs primary" data-doc="utility-and-class-generation.md">utility-and-class-generation</button>
+    
+
 </nav>
 `
 
