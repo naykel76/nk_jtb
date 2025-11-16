@@ -4,6 +4,7 @@
 - [Builders vs Makers](#builders-vs-makers)
     - [Builders: Generate Utility Sets](#builders-generate-utility-sets)
     - [Makers: Generate Individual Classes](#makers-generate-individual-classes)
+    - [When to Use What](#when-to-use-what)
 </div>
 
 # JTB Core Architecture
@@ -49,16 +50,74 @@ precision control.
 
 ### Makers: Generate Individual Classes
 
-Makers create individual classes with full manual control. They're what builders
-use internally.
+Makers create individual classes with full manual control. Use these when you need
+precise control over a single class rather than generating a whole set.
 
-<!-- this is not correct!!! -->
+**Single Property Class:**
+
 ```scss +code
 @include make-single-property-class(
-    'z-index',
-    'z-modal',
-    9999,
+    'display',           // CSS property
+    'hidden',            // class name
+    'none',              // value
     $breakpoints: (md, lg),
     $states: (hover)
 );
 ```
+
+Generates:
+```css +code
+.hidden { display: none; }
+.md:hidden { /* media query */ display: none; }
+.lg:hidden { /* media query */ display: none; }
+.hover:hidden:hover { display: none; }
+```
+
+**Position-Based Class:**
+
+```scss +code
+@include make-position-based-class(
+    'margin',            // property
+    2,                   // value
+    $logical-position-map,  // positions (x, y, etc.)
+    'm',                 // identifier
+    'lg',                // variant name
+    (md, lg)             // breakpoints
+);
+```
+
+Generates: `.m-lg`, `.mx-lg`, `.my-lg`, `.md:m-lg`, `.md:mx-lg`, etc.
+
+**Responsive Variants:**
+
+```scss +code
+// From breakpoint up
+@include make-from-breakpoint(
+    (display: flex),
+    'flex',
+    (md, lg)
+);
+
+// Up to breakpoint
+@include make-to-breakpoint(
+    (display: none),
+    'hidden',
+    (md, lg)
+);
+
+// Only on specific breakpoint
+@include make-on-breakpoint(
+    (display: grid),
+    'grid',
+    (md)
+);
+```
+
+### When to Use What
+
+| Use Case | Tool | Example |
+|----------|------|---------|
+| Generate complete utility set | Builder | `build-classes()` for all margin utilities |
+| Create single utility with responsive variants | Maker | `make-single-property-class()` for custom utility |
+| Generate magic classes | Builder | `build-magic-classes()` for responsive patterns |
+| Full manual control | Maker | `make-from-breakpoint()` for specific responsive class |
