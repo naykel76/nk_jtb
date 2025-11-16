@@ -1,5 +1,5 @@
 @use '../functions/classes' as *;
-@use '../mixins/media' as *;
+@use '../mixins/media-container-queries' as *;
 @use '../mixins/property-makers' as *;
 @use '../functions/strings' as *;
 @use 'sass:map';
@@ -41,29 +41,29 @@
 // --------------------------------------------------------------------------
 //
 // ============================================================================
-@mixin make-from-breakpoint($props, $identifier, $breakpoints, $child-combinator: false) {
+@mixin make-from-breakpoint($props, $identifier, $breakpoints, $child-combinator: false, $container: false) {
     @each $bp in $breakpoints {
-        $derived-class: #{$bp}\:#{$identifier};
-        
+        $derived-class: #{if($container, 'cq-#{$bp}', $bp)}\:#{$identifier};
+
         #{build-selector($derived-class, $child-combinator)} {
             @if $bp == 'sm' {
-                @include from-sm {
+                @include from-sm($container) {
                     @include make-properties($props);
                 }
             } @else if $bp == 'md' {
-                @include from-md {
+                @include from-md($container) {
                     @include make-properties($props);
                 }
             } @else if $bp == 'lg' {
-                @include from-lg {
+                @include from-lg($container) {
                     @include make-properties($props);
                 }
             } @else if $bp == 'xl' {
-                @include from-xl {
+                @include from-xl($container) {
                     @include make-properties($props);
                 }
             } @else if $bp == 'xxl' {
-                @include from-xxl {
+                @include from-xxl($container) {
                     @include make-properties($props);
                 }
             }
@@ -196,6 +196,7 @@ $split-properties: ('border-width', 'border-style', 'border-color', 'border-radi
 //   );
 //   // Generates: :where(.space-x-1 > *:not(:first-child))
 // ============================================================================
+// prettier-ignore
 @mixin make-position-based-class($property, $value, $positions-map, $identifier, $variant, $breakpoints, $states: (), $omit-axis-keys: (), $child-combinator: false) {
     // Iterate through each axis or position grouping in the positions map
     @each $position-key, $positions in $positions-map {

@@ -1,5 +1,5 @@
 @use '../maps_and_variables/config' as *;
-@use '../mixins/media' as *;
+@use '../mixins/media-container-queries' as *;
 @use '../mixins/property-makers' as *;
 @use 'sass:list';
 @use 'sass:map';
