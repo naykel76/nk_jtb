@@ -1,0 +1,122 @@
+{
+    "Getting Started": {
+        "links": [
+            {
+                "name": "Introduction",
+                "route_name": "jtb.introduction"
+            },
+            {
+                "name": "Installation",
+                "route_name": "jtb.installation"
+            }
+        ]
+    },
+    "Core Concepts": {
+        "links": [
+            {
+                "name": "Naming Conventions",
+                "route_name": "jtb.conventions"
+            },
+            {
+                "name": "Responsive Design",
+                "route_name": "jtb.responsive-design"
+            },
+            {
+                "name": "Core Architecture",
+                "route_name": "jtb.core-architecture"
+            },
+            {
+                "name": "Utility Generation",
+                "route_name": "jtb.utility-and-class-generation"
+            }
+        ]
+    },
+    "Features": {
+        "links": [
+            {
+                "name": "Automatic Spacing",
+                "route_name": "jtb.automatic-spacing"
+            },
+            {
+                "name": "Magic Classes",
+                "route_name": "jtb.magic-classes"
+            },
+            {
+                "name": "Color & Themes",
+                "route_name": "jtb.color-and-themes"
+            }
+        ]
+    },
+    "Utilities": {
+        "links": [
+            {
+                "name": "Layout",
+                "route_name": "jtb.utilities.layout"
+            },
+            {
+                "name": "Spacing (Margin/Padding)",
+                "route_name": "jtb.utilities.margin-padding-spacing"
+            },
+            {
+                "name": "Borders",
+                "route_name": "jtb.utilities.border"
+            },
+            {
+                "name": "Alignment",
+                "route_name": "jtb.utilities.alignment"
+            },
+            {
+                "name": "Display & Visibility",
+                "route_name": "jtb.display-and-visibility"
+            }
+        ]
+    },
+    "Components": {
+        "links": [
+            {
+                "name": "Accordion",
+                "route_name": "jtb.components.accordion"
+            },
+            {
+                "name": "Forms",
+                "route_name": "jtb.components.forms"
+            },
+            {
+                "name": "Menu",
+                "route_name": "jtb.components.menu"
+            },
+            {
+                "name": "Navbar",
+                "route_name": "jtb.components.navbar"
+            },
+            {
+                "name": "Pagination",
+                "route_name": "jtb.components.pagination"
+            },
+            {
+                "name": "Tables",
+                "route_name": "jtb.components.table"
+            }
+        ]
+    },
+    "Guides": {
+        "links": [
+            {
+                "name": "Layout Techniques",
+                "route_name": "jtb.layout-techniques"
+            },
+            {
+                "name": "Responsive Testing",
+                "route_name": "jtb.responsive-testing"
+            }
+        ]
+    },
+    "Resources": {
+        "links": [
+            {
+                "name": "FAQs",
+                "route_name": "jtb.faqs"
+            }
+        ]
+    }
+}
