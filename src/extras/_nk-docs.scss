@@ -1,6 +1,7 @@
 /* stylelint-disable selector-type-no-unknown */
 @use '../common-tools.scss' as *;
 @use '../mixins/backgrounds' as *;
+@use '../mixins/make-classes' as *;
 @use 'sass:map';
 
 $question-color: #c40c9a !default;
@@ -97,3 +98,37 @@ pre code.torchlight .line-number,
 pre code.torchlight .summary-caret {
     margin-inline-end: 1rem;
 }
+
+// ============================================================================
+// -- Container Queries --
+// ============================================================================
+.resizable-container {
+    border: 2px dashed #667eea;
+    border-radius: 0.5rem;
+    container-name: demo-container;
+    container-type: inline-size;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1rem;
+    position: relative;
+    resize: horizontal;
+    width: 100%;
+
+    // &::after {
+    //     bottom: 0.1125;
+    //     color: #667eea;
+    //     content: '← Drag to resize →';
+    //     font-size: 0.75rem;
+    //     pointer-events: none;
+    //     position: absolute;
+    //     right: 0.5rem;
+    // }
+}
+
+
+@include make-from-breakpoint((display: block), "block", $responsive-variants, $container: true);
+@include make-from-breakpoint((display: flex), "flex", $responsive-variants, $container: true);
+@include make-from-breakpoint((display: none), "hidden", $responsive-variants, $container: true);
+@include make-from-breakpoint((visibility: hidden), "invisible", $responsive-variants, $container: true);
+@include make-from-breakpoint((visibility: visible), "visible", $responsive-variants, $container: true);
+
