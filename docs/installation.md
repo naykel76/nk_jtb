@@ -3,9 +3,6 @@
 - [Install via npm](#install-via-npm)
 - [Basic Setup](#basic-setup)
 - [Configuration](#configuration)
-- [Using CDN](#using-cdn)
-- [Verify Installation](#verify-installation)
-- [Next Steps](#next-steps)
 
 </div>
 
@@ -67,32 +64,3 @@ export default defineConfig({
     }
 });
 ```
-
-## Using CDN
-
-For quick prototyping without a build process:
-
-> **Note:** CDN usage is not recommended for production as you cannot customize variables or tree-shake unused styles.
-
-```html +code
-<link rel="stylesheet" href="https://unpkg.com/nk_jtb@latest/dist/css/build.css">
-```
-
-## Verify Installation
-
-Test it works:
-
-```html +code
-<div class="flex jcc aic">
-    <div class="bx primary p-3">
-        <h1 class="txt-white">JTB is working!</h1>
-    </div>
-</div>
-```
-
-## Next Steps
-
-- [Introduction](introduction.md) - JTB philosophy
-- [Naming Conventions](conventions.md) - Understanding class names  
-- [Responsive Design](responsive-design.md) - Breakpoint patterns
-

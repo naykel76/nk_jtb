@@ -22,7 +22,7 @@
 
 
 
-```html +collapse +render +code class="r"
+```html +collapse +preview +code class="r"
 <nav class="bx pxy-1 bdr-2 bdr-pink">
     <ul class="menu flex-row">
         <li class="relative" x-data="{ open: false }" x-on:click.away="open = false">
@@ -51,7 +51,7 @@
 </nav>
 ```
 
-```html +collapse +render +code
+```html +collapse +preview +code
 <nav class="bx pxy-1 bdr-2 bdr-purple mt">
     <ul class="flex gap-05 txt-sm">
         <li class="relative" x-data="{ open: false }" x-on:click.away="open = false">
@@ -94,7 +94,7 @@
 > flexibility. This allows you to easily switch between vertical and horizontal
 > layouts by adding `flex-row gap-05` to the `ul`.
 
-```html +collapse +render +code
+```html +collapse +preview +code
 <nav class="bx pxy-1 bdr bdr-pink w-18">
     <ul class="menu">
         <li>
@@ -135,7 +135,7 @@
 
 ### Utility Classes Only
 
-```html +collapse +render +code
+```html +collapse +preview +code
 <nav class="bx pxy-1 bdr bdr-purple w-18">
     <ul class="txt-sm">
         <li>
@@ -188,7 +188,7 @@
   dropdowns to create a navbar-style menu.p
 - <span class="txt-red">The dropdown is still using utility classes!</span>
 
-```html +collapse +render +code
+```html +collapse +preview +code
 <nav class="navbar pink">
     <ul class="menu">
         <li>
@@ -235,7 +235,7 @@
 
 ### Utility Classes Only
 
-```html +collapse +render +code
+```html +collapse +preview +code
 <nav class="bx pxy-1 bdr bdr-purple mt">
     <ul class="flex gap-05 txt-sm">
         <li>

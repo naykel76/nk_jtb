@@ -2,183 +2,332 @@
 
 - [Introduction](#introduction)
 - [Breakpoint System](#breakpoint-system)
-- [Responsive Naming Conventions](#responsive-naming-conventions)
-    - [From Screen Sizes: `{breakpoint}:`](#from-screen-sizes-breakpoint)
-    - [Targeting Specific Screen Sizes: `on-{breakpoint}:`](#targeting-specific-screen-sizes-on-breakpoint)
-    - [Up to Screen Sizes: `to-{breakpoint}:`](#up-to-screen-sizes-to-breakpoint)
-- [Mobile-First Philosophy](#mobile-first-philosophy)
-- [Practical Usage Guide](#practical-usage-guide)
-    - [From Screen Sizes `{breakpoint}:` - Progressive Enhancement](#from-screen-sizes-breakpoint---progressive-enhancement)
-    - [Targeting Specific Screen Sizes `on-{breakpoint}:`](#targeting-specific-screen-sizes-on-breakpoint-1)
-    - [Up to Screen Sizes `to-{breakpoint}:`](#up-to-screen-sizes-to-breakpoint-1)
-- [Choosing the Right Approach](#choosing-the-right-approach)
-    - [Quick Reference](#quick-reference)
-    - [Decision Tree](#decision-tree)
-    - [Common Patterns](#common-patterns)
+- [Understanding Responsive Prefixes](#understanding-responsive-prefixes)
+    - [From Breakpoints: `{breakpoint}:`](#from-breakpoints-breakpoint)
+    - [Specific Range: `on-{breakpoint}:`](#specific-range-on-breakpoint)
+    - [Up To Breakpoints: `to-{breakpoint}:`](#up-to-breakpoints-to-breakpoint)
+- [Visibility Patterns](#visibility-patterns)
+    - [The Visibility Window Pattern](#the-visibility-window-pattern)
+    - [Traditional Mobile-First Pattern](#traditional-mobile-first-pattern)
+    - [Pattern Comparison](#pattern-comparison)
+- [Container Queries](#container-queries)
+- [Practical Examples](#practical-examples)
+    - [Content Switching](#content-switching)
+    - [Progressive Enhancement](#progressive-enhancement)
+    - [Breakpoint-Specific Layouts](#breakpoint-specific-layouts)
+- [When to Use Each Prefix](#when-to-use-each-prefix)
+    - [Quick Decision Guide](#quick-decision-guide)
+    - [Common Scenarios](#common-scenarios)
 </div>
 
+# JTB Responsive System
 
-# JTB Responsive System - Core Concepts
-
-<p class="lead">Understanding JTB's responsive breakpoint system, naming
-conventions, and when to apply styles across different screen sizes.</p>
+<p class="lead">A flexible responsive system that gives you precise control over when styles apply across different screen sizes and container widths.</p>
 
 ## Introduction
 
-JTB provides a flexible responsive system that lets you apply different styles
-at different screen sizes. The framework supports three types of breakpoint
-prefixes that control exactly when styles are applied.
+JTB provides three types of responsive prefixes that let you control exactly when styles are applied. Whether you're building mobile-first progressive layouts or creating precise visibility windows for different screen sizes, the framework adapts to your approach.
+
+> **Availability Note:** Standard `{breakpoint}:` prefixes are available on most utilities. The `on-{breakpoint}:` and `to-{breakpoint}:` prefixes are built by default for visibility and display utilities. Use the provided mixins to generate these prefixes for other utilities as needed.
 
 ## Breakpoint System
 
 JTB defines five breakpoint sizes that represent common device categories:
 
-| Breakpoint | Description       | Typical Devices | Breakpoint Value |
-| ---------- | ----------------- | --------------- | ---------------- |
-| `sm`       | Small             | Large phones    | 576px            |
-| `md`       | Medium            | Tablets         | 768px            |
-| `lg`       | Large             | Small laptops   | 992px            |
-| `xl`       | Extra Large       | Desktops        | 1200px           |
-| `xxl`      | Extra Extra Large | Large screens   | 1400px           |
+| Breakpoint | Typical Devices | Min Width | Range           |
+| ---------- | --------------- | --------- | --------------- |
+| `sm`       | Large phones    | 576px     | 576px - 767px   |
+| `md`       | Tablets         | 768px     | 768px - 991px   |
+| `lg`       | Small laptops   | 992px     | 992px - 1199px  |
+| `xl`       | Desktops        | 1200px    | 1200px - 1399px |
+| `xxl`      | Wide screens    | 1400px    | 1400px+         |
 
-## Responsive Naming Conventions
+## Understanding Responsive Prefixes
 
-JTB uses three breakpoint prefix types to control when styles are applied:
+### From Breakpoints: `{breakpoint}:`
 
-> **Note:** Standard `{breakpoint}:` prefixes are available on most utilities.
-> The `on-{breakpoint}:` and `to-{breakpoint}:` prefixes are built by default
-> only for visibility and display utilities. Use the provided mixins to generate
-> these prefixes for other utilities as needed.
+**Applies from the breakpoint and larger** - the mobile-first approach where styles cascade upward.
 
-### From Screen Sizes: `{breakpoint}:`
-
-Applies from the breakpoint and up (mobile-first approach):
-
-```html +code
-<div class="md:bg-blue">Blue background from tablets up</div>
-<div class="lg:text-2xl">Large text from desktop up</div>
+```html
+<div class="md:bg-blue">Blue from tablets up (768px+)</div>
+<div class="lg:text-2xl">Large text from desktop up (992px+)</div>
 ```
 
-### Targeting Specific Screen Sizes: `on-{breakpoint}:`
+**When it applies:**
+- `md:` → 768px and larger
+- `lg:` → 992px and larger
+- `xl:` → 1200px and larger
 
-Applies only within a specific breakpoint range:
+### Specific Range: `on-{breakpoint}:`
 
-```html +code
-<div class="on-md:bg-red">Red background only on tablets</div>
-<div class="on-lg:text-center">Centered only on desktop</div>
+**Applies only within a specific breakpoint range** - styles that should NOT cascade to other sizes.
+
+```html
+<div class="on-md:bg-red">Red only on tablets (768px-991px)</div>
+<div class="on-lg:grid">Grid only on desktop (992px-1199px)</div>
 ```
 
-### Up to Screen Sizes: `to-{breakpoint}:`
+**When it applies:**
+- `on-sm:` → 576px - 767px only
+- `on-md:` → 768px - 991px only
+- `on-lg:` → 992px - 1199px only
 
-Applies up to (but not including) a breakpoint:
+### Up To Breakpoints: `to-{breakpoint}:`
 
-```html +code
-<div class="to-lg:block hidden">Visible on mobile/tablets, hidden on desktop</div>
-<div class="to-md:text-sm">Small text on phones only</div>
+**Applies up to (but not including) the breakpoint** - useful for mobile-only or small-screen-only styles.
+
+```html
+<div class="to-lg:hidden">Hidden below desktop (< 992px)</div>
+<div class="to-md:text-sm">Small text on phones (< 768px)</div>
 ```
 
-## Mobile-First Philosophy
+**When it applies:**
+- `to-sm:` → below 576px
+- `to-md:` → below 768px
+- `to-lg:` → below 992px
 
-JTB follows a mobile-first approach:
+## Visibility Patterns
 
-1. Start with base mobile styles (no prefix)
-2. Enhance progressively for larger screens using breakpoint prefixes
-3. Each breakpoint builds upon the previous
+JTB's responsive system shines when controlling element visibility. There are two approaches, each with distinct advantages.
 
-```html +code
-<div class="
-    p-4 text-sm bg-white
-    sm:p-6
-    md:text-base md:bg-gray-50
-    lg:p-8 lg:text-lg
-    xl:p-12
-">
-    Content styled mobile-first
+### The Visibility Window Pattern
+
+**The elegant approach:** Elements are visible by default. You only declare where visibility turns OFF, letting visibility emerge naturally in the gaps between your declarations.
+
+```html
+<!-- Visible only on mobile (< 768px) -->
+<div class="md:invisible">
+    Mobile-only content
+</div>
+
+<!-- Visible only on tablets (768px - 991px) -->
+<div class="to-md:invisible lg:invisible">
+    Tablet-only content
+</div>
+
+<!-- Visible only on desktop (≥ 992px) -->
+<div class="to-lg:invisible">
+    Desktop-only content
 </div>
 ```
 
-## Practical Usage Guide
+**Why this works:**
+- **One class per boundary** instead of multiple show/hide classes
+- **Declarative intent:** "block visibility at these edges"
+- **Default visible state** is implicit and free
+- **Cleaner HTML** with fewer classes
 
-### From Screen Sizes `{breakpoint}:` - Progressive Enhancement
-
-Use for styles that cascade upward (most common):
-
-```html +code
-<!-- Show/hide navigation elements -->
-<button class="lg:hidden">Mobile Menu</button>
-<nav class="hidden lg:flex">Desktop Navigation</nav>
-
-<!-- Progressive text sizing -->
-<h1 class="text-2xl md:text-3xl lg:text-4xl">Heading</h1>
-
-<!-- Simple visibility control -->
-<div class="hidden md:block">Visible from tablets up</div>
+**Visual representation:**
+```
+Mobile (< 768px)        Tablet (768-991px)      Desktop (≥ 992px)
+─────────────────────────────────────────────────────────────────
+md:invisible            [visible by default]    [visible by default]
+to-md:invisible         lg:invisible            [visible by default]
+[visible by default]    to-md:invisible         lg:invisible
 ```
 
-### Targeting Specific Screen Sizes `on-{breakpoint}:`
+### Traditional Mobile-First Pattern
 
-Use when styles should NOT cascade to other breakpoints:
+**The progressive approach:** Start hidden, explicitly show at each breakpoint.
 
-```html +code
-<!-- Different layout per breakpoint -->
+```html
+<!-- Hidden by default, visible from tablets up -->
+<div class="hidden md:block">
+    Tablet and desktop content
+</div>
+
+<!-- Visible on mobile, hidden from tablets up -->
+<div class="block md:hidden">
+    Mobile-only content
+</div>
+
+<!-- Complex visibility: mobile, hide on tablet, show on desktop -->
+<div class="block md:hidden lg:block">
+    Mobile and desktop content
+</div>
+```
+
+**When to use:**
+- Building layouts that progressively enhance
+- When you're thinking in terms of "add this feature at larger sizes"
+- Working with other responsive utilities that cascade
+
+### Pattern Comparison
+
+| Aspect         | Visibility Window | Mobile-First             |
+| -------------- | ----------------- | ------------------------ |
+| Classes needed | 1-2 per element   | 2-3 per element          |
+| Mental model   | "Block at edges"  | "Show/hide at each step" |
+| Best for       | Show/hide content | Progressive enhancement  |
+| Default state  | Visible           | Hidden                   |
+| Clarity        | High for ranges   | High for cascades        |
+
+**Choose Visibility Windows when:**
+- You're specifically showing/hiding elements at different breakpoints
+- You want cleaner HTML with fewer classes
+- You're thinking in terms of visibility ranges
+
+**Choose Mobile-First when:**
+- Building layouts that progressively enhance
+- Working with utilities that naturally cascade (sizing, spacing)
+- You prefer explicit visibility states at each breakpoint
+
+## Container Queries
+
+All responsive prefixes also work with container queries using the `cq-` prefix. Container queries respond to the parent container's width instead of the viewport.
+
+```html
+<div style="container-type: inline-size">
+    <!-- Responds to container width, not viewport -->
+    <div class="cq-md:invisible">Hidden when container ≥ 768px</div>
+    <div class="cq-to-lg:invisible">Hidden when container < 992px</div>
+    <div class="cq-on-md:bg-blue">Blue only when container is tablet-sized</div>
+</div>
+```
+
+**Container query prefixes:**
+- `cq-{breakpoint}:` - from container width and up
+- `cq-on-{breakpoint}:` - only within container width range
+- `cq-to-{breakpoint}:` - up to container width
+
+## Practical Examples
+
+### Content Switching
+
+**Using Visibility Windows:**
+```html
+<div class="feature-section">
+    <!-- Mobile version -->
+    <div class="md:invisible">
+        <h2>Tap to Learn More</h2>
+        <button>Show Details</button>
+    </div>
+    
+    <!-- Tablet version -->
+    <div class="to-md:invisible lg:invisible">
+        <h2>Explore Features</h2>
+        <div class="grid cols-2">...</div>
+    </div>
+    
+    <!-- Desktop version -->
+    <div class="to-lg:invisible">
+        <h2>Full Feature Overview</h2>
+        <div class="grid cols-3">...</div>
+    </div>
+</div>
+```
+
+**Using Mobile-First:**
+```html
+<div class="feature-section">
+    <!-- Mobile version -->
+    <div class="block md:hidden">
+        <h2>Tap to Learn More</h2>
+        <button>Show Details</button>
+    </div>
+    
+    <!-- Desktop version -->
+    <div class="hidden md:block">
+        <h2>Full Feature Overview</h2>
+        <div class="grid cols-2 lg:cols-3">...</div>
+    </div>
+</div>
+```
+
+### Progressive Enhancement
+
+Mobile-first cascade pattern works best for progressive enhancement:
+
+```html
+<!-- Text sizing that grows with screen size -->
+<h1 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
+    Heading
+</h1>
+
+<!-- Padding that increases at larger screens -->
+<div class="p-4 md:p-6 lg:p-8 xl:p-12">
+    Content with progressive spacing
+</div>
+
+<!-- Navigation that transforms -->
+<nav class="
+    hidden lg:flex
+    lg:gap-4 lg:items-center
+    xl:gap-6
+">
+    Desktop Navigation
+</nav>
+<button class="lg:hidden">Mobile Menu</button>
+```
+
+### Breakpoint-Specific Layouts
+
+Use `on-{breakpoint}:` when layouts shouldn't cascade:
+
+```html
+<!-- Different layout strategy per breakpoint -->
 <div class="
     flex-col
-    on-sm:flex-row
-    on-md:grid on-md:cols-2
-    on-lg:cols-3
+    on-sm:flex-row on-sm:gap-2
+    on-md:grid on-md:cols-2 on-md:gap-4
+    on-lg:grid on-lg:cols-3 on-lg:gap-6
+    on-xl:grid on-xl:cols-4 on-xl:gap-8
 ">
-    Breakpoint-specific layouts
+    Items arranged differently at each breakpoint
 </div>
 
-<!-- Tablet-only content -->
-<div class="hidden on-md:block">Only visible on tablets</div>
+<!-- Tablet-specific design treatment -->
+<aside class="hidden on-md:block on-md:sidebar-layout">
+    Tablet-optimized sidebar
+</aside>
 ```
 
-### Up to Screen Sizes `to-{breakpoint}:`
+## When to Use Each Prefix
 
-Use for mobile-only content or styles:
+### Quick Decision Guide
 
-```html +code
-<!-- Mobile-only elements -->
-<button class="to-lg:block hidden">Tap to Call</button>
+**Use `{breakpoint}:` when:**
+- Building layouts mobile-first
+- Styles should cascade to larger screens
+- Working with sizing, spacing, typography
+- Example: `md:p-6` (padding from tablets up)
 
-<!-- Different content for mobile vs desktop -->
-<div class="to-md:block hidden">Mobile version</div>
-<div class="hidden md:flex">Desktop version</div>
-```
+**Use `on-{breakpoint}:` when:**
+- Layouts differ completely at each breakpoint
+- Styles should NOT cascade
+- Each screen size needs unique treatment
+- Example: `on-md:grid on-md:cols-2` (grid only on tablets)
 
-## Choosing the Right Approach
+**Use `to-{breakpoint}:` when:**
+- Creating mobile-only or small-screen-only styles
+- Building visibility windows
+- Styles should NOT apply beyond a certain point
+- Example: `to-lg:invisible` (hidden on desktop)
 
-### Quick Reference
+### Common Scenarios
 
-| Scenario                         | Use                        | Example                                    |
-| -------------------------------- | -------------------------- | ------------------------------------------ |
-| Progressive enhancement          | `{breakpoint}:`            | `md:text-lg` - larger text from tablets up |
-| Different layout per screen size | `on-{breakpoint}:`         | `on-md:grid` - grid only on tablets        |
-| Mobile-only content              | `to-{breakpoint}:`         | `to-lg:hidden` - hide on desktop           |
-| Desktop-only content             | `{breakpoint}:` + `hidden` | `hidden lg:block` - show from desktop up   |
+```html
+<!-- Show/hide with visibility windows -->
+<div class="md:invisible">Mobile only</div>
+<div class="to-lg:invisible">Desktop only</div>
 
-### Decision Tree
+<!-- Progressive enhancement -->
+<div class="hidden lg:flex">Desktop nav</div>
+<div class="p-4 md:p-6 lg:p-8">Growing padding</div>
 
-1. **Should the style apply to all larger screens too?**
-   - Yes → Use `{breakpoint}:`
-   - No → Continue
+<!-- Breakpoint-specific layouts -->
+<div class="on-md:grid on-md:cols-2">Tablet grid</div>
 
-2. **Should it only apply at one breakpoint range?**
-   - Yes → Use `on-{breakpoint}:`
-   - No → Use `to-{breakpoint}:`
-
-### Common Patterns
-
-```html +code
-<!-- Mobile menu / desktop nav toggle -->
-<button class="lg:hidden">Menu</button>
-<nav class="hidden lg:flex">Desktop Nav</nav>
-
-<!-- Responsive content switching -->
-<div class="to-md:block hidden">Mobile content</div>
+<!-- Content switching (mobile-first) -->
+<div class="block md:hidden">Mobile content</div>
 <div class="hidden md:block">Desktop content</div>
 
-<!-- Grid that changes column count -->
-<div class="grid cols-1 sm:cols-2 lg:cols-3 xl:cols-4">Items</div>
+<!-- Responsive grid (cascade) -->
+<div class="grid cols-1 sm:cols-2 lg:cols-3 xl:cols-4">
+    Grid that grows with screen size
+</div>
 ```
+
+---
+
+**Pro Tip:** Mix and match patterns based on what you're building. Use visibility windows for show/hide, mobile-first for progressive enhancement, and `on-{breakpoint}:` for breakpoint-specific layouts. The system is flexible enough to support your mental model.

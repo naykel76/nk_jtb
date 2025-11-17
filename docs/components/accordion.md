@@ -25,7 +25,7 @@
 
 ### Single Accordion
 
-```html +code-blade +collapse +render
+```html +code-blade +collapse +preview
 <div x-data="{ open: false }" class="bg-white rounded-lg shadow-sm bdr bdr-gray-200">
     <button x-on:click="open = !open" class="w-full px-1.5 py-1 flex items-center justify-between hover:bg-gray-50">
         <span class="font-semibold txt-gray-900">Single Accordion</span>
@@ -40,7 +40,7 @@
 ```
 
 ### Multiple Open Accordion
-```html +code-blade +collapse +render
+```html +code-blade +collapse +preview
 <div class="space-y-05">
     <div x-data="{ open: false }" class="bg-white rounded-lg shadow-sm bdr bdr-gray-200">
         <button x-on:click="open = !open" class="w-full px-1.5 py-1 flex items-center justify-between hover:bg-gray-50">
@@ -69,7 +69,7 @@
 
 ### One Open at a Time Accordion
 
-```html +code-blade +collapse +render
+```html +code-blade +collapse +preview
 <div class="space-y-05" x-data="{ activeItem: null }">
     <div class="bg-white rounded-lg shadow-sm bdr bdr-gray-200">
         <button x-on:click="activeItem = activeItem === 1 ? null : 1"
@@ -102,7 +102,7 @@
 
 ### Single Accordion
 
-```html +code-blade +collapse +render
+```html +code-blade +collapse +preview
 <div x-data="{ open: false }" class="accordion">
     <button x-on:click="open = !open" >
         <span>Single Accordion</span>
@@ -127,7 +127,7 @@ be applied using utility classes.
 
 use `data-accordion-toggle` attribute on the checkbox input to enable accordion behavior.
 
-```html +code +collapse +render
+```html +code +collapse +preview
 <div class="accordion">
     <input type="checkbox" id="abc" data-accordion-toggle>
     <label class="accordion-title" for="abc">
@@ -148,7 +148,7 @@ The radio button method uses hidden radio inputs and labels for each tab.
 Selecting a tab checks the corresponding radio button, allowing only one tab to
 be open at a time.
 
-```html +code +collapse +render
+```html +code +collapse +preview
 <div class="accordion">
     <input type="radio" id="accordion-1" name="accordion-radio-group" data-accordion-toggle>
     <label class="accordion-title" for="accordion-1">
@@ -177,7 +177,7 @@ be open at a time.
 
 ## Accordion Structure
 
-```html +code +collapse +render
+```html +code +collapse +preview
 <div class="bdr-2 bdr-pink rounded-05 pxy-05 bg-white">
     <!-- Header -->
     <div class="flex justify-between bdr bdr-gray-300 pxy-05 rounded-025 bg-stripes-blue">

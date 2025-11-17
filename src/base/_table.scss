@@ -4,14 +4,16 @@ table {
     border: $table-border-width solid $table-border-color;
     border-collapse: collapse;
     font-size: $table-font-size;
-    text-indent: 0;
     width: 100%;
+}
+
+tr + tr {
+    border-top: $table-border-width solid $table-border-color;
 }
 
 th,
 td {
-    border: $table-border-width solid $table-border-color;
-    font-size: inherit;
+    border-bottom: $table-border-width solid $table-border-color;
     padding-block: $table-padding-y;
     padding-inline: $table-padding-x;
     text-align: left;

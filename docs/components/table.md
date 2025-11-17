@@ -14,7 +14,7 @@
 
 Standard HTML table with no additional classes required.
 
-```html + code +render +collapse
+```html +code +preview +collapse
 <table>
     <thead>
         <tr>
@@ -51,7 +51,7 @@ Tables work with all standard utilities and themes - no special table-specific c
 
 Apply utilities to `<table>`, `<tr>`, `<th>`, or `<td>` - context handles the rest.
 
-```html + code +render +collapse
+```html +code +preview +collapse
 <table>
     <thead>
         <tr>
@@ -80,7 +80,7 @@ Apply utilities to `<table>`, `<tr>`, `<th>`, or `<td>` - context handles the re
 </table>
 ```
 
-```html + code +render +collapse
+```html +code +preview +collapse
 <table>
     <thead class="bg-blue-500 txt-white">
         <tr>
