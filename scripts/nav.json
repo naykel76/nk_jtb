@@ -94,7 +94,7 @@
                 "route_name": "jtb.components.pagination"
             },
             {
-                "name": "Tables",
+                "name": "Table",
                 "route_name": "jtb.components.table"
             }
         ]

@@ -2,8 +2,8 @@ import { loadMarkdown } from './markdown-loader.js'
 
 // Function to convert route name to file path
 function routeToFile(routeName) {
-    // Remove 'jtb.' prefix and add .md extension
-    return routeName.replace('jtb.', '') + '.md'
+    // Remove 'jtb.' prefix, replace dots with slashes, and add .md extension
+    return routeName.replace('jtb.', '').replace(/\./g, '/') + '.md'
 }
 
 // Function to load and process navigation from JSON

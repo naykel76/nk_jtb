@@ -25,7 +25,7 @@
 ```html +collapse +preview +code class="r"
 <nav class="bx pxy-1 bdr-2 bdr-pink">
     <ul class="menu flex-row">
-        <li class="relative" x-data="{ open: false }" x-on:click.away="open = false">
+        <li class="relative" x-data="{ open: false }" x-on:click.outside="open = false" x-on:keydown.escape="open = false">
             <button x-on:click="open = ! open">
                 <span>
                     <svg class="bdr bdr-pink bg-stripes-pink"></svg>
@@ -54,7 +54,7 @@
 ```html +collapse +preview +code
 <nav class="bx pxy-1 bdr-2 bdr-purple mt">
     <ul class="flex gap-05 txt-sm">
-        <li class="relative" x-data="{ open: false }" x-on:click.away="open = false">
+        <li class="relative" x-data="{ open: false }" x-on:click.outside="open = false" x-on:keydown.escape="open = false">
             <button x-on:click="open = ! open" class="flex items-center gap-075 px-075 py-05 rounded-lg txt-gray-700 hover:bg-gray-100">
                 <span class="flex items-center gap-075">
                     <svg class="wh-1.25 bdr bdr-purple bg-stripes-purple"></svg>
@@ -203,7 +203,7 @@
                 Active
             </a>
         </li>
-        <li class="relative" x-data="{ open: false }" x-on:click.away="open = false">
+        <li class="relative" x-data="{ open: false }" x-on:click.outside="open = false" x-on:keydown.escape="open = false">
             <button x-on:click="open = ! open">
                 <span>
                     <svg class="bdr bdr-pink bg-stripes-pink"></svg>
@@ -250,7 +250,7 @@
                 Active
             </a>
         </li>
-        <li class="relative" x-data="{ open: false }" x-on:click.away="open = false">
+        <li class="relative" x-data="{ open: false }" x-on:click.outside="open = false" x-on:keydown.escape="open = false">
             <button x-on:click="open = ! open" class="flex items-center gap-075 px-075 py-05 rounded-lg txt-gray-700 hover:bg-gray-100">
                 <span class="flex items-center gap-075">
                     <svg class="wh-1.25 bdr bdr-purple bg-stripes-purple"></svg>
