@@ -66,8 +66,12 @@
                 "route_name": "jtb.utilities.alignment"
             },
             {
+                "name": "Animation",
+                "route_name": "jtb.utilities.animation"
+            },
+            {
                 "name": "Display & Visibility",
-                "route_name": "jtb.display-and-visibility"
+                "route_name": "jtb.utilities.display-and-visibility"
             }
         ]
     },
@@ -116,6 +120,14 @@
             {
                 "name": "FAQs",
                 "route_name": "jtb.faqs"
+            }
+        ]
+    },
+    "Examples": {
+        "links": [
+            {
+                "name": "Form Examples",
+                "route_name": "jtb.form-examples"
             }
         ]
     }
