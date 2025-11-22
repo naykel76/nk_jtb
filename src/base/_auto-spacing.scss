@@ -7,7 +7,7 @@
 // Core spacing targets - block-level content elements
 $spacing-targets: blockquote, p, pre, form, table, ol, ul, h1, h2, h3, h4, h5, h6;
 
-// Common component classes that should trigger spacing 
+// Common component classes that should trigger spacing
 $common-classes: "[class*='container']", '.frm-row', '.bx', '.bx-content', '.bx-title';
 
 // Inline elements that should never receive block-level spacing
@@ -28,9 +28,9 @@ $inline-exclusions: svg, span;
 
 // catch the strays (use with caution). The :where selector is to kill the
 // specificity for easier override
-// :where(*:not([class*='flex'], [class*='grid'])) > :where(.frm-row, table, form, pre):not(:first-child) {
-//     margin-block-start: $base-gap;
-// }
+:where(*:not([class*='flex'], [class*='grid'])) > :where(.frm-row, table, form):not(:first-child) {
+    margin-block-start: $base-gap;
+}
 
 // opt out for `flex` and `grid` element and use `gap` instead
 :where([class*='flex'], [class*='grid']) > * {

@@ -4,19 +4,19 @@
 @forward './components';
 @forward './forms';
 
-//
+// Utility Classes
 @forward './utilities/alignment';
+@forward './utilities/animation';
 @forward './utilities/backgrounds';
 @forward './utilities/container';
 @forward './utilities/display-visibility';
-@forward './utilities/effects';
 @forward './utilities/flexbox';
 @forward './utilities/grid';
 @forward './utilities/interactivity';
 @forward './utilities/layout';
 @forward './utilities/misc';
-@forward './utilities/state';
 @forward './utilities/sizing';
+@forward './utilities/state';
 @forward './utilities/transforms';
 @forward './utilities/transition';
 @forward './utilities/typography';
