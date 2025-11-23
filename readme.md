@@ -9,9 +9,9 @@
 
 ---
 
-**Why build another CSS framework?**
+**Why build another framework?**
 
-> "Because without reinventing the wheel we wouldn't have fast cars."  
+> "Because without reinventing the wheel, we wouldn't have fast cars."  
 > -- Nathan Watts
 
 ---
@@ -26,33 +26,6 @@
 
 ---
 
-## Directory Structure
-
-```bash
-src/
-    ├──color-and-themes/
-    │  ├── _buildtime-theme.scss  # SASS variables from theme maps
-    │  ├── _colors.scss           # Color palette
-    │  ├── _runtime-themes.scss   # CSS custom properties from theme maps
-    │  └── _themes.scss           # Theme maps (source of truth)
-```
-
-## Theming Pattern
-
-```scss
-// Step 1: Define SASS variable (your existing system)
-$primary: #2563eb;
-
-// Step 2: Convert to CSS custom property (in theme file)
-:root {
-    --color-primary: #{$primary};  // Note the #{}
-}
-
-// Step 3: Use in component
-.button {
-    background: var(--color-primary);  // Can switch at runtime
-}
-```
 
 ## FAQ's
 
@@ -91,15 +64,20 @@ margin-<top|right|bottom|left>
 
 ## Spacing Scale
 
-| px  | rem      | tailwind |
-| --- | -------- | -------- |
-| 4   | 0.25rem  | 1        |
-| 6   | 0.375rem | 1.5      |
-| 8   | 0.5rem   | 2        |
-| 10  | 0.625rem | 2.5      |
-| 12  | 0.75rem  | 3        |
-| 14  | 0.875rem | 3.5      |
-| 16  | 1rem     | 4        |
-| 20  | 1.25rem  | 5        |
-| 24  | 1.5rem   | 6        |
+| tailwind | px  | rem      |
+| -------- | --- | -------- |
+| 1        | 4   | 0.25rem  |
+| 1.5      | 6   | 0.375rem |
+| 2        | 8   | 0.5rem   |
+| 2.5      | 10  | 0.625rem |
+| 3        | 12  | 0.75rem  |
+| 3.5      | 14  | 0.875rem |
+| 4        | 16  | 1rem     |
+| 5        | 20  | 1.25rem  |
+| 6        | 24  | 1.5rem   |
+| 7        | 28  | 1.75rem  |
+| 8        | 32  | 2rem     |
+| 9        | 36  | 2.25rem  |
+| 9.5      | 38  | 2.375rem |
+| 10       | 40  | 2.5rem   |
 
