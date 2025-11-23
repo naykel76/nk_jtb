@@ -13,9 +13,7 @@ $container-variants: ( base: $base-container-size, sm: $sm, md: $md, lg: $lg, xl
 // ============================================================================
 $z-index-values: (0, 1, 50, 100, (bottom: -1), (top: 999)) !default;
 
-// Effects and Transitions
-// ============================================================================
-$opacity-values: (0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1);
+
 
 //  Flex and Grid
 // ============================================================================
@@ -34,7 +32,7 @@ $width: smart-merge((screen: 100vw), $height-width) !default;
 
 // sizing values
 $sizing-pixels: (200px, 250px, 300px, 400px, 600px) !default;
-$sizing-rem: (0, 1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24) !default;
+$sizing-rem: (0, 0.5, 1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24) !default;
 $sizing-breakpoint-variants: ( xs: 30rem, sm: $sm, md: $md, lg: $lg, xl: $xl, xxl: $xxl ) !default;
 $sizing-map: smart-merge($sizing-rem, $sizing-pixels, $sizing-breakpoint-variants) !default;
 

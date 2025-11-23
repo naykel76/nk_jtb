@@ -49,6 +49,7 @@ $logical-position-map: (
     r: inline-end,
 ) !default;
 
+$logical-edges-map: map.remove($logical-position-map, 'xy', 'x', 'y') !default; // Individual edges only
 // ============================================================================
 // Physical Position Map
 // ============================================================================

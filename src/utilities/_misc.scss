@@ -76,13 +76,6 @@
     z-index: 1000;
 }
 
-@each $value in $opacity-values {
-    $variant: sanitize-class-name($value);
-    .hover\:opacity-#{$variant}:hover {
-        opacity: $value;
-    }
-}
-
 //
 // -----------------------------------
 .close {

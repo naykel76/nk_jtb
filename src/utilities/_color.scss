@@ -6,22 +6,8 @@
 // value.
 
 $color-properties: (
-    color: (
-        prefix: '#{$text-prefix}',
-        values: smart-merge($base-colors, $oklch-colors)
-    ),
-    background-color: (
-        prefix: 'bg-',
-        values: smart-merge($base-colors, $oklch-colors)
-    ),
-    border-color: (
-        prefix: '#{$border-prefix}',
-        values: smart-merge($base-colors, $oklch-colors)
-    ),
-    outline-color: (
-        prefix: 'outline-',
-        values: smart-merge($base-colors, $oklch-colors)
-    )
+    background-color: ( prefix: 'bg-', values: smart-merge($base-colors, $oklch-colors) ),
+    stroke: ( values: smart-merge($base-colors, $oklch-colors) ),
 );
 
 // ============================================================================
@@ -30,7 +16,7 @@ $color-properties: (
 
 @include build-classes($color-properties, $responsive: false, $with-state: true);
 
-// NKTD: Consider if I really need place holder color utility classes
+// NKTD: Consider if I really need place holder color utility classes 
 @each $color-name, $color-map in $tailwind-colors {
     @each $key, $value in $color-map {
         .placeholder-#{$color-name}-#{$key}::placeholder {

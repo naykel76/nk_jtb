@@ -35,7 +35,10 @@ $border-widths: (
     2: px-to-rem(2),
     3: px-to-rem(3),
     4: px-to-rem(4),
-    5: px-to-rem(5)
+    5: px-to-rem(5),
+    8: px-to-rem(8),
+    12: px-to-rem(12),
+    16: px-to-rem(16)
 ) !default;
 
 $border-radius-values: (0, 0.25, 0.5, 0.75, 1, 1.5, 2) !default;

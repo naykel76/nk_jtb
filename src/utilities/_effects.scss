@@ -1,0 +1,151 @@
+@use '../common-tools' as *;
+@use 'sass:map';
+
+// prettier-ignore
+$effects-properties-map: (
+    opacity: ( prefix: 'opacity-', values: $opacity-map),
+    box-shadow: ( prefix: 'shadow-', values: $shadow-variants ),
+    // filter: ( prefix: 'blur-', values: $blur-variants, wrapper: 'blur' ),
+    // backdrop-filter: ( prefix: 'backdrop-blur-', values: $backdrop-blur-variants )
+);
+
+// ============================================================================
+// Builds
+// ============================================================================
+@include build-classes($effects-properties-map, $responsive: true);
+
+// fix states
+// @include build-classes($effects-properties-map, $responsive: true, $states: (hover));
+
+// // ============================================================================
+// // Additional Effects
+// // ============================================================================
+
+// // -- Grayscale Filter --
+// .grayscale {
+//     filter: grayscale(100%);
+// }
+
+// .grayscale-50 {
+//     filter: grayscale(50%);
+// }
+
+// // -- Brightness --
+// .brightness-50 {
+//     filter: brightness(0.5);
+// }
+
+// .brightness-75 {
+//     filter: brightness(0.75);
+// }
+
+// .brightness-125 {
+//     filter: brightness(1.25);
+// }
+
+// .brightness-150 {
+//     filter: brightness(1.5);
+// }
+
+// // -- Contrast --
+// .contrast-50 {
+//     filter: contrast(0.5);
+// }
+
+// .contrast-125 {
+//     filter: contrast(1.25);
+// }
+
+// .contrast-150 {
+//     filter: contrast(1.5);
+// }
+
+// // -- Sepia --
+// .sepia {
+//     filter: sepia(100%);
+// }
+
+// .sepia-50 {
+//     filter: sepia(50%);
+// }
+
+// // -- Invert --
+// .invert {
+//     filter: invert(100%);
+// }
+
+// // -- Saturate --
+// .saturate-50 {
+//     filter: saturate(0.5);
+// }
+
+// .saturate-150 {
+//     filter: saturate(1.5);
+// }
+
+// .saturate-200 {
+//     filter: saturate(2);
+// }
+
+// // -- Hue Rotate --
+// .hue-rotate-90 {
+//     filter: hue-rotate(90deg);
+// }
+
+// .hue-rotate-180 {
+//     filter: hue-rotate(180deg);
+// }
+
+// // -- Mix Blend Mode --
+// .mix-blend-multiply {
+//     mix-blend-mode: multiply;
+// }
+
+// .mix-blend-screen {
+//     mix-blend-mode: screen;
+// }
+
+// .mix-blend-overlay {
+//     mix-blend-mode: overlay;
+// }
+
+// .mix-blend-darken {
+//     mix-blend-mode: darken;
+// }
+
+// .mix-blend-lighten {
+//     mix-blend-mode: lighten;
+// }
+
+// .mix-blend-color-dodge {
+//     mix-blend-mode: color-dodge;
+// }
+
+// .mix-blend-color-burn {
+//     mix-blend-mode: color-burn;
+// }
+
+// .mix-blend-difference {
+//     mix-blend-mode: difference;
+// }
+
+// // -- Background Blend Mode --
+// .bg-blend-multiply {
+//     background-blend-mode: multiply;
+// }
+
+// .bg-blend-screen {
+//     background-blend-mode: screen;
+// }
+
+// .bg-blend-overlay {
+//     background-blend-mode: overlay;
+// }
+
+// .bg-blend-darken {
+//     background-blend-mode: darken;
+// }
+
+// .bg-blend-lighten {
+//     background-blend-mode: lighten;
+// }

@@ -72,6 +72,10 @@
             {
                 "name": "Display & Visibility",
                 "route_name": "jtb.utilities.display-and-visibility"
+            },
+            {
+                "name": "Effects",
+                "route_name": "jtb.utilities.effects"
             }
         ]
     },

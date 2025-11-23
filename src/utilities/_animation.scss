@@ -1,0 +1,75 @@
+// ============================================================================
+// -- Animation Keyframes --
+// ============================================================================
+@keyframes bounce {
+    0%,
+    100% {
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+        transform: translateY(-25%);
+    }
+
+    50% {
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+        transform: none;
+    }
+}
+
+@keyframes pulse-ring {
+    0% {
+        opacity: 1;
+        transform: scale(0.8);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.4);
+    }
+}
+
+@keyframes pulse {
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+// ============================================================================
+// -- Animations --
+// ============================================================================
+:root {
+    --animate-bounce: bounce 1s infinite;
+    --animate-ping: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+    --animate-pulse-ring: pulse-ring 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    --animate-spin: spin 1.5s linear infinite;
+}
+
+.animate-none {
+    animation: none;
+}
+
+.animate-bounce {
+    animation: var(--animate-bounce);
+}
+
+.animate-pulse-ring {
+    animation: var(--animate-pulse-ring);
+}
+
+.animate-pulse {
+    animation: var(--animate-pulse);
+}
+
+.animate-ping {
+    animation: var(--animate-ping);
+}
+
+.animate-spin {
+    animation: var(--animate-spin);
+}
+

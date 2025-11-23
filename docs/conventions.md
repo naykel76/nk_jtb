@@ -17,6 +17,7 @@
         - [Single List (for properties with one type only)](#single-list-for-properties-with-one-type-only)
     - [Why This Structure](#why-this-structure)
     - [Overridability](#overridability)
+- [Unit Convention Exception](#unit-convention-exception)
 </div>
 
 # Naming Conventions
@@ -160,3 +161,19 @@ $margin-variants: (auto: auto) !default;
 ```
 
 Users can override values, variants, or both before importing.
+
+
+<!-- this is out of place -->
+## Unit Convention Exception
+
+JTB uses `rem` units by default for consistency and scalability. However, **border and
+outline widths use `px`** because:
+
+- Borders work best at whole-pixel values (sub-pixel rendering issues)
+- Borders shouldn't scale with font-size (unlike spacing/typography)
+- Browser rendering is more consistent with px borders
+
+```scss
+bdr-1   // 1px border
+bdr-2   // 2px border
+```
