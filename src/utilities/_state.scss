@@ -46,17 +46,47 @@
     --purple-border: #8b5cf6; /* purple-500 */
 }
 
-.state-nav {
+.state-gray {
     &:hover:not(.disabled, :disabled, [aria-disabled]) {
-        background: var(--nav-bg-hover);
+        background: var(--gray-bg-hover);
     }
 
     &:is(.active, :active, [aria-current]):not(.disabled, :disabled, [aria-disabled]) {
-        background: var(--nav-bg-active);
+        background: var(--gray-bg-active);
     }
 
     &:focus-visible:not(.disabled, :disabled, [aria-disabled]) {
-        outline: 2px solid var(--nav-border);
+        outline: 2px solid var(--gray-border);
         outline-offset: 2px;
     }
 }
+
+
+// // Reusable state mixin
+// @mixin state($color) {
+//     &:hover:not(.disabled, :disabled, [aria-disabled]) {
+//         background: var(--#{$color}-bg-hover);
+//     }
+
+//     &:is(.active, :active, [aria-current]):not(.disabled, :disabled, [aria-disabled]) {
+//         background: var(--#{$color}-bg-active);
+//     }
+
+//     &:focus-visible:not(.disabled, :disabled, [aria-disabled]) {
+//         outline: 2px solid var(--#{$color}-border);
+//         outline-offset: 2px;
+//     }
+// }
+
+// // Usage examples
+// .state-gray {
+//     @include state(gray);
+// }
+
+// .state-blue {
+//     @include state(blue);
+// }
+
+// .state-red {
+//     @include state(red);
+// }

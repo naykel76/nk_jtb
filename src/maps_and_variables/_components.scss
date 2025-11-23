@@ -7,23 +7,27 @@
 
 // -- navbar --
 // ==============================================================
-// $navbar-bg: hsl(216, 31%, 17%) !default;
-$navbar-bg: $primary !default;
+$navbar-bg: hsl(216 31% 17%) !default;
 
 $navbar-padding-x: 1rem !default;
 $navbar-padding-y: 0.5rem !default;
 
-$navbar-nav-padding-x: 1em !default;
-$navbar-nav-padding-y: 0.75em !default;
+$navbar-nav-padding-x: 1rem !default; // ?
+$navbar-nav-padding-y: 0.75rem !default; // ?
 
 $navbar-nav-item-bg: $navbar-bg !default;
-$navbar-nav-item-color: text-color($navbar-nav-item-bg) !default;
+$navbar-nav-item-color: hsl(0 0% 80%) !default; // Light gray text
+$navbar-nav-font-weight: 500 !default;
 
 $navbar-nav-hover-bg: color.adjust($navbar-nav-item-bg, $lightness: 3%) !default;
-$navbar-nav-hover-color: color.adjust(text-color($navbar-nav-item-bg), $lightness: 20%) !default;
+$navbar-nav-hover-color: hsl(0 0% 95%) !default; // Lighter on hover
 
 $navbar-nav-active-bg: color.adjust($navbar-nav-item-bg, $lightness: -3%) !default;
-$navbar-nav-active-color: color.adjust(text-color($navbar-nav-item-bg), $lightness: -20%) !default;
+$navbar-nav-active-color: hsl(0 85% 70%) !default; // use for focus as well
+
+
+
+
 
 // -- lists --
 // ==============================================================
@@ -37,6 +41,7 @@ $icon-tick: url("data:image/svg+xml;utf8,<?xml version='1.0' encoding='utf-8'?><
 $bx-bg: #fff !default;
 $bx-padding: $base-padding !default;
 $bx-border-radius: 0.5rem !default;
+$bx-border-color: $border-color !default;
 $bx-header-bg: rgb(250 250 250) !default;
 $bx-title-font-weight: 700 !default;
 $bx-title-font-size: 1.25rem !default;

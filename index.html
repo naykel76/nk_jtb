@@ -6,13 +6,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
     <title>NayKel JTB</title>
+    <style>
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.8);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1.4);
+                opacity: 0;
+            }
+        }
+
+        @keyframes checkmark {
+            0% {
+                stroke-dashoffset: 100;
+            }
+
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes circle {
+            0% {
+                stroke-dashoffset: 166;
+            }
+
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .animate-spin {
+            animation: spin 1s linear infinite;
+        }
+
+        .animate-pulse-ring {
+            animation: pulse-ring 1.5s ease-out infinite;
+        }
+
+        .animate-checkmark {
+            stroke-dasharray: 100;
+            animation: checkmark 0.6s ease-in-out forwards;
+        }
+
+        .animate-circle {
+            stroke-dasharray: 166;
+            animation: circle 0.6s ease-in-out forwards;
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .animate-scaleIn {
+            animation: scaleIn 0.4s ease-out forwards;
+        }
+    </style>
 </head>
 
-<body class="pxy">
-    <div id="nav" class="mb-3"></div>
+<body class="pxy space-y bg-gray-50">
+
+    <div class="container">
+        <!-- SUCCESS STATES -->
+        <section>
+            <h2>Success States</h2>
+            <div class="grid md:cols-2 gap-075">
+                <!-- Animated Checkmark -->
+                <div class="bx bdr-none shadow-lg">
+                    <h3 class="bx-title txt-1 font-semibold">Animated Checkmark</h3>
+                    <div class="flex-centered flex-col py-1">
+                        <svg class="wh-5" viewBox="0 0 52 52">
+                            <circle class="animate-circle" cx="26" cy="26" r="25" fill="none" stroke="#10b981" stroke-width="2" />
+                            <path class="animate-checkmark" fill="none" stroke="#10b981" stroke-width="3" d="M14 27l7 7 16-16" />
+                        </svg>
+                        <p class="txt-xl font-bold txt-gray-800 mt-05">Message Sent!</p>
+                        <p class="txt-gray-600 txt-center txt-sm">Thank you for reaching out.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- <div id="nav" class="mb-3"></div>
     <main class="container-md space-y">
         <div id="app" class="space-y"></div>
-    </main>
+    </main> -->
     <script type="module" src="/main.js"></script>
 </body>
 

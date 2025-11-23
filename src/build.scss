@@ -4,9 +4,13 @@
 @forward './components';
 @forward './forms';
 
-//
+// Utility Classes
 @forward './utilities/alignment';
+
+// @forward './utilities/animation';
 @forward './utilities/backgrounds';
+@forward './utilities/border';
+@forward './utilities/color';
 @forward './utilities/container';
 @forward './utilities/display-visibility';
 @forward './utilities/effects';
@@ -15,14 +19,10 @@
 @forward './utilities/interactivity';
 @forward './utilities/layout';
 @forward './utilities/misc';
-@forward './utilities/state';
 @forward './utilities/sizing';
+@forward './utilities/spacing';
+@forward './utilities/state';
+@forward './utilities/themes';
 @forward './utilities/transforms';
 @forward './utilities/transition';
 @forward './utilities/typography';
-
-// Updated and ready to go!
-@forward './utilities/border';
-@forward './utilities/color';
-@forward './utilities/spacing';
-@forward './utilities/themes';
