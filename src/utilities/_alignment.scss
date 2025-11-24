@@ -64,5 +64,5 @@ $custom-alignment-properties-map: (
 // Build Classes
 // ============================================================================
 
-@include build-property-classes($alignment-properties-map, $responsive: true);
-@include build-property-classes($custom-alignment-properties-map, $responsive: true);
+@include build-classes($alignment-properties-map, $responsive: true);
+@include build-classes($custom-alignment-properties-map, $responsive: true);

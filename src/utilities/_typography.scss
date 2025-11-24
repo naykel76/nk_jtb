@@ -11,15 +11,7 @@ $typography-variants-map: (
 
 // prettier-ignore
 $typography-properties-map: (
-    font-size: (
-        prefix: "#{$text-prefix}",
-        values: $font-size-map,
-        unit: "rem"
-    ),
-    font-style: (
-        prefix: "#{$text-prefix}",
-        values: ( italic, normal )
-    ),
+    color: ( prefix: '#{$text-prefix}', values: smart-merge($base-colors, $oklch-colors) ),
     font-family: (
         prefix: "font-",
         values: (
@@ -28,52 +20,30 @@ $typography-properties-map: (
             mono: ( ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace ),
         )
     ),
-    font-weight: (
-        prefix: "#{$font-weight-prefix}",
-        values: $font-weight-values
-    ),
-    line-height: (
-        prefix: "#{$line-height-prefix}",
-        values: ( 1, 1.5, 2 )
-    ),
-    text-align: (
-        prefix: "#{$text-align-prefix}",
-        values: ( l: left, r: right, c: center, j: justify )
-    ),
-    text-decoration: (
-        prefix: "#{$text-prefix}",
-        values: ( strike: line-through, underline: underline, overline: overline, underline-overline: underline overline )
-    ),
-    text-transform: (
-        prefix: "#{$text-prefix}",
-        values: ( upper: uppercase, lower: lowercase, capitalize: capitalize, normal-case: none )
-    ),
-    white-space: (
-        prefix: "whitespace-",
-        values: ( normal, nowrap, pre, pre-line, pre-wrap )
-    ),
-    text-wrap: (
-        prefix: "#{$text-prefix}",
-        values: ( wrap, balance, nowrap, pretty )
-    ),
-    list-style-type: (
-        prefix: "list-",
-        values: (none, disc, decimal, circle, square)
-    )
+    font-size: ( prefix: "#{$text-prefix}", values: $font-size-map, unit: "rem" ),
+    font-style: ( prefix: "#{$text-prefix}", values: ( italic, normal ) ),
+    font-weight: ( prefix: "#{$font-weight-prefix}", values: $font-weight-values ),
+    line-height: ( prefix: "#{$line-height-prefix}", values: ( 1, 1.5, 2 ) ),
+    list-style-type: ( prefix: "list-", values: (none, disc, decimal, circle, square) ),
+    text-align: ( prefix: "#{$text-align-prefix}", values: ( l: left, r: right, c: center, j: justify ) ),
+    text-decoration: ( prefix: "#{$text-prefix}", values: ( strike: line-through, underline: underline, overline: overline, underline-overline: underline overline ) ),
+    text-transform: ( prefix: "#{$text-prefix}", values: ( upper: uppercase, lower: lowercase, capitalize: capitalize, normal-case: none ) ),
+    text-wrap: ( prefix: "#{$text-prefix}", values: ( wrap, balance, nowrap, pretty ) ),
+    white-space: ( prefix: "whitespace-", values: ( normal, nowrap, pre, pre-line, pre-wrap ) ),
 );
+
 $text-classes-map: (
-    txt-xs: ( props: ( font-size: 0.75rem, line-height: 1.1 ) ),
-    txt-sm: ( props: ( font-size: 0.875rem, line-height: 1.25 ) ),
-    txt-base: ( props: ( font-size: 1rem, line-height: 1.5 ) ),
+    txt-xs: ( props: ( font-size: 0.75rem, line-height: 1.25 ) ),
+    txt-sm: ( props: ( font-size: 0.875rem, line-height: 1.4 ) ),
+    txt-base: ( props: ( font-size: 1rem, line-height: 1.5 ) ), 
     txt-lg: ( props: ( font-size: 1.125rem, line-height: 1.5 ) ),
-    txt-xl: ( props: ( font-size: 1.25rem, line-height: 1.6 ) ),
-    txt-xxl: ( props: ( font-size: 1.5rem, line-height: 1.6 ) ),
-    lead: ( props: ( font-size: 1.2rem ) )
+    txt-xl: ( props: ( font-size: 1.25rem, line-height: 1.5 ) ),
+    lead: ( props: ( font-size: 1.125rem, line-height: 1.7 ) )
 );
 
 // ============================================================================
 // Builds
 // ============================================================================
-@include build-property-classes($typography-properties-map, $responsive: true);
-@include build-property-classes($typography-variants-map, $responsive: true);
+@include build-classes($typography-properties-map, $responsive: true);
+@include build-classes($typography-variants-map, $responsive: true);
 @include build-composite-classes($text-classes-map, $responsive: true);

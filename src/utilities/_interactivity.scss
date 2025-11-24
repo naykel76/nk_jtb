@@ -12,4 +12,4 @@ $properties-map: (
 // ============================================================================
 // Builds
 // ============================================================================
-@include build-property-classes($properties-map, $responsive: true);
+@include build-classes($properties-map, $responsive: true);

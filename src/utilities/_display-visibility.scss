@@ -9,7 +9,7 @@ $display-visibility-properties-map: (
 // ============================================================================
 // Builds
 // ============================================================================
-@include build-property-classes($display-visibility-properties-map, $responsive: true);
+@include build-classes($display-visibility-properties-map, $responsive: true);
 
 // --------------------------------------------------------------------------
 // Additional responsive display utilities for specific breakpoints

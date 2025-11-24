@@ -53,6 +53,6 @@ $flexbox-composite-classes: (
 // Builds
 // ============================================================================
 
-@include build-property-classes($flex-properties-map, $responsive: true);
+@include build-classes($flex-properties-map, $responsive: true);
 @include build-composite-classes($flexbox-composite-classes, $responsive: true);
 

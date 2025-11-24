@@ -6,10 +6,7 @@
 // value.
 
 $color-properties: (
-    color: (
-        prefix: '#{$text-prefix}',
-        values: smart-merge($base-colors, $oklch-colors)
-    ),
+
     background-color: (
         prefix: 'bg-',
         values: smart-merge($base-colors, $oklch-colors)
@@ -24,4 +21,4 @@ $color-properties: (
     )
 );
 
-@include build-property-classes($color-properties, $responsive: false, $with-state: true);
+@include build-classes($color-properties, $responsive: false, $with-state: true);
