@@ -7,23 +7,27 @@
 
 // -- navbar --
 // ==============================================================
-// $navbar-bg: hsl(216, 31%, 17%) !default;
-$navbar-bg: $primary !default;
+$navbar-bg: hsl(216 31% 17%) !default;
 
 $navbar-padding-x: 1rem !default;
 $navbar-padding-y: 0.5rem !default;
 
-$navbar-nav-padding-x: 1em !default;
-$navbar-nav-padding-y: 0.75em !default;
+$navbar-nav-padding-x: 1rem !default; // ?
+$navbar-nav-padding-y: 0.75rem !default; // ?
 
 $navbar-nav-item-bg: $navbar-bg !default;
-$navbar-nav-item-color: text-color($navbar-nav-item-bg) !default;
+$navbar-nav-item-color: hsl(0 0% 80%) !default; // Light gray text
+$navbar-nav-font-weight: 500 !default;
 
 $navbar-nav-hover-bg: color.adjust($navbar-nav-item-bg, $lightness: 3%) !default;
-$navbar-nav-hover-color: color.adjust(text-color($navbar-nav-item-bg), $lightness: 20%) !default;
+$navbar-nav-hover-color: hsl(0 0% 95%) !default; // Lighter on hover
 
 $navbar-nav-active-bg: color.adjust($navbar-nav-item-bg, $lightness: -3%) !default;
-$navbar-nav-active-color: color.adjust(text-color($navbar-nav-item-bg), $lightness: -20%) !default;
+$navbar-nav-active-color: hsl(0 85% 70%) !default; // use for focus as well
+
+
+
+
 
 // -- lists --
 // ==============================================================
@@ -31,16 +35,16 @@ $icon-list-color: inherit !default;
 
 $icon-tick: url("data:image/svg+xml;utf8,<?xml version='1.0' encoding='utf-8'?><svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><path fill='#{$icon-list-color}' d='M10,0A10,10,0,1,0,20,10,10.011,10.011,0,0,0,10,0Zm5.575,6.665L9.421,13.588a.77.77,0,0,1-1.056.09L4.519,10.6A.769.769,0,0,1,5.48,9.4l3.276,2.62,5.669-6.377a.769.769,0,0,1,1.15,1.023Z'/></svg>");
 
-
 // ============================================================================
 // -- BOX --
 // ============================================================================
 $bx-bg: #fff !default;
 $bx-padding: $base-padding !default;
 $bx-border-radius: 0.5rem !default;
+$bx-border-color: $border-color !default;
 $bx-header-bg: rgb(250 250 250) !default;
-$bx-title-font-weight: 600 !default;
-$bx-title-font-size: 1.2rem !default;
+$bx-title-font-weight: 700 !default;
+$bx-title-font-size: 1.25rem !default;
 
 // -- button --
 // ==============================================================
@@ -52,10 +56,21 @@ $btn-text-transform: capitalize;
 
 // -- icons --
 // ==============================================================
-$icon-xy-sm: 1rem !default;
-$icon-xy: 1.25rem !default;
-$icon-xy-md: 2rem !default;
-$icon-xy-lg: 3rem !default;
+$icon-size-xs: 0.875rem !default; // 14px - inline text, small badges
+$icon-size-sm: 1rem !default; // 16px - small buttons, compact UI
+$icon-size: 1.25rem !default; // 20px - default/base size
+$icon-size-md: 1.5rem !default; // 24px - standard buttons, toolbar
+$icon-size-lg: 2rem !default; // 32px - large buttons, headers
+$icon-size-xl: 2.5rem !default; // 40px - hero sections, features
+
+// Icon size map for iteration
+$icon-sizes: (
+    'xs': $icon-size-xs,
+    'sm': $icon-size-sm,
+    'md': $icon-size-md,
+    'lg': $icon-size-lg,
+    'xl': $icon-size-xl
+) !default;
 
 // -- menu --
 // ==============================================================
@@ -65,4 +80,3 @@ $menu-item-border-radius: 0.5rem !default;
 $menu-link-hover-color: map.get($oklch-colors, gray-900) !default;
 $menu-padding-x: 0.75rem !default;
 $menu-padding-y: 0.5rem !default;
-

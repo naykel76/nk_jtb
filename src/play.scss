@@ -1,8 +1,10 @@
 // @use './utilities/border' as *;
 @use './common-tools' as *;
 @use './functions/resolvers' as *;
+@use './maps_and_variables/colors' as *;
 @use './mixins/build-magic-grid' as *;
 @use './mixins/make-classes' as *;
+@use './mixins/transition' as *;
 @use 'sass:color';
 @use 'sass:list';
 @use 'sass:map';

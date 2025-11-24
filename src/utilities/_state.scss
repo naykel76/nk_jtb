@@ -1,0 +1,80 @@
+@use '../maps_and_variables/colors' as *;
+@use '../mixins/transition' as *;
+@use 'sass:map';
+
+:root {
+    // Gray
+    --gray-bg: #{map.get($oklch-colors, gray-100)};
+    --gray-text: #{map.get($oklch-colors, gray-700)};
+    --gray-bg-hover: #{map.get($oklch-colors, gray-100)};
+    --gray-bg-active: #{map.get($oklch-colors, gray-200)};
+    --gray-border: #{map.get($oklch-colors, gray-200)};
+
+    // Blue
+    --blue-bg: #{map.get($oklch-colors, blue-100)};
+    --blue-text: #{map.get($oklch-colors, blue-800)};
+    --blue-bg-hover: #{map.get($oklch-colors, blue-200)};
+    --blue-bg-active: #{map.get($oklch-colors, blue-300)};
+    --blue-border: #{map.get($oklch-colors, blue-500)};
+
+    // Green
+    --green-bg: #{map.get($oklch-colors, green-100)};
+    --green-text: #{map.get($oklch-colors, green-800)};
+    --green-bg-hover: #{map.get($oklch-colors, green-200)};
+    --green-bg-active: #{map.get($oklch-colors, green-300)};
+    --green-border: #{map.get($oklch-colors, green-500)};
+
+    // Red
+    --red-bg: #{map.get($oklch-colors, red-100)};
+    --red-text: #{map.get($oklch-colors, red-800)};
+    --red-bg-hover: #{map.get($oklch-colors, red-200)};
+    --red-bg-active: #{map.get($oklch-colors, red-300)};
+    --red-border: #{map.get($oklch-colors, red-500)};
+
+    // Yellow/Amber
+    --yellow-bg: #{map.get($oklch-colors, amber-100)};
+    --yellow-text: #{map.get($oklch-colors, amber-800)};
+    --yellow-bg-hover: #{map.get($oklch-colors, amber-200)};
+    --yellow-bg-active: #{map.get($oklch-colors, amber-300)};
+    --yellow-border: #{map.get($oklch-colors, amber-500)};
+
+    // Purple
+    --purple-bg: #{map.get($oklch-colors, purple-100)};
+    --purple-text: #{map.get($oklch-colors, purple-800)};
+    --purple-bg-hover: #{map.get($oklch-colors, purple-200)};
+    --purple-bg-active: #{map.get($oklch-colors, purple-300)};
+    --purple-border: #{map.get($oklch-colors, purple-500)};
+}
+
+// Reusable state mixin
+@mixin state($color) {
+    &:hover:not(.disabled, :disabled, [aria-disabled]) {
+        background: var(--#{$color}-bg-hover);
+    }
+
+    &:is(.active, :active, [aria-current]):not(.disabled, :disabled, [aria-disabled]) {
+        background: var(--#{$color}-bg-active);
+    }
+
+    &:focus-visible:not(.disabled, :disabled, [aria-disabled]) {
+        outline: 2px solid var(--#{$color}-border);
+        outline-offset: 2px;
+    }
+}
+
+// Usage examples
+.state-gray {
+    @include state('gray');
+}
+
+.state-blue {
+    @include state('blue');
+}
+
+.state-red {
+    @include state('red');
+}
+
+.state-green {
+    @include state('green');
+}
