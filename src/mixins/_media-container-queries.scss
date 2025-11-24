@@ -1,0 +1,140 @@
+@use '../maps_and_variables/base' as *;
+
+// ============================================================================
+// Responsive Query Mixins
+// ============================================================================
+// Unified mixins for both media queries and container queries
+//
+// Media queries support all patterns:
+// - on-{size}: Target specific breakpoint range only
+// - from-{size}: Target breakpoint and larger (mobile-first)
+// - to-{size}: Target up to but not including breakpoint
+//
+// Container queries only support from-{size} pattern:
+// - from-{size}: Target container width and larger
+//
+// Usage:
+// @include from-md { ... }              // Media query (default)
+// @include from-md($container: true)    // Container query
+// ============================================================================
+
+// ============================================================================
+// Media Query Mixins (all patterns)
+// ============================================================================
+
+// Target specific breakpoint ranges only
+@mixin on-sm {
+    @media (#{$sm} <= width < #{$md}) {
+        @content;
+    }
+}
+
+@mixin on-md {
+    @media (#{$md} <= width < #{$lg}) {
+        @content;
+    }
+}
+
+@mixin on-lg {
+    @media (#{$lg} <= width < #{$xl}) {
+        @content;
+    }
+}
+
+@mixin on-xl {
+    @media (#{$xl} <= width < #{$xxl}) {
+        @content;
+    }
+}
+
+@mixin on-xxl {
+    @media (width >= #{$xxl}) {
+        @content;
+    }
+}
+
+// Target breakpoint and larger (mobile-first approach)
+@mixin from-sm($container: false) {
+    @if $container {
+        @container (width >= #{$sm}) {
+            @content;
+        }
+    } @else {
+        @media (width >= #{$sm}) {
+            @content;
+        }
+    }
+}
+
+@mixin from-md($container: false) {
+    @if $container {
+        @container (width >= #{$md}) {
+            @content;
+        }
+    } @else {
+        @media (width >= #{$md}) {
+            @content;
+        }
+    }
+}
+
+@mixin from-lg($container: false) {
+    @if $container {
+        @container (width >= #{$lg}) {
+            @content;
+        }
+    } @else {
+        @media (width >= #{$lg}) {
+            @content;
+        }
+    }
+}
+
+@mixin from-xl($container: false) {
+    @if $container {
+        @container (width >= #{$xl}) {
+            @content;
+        }
+    } @else {
+        @media (width >= #{$xl}) {
+            @content;
+        }
+    }
+}
+
+@mixin from-xxl($container: false) {
+    @if $container {
+        @container (width >= #{$xxl}) {
+            @content;
+        }
+    } @else {
+        @media (width >= #{$xxl}) {
+            @content;
+        }
+    }
+}
+
+// Target up to but not including breakpoint
+@mixin to-sm {
+    @media (width < #{$sm}) {
+        @content;
+    }
+}
+
+@mixin to-md {
+    @media (width < #{$md}) {
+        @content;
+    }
+}
+
+@mixin to-lg {
+    @media (width < #{$lg}) {
+        @content;
+    }
+}
+
+@mixin to-xl {
+    @media (width < #{$xl}) {
+        @content;
+    }
+}
