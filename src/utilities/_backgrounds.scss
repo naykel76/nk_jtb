@@ -1,3 +1,4 @@
+@use '../common-tools' as *;
 @use '../maps_and_variables/base' as *;
 @use '../maps_and_variables/colors' as *;
 @use '../mixins/backgrounds' as *;
@@ -17,3 +18,10 @@
 .zebra > *:nth-child(2n + 2):not(.primary, .secondary) {
     background: $zebra-alt-bg;
 }
+
+
+$background-color-properties: (
+    background-color: ( prefix: 'bg-', values: smart-merge($base-colors, $oklch-colors) ),
+);
+
+@include build-classes($background-color-properties, $responsive: false, $with-state: true);

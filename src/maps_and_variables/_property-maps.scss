@@ -4,19 +4,21 @@
 @use 'sass:map';
 
 // ============================================================================
-// Positioning, Display, and Visibility Property Maps
+// Display & Visibility
 // ============================================================================
+// prettier-ignore
+$display: (block, flex, inline, inline-block, inline-flex, table, table-cell, ( hidden: none )) !default;
 
 // prettier-ignore
-$display: ( block, flex, inline, inline-block, inline-flex, ( hidden: none ), table, table-cell);
+$visibility: (collapse, visible, ( invisible: hidden )) !default;
+
+// ============================================================================
+// Positioning
+// ============================================================================
+$position: (static, absolute, fixed, relative, sticky) !default;
 
 // prettier-ignore
-$inset: ( auto: auto, full: 100%, );
-
-$position: (static, absolute, fixed, relative, sticky);
-
-// prettier-ignore
-$visibility: ( collapse, ( invisible: hidden ), visible);
+$inset: (auto: auto, full: 100%) !default;
 
 // ============================================================================
 // Border and Outline Property Maps
@@ -26,27 +28,5 @@ $visibility: ( collapse, ( invisible: hidden ), visible);
 // outlines do not.
 
 $border-styles: (solid, dashed, dotted, double, hidden, none);
-$border-widths: (
-    base: 1px,
-    1: px-to-rem(1),
-    2: px-to-rem(2),
-    3: px-to-rem(3),
-    4: px-to-rem(4),
-    5: px-to-rem(5)
-) !default;
-
-$border-radius-values: (0, 0.25, 0.5, 0.75, 1, 1.5, 2) !default;
-$border-radius-variants: (
-    xs: 0.125rem,
-    sm: 0.25rem,
-    base: 0.375,
-    lg: 0.5rem,
-    xl: 0.75rem,
-    full: 9999rem
-) !default;
-$border-radius: smart-merge($border-radius-values, $border-radius-variants) !default;
-
 $outline-styles: $border-styles !default;
-$outline-widths: $border-widths !default;
-
 

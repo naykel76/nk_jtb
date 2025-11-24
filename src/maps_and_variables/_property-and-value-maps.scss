@@ -9,9 +9,22 @@
 // $size-map: smart-merge($sizes-values, $sizes-variants) !default;
 
 // ============================================================================
+// Border and Outline Property Maps
+// ============================================================================
+$border-width-values: (  1: px-to-rem(1), 2: px-to-rem(2), 3: px-to-rem(3), 4: px-to-rem(4), 5: px-to-rem(5), 8: px-to-rem(8), 12: px-to-rem(12), 16: px-to-rem(16) ) !default;
+$border-width-variants: (base: 1px) !default;
+$border-width-map: smart-merge($border-width-values, $border-width-variants) !default;
+
+$border-radius-values: (0, 0.25, 0.5, 0.75, 1, 1.5, 2) !default;
+$border-radius-variants: ( xs: 0.125rem, sm: 0.25rem, base: 0.375, lg: 0.5rem, xl: 0.75rem, full: 9999rem ) !default;
+$border-radius-map: smart-merge($border-radius-values, $border-radius-variants) !default;
+
+$outline-width-map: $border-width-map !default; // outlines use same widths as borders
+
+// ============================================================================
 // Spacing Property Maps (margin, padding, gap, inset)
 // ============================================================================
-$spacing-values: (0, 0.125, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 4, 5) !default;
+$spacing-values: (0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 4, 5) !default;
 
 $margin-variants: ( base: $base-gap, auto: auto ) !default;
 $margin-map: map.merge($margin-variants, list-to-map($spacing-values));
@@ -47,4 +60,3 @@ $font-weight-variants: ( thin: 100, extralight: 200, light: 300, normal: 400, me
 $line-height-values: (1.25, 1.5, 1.75, 2) !default;
 $line-height-variants: ( tight: 1.25, normal: $line-height, relaxed: 1.75, loose: 2 ) !default;
 $line-height-map: smart-merge($line-height-values, $line-height-variants) !default;
-
