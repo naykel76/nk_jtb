@@ -17,7 +17,7 @@ $accent: #ffbb1c !default;
 // -- Text Colors --
 $light-text: #fff !default;
 $dark-text: #333 !default;
-$text-color: $dark-text !default; 
+$text-color: $dark-text !default;
 
 // -- Fonts --
 $font-size: 1rem !default;
@@ -34,16 +34,16 @@ $link-hover-color: indianred !default;
 $line-height: 1.5 !default;
 $line-height-condensed: 1.25 !default;
 
-// 
+//
 $bg-body: hsl(0deg 0% 100%) !default;
 
 // -- Spacing --
 // ============================================================================
 $base-list-spacing: 0.25em !default;
-$base-gap: 1.25rem !default;        // default gap between content blocks
-$base-padding: 1.25rem !default;    // default padding inside content blocks
+$base-gap: 1.25rem !default; // default gap between content blocks
+$base-padding: 1.25rem !default; // default padding inside content blocks
 
-// 
+//
 // ============================================================================
 $header-bg: $secondary !default;
 $main-bg: transparent !default;
@@ -55,21 +55,25 @@ $zebra-alt-bg: hsl(0deg 0% 96%) !default;
 
 // -- Borders --
 // ============================================================================
-$border-color: hsl(0deg 0% 90%) !default;
+$border-color: #d1d5db !default; // gray-300
 $border: 1px solid $border-color !default;
+
+// -- Tables --
+// ============================================================================
+$table-border-color: $border-color !default;
+$table-border-width: 1px !default;
+$table-font-size: 0.875rem !default;
+$table-header-bg: rgb(0 0 0 / 2%) !default;
+$table-header-font-weight: 500 !default;
+$table-header-letter-spacing: 0.05em !default;
+$table-header-text-transform: uppercase !default;
+$table-padding-x: 0.75rem !default;
+$table-padding-y: 0.75rem !default;
 
 // -- Misc --
 // ============================================================================
 $img-path: '/images' !default;
 $icon-color: inherit !default;
-
-// -- Base Element Styles --
-// ============================================================================
-$table-font-size: 0.875rem !default;
-$table-header-text-transform: uppercase !default;
-$table-letter-spacing: 0.05em !default;
-$table-padding-x: 0.75rem !default;
-$table-padding-y: 0.75rem !default;
 
 $transition-default-duration: 300ms !default;
 $transition-default-timing: cubic-bezier(0.4, 0, 0.2, 1) !default;

@@ -1,6 +1,4 @@
-
 @use '../maps_and_variables/base' as *;
-
 
 // Remove all default borders to ensure consistency and avoid unexpected border
 // widths from browsers.
@@ -8,7 +6,9 @@
 *,
 ::after,
 ::before {
-    border: 0 solid;
+    border-color: var(--border-color, $border-color);
+    border-style: solid;
+    border-width: 0;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -44,8 +44,6 @@ hr {
 // HTML5 elements
 // ============================================================================
 
-
-
 // 1. Constrain images and videos to the parent width and preserve their intrinsic aspect ratio.
 // 2. Use height:auto instead of max-height:100% to prevent scaling issues.
 
@@ -74,9 +72,9 @@ blockquote {
 }
 
 abbr[title] {
-    border-bottom: none; 
-    text-decoration: underline; 
-    text-decoration: underline dotted; 
+    border-bottom: none;
+    text-decoration: underline;
+    text-decoration: underline dotted;
 }
 
 // Prevent `sub` and `sup` elements from affecting the line height in
@@ -169,35 +167,6 @@ legend {
     font: inherit; // 2.
 }
 
-// -- Tables --
-// ============================================================================
-
-table {
-    border-collapse: collapse;
-    border-color: inherit;
-    text-indent: 0;
-    width: 100%;
-}
-
-thead { 
-    border-color: inherit;
-}
-
-th {
-    font-weight: 600;
-    text-transform: $table-header-text-transform;
-    vertical-align: middle;
-}
-
-th,
-td {
-    border-color: inherit;
-    font-size: inherit; // allow font sizing to be set on table
-    padding-block: $table-padding-y;
-    padding-inline: $table-padding-x;
-    text-align: left;
-}
-
 // -- Controls --
 // ============================================================================
 
@@ -208,7 +177,7 @@ button,
     cursor: pointer; // 1
 }
 
-:disabled {
+:is(.disabled, :disabled, [aria-disabled]) {
     cursor: not-allowed;
     opacity: 0.6;
 }
