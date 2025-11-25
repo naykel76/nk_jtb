@@ -27,13 +27,6 @@
     padding-inline: $ctrl-padding-x;
     position: relative;
 
-    &.xs {
-        font-size: $ctrl-font-size-xs;
-        line-height: 1rem;
-        padding-block: $ctrl-padding-y-xs;
-        padding-inline: $ctrl-padding-x-xs;
-    }
-
     &.sm {
         font-size: $ctrl-font-size-sm;
         line-height: $ctrl-line-height;
@@ -46,12 +39,5 @@
         line-height: 1.5rem;
         padding-block: $ctrl-padding-y-lg;
         padding-inline: $ctrl-padding-x-lg;
-    }
-
-    &.xl {
-        font-size: $ctrl-font-size-lg;
-        line-height: 1.5rem;
-        padding-block: $ctrl-padding-y-xl;
-        padding-inline: $ctrl-padding-x-xl;
     }
 }

@@ -7,7 +7,7 @@ $choices-selector: 'choices' !default;
 // font sizes
 $choices-font-size-lg: $ctrl-font-size-lg !default;
 $choices-font-size-md: $ctrl-font-size !default;
-$choices-font-size-sm: $ctrl-font-size-xs !default;
+$choices-font-size-sm: $ctrl-font-size-sm !default;
 $choices-guttering: 24px !default;
 $choices-border-radius: $ctrl-border-radius !default;
 $choices-border-radius-item: 20px !default;
@@ -26,10 +26,10 @@ $choices-icon-cross-inverse: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEi
 $choices-z-index: 1 !default;
 
 .#{$choices-selector} {
-    position: relative;
-    overflow: hidden;
-    margin-bottom: $choices-guttering;
     font-size: $choices-font-size-lg;
+    margin-bottom: $choices-guttering;
+    overflow: hidden;
+    position: relative;
 
     &:focus {
         outline: none;
@@ -66,26 +66,26 @@ $choices-z-index: 1 !default;
         padding-bottom: 7.5px;
     }
     .#{$choices-selector}__input {
-        display: block;
-        width: 100%;
-        padding: 10px;
-        border-bottom: 1px solid $choices-keyline-color;
         background-color: #fff;
+        border-bottom: 1px solid $choices-keyline-color;
+        display: block;
         margin: 0;
+        padding: 10px;
+        width: 100%;
     }
     .#{$choices-selector}__button {
         background-image: $choices-icon-cross-inverse;
-        padding: 0;
         background-size: 8px;
-        position: absolute;
-        top: 50%;
-        right: 0;
-        margin-top: -10px;
-        margin-right: 25px;
-        height: 20px;
-        width: 20px;
         border-radius: 10em;
+        height: 20px;
+        margin-right: 25px;
+        margin-top: -10px;
         opacity: 0.25;
+        padding: 0;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        width: 20px;
 
         &:hover,
         &:focus {
@@ -101,17 +101,17 @@ $choices-z-index: 1 !default;
     }
 
     &::after {
+        border-color: $choices-text-color transparent transparent transparent;
+        border-style: solid;
+        border-width: 5px;
         content: '';
         height: 0;
-        width: 0;
-        border-style: solid;
-        border-color: $choices-text-color transparent transparent transparent;
-        border-width: 5px;
+        margin-top: -2.5px;
+        pointer-events: none;
         position: absolute;
         right: 11.5px;
         top: 50%;
-        margin-top: -2.5px;
-        pointer-events: none;
+        width: 0;
     }
 
     &.is-open::after {
@@ -125,10 +125,10 @@ $choices-z-index: 1 !default;
             right: auto;
         }
         .#{$choices-selector}__button {
-            right: auto;
             left: 0;
             margin-left: 25px;
             margin-right: 0;
+            right: auto;
         }
     }
 }
@@ -139,17 +139,17 @@ $choices-z-index: 1 !default;
         cursor: text;
     }
     .#{$choices-selector}__button {
-        position: relative;
-        display: inline-block;
-        margin: 0 -$choices-button-offset * 0.5 0 $choices-button-offset;
-        padding-left: $choices-button-offset * 2;
-        border-left: 1px solid color.adjust($choices-primary-color, $lightness: -10%);
         background-image: $choices-icon-cross;
         background-size: $choices-button-dimension;
-        width: $choices-button-dimension;
-        line-height: 1;
-        opacity: 0.75;
+        border-left: 1px solid color.adjust($choices-primary-color, $lightness: -10%);
         border-radius: 0;
+        display: inline-block;
+        line-height: 1;
+        margin: 0 -$choices-button-offset * 0.5 0 $choices-button-offset;
+        opacity: 0.75;
+        padding-left: $choices-button-offset * 2;
+        position: relative;
+        width: $choices-button-dimension;
 
         &:hover,
         &:focus {
@@ -159,16 +159,16 @@ $choices-z-index: 1 !default;
 }
 
 .#{$choices-selector}__inner {
-    display: inline-block;
-    vertical-align: top;
-    width: 100%;
     background-color: $choices-bg-color;
-    padding: 7.5px 7.5px 3.75px;
     border: 1px solid $choices-keyline-color;
     border-radius: $choices-border-radius;
+    display: inline-block;
     font-size: $choices-font-size-md;
     min-height: 44px;
     overflow: hidden;
+    padding: 7.5px 7.5px 3.75px;
+    vertical-align: top;
+    width: 100%;
 
     .is-focused &,
     .is-open & {
@@ -185,9 +185,9 @@ $choices-z-index: 1 !default;
 }
 
 .#{$choices-selector}__list {
+    list-style: none;
     margin: 0;
     padding-left: 0;
-    list-style: none;
 
     &[aria-expanded] {
         @extend %choices-dropdown;
@@ -200,8 +200,8 @@ $choices-z-index: 1 !default;
     width: 100%;
 
     [dir='rtl'] & {
-        padding-right: 4px;
         padding-left: 16px;
+        padding-right: 4px;
     }
     .#{$choices-selector}__item {
         width: 100%;
@@ -211,27 +211,27 @@ $choices-z-index: 1 !default;
 .#{$choices-selector}__list--multiple {
     display: inline;
     .#{$choices-selector}__item {
-        display: inline-block;
-        vertical-align: middle;
-        border-radius: $choices-border-radius-item;
-        padding: 4px 10px;
-        font-size: $choices-font-size-sm;
-        font-weight: 500;
-        margin-right: 3.75px;
-        margin-bottom: 3.75px;
         background-color: $choices-primary-color;
         border: 1px solid color.adjust($choices-primary-color, $lightness: -5%);
-        color: #fff;
-        word-break: break-all;
+        border-radius: $choices-border-radius-item;
         box-sizing: border-box;
+        color: #fff;
+        display: inline-block;
+        font-size: $choices-font-size-sm;
+        font-weight: 500;
+        margin-bottom: 3.75px;
+        margin-right: 3.75px;
+        padding: 4px 10px;
+        vertical-align: middle;
+        word-break: break-all;
 
         &[data-deletable] {
             padding-right: 5px;
         }
 
         [dir='rtl'] & {
-            margin-right: 0;
             margin-left: 3.75px;
+            margin-right: 0;
         }
 
         &.is-highlighted {
@@ -247,19 +247,19 @@ $choices-z-index: 1 !default;
 }
 
 %choices-dropdown {
-    display: none;
-    z-index: $choices-z-index;
-    position: absolute;
-    width: 100%;
-    color: $choices-text-color;
     background-color: $choices-bg-color-dropdown;
     border: 1px solid $choices-keyline-color;
-    top: 100%;
-    margin-top: -1px;
     border-bottom-left-radius: $choices-border-radius;
     border-bottom-right-radius: $choices-border-radius;
+    color: $choices-text-color;
+    display: none;
+    margin-top: -1px;
     overflow: hidden;
+    position: absolute;
+    top: 100%;
+    width: 100%;
     word-break: break-all;
+    z-index: $choices-z-index;
 
     &.is-active {
         display: block;
@@ -270,23 +270,23 @@ $choices-z-index: 1 !default;
     }
 
     .is-flipped & {
-        top: auto;
-        bottom: 100%;
-        margin-top: 0;
-        margin-bottom: -1px;
         border-radius: 0.25rem 0.25rem 0 0;
+        bottom: 100%;
+        margin-bottom: -1px;
+        margin-top: 0;
+        top: auto;
     }
     .#{$choices-selector}__list {
-        position: relative;
         max-height: 300px;
         overflow: auto;
         -webkit-overflow-scrolling: touch;
+        position: relative;
         will-change: scroll-position;
     }
     .#{$choices-selector}__item {
-        position: relative;
-        padding: 10px;
         font-size: $choices-font-size-md;
+        padding: 10px;
+        position: relative;
 
         [dir='rtl'] & {
             text-align: right;
@@ -308,13 +308,13 @@ $choices-z-index: 1 !default;
                 }
 
                 [dir='rtl'] & {
-                    text-align: right;
                     padding-left: 100px;
                     padding-right: 10px;
+                    text-align: right;
 
                     &::after {
-                        right: auto;
                         left: 10px;
+                        right: auto;
                     }
                 }
             }
@@ -344,26 +344,26 @@ $choices-z-index: 1 !default;
 
 .#{$choices-selector}__item--disabled {
     cursor: not-allowed;
-    user-select: none;
     opacity: 0.5;
+    user-select: none;
 }
 
 .#{$choices-selector}__heading {
-    font-weight: 600;
-    font-size: $choices-font-size-sm;
-    padding: 10px;
     border-bottom: 1px solid color.adjust($choices-keyline-color, $lightness: 10%);
     color: color.adjust(#333, $lightness: 30%);
+    font-size: $choices-font-size-sm;
+    font-weight: 600;
+    padding: 10px;
 }
 
 .#{$choices-selector}__button {
-    text-indent: -9999px;
     appearance: none;
-    border: 0;
     background-color: transparent;
-    background-repeat: no-repeat;
     background-position: center;
+    background-repeat: no-repeat;
+    border: 0;
     cursor: pointer;
+    text-indent: -9999px;
 
     &:focus {
         outline: none;
@@ -371,15 +371,15 @@ $choices-z-index: 1 !default;
 }
 
 .#{$choices-selector}__input {
-    display: inline-block;
-    vertical-align: baseline;
     background-color: $choices-bg-color;
-    font-size: $choices-font-size-md;
-    margin-bottom: 5px;
     border: 0;
     border-radius: 0;
+    display: inline-block;
+    font-size: $choices-font-size-md;
+    margin-bottom: 5px;
     max-width: 100%;
     padding: 4px 0 4px 2px;
+    vertical-align: baseline;
 
     &:focus {
         outline: 0;
@@ -395,13 +395,13 @@ $choices-z-index: 1 !default;
     &::-ms-clear,
     &::-ms-reveal {
         display: none;
-        width: 0;
         height: 0;
+        width: 0;
     }
 
     [dir='rtl'] & {
-        padding-right: 2px;
         padding-left: 0;
+        padding-right: 2px;
     }
 }
 
