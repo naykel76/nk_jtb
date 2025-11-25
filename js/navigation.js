@@ -9,19 +9,19 @@ function routeToFile(routeName) {
 // Function to load and process navigation from JSON
 async function loadNavigation() {
     try {
-        const response = await fetch('./scripts/nav.json')
+        const response = await fetch('./js/nav.json')
         const navData = await response.json()
         
         // Build navigation HTML with sections
-        let navHtml = '<nav>'
+        let navHtml = '<nav class="dark txt-sm">'
         
         for (const [section, data] of Object.entries(navData)) {
-            navHtml += `<div class="nav-section">`
-            navHtml += `<h3>${section}</h3>`
+            navHtml += `<div class="flex va-c gap-05 my-05">`
+            navHtml += `<h4>${section}</h4>`
             
             data.links.forEach(link => {
                 const file = routeToFile(link.route_name)
-                navHtml += `<button class="btn xs primary" data-doc="${file}">${link.name}</button>\n`
+                navHtml += `<button class="btn sm primary" data-doc="${file}">${link.name}</button>\n`
             })
             
             navHtml += `</div>`
