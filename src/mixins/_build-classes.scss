@@ -34,7 +34,7 @@
 // ============================================================================
 
 // prettier-ignore
-@mixin build-classes($properties-map, $responsive: true, $with-state: false, $debug: false) {
+@mixin build-classes($properties-map, $responsive: false, $with-state: false, $debug: false) {
     // NK?? add option to create different responsive builds. (on, from, to)
     // - should this be done on a per-property basis?
     // - should this be done on a global basis?

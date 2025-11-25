@@ -112,10 +112,16 @@ hidden     // keyword value
 
 ### File Structure
 
-```
-_property-values.scss    // Raw value lists and scales
-_property-maps.scss      // Processed maps for builders
-```
+Variable files are organized by purpose in `src/maps_and_variables/`:
+
+- **`_base.scss`** - Foundation tokens (brand colors, fonts, spacing scale, breakpoints)
+- **`_colors.scss`** - Color system (theme colors, base colors, OKLCH scales)
+- **`_typography.scss`** - Typography system (font sizes, weights, line heights, letter spacing)
+- **`_forms.scss`** - Form control styling (inputs, selects, textareas)
+- **`_components.scss`** - Component-specific variables (navbar, tables, boxes, buttons, menus)
+- **`_config.scss`** - Configuration maps (prefixes, position maps)
+- **`_property-maps.scss`** - CSS property enumerations (display, position, visibility, border-styles)
+- **`_value-maps.scss`** - Utility value maps for builders (borders, spacing, layout, sizing)
 
 ### Naming Convention
 
@@ -124,7 +130,7 @@ _property-maps.scss      // Processed maps for builders
 ```scss
 $property-values: ()     // Numeric/systematic scales
 $property-variants: ()   // Named semantic values  
-$property-map: ()        // Merged final map (values + variants)
+$property-map: ()        // Merged final map (always use -map suffix)
 ```
 
 **Example:**
@@ -134,23 +140,32 @@ $margin-variants: (auto: auto, base: $base-gap);
 $margin-map: smart-merge($margin-values, $margin-variants);
 ```
 
-#### Single List (for properties with one type only)
+#### Single Map (for properties with one type only)
 
 ```scss
-$property: ()  // Simple list, no merging needed
+$property-map: ()  // Final map (always use -map suffix)
 ```
 
 **Example:**
 ```scss
-$position: (static, absolute, fixed, relative, sticky);
+$z-index-map: (0, 1, 50, 100, (bottom: -1), (top: 999));
+$order-map: (1, 2, 3, 4, 5, 6, 7, 8);
 ```
+
+**Key Rule:** All final maps used by builders end in `-map` regardless of whether they use the three-map pattern or not. This provides consistency and predictability.
 
 ### Why This Structure
 
-- **`-values`**: Systematic scales (numbers, calculations)
-- **`-variants`**: Semantic names (auto, base, tight, etc.)
-- **`-map`**: Final merged map used by builders
-- **Simple lists**: No variants needed, use directly
+**File Organization:**
+- Foundation files (`_base.scss`, `_colors.scss`) contain design tokens used across the framework
+- Domain files (`_typography.scss`, `_forms.scss`, `_components.scss`) contain category-specific variables
+- System files (`_config.scss`, `_property-maps.scss`, `_value-maps.scss`) contain builder configurations
+
+**Variable Naming:**
+- **`-values`**: Systematic scales (numbers, calculations) - raw data
+- **`-variants`**: Semantic names (auto, base, tight, etc.) - named values
+- **`-map`**: Final merged map used by builders - always present for builder inputs
+- **Property enumerations**: Simple lists in `_property-maps.scss` (no `-map` suffix needed as they're not used in three-map pattern)
 
 ### Overridability
 

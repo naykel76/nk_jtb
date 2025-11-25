@@ -1,5 +1,5 @@
 @use '../maps_and_variables/config' as *;
-@use "./box" as *;
+@use './box' as *;
 
 .#{$dropdown-prefix} {
     position: relative;
@@ -11,7 +11,10 @@
         position: absolute;
         top: calc(100%);
         transform: translateY(-2em);
-        transition: all 0.1s ease-in-out 1s, visibility 0s linear 0.1s, z-index 0s linear 0.01s;
+        transition:
+            all 0.1s ease-in-out 1s,
+            visibility 0s linear 0.1s,
+            z-index 0s linear 0.01s;
         visibility: hidden;
         z-index: 1000;
     }
@@ -22,7 +25,9 @@
     &:hover .#{$dropdown-prefix}-content {
         opacity: 1;
         transform: translateY(0%);
-        transition-delay: 0s, 0s, 0.1s; // this removes the transition delay so the menu will be visible while the other styles transition
+        transition-delay:
+            0s, 0s, 0.1s; // this removes the transition delay so the menu will be visible while the other styles transition
+
         visibility: visible;
     }
 }

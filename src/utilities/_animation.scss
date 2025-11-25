@@ -1,0 +1,177 @@
+// ============================================================================
+// -- Animation Keyframes --
+// ============================================================================
+@keyframes bounce {
+    0%,
+    100% {
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+        transform: translateY(-25%);
+    }
+
+    50% {
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+        transform: none;
+    }
+}
+
+@keyframes pulse-ring {
+    0% {
+        opacity: 1;
+        transform: scale(0.8);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.4);
+    }
+}
+
+@keyframes pulse {
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes checkmark {
+    0% {
+        stroke-dashoffset: 100;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes circle {
+    0% {
+        stroke-dashoffset: 166;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+// ============================================================================
+// -- Animations --
+// ============================================================================
+:root {
+    --animate-bounce: bounce 1s infinite;
+    --animate-ping: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+    --animate-pulse-ring: pulse-ring 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    --animate-spin: spin 1.5s linear infinite;
+}
+
+.animate-none {
+    animation: none;
+}
+
+.animate-bounce {
+    animation: var(--animate-bounce);
+}
+
+.animate-pulse-ring {
+    animation: var(--animate-pulse-ring);
+}
+
+.animate-pulse {
+    animation: var(--animate-pulse);
+}
+
+.animate-ping {
+    animation: var(--animate-ping);
+}
+
+.animate-spin {
+    animation: var(--animate-spin);
+}
+
+.animate-checkmark {
+    animation: checkmark 0.6s ease-in-out forwards;
+    stroke-dasharray: 100;
+}
+
+.animate-circle {
+    animation: circle 0.6s ease-in-out forwards;
+    stroke-dasharray: 166;
+}
+
+//  ============================================================================
+// -- Loader --
+// ============================================================================
+// .spinner {
+//     --size: 2.5rem;
+
+//     animation: spin 2s linear infinite;
+//     border: calc(var(--size) * 0.1) solid #f3f3f3;
+//     border-radius: 50%;
+//     border-top: calc(var(--size) * 0.1) solid #3498db;
+//     height: var(--size);
+//     width: var(--size);
+
+//     &-thick {
+//         border: calc(var(--size) * 0.2) solid #f3f3f3;
+//         border-top: calc(var(--size) * 0.2) solid #3498db;
+//     }
+
+//     &.sm {
+//         --size: 1.25rem;
+//     }
+
+//     &.lg {
+//         --size: 5rem;
+//     }
+// }
+
+// .spinner {
+//   --size: 2.5rem;
+//   animation: spin 2s linear infinite;
+//   border: calc(var(--size) * 0.1) solid #f3f3f3;
+//   border-radius: 50%;
+//   border-top: calc(var(--size) * 0.1) solid #3498db;
+//   height: var(--size);
+//   width: var(--size);
+// }
+// .spinner-thick {
+//   border: calc(var(--size) * 0.2) solid #f3f3f3;
+//   border-top: calc(var(--size) * 0.2) solid #3498db;
+// }
+// .spinner.sm {
+//   --size: 1.25rem;
+// }
+// .spinner.lg {
+//   --size: 5rem;
+// }
+
+
+
+// @keyframes fadeInUp {
+//     from {
+//         opacity: 0;
+//         transform: translateY(20px);
+//     }
+
+//     to {
+//         opacity: 1;
+//         transform: translateY(0);
+//     }
+// }
+
+// @keyframes scaleIn {
+//     from {
+//         opacity: 0;
+//         transform: scale(0);
+//     }
+
+//     to {
+//         opacity: 1;
+//         transform: scale(1);
+//     }
+// }

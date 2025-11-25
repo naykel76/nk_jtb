@@ -2,14 +2,17 @@
     &-x-full {
         transform: translateX(100%);
     }
+
     &-y-full {
         transform: translateY(100%);
     }
+
     &-x-0 {
-        transform: translateX(0px);
+        transform: translateX(0);
     }
+
     &-y-0 {
-        transform: translateY(0px);
+        transform: translateY(0);
     }
 }
 
@@ -17,6 +20,7 @@
     &-x-full {
         transform: translateX(-100%);
     }
+
     &-y-full {
         transform: translateY(-100%);
     }
@@ -26,6 +30,7 @@
     &-90 {
         rotate: 90deg;
     }
+
     &-180 {
         rotate: 180deg;
     }
