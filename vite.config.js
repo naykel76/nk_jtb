@@ -3,5 +3,20 @@ import { defineConfig } from 'vite';
 export default defineConfig({
     server: {
         open: '/dev.html'
+    },
+    build: {
+        chunkSizeWarningLimit: 1000,
+        rollupOptions: {
+            output: {
+                manualChunks: (id) => {
+                    if (id.includes('node_modules')) {
+                        if (id.includes('highlight.js')) {
+                            return 'highlight';
+                        }
+                        return 'vendor';
+                    }
+                }
+            }
+        }
     }
 });
