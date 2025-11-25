@@ -7,7 +7,7 @@ $layout-properties-map: (
     overflow-x: ( values: (auto, clip, hidden, scroll, visible) ),
     overflow-y: ( values: (auto, clip, hidden, scroll, visible) ),
     position: ( values: $position, prefix: false ),
-    z-index: ( prefix: "z-", values: ($z-index-values) ),
+    z-index: ( prefix: "z-", values: ($z-index-map) ),
     top: ( values: $positional-map, unit: 'rem' ),
     bottom: ( values: $positional-map, unit: 'rem' ),
     left: ( values: $positional-map, unit: 'rem' ),

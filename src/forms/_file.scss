@@ -1,20 +1,20 @@
 .file {
-    user-select: none;
+    align-items: center;
+    align-self: flex-start; // prevent stretching
+    cursor: pointer;
     display: inline-flex;
     justify-content: flex-start;
-    align-items: center;
-    align-self: flex-start; //prevent stretching
     position: relative;
-    cursor: pointer;
+    user-select: none;
 
     // bring to front and hide default input
     input[type="file"] {
-        margin: 0;
         inset: 0;
+        margin: 0;
         opacity: 0;
         outline: none;
+        pointer-events: none; // ignore pointer events and allow parent to use pointer
         position: absolute;
         z-index: 1000; // allow parent cursor to use pointer
-        pointer-events: none; // ignore pointer events and allow parent to use pointer
     }
 }

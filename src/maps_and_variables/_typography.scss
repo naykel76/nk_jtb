@@ -1,4 +1,16 @@
+@use '../functions/map-and-list-helpers' as *;
+@use '../maps_and_variables/base' as *;
+@use '../maps_and_variables/colors' as *;
+@use 'sass:map';
 
+// ============================================================================
+// TYPOGRAPHY VARIABLES
+// ============================================================================
+// Typography system: base variables, utility maps for font sizes, weights,
+// line heights, letter spacing, and text colors.
+// ============================================================================
+
+// -- Base Typography --
 // -- Font Weights --
 $font-weight-bold: var(--base-text-weight-semibold, 600) !default;
 $font-weight-semibold: var(--base-text-weight-medium, 500) !default;
@@ -10,10 +22,24 @@ $heading-sizes: 2.25em, 1.75em, 1.5em, 1.25em, 1.125em, 1em !default;
 $heading-font-weight: 700 !default;
 $heading-color: inherit !default;
 
+// -- Letter Spacing --
+$letter-spacing: ( tighter: -0.1em, tight: -0.05em, normal: 0em, wide: 0.05em, wider: 0.1em, widest: 0.25em) !default;
 
+$text-base-values: $base-colors !default;
+$text-base-variants: map.remove($theme-colors, 'danger', 'dark', 'info', 'light', 'success', 'warning') !default;
+$text-base-map: smart-merge($text-base-values, $text-base-variants) !default;
 
+// -- Font Sizes --
+$font-size-values: (1, 1.5, 2, 2.5, 3, 4) !default;
+$font-size-variants: () !default;
+$font-size-map: smart-merge($font-size-values, $font-size-variants) !default;
 
+// -- Font Weights --
+$font-weight-values: ( 1: 100, 2: 200, 3: 300, 4: 400, 5: 500, 6: 600, 7: 700, 8: 800, 9: 900 ) !default;
+$font-weight-variants: ( thin: 100, extralight: 200, light: 300, normal: 400, medium: 500, semibold: 600, bold: 700, extrabold: 800, black: 900 ) !default;
+$font-weight-map: smart-merge($font-weight-values, $font-weight-variants) !default;
 
-// // The base body size
-// $body-font-size: 14px !default;
-// $body-line-height: $lh-default !default;
+// -- Line Heights --
+$line-height-values: (1.25, 1.5, 1.75, 2) !default;
+$line-height-variants: ( tight: 1.25, normal: $line-height, relaxed: 1.75, loose: 2 ) !default;
+$line-height-map: smart-merge($line-height-values, $line-height-variants) !default;

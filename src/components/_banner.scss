@@ -3,10 +3,10 @@ $banner-bg: transparent !default;
 $banner-text-bg: transparent !default;
 
 .banner {
-    background-repeat: no-repeat;
-    background-position: right center;
-    height: $banner-height;
     background-color: $banner-bg;
+    background-position: right center;
+    background-repeat: no-repeat;
+    height: $banner-height;
 
     // banner-text is the wrapper
     &-text {

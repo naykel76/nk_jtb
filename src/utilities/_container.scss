@@ -3,7 +3,7 @@
 // 1. Use an uppercase 'M' in Min() to avoid conflicts between Sass and CSS min().
 //    Sass treats function names as case-sensitive, while CSS does not.
 
-@each $variant, $size in $container-variants {
+@each $variant, $size in $container-map {
     $class: strip-class-suffixes(container-#{$variant});
 
     // 95% is a good default for most cases, but this may need to be

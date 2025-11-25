@@ -4,29 +4,15 @@
 @use 'sass:map';
 
 // ============================================================================
-// Display & Visibility
+// PROPERTY MAPS
 // ============================================================================
-// prettier-ignore
+// CSS property enumerations for utility builders.
+// Simple lists of valid values
+// ============================================================================
+
+$border-styles: ( solid, dashed, dotted, double, hidden, none ) !default;
 $display: (block, flex, inline, inline-block, inline-flex, table, table-cell, ( hidden: none )) !default;
-
-// prettier-ignore
-$visibility: (collapse, visible, ( invisible: hidden )) !default;
-
-// ============================================================================
-// Positioning
-// ============================================================================
-$position: (static, absolute, fixed, relative, sticky) !default;
-
-// prettier-ignore
-$inset: (auto: auto, full: 100%) !default;
-
-// ============================================================================
-// Border and Outline Property Maps
-// ============================================================================
-// Border and outline properties share the same style values in CSS.  The only
-// difference lies in their behavior: borders affect layout space, while
-// outlines do not.
-
-$border-styles: (solid, dashed, dotted, double, hidden, none);
 $outline-styles: $border-styles !default;
+$position: (static, absolute, fixed, relative, sticky) !default;
+$visibility: (collapse, visible, ( invisible: hidden )) !default;
 

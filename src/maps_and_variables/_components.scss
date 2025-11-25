@@ -5,32 +5,58 @@
 @use 'sass:color';
 @use 'sass:map';
 
+// ============================================================================
+// -- Table --
+// ============================================================================
+$table-border-color: $border-color !default; // Reuse base border color
+$table-border-width: 1px !default;
+$table-font-size: 0.875rem !default; // Smaller text for dense tables
+$table-header-bg: rgb(0 0 0 / 2%) !default; // Very subtle background
+$table-header-font-weight: 500 !default; // Medium weight for emphasis
+$table-header-letter-spacing: 0.05em !default; // Slight letter spacing
+$table-header-text-transform: uppercase !default; // UPPERCASE headers
+$table-padding-x: 0.75rem !default; // Horizontal cell padding
+$table-padding-y: 0.75rem !default; // Vertical cell padding
+
+// ============================================================================
+// -- Layout Components --
+// ============================================================================
+$header-bg: $secondary !default;
+$main-bg: transparent !default;
+$footer-bg: #1d1d1c !default;
+$footer-text-color: hsl(0deg 0% 80%) !default;
+$copyright-bg: color.adjust($footer-bg, $lightness: -2%) !default;
+$copyright-text-color: $footer-text-color !default;
+$zebra-alt-bg: hsl(0deg 0% 96%) !default;
+
+// ============================================================================
 // -- navbar --
-// ==============================================================
+// ============================================================================
 $navbar-bg: hsl(216 31% 17%) !default;
+$navbar-padding-x: 1rem !default; // Horizontal padding
+$navbar-padding-y: 0.5rem !default; // Vertical padding
 
-$navbar-padding-x: 1rem !default;
-$navbar-padding-y: 0.5rem !default;
+// Navbar navigation items
+$navbar-nav-padding-x: 1rem !default; // Horizontal padding on nav items
+$navbar-nav-padding-y: 0.75rem !default; // Vertical padding on nav items
 
-$navbar-nav-padding-x: 1rem !default; // ?
-$navbar-nav-padding-y: 0.75rem !default; // ?
 
+// Navbar item base states
 $navbar-nav-item-bg: $navbar-bg !default;
 $navbar-nav-item-color: hsl(0 0% 80%) !default; // Light gray text
-$navbar-nav-font-weight: 500 !default;
+$navbar-nav-font-weight: 500 !default; // Medium weight
 
-$navbar-nav-hover-bg: color.adjust($navbar-nav-item-bg, $lightness: 3%) !default;
-$navbar-nav-hover-color: hsl(0 0% 95%) !default; // Lighter on hover
+// Navbar item interactive states
+$navbar-nav-hover-bg: color.adjust($navbar-nav-item-bg, $lightness: 3%) !default; // Slightly lighter on hover
+$navbar-nav-hover-color: hsl(0 0% 95%) !default; // Lighter text on hover
 
-$navbar-nav-active-bg: color.adjust($navbar-nav-item-bg, $lightness: -3%) !default;
-$navbar-nav-active-color: hsl(0 85% 70%) !default; // use for focus as well
+// Navbar item active/focus state
+$navbar-nav-active-bg: color.adjust($navbar-nav-item-bg, $lightness: -3%) !default; // Slightly darker when active
+$navbar-nav-active-color: hsl(0 85% 70%) !default; // Warm accent for active/focus
 
-
-
-
-
+// ============================================================================
 // -- lists --
-// ==============================================================
+// ============================================================================
 $icon-list-color: inherit !default;
 
 $icon-tick: url("data:image/svg+xml;utf8,<?xml version='1.0' encoding='utf-8'?><svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><path fill='#{$icon-list-color}' d='M10,0A10,10,0,1,0,20,10,10.011,10.011,0,0,0,10,0Zm5.575,6.665L9.421,13.588a.77.77,0,0,1-1.056.09L4.519,10.6A.769.769,0,0,1,5.48,9.4l3.276,2.62,5.669-6.377a.769.769,0,0,1,1.15,1.023Z'/></svg>");
@@ -46,19 +72,21 @@ $bx-header-bg: rgb(250 250 250) !default;
 $bx-title-font-weight: 700 !default;
 $bx-title-font-size: 1.25rem !default;
 
+// ============================================================================
 // -- button --
-// ==============================================================
+// ============================================================================
 $btn-bg: rgb(240 240 240) !default;
 $btn-color: text-color($btn-bg) !default;
 $btn-link-color: $link-color !default;
 $btn-link-hover-color: $link-hover-color !default;
 $btn-text-transform: capitalize;
 
-// -- icons --
-// ==============================================================
+// ============================================================================
+// -- Icon Sizes --
+// ============================================================================
 $icon-size-xs: 0.875rem !default; // 14px - inline text, small badges
 $icon-size-sm: 1rem !default; // 16px - small buttons, compact UI
-$icon-size: 1.25rem !default; // 20px - default/base size
+$icon-size: 1.25rem !default; // 20px - default/base size (used as reference)
 $icon-size-md: 1.5rem !default; // 24px - standard buttons, toolbar
 $icon-size-lg: 2rem !default; // 32px - large buttons, headers
 $icon-size-xl: 2.5rem !default; // 40px - hero sections, features
@@ -72,8 +100,9 @@ $icon-sizes: (
     'xl': $icon-size-xl
 ) !default;
 
+// ============================================================================
 // -- menu --
-// ==============================================================
+// ============================================================================
 $menu-hover-bg: map.get($oklch-colors, gray-100) !default;
 $menu-icon-size: 1.25rem !default;
 $menu-item-border-radius: 0.5rem !default;

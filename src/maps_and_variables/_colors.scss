@@ -1,9 +1,17 @@
 @use './base';
 @use 'sass:map';
 
-// this is a list of all color names used in tailwind. 
+// ============================================================================
+// COLOR VARIABLES (JTB Framework)
+// ============================================================================
+// Color tokens and scales: theme colors, base colors, and OKLCH color scales.
+// OKLCH used for perceptual uniformity and better color interpolation.
+// All variables use !default for overridability.
+// ============================================================================
+
+// -- Color Name Scale (from Tailwind, for reference) --
 // prettier-ignore
-$color-scale-names: ( 'amber', 'blue', 'cyan', 'emerald', 'fuchsia', 'gray', 'green', 'indigo', 'lime', 'neutral', 'orange', 'pink', 'purple', 'red', 'rose', 'sky', 'slate', 'stone', 'teal', 'violet', 'yellow', 'zinc' );
+$color-scale-names: ( 'amber', 'blue', 'cyan', 'emerald', 'fuchsia', 'gray', 'green', 'indigo', 'lime', 'neutral', 'orange', 'pink', 'purple', 'red', 'rose', 'sky', 'slate', 'stone', 'teal', 'violet', 'yellow', 'zinc' ) !default;
 
 $theme-colors: (
     'primary': base.$primary,

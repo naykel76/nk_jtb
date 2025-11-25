@@ -2,9 +2,7 @@
 @forward './colors';
 @forward './components';
 @forward './config';
-@forward './property-and-value-maps';
-@forward './typography';
-
-// DEPRECATED
+@forward './forms';
 @forward './property-maps';
-@forward './utility-maps';
+@forward './typography';
+@forward './value-maps';

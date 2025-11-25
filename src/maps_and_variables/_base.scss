@@ -1,23 +1,19 @@
 // ============================================================================
 // BASE VARIABLES
 // ============================================================================
-// Base variables are the foundation for the entire system: core layout,
-// spacing, breakpoints, and essential colours and typography tokens that
-// underpin the design.  They provide a consistent base for all components and
-// utilities.
+// Foundation tokens: brand colors, fonts, spacing scale, breakpoints.
+// Component-specific variables belong in _components.scss.
 // ============================================================================
 @use 'sass:color';
 @use 'sass:map';
 
-// -- Colors --
+// -- Brand Colors --
 $primary: #2563eb !default;
 $secondary: #181e20 !default;
 $accent: #ffbb1c !default;
 
-// -- Text Colors --
-$light-text: #fff !default;
-$dark-text: #333 !default;
-$text-color: $dark-text !default;
+// -- Default Text Color --
+$text-color: #333 !default;
 
 // -- Fonts --
 $font-size: 1rem !default;
@@ -26,55 +22,35 @@ $font-size: 1rem !default;
 $base-font: -apple-system, blinkmacsystemfont, 'Segoe UI', sans-serif !default;
 $mono-font: ui-monospace, 'SF Mono', 'Cascadia Code', 'Roboto Mono', monospace !default;
 
-// -- Links --
+// -- Link Colors --
 $link-color: #5850ec !default;
-$link-hover-color: indianred !default;
+$link-hover-color: #cd5c5c !default;
 
 // -- Line Heights --
 $line-height: 1.5 !default;
 $line-height-condensed: 1.25 !default;
 
-//
-$bg-body: hsl(0deg 0% 100%) !default;
+// -- Body Background --
+$bg-body: #fff !default;
 
-// -- Spacing --
+// -- Spacing Scale --
 // ============================================================================
-$base-list-spacing: 0.25em !default;
-$base-gap: 1.25rem !default; // default gap between content blocks
-$base-padding: 1.25rem !default; // default padding inside content blocks
+$base-list-spacing: 0.25em !default; // Spacing within list items (em-based for relative sizing)
+$base-gap: 1.25rem !default; // Default gap between content blocks (flexbox, grid)
+$base-padding: 1.25rem !default; // Default padding inside content containers
 
-//
+// -- Border Defaults --
 // ============================================================================
-$header-bg: $secondary !default;
-$main-bg: transparent !default;
-$footer-bg: #1d1d1c !default;
-$footer-text-color: hsl(0deg 0% 80%) !default;
-$copyright-bg: color.adjust($footer-bg, $lightness: -2%) !default;
-$copyright-text-color: $footer-text-color !default;
-$zebra-alt-bg: hsl(0deg 0% 96%) !default;
-
-// -- Borders --
-// ============================================================================
-$border-color: #d1d5db !default; // gray-300
+$border-color: #d1d5db !default; // Light gray (gray-300 equivalent)
 $border: 1px solid $border-color !default;
 
-// -- Tables --
+// -- Miscellaneous --
 // ============================================================================
-$table-border-color: $border-color !default;
-$table-border-width: 1px !default;
-$table-font-size: 0.875rem !default;
-$table-header-bg: rgb(0 0 0 / 2%) !default;
-$table-header-font-weight: 500 !default;
-$table-header-letter-spacing: 0.05em !default;
-$table-header-text-transform: uppercase !default;
-$table-padding-x: 0.75rem !default;
-$table-padding-y: 0.75rem !default;
+$img-path: '/images' !default; // Base path for images
+$icon-color: inherit !default; // Icons inherit text color by default
 
-// -- Misc --
+// -- Animation/Transition Defaults --
 // ============================================================================
-$img-path: '/images' !default;
-$icon-color: inherit !default;
-
 $transition-default-duration: 300ms !default;
 $transition-default-timing: cubic-bezier(0.4, 0, 0.2, 1) !default;
 

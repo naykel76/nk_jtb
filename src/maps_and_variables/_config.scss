@@ -6,7 +6,7 @@
 // Short, consistent prefixes for utility classes. Customize these variables to
 // match your project's naming conventions (e.g., change 'txt-' to 'text-').
 // Note: This is not a comprehensive list of all available prefixes.
-// ----------------------------------------------------------------------------
+// ============================================================================
 $border-prefix: 'bdr-' !default;
 $flex-grow-prefix: 'fg' !default;
 $flex-shrink-prefix: 'fs' !default;
@@ -20,7 +20,7 @@ $text-prefix: 'txt-' !default;
 // ============================================================================
 // Short prefixes for component classes. Customize to match your naming style.
 // Note: This is not a comprehensive list of all available prefixes.
-// ----------------------------------------------------------------------------
+// ============================================================================
 $button-prefix: 'btn' !default;
 $dropdown-prefix: 'dd' !default;
 $icon-prefix: 'icon' !default;
@@ -34,7 +34,7 @@ $table-prefix: 'tbl-' !default;
 //
 // Uses individual longhand properties (margin-block-start, etc.) instead of
 // shorthand (margin-block) to allow fine-grained overrides of individual edges.
-// ----------------------------------------------------------------------------
+// ============================================================================
 // prettier-ignore
 $logical-position-map: (
     // Full axes
@@ -55,7 +55,7 @@ $logical-edges-map: map.remove($logical-position-map, 'xy', 'x', 'y') !default; 
 // ============================================================================
 // Maps position keys to physical CSS properties (top, left, etc.).
 // Used for absolute/fixed positioning utilities that don't need logical properties.
-// ----------------------------------------------------------------------------
+// ============================================================================
 // prettier-ignore
 $axis-position-map: (
     xy: (top, bottom, left, right),
@@ -75,7 +75,7 @@ $xy-positions-map: map.remove($axis-position-map, 't', 'b', 'l', 'r') !default; 
 // Border Radius Corners Map
 // ============================================================================
 // Maps corner keys to border-radius properties for corner-specific utilities.
-// ----------------------------------------------------------------------------
+// ============================================================================
 // prettier-ignore
 $border-radius-corners-map: (
     t: (top-left-radius, top-right-radius),

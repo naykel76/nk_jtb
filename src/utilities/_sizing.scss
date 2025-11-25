@@ -3,8 +3,8 @@
 
 // prettier-ignore
 $sizing-properties-map: (
-    height: (prefix: "h-", values: map.merge($sizing-map, $height), unit: "rem"),
-    width: (prefix: "w-", values: map.merge($sizing-map, $width), unit: "rem"),
+    height: (prefix: "h-", values: map.merge($sizing-map, $height-map), unit: "rem"),
+    width: (prefix: "w-", values: map.merge($sizing-map, $width-map), unit: "rem"),
     max-height: (prefix: "max-h-", values: $sizing-map, unit: "rem"),
     max-width: (prefix: "max-w-", values: $sizing-map, unit: "rem"),
     min-height: (prefix: "min-h-", values: $sizing-map, unit: "rem"),

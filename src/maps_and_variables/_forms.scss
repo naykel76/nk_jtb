@@ -1,7 +1,9 @@
 @use '../functions/color-functions' as *;
 
 // ============================================================================
-// -- CONTROL VARIABLES --
+// FORM VARIABLES
+// ============================================================================
+// Form control styling: inputs, selects, textareas. Uses ctrl- prefix.
 // ============================================================================
 
 $ctrl-border-radius: 0.375rem !default;
