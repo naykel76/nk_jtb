@@ -1,30 +1,13 @@
 # Border and Outline Utilities
 
-Border utilities are used to add or remove borders from elements.
-
-- [Border Width](#border-width)
-- [Border Color](#border-color)
-- [Style](#style)
-- [Outline Style (REVIEW)](#outline-style-review)
-- [Border Positions](#border-positions)
-
 ## Border Width
 
-To add a border, simply add the `bdr` class to any element. You can adjust the
-width using `bdr-2` or `bdr-3` classes. The border color automatically inherits
-the text color.
+Border widths use pixel values for consistent rendering across all screen sizes.
 
-**How it works:**
-1. **Base style** sets `border: 0 solid` (invisible but ready)
-2. **Width utilities** change `border-width` from 0, making the border visible
-3. **Color inheritance** happens automatically via `currentcolor` - the default
-   behavior of CSS `border-color`
-4. **No explicit color/style needed** - they're already configured in the base
-   style
-
-<div class="grid lg:cols-3 tac c-pxy-1">
+```html +code +preview +collapse
+<div class="grid gap lg:cols-3 tac">
     <div class="bdr">
-        <code>bdr</code><br> Default border
+        <code>bdr</code><br> Default border (1px)
     </div>
     <div class="bdr-2">
         <code>bdr-2</code><br> 2px border
@@ -33,198 +16,214 @@ the text color.
         <code>bdr-3</code><br> 3px border
     </div>
 </div>
+```
+
+### Positional Border Widths
+
+Apply different widths to specific sides:
+
+```html +code +preview +collapse
+<div class="grid gap lg:cols-3 tac c-pxy-1">
+    <div class="bdr bdr-t-5">
+        <code>bdr-t-5</code><br> Top border only
+    </div>
+    <div class="bdr bdr-b-5">
+        <code>bdr-b-5</code><br> Bottom border only
+    </div>
+    <div class="bdr bdr-l-5">
+        <code>bdr-l-5</code><br> Left border only
+    </div>
+
+    <div class="bdr bdr-r-5">
+        <code>bdr-r-5</code><br> Right border only
+    </div>
+    <div class="bdr bdr-x-5">
+        <code>bdr-x-5</code><br> Horizontal borders
+    </div>
+    <div class="bdr bdr-y-5">
+        <code>bdr-y-5</code><br> Vertical borders
+    </div>
+</div>
+```
 
 ## Border Color
 
-The border color automatically inherits the text color of the element. You can
-change the color by applying any text color utility class to the same element.
+By default, the border color automatically inherits the text color of the element.
 
-<div class="grid lg:cols-3 tac c-pxy-1">
-    <div class="bdr txt-red">
-        <code>bdr</code><br> Border color matches red text
+```html +code +preview +collapse
+<div class="grid gap lg:cols-3 tac c-pxy-1">
+    <div class="bdr-3 txt-red">
+        <code>bdr-3 txt-red</code><br> Inherits red from text
     </div>
-    <div class="bdr-2 txt-green">
-        <code>bdr-2 txt-green</code><br> Border color matches green text
+    <div class="bdr-3 txt-green">
+        <code>bdr-3 txt-green</code><br> Inherits green from text
     </div>
     <div class="bdr-3 txt-blue">
-        <code>bdr-3 txt-blue</code><br> Border color matches blue text
+        <code>bdr-3 txt-blue</code><br> Inherits blue from text
     </div>
 </div>
+```
 
-you can override the border color by applying a border-color utility class.
+Override this by applying explicit border-color classes:
 
-<div class="grid lg:cols-3 tac c-pxy-1">
-    <div class="bdr txt-red bdr-pink">
-        <code>bdr bdr-pink</code><br>  Pink border overrides red text
+```html +code +preview +collapse
+<div class="grid gap lg:cols-3 tac c-pxy-1">
+    <div class="bdr-3 bdr-red">
+        <code>bdr-3 bdr-red</code><br> Explicit red
     </div>
-    <div class="bdr-2 txt-green bdr-pink">
-        <code>bdr-2 bdr-pink</code><br> Pink border overrides green text
+    <div class="bdr-3 bdr-green">
+        <code>bdr-3 bdr-green</code><br> Explicit green
     </div>
-    <div class="bdr-3 txt-blue bdr-pink">
-        <code>bdr-3 bdr-pink</code><br> Pink border overrides blue text
+    <div class="bdr-3 bdr-blue">
+        <code>bdr-3 bdr-blue</code><br> Explicit blue
     </div>
 </div>
+```
 
-## Style
+Border colors apply to all sides that have a width set.
 
-You can change the border style using the following classes:
+## Border Style
 
-<div class="grid lg:cols-2 tac c-pxy-1">
+Change the border style for all sides or specific positions:
+
+```html +code +preview +collapse
+<div class="grid gap lg:cols-2 tac c-pxy-1">
     <div class="bdr-3 bdr-solid">
-        <code class="txt-red">bdr-solid</code>
+        <code>bdr-solid</code><br> Solid border
     </div>
     <div class="bdr-3 bdr-dashed">
-        <code class="txt-red">bdr-dashed</code>
+        <code>bdr-dashed</code><br> Dashed border
     </div>
     <div class="bdr-3 bdr-dotted">
-        <code class="txt-red">bdr-dotted</code>
+        <code>bdr-dotted</code><br> Dotted border
     </div>
     <div class="bdr-3 bdr-double">
-        <code class="txt-red">bdr-double</code>
+        <code>bdr-double</code><br> Double border
     </div>
 </div>
+```
 
-## Outline Style (REVIEW)
+### Positional Border Styles
 
-Works the same way as border styles, but for outlines. Add the `outline` class
-to any element to add an outline. You can adjust the width using `outline-2` or
-`outline-3` classes. The outline color automatically inherits the text color.
+Apply different styles to specific sides for dividers or mixed borders:
 
-<div class="grid md:cols-2 gap tac bx pxy-3">
-    <div class="bx bdr-5 bdr-blue outline-5 outline-pink outline-solid">
-        <code class="txt-red">outline-solid</code>
+```html +code +preview +collapse
+<div class="grid gap lg:cols-2 tac c-pxy-1">
+    <div class="bdr-t-3 bdr-t-dashed bdr-x-3 bdr-x-double">
+        <code>bdr-t-dashed bdr-x-double</code><br> Dashed top, double sides
     </div>
-    <div class="bx bdr-5 bdr-blue outline-5 outline-pink outline-dashed">
-        <code class="txt-red">outline-dashed</code>
-    </div>
-    <div class="bx bdr-5 bdr-blue outline-5 outline-pink outline-dotted">
-        <code class="txt-red">outline-dotted</code>
-    </div>
-    <div class="bx bdr-5 bdr-blue outline-5 outline-pink outline-double">
-        <code class="txt-red">outline-double</code>
+    <div class="bdr-b-3 bdr-b-dotted bdr-y-3 bdr-y-solid">
+        <code>bdr-b-dotted bdr-y-solid</code><br> Dotted bottom, solid verticals
     </div>
 </div>
+```
 
+## Border Radius
 
+Control the roundness of element corners. Supports all sides, individual sides, and specific corners.
 
-
-
-## Border Positions
-
-You can apply borders to specific sides of an element using positional classes. Combine these with color utilities for fine-grained control.
-
-### Positional Border Width
-
-<div class="grid lg:cols-3 tac c-pxy-1">
-    <div class="bdr-t-3">
-        <code>bdr-t-3</code><br> Top border only
+```html +code +preview +collapse
+<div class="grid gap lg:cols-3 tac c-pxy-1">
+    <div class="bdr-2 rounded">
+        <code>rounded</code><br> Default (0.375rem)
     </div>
-    <div class="bdr-b-3">
-        <code>bdr-b-3</code><br> Bottom border only
+    <div class="bdr-2 rounded-lg">
+        <code>rounded-lg</code><br> Large (0.5rem)
     </div>
-    <div class="bdr-l-3">
-        <code>bdr-l-3</code><br> Left border only
-    </div>
-    <div class="bdr-r-3">
-        <code>bdr-r-3</code><br> Right border only
-    </div>
-    <div class="bdr-x-3">
-        <code>bdr-x-3</code><br> Left and right borders
-    </div>
-    <div class="bdr-y-3">
-        <code>bdr-y-3</code><br> Top and bottom borders
+    <div class="bdr-2 rounded-full">
+        <code>rounded-full</code><br> Fully rounded
     </div>
 </div>
+```
 
-### Positional Border Colors
+### Positional Radius
 
-Apply colors to specific border sides. The border must have a width set for the color to be visible.
+Round specific sides for tabs, modals, or connected elements:
 
-<div class="grid lg:cols-3 tac c-pxy-1">
-    <div class="bdr-t-3 bdr-t-red-500">
-        <code>bdr-t-red-500</code><br> Red top border
+```html +code +preview +collapse
+<div class="grid gap lg:cols-3 tac c-pxy-1">
+    <div class="bdr-2 rounded-t">
+        <code>rounded-t</code><br> Top rounded
     </div>
-    <div class="bdr-b-3 bdr-b-blue-400">
-        <code>bdr-b-blue-400</code><br> Blue bottom border
+    <div class="bdr-2 rounded-l">
+        <code>rounded-l</code><br> Left rounded
     </div>
-    <div class="bdr-l-3 bdr-l-green-600">
-        <code>bdr-l-green-600</code><br> Green left border
-    </div>
-    <div class="bdr-r-3 bdr-r-pink-300">
-        <code>bdr-r-pink-300</code><br> Pink right border
-    </div>
-    <div class="bdr-x-3 bdr-x-purple-500">
-        <code>bdr-x-purple-500</code><br> Purple horizontal borders
-    </div>
-    <div class="bdr-y-3 bdr-y-amber-400">
-        <code>bdr-y-amber-400</code><br> Amber vertical borders
+    <div class="bdr-2 rounded-tl rounded-br">
+        <code>rounded-tl rounded-br</code><br> Diagonal corners
     </div>
 </div>
+```
 
-### Combining Positional Borders
+## Outlines
 
-Create complex border designs by combining multiple positional classes.
+Outlines are visual indicators that sit outside the element's border box. Like borders,
+outline widths use pixels.
 
-<div class="grid lg:cols-3 tac c-pxy-1">
-    <div class="bdr-t-3 bdr-t-red-500 bdr-b-3 bdr-b-blue-500">
-        <code>bdr-t-red-500 bdr-b-blue-500</code><br> Different top and bottom colors
+```html +code +preview +collapse
+<div class="grid gap md:cols-2 tac c-pxy-1">
+    <div class="outline-3 outline-solid">
+        <code>outline-3 outline-solid</code><br> Solid outline
     </div>
-    <div class="bdr-l-5 bdr-l-green-600 bdr-r-2 bdr-r-pink-300">
-        <code>bdr-l-5 bdr-l-green-600 bdr-r-2 bdr-r-pink-300</code><br> Different widths and colors
+    <div class="outline-3 outline-dashed">
+        <code>outline-3 outline-dashed</code><br> Dashed outline
     </div>
-    <div class="bdr-y-3 bdr-y-purple-500 bdr-x-1 bdr-x-gray-300">
-        <code>bdr-y-purple-500 bdr-x-gray-300</code><br> Different axis colors
+    <div class="outline-3 outline-dotted">
+        <code>outline-3 outline-dotted</code><br> Dotted outline
     </div>
-</div>
-
-<!-- ## FAQ's
-
-can apply class but its probably easier to use a theme class instead???
-What happens if i use a `bx` or other component class?
-
-<div class="grid md:cols-2 gap tac bx pxy-3">
-    <div class="bx bdr-5">
-        <code class="txt-red">bdr-double</code>
-        hey there
-    </div>
-    <div class="bx success bdr-5">
-        <code class="txt-red">bdr-double</code>
-        hey there
-    </div>
-</div> -->
-
-
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!-- 
-
-
-
-
-
-## Techniques
-
-### Clip Border Radius
-
-Apply the `overflow-hidden` class to clip the border radius of an element. This is useful when you
-want to add a border radius to an element that contains an image.
-
-<div class="grid cols-4">
-    <div class="rounded-2 bdr-5 bdr-red">
-        <img src="/images/naykel-400.png">
-    </div>
-    <div class="rounded-2 bdr-5 bdr-red overflow-hidden">
-        <img src="/images/naykel-400.png">
+    <div class="outline-3 outline-double">
+        <code>outline-3 outline-double</code><br> Double outline
     </div>
 </div>
+```
 
-```html
-<div class="rounded-2 overflow-hidden">
-    <img src="">
+### Outline Offset
+
+Control the space between the element and its outline. Offset values use pixels for precision.
+
+```html +code +preview +collapse
+<div class="grid gap md:cols-2 tac c-pxy-1">
+    <div class="bx outline-offset-5 outline-3 outline-solid">
+        <code>outline-3 outline-solid</code><br> Solid outline
+    </div>
+    <div class="bx outline-offset-5 outline-3 outline-dashed">
+        <code>outline-3 outline-dashed</code><br> Dashed outline
+    </div>
+    <div class="bx outline-offset-5 outline-3 outline-dotted">
+        <code>outline-3 outline-dotted</code><br> Dotted outline
+    </div>
+    <div class="bx outline-offset-5 outline-3 outline-double">
+        <code>outline-3 outline-double</code><br> Double outline
+    </div>
 </div>
-``` -->
+```
+
+### Outline Color
+
+Outlines inherit text color by default, or use explicit color classes:
+
+```html +code +preview +collapse
+<div class="grid gap lg:cols-3 tac c-pxy-1">
+    <div class="bx outline outline-3 txt-red">
+        <code>outline-3 txt-red</code><br> Inherits red from text
+    </div>
+    <div class="bx outline outline-3 txt-green">
+        <code>outline-3 txt-green</code><br> Inherits green from text
+    </div>
+    <div class="bx outline outline-3 txt-blue">
+        <code>outline-3 txt-blue</code><br> Inherits blue from text
+    </div>
+</div>
+```
+
+
+
+## Responsive Borders
+
+All border utilities support responsive breakpoints for layout-dependent styling:
+
+```html +code +preview +collapse
+<div class="bdr-t md:bdr md:rounded lg:bdr-l-4 pxy">
+    <code>bdr-t md:bdr md:rounded lg:bdr-l-4</code><br>
+    Top border on mobile, full border on medium screens, thick left accent on large
+</div>
+```

@@ -1,5 +1,15 @@
 @use 'sass:map';
 
+// Exclude axis combinations (xy) from certain properties.
+// For borders, we only want .bdr, .bdr-5(not .bdr-xx, .bdr-xy-5)
+// because border properties don't support shorthand axis values.
+$xy-axis-exclusions: ('bdr-') !default;
+
+// Omit units from generated class names (but apply them in CSS values).
+// .bdr-1 instead of .bdr-1px, .outline-2 instead of .outline-2px.
+// Only for pixel-based properties; rem-based utilities keep units in names.
+$unit-omitted-from-class: ('border-width', 'outline-width', 'outline-offset') !default;
+
 // ============================================================================
 // Utility Class Prefixes
 // ============================================================================

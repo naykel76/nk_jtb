@@ -14,20 +14,25 @@
 //   $property-variants → semantic names
 //   $property-map → merged final map
 //
-// $size-values: () !default;
 // $size-variants: () !default;
-// $size-map: smart-merge($sizes-values, $sizes-variants) !default;
+// $size-values: () !default;
+// $size-map: smart-merge($size-variants, $size-values) !default;
+// 
+// NOTE: smart-merge order is critical for cascade! Variants first so base class
+// appears in CSS before numbered variants, allowing proper cascade precedence.
+
+
 
 // ============================================================================
 // Border and Outline Property Maps
 // ============================================================================
-$border-width-values: (  1: px-to-rem(1), 2: px-to-rem(2), 3: px-to-rem(3), 4: px-to-rem(4), 5: px-to-rem(5), 8: px-to-rem(8), 12: px-to-rem(12), 16: px-to-rem(16) ) !default;
 $border-width-variants: (base: 1px) !default;
-$border-width-map: smart-merge($border-width-values, $border-width-variants) !default;
+$border-width-values: (1, 2, 3, 4, 5, 8, 12, 16) !default; // px units
+$border-width-map: smart-merge($border-width-variants, $border-width-values) !default;
 
+$border-radius-variants: ( xs: 0.125, sm: 0.25, base: 0.375, lg: 0.5, xl: 0.75, full: 9999 ) !default;
 $border-radius-values: (0, 0.25, 0.5, 0.75, 1, 1.5, 2) !default;
-$border-radius-variants: ( xs: 0.125rem, sm: 0.25rem, base: 0.375rem, lg: 0.5rem, xl: 0.75rem, full: 9999rem ) !default;
-$border-radius-map: smart-merge($border-radius-values, $border-radius-variants) !default;
+$border-radius-map: smart-merge($border-radius-variants, $border-radius-values) !default;
 
 $outline-width-map: $border-width-map !default;
 
@@ -55,9 +60,9 @@ $z-index-map: (0, 1, 50, 100, (bottom: -1), (top: 999)) !default;
 // -- Flex & Grid --
 $order-map: (1, 2, 3, 4, 5, 6, 7, 8) !default;
 
-$gap-values: (0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 2, 3, 4, 5) !default;
 $gap-variants: (sm: 0.75rem, base: 1.25rem, lg: 2rem) !default;
-$gap-map: smart-merge($gap-values, $gap-variants) !default;
+$gap-values: (0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 2, 3, 4, 5) !default;
+$gap-map: smart-merge($gap-variants, $gap-values) !default;
 
 // -- Sizing (width, height, max-*, min-*) --
 $height-width: ( auto: auto, full: 100%, fit: fit-content, max: max-content, min: min-content ) !default;
@@ -66,12 +71,12 @@ $width-map: smart-merge((screen: 100vw), $height-width) !default;
 $sizing-pixels: (200px, 250px, 300px, 400px, 600px) !default;
 $sizing-rem: (0, 0.5, 1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24) !default;
 $sizing-breakpoint-variants: ( xs: 30rem, sm: $sm, md: $md, lg: $lg, xl: $xl, xxl: $xxl ) !default;
-$sizing-map: smart-merge($sizing-rem, $sizing-pixels, $sizing-breakpoint-variants) !default;
+$sizing-map: smart-merge($sizing-breakpoint-variants, $sizing-rem, $sizing-pixels) !default;
 
 // -- Positioning (top, right, bottom, left, inset) --
 $inset-map: (auto: auto, full: 100%) !default;
 $positional-values: (0, 0.25, 0.5, 1, 1.5, 2, 3, 4) !default;
-$positional-map: smart-merge($positional-values, $inset-map) !default;
+$positional-map: smart-merge($inset-map, $positional-values) !default;
 
 // -- Magic Classes --
 // Responsive patterns for grid columns and gaps

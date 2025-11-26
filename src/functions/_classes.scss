@@ -1,4 +1,5 @@
 @use './strings' as *;
+@use '../maps_and_variables/config' as *;
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:meta';
@@ -49,8 +50,6 @@
 //     strip-invalid('pxy-base') → 'pxy'
 // ----------------------------------------------------------------------------
 
-$xy-exclusions: ('bdr-');
-
 @function strip-class-suffixes($class, $identifier: '') {
     @if string.slice($class, -5) == '-base' {
         $class: string.slice($class, 1, -6);
@@ -60,7 +59,7 @@ $xy-exclusions: ('bdr-');
         $class: string.slice($class, 1, -9);
     }
 
-    @if list.index($xy-exclusions, $identifier) and (string.slice($class, -3) == '-xy') {
+    @if list.index($xy-axis-exclusions, $identifier) and (string.slice($class, -3) == '-xy') {
         $class: string.slice($class, 1, -4);
     }
 
@@ -83,12 +82,20 @@ $exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
 }
 
 // ============================================================================
-// Remove default 'rem' unit from class names.
+// Handle unit display in class names.
 // ============================================================================
-// Removes 'rem' from unit string if present, as it's treated as default.
+// Controls which units appear in generated class names based on the property.
+//
+// - Removes 'rem' from class names since it's the default unit
+// - Properties in $unit-omitted-from-class have their units stripped entirely
+//   (e.g., border-width generates 'bdr-1' instead of 'bdr-1px')
 // ----------------------------------------------------------------------------
 
-@function handle-class-unit($unit) {
+@function handle-class-unit($unit, $property) {
+    @if list.index($unit-omitted-from-class, $property) {
+        @return '';
+    }
+
     @return if($unit != 'rem', $unit, '');
 }
 

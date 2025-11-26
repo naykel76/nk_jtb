@@ -177,6 +177,37 @@ $margin-variants: (auto: auto) !default;
 
 Users can override values, variants, or both before importing.
 
+### Critical: Map Merging Order Affects CSS Cascade
+
+When using the three-map pattern with `smart-merge()`, **the order of arguments matters for CSS cascade precedence**. Maps merge left-to-right, and the resulting CSS classes are generated in map order.
+
+**Example Problem:**
+```scss
+// ❌ WRONG - Numeric values first, variants last
+$border-width-map: smart-merge($border-width-values, $border-width-variants);
+// Values: (1, 2, 3, 4, ...)
+// Variants: (base: 1px, ...)
+// Output CSS order: .bdr-1, .bdr-2, .bdr-3, ..., .bdr (base)
+// Result: Base .bdr class comes LAST → can be overridden by numbered variants
+```
+
+**Solution:**
+```scss
+// ✅ CORRECT - Variants first, numeric values last
+$border-width-map: smart-merge($border-width-variants, $border-width-values);
+// Variants: (base: 1px, ...)
+// Values: (1, 2, 3, 4, ...)
+// Output CSS order: .bdr (base), .bdr-1, .bdr-2, .bdr-3, ...
+// Result: Base .bdr class comes FIRST → all other values properly cascade
+```
+
+**Why This Matters:**
+In CSS cascade, later rules override earlier ones. If you want a base/default class to have lower precedence (which is typical), it must appear first in the compiled CSS. Reversing the `smart-merge()` argument order ensures:
+1. Base/semantic variant classes are generated first (lower cascade priority)
+2. Numeric/specific value classes are generated last (higher cascade priority)
+3. The cascade behaves intuitively: specific values override base defaults
+
+Always use: `smart-merge($property-variants, $property-values)`
 
 <!-- this is out of place -->
 ## Unit Convention Exception

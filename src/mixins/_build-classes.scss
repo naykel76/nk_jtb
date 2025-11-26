@@ -30,7 +30,11 @@
 // Supports responsive variants, automatic value-unit handling, position-based 
 // classes, and optional axis key omission for cleaner class names.
 // --------------------------------------------------------------------------
-// 
+// Units in class names are controlled by:
+// - 'rem' units are always stripped (default unit)
+// - Properties in $unit-omitted-from-class have all units stripped
+//   (e.g., border-width → 'bdr-1' instead of 'bdr-1px')
+// - Other units are appended (e.g., 'w-600px')
 // ============================================================================
 
 // prettier-ignore
@@ -59,7 +63,7 @@
             // Process the value and create class name components
             $derived-unit: if(value-has-unit($value), null, ($config-unit)); 
             $derived-value: #{handle-class-value($value, $derived-unit)}; 
-            $derived-suffix: #{$label}#{handle-class-unit($derived-unit)}; 
+            $derived-suffix: #{$label}#{handle-class-unit($derived-unit, $property)}; 
 
             // then clean up any unwanted suffixes
             $derived-class: strip-class-suffixes(#{$prefix}#{$derived-suffix});
