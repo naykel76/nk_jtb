@@ -6,9 +6,9 @@ import 'highlight.js/styles/github-dark.css'
 import Alpine from 'alpinejs'
 import collapse from '@alpinejs/collapse'
 
-import './scripts/markdown-renderer.js'
-import './scripts/markdown-loader.js'
-import './scripts/navigation.js'
+import './js/markdown-renderer.js'
+import './js/markdown-loader.js'
+import './js/navigation.js'
 
 Alpine.plugin(collapse)
 
