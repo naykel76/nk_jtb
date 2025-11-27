@@ -4,7 +4,7 @@
 // stylelint-disable scss/at-if-closing-brace-space-after
 @use '../functions/classes' as *;
 @use '../mixins/media-container-queries' as *;
-@use '../mixins/property-makers' as *;
+@use '../mixins/make-properties' as *;
 @use '../functions/strings' as *;
 @use 'sass:map';
 @use 'sass:list';

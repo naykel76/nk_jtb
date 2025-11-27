@@ -2,11 +2,12 @@
 @use '../functions/strings' as *;
 @use '../functions/resolvers' as *;
 @use '../mixins/make-classes' as *;
-@use '../mixins/property-makers' as *;
+@use '../mixins/make-properties' as *;
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:string';
 @use 'sass:meta';
+
 
 @mixin build-composite-classes($properties-map, $responsive: false) {
     @each $class, $map in $properties-map {

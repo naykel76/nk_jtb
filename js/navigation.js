@@ -48,7 +48,7 @@ async function loadNavigation() {
 // Get current doc from URL or default
 function getCurrentDoc() {
     const hash = window.location.hash.slice(1)
-    return hash || 'installation.md'
+    return hash || 'wip.md'
 }
 
 document.addEventListener('DOMContentLoaded', async () => {

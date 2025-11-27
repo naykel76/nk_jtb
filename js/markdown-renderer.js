@@ -50,7 +50,7 @@ renderer.code = function (code, infostring, escaped) {
         if (isCollapsible) {
             output += `
                 <div x-data="{ open: false, copied: false }" class="mt-05 mb">
-                    <div class="flex items-center gap-05">
+                    <div class="flex items-center justify-between gap-05">
                         <button x-on:click="open = !open" class="btn sm">
                             <span>${title}</span>
                         </button>
@@ -60,9 +60,17 @@ renderer.code = function (code, infostring, escaped) {
                                 copied = true;
                                 setTimeout(() => copied = false, 2000);
                             " 
-                            class="btn sm"
+                            class="btn sm wh-2 flex-centered"
                             x-bind:class="copied ? 'bg-sky-500' : 'bg-sky-300'"
-                            x-text="copied ? 'Copied!' : 'Copy Code'">
+                            x-bind:title="copied ? 'Copied!' : 'Copy Code'"
+                            aria-label="Copy code">
+                            <svg x-show="!copied" class="w-1 h-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                            </svg>
+                            <svg x-show="copied" class="w-1 h-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
                         </button>
                     </div>
                     <div x-show="open" x-collapse class="mt-05">
@@ -71,7 +79,29 @@ renderer.code = function (code, infostring, escaped) {
                 </div>
             `
         } else {
-            output += `<pre><code id="${uniqueId}" class="hljs language-${language}">${highlighted}</code></pre>`
+            output += `
+                <div x-data="{ copied: false }" class="relative">
+                    <button 
+                        x-on:click="
+                            navigator.clipboard.writeText(document.getElementById('${uniqueId}').textContent);
+                            copied = true;
+                            setTimeout(() => copied = false, 2000);
+                        " 
+                        class="pxy-025 wh-2 bdr bdr-slate-700 hover:bg-slate-600 flex-centered absolute top-0 right-0 rounded-sm bg-slate-800 mxy-025"
+                        x-bind:class="copied ? 'bg-sky-500' : ' txt-slate-500'"
+                        x-bind:title="copied ? 'Copied!' : 'Copy Code'"
+                        aria-label="Copy code">
+                        <svg x-show="!copied" class="w-1 h-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                        </svg>
+                        <svg x-show="copied" class="w-1 h-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </button>
+                    <pre><code id="${uniqueId}" class="hljs language-${language}">${highlighted}</code></pre>
+                </div>
+            `
         }
     }
 

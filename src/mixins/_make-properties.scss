@@ -1,9 +1,10 @@
 
-// 
+// 1
 @mixin make-property($property, $value) {
     #{$property}: $value;
 }
 
+// 2
 @mixin make-properties($props) {
     @each $property, $value in $props {
         @include make-property($property, $value);
@@ -16,7 +17,7 @@
 // Skips unit if value is 'auto' or 0.
 // ============================================================================
 
-@mixin create-position-property($property, $value, $position, $unit: 'rem') {
+@mixin make-position-property($property, $value, $position, $unit: 'rem') {
     $derived-unit: if(($value == 'auto' or $value == 0), null, $unit);
 
     #{$property}-#{$position}: #{$value}#{$derived-unit};
@@ -27,8 +28,8 @@
 // Useful for applying the same value across multiple sides.
 // ============================================================================
 
-@mixin create-position-properties($property, $value, $positions, $unit: 'rem') {
+@mixin make-position-properties($property, $value, $positions, $unit: 'rem') {
     @each $position in $positions {
-        @include create-position-property($property, $value, $position, $unit);
+        @include make-position-property($property, $value, $position, $unit);
     }
 }
