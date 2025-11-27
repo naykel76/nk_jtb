@@ -22,7 +22,7 @@ $table-padding-y: 0.75rem !default; // Vertical cell padding
 // -- Layout Components --
 // ============================================================================
 $header-bg: $secondary !default;
-$main-bg: transparent !default;
+$main-bg: #ecf0f1 !default;
 $footer-bg: #1d1d1c !default;
 $footer-text-color: hsl(0deg 0% 80%) !default;
 $copyright-bg: color.adjust($footer-bg, $lightness: -2%) !default;

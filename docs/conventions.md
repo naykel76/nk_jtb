@@ -1,24 +1,4 @@
-<div class="toc" data-toc>
 
-- [Class Name Conventions](#class-name-conventions)
-    - [Overview](#overview)
-    - [Class Name Structure](#class-name-structure)
-        - [Base variant (no suffix - uses default value)](#base-variant-no-suffix---uses-default-value)
-        - [Named variants](#named-variants)
-        - [Direct values](#direct-values)
-        - [With breakpoints](#with-breakpoints)
-    - [Property (Prefix)](#property-prefix)
-    - [Value and Variant](#value-and-variant)
-        - [TL;DR](#tldr)
-- [SCSS Variable Conventions](#scss-variable-conventions)
-    - [File Structure](#file-structure)
-    - [Naming Convention](#naming-convention)
-        - [Three-Map Pattern (for properties with both scales and semantics)](#three-map-pattern-for-properties-with-both-scales-and-semantics)
-        - [Single List (for properties with one type only)](#single-list-for-properties-with-one-type-only)
-    - [Why This Structure](#why-this-structure)
-    - [Overridability](#overridability)
-- [Unit Convention Exception](#unit-convention-exception)
-</div>
 
 # Naming Conventions
 

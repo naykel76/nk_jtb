@@ -11,7 +11,7 @@ body {
 }
 
 :where(.nk-main) {
-    background-color: $main-bg;
+    // background-color: $main-bg;
     flex: 1; // 1. allow to grow to fill height
 }
 

@@ -1,17 +1,3 @@
-<div class="toc" data-toc>
-
-- [Introduction](#introduction)
-- [Philosophy](#philosophy)
-- [Structure \& Override Priority](#structure--override-priority)
-- [What makes JTB different?](#what-makes-jtb-different)
-    - [Predictable Naming](#predictable-naming)
-    - [Consistent Theming](#consistent-theming)
-- [Comparing Approaches](#comparing-approaches)
-- [No Runtime Dependencies](#no-runtime-dependencies)
-- [Getting Started](#getting-started)
-  
-</div>
-
 # JTB – Just the Basics
 
 ## Introduction

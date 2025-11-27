@@ -1,16 +1,3 @@
-<div class="toc" data-toc>
-
-- [How It Works](#how-it-works)
-- [The Rules](#the-rules)
-    - [Rule 1: Spacing Targets](#rule-1-spacing-targets)
-    - [Rule 2: Layout to Content](#rule-2-layout-to-content)
-- [Visual Tests](#visual-tests)
-    - [Should Space](#should-space)
-    - [Should NOT Space](#should-not-space)
-- [Flex and Grid](#flex-and-grid)
-
-</div>
-
 # Auto Spacing System
 
 <p class="lead">Automatic vertical spacing between block elements without

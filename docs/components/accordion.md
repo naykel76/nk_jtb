@@ -1,18 +1,3 @@
-<div class="toc" data-toc>
-
-- [Utility Class Builds](#utility-class-builds)
-    - [Single Accordion](#single-accordion)
-    - [Multiple Open Accordion](#multiple-open-accordion)
-    - [One Open at a Time Accordion](#one-open-at-a-time-accordion)
-- [JTB Accordion Class](#jtb-accordion-class)
-    - [Single Accordion](#single-accordion-1)
-- [CSS Accordion](#css-accordion)
-    - [Standalone Accordion (Checkbox Method)](#standalone-accordion-checkbox-method)
-    - [Accordion Group (Radio Button Method)](#accordion-group-radio-button-method)
-- [Accordion Structure](#accordion-structure)
-
-</div>
-
 # Alpine Accordion
 
 - **Single** Each accordion operates independently with its own state.

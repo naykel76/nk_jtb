@@ -2,7 +2,7 @@
 
 ## Control Sizes
 
-```html +code +preview +collapse +preview +collapse
+```html +code +preview +collapse
 <div class="flex-col gap-1">
     <div>
         <input type="text" class="sm" placeholder="Small">
@@ -21,7 +21,7 @@
 
 ## Form Example
 
-```html +code +preview +collapse +preview +collapse
+```html +code +preview +collapse
 <form>
     <div class="grid md:cols-2">
         <div class="frm-row">

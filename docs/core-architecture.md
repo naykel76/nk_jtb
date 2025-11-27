@@ -1,12 +1,3 @@
-<div class="toc" data-toc>
-
-- [Class Generation System](#class-generation-system)
-- [Builders vs Makers](#builders-vs-makers)
-    - [Builders: Generate Utility Sets](#builders-generate-utility-sets)
-    - [Makers: Generate Individual Classes](#makers-generate-individual-classes)
-    - [When to Use What](#when-to-use-what)
-</div>
-
 # JTB Core Architecture
 
 <p class="lead">This document explains the build tools used in the JTB framework and how utility classes are compiled from SCSS.</p>

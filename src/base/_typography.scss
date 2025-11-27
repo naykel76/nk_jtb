@@ -46,24 +46,30 @@ strong {
 // ============================================================================
 // -- Mono --
 // ============================================================================
-// $code-text: #24292e;
-$code-text: #d9558c;
 
 code,
 kbd {
-    background-color: rgb(0 0 0 / 8%);
+    background-color: rgb(0 0 0 / 5%);
     border-radius: 0.25rem;
-    color: $code-text;
+    color: inherit;
     font-family: $mono-font;
     font-size: 0.875rem;
-    padding: 0.15rem 0.3rem;
+    overflow-wrap: break-word;
+    padding: 0.125rem 0.25rem;
 }
 
 pre {
-    border-radius: 0.5rem; 
+    background-color: rgb(0 0 0 / 3%);
+    border-radius: 0.375rem;
     overflow-x: auto;
-    white-space: pre;
-    word-wrap: normal;
+    white-space: pre-wrap;
+
+    code {
+        background-color: transparent; // Remove double background
+        font-size: 0.875rem;
+        padding-block: 1rem;
+        padding-inline: 1rem;
+    }
 }
 
 // ============================================================================

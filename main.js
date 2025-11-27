@@ -1,5 +1,6 @@
 import './src/build.scss'
 import './src/play.scss'
+import './src/extras/_nk-app.scss'
 import './src/extras/_nk-docs.scss'
 import 'highlight.js/styles/github-dark.css'
 

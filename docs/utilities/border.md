@@ -1,18 +1,3 @@
-<div class="toc" data-toc>
-
-- [Border Width](#border-width)
-    - [Positional Border Widths](#positional-border-widths)
-- [Border Color](#border-color)
-- [Border Style](#border-style)
-    - [Positional Border Styles](#positional-border-styles)
-- [Border Radius](#border-radius)
-    - [Positional Radius](#positional-radius)
-- [Outlines](#outlines)
-    - [Outline Offset](#outline-offset)
-    - [Outline Color](#outline-color)
-- [Responsive Borders](#responsive-borders)
-</div>
-
 # Border and Outline Utilities
 
 ## Border Width

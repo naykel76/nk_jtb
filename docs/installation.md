@@ -1,11 +1,3 @@
-<div class="toc" data-toc>
-
-- [Install via npm](#install-via-npm)
-- [Basic Setup](#basic-setup)
-- [Configuration](#configuration)
-
-</div>
-
 # Installation
 
 <p class="lead">Get started with JTB by installing it via npm or using a CDN for quick prototyping.</p>

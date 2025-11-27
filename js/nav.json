@@ -107,20 +107,12 @@
             }
         ]
     },
-    "Guides": {
+    "Resources": {
         "links": [
-            {
-                "name": "Layout Techniques",
-                "route_name": "jtb.layout-techniques"
-            },
             {
                 "name": "Responsive Testing",
                 "route_name": "jtb.responsive-testing"
-            }
-        ]
-    },
-    "Resources": {
-        "links": [
+            },
             {
                 "name": "FAQs",
                 "route_name": "jtb.faqs"
@@ -132,6 +124,10 @@
             {
                 "name": "Form Examples",
                 "route_name": "jtb.form-examples"
+            },
+            {
+                "name": "Layout Examples",
+                "route_name": "jtb.layout-examples"
             }
         ]
     }

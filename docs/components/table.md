@@ -1,11 +1,3 @@
-<div class="toc" data-toc>
-
-- [Base table](#base-table)
-- [Customization](#customization)
-- [Configuration Variables](#configuration-variables)
-- [Tips and Tricks](#tips-and-tricks)
-</div>
-
 # Tables
 
 <p class="lead">Tables provide structure for displaying tabular data with sensible defaults.</p>

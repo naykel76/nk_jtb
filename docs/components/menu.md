@@ -1,15 +1,3 @@
-<div class="toc" data-toc>
-
-- [Dropdown Menus](#dropdown-menus)
-- [Vertical Menus](#vertical-menus)
-    - [JTB Menu Class](#jtb-menu-class)
-    - [Utility Classes Only](#utility-classes-only)
-- [Navbar Style Menus](#navbar-style-menus)
-    - [JTB Menu Class](#jtb-menu-class-1)
-    - [Utility Classes Only](#utility-classes-only-1)
-
-</div>
-
 # Menu Component
 
 * Think of the `nav` as the container for the menu, and the `ul` as the actual
