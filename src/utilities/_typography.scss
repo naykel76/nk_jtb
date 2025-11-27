@@ -1,49 +1,121 @@
 @use '../common-tools' as *;
+@use '../maps_and_variables/property-maps' as *;
 @use 'sass:map';
 
-// these variants use a different map and prefix
-$typography-variants-map: (
-    font-weight: (
+// ============================================================================
+// TYPOGRAPHY CONFIGURATION
+// ============================================================================
+// Mapping CSS typography properties to utility class configurations.
+// Font-family, font-size, font-weight, line-height, text alignment,
+// decoration, transform, and wrap utilities.
+// ============================================================================
+
+$typography-properties-map: (
+    color: (
+        prefix: '#{$text-prefix}',
+        values: smart-merge($base-colors, $oklch-colors),
+        states: (
+            'hover',
+            'focus'
+        ),
+    ),
+    font-family: (
         prefix: 'font-',
-        values: $font-weight-variants
+        values: $font-families
+    ),
+    font-size: (
+        prefix: '#{$text-prefix}',
+        values: $font-size-map,
+        unit: 'rem'
+    ),
+    font-style: (
+        prefix: '#{$text-prefix}',
+        values: $font-styles,
+        breakpoints: ()
+    ),
+    font-weight: (
+        prefix: '#{$font-weight-prefix}',
+        values: $font-weight-map
+    ),
+    line-height: (
+        prefix: '#{$line-height-prefix}',
+        values: $line-height-map
+    ),
+    list-style-type: (
+        prefix: 'list-',
+        values: $list-style-types,
+        breakpoints: ()
+    ),
+    text-align: (
+        prefix: '#{$text-align-prefix}',
+        values: $text-aligns
+    ),
+    text-decoration: (
+        prefix: '#{$text-prefix}',
+        values: $text-decorations,
+           states: (
+            'hover',
+            'focus'
+        ),
+        breakpoints: ()
+    ),
+    text-transform: (
+        prefix: '#{$text-prefix}',
+        values: $text-transforms,
+        breakpoints: ()
+    ),
+    text-wrap: (
+        prefix: '#{$text-prefix}',
+        values: $text-wraps
+    ),
+    white-space: (
+        prefix: 'whitespace-',
+        values: $white-spaces
     )
 );
 
-// prettier-ignore
-$typography-properties-map: (
-    color: ( prefix: '#{$text-prefix}', values: smart-merge($base-colors, $oklch-colors) ),
-    font-family: (
-        prefix: "font-",
-        values: (
-            serif: ( ui-serif, Georgia, Cambria, "Times New Roman", Times, serif ),
-            sans: ( ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" ),
-            mono: ( ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace ),
+$text-classes-map: (
+    txt-xs: (
+        props: (
+            font-size: 0.75rem,
+            line-height: 1.25
         )
     ),
-    font-size: ( prefix: "#{$text-prefix}", values: $font-size-map, unit: "rem" ),
-    font-style: ( prefix: "#{$text-prefix}", values: ( italic, normal ) ),
-    font-weight: ( prefix: "#{$font-weight-prefix}", values: $font-weight-values ),
-    line-height: ( prefix: "#{$line-height-prefix}", values: ( 1, 1.5, 2 ) ),
-    list-style-type: ( prefix: "list-", values: (none, disc, decimal, circle, square) ),
-    text-align: ( prefix: "#{$text-align-prefix}", values: ( l: left, r: right, c: center, j: justify ) ),
-    text-decoration: ( prefix: "#{$text-prefix}", values: ( strike: line-through, underline: underline, overline: overline, underline-overline: underline overline ) ),
-    text-transform: ( prefix: "#{$text-prefix}", values: ( upper: uppercase, lower: lowercase, capitalize: capitalize, normal-case: none ) ),
-    text-wrap: ( prefix: "#{$text-prefix}", values: ( wrap, balance, nowrap, pretty ) ),
-    white-space: ( prefix: "whitespace-", values: ( normal, nowrap, pre, pre-line, pre-wrap ) ),
-);
-
-$text-classes-map: (
-    txt-xs: ( props: ( font-size: 0.75rem, line-height: 1.25 ) ),
-    txt-sm: ( props: ( font-size: 0.875rem, line-height: 1.4 ) ),
-    txt-base: ( props: ( font-size: 1rem, line-height: 1.5 ) ), 
-    txt-lg: ( props: ( font-size: 1.125rem, line-height: 1.5 ) ),
-    txt-xl: ( props: ( font-size: 1.25rem, line-height: 1.5 ) ),
-    lead: ( props: ( font-size: 1.125rem, line-height: 1.7 ) )
+    txt-sm: (
+        props: (
+            font-size: 0.875rem,
+            line-height: 1.4
+        )
+    ),
+    txt-base: (
+        props: (
+            font-size: 1rem,
+            line-height: 1.5
+        )
+    ),
+    txt-lg: (
+        props: (
+            font-size: 1.125rem,
+            line-height: 1.5
+        )
+    ),
+    txt-xl: (
+        props: (
+            font-size: 1.25rem,
+            line-height: 1.5
+        )
+    ),
+    lead: (
+        props: (
+            font-size: 1.125rem,
+            line-height: 1.7
+        )
+    )
 );
 
 // ============================================================================
-// Builds
+// BUILDS
 // ============================================================================
 @include build-classes($typography-properties-map, $responsive: true);
-@include build-classes($typography-variants-map, $responsive: true);
-@include build-composite-classes($text-classes-map, $responsive: true);
+
+// @include build-composite-classes($text-classes-map, $responsive: true);

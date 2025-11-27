@@ -1,22 +1,23 @@
-
-// 1
+// ============================================================================
+// Generate a single CSS property dynamically
+// ============================================================================
 @mixin make-property($property, $value) {
     #{$property}: $value;
 }
 
-// 2
+// ============================================================================
+// Generate multiple CSS properties from a map
+// ============================================================================
 @mixin make-properties($props) {
     @each $property, $value in $props {
         @include make-property($property, $value);
     }
 }
 
-
 // ============================================================================
-// Generate a single directional property, e.g. margin-block-start or inset-left.
-// Skips unit if value is 'auto' or 0.
+// Generate a directional property (e.g. margin-left, inset-block-start)
+// Skips unit if value is 'auto' or 0
 // ============================================================================
-
 @mixin make-position-property($property, $value, $position, $unit: 'rem') {
     $derived-unit: if(($value == 'auto' or $value == 0), null, $unit);
 
@@ -24,10 +25,9 @@
 }
 
 // ============================================================================
-// Generate directional properties for a list of positions.
-// Useful for applying the same value across multiple sides.
+// Generate the same directional property for multiple positions
+// Example: margin with value 1 for positions (top, bottom) → margin-top: 1rem; margin-bottom: 1rem;
 // ============================================================================
-
 @mixin make-position-properties($property, $value, $positions, $unit: 'rem') {
     @each $position in $positions {
         @include make-position-property($property, $value, $position, $unit);

@@ -10,9 +10,50 @@
 // Simple lists of valid values
 // ============================================================================
 
+// ============================================================================
+// GENERIC PROPERTIES
+// ============================================================================
 $border-styles: ( solid, dashed, dotted, double, hidden, none ) !default;
 $display: (block, flex, inline, inline-block, inline-flex, table, table-cell, ( hidden: none )) !default;
 $outline-styles: $border-styles !default;
 $position: (static, absolute, fixed, relative, sticky) !default;
 $visibility: (collapse, visible, ( invisible: hidden )) !default;
+
+// ============================================================================
+// TYPOGRAPHY PROPERTIES
+// ============================================================================
+$font-families: (
+    serif: ( "ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif" ),
+    sans: ( "ui-sans-serif", "system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" ),
+    mono: ( "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace" ),
+) !default;
+
+$font-styles: ( italic, normal ) !default;
+
+$text-decorations: (
+    strike: line-through,
+    underline: underline,
+    overline: overline,
+    underline-overline: underline overline
+) !default;
+
+$text-transforms: (
+    upper: uppercase,
+    lower: lowercase,
+    capitalize: capitalize,
+    normal-case: none
+) !default;
+
+$text-wraps: ( wrap, balance, nowrap, pretty ) !default;
+
+$white-spaces: ( normal, nowrap, pre, pre-line, pre-wrap ) !default;
+
+$list-style-types: ( none, disc, decimal, circle, square ) !default;
+
+$text-aligns: (
+    l: left,
+    r: right,
+    c: center,
+    j: justify
+) !default;
 
