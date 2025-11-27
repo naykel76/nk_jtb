@@ -13,9 +13,14 @@
 
 ## Parameters
 
-### `$properties-map` (Required)
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `$properties-map` | Map | — | CSS property config with `prefix`, `values`, `unit`, `positions`, `omit-axis-keys` |
+| `$responsive` | Boolean | `false` | Generate responsive variants (`md:`, `lg:`, etc.) |
+| `$with-state` | Boolean | `false` | Generate state variants (`:hover`, `:focus`, `:active`) |
+| `$debug` | Boolean | `false` | Output debug info during compilation |
 
-A map defining CSS properties and their values.
+### `$properties-map` Configuration
 
 ```scss +code
 $border-properties-map: (
@@ -34,18 +39,6 @@ $border-properties-map: (
 
 @include build-classes($border-properties-map);
 ```
-
-### `$responsive` (Optional)
-
-Generate responsive variants (`md:`, `lg:`, etc.)
-
-### `$with-state` (Optional)
-
-Generate state variants (`:hover`, `:focus`, `:active`)
-
-### `$debug` (Optional)
-
-Output debug info during compilation
 
 ## Examples
 

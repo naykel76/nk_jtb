@@ -13,7 +13,7 @@
 // ============================================================================
 @mixin handle-magic-properties($property, $value, $positions, $unit: rem) {
     @if $positions == '' or not $positions {
-        @include create-property($property, #{$value}#{$unit});
+        @include make-property($property, #{$value}#{$unit});
     } @else {
         @include create-position-properties($property, $value, $positions);
     }

@@ -1,52 +1,12 @@
-/// Creates a single CSS property with a given value.
-///
-/// ### Use Case
-/// Commonly used to recursively generate CSS properties.
-///
-/// @group property-makers
-///
-/// @param {String} $property - The CSS property to generate.
-/// @param {String} $value - The value for the CSS property including units.
-///
-/// @example scss - Usage
-///     .element {
-///         @include create-property(background-color, red);
-///     }
-///
-/// @example css - Output
-///     .element {
-///         background-color: red;
-///     }
-///
 
-@mixin create-property($property, $value) {
+// 
+@mixin make-property($property, $value) {
     #{$property}: $value;
 }
 
-/// Create one or more properties from a map of key-value pairs.
-///
-/// ### Use Case
-/// Commonly used to generate multiple CSS properties from a map of key-value pairs.
-///
-/// @group property-makers
-///
-/// @param {Map} $props - The map of properties and values.
-///
-/// @example scss - Usage
-///     .my-class {
-///         @include make-properties((color: blue, background-color: white));
-///     }
-///
-/// @example css - Output
-///     .my-class {
-///         color: blue;
-///         background-color: white;
-///     }
-///
-
 @mixin make-properties($props) {
     @each $property, $value in $props {
-        @include create-property($property, $value);
+        @include make-property($property, $value);
     }
 }
 

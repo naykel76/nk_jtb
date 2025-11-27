@@ -8,6 +8,10 @@
             {
                 "name": "Installation",
                 "route_name": "jtb.installation"
+            },
+            {
+                "name": "WIP",
+                "route_name": "jtb.wip"
             }
         ]
     },
@@ -116,6 +120,38 @@
             {
                 "name": "FAQs",
                 "route_name": "jtb.faqs"
+            }
+        ]
+    },
+    "API": {
+        "links": [
+            {
+                "name": "Mixin Workflow",
+                "route_name": "jtb.api.workflow"
+            },
+            {
+                "name": "build-classes()",
+                "route_name": "jtb.api.build-classes"
+            },
+            {
+                "name": "make-single-property-class()",
+                "route_name": "jtb.api.make-single-property-class"
+            },
+            {
+                "name": "make-position-based-class()",
+                "route_name": "jtb.api.make-position-based-class"
+            },
+            {
+                "name": "make-from-breakpoint()",
+                "route_name": "jtb.api.make-from-breakpoint"
+            },
+            {
+                "name": "make-to-breakpoint()",
+                "route_name": "jtb.api.make-to-breakpoint"
+            },
+            {
+                "name": "make-on-breakpoint()",
+                "route_name": "jtb.api.make-on-breakpoint"
             }
         ]
     },

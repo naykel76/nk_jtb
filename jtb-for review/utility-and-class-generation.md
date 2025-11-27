@@ -720,7 +720,7 @@ Direct CSS generation without class wrappers:
 ### Single Property
 
 ```scss +code
-@include create-property('margin', '1rem');
+@include make-property('margin', '1rem');
 // → margin: 1rem;
 ```
 

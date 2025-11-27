@@ -67,15 +67,7 @@ $question-color: #c40c9a !default;
 // -- Layouts --
 // ============================================================================
 
-.nk-docs {
-    :is(h2):not(:first-child) {
-        margin-block-start: 2em;
-    }
 
-    h3 {
-        font-size: 1.125rem;
-    }
-}
 
 :root {
     // Brand Colors - Primary Semantic Colors
@@ -87,7 +79,8 @@ $question-color: #c40c9a !default;
     --text-base: #{map.get($oklch-colors, 'slate-300')};
 
     // --text-muted: #{map.get($oklch-colors, 'slate-500')};
-    // --text-heading: #{map.get($oklch-colors, 'slate-900')};
+    --text-heading: #{map.get($oklch-colors, 'sky-800')};
+
     // --text-lead: #{map.get($oklch-colors, 'slate-600')};
 
     /* Links */
@@ -102,6 +95,25 @@ $question-color: #c40c9a !default;
     --border-color: #{map.get($oklch-colors, 'slate-700')};
 }
 
+.nk-docs {
+    :is(h2):not(:first-child) {
+        margin-block-start: 2em;
+    }
+
+    h3 {
+        font-size: 1.125rem;
+    }
+
+    :is(h1, h2, h3, h4, h5, h6, question) {
+        color: var(--text-heading);
+
+        code {
+            font-size: inherit;
+        }
+    }
+}
+
+// 
 .docs-layout {
     background-color: var(--bg-body);
     display: grid;
