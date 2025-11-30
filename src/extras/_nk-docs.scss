@@ -2,6 +2,7 @@
 @use '../common-tools.scss' as *;
 @use '../mixins/backgrounds' as *;
 @use '../mixins/make-classes' as *;
+@use '../maps_and_variables/colors' as *;
 @use 'sass:map';
 
 // prettier-ignore
@@ -40,34 +41,62 @@ $question-color: #c40c9a !default;
     padding: 1rem;
 }
 
+// @each $color-name in $color-scale-names {
+//     .bg-stripes-#{$color-name} {
+//         @include bg-stripes($color-name);
+//     }
+
+//     .bg-stripes-wide-#{$color-name} {
+//         @include bg-stripes($color-name, $stripe-width: 15px);
+//     }
+// }
+
 .example {
     &-jtb {
+        background: repeating-linear-gradient(
+            135deg,
+            rgb(252 231 243 / 20%),
+            rgb(252 231 243 / 20%) 20px,
+            rgb(249 168 212 / 20%) 20px,
+            rgb(249 168 212 / 20%) 40px
+        );
         border-color: map.get($base-colors, 'pink');
+        border-width: 3px;
     }
 
     &-utils {
-        border-color: map.get($base-colors, 'purple');
+        background: repeating-linear-gradient(
+            135deg,
+            rgb(219 234 254 / 20%),
+            rgb(219 234 254 / 20%) 20px,
+            rgb(147 197 253 / 20%) 20px,
+            rgb(147 197 253 / 20%) 40px
+        );
+        border-color: map.get($base-colors, 'blue');
+        border-width: 3px;
+
+        // @include bg-stripes('blue', 5px);
     }
 }
 
-// consider moving these to themes or backgrounds
-.ph-pink {
-    border: 1px solid map.get($base-colors, 'pink');
+// used for svg icon backgrounds in docs
+.svg-icon {
+    &-pink {
+        border: 1px solid map.get($base-colors, 'pink');
 
-    @include bg-stripes('pink');
-}
+        @include bg-stripes('pink');
+    }
 
-.ph-purple {
-    border: 1px solid map.get($base-colors, 'purple');
+    &-blue {
+        border: 1px solid map.get($base-colors, 'blue');
 
-    @include bg-stripes('purple');
+        @include bg-stripes('blue');
+    }
 }
 
 // ============================================================================
 // -- Layouts --
 // ============================================================================
-
-
 
 :root {
     // Brand Colors - Primary Semantic Colors
@@ -88,7 +117,7 @@ $question-color: #c40c9a !default;
     --text-link-hover: #{map.get($oklch-colors, 'sky-700')};
 
     /* Backgrounds - Surface Colors */
-    --bg-body: #{map.get($oklch-colors, 'slate-100')};
+    --bg-body: #{map.get($oklch-colors, 'slate-50')};
     --bg-surface: #{map.get($oklch-colors, 'slate-800')};
 
     // borders
@@ -113,7 +142,7 @@ $question-color: #c40c9a !default;
     }
 }
 
-// 
+//
 .docs-layout {
     background-color: var(--bg-body);
     display: grid;

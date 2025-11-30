@@ -32,7 +32,6 @@ nav ul {
     list-style: none;
     margin: 0;
 
-    li{
-        margin: 0; // take it off for nav, its easier!
-    }
+    // Dont add li item here, It's better to opt out where needed
+    // rather than have to opt in everywhere
 }

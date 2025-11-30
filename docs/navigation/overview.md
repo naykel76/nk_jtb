@@ -1,9 +1,11 @@
-# Navigation
+# Navigation Overview
 
-<!-- not sure i like this explanation, i am thinking we need to explain there is some magic  -->
-Navigation in JTB uses semantic HTML structure: `<nav>` as the container, `<ul>` as the menu list.
+Navigation in JTB follows semantic HTML structure with context-aware styling
+that adapts automatically based on where and how it's used.
 
 ## Basic Structure
+
+All navigation patterns start with this semantic foundation:
 
 ```html +code
 <nav>
@@ -13,45 +15,84 @@ Navigation in JTB uses semantic HTML structure: `<nav>` as the container, `<ul>`
 </nav>
 ```
 
-This structure works for all navigation patterns—sidebars, navbars, dropdowns.
+This structure works for all navigation patterns including sidebars, menus,
+navbars, and more.
 
-## Styling Options
+## Context-Aware Navigation
 
-Add `.menu` class for automatic styling, or use utility classes for custom control.
+Context-aware styling is a fundamental concept in JTB. Components automatically
+adapt their behavior based on where they're placed and what other classes are
+used with them.
 
-[Then show examples]
+The `.menu` class makes navigation context-aware. Apply it to a `<ul>` and it
+adapts automatically—vertical in a sidebar, horizontal in a navbar, without
+changing the markup.
 
-- Adding the `menu` class makes nav lists context-aware, adapting their layout and styling
-  based on where they're used (sidebars, dropdowns, navbars).
-
-## Basic Navigation With Menu Class
-
-### Vertical Menu (default)
-
-```html +code +preview +collapse class="bx"
+Take a look at these two examples using the same menu structure:
+```html +code +preview +collapse class="bx my"
 <nav>
     <ul class="menu">
-        <li> <a class="active" href="#"> Dashboard </a> </li>
-        <li> <a href="#"> Account </a> </li>
-        <li> <a href="#"> Projects </a> </li>
-        <li> <a href="#"> Calendar </a> </li>
-        <li> <a href="#"> Documentation </a> </li>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Settings</a></li>
     </ul>
 </nav>
 ```
 
----
-
-### Horizontal Menu (navbar)
-
-```html +code +preview +collapse class="bx"
+Now add `.navbar` to the `<nav>` element:
+```html +code +preview +collapse class="bx my"
 <nav class="navbar">
-    <ul class="menu space-y-0">
-        <li> <a class=" active" href="#"> Dashboard </a> </li>
-        <li> <a href="#"> Account </a> </li>
-        <li> <a href="#"> Projects </a> </li>
-        <li> <a href="#"> Calendar </a> </li>
-        <li> <a href="#"> Documentation </a> </li>
+    <ul class="menu">
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Settings</a></li>
     </ul>
-</nav>   
+</nav>
 ```
+
+The `.menu` class detects when it's inside a `.navbar` container and adapts from
+vertical to horizontal automatically.
+
+## Styling Approach
+
+JTB navigation can be built with the `.menu` component class or utility
+classes—the choice is yours.
+
+### Component Class Approach
+```html +code +preview +collapse class="example-jtb w-20"
+<nav class="bx">
+    <ul class="menu">
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Projects</a></li>
+    </ul>
+</nav>
+```
+
+Minimal classes. Automatic styling for links, buttons, icons, and states.
+
+### Utility Class Approach
+```html +code +preview +collapse class="example-utils w-20"
+<nav class="bx">
+    <ul class="flex-col txt-sm">
+        <li>
+            <a href="#" class="flex items-center px-075 py-05 rounded-lg txt-gray-600 hover:bg-gray-100">
+                Dashboard
+            </a>
+        </li>
+        <li>
+            <a href="#" class="flex items-center px-075 py-05 rounded-lg txt-gray-600 hover:bg-gray-100">
+                Projects
+            </a>
+        </li>
+    </ul>
+</nav>
+```
+
+Full control over every detail. Explicit styling on each element.
+
+Both create the same result. Choose based on your needs.
+
+## Next Steps
+
+- **[Menu](/jtb/navigation/menu)** - Vertical navigation lists for sidebars and dropdowns
+- **[Navbar](/jtb/navigation/navbar)** - Horizontal navigation bars for top-level navigation
