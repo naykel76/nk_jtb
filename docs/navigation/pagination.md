@@ -88,18 +88,3 @@
         <svg class="icon xs" aria-hidden="true"> <use href="/svg/icons.svg#chevron-right"></use> </svg>
     </button>
 </nav>
-
-<!-- good to show tailwind vs jtb -->
-<!-- (layout → sizing → spacing → typography → colors → borders → states → misc): -->
-<!-- * `py-2 px-3` becomes `py-05 px-075` -->
-<!-- * `flex justify-center items-center` becomes `flex-centered` -->
-<!-- * `first:rounded-s-lg last:rounded-e-lg` becomes `ends:rounded-lg` -->
-<!-- * `min-h-9.5 min-w-9.5` becomes `min-wh-2.5` -->
-<!-- * `` becomes `` -->
-<!-- * `` becomes `` -->
-
-<!-- hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:bdr-neutral-700 dark:txt-white dark:hover:bg-white/10 dark:focus:bg-white/10 -->
-<!-- focus:outline-hidden focus:bg-gray-300 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-600 dark:bdr-neutral-700 dark:txt-white dark:focus:bg-neutral-500 -->
-<!-- txt-gray-800 bdr bdr-gray-200 -->
-<!-- active -->
-<!-- txt-gray-800 bg-gray-200 bdr bdr-gray-200 -->

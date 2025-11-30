@@ -72,16 +72,7 @@ components.
 Apply `.primary` to any element—button, box, or badge—and it automatically
 adapts to that component’s style while keeping a consistent colour scheme.
 
-<div class="grid cols-2">
-    <div class="bx primary">
-        This is a primary themed box.
-    </div>
-    <div class="bx teal">
-        This is a teal themed box.
-    </div>
-</div>
-
-```html +code
+```html +preview class="bx"
 <div class="bx primary">
     This is a primary themed box.
 </div>
@@ -90,10 +81,7 @@ adapts to that component’s style while keeping a consistent colour scheme.
 </div>
 ```
 
-<button class="btn primary">Primary Button</button> <button class="btn
-teal">Teal Button</button>
-
-```html +code
+```html +preview class="bx"
 <button class="btn primary">Primary Button</button>
 <button class="btn teal">Teal Button</button>
 ```
@@ -107,8 +95,20 @@ keeping your interface consistent and simple.
 Consider this Tailwind button:
 
 ```html +code
-<button class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-blue-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:focus:border-blue-700 dark:active:bg-gray-700 dark:active:text-gray-300" type="button">
-    Button
+<button class="relative inline-flex items-center
+    px-4 py-2
+    text-sm font-medium leading-5
+    border border-gray-300 rounded-md
+    text-gray-700 bg-white
+    hover:text-gray-500
+    focus:outline-none focus:ring focus:ring-blue-300 focus:border-blue-300
+    active:bg-gray-100 active:text-gray-700
+    dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300
+    dark:focus:border-blue-700
+    dark:active:bg-gray-700 dark:active:text-gray-300
+    transition ease-in-out duration-150" 
+type="button"> 
+    Button 
 </button>
 ```
 
@@ -140,28 +140,3 @@ These classes break down into:
 The `.btn` class handles structure, padding, transitions, and states. The
 `.primary` theme handles colors for all states and dark mode. Add utilities only
 when you need to override the defaults.
-
-## No Runtime Dependencies
-
-JTB emphasises compile-time generation over runtime complexity:
-
-- **Powerful mixins** for generating custom utilities and responsive variants
-- **No JavaScript dependencies** for styling or theming
-- **Customisable maps** let you define your own color palettes, spacing scales,
-  and breakpoints
-- **Modular imports** so you only include what you need
-
-## Getting Started
-
-```scss +code
-// Import only what you need
-@import 'jtb/base';
-@import 'jtb/utilities';
-@import 'jtb/components/buttons';
-
-// Or import everything
-@import 'jtb';
-```
-
-JTB gives you the foundation to build fast, maintainable interfaces without the
-overhead of larger frameworks or the verbosity of pure utility approaches.

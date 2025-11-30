@@ -1,3 +1,12 @@
-.animate-spin {
-    animation: spin 1s linear infinite;
-}
+@use '../common-tools' as *;
+@use 'sass:map';
+
+// prettier-ignore
+$effects-properties-map: (
+    opacity: ( prefix: 'opacity-', values: $opacity-map),
+);
+
+// ============================================================================
+// BUILDS
+// ============================================================================
+@include build-classes($effects-properties-map, $responsive: true);

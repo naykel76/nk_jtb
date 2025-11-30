@@ -35,7 +35,7 @@
     - [Position-Based Classes](#position-based-classes-1)
     - [Responsive Helpers](#responsive-helpers)
     - [State Variants](#state-variants-1)
-- [Property Makers (Low-Level)](#property-makers-low-level)
+- [Property Makers (Low-Level)](#make-properties-low-level)
     - [Single Property](#single-property)
     - [Multiple Properties](#multiple-properties)
     - [Directional Properties](#directional-properties)
@@ -738,7 +738,7 @@ Direct CSS generation without class wrappers:
 ### Directional Properties
 
 ```scss +code
-@include create-position-properties(
+@include make-position-properties(
     'margin',                       // Property
     2,                              // Value
     (block-start, block-end),       // Positions

@@ -6,7 +6,9 @@
 // ============================================================================
 // -- MENU COMPONENT --
 // ============================================================================
-// menu-title, menu-link, etc. are added for clarity, but not strictly necessary
+// The .menu-title, .menu-link, etc. selectors are included to improve clarity
+// and make overrides easier; they are optional and not required for core
+// functionality.
 
 .menu {
     display: flex;

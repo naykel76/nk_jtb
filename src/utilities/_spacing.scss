@@ -5,7 +5,7 @@
 // ============================================================================
 // MARGIN & PADDING CONFIGURATION
 // ============================================================================
-$spacing-properties: (
+$spacing-properties-map: (
     margin: (
         prefix: 'm',
         values: $margin-map,
@@ -60,7 +60,7 @@ $compound-spacing: (
 // BUILDS
 // ============================================================================
 
-@include build-classes($spacing-properties, $responsive: true);
+@include build-classes($spacing-properties-map, $responsive: true);
 @include build-classes($spacing-combinator-properties, $responsive: true);
 @include build-composite-classes($compound-spacing, $responsive: true);
 

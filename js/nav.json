@@ -51,6 +51,26 @@
             }
         ]
     },
+    "Navigation": {
+        "links": [
+            {
+                "name": "Overview",
+                "route_name": "jtb.navigation.overview"
+            },
+            {
+                "name": "Menu",
+                "route_name": "jtb.navigation.menu"
+            },
+            {
+                "name": "Navbar",
+                "route_name": "jtb.navigation.navbar"
+            },
+            {
+                "name": "Pagination",
+                "route_name": "jtb.navigation.pagination"
+            }
+        ]
+    },
     "Utilities": {
         "links": [
             {
@@ -92,18 +112,6 @@
             {
                 "name": "Forms",
                 "route_name": "jtb.components.forms"
-            },
-            {
-                "name": "Menu",
-                "route_name": "jtb.components.menu"
-            },
-            {
-                "name": "Navbar",
-                "route_name": "jtb.components.navbar"
-            },
-            {
-                "name": "Pagination",
-                "route_name": "jtb.components.pagination"
             },
             {
                 "name": "Table",
