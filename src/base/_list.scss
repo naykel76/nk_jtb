@@ -27,11 +27,17 @@ ol {
     list-style-type: decimal;
 }
 
-// Reset for navigation menus
-nav ul {
-    list-style: none;
-    margin: 0;
+// Navigation menu resets
+nav {
+    ul {
+        list-style: none;
 
-    // Dont add li item here, It's better to opt out where needed
-    // rather than have to opt in everywhere
+        // Dont add li item here, It's better to opt out li spacing individually
+        // rather than globally
+    }
+
+    // Only reset margin for direct child ul to preserve nested list spacing
+    > ul {
+        margin: 0;
+    }
 }

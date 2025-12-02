@@ -5,25 +5,110 @@
 @use '../maps_and_variables/colors' as *;
 @use 'sass:map';
 
-// prettier-ignore
-@include cq-make-on-breakpoint( ( visibility: hidden ), 'invisible', $responsive-variants );
-
-// prettier-ignore
-@include cq-make-on-breakpoint( ( visibility: visible ), 'visible', $responsive-variants );
-
-// prettier-ignore
-@include cq-make-from-breakpoint( ( visibility: hidden ), 'invisible', $responsive-variants );
-
-// prettier-ignore
-@include cq-make-from-breakpoint( ( visibility: visible ), 'visible', $responsive-variants );
-
-// prettier-ignore
-@include cq-make-to-breakpoint( ( visibility: hidden ), 'invisible', remove-from-list($responsive-variants, xxl) );
-
-// prettier-ignore
-@include cq-make-to-breakpoint( ( visibility: visible ), 'visible', remove-from-list($responsive-variants, xxl) );
-
 $question-color: #c40c9a !default;
+
+// ============================================================================
+// -- Layouts --
+// ============================================================================
+
+:root {
+    // Brand Colors - Primary Semantic Colors
+    --primary: #{map.get($oklch-colors, 'blue-500')};
+    --secondary: #{map.get($oklch-colors, 'slate-700')};
+    --accent: #{map.get($oklch-colors, 'yellow-500')};
+
+    /* Typography - Text Colors */
+    --text-base: #{map.get($oklch-colors, 'slate-300')};
+
+    // --text-muted: #{map.get($oklch-colors, 'slate-500')};
+    --text-heading: #{map.get($oklch-colors, 'sky-800')};
+
+    // --text-lead: #{map.get($oklch-colors, 'slate-600')};
+
+    /* Links */
+    --text-link: #{map.get($oklch-colors, 'sky-600')};
+    --text-link-hover: #{map.get($oklch-colors, 'sky-700')};
+
+    /* Backgrounds - Surface Colors */
+    --bg-body: #{map.get($oklch-colors, 'slate-50')};
+    --bg-surface: white;
+
+    // borders
+    --border-color: #{map.get($oklch-colors, 'slate-200')};
+}
+
+.nk-docs {
+    background-color: var(--bg-body);
+    display: flex;
+
+    // min-height: 100vh;
+
+    :is(.left-sidebar, .right-sidebar) {
+        background-color: var(--bg-surface);
+        padding: $base-padding;
+        width: 16rem;
+    }
+
+    .left-sidebar {
+        border-right: 1px solid var(--border-color);
+        height: 100vh;
+        left: 0;
+        overflow-y: auto;
+        position: sticky;
+        top: 0;
+    }
+
+    .right-sidebar {
+        border-left: 1px solid var(--border-color);
+    }
+
+    .toc {
+        font-size: 0.875rem;
+        position: sticky;
+        top: 0;
+
+        a {
+            // color: rgb(245 245 245);
+        }
+    }
+}
+
+// .docs-layout {
+//     background-color: var(--bg-body);
+//     display: grid;
+//     min-height: 100vh;
+
+//     .left-sidebar {
+//         background-color: var(--bg-surface);
+//         color: rgb(245 245 245);
+//         padding: $base-padding;
+//     }
+
+//     .toc {
+//         background-color: map.get($oklch-colors, 'slate-700');
+//         color: rgb(245 245 245);
+//         font-size: 0.75rem;
+
+//         // max-height: 100vh;
+//         // overflow-y: auto;
+//         padding: $base-padding;
+//         position: sticky;
+//         top: 0;
+
+//         a {
+//             color: rgb(245 245 245);
+//         }
+//     }
+
+//     // the container queries are used for the resizable container demo
+//     @include cq-from-sm {
+//         grid-template-columns: 250px 1fr 200px;
+//     }
+
+//     @include from-md {
+//         grid-template-columns: 250px 1fr 200px;
+//     }
+// }
 
 // :root {
 //     --question-color: #c40c9a;
@@ -40,16 +125,6 @@ $question-color: #c40c9a !default;
     border-radius: 0.5rem;
     padding: 1rem;
 }
-
-// @each $color-name in $color-scale-names {
-//     .bg-stripes-#{$color-name} {
-//         @include bg-stripes($color-name);
-//     }
-
-//     .bg-stripes-wide-#{$color-name} {
-//         @include bg-stripes($color-name, $stripe-width: 15px);
-//     }
-// }
 
 .example {
     &-jtb {
@@ -91,92 +166,6 @@ $question-color: #c40c9a !default;
         border: 1px solid map.get($base-colors, 'blue');
 
         @include bg-stripes('blue');
-    }
-}
-
-// ============================================================================
-// -- Layouts --
-// ============================================================================
-
-:root {
-    // Brand Colors - Primary Semantic Colors
-    --primary: #{map.get($oklch-colors, 'blue-500')};
-    --secondary: #{map.get($oklch-colors, 'slate-700')};
-    --accent: #{map.get($oklch-colors, 'yellow-500')};
-
-    /* Typography - Text Colors */
-    --text-base: #{map.get($oklch-colors, 'slate-300')};
-
-    // --text-muted: #{map.get($oklch-colors, 'slate-500')};
-    --text-heading: #{map.get($oklch-colors, 'sky-800')};
-
-    // --text-lead: #{map.get($oklch-colors, 'slate-600')};
-
-    /* Links */
-    --text-link: #{map.get($oklch-colors, 'sky-600')};
-    --text-link-hover: #{map.get($oklch-colors, 'sky-700')};
-
-    /* Backgrounds - Surface Colors */
-    --bg-body: #{map.get($oklch-colors, 'slate-50')};
-    --bg-surface: #{map.get($oklch-colors, 'slate-800')};
-
-    // borders
-    --border-color: #{map.get($oklch-colors, 'slate-700')};
-}
-
-.nk-docs {
-    :is(h2):not(:first-child) {
-        margin-block-start: 2em;
-    }
-
-    h3 {
-        font-size: 1.125rem;
-    }
-
-    :is(h1, h2, h3, h4, h5, h6, question) {
-        color: var(--text-heading);
-
-        code {
-            font-size: inherit;
-        }
-    }
-}
-
-//
-.docs-layout {
-    background-color: var(--bg-body);
-    display: grid;
-    min-height: 100vh;
-
-    .left-sidebar {
-        background-color: var(--bg-surface);
-        color: rgb(245 245 245);
-        padding: $base-padding;
-    }
-
-    .toc {
-        background-color: map.get($oklch-colors, 'slate-700');
-        color: rgb(245 245 245);
-        font-size: 0.75rem;
-
-        // max-height: 100vh;
-        // overflow-y: auto;
-        padding: $base-padding;
-        position: sticky;
-        top: 0;
-
-        a {
-            color: rgb(245 245 245);
-        }
-    }
-
-    // the container queries are used for the resizable container demo
-    @include cq-from-sm {
-        grid-template-columns: 250px 1fr 200px;
-    }
-
-    @include from-md {
-        grid-template-columns: 250px 1fr 200px;
     }
 }
 
@@ -290,3 +279,21 @@ pre code.torchlight {
     //     right: 0.5rem;
     // }
 }
+
+// prettier-ignore
+@include cq-make-on-breakpoint( ( visibility: hidden ), 'invisible', $responsive-variants );
+
+// prettier-ignore
+@include cq-make-on-breakpoint( ( visibility: visible ), 'visible', $responsive-variants );
+
+// prettier-ignore
+@include cq-make-from-breakpoint( ( visibility: hidden ), 'invisible', $responsive-variants );
+
+// prettier-ignore
+@include cq-make-from-breakpoint( ( visibility: visible ), 'visible', $responsive-variants );
+
+// prettier-ignore
+@include cq-make-to-breakpoint( ( visibility: hidden ), 'invisible', remove-from-list($responsive-variants, xxl) );
+
+// prettier-ignore
+@include cq-make-to-breakpoint( ( visibility: visible ), 'visible', remove-from-list($responsive-variants, xxl) );
