@@ -27,6 +27,10 @@ ol {
     list-style-type: decimal;
 }
 
+// I think this is a good around reset for lists in navs. Remember every action
+// has an equal and opposite reaction. So unless you are ready for a world of
+// pain, stop looking for a single solution. It does not exist.
+
 // Navigation menu resets
 nav {
     ul {
@@ -36,7 +40,8 @@ nav {
         // rather than globally
     }
 
-    // Only reset margin for direct child ul to preserve nested list spacing
+    // Removes both block and inline margins from top-level nav lists. Only
+    // reset margin for direct child ul to preserve nested list spacing
     > ul {
         margin: 0;
     }

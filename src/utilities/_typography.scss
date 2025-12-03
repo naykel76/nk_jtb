@@ -34,7 +34,7 @@ $typography-properties-map: (
         breakpoints: ()
     ),
     font-weight: (
-        prefix: '#{$font-weight-prefix}',
+        prefix: 'font-',
         values: $font-weight-map
     ),
     line-height: (

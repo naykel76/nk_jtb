@@ -10,56 +10,36 @@
 .navbar {
     background: $navbar-bg;
     padding: $navbar-padding-y $navbar-padding-x;
-    position: relative;
 
-    ul {
-        display: flex;
+    > ul > li {
+        margin-block-start: 0;
     }
 
-
-    // 
-
-    // remove specificity to make easier to override
-    :where(ul a) {
-        color: $navbar-nav-item-color;
-        display: block; // 1. allowing the navbar to grow in height
-        line-height: 1.2rem;
-        padding: $navbar-nav-padding-y $navbar-nav-padding-x;
-
-        &:hover {
-            color: $navbar-nav-hover-color;
-        }
-
-        &.active,
-        &:active {
-            color: $navbar-nav-active-color;
-        }
-    }
-
-    .nav-item {
-        // disabled because it causes issues when there are icons
-        // display: block; // 1. allowing the navbar to grow in height
-        background: $navbar-nav-item-bg;
-        color: $navbar-nav-item-color;
-        line-height: 1.2rem;
-
-        &:hover {
-            background: $navbar-nav-hover-bg;
-            color: $navbar-nav-hover-color;
-        }
-
-        &.active,
-        &:active {
-            background: $navbar-nav-active-bg;
-            color: $navbar-nav-active-color;
-        }
-    }
-
-    // this is a quick and dirt solution to prevent to work with
-    // .bx.menu which is likely set in the dropdowns
     .menu {
-        :where(a, li a, .menu-item) {
-            color: #333;
-        }
+        flex-direction: row;
+        gap: 0.5rem;
+        margin: 0;
     }
 }
+
+// .nav-item {
+//     background: $navbar-nav-item-bg;
+//     color: $navbar-nav-item-color;
+//     font-weight: $navbar-nav-font-weight;
+//     padding: $navbar-nav-padding-y $navbar-nav-padding-x;
+
+//     &:hover:not(.disabled, :disabled, [aria-disabled]) {
+//         // background: $navbar-nav-hover-bg;
+//         color: $navbar-nav-hover-color;
+//     }
+
+//     &:is(.active, [aria-current]):not(.disabled, :disabled, [aria-disabled]) {
+//         background: $navbar-nav-active-bg;
+//         color: $navbar-nav-active-color;
+//     }
+
+//     &:focus-visible:not(.disabled, :disabled, [aria-disabled]) {
+//         color: $navbar-nav-active-color;
+//         outline: none;
+//     }
+// }
