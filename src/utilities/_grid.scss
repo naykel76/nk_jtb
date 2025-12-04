@@ -1,71 +1,38 @@
-@use '../mixins/make-classes' as *;
 @use '../mixins/build-magic-grid' as *;
 @use '../common-tools' as *;
 @use 'sass:map';
+@use '../mixins/make-classes' as *; // remove
 
-$grid-num-cols: 12 !default;
-
-// ============================================================================
-// -- GRID --
-// ============================================================================
-// DEPRECATED
 .grid {
     display: grid;
-    gap: #{map.get($gap-map, 'base')}rem;
-}
-
-@each $size in $gap-values {
-    $variant: escape-decimal($size);
-    .grid-#{$variant} {
-        display: grid;
-        gap: #{$size}rem;
-    }
+    gap: #{map.get($gap-map, 'base')};
 }
 
 // ============================================================================
-// -- GRID SPANNING --
+// -- GRID PROPERTIES --
 // ============================================================================
-// 1 is redundant, but it's there because I am lazy!
-@for $i from 1 through $grid-num-cols {
-    .col-span-#{$i} {
-        grid-column: span $i;
-    }
-}
 
-// ============================================================================
-// -- EQUAL WIDTHS COLUMNS(RESPONSIVE AND NON-RESPONSIVE) --
-// ============================================================================
-// NKTD: Refactor to use 'builders'
-@for $i from 1 through $grid-num-cols {
-    // base class
-    .cols-#{$i} {
-        grid-template-columns: repeat($i, minmax(0, 1fr));
-    }
-
-    $props: (
-        grid-template-columns: repeat($i, minmax(0, 1fr))
-    );
-    $breakpoints: ('base', 'sm', 'md', 'lg', 'xl');
-    $class: 'cols-#{$i}';
-
-    @include make-from-breakpoint($props, $class, $breakpoints);
-}
-
-// prettier-ignore
 $grid-properties-map: (
     gap: (
-        prefix: "gap-",
+        prefix: 'gap-',
         values: $gap-map,
-        unit: "rem",
+        unit: 'rem'
+    ),
+    grid-template-columns: (
+        prefix: 'cols-',
+        values: $cols-map
+    ),
+    grid-column: (
+        prefix: 'col-span-',
+        values: $col-span-map
     )
 );
 
 // ============================================================================
-// Builds
+// BUILDS
 // ============================================================================
-// -- Property Classes --
 @include build-classes($grid-properties-map, $responsive: true);
 
 // -- Magic Classes --
-@include build-magic-classes(grid-gap, ($magic-gap-patterns), 'gap');
+@include build-magic-classes(gap, ($magic-gap-patterns), 'gap');
 @include build-magic-grid($magic-grid-patterns);

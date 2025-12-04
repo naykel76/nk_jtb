@@ -17,12 +17,7 @@
     $map: ();
 
     @each $value in $list {
-        $map: map.merge(
-            $map,
-            (
-                $value: $value
-            )
-        );
+        $map: map.merge( $map, ( $value: $value ) );
     }
 
     @return $map;

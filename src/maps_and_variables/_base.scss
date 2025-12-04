@@ -31,7 +31,8 @@ $line-height: 1.5 !default;
 $line-height-condensed: 1.25 !default;
 
 // -- Body Background --
-$bg-body: #fff !default;
+// $bg-body: hsl(0 0% 98%) !default; // slate-50
+$bg-body: hsl(210 20% 98%) !default; // gray-50
 
 // -- Spacing Scale --
 // ============================================================================

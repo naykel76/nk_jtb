@@ -22,7 +22,6 @@
 // appears in CSS before numbered variants, allowing proper cascade precedence.
 
 
-
 // ============================================================================
 // Border and Outline Property Maps
 // ============================================================================
@@ -64,6 +63,37 @@ $gap-variants: (sm: 0.75rem, base: 1.25rem, lg: 2rem) !default;
 $gap-values: (0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 2, 3, 4, 5) !default;
 $gap-map: smart-merge($gap-variants, $gap-values) !default;
 
+// -- Grid Columns & Spanning --
+$col-span-map: (
+    1: span 1,
+    2: span 2,
+    3: span 3,
+    4: span 4,
+    5: span 5,
+    6: span 6,
+    7: span 7,
+    8: span 8,
+    9: span 9,
+    10: span 10,
+    11: span 11,
+    12: span 12
+) !default;
+
+$cols-map: (
+    1: repeat(1, minmax(0, 1fr)),
+    2: repeat(2, minmax(0, 1fr)),
+    3: repeat(3, minmax(0, 1fr)),
+    4: repeat(4, minmax(0, 1fr)),
+    5: repeat(5, minmax(0, 1fr)),
+    6: repeat(6, minmax(0, 1fr)),
+    7: repeat(7, minmax(0, 1fr)),
+    8: repeat(8, minmax(0, 1fr)),
+    9: repeat(9, minmax(0, 1fr)),
+    10: repeat(10, minmax(0, 1fr)),
+    11: repeat(11, minmax(0, 1fr)),
+    12: repeat(12, minmax(0, 1fr))
+) !default;
+
 // -- Sizing (width, height, max-*, min-*) --
 $height-width: ( auto: auto, full: 100%, fit: fit-content, max: max-content, min: min-content ) !default;
 $height-map: smart-merge((screen: 100vh), $height-width) !default;
@@ -92,16 +122,16 @@ $opacity-variants: ( invisible: 0, semi: 0.5, visible: 1 ) !default;
 $opacity-map: smart-merge($opacity-variants, $opacity-values) !default;
 
 // -- Box Shadow --
-// $shadow-variants: (
-//     none: none,
-//     xs: (0 1px 2px 0 rgb(0 0 0 / 5%)),
-//     sm: (0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px -1px rgb(0 0 0 / 10%)),
-//     md: (0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%)),
-//     lg: (0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%)),
-//     xl: (0 20px 25px -5px rgb(0 0 0 / 10%), 0 8px 10px -6px rgb(0 0 0 / 10%)),
-//     xxl: (0 25px 50px -12px rgb(0 0 0 / 25%)),
-//     inner: (inset 0 2px 4px 0 rgb(0 0 0 / 5%))
-// ) !default;
+$shadow-map: (
+    none: none,
+    xs: (0 1px 2px 0 rgb(0 0 0 / 5%)),
+    sm: (0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px -1px rgb(0 0 0 / 10%)),
+    md: (0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%)),
+    lg: (0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%)),
+    xl: (0 20px 25px -5px rgb(0 0 0 / 10%), 0 8px 10px -6px rgb(0 0 0 / 10%)),
+    xxl: (0 25px 50px -12px rgb(0 0 0 / 25%)),
+    inner: (inset 0 2px 4px 0 rgb(0 0 0 / 5%))
+) !default; 
 
 // // -- Blur --
 // $blur-variants: (

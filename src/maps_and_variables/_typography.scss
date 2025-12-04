@@ -10,17 +10,13 @@
 // line heights, letter spacing, and text colors.
 // ============================================================================
 
-// -- Base Typography --
-// -- Font Weights --
-$font-weight-bold: var(--base-text-weight-semibold, 600) !default;
-$font-weight-semibold: var(--base-text-weight-medium, 500) !default;
-$font-weight-normal: var(--base-text-weight-normal, 400) !default;
-$font-weight-light: var(--base-text-weight-light, 300) !default;
+:root {
+    --heading-color: inherit;
+    --heading-font-weight: 700;
+}
 
 // -- Headings --
 $heading-sizes: 2.25em, 1.75em, 1.5em, 1.25em, 1.125em, 1em !default;
-$heading-font-weight: 700 !default;
-$heading-color: inherit !default;
 
 // -- Letter Spacing --
 $letter-spacing: ( tighter: -0.1em, tight: -0.05em, normal: 0em, wide: 0.05em, wider: 0.1em, widest: 0.25em) !default;
@@ -30,14 +26,10 @@ $text-base-values: $base-colors !default;
 $text-base-map: smart-merge( $text-base-variants, $text-base-values) !default;
 
 // -- Font Sizes --
-$font-size-variants: () !default;
-$font-size-values: (1, 1.5, 2, 2.5, 3, 4) !default;
-$font-size-map: smart-merge($font-size-variants, $font-size-values) !default;
+$font-size-map: list-to-map((1, 1.5, 2, 2.5, 3, 4)) !default;
 
 // -- Font Weights --
-$font-weight-values: ( 1: 100, 2: 200, 3: 300, 4: 400, 5: 500, 6: 600, 7: 700, 8: 800, 9: 900 ) !default;
-$font-weight-variants: ( thin: 100, extralight: 200, light: 300, normal: 400, medium: 500, semibold: 600, bold: 700, extrabold: 800, black: 900 ) !default;
-$font-weight-map: smart-merge($font-weight-variants, $font-weight-values) !default;
+$font-weight-map: ( thin: 100, extralight: 200, light: 300, normal: 400, medium: 500, semibold: 600, bold: 700, extrabold: 800, black: 900 ) !default;
 
 // -- Line Heights --
 $line-height-variants: ( tight: 1.25, normal: $line-height, relaxed: 1.75, loose: 2 ) !default;

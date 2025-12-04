@@ -231,6 +231,7 @@ pre code.torchlight {
         }
 
         .summary-caret-start::after {
+            color: yellow;
             content: '+';
         }
 
@@ -242,6 +243,10 @@ pre code.torchlight {
         .summary-caret-end::after,
         .summary-caret-empty::after {
             content: ' ';
+        }
+
+        .summary-hide-when-open {
+            color: yellow !important;
         }
 
         &[open] .summary-hide-when-open {

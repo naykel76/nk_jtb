@@ -6,9 +6,12 @@ $effects-properties-map: (
         prefix: 'opacity-',
         values: $opacity-map
     ),
-    // box-shadow: ( prefix: 'shadow-', values: $shadow-variants ),
+    box-shadow: (
+        prefix: 'shadow-',
+        values: $shadow-map
+    ),
     // filter: ( prefix: 'blur-', values: $blur-variants, wrapper: 'blur' ),
-    // backdrop-filter: ( prefix: 'backdrop-blur-', values: $backdrop-blur-variants )
+     // backdrop-filter: ( prefix: 'backdrop-blur-', values: $backdrop-blur-variants )
 );
 
 // ============================================================================
