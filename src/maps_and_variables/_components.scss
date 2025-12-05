@@ -66,11 +66,6 @@ $icon-tick: url("data:image/svg+xml;utf8,<?xml version='1.0' encoding='utf-8'?><
 // ============================================================================
 $bx-bg: #fff !default;
 $bx-padding: $base-padding !default;
-$bx-border-radius: 0.5rem !default;
-$bx-border-color: $border-color !default;
-$bx-header-bg: rgb(250 250 250) !default;
-$bx-title-font-weight: 700 !default;
-$bx-title-font-size: 1.25rem !default;
 
 // ============================================================================
 // -- button --
@@ -107,5 +102,43 @@ $menu-hover-bg: map.get($oklch-colors, gray-100) !default;
 $menu-icon-size: 1.25rem !default;
 $menu-item-border-radius: 0.5rem !default;
 $menu-link-hover-color: map.get($oklch-colors, gray-900) !default;
-$menu-padding-x: 0.75rem !default;
-$menu-padding-y: 0.5rem !default;
+
+// // Nav item spacing
+// $menu-nav-padding-x: 1em !default;
+// $menu-nav-padding-y: 0.75em !default;
+
+// // Nav item base colors
+// $menu-nav-item-bg: $menu-bg !default;
+// $menu-nav-item-color: text-color($menu-nav-item-bg) !default;
+
+// // Hover state - subtle background shift with slight text adjustment
+// $menu-nav-hover-bg: color.adjust($menu-nav-item-bg, $lightness: if(oklch-is-light($menu-nav-item-bg), -5%, 5%)) !default;
+// $menu-nav-hover-color: color.adjust($menu-nav-item-color, $lightness: if(oklch-is-light($menu-nav-item-bg), -10%, 10%)) !default;
+
+// // Active state - more pronounced than hover
+// $menu-nav-active-bg: color.adjust($menu-nav-item-bg, $lightness: if(oklch-is-light($menu-nav-item-bg), -8%, 8%)) !default;
+// $menu-nav-active-color: $menu-nav-item-color !default;
+
+// // Optional: Border for separation
+// $menu-border-color: border-contrast($menu-bg) !default;
+
+:root {
+    // ========================================================================
+    // -- Box --
+    // ========================================================================
+    // Background color and padding are scss variables only as they are used in
+    // mixins and cannot be css variables.
+    --box-padding: #{$bx-padding};
+    --box-border-radius: 0.5rem;
+    --box-border-color: rgb(0 0 0 / 10%);
+    --box-title-font-weight: 700;
+    --box-title-font-size: 1rem;
+    --box-title-line-height: 1.2;
+
+    // ========================================================================
+    // -- Toggle --
+    // ========================================================================
+    --bg-toggle-off: var(--gray-200);
+    --bg-toggle-on: var(--primary);
+    --bg-toggle-ball: var(--white);
+}

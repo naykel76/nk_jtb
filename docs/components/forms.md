@@ -19,10 +19,55 @@
 </div>
 ```
 
+## Other Controls
+
+### Toggle
+
+```html +code +preview +collapse class="bx my flex gap"
+<label class="toggle">
+    <input type="checkbox">
+    <div></div>
+    <span>Toggle Off</span>
+</label>
+<label class="toggle">
+    <input type="checkbox" checked>
+    <div></div>
+    <span>Toggle On</span>
+</label>
+<label class="toggle">
+    <input type="checkbox" disabled>
+    <div></div>
+    <span>Toggle Off (Disabled)</span>
+</label>
+<label class="toggle">
+    <input type="checkbox" checked disabled>
+    <div></div>
+    <span>Toggle On (Disabled)</span>
+</label>
+```
+
+You can position the label text inside or outside the `.toggle` container. When placed
+inside, the label receives styling and automatic spacing.
+
+```html +code +preview +collapse class="bx my flex gap"
+<label class="toggle">
+    <input type="checkbox" checked>
+    <div></div>
+    <span>Toggle</span>
+</label>
+<label class="toggle">
+    <input type="checkbox" checked>
+    <div></div>
+</label>
+<span>Toggle</span>
+```
+
+
+
 ## Form Example
 
 ```html +code +preview +collapse
-<form>
+<form class="bx">
     <div class="grid md:cols-2">
         <div class="frm-row">
             <label for="first_name">First name</label>

@@ -5,4 +5,8 @@
     @each $color, $value in $color-map {
         --#{$color}: #{$value};
     }
+
+    @each $name, $value in $oklch-colors {
+        --#{$name}: #{$value};
+    }
 }

@@ -138,7 +138,7 @@ These classes can be categorised as follows:
 </div>
 
 <div class="">
-    <div class="flex va-c gap-1 fw6 mt-1">
+    <div class="flex va-c gap-1 font-semibold mt-1">
         <p class="txt-blue-950 txt-capitalize  w-6"></p>
         <div class="w-3 tac">50</div>
         <div class="w-3 tac">100</div>
@@ -152,7 +152,7 @@ These classes can be categorised as follows:
         <div class="w-3 tac">900</div>
         <div class="w-3 tac">950</div>
     </div>
-    <div class="flex va-c gap-1 fw6 mt-1">
+    <div class="flex va-c gap-1 font-semibold mt-1">
         <p class="txt-blue-950 txt-capitalize w-6">red</p>
         <div class="wh-3 bg-red-50"></div>
         <div class="wh-3 bg-red-100"></div>
@@ -166,7 +166,7 @@ These classes can be categorised as follows:
         <div class="wh-3 bg-red-900"></div>
         <div class="wh-3 bg-red-950"></div>
     </div>
-    <div class="flex va-c gap-1 fw6 mt-1">
+    <div class="flex va-c gap-1 font-semibold mt-1">
         <p class="txt-blue-950 txt-capitalize w-6">orange</p>
         <div class="wh-3 bg-orange-50"></div>
         <div class="wh-3 bg-orange-100"></div>
@@ -180,7 +180,7 @@ These classes can be categorised as follows:
         <div class="wh-3 bg-orange-900"></div>
         <div class="wh-3 bg-orange-950"></div>
     </div>
-    <div class="flex va-c gap-1 fw6 mt-1">
+    <div class="flex va-c gap-1 font-semibold mt-1">
         <p class="txt-blue-950 txt-capitalize w-6">amber</p>
         <div class="wh-3 bg-amber-50"></div>
         <div class="wh-3 bg-amber-100"></div>
@@ -194,7 +194,7 @@ These classes can be categorised as follows:
         <div class="wh-3 bg-amber-900"></div>
         <div class="wh-3 bg-amber-950"></div>
     </div>
-    <div class="flex va-c gap-1 fw6 mt-1">
+    <div class="flex va-c gap-1 font-semibold mt-1">
         <p class="txt-blue-950 txt-capitalize w-6">yellow</p>
         <div class="wh-3 bg-yellow-50"></div>
         <div class="wh-3 bg-yellow-100"></div>
@@ -208,7 +208,7 @@ These classes can be categorised as follows:
         <div class="wh-3 bg-yellow-900"></div>
         <div class="wh-3 bg-yellow-950"></div>
     </div>
-    <div class="flex va-c gap-1 fw6 mt-1">
+    <div class="flex va-c gap-1 font-semibold mt-1">
         <p class="txt-blue-950 txt-capitalize w-6">lime</p>
         <div class="wh-3 bg-lime-50"></div>
         <div class="wh-3 bg-lime-100"></div>
@@ -222,7 +222,7 @@ These classes can be categorised as follows:
         <div class="wh-3 bg-lime-900"></div>
         <div class="wh-3 bg-lime-950"></div>
     </div>
-    <div class="flex va-c gap-1 fw6 mt-1">
+    <div class="flex va-c gap-1 font-semibold mt-1">
         <p class="txt-blue-950 txt-capitalize w-6">green</p>
         <div class="wh-3 bg-green-50"></div>
         <div class="wh-3 bg-green-100"></div>
@@ -236,7 +236,7 @@ These classes can be categorised as follows:
         <div class="wh-3 bg-green-900"></div>
         <div class="wh-3 bg-green-950"></div>
     </div>
-    <div class="flex va-c gap-1 fw6 mt-1">
+    <div class="flex va-c gap-1 font-semibold mt-1">
         <p class="txt-blue-950 txt-capitalize w-6">emerald</p>
         <div class="wh-3 bg-emerald-50"></div>
         <div class="wh-3 bg-emerald-100"></div>
@@ -250,7 +250,7 @@ These classes can be categorised as follows:
         <div class="wh-3 bg-emerald-900"></div>
         <div class="wh-3 bg-emerald-950"></div>
     </div>
-    <div class="flex va-c gap-1 fw6 mt-1">
+    <div class="flex va-c gap-1 font-semibold mt-1">
         <p class="txt-blue-950 txt-capitalize w-6">teal</p>
         <div class="wh-3 bg-teal-50"></div>
         <div class="wh-3 bg-teal-100"></div>
@@ -264,7 +264,7 @@ These classes can be categorised as follows:
         <div class="wh-3 bg-teal-900"></div>
         <div class="wh-3 bg-teal-950"></div>
     </div>
-    <div class="flex va-c gap-1 fw6 mt-1">
+    <div class="flex va-c gap-1 font-semibold mt-1">
         <p class="txt-blue-950 txt-capitalize w-6">cyan</p>
         <div class="wh-3 bg-cyan-50"></div>
         <div class="wh-3 bg-cyan-100"></div>
@@ -278,7 +278,7 @@ These classes can be categorised as follows:
         <div class="wh-3 bg-cyan-900"></div>
         <div class="wh-3 bg-cyan-950"></div>
     </div>
-    <div class="flex va-c gap-1 fw6 mt-1">
+    <div class="flex va-c gap-1 font-semibold mt-1">
         <p class="txt-blue-950 txt-capitalize w-6">sky</p>
         <div class="wh-3 bg-sky-50"></div>
         <div class="wh-3 bg-sky-100"></div>
@@ -292,7 +292,7 @@ These classes can be categorised as follows:
         <div class="wh-3 bg-sky-900"></div>
         <div class="wh-3 bg-sky-950"></div>
     </div>
-    <div class="flex va-c gap-1 fw6 mt-1">
+    <div class="flex va-c gap-1 font-semibold mt-1">
         <p class="txt-blue-950 txt-capitalize w-6">blue</p>
         <div class="wh-3 bg-blue-50"></div>
         <div class="wh-3 bg-blue-100"></div>
@@ -306,7 +306,7 @@ These classes can be categorised as follows:
         <div class="wh-3 bg-blue-900"></div>
         <div class="wh-3 bg-blue-950"></div>
     </div>
-    <div class="flex va-c gap-1 fw6 mt-1">
+    <div class="flex va-c gap-1 font-semibold mt-1">
         <p class="txt-blue-950 txt-capitalize w-6">indigo</p>
         <div class="wh-3 bg-indigo-50"></div>
         <div class="wh-3 bg-indigo-100"></div>
@@ -320,7 +320,7 @@ These classes can be categorised as follows:
         <div class="wh-3 bg-indigo-900"></div>
         <div class="wh-3 bg-indigo-950"></div>
     </div>
-    <div class="flex va-c gap-1 fw6 mt-1">
+    <div class="flex va-c gap-1 font-semibold mt-1">
         <p class="txt-blue-950 txt-capitalize w-6">violet</p>
         <div class="wh-3 bg-violet-50"></div>
         <div class="wh-3 bg-violet-100"></div>
@@ -334,7 +334,7 @@ These classes can be categorised as follows:
         <div class="wh-3 bg-violet-900"></div>
         <div class="wh-3 bg-violet-950"></div>
     </div>
-    <div class="flex va-c gap-1 fw6 mt-1">
+    <div class="flex va-c gap-1 font-semibold mt-1">
         <p class="txt-blue-950 txt-capitalize w-6">purple</p>
         <div class="wh-3 bg-purple-50"></div>
         <div class="wh-3 bg-purple-100"></div>
@@ -348,7 +348,7 @@ These classes can be categorised as follows:
         <div class="wh-3 bg-purple-900"></div>
         <div class="wh-3 bg-purple-950"></div>
     </div>
-    <div class="flex va-c gap-1 fw6 mt-1">
+    <div class="flex va-c gap-1 font-semibold mt-1">
         <p class="txt-blue-950 txt-capitalize w-6">fuchsia</p>
         <div class="wh-3 bg-fuchsia-50"></div>
         <div class="wh-3 bg-fuchsia-100"></div>
@@ -362,7 +362,7 @@ These classes can be categorised as follows:
         <div class="wh-3 bg-fuchsia-900"></div>
         <div class="wh-3 bg-fuchsia-950"></div>
     </div>
-    <div class="flex va-c gap-1 fw6 mt-1">
+    <div class="flex va-c gap-1 font-semibold mt-1">
         <p class="txt-blue-950 txt-capitalize w-6">pink</p>
         <div class="wh-3 bg-pink-50"></div>
         <div class="wh-3 bg-pink-100"></div>
@@ -376,7 +376,7 @@ These classes can be categorised as follows:
         <div class="wh-3 bg-pink-900"></div>
         <div class="wh-3 bg-pink-950"></div>
     </div>
-    <div class="flex va-c gap-1 fw6 mt-1">
+    <div class="flex va-c gap-1 font-semibold mt-1">
         <p class="txt-blue-950 txt-capitalize w-6">rose</p>
         <div class="wh-3 bg-rose-50"></div>
         <div class="wh-3 bg-rose-100"></div>
@@ -390,7 +390,7 @@ These classes can be categorised as follows:
         <div class="wh-3 bg-rose-900"></div>
         <div class="wh-3 bg-rose-950"></div>
     </div>
-    <div class="flex va-c gap-1 fw6 mt-1">
+    <div class="flex va-c gap-1 font-semibold mt-1">
         <p class="txt-blue-950 txt-capitalize w-6">slate</p>
         <div class="wh-3 bg-slate-50"></div>
         <div class="wh-3 bg-slate-100"></div>
@@ -404,7 +404,7 @@ These classes can be categorised as follows:
         <div class="wh-3 bg-slate-900"></div>
         <div class="wh-3 bg-slate-950"></div>
     </div>
-    <div class="flex va-c gap-1 fw6 mt-1">
+    <div class="flex va-c gap-1 font-semibold mt-1">
         <p class="txt-blue-950 txt-capitalize w-6">gray</p>
         <div class="wh-3 bg-gray-50"></div>
         <div class="wh-3 bg-gray-100"></div>
@@ -418,7 +418,7 @@ These classes can be categorised as follows:
         <div class="wh-3 bg-gray-900"></div>
         <div class="wh-3 bg-gray-950"></div>
     </div>
-    <div class="flex va-c gap-1 fw6 mt-1">
+    <div class="flex va-c gap-1 font-semibold mt-1">
         <p class="txt-blue-950 txt-capitalize w-6">zinc</p>
         <div class="wh-3 bg-zinc-50"></div>
         <div class="wh-3 bg-zinc-100"></div>
@@ -432,7 +432,7 @@ These classes can be categorised as follows:
         <div class="wh-3 bg-zinc-900"></div>
         <div class="wh-3 bg-zinc-950"></div>
     </div>
-    <div class="flex va-c gap-1 fw6 mt-1">
+    <div class="flex va-c gap-1 font-semibold mt-1">
         <p class="txt-blue-950 txt-capitalize w-6">neutral</p>
         <div class="wh-3 bg-neutral-50"></div>
         <div class="wh-3 bg-neutral-100"></div>
@@ -446,7 +446,7 @@ These classes can be categorised as follows:
         <div class="wh-3 bg-neutral-900"></div>
         <div class="wh-3 bg-neutral-950"></div>
     </div>
-    <div class="flex va-c gap-1 fw6 mt-1">
+    <div class="flex va-c gap-1 font-semibold mt-1">
         <p class="txt-blue-950 txt-capitalize w-6">stone</p>
         <div class="wh-3 bg-stone-50"></div>
         <div class="wh-3 bg-stone-100"></div>

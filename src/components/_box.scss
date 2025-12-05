@@ -1,11 +1,13 @@
 @use '../maps_and_variables/components' as *;
+@use '../maps_and_variables/value-maps' as *;
 @use '../functions/color-functions' as *;
+@use 'sass:map';
 
 %box {
     background-color: $bx-bg;
-    border: 1px solid rgb(0 0 0 / 12.5%);
-    border-radius: $bx-border-radius;
-    box-shadow: 1px 2px 3px rgb(0 0 0 / 10%);
+    border: 1px solid rgb(0 0 0 / 2.5%);
+    border-radius: var(--box-border-radius);
+    box-shadow: map.get($shadow-map, sm);
     color: text-color($bx-bg);
     padding: $bx-padding;
 }
@@ -20,32 +22,29 @@
     }
 
     &-title {
-        font-size: $bx-title-font-size;
-        font-weight: $bx-title-font-weight;
-        line-height: 1.2;
+        font-size: var(--box-title-font-size);
+        font-weight: var(--box-title-font-weight);
+        line-height: var(--box-title-line-height);
     }
 }
-
-// 1. remove side margins to align content to the outer bx. This allows
-//    different bg colours can be applied to individual sections
 
 .bx-header,
 .bx-footer {
     margin-inline: -$bx-padding; // 1
-    padding: 0.75rem $bx-padding;
+    padding: 0.75rem var(--box-padding);
 }
 
 .bx-header {
     border-bottom: 1px solid;
-    border-color: rgb(0 0 0 / 15%);
+    border-color: var(--box-border-color);
     border-left: none;
-    border-radius: $bx-border-radius $bx-border-radius 0 0;
+    border-radius: var(--box-border-radius) var(--box-border-radius) 0 0;
     margin-block-start: -$bx-padding !important;
 }
 
 .bx-footer {
-    border-color: rgb(0 0 0 / 15%);
-    border-radius: 0 0 $bx-border-radius $bx-border-radius;
+    border-color: var(--box-border-color);
+    border-radius: 0 0 var(--box-border-radius) var(--box-border-radius);
     border-top: 1px solid;
     margin-block-end: -$bx-padding !important;
 }
