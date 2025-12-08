@@ -10,11 +10,6 @@
 // line heights, letter spacing, and text colors.
 // ============================================================================
 
-:root {
-    --heading-color: inherit;
-    --heading-font-weight: 700;
-}
-
 // -- Headings --
 $heading-sizes: 2.25em, 1.75em, 1.5em, 1.25em, 1.125em, 1em !default;
 
@@ -29,9 +24,15 @@ $text-base-map: smart-merge( $text-base-variants, $text-base-values) !default;
 $font-size-map: list-to-map((1, 1.5, 2, 2.5, 3, 4)) !default;
 
 // -- Font Weights --
-$font-weight-map: ( thin: 100, extralight: 200, light: 300, normal: 400, medium: 500, semibold: 600, bold: 700, extrabold: 800, black: 900 ) !default;
+$font-weight-map: ( thin: 100, extralight: 200, light: 300, normal: 400, medium: 500, semibold: 600, bold: 700, extrabold: 800, 'black': 900 ) !default;
 
 // -- Line Heights --
 $line-height-variants: ( tight: 1.25, normal: $line-height, relaxed: 1.75, loose: 2 ) !default;
 $line-height-values: (1.25, 1.5, 1.75, 2) !default;
 $line-height-map: smart-merge($line-height-variants, $line-height-values) !default;
+
+:root {
+    @each $name, $value in $font-weight-map {
+        --font-#{$name}: #{$value};
+    }
+}

@@ -2,9 +2,6 @@
 @use '../forms/control' as *;
 @use '../maps_and_variables/forms' as *;
 
-// -- Base Elements --
-// ============================================================================
-
 label {
     font-size: 0.875rem;
     font-weight: 600;
@@ -76,11 +73,11 @@ label:has(input[type='checkbox'], input[type='radio']) {
 // NK::TD the hack to arrange the addon before the input can be reviewed when
 // firefox supports the :has selector.
 
-.withAddons {
+.with-addons {
     display: flex;
     flex-direction: row;
 
-    :where(.leadingAddon, .trailingAddon) {
+    :where(.leading-addon, .trailing-addon) {
         align-items: center;
         background: #fafafa;
         border: $ctrl-border;
@@ -91,7 +88,7 @@ label:has(input[type='checkbox'], input[type='radio']) {
         z-index: 1; // 2.
     }
 
-    .leadingAddon {
+    .leading-addon {
         border-bottom-left-radius: $ctrl-border-radius;
         border-top-left-radius: $ctrl-border-radius;
 
@@ -102,7 +99,7 @@ label:has(input[type='checkbox'], input[type='radio']) {
         }
     }
 
-    .trailingAddon {
+    .trailing-addon {
         border-bottom-right-radius: $ctrl-border-radius;
         border-top-right-radius: $ctrl-border-radius;
         order: 3; // 3.

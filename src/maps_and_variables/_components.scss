@@ -32,27 +32,49 @@ $zebra-alt-bg: hsl(0deg 0% 96%) !default;
 // ============================================================================
 // -- navbar --
 // ============================================================================
-$navbar-bg: hsl(216 31% 17%) !default;
-$navbar-padding-x: 1rem !default; // Horizontal padding
-$navbar-padding-y: 0.5rem !default; // Vertical padding
+// Base navbar variables
+$navbar-bg: $primary !default;
+$navbar-padding-x: 1rem !default;
+$navbar-padding-y: 0.5rem !default;
 
-// Navbar navigation items
-$navbar-nav-padding-x: 1rem !default; // Horizontal padding on nav items
-$navbar-nav-padding-y: 0.75rem !default; // Vertical padding on nav items
+// Nav item spacing
+$navbar-nav-padding-x: 1em !default;
+$navbar-nav-padding-y: 0.75em !default;
 
-
-// Navbar item base states
+// Nav item base colors
 $navbar-nav-item-bg: $navbar-bg !default;
-$navbar-nav-item-color: hsl(0 0% 80%) !default; // Light gray text
-$navbar-nav-font-weight: 500 !default; // Medium weight
+$navbar-nav-item-color: text-color($navbar-nav-item-bg) !default;
+$navbar-nav-font-weight: 500 !default;
+
+// $navbar-nav-item-bg: color.adjust($navbar-bg, $lightness: 2%) !default;
 
 // Navbar item interactive states
-$navbar-nav-hover-bg: color.adjust($navbar-nav-item-bg, $lightness: 3%) !default; // Slightly lighter on hover
-$navbar-nav-hover-color: hsl(0 0% 95%) !default; // Lighter text on hover
+$navbar-nav-hover-bg: color.adjust($navbar-bg, $lightness: 4%) !default;
+$navbar-nav-hover-color: $primary !default;
 
 // Navbar item active/focus state
-$navbar-nav-active-bg: color.adjust($navbar-nav-item-bg, $lightness: -3%) !default; // Slightly darker when active
+$navbar-nav-active-bg: color.adjust($navbar-nav-item-bg, $lightness: -3%) !default;
 $navbar-nav-active-color: hsl(0 85% 70%) !default; // Warm accent for active/focus
+
+// Hover state - subtle background shift with slight text adjustment
+$navbar-nav-hover-bg: color.adjust(
+    $navbar-nav-item-bg,
+    $lightness: if(oklch-is-light($navbar-nav-item-bg), -5%, 5%)
+) !default;
+$navbar-nav-hover-color: color.adjust(
+    $navbar-nav-item-color,
+    $lightness: if(oklch-is-light($navbar-nav-item-bg), -10%, 10%)
+) !default;
+
+// Active state - more pronounced than hover
+$navbar-nav-active-bg: color.adjust(
+    $navbar-nav-item-bg,
+    $lightness: if(oklch-is-light($navbar-nav-item-bg), -8%, 8%)
+) !default;
+$navbar-nav-active-color: $navbar-nav-item-color !default;
+
+// Optional: Border for separation
+$navbar-border-color: border-contrast($navbar-bg) !default;
 
 // ============================================================================
 // -- lists --
@@ -98,6 +120,12 @@ $icon-sizes: (
 // ============================================================================
 // -- menu --
 // ============================================================================
+// Base navbar variables
+$menu-bg: $primary !default;
+$menu-padding-x: 0.75rem !default;
+$menu-padding-y: 0.5rem !default;
+$menu-text-size: 0.875rem !default;
+
 $menu-hover-bg: map.get($oklch-colors, gray-100) !default;
 $menu-icon-size: 1.25rem !default;
 $menu-item-border-radius: 0.5rem !default;

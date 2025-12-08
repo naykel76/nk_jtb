@@ -11,32 +11,6 @@ $question-color: #c40c9a !default;
 // -- Layouts --
 // ============================================================================
 
-:root {
-    // Brand Colors - Primary Semantic Colors
-    --primary: #{map.get($oklch-colors, 'blue-500')};
-    --secondary: #{map.get($oklch-colors, 'slate-700')};
-    --accent: #{map.get($oklch-colors, 'yellow-500')};
-
-    /* Typography - Text Colors */
-    --text-base: #{map.get($oklch-colors, 'slate-300')};
-
-    // --text-muted: #{map.get($oklch-colors, 'slate-500')};
-    --text-heading: #{map.get($oklch-colors, 'sky-800')};
-
-    // --text-lead: #{map.get($oklch-colors, 'slate-600')};
-
-    /* Links */
-    --text-link: #{map.get($oklch-colors, 'sky-600')};
-    --text-link-hover: #{map.get($oklch-colors, 'sky-700')};
-
-    /* Backgrounds - Surface Colors */
-    --bg-body: #{map.get($oklch-colors, 'slate-50')};
-    --bg-surface: white;
-
-    // borders
-    --border-color: #{map.get($oklch-colors, 'slate-200')};
-}
-
 .nk-docs {
     background-color: var(--bg-body);
     display: flex;

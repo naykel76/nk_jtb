@@ -1,28 +1,37 @@
+:root {
+    // ========================================================================
+    // -- Tabs --
+    // ========================================================================
+    --tab-text-color: var(--text-color);
+    --tab-text-active-color: var(--primary);
+    --tab-text-inactive-color: var(--primary);
+    --tab-text-inactive-hover-color: var(--accent);
+}
+
 .tabs {
-    border-block-end: 1px solid #e5e7eb;
-    display: flex;
-    gap: 1rem;
-}
+    //     border-block-end: 1px solid #e5e7eb;
+    //     display: flex;
+    //     gap: 1rem;
+    > button {
+        border-bottom-width: 3px;
+        color: var(--gray-600);
+        padding: 0.75rem 1rem;
+        transition:
+            color 0.3s,
+            border-color 0.3s;
+    }
 
-.tab-btn {
-    border-bottom-width: 2px;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    transition:
-        color 0.3s,
-        border-color 0.3s;
-}
+    .active {
+        border-color: var(--primary);
+        color: var(--primary);
+        font-weight: var(--font-medium);
+    }
 
-.tab-active {
-    border-color: #4f46e5;
-    color: #4f46e5;
-}
+    .inactive {
+        border-color: transparent;
 
-.tab-inactive {
-    border-color: transparent;
-    color: #6b7280;
-}
-
-.tab-inactive:hover {
-    color: #374151;
+        &:hover {
+            color: var(--accent);
+        }
+    }
 }

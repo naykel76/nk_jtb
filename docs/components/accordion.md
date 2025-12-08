@@ -5,12 +5,11 @@
 - **One Open at a Time** Only one accordion can be open at a time; opening one
   closes the others.
 
-
 ## Utility Class Builds
 
 ### Single Accordion
 
-```html +code-blade +collapse +preview
+```html +code +collapse +preview
 <div x-data="{ open: false }" class="bg-white rounded-lg shadow-sm bdr bdr-gray-200">
     <button x-on:click="open = !open" class="w-full px-1.5 py-1 flex items-center justify-between hover:bg-gray-50">
         <span class="font-semibold txt-gray-900">Single Accordion</span>
@@ -25,7 +24,8 @@
 ```
 
 ### Multiple Open Accordion
-```html +code-blade +collapse +preview
+
+```html +code +collapse +preview
 <div class="space-y-05">
     <div x-data="{ open: false }" class="bg-white rounded-lg shadow-sm bdr bdr-gray-200">
         <button x-on:click="open = !open" class="w-full px-1.5 py-1 flex items-center justify-between hover:bg-gray-50">
@@ -54,7 +54,7 @@
 
 ### One Open at a Time Accordion
 
-```html +code-blade +collapse +preview
+```html +code +collapse +preview
 <div class="space-y-05" x-data="{ activeItem: null }">
     <div class="bg-white rounded-lg shadow-sm bdr bdr-gray-200">
         <button x-on:click="activeItem = activeItem === 1 ? null : 1"
@@ -87,7 +87,7 @@
 
 ### Single Accordion
 
-```html +code-blade +collapse +preview
+```html +code +collapse +preview
 <div x-data="{ open: false }" class="accordion">
     <button x-on:click="open = !open" >
         <span>Single Accordion</span>

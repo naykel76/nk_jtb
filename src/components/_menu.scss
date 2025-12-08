@@ -70,3 +70,11 @@
         margin-block-start: $base-gap;
     }
 }
+
+.chevron {
+    @include transition(transform);
+}
+
+.chevron.open {
+    transform: rotate(180deg);
+}

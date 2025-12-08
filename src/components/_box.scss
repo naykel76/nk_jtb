@@ -15,8 +15,6 @@
 .bx {
     @extend %box;
 
-    // overflow: hidden; // prevent image from overflowing when using border-radius
-
     & > *:first-child {
         margin-block-start: 0;
     }
@@ -30,7 +28,7 @@
 
 .bx-header,
 .bx-footer {
-    margin-inline: -$bx-padding; // 1
+    margin-inline: -$bx-padding;
     padding: 0.75rem var(--box-padding);
 }
 
