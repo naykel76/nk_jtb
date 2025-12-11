@@ -15,6 +15,5 @@
         outline: none;
         pointer-events: none; // ignore pointer events and allow parent to use pointer
         position: absolute;
-        z-index: 1000; // allow parent cursor to use pointer
     }
 }

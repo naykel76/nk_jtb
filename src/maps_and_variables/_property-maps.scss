@@ -13,11 +13,12 @@
 // ============================================================================
 // GENERIC PROPERTIES
 // ============================================================================
+// Order of values matters for some properties (e.g., display, hidden, visibility)
 $border-styles: ( solid, dashed, dotted, double, hidden, none ) !default;
-$display: (block, flex, inline, inline-block, inline-flex, table, table-cell, ( hidden: none )) !default;
+$display: (( hidden: none ), block, flex, inline, inline-block, inline-flex, table, table-cell) !default;
 $outline-styles: $border-styles !default;
 $position: (static, absolute, fixed, relative, sticky) !default;
-$visibility: (collapse, visible, ( invisible: hidden )) !default;
+$visibility: (( invisible: hidden ),collapse, visible, ) !default;
 
 // ============================================================================
 // TYPOGRAPHY PROPERTIES

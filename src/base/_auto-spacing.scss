@@ -22,7 +22,7 @@ $inline-exclusions: svg, span;
 // Catches cases like div + p, section + h1, article + table, etc.
 // We can't add div/section/article to $spacing-targets because that would also
 // catch div + div, section + section, adding unwanted spacing between wrappers.
-:where( div, section, article) + :where(#{$spacing-targets}, #{$common-classes}) {
+:where( div, section, article) + :where(#{$spacing-targets}, .bx) {
     margin-block-start: $base-gap;
 }
 

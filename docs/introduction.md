@@ -26,7 +26,7 @@ quickly while staying out of your way.
 
 ## Structure & Override Priority
 
-JTB is split into four key areas with clear override hierarchy:
+JTB is split into key areas with clear override hierarchy:
 
 1. **Base styles** – Reset and base HTML element styles. Provides functional
    foundation.
@@ -34,10 +34,14 @@ JTB is split into four key areas with clear override hierarchy:
    Handle structure and layout, not decoration.
 3. **Utility classes** – Granular control over specific properties. Override
    both base and component styles.
-4. **Maps & Mixins** – Build-time tools for utility generation and custom
-   configurations.
 
 Override order: Base → Components → Utilities (highest priority)
+
+**Configuration & Build Tools:**
+- **Maps & Variables** – Centralized configuration for colors, spacing, breakpoints, and
+  component settings.
+- **Mixins** – Build-time generators for creating utility classes and component patterns
+  from maps.
 
 ## What makes JTB different?
 

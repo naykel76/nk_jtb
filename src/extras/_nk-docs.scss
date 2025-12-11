@@ -39,7 +39,7 @@ $question-color: #c40c9a !default;
     .toc {
         font-size: 0.875rem;
         position: sticky;
-        top: 0;
+        top: 1rem;
 
         a {
             // color: rgb(245 245 245);
@@ -146,6 +146,7 @@ $question-color: #c40c9a !default;
 // ============================================================================
 // -- Custom Selectors --
 // ============================================================================
+// special styling for <question> elements in docs
 question {
     color: var(--text-question-color, $question-color);
     display: block;
@@ -154,6 +155,34 @@ question {
     font-weight: 700;
     margin-block-start: $base-gap;
 }
+
+discuss {
+    background-color: var(--purple-50);
+    border: 3px dashed var(--purple-400);
+    border-radius: 0.5rem;
+    color: var(--purple-900);
+    display: block;
+    font-size: 1.15rem;
+    margin-block-start: $base-gap;
+    padding: 1.25rem;
+}
+
+// Warm/Attention-grabbing:
+
+// bg-amber-50 border-amber-400 - soft amber glow
+// bg-orange-50 border-orange-400 - gentle orange highlight
+// bg-yellow-50 border-yellow-400 - classic highlight yellow
+
+// Cool/Professional:
+
+// bg-blue-50 border-blue-400 - calm, trustworthy
+// bg-sky-50 border-sky-400 - lighter, airier blue
+// bg-cyan-50 border-cyan-300 - modern, fresh
+
+// Bold/High contrast:
+
+// bg-purple-50 border-purple-500 - distinctive
+// bg-pink-50 border-pink-400 - energetic
 
 // ============================================================================
 // -- Torchlight Code Highlighting --

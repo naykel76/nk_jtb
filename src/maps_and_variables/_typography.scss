@@ -31,8 +31,4 @@ $line-height-variants: ( tight: 1.25, normal: $line-height, relaxed: 1.75, loose
 $line-height-values: (1.25, 1.5, 1.75, 2) !default;
 $line-height-map: smart-merge($line-height-variants, $line-height-values) !default;
 
-:root {
-    @each $name, $value in $font-weight-map {
-        --font-#{$name}: #{$value};
-    }
-}
+

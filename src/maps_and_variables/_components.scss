@@ -149,24 +149,3 @@ $menu-link-hover-color: map.get($oklch-colors, gray-900) !default;
 
 // // Optional: Border for separation
 // $menu-border-color: border-contrast($menu-bg) !default;
-
-:root {
-    // ========================================================================
-    // -- Box --
-    // ========================================================================
-    // Background color and padding are scss variables only as they are used in
-    // mixins and cannot be css variables.
-    --box-padding: #{$bx-padding};
-    --box-border-radius: 0.5rem;
-    --box-border-color: rgb(0 0 0 / 10%);
-    --box-title-font-weight: 700;
-    --box-title-font-size: 1rem;
-    --box-title-line-height: 1.2;
-
-    // ========================================================================
-    // -- Toggle --
-    // ========================================================================
-    --bg-toggle-off: var(--gray-200);
-    --bg-toggle-on: var(--primary);
-    --bg-toggle-ball: var(--white);
-}
