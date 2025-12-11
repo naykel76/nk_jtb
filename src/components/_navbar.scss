@@ -1,45 +1,26 @@
 @use '../maps_and_variables/components' as *;
 
+.navbar {
+    background: var(--navbar-bg);
+    padding: var(--navbar-padding-y) var(--navbar-padding-x);
+}
+
 .navbar,
 .navbar > .container {
     align-items: center;
     display: flex;
-    justify-content: space-between;
-}
 
-.navbar {
-    background: $navbar-bg;
-    padding: $navbar-padding-y $navbar-padding-x;
+    // font-weight: 500; // leave for no and work out override for menu
+    justify-content: space-between;
 
     > ul > li {
         margin-block-start: 0;
     }
 
-    .menu {
+    // button + div > .menu to avoid affecting nested dropdown menus
+    :where(.menu):not(button + div > .menu) {
         flex-direction: row;
         gap: 0.5rem;
-        margin: 0;
+        margin-block: 0;
     }
 }
-
-// .nav-item {
-//     background: $navbar-nav-item-bg;
-//     color: $navbar-nav-item-color;
-//     font-weight: $navbar-nav-font-weight;
-//     padding: $navbar-nav-padding-y $navbar-nav-padding-x;
-
-//     &:hover:not(.disabled, :disabled, [aria-disabled]) {
-//         // background: $navbar-nav-hover-bg;
-//         color: $navbar-nav-hover-color;
-//     }
-
-//     &:is(.active, [aria-current]):not(.disabled, :disabled, [aria-disabled]) {
-//         background: $navbar-nav-active-bg;
-//         color: $navbar-nav-active-color;
-//     }
-
-//     &:focus-visible:not(.disabled, :disabled, [aria-disabled]) {
-//         color: $navbar-nav-active-color;
-//         outline: none;
-//     }
-// }

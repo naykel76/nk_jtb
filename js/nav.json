@@ -172,6 +172,10 @@
             {
                 "name": "Layout Examples",
                 "route_name": "jtb.layout-examples"
+            },
+            {
+                "name": "UI Element Examples",
+                "route_name": "jtb.ui-elements"
             }
         ]
     }
