@@ -17,140 +17,162 @@
 // $size-variants: () !default;
 // $size-values: () !default;
 // $size-map: smart-merge($size-variants, $size-values) !default;
-// 
+//
 // NOTE: smart-merge order is critical for cascade! Variants first so base class
 // appears in CSS before numbered variants, allowing proper cascade precedence.
 
+// ============================================================================
+// BORDERS
+// ============================================================================
 
-// ============================================================================
-// Border and Outline Property Maps
-// ============================================================================
+// Border Width
 $border-width-variants: (base: 1px) !default;
 $border-width-values: (1, 2, 3, 4, 5, 8, 12, 16) !default; // px units
 $border-width-map: smart-merge($border-width-variants, $border-width-values) !default;
 
-$border-radius-variants: ( xs: 0.125, sm: 0.25, base: 0.375, lg: 0.5, xl: 0.75, full: 9999 ) !default;
+// Border Radius
+$border-radius-variants: (xs: 0.125, sm: 0.25, base: 0.375, lg: 0.5, xl: 0.75, full: 9999) !default;
 $border-radius-values: (0, 0.25, 0.5, 0.75, 1, 1.5, 2) !default;
 $border-radius-map: smart-merge($border-radius-variants, $border-radius-values) !default;
 
+// Outline Width
 $outline-width-map: $border-width-map !default;
 
 // ============================================================================
-// Spacing Property Maps (margin, padding, gap, inset)
+// SPACING
 // ============================================================================
+
+// Shared Spacing Values
 $spacing-values: (0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 4, 5) !default;
 
-$margin-variants: ( base: $base-gap, auto: auto ) !default;
-$margin-map: map.merge($margin-variants, list-to-map($spacing-values)) !default;
+// Margin
+$margin-variants: (base: $base-gap, auto: auto) !default;
+$margin-map: smart-merge($margin-variants, $spacing-values) !default;
 
-$padding-variants: ( base: $base-padding ) !default;
-$padding-map: map.merge($padding-variants, list-to-map($spacing-values)) !default;
+// Padding
+$padding-variants: (base: $base-padding) !default;
+$padding-map: smart-merge($padding-variants, $spacing-values) !default;
 
-$margin-magic-y: ((5, 3, 2), (3, 2, 1)) !default;
-$padding-magic-y: ((5, 3, 2), (5, 3, 2, 2), (3, 2, 1)) !default;
-
-// -- Container Sizes --
-$base-container-size: 1200px !default;
-$container-map: ( base: $base-container-size, sm: $sm, md: $md, lg: $lg, xl: $xl, xxl: $xxl ) !default;
-
-// -- Layout --
-$z-index-map: (0, 1, 50, 100, (bottom: -1), (top: 999)) !default;
-
-// -- Flex & Grid --
-$order-map: (1, 2, 3, 4, 5, 6, 7, 8) !default;
-
+// Gap
 $gap-variants: (sm: 0.75rem, base: 1.25rem, lg: 2rem) !default;
 $gap-values: (0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 2, 3, 4, 5) !default;
 $gap-map: smart-merge($gap-variants, $gap-values) !default;
 
-// -- Grid Columns & Spanning --
+// Magic Spacing Patterns
+$margin-magic-y: ((5, 3, 2), (3, 2, 1)) !default;
+$padding-magic-y: ((5, 3, 2), (5, 3, 2, 2), (3, 2, 1)) !default;
+
+// ============================================================================
+// LAYOUT
+// ============================================================================
+
+// Containers
+$base-container-size: 1200px !default;
+$container-map: (base: $base-container-size, sm: $sm, md: $md, lg: $lg, xl: $xl, xxl: $xxl) !default;
+
+// Z-Index
+$z-index-map: (0, 1, 50, 100, (bottom: -1), (top: 999)) !default;
+
+// Flex & Grid
+$order-map: (1, 2, 3, 4, 5, 6, 7, 8) !default;
+
+// Grid Columns & Spanning
 $col-span-map: (
-    1: span 1,
-    2: span 2,
-    3: span 3,
-    4: span 4,
-    5: span 5,
-    6: span 6,
-    7: span 7,
-    8: span 8,
-    9: span 9,
-    10: span 10,
-    11: span 11,
-    12: span 12
+  1: span 1,
+  2: span 2,
+  3: span 3,
+  4: span 4,
+  5: span 5,
+  6: span 6,
+  7: span 7,
+  8: span 8,
+  9: span 9,
+  10: span 10,
+  11: span 11,
+  12: span 12
 ) !default;
 
 $cols-map: (
-    1: repeat(1, minmax(0, 1fr)),
-    2: repeat(2, minmax(0, 1fr)),
-    3: repeat(3, minmax(0, 1fr)),
-    4: repeat(4, minmax(0, 1fr)),
-    5: repeat(5, minmax(0, 1fr)),
-    6: repeat(6, minmax(0, 1fr)),
-    7: repeat(7, minmax(0, 1fr)),
-    8: repeat(8, minmax(0, 1fr)),
-    9: repeat(9, minmax(0, 1fr)),
-    10: repeat(10, minmax(0, 1fr)),
-    11: repeat(11, minmax(0, 1fr)),
-    12: repeat(12, minmax(0, 1fr))
+  1: repeat(1, minmax(0, 1fr)),
+  2: repeat(2, minmax(0, 1fr)),
+  3: repeat(3, minmax(0, 1fr)),
+  4: repeat(4, minmax(0, 1fr)),
+  5: repeat(5, minmax(0, 1fr)),
+  6: repeat(6, minmax(0, 1fr)),
+  7: repeat(7, minmax(0, 1fr)),
+  8: repeat(8, minmax(0, 1fr)),
+  9: repeat(9, minmax(0, 1fr)),
+  10: repeat(10, minmax(0, 1fr)),
+  11: repeat(11, minmax(0, 1fr)),
+  12: repeat(12, minmax(0, 1fr))
 ) !default;
 
-// -- Sizing (width, height, max-*, min-*) --
-$height-width: ( auto: auto, full: 100%, fit: fit-content, max: max-content, min: min-content ) !default;
-$height-map: smart-merge((screen: 100vh), $height-width) !default;
-$width-map: smart-merge((screen: 100vw), $height-width) !default;
-$sizing-pixels: (200px, 250px, 300px, 400px, 600px) !default;
-$sizing-rem: (0, 0.5, 1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24) !default;
-$sizing-breakpoint-variants: ( xs: 30rem, sm: $sm, md: $md, lg: $lg, xl: $xl, xxl: $xxl ) !default;
-$sizing-map: smart-merge($sizing-breakpoint-variants, $sizing-rem, $sizing-pixels) !default;
-
-// -- Positioning (top, right, bottom, left, inset) --
+// Positioning
 $inset-map: (auto: auto, full: 100%) !default;
 $positional-values: (0, 0.25, 0.5, 1, 1.5, 2, 3, 4) !default;
 $positional-map: smart-merge($inset-map, $positional-values) !default;
 
-// -- Magic Classes --
+// ============================================================================
+// SIZING
+// ============================================================================
+
+// Shared Values
+$size-variants: (auto: auto, full: 100%, fit: fit-content, max: max-content, min: min-content) !default;
+$size-breakpoint-variants: (xs: 30rem, sm: $sm, md: $md, lg: $lg, xl: $xl, xxl: $xxl) !default;
+
+// Unit Values
+$size-px: (200px, 250px, 300px, 400px, 600px) !default;
+$size-rem: (0, 0.5, 1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24) !default;
+
+$size-height-map: smart-merge((screen: 100vh), $size-variants, $size-rem, $size-px) !default;
+$size-width-map: smart-merge($size-breakpoint-variants, $size-variants, $size-rem, $size-px) !default;
+
+// ============================================================================
+// MAGIC CLASSES
+// ============================================================================
 // Responsive patterns for grid columns and gaps
 $magic-grid-patterns: ((4, 2, 1), (4, 3, 2, 1), (3, 2, 1), (3, 1, 1)) !default;
 $magic-gap-patterns: ((5, 3, 2), (5, 3), (4, 2), (3, 1)) !default;
 
-// Effects and Transitions
+// ============================================================================
+// EFFECTS
 // ============================================================================
 
-// -- Opacity --
-$opacity-values: ( 0: 0, 10: 0.1, 20: 0.2, 30: 0.3, 40: 0.4, 50: 0.5, 60: 0.6, 70: 0.7, 80: 0.8, 90: 0.9, 100: 1 ) !default;
-$opacity-variants: ( invisible: 0, semi: 0.5, visible: 1 ) !default;
+// Opacity
+$opacity-values: (0: 0, 10: 0.1, 20: 0.2, 30: 0.3, 40: 0.4, 50: 0.5, 60: 0.6, 70: 0.7, 80: 0.8, 90: 0.9, 100: 1) !default;
+$opacity-variants: (invisible: 0, semi: 0.5, visible: 1) !default;
 $opacity-map: smart-merge($opacity-variants, $opacity-values) !default;
 
-// -- Box Shadow --
+// Box Shadow
 $shadow-map: (
-    none: none,
-    xs: (0 1px 2px 0 rgb(0 0 0 / 5%)),
-    sm: (0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px -1px rgb(0 0 0 / 10%)),
-    md: (0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%)),
-    lg: (0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%)),
-    xl: (0 20px 25px -5px rgb(0 0 0 / 10%), 0 8px 10px -6px rgb(0 0 0 / 10%)),
-    xxl: (0 25px 50px -12px rgb(0 0 0 / 25%)),
-    inner: (inset 0 2px 4px 0 rgb(0 0 0 / 5%))
-) !default; 
+  none: none,
+  xs: (0 1px 2px 0 rgb(0 0 0 / 5%)),
+  sm: (0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px -1px rgb(0 0 0 / 10%)),
+  md: (0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%)),
+  lg: (0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%)),
+  xl: (0 20px 25px -5px rgb(0 0 0 / 10%), 0 8px 10px -6px rgb(0 0 0 / 10%)),
+  xxl: (0 25px 50px -12px rgb(0 0 0 / 25%)),
+  inner: (inset 0 2px 4px 0 rgb(0 0 0 / 5%))
+) !default;
 
-// // -- Blur --
+// // Blur
 // $blur-variants: (
-//     none: 0,
-//     xs: 2px,
-//     sm: 4px,
-//     md: 8px,
-//     lg: 12px,
-//     xl: 16px,
-//     xxl: 24px
+//   none: 0,
+//   xs: 2px,
+//   sm: 4px,
+//   md: 8px,
+//   lg: 12px,
+//   xl: 16px,
+//   xxl: 24px
 // ) !default;
 
-// // -- Backdrop Blur --
+// // Backdrop Blur
 // $backdrop-blur-variants: (
-//     none: blur(0),
-//     xs: blur(2px),
-//     sm: blur(4px),
-//     md: blur(8px),
-//     lg: blur(12px),
-//     xl: blur(16px),
-//     xxl: blur(24px)
+//   none: blur(0),
+//   xs: blur(2px),
+//   sm: blur(4px),
+//   md: blur(8px),
+//   lg: blur(12px),
+//   xl: blur(16px),
+//   xxl: blur(24px)
 // ) !default;

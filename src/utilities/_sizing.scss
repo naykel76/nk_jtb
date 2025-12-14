@@ -1,18 +1,17 @@
 @use '../common-tools' as *;
 @use 'sass:map';
 
-// prettier-ignore
-$sizing-properties-map: (
-    height: (prefix: "h-", values: map.merge($sizing-map, $height-map), unit: "rem"),
-    width: (prefix: "w-", values: map.merge($sizing-map, $width-map), unit: "rem"),
-    max-height: (prefix: "max-h-", values: $sizing-map, unit: "rem"),
-    max-width: (prefix: "max-w-", values: $sizing-map, unit: "rem"),
-    min-height: (prefix: "min-h-", values: $sizing-map, unit: "rem"),
-    min-width: (prefix: "min-w-", values: $sizing-map, unit: "rem")
+
+$size-properties-map: (
+    height: (prefix: "h-", values: $size-height-map, unit: "rem"),
+    min-height: (prefix: "min-h-", values: $size-height-map, unit: "rem"),
+    max-height: (prefix: "max-h-", values: $size-height-map, unit: "rem"),
+    width: (prefix: "w-", values: $size-width-map, unit: "rem"),
+    min-width: (prefix: "min-w-", values: $size-width-map, unit: "rem"),
+    max-width: (prefix: "max-w-", values: $size-width-map, unit: "rem"),
 );
 
-// NKTD: Update to use build-composite-classes
-@each $size in $sizing-rem {
+@each $size in $size-rem {
     $class: sanitize-class-name($size);
 
     .min-wh-#{$class} {
@@ -26,7 +25,9 @@ $sizing-properties-map: (
     }
 }
 
+
 // ============================================================================
 // Builds
 // ============================================================================
-@include build-classes($sizing-properties-map, $responsive: true);
+// prettier-ignore
+@include build-classes($size-properties-map, $responsive: true);

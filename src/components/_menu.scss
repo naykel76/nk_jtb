@@ -10,28 +10,35 @@
 // and make overrides easier; they are optional and not required for core
 // functionality.
 
+%menu-link {
+    align-items: center;
+    color: inherit;
+    display: flex;
+    font-size: 0.875rem;
+    gap: 0.25rem; // space between icon and text ???
+    padding: $menu-padding-y $menu-padding-x;
+    width: 100%; // buttons need this, doesn't hurt links
+
+    @include transition(background-color color);
+
+    &:is(.active, :hover, :focus-visible):not(.disabled, :disabled) {
+        background-color: $menu-hover-bg;
+        color: $menu-link-hover-color;
+    }
+}
+
+.menu-link {
+    @extend %menu-link;
+}
+
 .menu {
     display: flex;
     flex-direction: column;
-    font-size: 0.875rem;
     list-style: none;
     margin: 0;
 
-    :where(.menu-link, a, li a, button) {
-        align-items: center;
-        border-radius: $menu-item-border-radius;
-        color: inherit;
-        display: flex;
-        gap: 0.75rem; // space between icon and text
-        padding: $menu-padding-y $menu-padding-x;
-        width: 100%; // buttons need this, doesn't hurt links
-
-        @include transition(background-color color);
-
-        &:is(.active, :hover, :focus-visible):not(.disabled, :disabled) {
-            background-color: $menu-hover-bg;
-            color: $menu-link-hover-color;
-        }
+    :where(a, li a, button) {
+        @extend %menu-link;
     }
 
     // Targets the BUTTON itself (if it has a sibling <ul> after it)
@@ -52,7 +59,7 @@
     :where(.menu-icon, span:has(> svg)) {
         align-items: center;
         display: flex;
-        gap: 0.75rem;
+        gap: 2rem;
     }
 
     :where(svg) {

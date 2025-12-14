@@ -1,3 +1,4 @@
+/* stylelint-disable function-name-case */
 @use '../common-tools' as *;
 
 // 1. Use an uppercase 'M' in Min() to avoid conflicts between Sass and CSS min().
@@ -10,7 +11,6 @@
     // adjusted for smaller screens.
     .#{$class} {
         margin-inline: auto;
-        /* stylelint-disable-next-line function-name-case */
         width: Min(95%, $size); // 1.
     }
 }

@@ -1,37 +1,62 @@
-.translate {
-    &-x-full {
-        transform: translateX(100%);
-    }
+@use '../common-tools' as *;
+@use 'sass:map';
 
-    &-y-full {
-        transform: translateY(100%);
-    }
+// ============================================================================
+// TRANSFORM UTILITIES CONFIGURATION
+// ============================================================================
 
-    &-x-0 {
-        transform: translateX(0);
-    }
+$translate-values: (
+    0: translateX(0) translateY(0),
+    x-0: translateX(0),
+    x-full: translateX(100%),
+    x-1-2: translateX(50%),
+    y-0: translateY(0),
+    y-full: translateY(100%),
+    y-1-2: translateY(50%),
+) !default;
 
-    &-y-0 {
-        transform: translateY(0);
-    }
-}
+$translate-negative-values: (
+    x-full: translateX(-100vw),
+    y-full: translateY(-100vh),
+    x-1-2: translateX(-50%),
+    y-1-2: translateY(-50%),
+) !default;
 
-.-translate {
-    &-x-full {
-        transform: translateX(-100%);
-    }
+$rotate-values: (
+    90: 90deg,
+    180: 180deg,
+    270: 270deg,
+    -90: -90deg,
+    -180: -180deg,
+) !default;
 
-    &-y-full {
-        transform: translateY(-100%);
-    }
-}
+// ============================================================================
+// TRANSFORM BUILDS
+// ============================================================================
 
-.rotate {
-    &-90 {
-        rotate: 90deg;
-    }
+// Positive translate classes
+@include build-classes((
+    transform: (
+        prefix: 'translate-',
+        values: $translate-values,
+        unit: ''
+    ),
+), $responsive: true);
 
-    &-180 {
-        rotate: 180deg;
-    }
-}
+// Negative translate classes
+@include build-classes((
+    transform: (
+        prefix: '-translate-',
+        values: $translate-negative-values,
+        unit: ''
+    ),
+), $responsive: true);
+
+// Rotation classes
+@include build-classes((
+    rotate: (
+        prefix: 'rotate-',
+        values: $rotate-values,
+        unit: ''
+    ),
+), $responsive: true);
