@@ -39,8 +39,8 @@
     > svg,
     > i {
         flex-shrink: 0; // prevent the icon from shrinking when button resizes or text wraps
-        height: 1em; // match the icon height to the button's font-size for automatic scaling
-        width: 1em; // match the icon width to the button's font-size for consistent sizing
+        height: var(--icon-size, 1em); // match the icon height to the button's font-size for automatic scaling
+        width: var(--icon-size, 1em);  // match the icon width to the button's font-size for consistent sizing
     }
 
     // ICON-ONLY BUTTON
