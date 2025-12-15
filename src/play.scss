@@ -1,5 +1,6 @@
 // @use './utilities/border' as *;
 @use './common-tools' as *;
+@use './functions/helpers' as *;
 @use './functions/resolvers' as *;
 @use './maps_and_variables/colors' as *;
 @use './mixins/build-magic-grid' as *;
@@ -93,4 +94,4 @@ $display-visibility-properties-map: (
      // )
 );
 
-// @include build-classes-new($display-visibility-properties-map, $responsive: true);
+@include build-classes-new($display-visibility-properties-map, $responsive: true);

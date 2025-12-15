@@ -14,7 +14,7 @@
 // Layer 1: Base only
 // ============================================================================
 @mixin make-base-variant($property, $class, $value, $options: ()) {
-    $child-selector: if(map.get($options, 'child-selector'), map.get($options, 'child-selector'), false);
+    $child-selector: if(map.has-key($options, 'child-selector'), map.get($options, 'child-selector'), false);
 
     #{build-selector($class, $child-selector)} {
         #{$property}: $value;

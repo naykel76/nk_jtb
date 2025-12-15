@@ -1,3 +1,8 @@
+@use '../functions/classes' as *;
+@use '../functions/strings' as *;
+@use '../functions/resolvers' as *;
+@use 'sass:list';
+@use 'sass:map';
 @use 'sass:math';
 
 // intentionally return with the unit. it will be automatically removed where
