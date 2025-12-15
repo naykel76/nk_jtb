@@ -4,6 +4,9 @@
 - **JTB** is a Sass-based utility framework focused on composable classes, minimal components, and predictable naming. It avoids runtime JavaScript and prioritizes build-time CSS generation.
 - The architecture centers on SCSS mixins for class generation, using configuration maps and builder/maker mixins.
 
+- This framework uses tailwind-like class, but is not tailwind.
+- Read the conventions in `docs/conventions.md` for naming patterns and class structures.
+
 ## Key Files & Structure
 - `src/` — Main SCSS source. Organized by `base/`, `components/`, `forms/`, `functions/`, `maps_and_variables/`, `mixins/`, `utilities/`.
 - `build.scss` — Entry point for building the full framework.

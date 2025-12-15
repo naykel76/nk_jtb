@@ -14,12 +14,12 @@ Generate classes that apply from a specific breakpoint upward.
 
 ## Parameters
 
-| Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
-| `$props` | Map | — | CSS properties and values (e.g., `(display: flex, gap: 1rem)`) |
-| `$identifier` | String | — | Class name identifier (e.g., `flex-row`, `grid-2col`) |
-| `$breakpoints` | List | — | Breakpoints (e.g., `(md, lg, xl)`) |
-| `$child-combinator` | Boolean | `false` | Generate child selector variant |
+| Parameter           | Type    | Default | Description                                                    |
+| ------------------- | ------- | ------- | -------------------------------------------------------------- |
+| `$props`            | Map     | —       | CSS properties and values (e.g., `(display: flex, gap: 1rem)`) |
+| `$identifier`       | String  | —       | Class name identifier (e.g., `flex-row`, `grid-2col`)          |
+| `$breakpoints`      | List    | —       | Breakpoints (e.g., `(md, lg, xl)`)                             |
+| `$child-combinator` | Boolean | `false` | Generate child selector variant                                |
 
 ## Examples
 

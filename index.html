@@ -11,113 +11,38 @@
 
 <body class="pxy space-y">
 
-    <div class="flex" x-data="{ mobileOpen: false }">
-        <!-- Mobile top bar (visible on small screens) -->
-        <div class="w-full lg:hidden">
-            <button @click="mobileOpen = true"  class="btn primary outline">
-                ☰
-            </button>
-        </div>
-
-        <!-- Permanent sidebar (large screens) -->
-        <aside class="hidden lg:block w-16 lg:w-48 bg-slate-900 pxy-1">
-            <div class="space-y">
-                <div class="h-4 bg-slate-700 rounded"></div>
-                <div class="h-16 bg-slate-700 rounded"></div>
-                <div class="h-10 bg-slate-700 rounded"></div>
-            </div>
-        </aside>
-
-        <!-- Mobile overlay sidebar -->
-        <div x-show="mobileOpen" class="fixed inset-0 z-40 lg:hidden" x-cloak>
-            <div @click="mobileOpen = false" class="absolute inset-0 bg-black/40"></div>
-            <aside class="relative w-64 h-full bg-slate-900 pxy-2">
-                <button @click="mobileOpen = false" aria-label="Close menu" class="bx txt-sm mb-2">✕</button>
+    <div class="resizable-container">
+        <div class="flex">
+            <!-- Sidebar -->
+            <aside class="hidden cq-lg:block w-16 lg:w-48 bg-slate-900 pxy-1">
                 <div class="space-y">
                     <div class="h-4 bg-slate-700 rounded"></div>
                     <div class="h-16 bg-slate-700 rounded"></div>
                     <div class="h-10 bg-slate-700 rounded"></div>
                 </div>
             </aside>
-        </div>
-
-        <!-- Main content -->
-        <main class="flex-1 pxy-2 overflow-auto">
-            <div class="container-lg">
-                <div class="bx h-10"></div>
-                <div class="bx h-24"></div>
-            </div>
-        </main>
-    </div>
-    // ...existing code...
-
-    <div class="flex" x-data="{ mobileOpen: false }">
-        <!-- Sidebar -->
-        <aside class="hidden lg:block w-16 lg:w-48 bg-slate-900 pxy-1">
-            <div class="space-y">
-                <div class="h-4 bg-slate-700 rounded"></div>
-                <div class="h-16 bg-slate-700 rounded"></div>
-                <div class="h-10 bg-slate-700 rounded"></div>
-            </div>
-        </aside>
-
-        <!-- Mobile overlay sidebar -->
-        <div x-show="mobileOpen" class="fixed inset-0 z-40 lg:hidden" x-cloak>
-            <div @click="mobileOpen = false" class="absolute inset-0 bg-black/40"></div>
-            <aside class="relative w-64 h-full bg-slate-900 pxy-2">
-                <button @click="mobileOpen = false" aria-label="Close menu" class="bx txt-sm mb-2">✕</button>
-                <div class="space-y">
-                    <div class="h-4 bg-slate-700 rounded"></div>
-                    <div class="h-16 bg-slate-700 rounded"></div>
-                    <div class="h-10 bg-slate-700 rounded"></div>
+            <!-- Main content -->
+            <main class="flex-1 pxy-2 overflow-auto">
+                <div class="container-lg">
+                    <div class="bx h-10"></div>
+                    <div class="bx h-24"></div>
                 </div>
-            </aside>
+            </main>
         </div>
 
-        <!-- Main content -->
-        <main class="flex-1 pxy-2 overflow-auto">
-            <div class="container-lg">
-                <div class="bx h-10"></div>
-                <div class="bx h-24"></div>
-            </div>
-        </main>
     </div>
-
-
-    <!-- Responsive with disappearing sidebar layout -->
-    <div class="flex">
-        <!-- Sidebar -->
-        <aside class="hidden lg:block w-16 lg:w-48 bg-slate-900 pxy-1">
-            <div class="space-y">
-                <div class="h-4 bg-slate-700 rounded"></div>
-                <div class="h-16 bg-slate-700 rounded"></div>
-                <div class="h-10 bg-slate-700 rounded"></div>
-            </div>
-        </aside>
-        <!-- Main content -->
-        <main class="flex-1 pxy-2 overflow-auto">
-            <div class="container-lg">
-                <div class="bx h-10"></div>
-                <div class="bx h-24"></div>
-            </div>
-        </main>
-    </div>
-
-
-
+    <hr>
     <div class="resizable-container">
         <div class="docs-layout">
             <aside class="left-sidebar">
                 <div class="bdr-b-2 bdr-blue-500 bx-title txt-sm">Aside</div>
                 <p>Sidebar content goes here</p>
             </aside>
-            <main>
-                <div class="bx container">
-                </div>
+            <main class="pxy">
                 <h1>Main Content</h1>
                 <p>Main document content goes here</p>
             </main>
-            <nav class="right-sidebar">
+            <nav class="toc">
                 <div class="bdr-b-2 bdr-red-500 bx-title txt-sm">Table of Contents</div>
                 <p>TOC links go here</p>
             </nav>
@@ -125,118 +50,13 @@
     </div>
 
 
-    <!-- Dashboard Layout -->
-    <div x-show="currentLayout === 'dashboard'" class="min-h-screen  p-4 md:p-8">
-        <div class="mb-4 md:mb-6 h-12 md:h-16 bg-white rounded-lg shadow"></div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:ga mb-4 md:mb-6">
-            <div class="h-32 bg-white rounded-lg shadow"></div>
-            <div class="h-32 bg-white rounded-lg shadow"></div>
-            <div class="h-32 bg-white rounded-lg shadow"></div>
-            <div class="h-32 bg-white rounded-lg shadow"></div>
-        </div>
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 md:ga">
-            <div class="lg:col-span-2 h-64 md:h-80 bg-white rounded-lg shadow"></div>
-            <div class="h-64 md:h-80 bg-white rounded-lg shadow"></div>
-        </div>
-    </div>
 
-    <!-- Two Column Layout -->
-    <div x-show="currentLayout === 'twocol'" class="min-h-screen  p-4 md:p-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:ga min-h-[calc(100vh-8rem)]">
-            <div class="bg-white rounded-lg shadow p-4 md:"></div>
-            <div class="bg-white rounded-lg shadow p-4 md:"></div>
-        </div>
-    </div>
 
-    <!-- Three Column Layout -->
-    <div x-show="currentLayout === 'threecol'" class="min-h-screen  p-4 md:p-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:ga min-h-[calc(100vh-8rem)]">
-            <div class="bg-white rounded-lg shadow p-4 md:"></div>
-            <div class="bg-white rounded-lg shadow p-4 md:"></div>
-            <div class="bg-white rounded-lg shadow p-4 md:"></div>
-        </div>
-    </div>
-
-    <!-- Holy Grail Layout -->
-    <div x-show="currentLayout === 'holy'" class="min-h-screen ">
-        <div class="flex flex-col h-screen">
-            <header class="h-12 md:h-16 "></header>
-            <div class="flex flex-col lg:flex-row flex-1 overflow-hidden">
-                <aside class="w-full lg:w-48 bg-gray-200 p-4 lg:overflow-auto">
-                    <div class="space-y-3">
-                        <div class="h-10 bg-gray-300 rounded"></div>
-                        <div class="h-10 bg-gray-300 rounded"></div>
-                        <div class="h-10 bg-gray-300 rounded"></div>
-                    </div>
-                </aside>
-                <main class="flex-1 bg-white p-4 md:p-8 overflow-auto">
-                    <div class="h-64 md:h-96 bg-gray-100 rounded"></div>
-                </main>
-                <aside class="w-full lg:w-48 bg-gray-200 p-4 lg:overflow-auto">
-                    <div class="space-y-3">
-                        <div class="h-10 bg-gray-300 rounded"></div>
-                        <div class="h-10 bg-gray-300 rounded"></div>
-                        <div class="h-10 bg-gray-300 rounded"></div>
-                    </div>
-                </aside>
-            </div>
-            <footer class="h-12 md:h-16 "></footer>
-        </div>
-    </div>
-
-    <!-- Split Screen Layout -->
-    <div x-show="currentLayout === 'split'" class="min-h-screen ">
-        <div class="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
-            <div class="bg-gradient-to-br from-blue-500 to-purple-600 min-h-[40vh] lg:min-h-screen"></div>
-            <div class="bg-white  md:p-12 flex items-center justify-center">
-                <div class="w-full max-w-md space-y-4 md:space-y-6">
-                    <div class="h-10 md:h-12 bg-gray-200 rounded"></div>
-                    <div class="h-10 md:h-12 bg-gray-200 rounded"></div>
-                    <div class="h-10 md:h-12 bg-gray-200 rounded"></div>
-                    <div class="h-10 md:h-12 bg-blue-600 rounded"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Magazine Layout -->
-    <div x-show="currentLayout === 'magazine'" class="min-h-screen  p-4 md:p-8">
-        <div class="max-w-7xl mx-auto">
-            <div class="h-48 md:h-96 bg-white rounded-lg shadow mb-4 md:mb-6"></div>
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 md:ga mb-4 md:mb-6">
-                <div class="lg:col-span-2 h-48 md:h-64 bg-white rounded-lg shadow"></div>
-                <div class="space-y-4 md:space-y-6">
-                    <div class="h-20 md:h-28 bg-white rounded-lg shadow"></div>
-                    <div class="h-20 md:h-28 bg-white rounded-lg shadow"></div>
-                </div>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:ga">
-                <div class="h-40 md:h-48 bg-white rounded-lg shadow"></div>
-                <div class="h-40 md:h-48 bg-white rounded-lg shadow"></div>
-                <div class="h-40 md:h-48 bg-white rounded-lg shadow"></div>
-                <div class="h-40 md:h-48 bg-white rounded-lg shadow"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Card Grid Layout -->
-    <div x-show="currentLayout === 'card'" class="min-h-screen  p-4 md:p-8">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:ga">
-            <div class="bg-white rounded-lg shadow h-48 md:h-64"></div>
-            <div class="bg-white rounded-lg shadow h-48 md:h-64"></div>
-            <div class="bg-white rounded-lg shadow h-48 md:h-64"></div>
-            <div class="bg-white rounded-lg shadow h-48 md:h-64"></div>
-            <div class="bg-white rounded-lg shadow h-48 md:h-64"></div>
-            <div class="bg-white rounded-lg shadow h-48 md:h-64"></div>
-            <div class="bg-white rounded-lg shadow h-48 md:h-64"></div>
-            <div class="bg-white rounded-lg shadow h-48 md:h-64"></div>
-        </div>
-    </div>
     <!-- site navigation -->
     <!-- <div id="nav" class="mb-3"></div> -->
     <!-- main content -->
     <main class="container-md space-y my">
-        <div id="app" class="space-y"></div>
+        <!-- <div id="app" class="space-y"></div> -->
     </main>
     <script type="module" src="/main.js"></script>
 </body>

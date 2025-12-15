@@ -10,8 +10,8 @@
                 "route_name": "jtb.installation"
             },
             {
-                "name": "WIP",
-                "route_name": "jtb.wip"
+                "name": "FAQs",
+                "route_name": "jtb.faqs"
             }
         ]
     },
@@ -28,10 +28,6 @@
             {
                 "name": "Core Architecture",
                 "route_name": "jtb.core-architecture"
-            },
-            {
-                "name": "Utility Generation",
-                "route_name": "jtb.utility-and-class-generation"
             }
         ]
     },
@@ -44,10 +40,6 @@
             {
                 "name": "Magic Classes",
                 "route_name": "jtb.magic-classes"
-            },
-            {
-                "name": "Color & Themes",
-                "route_name": "jtb.color-and-themes"
             }
         ]
     },
@@ -74,20 +66,8 @@
     "Utilities": {
         "links": [
             {
-                "name": "Layout",
-                "route_name": "jtb.utilities.layout"
-            },
-            {
-                "name": "Spacing (Margin/Padding)",
-                "route_name": "jtb.utilities.margin-padding-spacing"
-            },
-            {
                 "name": "Borders",
                 "route_name": "jtb.utilities.border"
-            },
-            {
-                "name": "Alignment",
-                "route_name": "jtb.utilities.alignment"
             },
             {
                 "name": "Animation",
@@ -116,18 +96,6 @@
             {
                 "name": "Table",
                 "route_name": "jtb.components.table"
-            }
-        ]
-    },
-    "Resources": {
-        "links": [
-            {
-                "name": "Responsive Testing",
-                "route_name": "jtb.responsive-testing"
-            },
-            {
-                "name": "FAQs",
-                "route_name": "jtb.faqs"
             }
         ]
     },
