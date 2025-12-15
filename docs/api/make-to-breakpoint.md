@@ -7,7 +7,7 @@ Generate classes that apply up to a specific breakpoint.
 ```scss +code
 @mixin make-to-breakpoint(
     $properties,
-    $class-name,
+    $class,
     $breakpoints
 )
 ```

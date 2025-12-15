@@ -1,0 +1,279 @@
+// stylelint-disable scss/at-else-closing-brace-newline-after
+// stylelint-disable scss/at-else-closing-brace-space-after
+// stylelint-disable scss/at-if-closing-brace-newline-after
+// stylelint-disable scss/at-if-closing-brace-space-after
+@use '../functions/classes' as *;
+@use '../mixins/media-container-queries' as *;
+@use '../mixins/make-properties' as *;
+@use '../functions/strings' as *;
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:meta';
+
+// ============================================================================
+// Generate utility class for a single property with optional responsive and state variants
+// ============================================================================
+// prettier-ignore
+@mixin make-single-property-class($property, $class, $value, $breakpoints: (), $states: (), $child-selector: false) {
+    #{build-selector($class, $child-selector)} {
+        #{$property}: $value;
+    }
+
+    @if $breakpoints {
+        @include make-from-breakpoint( ( $property: $value ), $class, $breakpoints, $child-selector );
+    }
+
+    @if $states {
+        @include make-state-based-class( ( $property: $value ), $class, $states );
+    }
+}
+
+// ============================================================================
+// Generate state-based variants (e.g., hover, focus)
+// ============================================================================
+@mixin make-state-based-class($props, $class, $states) {
+    @each $state in $states {
+        .#{$state}\:#{$class}:#{$state} {
+            @include make-properties($props);
+        }
+    }
+}
+
+// ============================================================================
+// DEPRECATED: Use make-responsive-classes for new code (standardized signature)
+// Generate responsive classes that apply FROM the specified breakpoints (mobile-first)
+// Supports both media queries and container queries (use cq-make-from-breakpoint)
+// ============================================================================
+@mixin make-from-breakpoint($props, $identifier, $breakpoints, $child-selector: false) {
+    @each $bp in $breakpoints {
+        $derived-class: #{$bp}\:#{$identifier};
+
+        #{build-selector($derived-class, $child-selector)} {
+            @if $bp == 'sm' {
+                @include from-sm {
+                    @include make-properties($props);
+                }
+            } @else if $bp == 'md' {
+                @include from-md {
+                    @include make-properties($props);
+                }
+            } @else if $bp == 'lg' {
+                @include from-lg {
+                    @include make-properties($props);
+                }
+            } @else if $bp == 'xl' {
+                @include from-xl {
+                    @include make-properties($props);
+                }
+            } @else if $bp == 'xxl' {
+                @include from-xxl {
+                    @include make-properties($props);
+                }
+            }
+        }
+    }
+}
+
+// ============================================================================
+// Container query variant of make-from-breakpoint
+// ============================================================================
+@mixin cq-make-from-breakpoint($props, $identifier, $breakpoints, $child-selector: false) {
+    @each $bp in $breakpoints {
+        $derived-class: cq-#{$bp}\:#{$identifier};
+
+        #{build-selector($derived-class, $child-selector)} {
+            @if $bp == 'sm' {
+                @include cq-from-sm {
+                    @include make-properties($props);
+                }
+            } @else if $bp == 'md' {
+                @include cq-from-md {
+                    @include make-properties($props);
+                }
+            } @else if $bp == 'lg' {
+                @include cq-from-lg {
+                    @include make-properties($props);
+                }
+            } @else if $bp == 'xl' {
+                @include cq-from-xl {
+                    @include make-properties($props);
+                }
+            } @else if $bp == 'xxl' {
+                @include cq-from-xxl {
+                    @include make-properties($props);
+                }
+            }
+        }
+    }
+}
+
+// ============================================================================
+// Generate responsive classes that apply UP TO the specified breakpoints (desktop-first)
+// Supports both media queries and container queries (use cq-make-to-breakpoint)
+// ============================================================================
+@mixin make-to-breakpoint($props, $identifier, $breakpoints) {
+    @each $bp in $breakpoints {
+        $derived-class: to-#{$bp}\:#{$identifier};
+
+        .#{$derived-class} {
+            @if $bp == 'sm' {
+                @include to-sm {
+                    @include make-properties($props);
+                }
+            } @else if $bp == 'md' {
+                @include to-md {
+                    @include make-properties($props);
+                }
+            } @else if $bp == 'lg' {
+                @include to-lg {
+                    @include make-properties($props);
+                }
+            } @else if $bp == 'xl' {
+                @include to-xl {
+                    @include make-properties($props);
+                }
+            } @else {
+                @error 'The device '#{$bp}' is not available for this mixin, you need to remove it from the args list.';
+            }
+        }
+    }
+}
+
+// ============================================================================
+// Container query variant of make-to-breakpoint
+// ============================================================================
+@mixin cq-make-to-breakpoint($props, $identifier, $breakpoints) {
+    @each $bp in $breakpoints {
+        $derived-class: cq-to-#{$bp}\:#{$identifier};
+        .#{$derived-class} {
+            @if $bp == 'sm' {
+                @include cq-to-sm {
+                    @include make-properties($props);
+                }
+            } @else if $bp == 'md' {
+                @include cq-to-md {
+                    @include make-properties($props);
+                }
+            } @else if $bp == 'lg' {
+                @include cq-to-lg {
+                    @include make-properties($props);
+                }
+            } @else if $bp == 'xl' {
+                @include cq-to-xl {
+                    @include make-properties($props);
+                }
+            } @else {
+                @error 'The device '#{$bp}' is not available for this mixin, you need to remove it from the args list.';
+            }
+        }
+    }
+}
+
+// ============================================================================
+// Generate responsive classes that apply ONLY ON the specified breakpoints
+// Supports both media queries and container queries (use cq-make-on-breakpoint)
+// ============================================================================
+@mixin make-on-breakpoint($props, $identifier, $breakpoints) {
+    @each $bp in $breakpoints {
+        $derived-class: on-#{$bp}\:#{$identifier};
+        .#{$derived-class} {
+            @if $bp == 'sm' {
+                @include on-sm {
+                    @include make-properties($props);
+                }
+            } @else if $bp == 'md' {
+                @include on-md {
+                    @include make-properties($props);
+                }
+            } @else if $bp == 'lg' {
+                @include on-lg {
+                    @include make-properties($props);
+                }
+            } @else if $bp == 'xl' {
+                @include on-xl {
+                    @include make-properties($props);
+                }
+            } @else if $bp == 'xxl' {
+                @include on-xxl {
+                    @include make-properties($props);
+                }
+            }
+        }
+    }
+}
+
+// ============================================================================
+// Container query variant of make-on-breakpoint
+// ============================================================================
+@mixin cq-make-on-breakpoint($props, $identifier, $breakpoints) {
+    @each $bp in $breakpoints {
+        $derived-class: cq-on-#{$bp}\:#{$identifier};
+        .#{$derived-class} {
+            @if $bp == 'sm' {
+                @include cq-on-sm {
+                    @include make-properties($props);
+                }
+            } @else if $bp == 'md' {
+                @include cq-on-md {
+                    @include make-properties($props);
+                }
+            } @else if $bp == 'lg' {
+                @include cq-on-lg {
+                    @include make-properties($props);
+                }
+            } @else if $bp == 'xl' {
+                @include cq-on-xl {
+                    @include make-properties($props);
+                }
+            } @else if $bp == 'xxl' {
+                @include cq-on-xxl {
+                    @include make-properties($props);
+                }
+            }
+        }
+    }
+}
+
+// ============================================================================
+// Properties that use split pattern: border-{position}-{end} instead of {property}-{position}
+// Example: border-top-width instead of border-width-top
+// ============================================================================
+$split-properties: ('border-width', 'border-style', 'border-color', 'border-radius');
+
+// ============================================================================
+// Build position-aware property name based on pattern
+// Split pattern: border-{position}-width | Suffix pattern: margin-{position}
+// ============================================================================
+@function get-position-property($property, $position) {
+    @if list.index($split-properties, $property) {
+        $property-start: str-first-segment($property);
+        $property-end: str-last-segment($property);
+
+        @return #{$property-start}-#{$position}-#{$property-end};
+    }
+
+    @return #{$property}-#{$position};
+}
+
+// ============================================================================
+// Generate position-based utility classes (e.g., padding, margin, border)
+// Supports axis groupings (xy, x, y), responsive variants, and child combinators
+//
+// Example: make-position-based-class('padding', '1rem', (xy: (top, bottom, left, right)), 'p-', '1', (), (), (xy))
+// Generates: .p-1 (omits 'xy' from class name) applying padding to all sides
+// ============================================================================
+// prettier-ignore
+@mixin make-position-based-class($property, $value, $positions-map, $identifier, $variant, $breakpoints, $states: (), $omit-axis-keys: (), $child-selector: false) {
+    @each $position-key, $positions in $positions-map {
+        $derived-class: build-position-class-name($identifier, $variant, $position-key, $omit-axis-keys);
+        $props: build-property-map($property, $positions, $value, meta.get-function('get-position-property'));
+
+        #{build-selector($derived-class, $child-selector)} {
+            @include make-properties($props);
+        }
+
+        @if $breakpoints {
+            @include make-from-breakpoint($props, $derived-class, $breakpoints, $child-selector);
+        }
+    }
+}

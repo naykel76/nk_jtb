@@ -13,12 +13,12 @@
 
 ## Parameters
 
-| Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
-| `$properties-map` | Map | — | CSS property config with `prefix`, `values`, `unit`, `positions`, `omit-axis-keys` |
-| `$responsive` | Boolean | `false` | Generate responsive variants (`md:`, `lg:`, etc.) |
-| `$with-state` | Boolean | `false` | Generate state variants (`:hover`, `:focus`, `:active`) |
-| `$debug` | Boolean | `false` | Output debug info during compilation |
+| Parameter         | Type    | Default | Description                                                                        |
+| ----------------- | ------- | ------- | ---------------------------------------------------------------------------------- |
+| `$properties-map` | Map     | —       | CSS property config with `prefix`, `values`, `unit`, `positions`, `omit-axis-keys` |
+| `$responsive`     | Boolean | `false` | Generate responsive variants (`md:`, `lg:`, etc.)                                  |
+| `$with-state`     | Boolean | `false` | Generate state variants (`:hover`, `:focus`, `:active`)                            |
+| `$debug`          | Boolean | `false` | Output debug info during compilation                                               |
 
 ### `$properties-map` Configuration
 

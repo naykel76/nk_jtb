@@ -7,7 +7,7 @@ Generate classes that apply only on a specific breakpoint.
 ```scss +code
 @mixin make-on-breakpoint(
     $properties,
-    $class-name,
+    $class,
     $breakpoints
 )
 ```

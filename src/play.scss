@@ -3,126 +3,73 @@
 @use './functions/resolvers' as *;
 @use './maps_and_variables/colors' as *;
 @use './mixins/build-magic-grid' as *;
+@use './mixins/make-classes-old' as *;
 @use './mixins/make-classes' as *;
 @use './mixins/transition' as *;
 @use 'sass:color';
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:string';
+@use 'sass:meta';
 
 // ============================================================================
-// Normalizes property configuration and pre-processes all values
-// Returns a map ready for layer builders to consume
+$property: 'margin';
+$class: 'm-5';
+$value: 5rem;
+$options: (child-selector: true); // optional
+
+@include make-base-variant($property, $class, $value);
+@include make-base-variant($property, $class, $value, $options);
+
 // ============================================================================
-@function normalize-property-config($property, $config, $responsive, $with-state) {
-    $config-unit: map.get($config, 'unit');
-    $config-positions: map.get($config, 'positions');
-    $omit-axis-keys: map.get($config, 'omit-axis-keys');
-    $child-combinator: map.get($config, 'child-combinator');
-
-    $prefix: resolve-prefix(map.get($config, 'prefix'), $property);
-    $breakpoints: resolve-breakpoints($responsive, map.get($config, 'breakpoints'));
-    $states: resolve-states($with-state, map.get($config, 'states'));
-
-    // Pre-process all values into normalized items map
-    $normalized-items: ();
-
-    @each $key, $value in map.get($config, 'values') {
-        $item: normalise-variant-value($key, $value);
-        $label: list.nth($item, 1);
-        $value: list.nth($item, 2);
-
-        $derived-unit: if(value-has-unit($value), null, ($config-unit));
-        $derived-value: #{handle-class-value($value, $derived-unit)};
-        $derived-suffix: #{$label}#{handle-class-unit($derived-unit, $property)};
-        $derived-class: strip-class-suffixes(#{$prefix}#{$derived-suffix});
-
-        $normalized-items: map.merge(
-            $normalized-items,
-            (
-                $derived-class: (
-                        value: $derived-value,
-                        suffix: $derived-suffix
-                    )
-            )
-        );
-    }
-
-    @return (
-        property: $property,
-        prefix: $prefix,
-        breakpoints: $breakpoints,
-        states: $states,
-        positions: $config-positions,
-        omit-axis-keys: $omit-axis-keys,
-        child-combinator: $child-combinator,
-        items: $normalized-items
-    );
-}
 
 // Core builder - orchestrates the layers (think of it like a controller)
 @mixin build-classes-new($properties-map, $responsive: false, $with-state: false, $debug: false) {
     @each $property, $config in $properties-map {
-        $normalized: normalize-property-config($property, $config, $responsive, $with-state);
+        $normalised: normalise-property-config($property, $config, $responsive, $with-state);
 
-        .normalized-property-values{
-            content: "Property:" map.get($normalized, 'property');
-            content: "Prefix:" map.get($normalized, 'prefix');
-            content: "Breakpoints:" map.get($normalized, 'breakpoints');
-            content: "States:" map.get($normalized, 'states');
-            content: "Positions:" map.get($normalized, 'positions');
-            content: "Omit Axis Keys:" map.get($normalized, 'omit-axis-keys');
-            content: "Child Combinator:" map.get($normalized, 'child-combinator');
+        // Layer 1: Base classes (no breakpoints, no states)
+        @include build-base-classes($normalised);
+
+        // Layer 2: Responsive variants (breakpoints only, no base, no states)
+        @if map.get($normalised, 'breakpoints') {
+            @include build-responsive-layer($normalised);
         }
 
-        @debug $normalized;
-
-        // // Layer 1: Base classes (no breakpoints, no states)
-        // @include build-base-layer($normalized);
-
-        // // Layer 2: Responsive variants (breakpoints only)
-        // @if map.get($normalized, 'breakpoints') {
-        //     @include build-responsive-layer($normalized);
-        // }
-
         // // Layer 3: State variants (states only)
-        // @if map.get($normalized, 'states') {
-        //     @include build-state-layer($normalized);
+        // @if map.get($normalised, 'states') {
+        //     @include build-state-layer($normalised);
         // }
 
         // // Layer 4: Responsive + State combinations
-        // @if map.get($normalized, 'breakpoints') and map.get($normalized, 'states') {
-        //     @include build-responsive-state-layer($normalized);
+        // @if map.get($normalised, 'breakpoints') and map.get($normalised, 'states') {
+        //     @include build-responsive-state-layer($normalised);
         // }
+
+        // ====================================================================
+        // Debug
+        // ====================================================================
+        @if $debug {
+            .normalised-property-values {
+                content: 'Property:' map.get($normalised, 'property');
+                content: 'Prefix:' map.get($normalised, 'prefix');
+                content: 'Breakpoints:' map.get($normalised, 'breakpoints');
+                content: 'States:' map.get($normalised, 'states');
+                content: 'Positions:' map.get($normalised, 'positions');
+                content: 'Omit Axis Keys:' map.get($normalised, 'omit-axis-keys');
+                content: 'Child Combinator:' map.get($normalised, 'child-combinator');
+            }
+
+            @debug '=== #{$property} ===';
+            @debug "Property: #{map.get($normalised, 'property')}";
+            @debug "Prefix: #{map.get($normalised, 'prefix')}";
+            @debug "Breakpoints: #{meta.inspect(map.get($normalised, 'breakpoints'))}";
+            @debug "States: #{meta.inspect(map.get($normalised, 'states'))}";
+            @debug "Items: #{meta.inspect(map.get($normalised, 'items'))}";
+            @debug '';
+        }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 $display-visibility-properties-map: (
     display: (
@@ -130,12 +77,20 @@ $display-visibility-properties-map: (
         values: $display,
         states: hover
     ),
-        height: (prefix: "h-", values: (1,2,3), unit: "rem"),
+    height: (
+        prefix: 'h-',
+        values: (
+            1,
+            2,
+            3
+        ),
+        unit: 'rem'
+    ),
     // visibility: (
     //     prefix: false,
     //     values: $visibility,
     //     states: hover
-    // )
+     // )
 );
 
-@include build-classes-new($display-visibility-properties-map, $responsive: true);
+// @include build-classes-new($display-visibility-properties-map, $responsive: true);

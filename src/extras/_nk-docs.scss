@@ -1,6 +1,8 @@
 /* stylelint-disable selector-type-no-unknown */
 @use '../common-tools.scss' as *;
 @use '../mixins/backgrounds' as *;
+@use '../mixins/make-classes-old' as *;
+@use '../mixins/make-classes' as *;
 @use '../mixins/make-classes' as *;
 @use '../maps_and_variables/colors' as *;
 @use 'sass:map';

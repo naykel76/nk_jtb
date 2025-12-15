@@ -14,7 +14,7 @@ Generate classes for directional properties (margin, padding, border, etc.) with
     $breakpoints,
     $states: (),
     $omit-axis-keys: (),
-    $child-combinator: false
+    $child-selector: false
 )
 ```
 
@@ -30,7 +30,7 @@ Generate classes for directional properties (margin, padding, border, etc.) with
 | `$breakpoints` | List | — | Breakpoints for responsive variants (e.g., `(md, lg)`) |
 | `$states` | List | `()` | Pseudo-classes for state variants (e.g., `(hover, focus)`) |
 | `$omit-axis-keys` | List | `()` | Exclude axis combinations (e.g., `(xy)`) |
-| `$child-combinator` | Boolean | `false` | Generate child selector variant |
+| `$child-selector` | Boolean | `false` | Generate child selector variant |
 
 ## Examples
 

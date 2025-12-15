@@ -1,4 +1,41 @@
-# build-classes()
+# Class Makers
+
+
+## Layer 1: Base only
+
+```scss +code
+$property: 'margin';
+$class: 'mxy-5';
+$value: 5rem;
+
+@include make-base-class($property, $class, $value, $child-selector: false);
+@include make-base-class($property, $class, $value, $child-selector: true);
+```
+
+
+## Layer 2: Responsive only (no base, no states)
+
+
+
+## Layer 3: States only (no base, no responsive)
+
+
+## Layer 4: Responsive + State (no base, no solo variants)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Signature
 

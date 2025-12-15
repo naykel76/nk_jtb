@@ -1,6 +1,7 @@
 @use '../mixins/build-magic-grid' as *;
 @use '../common-tools' as *;
 @use 'sass:map';
+@use '../mixins/make-classes-old' as *; // remove
 @use '../mixins/make-classes' as *; // remove
 
 .grid {

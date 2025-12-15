@@ -7,7 +7,7 @@ Generate a single utility class with optional responsive and state variants.
 ```scss +code
 @mixin make-single-property-class(
     $property,
-    $class-name,
+    $class,
     $value,
     $breakpoints: (),
     $states: ()
@@ -19,11 +19,11 @@ Generate a single utility class with optional responsive and state variants.
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | `$property` | String | — | CSS property name (e.g., `display`, `color`, `opacity`) |
-| `$class-name` | String | — | Class name to generate (e.g., `hidden`, `flex`, `inline`) |
+| `$class` | String | — | Class name to generate (e.g., `hidden`, `flex`, `inline`) |
 | `$value` | String | — | CSS value for the property (e.g., `flex`, `inline`, `none`) |
 | `$breakpoints` | List | `()` | Breakpoints for responsive variants (e.g., `(md, lg)`) |
 | `$states` | List | `()` | Pseudo-classes for state variants (e.g., `(hover, focus, active)`) |
-| `$child-combinator` | Boolean | `false` | Generate child selector variant |
+| `$child-selector` | Boolean | `false` | Generate child selector variant |
 
 ## Examples
 

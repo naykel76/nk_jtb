@@ -1,6 +1,7 @@
 @use '../functions/classes' as *;
 @use '../functions/strings' as *;
 @use '../functions/resolvers' as *;
+@use '../mixins/make-classes-old' as *;
 @use '../mixins/make-classes' as *;
 @use '../mixins/make-properties' as *;
 @use 'sass:list';
@@ -8,6 +9,46 @@
 @use 'sass:string';
 @use 'sass:meta';
 
+// all mixins below expect a normalised property config map
+
+// ============================================================================
+// Layer 1: Base classes (no breakpoints, no states)
+// Establishes defaults - lowest priority in cascade
+// ============================================================================
+@mixin build-base-classes($config) {
+    $property: map.get($config, 'property');
+    $positions: map.get($config, 'positions');
+    $child-selector: map.get($config, 'child-combinator');
+    $omit-axis-keys: map.get($config, 'omit-axis-keys');
+    $prefix: map.get($config, 'prefix');
+
+    @each $class, $data in map.get($config, 'items') {
+        $value: map.get($data, 'value');
+        $suffix: map.get($data, 'suffix');
+
+        @if $positions {
+            // need to update
+            @include make-position-based-class(
+                $property,
+                $value,
+                $positions,
+                $prefix,
+                $suffix,
+                null,
+                // no breakpoints
+                null,
+                // no states
+                $omit-axis-keys,
+                $child-selector
+            );
+        } @else {
+            // prettier-ignore
+            $options: if($child-selector, (child-selector: $child-selector), ());
+
+            @include make-base-class($property, $class, $value, $options);
+        }
+    }
+}
 
 @mixin build-composite-classes($properties-map, $responsive: false) {
     @each $class, $map in $properties-map {
@@ -28,7 +69,7 @@
 
 // ============================================================================
 // Generates utility classes for CSS properties using a configuration map.
-// Supports responsive variants, automatic value-unit handling, position-based 
+// Supports responsive variants, automatic value-unit handling, position-based
 // classes, and optional axis key omission for cleaner class names.
 // --------------------------------------------------------------------------
 // Units in class names are controlled by:
@@ -48,7 +89,7 @@
         $config-unit: map.get($config, 'unit');
         $config-positions: map.get($config, 'positions');
         $omit-axis-keys: map.get($config, 'omit-axis-keys'); 
-        $child-combinator: map.get($config, 'child-combinator');
+        $child-selector: map.get($config, 'child-combinator');
 
         $prefix: resolve-prefix(map.get($config, 'prefix'), $property);
         $breakpoints: resolve-breakpoints($responsive, map.get($config, 'breakpoints'));
@@ -70,9 +111,9 @@
             $derived-class: strip-class-suffixes(#{$prefix}#{$derived-suffix});
 
             @if $config-positions {
-                @include make-position-based-class($property, $derived-value, $config-positions, $prefix, $derived-suffix, $breakpoints, $states, $omit-axis-keys, $child-combinator);
+                @include make-position-based-class($property, $derived-value, $config-positions, $prefix, $derived-suffix, $breakpoints, $states, $omit-axis-keys, $child-selector);
             } @else{
-                @include make-single-property-class( $property, #{$derived-class}, #{$derived-value}, $breakpoints, $states, $child-combinator );
+                @include make-single-property-class( $property, #{$derived-class}, #{$derived-value}, $breakpoints, $states, $child-selector );
             }
         }
     }

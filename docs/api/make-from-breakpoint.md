@@ -7,7 +7,7 @@ Generate classes that apply from a specific breakpoint upward.
 ```scss +code
 @mixin make-from-breakpoint(
     $properties,
-    $class-name,
+    $class,
     $breakpoints
 )
 ```
@@ -19,7 +19,7 @@ Generate classes that apply from a specific breakpoint upward.
 | `$props`            | Map     | —       | CSS properties and values (e.g., `(display: flex, gap: 1rem)`) |
 | `$identifier`       | String  | —       | Class name identifier (e.g., `flex-row`, `grid-2col`)          |
 | `$breakpoints`      | List    | —       | Breakpoints (e.g., `(md, lg, xl)`)                             |
-| `$child-combinator` | Boolean | `false` | Generate child selector variant                                |
+| `$child-selector` | Boolean | `false` | Generate child selector variant                                |
 
 ## Examples
 

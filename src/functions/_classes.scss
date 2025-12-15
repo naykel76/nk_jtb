@@ -213,8 +213,8 @@ $exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
 // Creates a selector string that can be either a standard class selector
 // or a child combinator selector (for utilities like space-x/space-y).
 //
-// @param {String} $class-name - The base class name (without dot)
-// @param {String|Boolean} $child-combinator - Child combinator pattern or false
+// @param {String} $class - The base class name (without dot)
+// @param {String|Boolean} $child-selector - Child combinator pattern or false
 //   - false/null: generates standard selector `.class-name`
 //   - String: generates `:where(.class-name {combinator})`
 //   - Default combinator: '> *:not(:first-child)'
@@ -228,13 +228,13 @@ $exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
 //   build-selector('space-y-2', true)
 //     → ':where(.space-y-2 > *:not(:first-child))'
 // ----------------------------------------------------------------------------
-@function build-selector($class-name, $child-combinator: false) {
-    @if not $child-combinator {
-        @return '.#{$class-name}';
+@function build-selector($class, $child-selector: false) {
+    @if not $child-selector {
+        @return '.#{$class}';
     }
 
     // If true, use default combinator
-    $combinator: if($child-combinator == true, '> *:not(:first-child)', $child-combinator);
+    $combinator: if($child-selector == true, '> *:not(:first-child)', $child-selector);
 
-    @return ':where(.#{$class-name} #{$combinator})';
+    @return ':where(.#{$class} #{$combinator})';
 }
