@@ -1,4 +1,3 @@
-// @use './utilities/border' as *;
 @use './common-tools' as *;
 @use './functions/normalise-config' as *;
 @use './functions/resolvers' as *;
@@ -6,6 +5,7 @@
 @use './mixins/build-magic-grid' as *;
 @use './mixins/make-classes-old' as *;
 @use './mixins/make-classes' as *;
+@use './mixins/build-classes' as *;
 @use './mixins/transition' as *;
 @use 'sass:color';
 @use 'sass:list';
@@ -13,59 +13,41 @@
 @use 'sass:string';
 @use 'sass:meta';
 
-// @include make-responsive-class($property, $class, $value, $breakpoints); // does this handle positions??
+$margin-map: (2, 3);
 
+$logical-position-map: (
+    // Full axes
+    xy: (block-start, block-end, inline-start, inline-end),
+    x: (inline-start, inline-end),
+    y: (block-start, block-end),
 
-// ============================================================================
-// Normalised config example usage
-// ============================================================================
-// this is not the properties map, but the normalised config for a single
-// property that will be used to generate classes for that property.
-
-// prettier-ignore
-$normalised-color-config: (
-    property: 'color',
-    prefix: 'txt-',
-    child-combinator: false,
-    variants: (
-        'txt-red': (          // ← Final class name
-            value: red,     // ← CSS value for color property
-            suffix: 'red'     // ← What comes after prefix
-        ),
-        'txt-blue': (
-            value: blue,
-            suffix: 'blue'
-        )
-    )
-);
-
-// @include build-base-layer($normalised-color-config);
-
-
+    // // Individual directions
+    // t: block-start,
+    // b: block-end,
+    // l: inline-start,
+    // r: inline-end,
+) ;
 
 // prettier-ignore
-$normalised-margin-config: (
-    property: 'margin',
-    prefix: 'm-',
-    positions: (
-        x: (inline-start, inline-end),
-        y: (block-start, block-end)
+$properties-map: (
+    color: (
+        prefix: 'txt-',
+        values: ( red, blue )
     ),
-    child-combinator: false,
-    omit-axis-keys: false,
-    variants: (
-        'm-1': (
-            value: 1rem,
-            suffix: '1'
-        ),
-        'm-2': (
-            value: 2rem,
-            suffix: '2'
-        )
+    margin: (
+        prefix: 'm',
+        values: $margin-map,
+        unit: 'rem',
+        positions: $logical-position-map,
+        breakpoints: ( sm, md ) 
     )
 );
 
-@include build-base-layer($normalised-margin-config);
+// responsive is not working yet???
 
-// Generates: .mx-1, .my-1, .mt-1, .mr-1, .mb-1, .ml-1
-//            .mx-2, .my-2, .mt-2, .mr-2, .mb-2, .ml-2 
+/* - previous output -  */
+// @include build-classes($properties-map, $responsive: true);
+
+/* - update output-  */
+@include build-classes-new($properties-map, $responsive: true);
+

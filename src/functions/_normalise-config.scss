@@ -32,7 +32,7 @@
         $derived-class: strip-class-suffixes(#{$prefix}#{$derived-suffix});
 
         $normalised-variants: map.merge(
-            $normalised-items,
+            $normalised-variants,
             (
                 $derived-class: (
                         value: $derived-value,

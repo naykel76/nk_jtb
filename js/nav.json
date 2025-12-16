@@ -102,6 +102,14 @@
     "API": {
         "links": [
             {
+                "name": "Makers",
+                "route_name": "jtb.api.makers"
+            },
+            {
+                "name": "Builders",
+                "route_name": "jtb.api.builders"
+            },
+            {
                 "name": "Mixin Workflow",
                 "route_name": "jtb.api.workflow"
             },

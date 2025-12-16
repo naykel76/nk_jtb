@@ -35,42 +35,36 @@ $split-properties: ('border-width', 'border-style', 'border-color', 'border-radi
 }
 
 // ============================================================================
-// MAKERS: Single class generators
-// These generate CSS for ONE class at a time
-// ============================================================================
-
-// ============================================================================
 // Layer 1: Base only
 // ============================================================================
-@mixin make-base-class($property, $class, $value, $options: ()) {
+@mixin make-base-class($property, $class, $value, $positions: null, $options: ()) {
     $child-selector: if(map.has-key($options, 'child-selector'), map.get($options, 'child-selector'), false);
 
-    #{build-selector($class, $child-selector)} {
-        #{$property}: $value;
-    }
-}
+    @if $positions {
+        $prefix: map.get($options, 'prefix');
+        $variant: map.get($options, 'variant');
+        $omit-axis-keys: if(map.has-key($options, 'omit-axis-keys'), map.get($options, 'omit-axis-keys'), false);
 
-@mixin make-base-position-class($property, $value, $positions, $options: ()) {
-    $prefix: map.get($options, 'prefix');
-    $variant: map.get($options, 'variant');
-    $omit-axis-keys: if(map.has-key($options, 'omit-axis-keys'), map.get($options, 'omit-axis-keys'), false);
-    $child-selector: if(map.has-key($options, 'child-selector'), map.get($options, 'child-selector'), false);
-
-    @each $position-key, $position-list in $positions {
-        $derived-class: build-position-class-name($prefix, $variant, $position-key, $omit-axis-keys);
-        $props: build-property-map($property, $position-list, $value, meta.get-function('get-position-property'));
-
-        #{build-selector($derived-class, $child-selector)} {
-            @include make-properties($props);
+        @each $position-key, $position-list in $positions {
+            $derived-class: build-position-class-name($prefix, $variant, $position-key, $omit-axis-keys);
+            $props: build-property-map($property, $position-list, $value, meta.get-function('get-position-property'));
+            #{build-selector($derived-class, $child-selector)} {
+                @include make-properties($props);
+            }
+        }
+    } @else {
+        #{build-selector($class, $child-selector)} {
+            #{$property}: $value;
         }
     }
 }
 
 // ============================================================================
 // Layer 2: Responsive only (no base, no states)
-// Generates: .md:block { @media (min-width: 768px) { display: block; } }
+// Handles both simple properties and position-based variants
 // ============================================================================
-@mixin make-responsive-class($property, $class, $value, $breakpoints, $options: ()) {
+// prettier-ignore
+@mixin make-responsive-class($property, $class, $value, $positions: null, $breakpoints, $options: ()) {
     $child-selector: if(map.has-key($options, 'child-selector'), map.get($options, 'child-selector'), false);
 
     @each $bp in $breakpoints {
@@ -79,23 +73,53 @@ $split-properties: ('border-width', 'border-style', 'border-color', 'border-radi
         #{build-selector($derived-class, $child-selector)} {
             @if $bp == 'sm' {
                 @include from-sm {
-                    #{$property}: $value;
+                    @if $positions {
+                        $props: build-property-map( $property, $positions, $value, meta.get-function('get-position-property') );
+
+                        @include make-properties($props);
+                    } @else {
+                        #{$property}: $value;
+                    }
                 }
             } @else if $bp == 'md' {
                 @include from-md {
-                    #{$property}: $value;
+                    @if $positions {
+                        $props: build-property-map( $property, $positions, $value, meta.get-function('get-position-property') );
+
+                        @include make-properties($props);
+                    } @else {
+                        #{$property}: $value;
+                    }
                 }
             } @else if $bp == 'lg' {
                 @include from-lg {
-                    #{$property}: $value;
+                    @if $positions {
+                        $props: build-property-map( $property, $positions, $value, meta.get-function('get-position-property') );
+
+                        @include make-properties($props);
+                    } @else {
+                        #{$property}: $value;
+                    }
                 }
             } @else if $bp == 'xl' {
                 @include from-xl {
-                    #{$property}: $value;
+                    @if $positions {
+                        $props: build-property-map( $property, $positions, $value, meta.get-function('get-position-property') );
+
+                        @include make-properties($props);
+                    } @else {
+                        #{$property}: $value;
+                    }
                 }
             } @else if $bp == 'xxl' {
                 @include from-xxl {
-                    #{$property}: $value;
+                    @if $positions {
+                        $props: build-property-map( $property, $positions, $value, meta.get-function('get-position-property') );
+
+                        @include make-properties($props);
+                    } @else {
+                        #{$property}: $value;
+                    }
                 }
             }
         }
