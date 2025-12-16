@@ -1,0 +1,55 @@
+@use '../functions/classes' as *;
+@use '../functions/strings' as *;
+@use '../functions/resolvers' as *;
+@use 'sass:list';
+@use 'sass:map';
+
+// ============================================================================
+// Normalises property configuration and pre-processes all values
+// Returns a map ready for layer builders to consume
+// ============================================================================
+@function normalise-property-config($property, $config, $responsive, $with-state) {
+    $config-unit: map.get($config, 'unit');
+    $config-positions: map.get($config, 'positions');
+    $omit-axis-keys: map.get($config, 'omit-axis-keys');
+    $child-selector: map.get($config, 'child-combinator');
+
+    $prefix: resolve-prefix(map.get($config, 'prefix'), $property);
+    $breakpoints: resolve-breakpoints($responsive, map.get($config, 'breakpoints'));
+    $states: resolve-states($with-state, map.get($config, 'states'));
+
+    // Pre-process all values into normalised items map
+    $normalised-variants: ();
+
+    @each $key, $value in map.get($config, 'values') {
+        $item: normalise-variant-value($key, $value);
+        $label: list.nth($item, 1);
+        $value: list.nth($item, 2);
+
+        $derived-unit: if(value-has-unit($value), null, ($config-unit));
+        $derived-value: #{handle-class-value($value, $derived-unit)};
+        $derived-suffix: #{$label}#{handle-class-unit($derived-unit, $property)};
+        $derived-class: strip-class-suffixes(#{$prefix}#{$derived-suffix});
+
+        $normalised-variants: map.merge(
+            $normalised-items,
+            (
+                $derived-class: (
+                        value: $derived-value,
+                        suffix: $derived-suffix
+                    )
+            )
+        );
+    }
+
+    @return (
+        property: $property,
+        prefix: $prefix,
+        breakpoints: $breakpoints,
+        states: $states,
+        positions: $config-positions,
+        omit-axis-keys: $omit-axis-keys,
+        child-combinator: $child-selector,
+        variants: $normalised-variants
+    );
+}

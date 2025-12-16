@@ -9,38 +9,31 @@
 @use 'sass:string';
 @use 'sass:meta';
 
-// all mixins below expect a normalised property config map
-
 // ============================================================================
 // Layer 1: Base classes (no breakpoints, no states)
 // Establishes defaults - lowest priority in cascade
 // ============================================================================
-@mixin build-base-classes($config) {
+@mixin build-base-layer($config) {
     $property: map.get($config, 'property');
     $positions: map.get($config, 'positions');
     $child-selector: map.get($config, 'child-combinator');
     $omit-axis-keys: map.get($config, 'omit-axis-keys');
     $prefix: map.get($config, 'prefix');
 
-    @each $class, $data in map.get($config, 'items') {
+    @each $class, $data in map.get($config, 'variants') {
         $value: map.get($data, 'value');
         $suffix: map.get($data, 'suffix');
 
         @if $positions {
-            // need to update
-            @include make-position-based-class(
-                $property,
-                $value,
-                $positions,
-                $prefix,
-                $suffix,
-                null,
-                // no breakpoints
-                null,
-                // no states
-                $omit-axis-keys,
-                $child-selector
+            // prettier-ignore
+            $options: (
+                prefix: $prefix,
+                variant: $suffix,
+                omit-axis-keys: $omit-axis-keys,
+                child-selector: $child-selector
             );
+
+            @include make-base-position-class($property, $value, $positions, $options);
         } @else {
             // prettier-ignore
             $options: if($child-selector, (child-selector: $child-selector), ());

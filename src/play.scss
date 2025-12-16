@@ -1,6 +1,6 @@
 // @use './utilities/border' as *;
 @use './common-tools' as *;
-@use './functions/helpers' as *;
+@use './functions/normalise-config' as *;
 @use './functions/resolvers' as *;
 @use './maps_and_variables/colors' as *;
 @use './mixins/build-magic-grid' as *;
@@ -13,85 +13,59 @@
 @use 'sass:string';
 @use 'sass:meta';
 
-// ============================================================================
-$property: 'margin';
-$class: 'm-5';
-$value: 5rem;
-$options: (child-selector: true); // optional
+// @include make-responsive-class($property, $class, $value, $breakpoints); // does this handle positions??
 
-@include make-base-variant($property, $class, $value);
-@include make-base-variant($property, $class, $value, $options);
 
 // ============================================================================
+// Normalised config example usage
+// ============================================================================
+// this is not the properties map, but the normalised config for a single
+// property that will be used to generate classes for that property.
 
-// Core builder - orchestrates the layers (think of it like a controller)
-@mixin build-classes-new($properties-map, $responsive: false, $with-state: false, $debug: false) {
-    @each $property, $config in $properties-map {
-        $normalised: normalise-property-config($property, $config, $responsive, $with-state);
-
-        // Layer 1: Base classes (no breakpoints, no states)
-        @include build-base-classes($normalised);
-
-        // Layer 2: Responsive variants (breakpoints only, no base, no states)
-        @if map.get($normalised, 'breakpoints') {
-            @include build-responsive-layer($normalised);
-        }
-
-        // // Layer 3: State variants (states only)
-        // @if map.get($normalised, 'states') {
-        //     @include build-state-layer($normalised);
-        // }
-
-        // // Layer 4: Responsive + State combinations
-        // @if map.get($normalised, 'breakpoints') and map.get($normalised, 'states') {
-        //     @include build-responsive-state-layer($normalised);
-        // }
-
-        // ====================================================================
-        // Debug
-        // ====================================================================
-        @if $debug {
-            .normalised-property-values {
-                content: 'Property:' map.get($normalised, 'property');
-                content: 'Prefix:' map.get($normalised, 'prefix');
-                content: 'Breakpoints:' map.get($normalised, 'breakpoints');
-                content: 'States:' map.get($normalised, 'states');
-                content: 'Positions:' map.get($normalised, 'positions');
-                content: 'Omit Axis Keys:' map.get($normalised, 'omit-axis-keys');
-                content: 'Child Combinator:' map.get($normalised, 'child-combinator');
-            }
-
-            @debug '=== #{$property} ===';
-            @debug "Property: #{map.get($normalised, 'property')}";
-            @debug "Prefix: #{map.get($normalised, 'prefix')}";
-            @debug "Breakpoints: #{meta.inspect(map.get($normalised, 'breakpoints'))}";
-            @debug "States: #{meta.inspect(map.get($normalised, 'states'))}";
-            @debug "Items: #{meta.inspect(map.get($normalised, 'items'))}";
-            @debug '';
-        }
-    }
-}
-
-$display-visibility-properties-map: (
-    display: (
-        prefix: false,
-        values: $display,
-        states: hover
-    ),
-    height: (
-        prefix: 'h-',
-        values: (
-            1,
-            2,
-            3
+// prettier-ignore
+$normalised-color-config: (
+    property: 'color',
+    prefix: 'txt-',
+    child-combinator: false,
+    variants: (
+        'txt-red': (          // ← Final class name
+            value: red,     // ← CSS value for color property
+            suffix: 'red'     // ← What comes after prefix
         ),
-        unit: 'rem'
-    ),
-    // visibility: (
-    //     prefix: false,
-    //     values: $visibility,
-    //     states: hover
-     // )
+        'txt-blue': (
+            value: blue,
+            suffix: 'blue'
+        )
+    )
 );
 
-@include build-classes-new($display-visibility-properties-map, $responsive: true);
+// @include build-base-layer($normalised-color-config);
+
+
+
+// prettier-ignore
+$normalised-margin-config: (
+    property: 'margin',
+    prefix: 'm-',
+    positions: (
+        x: (inline-start, inline-end),
+        y: (block-start, block-end)
+    ),
+    child-combinator: false,
+    omit-axis-keys: false,
+    variants: (
+        'm-1': (
+            value: 1rem,
+            suffix: '1'
+        ),
+        'm-2': (
+            value: 2rem,
+            suffix: '2'
+        )
+    )
+);
+
+@include build-base-layer($normalised-margin-config);
+
+// Generates: .mx-1, .my-1, .mt-1, .mr-1, .mb-1, .ml-1
+//            .mx-2, .my-2, .mt-2, .mr-2, .mb-2, .ml-2 
