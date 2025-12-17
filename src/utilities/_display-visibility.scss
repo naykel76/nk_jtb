@@ -2,36 +2,27 @@
 @use '../mixins/make-classes-old' as *;
 @use '../mixins/make-classes' as *;
 
-
-// prettier-ignore
 $display-visibility-properties-map: (
-    display: ( prefix: false, values: $display ),
-    visibility: ( prefix: false, values: $visibility )
+    display: (
+        prefix: false,
+        values: $display
+    ),
+    visibility: (
+        prefix: false,
+        values: $visibility
+    )
 );
 
 // ============================================================================
 // Builds
 // ============================================================================
-// IMPORTANT: Base classes MUST be generated before responsive variants to ensure
-// proper CSS cascade. This allows patterns like "flex md:hidden" to work correctly.
-
-// Step 1: Generate all base utility classes (no responsive variants)
-@include build-classes($display-visibility-properties-map, $responsive: false);
+@include build-classes-new($display-visibility-properties-map, $responsive: true);
 
 // --------------------------------------------------------------------------
-// Step 2: Generate responsive variants using specific breakpoint patterns
+// Additional responsive utilities
 // --------------------------------------------------------------------------
-
-// FROM breakpoint and up (mobile-first)
-// Usage: .md:flex shows flex at md breakpoint and above
-@include make-from-breakpoint((display: block), "block", $responsive-variants);
-@include make-from-breakpoint((display: flex), "flex", $responsive-variants);
-@include make-from-breakpoint((display: none), "hidden", $responsive-variants);
-@include make-from-breakpoint((visibility: hidden), "invisible", $responsive-variants);
-@include make-from-breakpoint((visibility: visible), "visible", $responsive-variants);
 
 // AT specific breakpoint only (exact range)
-// Usage: .on-md:flex shows flex only between md and lg breakpoints
 @include make-on-breakpoint((display: block), "block", $responsive-variants);
 @include make-on-breakpoint((display: flex), "flex", $responsive-variants);
 @include make-on-breakpoint((display: none), "hidden", $responsive-variants);
@@ -39,9 +30,29 @@ $display-visibility-properties-map: (
 @include make-on-breakpoint((visibility: visible), "visible", $responsive-variants);
 
 // UP TO breakpoint (max-width, desktop-first)
-// Usage: .to-md:flex shows flex up to md breakpoint, then hides
 @include make-to-breakpoint((display: block), "block", remove-from-list($responsive-variants, xxl));
 @include make-to-breakpoint((display: flex), "flex", remove-from-list($responsive-variants, xxl));
 @include make-to-breakpoint((display: none), "hidden", remove-from-list($responsive-variants, xxl));
 @include make-to-breakpoint((visibility: hidden), "invisible", remove-from-list($responsive-variants, xxl));
 @include make-to-breakpoint((visibility: visible), "visible", remove-from-list($responsive-variants, xxl));
+
+// FROM breakpoint and up (mobile-first)
+@include cq-make-from-breakpoint((display: block), "block", $responsive-variants);
+@include cq-make-from-breakpoint((display: flex), "flex", $responsive-variants);
+@include cq-make-from-breakpoint((display: none), "hidden", $responsive-variants);
+@include cq-make-from-breakpoint((visibility: hidden), "invisible", $responsive-variants);
+@include cq-make-from-breakpoint((visibility: visible), "visible", $responsive-variants);
+
+// AT specific breakpoint only (exact range)
+@include cq-make-on-breakpoint((display: block), "block", $responsive-variants);
+@include cq-make-on-breakpoint((display: flex), "flex", $responsive-variants);
+@include cq-make-on-breakpoint((display: none), "hidden", $responsive-variants);
+@include cq-make-on-breakpoint((visibility: hidden), "invisible", $responsive-variants);
+@include cq-make-on-breakpoint((visibility: visible), "visible", $responsive-variants);
+
+// UP TO breakpoint (max-width, desktop-first)
+@include cq-make-to-breakpoint((display: block), "block", remove-from-list($responsive-variants, xxl));
+@include cq-make-to-breakpoint((display: flex), "flex", remove-from-list($responsive-variants, xxl));
+@include cq-make-to-breakpoint((display: none), "hidden", remove-from-list($responsive-variants, xxl));
+@include cq-make-to-breakpoint((visibility: hidden), "invisible", remove-from-list($responsive-variants, xxl));
+@include cq-make-to-breakpoint((visibility: visible), "visible", remove-from-list($responsive-variants, xxl));

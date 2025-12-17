@@ -12,6 +12,10 @@
             {
                 "name": "FAQs",
                 "route_name": "jtb.faqs"
+            },
+            {
+                "name": "WIP",
+                "route_name": "jtb.wip"
             }
         ]
     },

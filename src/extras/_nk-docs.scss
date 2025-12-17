@@ -268,7 +268,7 @@ pre code.torchlight {
 // -- Container Queries --
 // ============================================================================
 .resizable-container {
-    border: 2px dashed #667eea;
+    border: 2px dashed var(--gray-300);
     border-radius: 0.5rem;
     container-name: demo-container;
     container-type: inline-size;
@@ -279,15 +279,15 @@ pre code.torchlight {
     resize: horizontal;
     width: 100%;
 
-    // &::after {
-    //     bottom: 0.1125;
-    //     color: #667eea;
-    //     content: '← Drag to resize →';
-    //     font-size: 0.75rem;
-    //     pointer-events: none;
-    //     position: absolute;
-    //     right: 0.5rem;
-    // }
+    &::after {
+        bottom: 0.1125;
+        color: #667eea;
+        content: '← Drag to resize →';
+        font-size: 0.75rem;
+        pointer-events: none;
+        position: absolute;
+        right: 0.5rem;
+    }
 }
 
 // prettier-ignore

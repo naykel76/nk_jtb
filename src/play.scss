@@ -1,3 +1,4 @@
+// @use './utilities/display-visibility' as *;
 @use './common-tools' as *;
 @use './functions/normalise-config' as *;
 @use './functions/resolvers' as *;
@@ -13,41 +14,29 @@
 @use 'sass:string';
 @use 'sass:meta';
 
-$margin-map: (2, 3);
-
-$logical-position-map: (
-    // Full axes
-    xy: (block-start, block-end, inline-start, inline-end),
-    x: (inline-start, inline-end),
-    y: (block-start, block-end),
-
-    // // Individual directions
-    // t: block-start,
-    // b: block-end,
-    // l: inline-start,
-    // r: inline-end,
-) ;
+// ===========================================================================
 
 // prettier-ignore
 $properties-map: (
     color: (
         prefix: 'txt-',
-        values: ( red, blue )
+        values: ( red, blue ),
+        breakpoints: ( sm, md ) // ignores responsive settings
     ),
     margin: (
         prefix: 'm',
-        values: $margin-map,
+        values: (0, 1, 2),
         unit: 'rem',
-        positions: $logical-position-map,
-        breakpoints: ( sm, md ) 
+        positions: (
+            xy: (block-start, block-end, inline-start, inline-end),
+            x: (inline-start, inline-end),
+            y: (block-start, block-end),
+            // t: block-start,
+            // b: block-end,
+            // l: inline-start,
+            // r: inline-end,
+        )
     )
 );
 
-// responsive is not working yet???
-
-/* - previous output -  */
-// @include build-classes($properties-map, $responsive: true);
-
-/* - update output-  */
-@include build-classes-new($properties-map, $responsive: true);
-
+// @include build-classes-new($properties-map, $responsive: false);
