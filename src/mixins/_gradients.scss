@@ -1,0 +1,82 @@
+@use '../maps_and_variables/colors' as *;
+@use 'sass:map';
+
+// ============================================================================
+// GRADIENT MIXINS
+// Helpers for creating gradients with direction and color values
+// ============================================================================
+
+// -- Mixin to resolve color value from name --
+@function resolve-gradient-color($color-name) {
+    // Check theme colors first
+    @if map.has-key($theme-colors, $color-name) {
+        @return map.get($theme-colors, $color-name);
+    }
+    
+    // Check base colors
+    @if map.has-key($base-colors, $color-name) {
+        @return map.get($base-colors, $color-name);
+    }
+    
+    // Return as-is if it's a raw color value
+    @return $color-name;
+}
+
+// -- Create gradient with direction and colors --
+@mixin gradient($direction, $from-color, $to-color) {
+    $from-value: resolve-gradient-color($from-color);
+    $to-value: resolve-gradient-color($to-color);
+    
+    @if $direction == 'to-r' or $direction == 'to-right' {
+        background: linear-gradient(to right, $from-value, $to-value);
+    } @else if $direction == 'to-b' or $direction == 'to-bottom' {
+        background: linear-gradient(to bottom, $from-value, $to-value);
+    } @else if $direction == 'to-l' or $direction == 'to-left' {
+        background: linear-gradient(to left, $from-value, $to-value);
+    } @else if $direction == 'to-t' or $direction == 'to-top' {
+        background: linear-gradient(to top, $from-value, $to-value);
+    } @else if $direction == 'to-br' or $direction == 'to-bottom-right' {
+        background: linear-gradient(to bottom right, $from-value, $to-value);
+    } @else if $direction == 'to-bl' or $direction == 'to-bottom-left' {
+        background: linear-gradient(to bottom left, $from-value, $to-value);
+    } @else if $direction == 'to-tr' or $direction == 'to-top-right' {
+        background: linear-gradient(to top right, $from-value, $to-value);
+    } @else if $direction == 'to-tl' or $direction == 'to-top-left' {
+        background: linear-gradient(to top left, $from-value, $to-value);
+    } @else {
+        background: linear-gradient($direction, $from-value, $to-value);
+    }
+}
+
+// -- Direction-specific mixins for cleaner syntax --
+@mixin gradient-to-r($from-color, $to-color) {
+    @include gradient('to-right', $from-color, $to-color);
+}
+
+@mixin gradient-to-b($from-color, $to-color) {
+    @include gradient('to-bottom', $from-color, $to-color);
+}
+
+@mixin gradient-to-l($from-color, $to-color) {
+    @include gradient('to-left', $from-color, $to-color);
+}
+
+@mixin gradient-to-t($from-color, $to-color) {
+    @include gradient('to-top', $from-color, $to-color);
+}
+
+@mixin gradient-to-br($from-color, $to-color) {
+    @include gradient('to-bottom-right', $from-color, $to-color);
+}
+
+@mixin gradient-to-bl($from-color, $to-color) {
+    @include gradient('to-bottom-left', $from-color, $to-color);
+}
+
+@mixin gradient-to-tr($from-color, $to-color) {
+    @include gradient('to-top-right', $from-color, $to-color);
+}
+
+@mixin gradient-to-tl($from-color, $to-color) {
+    @include gradient('to-top-left', $from-color, $to-color);
+}

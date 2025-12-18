@@ -19,9 +19,11 @@
     background: $zebra-alt-bg;
 }
 
-
 $background-color-properties: (
-    background-color: ( prefix: 'bg-', values: smart-merge($base-colors, $oklch-colors) ),
+    background-color: (
+        prefix: 'bg-',
+        values: smart-merge($base-colors, $oklch-colors)
+    )
 );
 
-@include build-classes($background-color-properties, $responsive: false, $with-state: true);
+@include build-classes-new($background-color-properties, $responsive: false, $with-state: true);

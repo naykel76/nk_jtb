@@ -65,46 +65,35 @@
     }
 }
 
-// // ============================================================================
-// // Layer 3: State variants (states only)
-// // Hover/focus/active states override responsive in interactive contexts
-// // ============================================================================
-// @mixin build-state-layer($normalized) {
-//     $property: map.get($normalized, 'property');
-//     $positions: map.get($normalized, 'positions');
-//     $child-combinator: map.get($normalized, 'child-combinator');
-//     $omit-axis-keys: map.get($normalized, 'omit-axis-keys');
-//     $prefix: map.get($normalized, 'prefix');
-//     $states: map.get($normalized, 'states');
+// ============================================================================
+// Layer 3: State variants (states only)
+// Hover/focus/active states override responsive in interactive contexts
+// ============================================================================
+@mixin build-state-layer($config) {
+    $property: map.get($config, 'property');
+    $positions: map.get($config, 'positions');
+    $child-selector: map.get($config, 'child-combinator');
+    $omit-axis-keys: map.get($config, 'omit-axis-keys');
+    $prefix: map.get($config, 'prefix');
+    $states: map.get($config, 'states');
 
-//     @each $class, $data in map.get($normalized, 'items') {
-//         $value: map.get($data, 'value');
-//         $suffix: map.get($data, 'suffix');
+    @each $class, $data in map.get($config, 'variants') {
+        $value: map.get($data, 'value');
+        $suffix: map.get($data, 'suffix');
 
-//         @if $positions {
-//             @include make-position-based-class(
-//                 $property,
-//                 $value,
-//                 $positions,
-//                 $prefix,
-//                 $suffix,
-//                 null,  // no breakpoints
-//                 $states,
-//                 $omit-axis-keys,
-//                 $child-combinator
-//             );
-//         } @else {
-//             @include make-single-property-class(
-//                 $property,
-//                 $class,
-//                 $value,
-//                 null,  // no breakpoints
-//                 $states,
-//                 $child-combinator
-//             );
-//         }
-//     }
-// }
+        @if $positions {
+            // Loop positions and build individual state classes for each
+            @each $position-key, $position-list in $positions {
+                $position-class: build-position-class-name($prefix, $suffix, $position-key, $omit-axis-keys);
+
+                @include make-state-class($property, $position-class, $value, $states, (child-selector: $child-selector));
+            }
+        } @else {
+            // Simple state via maker
+            @include make-state-class($property, $class, $value, $states, (child-selector: $child-selector));
+        }
+    }
+}
 
 // // ============================================================================
 // // Layer 4: Responsive + State combinations
@@ -164,10 +153,10 @@
             @include build-responsive-layer($normalised);
         }
 
-        // // Layer 3: State variants (states only)
-        // @if map.get($normalised, 'states') {
-        //     @include build-state-layer($normalised);
-        // }
+        // Layer 3: State variants (states only)
+        @if map.get($normalised, 'states') {
+            @include build-state-layer($normalised);
+        }
 
         // // Layer 4: Responsive + State combinations
         // @if map.get($normalised, 'breakpoints') and map.get($normalised, 'states') {
