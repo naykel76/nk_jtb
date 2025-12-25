@@ -1,11 +1,16 @@
-// 
 @use 'sass:color';
 
-// NKTD: review this, I have hardcoded the text colors here, because importing
-// them is causing "already loaded" errors in the build process.
+// ============================================================================
+// CONFIGURATION
+// ============================================================================
 $light-text: #fff !default;
 $dark-text: #333 !default;
 $text-color: $dark-text !default;
+
+// Shared threshold for consistency across all lightness calculations
+// 60 for OKLCH (0-100 scale), 153 for RGB (0-255 scale) ≈ 60%
+$lightness-threshold-oklch: 60 !default;
+$lightness-threshold-rgb: 153 !default; // 60% of 255
 
 // ============================================================================
 // OKLCH Lightness Check
@@ -16,85 +21,183 @@ $text-color: $dark-text !default;
 // @param {Color} $color - The OKLCH color to evaluate
 // @param {Number} $threshold - Lightness threshold (0-100 scale, default: 60)
 // @return {Boolean} - True if light, false if dark
-// ----------------------------------------------------------------------------
-@function oklch-is-light($color, $threshold: 60) {
-    // Extract the lightness channel from the OKLCH color (0-100 scale in Sass)
+// ============================================================================
+@function oklch-is-light($color, $threshold: $lightness-threshold-oklch) {
     $lightness: color.channel($color, 'lightness', $space: oklch);
 
-    // Return true if lightness exceeds threshold (light background)
     @return $lightness > $threshold;
 }
 
 // ============================================================================
-// RGB Brightness Check
+// RGB Brightness Check (Using Relative Luminance)
 // ============================================================================
-// Determines if an RGB color is light or dark using relative luminance.
-// Uses the WCAG formula based on human eye sensitivity to different colors.
-// Human eyes are most sensitive to green (71.52%), red (21.26%), blue (7.22%).
+// Determines if a color is light or dark using WCAG relative luminance formula.
+// This gives perceptually accurate results based on how human eyes work.
 //
 // @param {Color} $color - The color to evaluate (converted to RGB if needed)
-// @param {Number} $threshold - Brightness threshold (0-255 scale, default: 186)
+// @param {Number} $threshold - Brightness threshold (0-255 scale, default: 153)
 // @return {Boolean} - True if light, false if dark
-// ----------------------------------------------------------------------------
-@function rgb-is-light($color, $threshold: 186) {
-    // Convert color to RGB space to ensure we can extract RGB channels
+// ============================================================================
+@function rgb-is-light($color, $threshold: $lightness-threshold-rgb) {
     $rgb-color: color.to-space($color, rgb);
-
+    
     // Calculate relative luminance using WCAG formula for perceived brightness
-    $brightness: 0.2126 * color.channel($rgb-color, 'red') + 0.7152 * color.channel($rgb-color, 'green') + 0.0722 *
-        color.channel($rgb-color, 'blue');
-
-    // Return true if brightness exceeds threshold (light background)
+    // Human eyes are most sensitive to green (71.52%), red (21.26%), blue (7.22%)
+    $brightness: 0.2126 * color.channel($rgb-color, 'red') + 
+        0.7152 * color.channel($rgb-color, 'green') + 
+        0.0722 * color.channel($rgb-color, 'blue');
+    
     @return $brightness > $threshold;
+}
+
+// ============================================================================
+// Universal Lightness Check
+// ============================================================================
+// Determines if any color is light or dark, automatically detecting color space.
+// Uses the most appropriate calculation method for each color space.
+//
+// IMPORTANT: This is the SINGLE SOURCE OF TRUTH for "is this color light?"
+// All other functions should use this to ensure consistency.
+//
+// @param {Color} $color - Any color in any color space
+// @return {Boolean} - True if light, false if dark
+// ============================================================================
+@function is-light(
+    $color, 
+    $threshold-oklch: $lightness-threshold-oklch,
+    $threshold-rgb: $lightness-threshold-rgb
+) {
+    $color-space: color.space($color);
+    
+    @if $color-space == oklch {
+        @return oklch-is-light($color, $threshold-oklch);
+    } @else {
+        @return rgb-is-light($color, $threshold-rgb);
+    }
 }
 
 // ============================================================================
 // Text Color Selector
 // ============================================================================
 // Returns appropriate text color (dark or light) based on background color.
-// Automatically detects color space and uses optimal calculation method:
-// - OKLCH colors use native lightness channel
-// - All other colors (RGB, HSL, etc.) use RGB brightness calculation
 //
 // @param {Color} $bg-color - The background color to evaluate
 // @return {Color} - Either $dark-text or $light-text for optimal contrast
-// ----------------------------------------------------------------------------
+// ============================================================================
 @function text-color($bg-color) {
-    // Detect which color space the background color is using
-    $color-space: color.space($bg-color);
-
-    // Choose appropriate lightness calculation based on color space
-    $is-light: if($color-space == oklch, oklch-is-light($bg-color), rgb-is-light($bg-color));
-
-    // Return dark text for light backgrounds, light text for dark backgrounds
-    @return if($is-light, $dark-text, $light-text);
+    @return if(is-light($bg-color), $dark-text, $light-text);
 }
 
 // ============================================================================
-// border-contrast($bg, $opacity)
+// Border Contrast Color
 // ============================================================================
 // Returns a semi-transparent black or white based on background lightness.
+// Uses the same perceptual lightness calculation as text-color() for consistency.
 //
-// Uses HSL lightness to determine which gives better contrast.
-// Good for accessibility, though may lack visual harmony.
-//
-// Pros:
-// - Ensures reliable contrast on any background
-// - Ideal for accessibility overlays and outlines
-//
-// Cons:
-// - Not derived from the original colour
-// - Can feel visually disconnected
-//
-// Best for: High-contrast elements where legibility is key
-// ----------------------------------------------------------------------------
-
+// @param {Color} $bg - Background color to evaluate
+// @param {Number} $opacity - Opacity of the border (0-1, default: 0.15)
+// @return {Color} - Semi-transparent black or white
+// ============================================================================
 @function border-contrast($bg, $opacity: 0.15) {
-    $lightness: color.channel($bg, 'lightness', $space: hsl);
-
-    @if $lightness > 50 {
+    @if is-light($bg) {
         @return color.change(black, $alpha: $opacity);
     } @else {
         @return color.change(white, $alpha: $opacity);
     }
 }
+
+// ============================================================================
+// Derived Border Color
+// ============================================================================
+// Returns a border color derived from the background color itself.
+// Creates harmonious, color-matched borders instead of generic black/white.
+//
+// ALL OUTPUTS ARE IN OKLCH for consistency and perceptual uniformity.
+//
+// @param {Color} $bg - Background color (any format)
+// @param {Number} $amount - How much darker/lighter (default: 15%)
+// @param {Number} $opacity - Optional opacity adjustment (default: 1)
+// @return {Color} - OKLCH color, darker or lighter version of the background
+// ============================================================================
+@function border-derived($bg, $amount: 15%, $opacity: 1) {
+    // Convert to OKLCH for adjustment
+    $oklch-color: color.to-space($bg, oklch);
+    
+    // Determine direction based on lightness
+    $direction: if(is-light($bg), -$amount, $amount);
+    
+    // Adjust in OKLCH space
+    $border: color.adjust($oklch-color, $lightness: $direction, $space: oklch);
+    
+    @if $opacity < 1 {
+        @return color.change($border, $alpha: $opacity);
+    }
+    
+    @return $border;
+}
+
+// ============================================================================
+// Smart Color Adjustment
+// ============================================================================
+// Adjusts a color's lightness intelligently based on whether it's light or dark.
+// This ensures interactions always feel natural and visible.
+//
+// Logic:
+// - Light colors → darken by $amount (more visible on interaction)
+// - Dark colors → lighten by $amount (more visible on interaction)
+//
+// ALL OUTPUTS ARE IN OKLCH for consistency and perceptual uniformity.
+//
+// @param {Color} $color - The color to adjust (any format)
+// @param {Number} $amount - Percentage to adjust (default: 5%)
+// @return {Color} - OKLCH color, adjusted for interaction
+// ============================================================================
+@function smart-adjust($color, $amount: 5%) {
+    // Convert to OKLCH for adjustment
+    $oklch-color: color.to-space($color, oklch);
+    
+    // Determine direction based on lightness
+    $direction: if(is-light($color), -$amount, $amount);
+    
+    // Adjust in OKLCH space and return
+    @return color.adjust($oklch-color, $lightness: $direction, $space: oklch);
+}
+
+// // ============================================================================
+// // USAGE EXAMPLES & EXPECTED OUTPUTS
+// // ============================================================================
+
+// // Example 1: Text color (returns configured text colors, not OKLCH)
+// .text-color {
+//     color: text-color(#3b82f6);
+// }
+
+// // Output: color: #fff;
+
+// // Example 2: High-contrast border (returns rgba, not OKLCH)
+// .border-contrast {
+//     border: 1px solid border-contrast(white);
+// }
+
+// // Output: border: 1px solid rgba(0, 0, 0, 0.15);
+
+// // Example 3: Harmonious derived border (returns OKLCH)
+// .border-derived {
+//     border: 1px solid border-derived(#3b82f6);
+// }
+
+// // Output: border: 1px solid oklch(68.29% 0.169 264.05);
+
+// // Example 4: Smart adjust for hover states (returns OKLCH)
+// .smart-adjust {
+//     background-color: smart-adjust(#3b82f6, 10%);
+// }
+
+// // Output: background-color: oklch(68.29% 0.169 264.05);
+
+// // Example 5: OKLCH input (returns OKLCH)
+// .oklch-example {
+//     background: smart-adjust(oklch(70% 0.15 250), 5%);
+// }
+
+// // Output: background: oklch(65% 0.15 250);

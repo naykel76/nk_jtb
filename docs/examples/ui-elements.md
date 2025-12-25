@@ -1,5 +1,13 @@
 # UI Elements
 
+
+- [Buttons](#buttons)
+    - [Menu Button](#menu-button)
+- [Dropdowns](#dropdowns)
+- [Navbars](#navbars)
+- [Radio Buttons](#radio-buttons)
+
+
 ## Buttons
 
 ### Menu Button
@@ -60,7 +68,7 @@
 ## Navbars
 
 ```html +code-blade +preview
-<x-gt-markdown path="jtb\ui-examples\navbar" />
+<x-gt-markdown path="jtb\examples\navbar" />
 ```
 
 
