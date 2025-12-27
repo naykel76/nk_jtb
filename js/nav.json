@@ -28,6 +28,10 @@
             {
                 "name": "Core Architecture",
                 "route_name": "jtb.core-architecture"
+            },
+            {
+                "name": "Color and Themes",
+                "route_name": "jtb.color-and-themes"
             }
         ]
     },

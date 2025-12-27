@@ -11,3 +11,105 @@
     content: 'OKLCH red-100' map.get($oklch-colors, red-100) to text-color(map.get($oklch-colors, red-100));
     content: 'OKLCH red-900' map.get($oklch-colors, red-900) to text-color(map.get($oklch-colors, red-900));
 }
+
+
+
+$base-color: #3b82f6;
+$text: #fff;
+$bg-hover: #2563eb;
+$bg-active: #1d4ed8;
+$border: #60a5fa;
+
+$theme: (
+    bg: #3b82f6,
+    text: #fff,
+    bg-hover: #2563eb,
+    bg-active: #1d4ed8,
+    border: #60a5fa
+);
+
+/* -- Basic Theme Example -- */
+
+// // pass single color and intelligently generate text and border colors
+// .hover-state {
+//     // $amount: 5%, optionally change
+//     @include hover-state($base-color);
+// }
+
+// .hover-state-advanced {
+//     @include hover-state($base-color, $amount: 5%, $bg: null, $border: null, $color: null);
+
+//     // $base-color: #3b82f6;
+//     // $text: #fff;
+//     // $bg-hover: #2563eb;
+//     // $bg-active: #1d4ed8;
+//     // $border: #60a5fa;
+// }
+
+// // Example 1: Complete button theme in one line
+// .btn-primary {
+//     @include build-theme(#3b82f6);
+// }
+
+/* --------------------------------------------------------
+    State mixins usage examples
+-------------------------------------------------------- */
+
+/* --------------------------------------------------------
+    @mixin make-basic-theme(
+        $base, 
+        $border-color: border-contrast($base), 
+        $font-color: text-color($base)
+    ) 
+-------------------------------------------------------- */
+
+// pass single color and intelligently generate text and border colors
+// .make-basic-theme-base-only {
+//     @include make-basic-theme($base-color: #3b82f6);
+// }
+
+// // pass all colors explicitly
+// .make-basic-theme-explicit-colors {
+//     @include make-basic-theme(
+//         $base-color: map.get($oklch-colors, 'blue-500'),
+//         $border-color: map.get($oklch-colors, 'blue-300'),
+//         $font-color: map.get($oklch-colors, 'blue-900')
+//     );
+// }
+
+// Individual states as needed
+.basic-theme-with-states {
+    @include make-basic-theme($base-color: #3b82f6);
+    @include hover-state(#3b82f6);
+    @include active-state(#3b82f6);
+    @include focus-state(#3b82f6);
+}
+
+// ===========================================================================
+// Do not remove this is a good set options map for testing class generation
+// ===========================================================================
+
+// prettier-ignore
+$properties-map: (
+    color: (
+        prefix: 'txt-',
+        values: ( red, blue ),
+        breakpoints: ( sm, md ) // ignores responsive settings
+    ),
+    margin: (
+        prefix: 'm',
+        values: (0, 1, 2),
+        unit: 'rem',
+        positions: (
+            xy: (block-start, block-end, inline-start, inline-end),
+            x: (inline-start, inline-end),
+            y: (block-start, block-end),
+            // t: block-start,
+            // b: block-end,
+            // l: inline-start,
+            // r: inline-end,
+        )
+    )
+);
+
+// @include build-classes-new($properties-map, $responsive: false);

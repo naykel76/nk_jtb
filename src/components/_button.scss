@@ -1,5 +1,6 @@
 @use '../forms/control' as *;
 @use '../functions/color-functions' as *;
+@use '../mixins/make-state' as *;
 @use '../maps_and_variables/colors' as *;
 @use '../maps_and_variables/components' as *;
 @use '../maps_and_variables/config' as *;
@@ -59,30 +60,12 @@
 }
 
 // ============================================================================
-// -- THEMES AND VARIATIONS --
+// -- VARIATIONS --
 // ============================================================================
-
-@mixin hover($color, $by: 5%) {
-    &:hover {
-        @content;
-
-        background-color: color.adjust($color, $lightness: $by);
-        color: text-color($color);
-    }
-}
-
-@mixin active($color, $by: 5%) {
-    &:active {
-        @content;
-
-        background-color: color.adjust($color, $lightness: -$by);
-        color: text-color($color);
-    }
-}
 
 @each $key, $color in $color-map {
     .#{$button-prefix}.#{$key} {
-        @include hover($color);
-        @include active($color);
+        @include hover-state($color);
+        @include active-state($color);
     }
 }

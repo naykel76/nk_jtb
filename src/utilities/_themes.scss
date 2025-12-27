@@ -10,24 +10,24 @@
 // ============================================================================
 $advanced-themes: (
     'danger-light': (
-        'base': map-get-dot('red.50', $tailwind-colors),
-        'color': map-get-dot('red.700', $tailwind-colors),
-        'border-color': map-get-dot('red.500', $tailwind-colors)
+        'base': map.get($oklch-colors, 'red-50'),
+        'color': map.get($oklch-colors, 'red-700'),
+        'border-color': map.get($oklch-colors, 'red-500')
     ),
     'info-light': (
-        'base': map-get-dot('blue.50', $tailwind-colors),
-        'color': map-get-dot('blue.700', $tailwind-colors),
-        'border-color': map-get-dot('blue.500', $tailwind-colors)
+        'base': map.get($oklch-colors, 'blue-50'),
+        'color': map.get($oklch-colors, 'blue-700'),
+        'border-color': map.get($oklch-colors, 'blue-500')
     ),
     'warning-light': (
-        'base': map-get-dot('yellow.50', $tailwind-colors),
-        'color': map-get-dot('yellow.700', $tailwind-colors),
-        'border-color': map-get-dot('yellow.500', $tailwind-colors)
+        'base': map.get($oklch-colors, 'yellow-50'),
+        'color': map.get($oklch-colors, 'yellow-700'),
+        'border-color': map.get($oklch-colors, 'yellow-500')
     ),
     'success-light': (
-        'base': map-get-dot('green.50', $tailwind-colors),
-        'color': map-get-dot('green.700', $tailwind-colors),
-        'border-color': map-get-dot('green.500', $tailwind-colors)
+        'base': map.get($oklch-colors, 'green-50'),
+        'color': map.get($oklch-colors, 'green-700'),
+        'border-color': map.get($oklch-colors, 'green-500')
     )
 );
 

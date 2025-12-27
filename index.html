@@ -9,45 +9,331 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
-<body class="pxy space-y">
+<body>
 
-    <div class="resizable-container">
-        <div class="flex">
-            <!-- Sidebar -->
-            <aside class="hidden cq-lg:block w-16 lg:w-48 bg-slate-900 pxy-1">
-                <div class="space-y">
-                    <div class="h-4 bg-slate-700 rounded"></div>
-                    <div class="h-16 bg-slate-700 rounded"></div>
-                    <div class="h-10 bg-slate-700 rounded"></div>
+        <div class="bx text-center py-12">
+            <svg class="mx-auto flex items-center justify-center h-12 w-12 txt-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+            </svg>
+            <h3 class="mt-2 txt-sm font-medium">No courses found</h3>
+            <p class="mt-1 txt-sm txt-gray-500">
+                @if ($filter !== 'all')
+                No {{ $filter }} courses at the moment.
+                @else
+                Get started by enrolling in a course.
+                @endif
+            </p>
+        </div>
+    <div class="container">
+        <div class="grid cols-5">
+            <div class="flex-centered h-4 bdr-3 font-mono red state-red"> red </div>
+            <div class="flex-centered h-4 bdr-3 font-mono orange state-orange"> orange </div>
+            <div class="flex-centered h-4 bdr-3 font-mono amber state-amber"> amber </div>
+            <div class="flex-centered h-4 bdr-3 font-mono yellow state-yellow"> yellow </div>
+            <div class="flex-centered h-4 bdr-3 font-mono lime state-lime"> lime </div>
+            <div class="flex-centered h-4 bdr-3 font-mono green state-green"> green </div>
+            <div class="flex-centered h-4 bdr-3 font-mono emerald state-emerald"> emerald </div>
+            <div class="flex-centered h-4 bdr-3 font-mono teal state-teal"> teal </div>
+            <div class="flex-centered h-4 bdr-3 font-mono cyan state-cyan"> cyan </div>
+            <div class="flex-centered h-4 bdr-3 font-mono sky state-sky"> sky </div>
+            <div class="flex-centered h-4 bdr-3 font-mono blue state-blue"> blue </div>
+            <div class="flex-centered h-4 bdr-3 font-mono indigo state-indigo"> indigo </div>
+            <div class="flex-centered h-4 bdr-3 font-mono violet state-violet"> violet </div>
+            <div class="flex-centered h-4 bdr-3 font-mono purple state-purple"> purple </div>
+            <div class="flex-centered h-4 bdr-3 font-mono fuchsia state-fuchsia"> fuchsia </div>
+            <div class="flex-centered h-4 bdr-3 font-mono pink state-pink"> pink </div>
+            <div class="flex-centered h-4 bdr-3 font-mono rose state-rose"> rose </div>
+            <div class="flex-centered h-4 bdr-3 font-mono slate state-slate"> slate </div>
+            <div class="flex-centered h-4 bdr-3 font-mono gray state-gray"> gray </div>
+            <div class="flex-centered h-4 bdr-3 font-mono zinc state-zinc"> zinc </div>
+            <div class="flex-centered h-4 bdr-3 font-mono neutral state-neutral"> neutral </div>
+            <div class="flex-centered h-4 bdr-3 font-mono stone state-stone"> stone </div>
+        </div>
+    </div>
+
+    <div class="flex items-center gap rounded-lg bg-white p-6 shadow-md outline outline-black/5 dark:bg-gray-800">
+        <span class="inline-flex shrink-0 rounded-full bdr bdr-pink-300 bg-pink-100 p-2 dark:bdr-pink-300/10 dark:bg-pink-400/10">
+            <svg class="size-6 stroke-pink-700 dark:stroke-pink-500"><!-- ... --></svg>
+        </span>
+        <div>
+            <p class="text-gray-700 dark:text-gray-400">
+                <span class="font-medium text-gray-950 dark:text-white">Tom Watson</span> mentioned you in
+                <span class="font-medium text-gray-950 dark:text-white">Logo redesign</span>
+            </p>
+            <time class="mt-1 block text-gray-500" datetime="9:37">9:37am</time>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container space-y">
+        <!-- Stats Overview -->
+        <div class="grid md:cols-3 gap-1.5">
+            <div class="bx">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="txt-gray-500 txt-sm font-medium">Active Courses</p>
+                        <p class="txt-2xl font-bold mt-025">4</p>
+                    </div>
+                    <div class="wh-3 bg-green-100 rounded-lg flex items-center justify-center">
+                        <svg class="icon txt-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
                 </div>
-            </aside>
-            <!-- Main content -->
-            <main class="flex-1 pxy-2 overflow-auto">
-                <div class="container-lg">
-                    <div class="bx h-10"></div>
-                    <div class="bx h-24"></div>
+            </div>
+            <div class="bx">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="txt-gray-500 txt-sm font-medium">Pending Courses</p>
+                        <p class="txt-2xl font-bold mt-025">2</p>
+                    </div>
+                    <div class="wh-3 bg-yellow-100 rounded-lg flex items-center justify-center">
+                        <svg class="icon txt-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
                 </div>
-            </main>
+            </div>
+            <div class="bx">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="txt-gray-500 txt-sm font-medium">Expired Courses</p>
+                        <p class="txt-2xl font-bold mt-025">3</p>
+                    </div>
+                    <div class="wh-3 bg-red-100 rounded-lg flex items-center justify-center">
+                        <svg class="icon txt-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
         </div>
 
-    </div>
-    <hr>
+
+        <!-- Active Courses -->
+        <div>
+            <h2 class="txt-lg">Active Courses</h2>
+            <div class="grid md:cols-2">
+                <div class="bx">
+                    <div class="bx-header flex items-center justify-center h-12 bg-linear-to-r from-blue-500 to-blue-600 ">
+                        <svg class="wh-5 txt-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                    </div>
+                    <div class="bx-content space-y-05">
+                        <div class="flex items-center justify-between">
+                            <span class="badge bg-green-100 txt-green-800">Active</span>
+                            <span class="txt-sm txt-gray-500">Due: Dec 31, 2025</span>
+                        </div>
+                        <div class="txt-lg font-bold">Advanced JavaScript Development</div>
+                        <p class="txt-sm">Master modern JavaScript concepts including ES6+, async programming, and design patterns.</p>
+                        <div>
+                            <div class="flex justify-between txt-sm mb-025">
+                                <span>Progress</span>
+                                <span>65%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-05">
+                                <div class="bg-blue-600 h-05 rounded-full" style="width: 65%"></div>
+                            </div>
+                        </div>
+                        <button class="w-full btn primary">Continue Learning</button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow overflow-hidden">
+                    <div class="flex items-center justify-center h-12 bg-linear-to-r from-purple-500 to-purple-600 flex items-center justify-center">
+                        <svg class="wh-5 txt-white opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-05.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                        </svg>
+                    </div>
+                    <div class="pxy-1.5">
+                        <div class="flex items-center justify-between">
+                            <span class="badge">Active</span>
+                            <span class="txt-sm txt-gray-500">Due: Jan 15, 2026</span>
+                        </div>
+                        <div class="txt-lg font-bold">UI/UX Design Fundamentals</div>
+                        <p class="txt-sm">Learn the principles of user-centered design and create stunning interfaces.</p>
+                        <div>
+                            <div class="flex justify-between txt-sm mb-025">
+                                <span>Progress</span>
+                                <span>32%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-05">
+                                <div class="bg-purple-600 h-05 rounded-full" style="width: 32%"></div>
+                            </div>
+                        </div>
+                        <button class="w-full bg-purple-600 txt-white rounded-lg hover:bg-purple-700 transition-colors">Continue Learning</button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow overflow-hidden">
+                    <div class="flex items-center justify-center h-12 bg-linear-to-r from-green-500 to-green-600 flex items-center justify-center">
+                        <svg class="wh-5 txt-white opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                        </svg>
+                    </div>
+                    <div class="pxy-1.5">
+                        <div class="flex items-center justify-between">
+                            <span class="badge">Active</span>
+                            <span class="txt-sm txt-gray-500">Due: Feb 28, 2026</span>
+                        </div>
+                        <div class="txt-lg font-bold">Data Structures & Algorithms</div>
+                        <p class="txt-sm">Master essential data structures and algorithmic problem-solving techniques.</p>
+                        <div>
+                            <div class="flex justify-between txt-sm mb-025">
+                                <span>Progress</span>
+                                <span>78%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-05">
+                                <div class="bg-green-600 h-05 rounded-full" style="width: 78%"></div>
+                            </div>
+                        </div>
+                        <button class="w-full bg-green-600 txt-white rounded-lg hover:bg-green-700 transition-colors">Continue Learning</button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow overflow-hidden">
+                    <div class="flex items-center justify-center h-12 bg-linear-to-r from-orange-500 to-orange-600 flex items-center justify-center">
+                        <svg class="wh-5 txt-white opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <div class="pxy-1.5">
+                        <div class="flex items-center justify-between">
+                            <span class="badge">Active</span>
+                            <span class="txt-sm txt-gray-500">Due: Jan 30, 2026</span>
+                        </div>
+                        <div class="txt-lg font-bold">Technical Writing Essentials</div>
+                        <p class="txt-sm">Create clear, effective documentation and technical content.</p>
+                        <div>
+                            <div class="flex justify-between txt-sm mb-025">
+                                <span>Progress</span>
+                                <span>45%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-05">
+                                <div class="bg-orange-600 h-05 rounded-full" style="width: 45%"></div>
+                            </div>
+                        </div>
+                        <button class="w-full bg-orange-600 txt-white rounded-lg hover:bg-orange-700 transition-colors">Continue Learning</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pending Courses -->
+        <div class="mb-8">
+            <h2 class="txt-xl font-bold">Pending Courses</h2>
+            <div class="grid md:cols-2 gap-1.5">
+                <div class="bx rounded-lg">
+                    <div class="flex items-start justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-16 h-16 bg-yellow-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-8 h-8 txt-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="txt-lg font-bold">Cloud Architecture Basics</div>
+                                <p class="txt-sm txt-gray-500">Starts: Jan 5, 2026</p>
+                            </div>
+                        </div>
+                        <span class="px-075 py-025 bg-yellow-100 txt-yellow-800 txt-xs font-semibold rounded-full">Pending</span>
+                    </div>
+                    <p class="txt-sm">Introduction to cloud computing, AWS, and scalable architecture patterns.</p>
+                    <button class="w-full bg-yellow-600 txt-white rounded-lg hover:bg-yellow-700 transition-colors">View Details</button>
+                </div>
+
+                <div class="bx rounded-lg">
+                    <div class="flex items-start justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-16 h-16 bg-yellow-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-8 h-8 txt-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="txt-lg font-bold">Machine Learning 101</div>
+                                <p class="txt-sm txt-gray-500">Starts: Feb 1, 2026</p>
+                            </div>
+                        </div>
+                        <span class="px-075 py-025 bg-yellow-100 txt-yellow-800 txt-xs font-semibold rounded-full">Pending</span>
+                    </div>
+                    <p class="txt-sm">Get started with machine learning concepts, algorithms, and Python libraries.</p>
+                    <button class="w-full bg-yellow-600 txt-white rounded-lg hover:bg-yellow-700 transition-colors">View Details</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Expired Courses -->
+        <div>
+            <h2 class="txt-xl font-bold">Expired Courses</h2>
+            <div class="bg-white rounded-lg shadow overflow-hidden">
+                <div class="divide-y divide-gray-200">
+                    <div class="pxy-1.5 hover:bg-gray-50 transition-colors">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4 flex-1">
+                                <div class="wh-3 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="wh-1.5 txt-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="txt-lg font-semibold">Introduction to Python Programming</div>
+                                    <p class="txt-sm txt-gray-500">Expired: Nov 30, 2025</p>
+                                </div>
+                                <span class="px-075 py-025 bg-red-100 txt-red-800 txt-xs font-semibold rounded-full">Expired</span>
+                                <button class="px-4 bg-blue-600 txt-white txt-sm rounded-lg hover:bg-blue-700 transition-colors">Renew</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pxy-1.5 hover:bg-gray-50 transition-colors">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4 flex-1">
+                                <div class="wh-3 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="wh-1.5 txt-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="txt-lg font-semibold">Digital Marketing Strategies</div>
+                                    <p class="txt-sm txt-gray-500">Expired: Oct 15, 2025</p>
+                                </div>
+                                <span class="px-075 py-025 bg-red-100 txt-red-800 txt-xs font-semibold rounded-full">Expired</span>
+                                <button class="px-4 bg-blue-600 txt-white txt-sm rounded-lg hover:bg-blue-700 transition-colors">Renew</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pxy-1.5 hover:bg-gray-50 transition-colors">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4 flex-1">
+                                <div class="wh-3 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="wh-1.5 txt-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="txt-lg font-semibold">Project Management Fundamentals</div>
+                                    <p class="txt-sm txt-gray-500">Expired: Sep 20, 2025</p>
+                                </div>
+                                <span class="px-075 py-025 bg-red-100 txt-red-800 txt-xs font-semibold rounded-full">Expired</span>
+                                <button class="px-4 bg-blue-600 txt-white txt-sm rounded-lg hover:bg-blue-700 transition-colors">Renew</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
     <div class="resizable-container">
-        <div class="docs-layout">
-            <aside class="left-sidebar">
-                <div class="bdr-b-2 bdr-blue-500 bx-title txt-sm">Aside</div>
-                <p>Sidebar content goes here</p>
-            </aside>
-            <main class="pxy">
-                <h1>Main Content</h1>
-                <p>Main document content goes here</p>
-            </main>
-            <nav class="toc">
-                <div class="bdr-b-2 bdr-red-500 bx-title txt-sm">Table of Contents</div>
-                <p>TOC links go here</p>
-            </nav>
+        <div class="container-md">
+            <div class="bx">
+                fg
+            </div>
         </div>
     </div>
+
 
 
 
