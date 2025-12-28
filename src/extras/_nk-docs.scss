@@ -111,7 +111,7 @@ $question-color: #c40c9a !default;
             rgb(249 168 212 / 20%) 20px,
             rgb(249 168 212 / 20%) 40px
         );
-        border-color: map.get($base-colors, 'pink');
+        border-color: map.get($oklch-colors, 'pink-500');
         border-width: 3px;
     }
 
@@ -123,7 +123,7 @@ $question-color: #c40c9a !default;
             rgb(147 197 253 / 20%) 20px,
             rgb(147 197 253 / 20%) 40px
         );
-        border-color: map.get($base-colors, 'blue');
+        border-color: map.get($oklch-colors, 'blue-500');
         border-width: 3px;
 
         // @include bg-stripes('blue', 5px);
@@ -133,13 +133,13 @@ $question-color: #c40c9a !default;
 // used for svg icon backgrounds in docs
 .svg-icon {
     &-pink {
-        border: 1px solid map.get($base-colors, 'pink');
+        border: 1px solid map.get($oklch-colors, 'pink-500');
 
         @include bg-stripes('pink');
     }
 
     &-blue {
-        border: 1px solid map.get($base-colors, 'blue');
+        border: 1px solid map.get($oklch-colors, 'blue-500');
 
         @include bg-stripes('blue');
     }

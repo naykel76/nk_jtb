@@ -1,0 +1,57 @@
+@use '../common-tools' as *;
+@use '../maps_and_variables/colors' as *;
+@use '../mixins/gradients' as *;
+@use 'sass:map';
+
+// ============================================================================
+// GRADIENT UTILITIES
+// Tailwind-like naming: bg-linear-to-{direction} + from-/via-/to-{color}
+// ============================================================================
+
+// -- Helper mixin to generate CSS variable classes --
+@mixin make-css-var-class($var-name, $prefix, $values) {
+    @each $key, $value in $values {
+        .#{$prefix}#{$key} {
+            --#{$var-name}: #{$value};
+        }
+    }
+}
+
+// -- Gradient Direction Base Classes --
+// Tailwind-like: bg-linear-to-{direction}
+.bg-linear-to-r {
+    background-image: linear-gradient(to right, var(--from, transparent), var(--to, transparent));
+}
+
+.bg-linear-to-b {
+    background-image: linear-gradient(to bottom, var(--from, transparent), var(--to, transparent));
+}
+
+.bg-linear-to-l {
+    background-image: linear-gradient(to left, var(--from, transparent), var(--to, transparent));
+}
+
+.bg-linear-to-t {
+    background-image: linear-gradient(to top, var(--from, transparent), var(--to, transparent));
+}
+
+.bg-linear-to-br {
+    background-image: linear-gradient(to bottom right, var(--from, transparent), var(--to, transparent));
+}
+
+.bg-linear-to-bl {
+    background-image: linear-gradient(to bottom left, var(--from, transparent), var(--to, transparent));
+}
+
+.bg-linear-to-tr {
+    background-image: linear-gradient(to top right, var(--from, transparent), var(--to, transparent));
+}
+
+.bg-linear-to-tl {
+    background-image: linear-gradient(to top left, var(--from, transparent), var(--to, transparent));
+}
+
+// -- Generate --from and --to CSS variable classes --
+@include make-css-var-class('from', 'from-', smart-merge($theme-colors, $base-colors, $oklch-colors));
+@include make-css-var-class('to', 'to-', smart-merge($theme-colors, $base-colors, $oklch-colors));
+
