@@ -5,7 +5,7 @@
 
 %box {
     background-color: $bx-bg;
-    border: 1px solid rgb(0 0 0 / 2.5%);
+    border: 1px solid var(--box-border-color);
     border-radius: var(--box-border-radius);
     box-shadow: map.get($shadow-map, sm);
     color: text-color($bx-bg);
@@ -33,17 +33,16 @@
 }
 
 .bx-header {
-    border-bottom: 1px solid;
-    border-color: var(--box-border-color);
+    border-bottom: 1px solid var(--box-border-color);
     border-left: none;
     border-radius: var(--box-border-radius) var(--box-border-radius) 0 0;
     margin-block-start: -$bx-padding !important;
 }
 
 .bx-footer {
-    border-color: var(--box-border-color);
+    // border-color: var(--box-border-color);
     border-radius: 0 0 var(--box-border-radius) var(--box-border-radius);
-    border-top: 1px solid;
+    border-top: 1px solid var(--box-border-color);
     margin-block-end: -$bx-padding !important;
 }
 

@@ -30,7 +30,7 @@
     // mixins and cannot be css variables.
     --box-padding: #{$bx-padding};
     --box-border-radius: 0.5rem;
-    --box-border-color: rgb(0 0 0 / 10%);
+    --box-border-color: #{$border-color};
     --box-title-font-weight: 700;
     --box-title-font-size: 1rem;
     --box-title-line-height: 1.2;

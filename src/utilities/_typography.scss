@@ -13,11 +13,11 @@
 $typography-properties-map: (
     color: (
         prefix: '#{$text-prefix}',
-        values: smart-merge($base-colors, $oklch-colors),
+        values: smart-merge($base-colors, $oklch-colors, ('white': #fff)),
         states: (
             'hover',
             'focus'
-        ),
+        )
     ),
     font-family: (
         prefix: 'font-',
@@ -53,7 +53,7 @@ $typography-properties-map: (
     text-decoration: (
         prefix: '#{$text-prefix}',
         values: $text-decorations,
-           states: (
+        states: (
             'hover',
             'focus'
         ),
@@ -77,44 +77,51 @@ $typography-properties-map: (
 $text-classes-map: (
     txt-xs: (
         props: (
-            font-size: 0.75rem,   // 12px
+            font-size: 0.75rem,
+            // 12px
             line-height: 1.5
         )
     ),
     txt-sm: (
         props: (
-            font-size: 0.875rem,  // 14px
+            font-size: 0.875rem,
+            // 14px
             line-height: 1.5
         )
     ),
     txt-base: (
         props: (
-            font-size: 1rem,      // 16px
+            font-size: 1rem,
+            // 16px
             line-height: 1.5
         )
     ),
     txt-lg: (
         props: (
-            font-size: 1.25rem,   // 20px (25% jump)
+            font-size: 1.25rem,
+            // 20px (25% jump)
             line-height: 1.5
         )
     ),
     txt-xl: (
         props: (
-            font-size: 1.5rem,    // 24px (25% jump)
-            line-height: 1.4      // tighter for display text
+            font-size: 1.5rem,
+            // 24px (25% jump)
+            line-height: 1.4 // tighter for display text
         )
     ),
     txt-2xl: (
         props: (
-            font-size: 2rem,      // 32px
-            line-height: 1.25     // even tighter for headings
+            font-size: 2rem,
+            // 32px
+            line-height: 1.25 // even tighter for headings
         )
     ),
     lead: (
         props: (
-            font-size: 1.125rem,  // 18px
-            line-height: 1.75     // extra relaxed for readability
+            font-size: 1.125rem,
+            // 18px
+            line-height: 1.75 // extra relaxed for readability
         )
     )
 );

@@ -1,8 +1,24 @@
-@use '../mixins/theme-makers' as *;
 @use '../functions/color-functions' as *;
 @use 'sass:map';
 @use 'sass:color';
 
+// ============================================================================
+// BASE THEME - Sets up the base state
+// ============================================================================
+@mixin make-basic-theme(
+    $base-color,
+    $border-color: border-contrast($base-color),
+    $font-color: text-color($base-color)
+) {
+    background-color: $base-color;
+    border: 1px solid $border-color;
+    color: $font-color;
+}
+
+
+// ============================================================================
+//
+// ============================================================================
 @mixin build-basic-theme($identifier, $map) {
     $base: map.get($map, 'base');
 
@@ -19,4 +35,3 @@
         @include make-basic-theme($base, $border-color, $color);
     }
 }
-

@@ -41,7 +41,7 @@ $base-padding: 1.25rem !default; // Default padding inside content containers
 
 // -- Border Defaults --
 // ============================================================================
-$border-color: #d1d5db !default; // Light gray (gray-300 equivalent)
+$border-color: oklch(92.8% 0.006 264.531deg) !default; // (gray-200 equivalent)
 $border: 1px solid $border-color !default;
 
 // -- Miscellaneous --
