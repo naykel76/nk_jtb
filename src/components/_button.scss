@@ -49,6 +49,10 @@
         padding-inline: $ctrl-padding-y; // make horizontal = vertical for square
     }
 
+    &.xs.icon-only {
+        padding-inline: $ctrl-padding-y-xs;
+    }
+
     &.sm.icon-only {
         padding-inline: $ctrl-padding-y-sm;
     }

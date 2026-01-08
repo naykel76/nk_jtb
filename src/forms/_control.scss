@@ -27,6 +27,13 @@
     padding-inline: $ctrl-padding-x;
     position: relative;
 
+    &.xs {
+        font-size: $ctrl-font-size-xs;
+        line-height: $ctrl-line-height;
+        padding-block: $ctrl-padding-y-xs;
+        padding-inline: $ctrl-padding-x-xs;
+    }
+
     &.sm {
         font-size: $ctrl-font-size-sm;
         line-height: $ctrl-line-height;

@@ -27,7 +27,7 @@
             </ul>
         </div>
         <!-- User Dropdown -->
-        <div class="relative" x-data="{ open: false }" x-on:click.outside="open = false" x-on:keydown.escape="open = false">
+        <div x-data="{ open: false }" x-on:click.outside="open = false" x-on:keydown.escape="open = false" class="relative">
             <button x-on:click="open = ! open" class="flex items-center space-x-075 focus:outline-none">
                 <span class="hidden md:block txt-sm font-medium txt-gray-700">John Doe</span>
                 <div class="wh-2.5 rounded-full bg-blue-600 flex-centered txt-white font-semibold">

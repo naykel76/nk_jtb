@@ -1,5 +1,14 @@
 # UI Elements
 
+
+- [Buttons](#buttons)
+    - [Menu Button](#menu-button)
+- [Dropdowns](#dropdowns)
+- [Navbars](#navbars)
+- [Radio Buttons](#radio-buttons)
+- [Boxes](#boxes)
+
+
 ## Buttons
 
 ### Menu Button
@@ -12,11 +21,10 @@
 </button>
 ```
 
-
 ## Dropdowns
 
 ```html +code +preview +collapse
-<div class="relative" x-data="{ open: false }" x-on:click.outside="open = false" x-on:keydown.escape="open = false">
+<div x-data="{ open: false }" x-on:click.outside="open = false" x-on:keydown.escape="open = false" class="relative">
     <button x-on:click="open = ! open" class="btn primary">
         <span> Dropdown </span>
         <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
@@ -35,7 +43,7 @@
 ```
 
 ```html +code +preview +collapse
-<div class="relative" x-data="{ open: false }" x-on:click.outside="open = false" x-on:keydown.escape="open = false">
+<div x-data="{ open: false }" x-on:click.outside="open = false" x-on:keydown.escape="open = false" class="relative">
     <button x-on:click="open = ! open" class="flex items-center space-x-075 focus:outline-none">
         <span class="hidden md:block txt-sm font-medium txt-gray-700">John Doe</span>
         <div class="wh-2.5 rounded-full bg-blue-600 flex-centered txt-white font-semibold">
@@ -60,7 +68,7 @@
 ## Navbars
 
 ```html +code-blade +preview
-<x-gt-markdown path="jtb\ui-examples\navbar" />
+<x-gt-markdown path="jtb\examples\navbar" />
 ```
 
 
@@ -97,6 +105,43 @@
 ```
 
 
-```html +code +preview
-   
+<div class="w-sm"> <!-- dont remove -->
+
+
+## Boxes
+
+```html +code +preview +collapse
+<!-- <img class="w-full h-auto rounded-t-xl" src="https://picsum.photos/400/200" alt="Sample"> -->
+<div class="bx">
+    <div class="bx-header primary">
+        <h3 class="bx-title txt-white">Attention Grabbing Title</h3>
+    </div>
+    <p>Add context and details that support your title. Think benefit-first, not feature-first. Keep paragraphs short for mobile readability.</p>
+    <div class="bx-footer">
+        <a href="#" class="btn primary">Call To Action</a>
+    </div>
+</div>
 ```
+
+```html +code +preview +collapse
+<div class="bx">
+    <h3 class="bx-title">Attention Grabbing Title</h3>
+    <p>Add context and details that support your title. Think benefit-first, not feature-first. Keep paragraphs short for mobile readability.</p>
+    <a href="#" class="btn primary">Call To Action</a>
+</div>
+```
+
+```html +code +preview +collapse
+<div class="bx">
+    <div class="bx-title">Attention Grabbing Title</div>
+    <p>Add context and details that support your title. Think benefit-first, not feature-first. Keep paragraphs short for mobile readability.</p>
+    <a class="inline-flex items-center" href="#">
+        Box link
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m9 18 6-6-6-6"></path>
+        </svg>
+    </a>
+</div>
+```
+
+</div> <!-- dont remove -->

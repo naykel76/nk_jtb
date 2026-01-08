@@ -1,9 +1,59 @@
 # Page Layouts and Structures
 
+- [Main-Sidebar Layout (responsive grid)](#main-sidebar-layout-responsive-grid)
 - [Sidebar with Main Layout (responsive)](#sidebar-with-main-layout-responsive)
 - [Holly Grail](#holly-grail)
 - [Split Screen](#split-screen)
 - [Magazine](#magazine)
+
+
+
+## Main-Sidebar Layout (responsive grid)
+
+<p class="txt-red">RESIZE NOT WORKING. ADD CONTAINER QUERIES FOR GRID</p>
+
+```html +code +preview +collapse
+<div class="resizable-container bx bdr-gray-300">
+    <div class="container bg-gray-300">
+        <div class="grid cols-1 lg:cols-3 gap-1.5">
+            <!-- Left Column - Main Form -->
+            <main class="lg:col-span-2">
+                <div class="container-md pxy-2">
+                    <div class="bx h-4"></div>
+                    <div class="bx h-14"></div>
+                </div>
+            </main>
+            <!-- Right Column -->
+            <aside class="bg-slate-900 pxy-1">
+                <div class="space-y">
+                    <div class="h-4 bg-slate-700 rounded"></div>
+                    <div class="h-16 bg-slate-700 rounded"></div>
+                    <div class="h-10 bg-slate-700 rounded"></div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>
+```
+<div class="resizable-container bx bdr-gray-300">
+    <div class="container flex bg-gray-300">
+        <!-- Sidebar -->
+        <aside class="hidden cq-lg:block w-16 lg:w-48 bg-slate-900 pxy-1">
+            <div class="space-y">
+                <div class="h-4 bg-slate-700 rounded"></div>
+                <div class="h-16 bg-slate-700 rounded"></div>
+                <div class="h-10 bg-slate-700 rounded"></div>
+            </div>
+        </aside>
+        <!-- Main content -->
+        <main class="flex-1 pxy-2 overflow-auto">
+            <div class="container-lg">
+                <div class="bx h-10"></div>
+                <div class="bx h-24"></div>
+            </div>
+        </main>
+    </div>
+</div>
 
 
 ## Sidebar with Main Layout (responsive)
