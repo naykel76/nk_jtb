@@ -91,15 +91,19 @@
         "links": [
             {
                 "name": "Accordion",
-                "route_name": "jtb.components.accordion"
+                "route_name": "jtb.components.Accordion"
+            },
+            {
+                "name": "Button",
+                "route_name": "jtb.components.Button"
             },
             {
                 "name": "Forms",
-                "route_name": "jtb.components.forms"
+                "route_name": "jtb.components.Forms"
             },
             {
                 "name": "Table",
-                "route_name": "jtb.components.table"
+                "route_name": "jtb.components.Table"
             }
         ]
     },

@@ -43,3 +43,12 @@ $themes-map: ();
 @each $theme-name, $map in map.merge($themes-map, $advanced-themes) {
     @include build-basic-theme($theme-name, $map);
 }
+
+// ============================================================================
+// OUTLINE THEMES
+// ============================================================================
+// Transparent background with colored border/text, fills on hover
+
+@each $color-name, $color-value in $color-map {
+    @include build-outline-theme('#{$color-name}-outline', $color-value);
+}

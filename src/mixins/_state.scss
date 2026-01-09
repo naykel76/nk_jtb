@@ -1,0 +1,44 @@
+@use '../functions/color-functions' as *;
+@use '../mixins/transition' as *;
+@use 'sass:color';
+
+$hover-amount-default: 5%;
+$active-amount-default: -5%;
+
+@mixin hover-state($base-color, $amount: $hover-amount-default, $bg: null, $border: null, $color: null) {
+    $hover-bg: if($bg, $bg, smart-adjust($base-color, $amount));
+    $hover-border: if($border, $border, border-contrast($hover-bg));
+    $hover-color: if($color, $color, text-color($hover-bg));
+
+    // Transition is applied here for all interactive states,
+    // but only declared once (on hover) to prevent duplication.
+    // Hover is chosen since it's the most frequently used state.
+    @include transition((background-color, color));
+
+    &:hover:not(.disabled, :disabled, [aria-disabled]) {
+        background-color: $hover-bg;
+        border-color: $hover-border;
+        color: $hover-color;
+    }
+}
+
+@mixin active-state($base-color, $amount: $active-amount-default, $bg: null, $border: null, $color: null) {
+    $active-bg: if($bg, $bg, smart-adjust($base-color, $amount));
+    $active-border: if($border, $border, border-contrast($active-bg));
+    $active-color: if($color, $color, text-color($active-bg));
+
+    &:is(.active, :active, [aria-current]):not(.disabled, :disabled, [aria-disabled]) {
+        background-color: $active-bg;
+        border-color: $active-border;
+        color: $active-color;
+    }
+}
+
+@mixin focus-state($base-color, $outline-color: null, $outline-width: 2px, $outline-offset: 2px) {
+    $focus-outline: if($outline-color, $outline-color, border-contrast($base-color));
+
+    &:focus-visible:not(.disabled, :disabled, [aria-disabled]) {
+        outline: $outline-width solid $focus-outline;
+        outline-offset: $outline-offset;
+    }
+}

@@ -1,11 +1,19 @@
-// 
+//
 @use 'sass:color';
 
+// ============================================================================
+// CONFIGURATION
+// ============================================================================
 // NKTD: review this, I have hardcoded the text colors here, because importing
 // them is causing "already loaded" errors in the build process.
 $light-text: #fff !default;
 $dark-text: #333 !default;
 $text-color: $dark-text !default;
+
+// Shared threshold for consistency across all lightness calculations
+// for OKLCH (0-100 scale), for RGB (0-255 scale)
+$lightness-threshold-oklch: 75 !default;
+$lightness-threshold-rgb: 153 !default;
 
 // ============================================================================
 // OKLCH Lightness Check
@@ -14,37 +22,34 @@ $text-color: $dark-text !default;
 // OKLCH lightness in Sass is represented as a percentage (0-100), not decimal.
 //
 // @param {Color} $color - The OKLCH color to evaluate
-// @param {Number} $threshold - Lightness threshold (0-100 scale, default: 60)
+// @param {Number} $threshold - Lightness threshold (0-100 scale)
 // @return {Boolean} - True if light, false if dark
-// ----------------------------------------------------------------------------
-@function oklch-is-light($color, $threshold: 60) {
-    // Extract the lightness channel from the OKLCH color (0-100 scale in Sass)
+// ============================================================================
+@function oklch-is-light($color, $threshold: $lightness-threshold-oklch) {
     $lightness: color.channel($color, 'lightness', $space: oklch);
 
-    // Return true if lightness exceeds threshold (light background)
     @return $lightness > $threshold;
 }
 
 // ============================================================================
-// RGB Brightness Check
+// RGB Brightness Check (Using Relative Luminance)
 // ============================================================================
-// Determines if an RGB color is light or dark using relative luminance.
-// Uses the WCAG formula based on human eye sensitivity to different colors.
-// Human eyes are most sensitive to green (71.52%), red (21.26%), blue (7.22%).
+// Determines if a color is light or dark using WCAG relative luminance formula.
+// This gives perceptually accurate results based on how human eyes work.
 //
 // @param {Color} $color - The color to evaluate (converted to RGB if needed)
-// @param {Number} $threshold - Brightness threshold (0-255 scale, default: 186)
+// @param {Number} $threshold - Brightness threshold (0-255 scale)
 // @return {Boolean} - True if light, false if dark
-// ----------------------------------------------------------------------------
-@function rgb-is-light($color, $threshold: 186) {
-    // Convert color to RGB space to ensure we can extract RGB channels
+// ============================================================================
+@function rgb-is-light($color, $threshold: $lightness-threshold-rgb) {
     $rgb-color: color.to-space($color, rgb);
-
+    
     // Calculate relative luminance using WCAG formula for perceived brightness
-    $brightness: 0.2126 * color.channel($rgb-color, 'red') + 0.7152 * color.channel($rgb-color, 'green') + 0.0722 *
-        color.channel($rgb-color, 'blue');
-
-    // Return true if brightness exceeds threshold (light background)
+    // Human eyes are most sensitive to green (71.52%), red (21.26%), blue (7.22%)
+    $brightness: 0.2126 * color.channel($rgb-color, 'red') +
+        0.7152 * color.channel($rgb-color, 'green') +
+        0.0722 * color.channel($rgb-color, 'blue');
+    
     @return $brightness > $threshold;
 }
 

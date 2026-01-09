@@ -15,23 +15,38 @@
     color: $font-color;
 }
 
+@mixin make-outline-theme(
+    $color,
+    $border-width: 1px
+) {
+    background-color: transparent;
+    border: $border-width solid $color;
+    color: $color;
+}
+
 
 // ============================================================================
-//
+// THEME SYSTEM - Builder Mixins
 // ============================================================================
-@mixin build-basic-theme($identifier, $map) {
+
+@mixin build-basic-theme($class, $map) {
     $base: map.get($map, 'base');
 
     $color: if(map.get($map, 'color'), map.get($map, 'color'), text-color($base));
     $border-color: if(map.get($map, 'border-color'), map.get($map, 'border-color'), border-contrast($base));
 
-    $hover-bg: if(map.get($map, 'hover-bg'), map.get($map, 'hover-bg'), color.adjust($base, $lightness: -15%));
-    $hover-color: if(map.get($map, 'hover-color'), map.get($map, 'hover-color'), text-color($hover-bg));
-
-    $active-bg: if(map.get($map, 'active-bg'), map.get($map, 'active-bg'), color.adjust($base, $lightness: -5%));
-    $active-color: if(map.get($map, 'active-color'), map.get($map, 'active-color'), text-color($active-bg));
-
-    .#{$identifier} {
+    .#{$class} {
         @include make-basic-theme($base, $border-color, $color);
+    }
+}
+
+@mixin build-outline-theme($class, $color, $border-width: 1px) {
+    .#{$class} {
+        @include make-outline-theme($color, $border-width);
+        
+        &:hover:not(:disabled, .disabled) {
+            background-color: $color;
+            color: text-color($color);
+        }
     }
 }
