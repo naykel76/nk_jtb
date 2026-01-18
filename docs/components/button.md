@@ -5,7 +5,7 @@ Buttons work with all themes just like other components. Apply `.primary`,
 your interface.
 
 <div class="flex flex-wrap gap-025">
-    <button class="btn w-6 bg-transparent red">red</button>
+    <button class="btn w-6 red">red</button>
     <button class="btn w-6 orange">orange</button>
     <button class="btn w-6 amber">amber</button>
     <button class="btn w-6 yellow">yellow</button>
@@ -29,6 +29,27 @@ your interface.
     <button class="btn w-6 neutral">neutral</button>
 </div>
 
-<button class="btn primary-outline">Outline</button>
-<button class="btn secondary-outline">Outline</button>
-<button class="btn danger-outline">Outline</button>
+<div class="flex flex-wrap gap-025 my">
+    <button class="btn w-6 red-outline">red</button>
+    <button class="btn w-6 orange-outline">orange</button>
+    <button class="btn w-6 amber-outline">amber</button>
+    <button class="btn w-6 yellow-outline">yellow</button>
+    <button class="btn w-6 lime-outline">lime</button>
+    <button class="btn w-6 green-outline">green</button>
+    <button class="btn w-6 emerald-outline">emerald</button>
+    <button class="btn w-6 teal-outline">teal</button>
+    <button class="btn w-6 cyan-outline">cyan</button>
+    <button class="btn w-6 sky-outline">sky</button>
+    <button class="btn w-6 blue-outline">blue</button>
+    <button class="btn w-6 indigo-outline">indigo</button>
+    <button class="btn w-6 violet-outline">violet</button>
+    <button class="btn w-6 purple-outline">purple</button>
+    <button class="btn w-6 fuchsia-outline">fuchsia</button>
+    <button class="btn w-6 pink-outline">pink</button>
+    <button class="btn w-6 rose-outline">rose</button>
+    <button class="btn w-6 slate-outline">slate</button>
+    <button class="btn w-6 gray-outline">gray</button>
+    <button class="btn w-6 zinc-outline">zinc</button>
+    <button class="btn w-6 stone-outline">stone</button>
+    <button class="btn w-6 neutral-outline">neutral</button>
+</div>

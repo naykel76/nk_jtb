@@ -13,7 +13,7 @@
 $typography-properties-map: (
     color: (
         prefix: '#{$text-prefix}',
-        values: smart-merge($base-colors, $oklch-colors, ('white': #fff)),
+        values: smart-merge($base-colors, $oklch-colors, $theme-colors, ('white': #fff)),
         states: (
             'hover',
             'focus'

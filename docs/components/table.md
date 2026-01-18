@@ -39,8 +39,6 @@ Standard HTML table with no additional classes required.
 
 Tables work with all standard utilities and themes - no special table-specific classes needed.
 
-**Everything you'd expect works:**
-
 Apply utilities to `<table>`, `<tr>`, `<th>`, or `<td>` - context handles the rest.
 
 ```html +code +preview +collapse
