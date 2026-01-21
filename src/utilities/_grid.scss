@@ -1,7 +1,8 @@
+@use '../maps_and_variables/value-maps' as *;
+@use '../mixins/build-classes' as *;
+@use '../mixins/build-magic-classes' as *;
 @use '../mixins/build-magic-grid' as *;
-@use '../common-tools' as *;
 @use 'sass:map';
-@use '../mixins/make-classes' as *; // remove
 
 .grid {
     display: grid;

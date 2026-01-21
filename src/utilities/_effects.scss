@@ -1,5 +1,5 @@
-@use '../common-tools' as *;
-@use 'sass:map';
+@use '../maps_and_variables/value-maps' as *;
+@use '../mixins/build-classes' as *;
 
 $effects-properties-map: (
     opacity: (

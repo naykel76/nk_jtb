@@ -1,4 +1,6 @@
-@use '../common-tools' as *;
+@use '../maps_and_variables/property-maps' as *;
+@use '../maps_and_variables/value-maps' as *;
+@use '../mixins/build-classes' as *;
 
 // prettier-ignore
 $layout-properties-map: (

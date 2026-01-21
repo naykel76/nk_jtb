@@ -1,5 +1,6 @@
-@use '../common-tools' as *;
-@use 'sass:map';
+@use '../maps_and_variables/config' as *;
+@use '../maps_and_variables/value-maps' as *;
+@use '../mixins/build-classes' as *;
 
 // prettier-ignore
 $flex-properties-map: (

@@ -1,5 +1,8 @@
-@use '../common-tools' as *;
-@use 'sass:map';
+@use '../functions/map-and-list-helpers' as *;
+@use '../maps_and_variables/config' as *;
+@use '../maps_and_variables/property-maps' as *;
+@use '../maps_and_variables/value-maps' as *;
+@use '../mixins/build-classes' as *;
 
 // Apply solid outline style to the base .outline class and outline width
 // utilities like .outline-1, .outline-2, etc. Does not affect other outline-*

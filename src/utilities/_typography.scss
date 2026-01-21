@@ -1,5 +1,9 @@
-@use '../common-tools' as *;
+@use '../functions/map-and-list-helpers' as *;
+@use '../maps_and_variables/colors' as *;
+@use '../maps_and_variables/config' as *;
 @use '../maps_and_variables/property-maps' as *;
+@use '../maps_and_variables/typography' as *;
+@use '../mixins/build-classes' as *;
 @use 'sass:map';
 
 // ============================================================================

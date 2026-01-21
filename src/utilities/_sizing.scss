@@ -1,5 +1,6 @@
-@use '../common-tools' as *;
-@use 'sass:map';
+@use '../functions/classes' as *;
+@use '../maps_and_variables/value-maps' as *;
+@use '../mixins/build-classes' as *;
 
 
 $size-properties-map: (

@@ -1,5 +1,8 @@
 // @use './utilities/display-visibility' as *;
-@use './common-tools' as *;
+@use './extras/_nk-app.scss' as *;
+@use './extras/_nk-docs.scss' as *;
+@use './extras/_hero.scss' as *;
+
 @use './functions/normalise-config' as *;
 @use './functions/resolvers' as *;
 @use './maps_and_variables/colors' as *;
