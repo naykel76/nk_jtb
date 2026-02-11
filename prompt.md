@@ -1,2 +1,0 @@
-- these classes are not tailwind but they work the same except units are in rem
-- some class names vary from tailwind 
