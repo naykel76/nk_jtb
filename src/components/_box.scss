@@ -15,7 +15,9 @@
 .bx {
     @extend %box;
 
-    & > *:first-child {
+    // Remove top margin from first content child, but exclude structural
+    // elements like headers/footers which have their own margin handling
+    & > *:first-child:not(.bx-header, .bx-footer) {
         margin-block-start: 0;
     }
 
@@ -36,14 +38,14 @@
     border-bottom: 1px solid var(--box-border-color);
     border-left: none;
     border-radius: var(--box-border-radius) var(--box-border-radius) 0 0;
-    margin-block-start: -$bx-padding !important;
+    margin-block-start: -$bx-padding;
 }
 
 .bx-footer {
     // border-color: var(--box-border-color);
     border-radius: 0 0 var(--box-border-radius) var(--box-border-radius);
     border-top: 1px solid var(--box-border-color);
-    margin-block-end: -$bx-padding !important;
+    margin-block-end: -$bx-padding;
 }
 
 :where(.bx-header + .bx-content) {

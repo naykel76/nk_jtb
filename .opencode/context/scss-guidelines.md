@@ -3,6 +3,7 @@
 ## Core Philosophy
 
 JTB is not Tailwind or Bootstrap. It provides:
+
 - **Components** for structure (`.bx`, `.btn`, `.menu`)
 - **Modifiers** that adapt components (`.primary`, `.xs`, `.rounded`)
 - **Utilities** for granular control (`.m-1`, `.flex`, `.hidden`)
@@ -45,7 +46,7 @@ $spacing-map: smart-merge($spacing-values, $spacing-variants);
 ### Property Prefixes
 
 | Prefix | Controls |
-|--------|----------|
+| ------ | -------- |
 | `m`    | margin   |
 | `p`    | padding  |
 | `gap`  | gap      |
@@ -55,11 +56,11 @@ $spacing-map: smart-merge($spacing-values, $spacing-variants);
 
 ### Value Types
 
-| Type | Example | Meaning |
-|------|---------|---------|
-| Base | `mxy`   | margin x/y with base value |
-| Variant | `mxy-sm` | 'sm' variant |
-| Direct | `mxy-3` | value 3 |
+| Type    | Example  | Meaning                    |
+| ------- | -------- | -------------------------- |
+| Base    | `mxy`    | margin x/y with base value |
+| Variant | `mxy-sm` | 'sm' variant               |
+| Direct  | `mxy-3`  | value 3                    |
 
 ### Examples
 
@@ -74,7 +75,7 @@ $spacing-map: smart-merge($spacing-values, $spacing-variants);
 ## Spacing Scale (Direct rem Mapping)
 
 | Class | REM    | Pixels |
-|-------|--------|--------|
+| ----- | ------ | ------ |
 | m-1   | 1rem   | 16px   |
 | m-2   | 2rem   | 32px   |
 | m-0.5 | 0.5rem | 8px    |

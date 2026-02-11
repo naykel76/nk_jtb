@@ -4,13 +4,6 @@
 
 SCSS framework with modular architecture using modern `@use`/`@forward` imports. Located in `src/` directory.
 
-## Setup Commands
-
-- Install deps: `npm install`
-- Build: `npm run build`
-- Dev server: `npm run dev`
-- Lint: `npm run lint`
-
 ## Import Order (build.scss)
 
 ```scss
@@ -79,3 +72,9 @@ When updating component documentation, edit files in `docs_updated/` - these are
 ## Migration Notes
 
 Reference `JTB_TO_TAILWIND_CROSSREFERENCE.md` for class mappings.
+
+## Documentation Conventions
+
+See `.opencode/skills/markdown-formatting/SKILL.md` for all documentation formatting conventions.
+
+**Default Flag:** Use `+demo-folded` for component examples. Adjust as needed based on context.

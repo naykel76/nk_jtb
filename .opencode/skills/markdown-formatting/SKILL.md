@@ -17,35 +17,36 @@ Activate when writing or editing any markdown files.
 
 ## Code Blocks
 
-Never use plain fences. Always add a language tag and `+code` flag.
-
-Other Flags: `+preview`, `+demo`, `+demo-folded`, `+collapse`
-
-- ❌ ` ```php ` - Invalid, missing tag
-- ✅ ` ```php +code ` - Correct
-
-### Language Tags
-
-Use the tag that matches the content:
-
-| Tag    | Use For                         | Example           |
-| ------ | ------------------------------- | ----------------- |
-| `scss` | SCSS/CSS code                   | ` ```scss +code ` |
-| `json` | JSON files                      | ` ```json +code ` |
-| `yaml` | YAML files                      | ` ```yaml +code ` |
-| `bash` | Directory trees, shell commands | ` ```bash +code ` |
-
-## Code Block Flags
-
-The markdown extension supports several flags for code blocks:
+All code blocks must include a language tag and a flag for syntax highlighting
+and preview features.
 
 | Flag           | Description                           |
 | -------------- | ------------------------------------- |
 | `+code`        | Source code only (syntax highlighted) |
-| `+preview`     | Rendered Blade component preview      |
 | `+demo`        | Preview + code (always visible)       |
 | `+demo-folded` | Preview + code + collapsible          |
-| `+collapse`    | Makes content collapsible             |
+
+Other Flags: `+preview`, `+collapse` and `output` exist but are less common and
+only to be used when requested.
+
+### Demo-Folded Wrapper Class
+
+When using `+demo-folded`, add `class="bx"` to wrap the example in a box component:
+
+```markdown
+```html +demo-folded class="bx"
+<div class="example">Content here</div>
+```
+
+### Language Tags
+
+Use the tag that matches the content, unless specified otherwise:
+
+| Use For                         | Example                 |
+| ------------------------------- | ----------------------- |
+| Directory trees, shell commands | ` ```bash +code `       |
+| Blade templates                 | ` ```html +code-blade ` |
+
 
 ## Horizontal
 

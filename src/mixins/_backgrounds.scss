@@ -7,6 +7,9 @@
 // ============================================================================
 // Creates diagonal striped backgrounds using Tailwind color scales.
 //
+// Uses $tailwind-colors (hex values) instead of OKLCH because CSS gradients
+// work more reliably with hex/RGB values across all browsers.
+//
 // @param {String} $color-name - Name from $color-names (e.g., 'blue')
 // @param {Number} $stripe-width - Width of each stripe (default: 10px)
 // @param {Number} $angle - Angle of the stripes (default: 45deg)
