@@ -1,5 +1,4 @@
 
-
 # Naming Conventions
 
 ## Class Name Conventions
@@ -24,24 +23,28 @@ The suffix (`variant` or `value`) can be:
 3. **Direct value** - A numeric or explicit value (e.g., `0`, `3`, `1.5`)
 
 #### Base variant (no suffix - uses default value)
+
 ```scss +code
 mxy           // margin x/y with base spacing
 gap           // gap with base spacing
 ```
 
 #### Named variants
+
 ```scss +code
 mxy-sm        // margin x/y with 'sm' variant
 gap-lg        // gap with 'lg' variant
 ```
 
 #### Direct values
+
 ```scss +code
 mxy-3         // margin x/y with value 3
 gap-1.5       // gap with value 1.5
 ```
 
 #### With breakpoints
+
 ```scss +code
 md:mxy-sm     // medium screens: margin x/y small variant
 lg:gap-3      // large screens: gap with value 3
@@ -114,6 +117,7 @@ $property-map: ()        // Merged final map (always use -map suffix)
 ```
 
 **Example:**
+
 ```scss
 $margin-values: (0, 0.25, 0.5, 1, 2);
 $margin-variants: (auto: auto, base: $base-gap);
@@ -127,6 +131,7 @@ $property-map: ()  // Final map (always use -map suffix)
 ```
 
 **Example:**
+
 ```scss
 $z-index-map: (0, 1, 50, 100, (bottom: -1), (top: 999));
 $order-map: (1, 2, 3, 4, 5, 6, 7, 8);
@@ -137,11 +142,13 @@ $order-map: (1, 2, 3, 4, 5, 6, 7, 8);
 ### Why This Structure
 
 **File Organization:**
+
 - Foundation files (`_base.scss`, `_colors.scss`) contain design tokens used across the framework
 - Domain files (`_typography.scss`, `_forms.scss`, `_components.scss`) contain category-specific variables
 - System files (`_config.scss`, `_property-maps.scss`, `_value-maps.scss`) contain builder configurations
 
 **Variable Naming:**
+
 - **`-values`**: Systematic scales (numbers, calculations) - raw data
 - **`-variants`**: Semantic names (auto, base, tight, etc.) - named values
 - **`-map`**: Final merged map used by builders - always present for builder inputs
@@ -150,6 +157,7 @@ $order-map: (1, 2, 3, 4, 5, 6, 7, 8);
 ### Overridability
 
 All lists use `!default` flag:
+
 ```scss
 $spacing-values: (0, 0.25, 0.5, 1) !default;
 $margin-variants: (auto: auto) !default;
@@ -162,6 +170,7 @@ Users can override values, variants, or both before importing.
 When using the three-map pattern with `smart-merge()`, **the order of arguments matters for CSS cascade precedence**. Maps merge left-to-right, and the resulting CSS classes are generated in map order.
 
 **Example Problem:**
+
 ```scss
 // ❌ WRONG - Numeric values first, variants last
 $border-width-map: smart-merge($border-width-values, $border-width-variants);
@@ -172,6 +181,7 @@ $border-width-map: smart-merge($border-width-values, $border-width-variants);
 ```
 
 **Solution:**
+
 ```scss
 // ✅ CORRECT - Variants first, numeric values last
 $border-width-map: smart-merge($border-width-variants, $border-width-values);
@@ -183,6 +193,7 @@ $border-width-map: smart-merge($border-width-variants, $border-width-values);
 
 **Why This Matters:**
 In CSS cascade, later rules override earlier ones. If you want a base/default class to have lower precedence (which is typical), it must appear first in the compiled CSS. Reversing the `smart-merge()` argument order ensures:
+
 1. Base/semantic variant classes are generated first (lower cascade priority)
 2. Numeric/specific value classes are generated last (higher cascade priority)
 3. The cascade behaves intuitively: specific values override base defaults

@@ -11,6 +11,15 @@
 
 <body class="pxy space-y">
 
+    <!-- the default button has no state at all -->
+    <button class="btn"> Button Default </button>
+    <!-- the issue is not that the themes will not work, it is that the utilities won't override the themes -->
+    <button class="btn primary"> Button Primary </button>
+    <!-- this means you can manually set the background color or states -->
+    <button class="btn primary bg-teal"> Button Primary Teal </button>
+    <!-- This works fine but it no longer has the primary styling -->
+    <button class="btn bg-teal"> Button Teal </button>
+
     <div class="grid md:cols-3 va-t">
         <div class="bx">
             <div class="bx-title">Box Title</div>

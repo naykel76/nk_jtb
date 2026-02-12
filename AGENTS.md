@@ -1,5 +1,7 @@
 # NK JTB SCSS Framework
 
+NEVER RECOMMEND USING !important
+
 ## Project Overview
 
 SCSS framework with modular architecture using modern `@use`/`@forward` imports. Located in `src/` directory.
@@ -50,24 +52,21 @@ src/
 
 ### Source of Truth
 
-**Component documentation:** `docs_updated/` (symlink to external repository)
+**`docs_updated/`** (symlink to external repository) is the source of truth for ALL documentation. This includes:
 
-- installation.md
-- components/accordion.md
-- components/button.md
-- components/forms.md
-- components/navbar.md
-- components/table.md
+- `installation.md`
+- `components/*.md`
+- `utilities/*.md`
+- Any other documentation files
 
-**Additional documentation:** `docs/`
+**`docs/`** contains old documentation being reviewed. When creating new documentation (not reviewing existing docs), always use `docs_updated/`.
 
-- Core architecture and philosophy
-- API reference (builders/makers)
-- Naming conventions
-- Examples and patterns
-- Migration guides
+### Workflow
 
-When updating component documentation, edit files in `docs_updated/` - these are synced to the external repository.
+1. **New documentation** → Create in `docs_updated/` (symlink location)
+2. **Reviewing old docs** → Edit files in `docs/`, then move to `docs_updated/` when ready
+
+When updating documentation, edit files in `docs_updated/` - these are synced to the external repository.
 
 ## Migration Notes
 

@@ -6,13 +6,11 @@
 - [Split Screen](#split-screen)
 - [Magazine](#magazine)
 
-
-
 ## Main-Sidebar Layout (responsive grid)
 
 <p class="txt-red">RESIZE NOT WORKING. ADD CONTAINER QUERIES FOR GRID</p>
 
-```html +code +preview +collapse
+```html +demo-folded
 <div class="resizable-container bx bdr-gray-300">
     <div class="container bg-gray-300">
         <div class="grid cols-1 lg:cols-3 gap-1.5">
@@ -35,6 +33,7 @@
     </div>
 </div>
 ```
+
 <div class="resizable-container bx bdr-gray-300">
     <div class="container flex bg-gray-300">
         <!-- Sidebar -->
@@ -55,13 +54,12 @@
     </div>
 </div>
 
-
 ## Sidebar with Main Layout (responsive)
 
 A simple flexbox layout with a fixed-width sidebar and a flexible main content area.
 Suitable as a base shell for dashboards or admin screens.
 
-```html +code +preview +collapse
+```html +demo-folded
 <div class="resizable-container bx bdr-gray-300">
     <div class="container flex bg-gray-300">
         <!-- Sidebar -->
@@ -85,7 +83,7 @@ Suitable as a base shell for dashboards or admin screens.
 
 ## Holly Grail
 
-```html +code +preview +collapse
+```html +demo-folded
 <div class="min-h-screen">
     <div class="flex flex-col h-screen">
         <header class="h-4 bg-gray-800 text-white"></header>
@@ -114,7 +112,8 @@ Suitable as a base shell for dashboards or admin screens.
 ```
 
 ## Split Screen
-```html +code +preview +collapse class="bdr bdr-gray-300"
+
+```html +demo-folded class="bdr bdr-gray-300"
 <div class="min-h-screen">
     <div class="grid lg:cols-2 h-screen">
         <div class="bg-blue-600"></div>
@@ -131,7 +130,8 @@ Suitable as a base shell for dashboards or admin screens.
 ```
 
 ## Magazine
-```html +code +preview +collapse
+
+```html +demo-folded
 <div class="min-h-screen">
     <div class="container space-y">
         <div class="bx h-12"></div>

@@ -89,7 +89,6 @@
     <div class="loading-text">Loading<span class="dots"></span></div>
 </div>
 
-
 ## SVG Spinners
 
 <div class="bx  flex va-c">
@@ -107,12 +106,11 @@
     </svg>
 </div>
 
-
 ## Border Animations
 
 ### Spinner
 
-```html +code +preview +collapse
+```html +demo-folded
 <div class="dark flex-centered gap bx">
     <div class="spinner sm"></div>
     <div class="spinner"></div>
@@ -122,7 +120,7 @@
 
 **Thick Spinners:**
 
-```html +code +preview +collapse
+```html +demo-folded
 <div class="dark flex-centered gap bx">
     <div class="spinner sm thick"></div>
     <div class="spinner thick "></div>

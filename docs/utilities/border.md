@@ -4,7 +4,7 @@
 
 Border widths use pixel values for consistent rendering across all screen sizes.
 
-```html +code +preview +collapse
+```html +demo-folded
 <div class="grid gap lg:cols-3 tac">
     <div class="bdr">
         <code>bdr</code><br> Default border (1px)
@@ -22,7 +22,7 @@ Border widths use pixel values for consistent rendering across all screen sizes.
 
 Apply different widths to specific sides:
 
-```html +code +preview +collapse
+```html +demo-folded
 <div class="grid gap lg:cols-3 tac c-pxy-1">
     <div class="bdr bdr-t-5">
         <code>bdr-t-5</code><br> Top border only
@@ -50,7 +50,7 @@ Apply different widths to specific sides:
 
 By default, the border color automatically inherits the text color of the element.
 
-```html +code +preview +collapse
+```html +demo-folded
 <div class="grid gap lg:cols-3 tac c-pxy-1">
     <div class="bdr-3 txt-red">
         <code>bdr-3 txt-red</code><br> Inherits red from text
@@ -66,7 +66,7 @@ By default, the border color automatically inherits the text color of the elemen
 
 Override this by applying explicit border-color classes:
 
-```html +code +preview +collapse
+```html +demo-folded
 <div class="grid gap lg:cols-3 tac c-pxy-1">
     <div class="bdr-3 bdr-red">
         <code>bdr-3 bdr-red</code><br> Explicit red
@@ -86,7 +86,7 @@ Border colors apply to all sides that have a width set.
 
 Change the border style for all sides or specific positions:
 
-```html +code +preview +collapse
+```html +demo-folded
 <div class="grid gap lg:cols-2 tac c-pxy-1">
     <div class="bdr-3 bdr-solid">
         <code>bdr-solid</code><br> Solid border
@@ -107,7 +107,7 @@ Change the border style for all sides or specific positions:
 
 Apply different styles to specific sides for dividers or mixed borders:
 
-```html +code +preview +collapse
+```html +demo-folded
 <div class="grid gap lg:cols-2 tac c-pxy-1">
     <div class="bdr-t-3 bdr-t-dashed bdr-x-3 bdr-x-double">
         <code>bdr-t-dashed bdr-x-double</code><br> Dashed top, double sides
@@ -122,7 +122,7 @@ Apply different styles to specific sides for dividers or mixed borders:
 
 Control the roundness of element corners. Supports all sides, individual sides, and specific corners.
 
-```html +code +preview +collapse
+```html +demo-folded
 <div class="grid gap lg:cols-3 tac c-pxy-1">
     <div class="bdr-2 rounded">
         <code>rounded</code><br> Default (0.375rem)
@@ -140,7 +140,7 @@ Control the roundness of element corners. Supports all sides, individual sides, 
 
 Round specific sides for tabs, modals, or connected elements:
 
-```html +code +preview +collapse
+```html +demo-folded
 <div class="grid gap lg:cols-3 tac c-pxy-1">
     <div class="bdr-2 rounded-t">
         <code>rounded-t</code><br> Top rounded
@@ -159,7 +159,7 @@ Round specific sides for tabs, modals, or connected elements:
 Outlines are visual indicators that sit outside the element's border box. Like borders,
 outline widths use pixels.
 
-```html +code +preview +collapse
+```html +demo-folded
 <div class="grid gap md:cols-2 tac c-pxy-1">
     <div class="outline-3 outline-solid">
         <code>outline-3 outline-solid</code><br> Solid outline
@@ -180,7 +180,7 @@ outline widths use pixels.
 
 Control the space between the element and its outline. Offset values use pixels for precision.
 
-```html +code +preview +collapse
+```html +demo-folded
 <div class="grid gap md:cols-2 tac c-pxy-1">
     <div class="bx outline-offset-5 outline-3 outline-solid">
         <code>outline-3 outline-solid</code><br> Solid outline
@@ -201,7 +201,7 @@ Control the space between the element and its outline. Offset values use pixels 
 
 Outlines inherit text color by default, or use explicit color classes:
 
-```html +code +preview +collapse
+```html +demo-folded
 <div class="grid gap lg:cols-3 tac c-pxy-1">
     <div class="bx outline outline-3 txt-red">
         <code>outline-3 txt-red</code><br> Inherits red from text
@@ -215,13 +215,11 @@ Outlines inherit text color by default, or use explicit color classes:
 </div>
 ```
 
-
-
 ## Responsive Borders
 
 All border utilities support responsive breakpoints for layout-dependent styling:
 
-```html +code +preview +collapse
+```html +demo-folded
 <div class="bdr-t md:bdr md:rounded lg:bdr-l-4 pxy">
     <code>bdr-t md:bdr md:rounded lg:bdr-l-4</code><br>
     Top border on mobile, full border on medium screens, thick left accent on large

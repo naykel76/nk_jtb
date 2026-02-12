@@ -1,19 +1,17 @@
 # UI Elements
 
-
 - [Buttons](#buttons)
-    - [Menu Button](#menu-button)
+  - [Menu Button](#menu-button)
 - [Dropdowns](#dropdowns)
 - [Navbars](#navbars)
 - [Radio Buttons](#radio-buttons)
 - [Boxes](#boxes)
 
-
 ## Buttons
 
 ### Menu Button
 
-```html +code +preview +collapse
+```html +demo-folded
 <button class="btn primary pxy-05">
     <svg class="icon-md" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -23,7 +21,7 @@
 
 ## Dropdowns
 
-```html +code +preview +collapse
+```html +demo-folded
 <div x-data="{ open: false }" x-on:click.outside="open = false" x-on:keydown.escape="open = false" class="relative">
     <button x-on:click="open = ! open" class="btn primary">
         <span> Dropdown </span>
@@ -42,7 +40,7 @@
 </div>
 ```
 
-```html +code +preview +collapse
+```html +demo-folded
 <div x-data="{ open: false }" x-on:click.outside="open = false" x-on:keydown.escape="open = false" class="relative">
     <button x-on:click="open = ! open" class="flex items-center space-x-075 focus:outline-none">
         <span class="hidden md:block txt-sm font-medium txt-gray-700">John Doe</span>
@@ -71,11 +69,9 @@
 <x-gt-markdown path="jtb\examples\navbar" />
 ```
 
-
-
 ## Radio Buttons
 
-```html +code +preview +collapse
+```html +demo-folded
 <div class="bx">
     <fieldset>
         <legend class="font-semibold txt-gray-900">Choose your plan</legend>
@@ -104,13 +100,11 @@
 </div>
 ```
 
-
 <div class="w-sm"> <!-- dont remove -->
-
 
 ## Boxes
 
-```html +code +preview +collapse
+```html +demo-folded
 <!-- <img class="w-full h-auto rounded-t-xl" src="https://picsum.photos/400/200" alt="Sample"> -->
 <div class="bx">
     <div class="bx-header primary">
@@ -123,7 +117,7 @@
 </div>
 ```
 
-```html +code +preview +collapse
+```html +demo-folded
 <div class="bx">
     <h3 class="bx-title">Attention Grabbing Title</h3>
     <p>Add context and details that support your title. Think benefit-first, not feature-first. Keep paragraphs short for mobile readability.</p>
@@ -131,7 +125,7 @@
 </div>
 ```
 
-```html +code +preview +collapse
+```html +demo-folded
 <div class="bx">
     <div class="bx-title">Attention Grabbing Title</div>
     <p>Add context and details that support your title. Think benefit-first, not feature-first. Keep paragraphs short for mobile readability.</p>

@@ -2,6 +2,14 @@
 
 Specializes in JTB framework development, component architecture, and utility generation.
 
+## Key Conventions
+
+- **Numbers = rem values:** `m-1` = 1rem, `m-05` = 0.5rem (leading zero dropped)
+- **Property = class name:** `relative`, `sticky` (NOT `position-relative`)
+- **Axis modifiers:** `-xy`, `-x`, `-y`, `-t`, `-b`, `-l`, `-r`
+- **Pattern:** `{breakpoint}:{property}-{variant/value}`
+- **NOT Tailwind:** No `position-`, no `-x`/`-y` suffixes for everything
+
 ## Expertise
 
 - JTB modular architecture
@@ -10,23 +18,6 @@ Specializes in JTB framework development, component architecture, and utility ge
 - Context-aware modifier system
 - Logical properties (RTL support)
 - Stylelint configuration
-
-## Don't
-
-- Use `@import` (use `@use`)
-- Create standalone modifier classes (`.primary` alone is wrong - it must be with a component)
-- Hardcode values (use variables)
-- Nest deeper than 3 levels
-- Use physical properties (`margin-left` instead of `margin-inline-start`)
-- Forget `!default` on overridable variables
-
-## Do
-
-- Use logical properties (ms-, me-, bs-, be-)
-- Follow three-map pattern with correct merge order
-- Use placeholders (`%`) for shared component styles
-- Export new utilities in correct build.scss order
-- Run `npm run lint` before committing
 
 ## Component Workflow
 
@@ -109,7 +100,7 @@ In `src/components/index.scss`:
 );
 ```
 
-## Three-Map Pattern (Correct Order)
+## Three-Map Pattern
 
 ```scss
 $property-values: (0, 1, 2, 3) !default;
@@ -117,9 +108,30 @@ $property-variants: (auto: auto, base: 1rem) !default;
 $property-map: smart-merge($property-variants, $property-values);
 ```
 
+## Documentation Style
+
+Use existing docs as templates (border.md, display-and-visibility.md):
+
+- **Format:** `+demo-folded` with visual examples
+- **Progressive complexity:** Base → variants → values
+- **Minimal prose:** Show, don't explain
+- **Grid layouts** for comparing variants
+- **Only document what exists** (verify in SCSS first)
+
+```html +demo-folded
+<div class="grid gap lg:cols-3 tac">
+    <div class="bdr">
+        <code>bdr</code><br> Default
+    </div>
+    <div class="bdr-2">
+        <code>bdr-2</code><br> 2px
+    </div>
+</div>
+```
+
 ## Context-Aware Modifiers
 
-Modifers are NOT standalone utilities:
+Modifiers require component context:
 
 ```html
 <!-- ✅ CORRECT -->
@@ -132,24 +144,21 @@ Modifers are NOT standalone utilities:
 
 ## File References
 
-| Purpose | File |
-|---------|------|
-| Component docs (source of truth) | `docs_updated/components/*.md` |
-| Builder/Maker API | `docs/api/*.md` |
-| Naming conventions | `docs/conventions.md` |
-| Framework philosophy | `docs/introduction.md` |
-| Class mappings | `JTB_TO_TAILWIND_CROSSREFERENCE.md` |
-| Import order | `src/build.scss` |
+| Purpose                          | File                                |
+| -------------------------------- | ----------------------------------- |
+| All documentation                | `docs_updated/**/*.md`              |
+| Builder/Maker API                | `docs_updated/api/*.md`            |
+| Import order                     | `src/build.scss`                    |
 
 ## Common Tasks
 
-| Task | Location |
-|------|----------|
-| Add spacing utilities | `src/utilities/spacing/` |
-| Add component | `src/components/_name.scss` |
-| Add theme color | `src/maps_and_variables/_colors.scss` |
-| Add typography utility | `src/utilities/typography/` |
-| Configure breakpoints | `src/maps_and_variables/_config.scss` |
+| Task                   | Location                              |
+| ---------------------- | ------------------------------------- |
+| Add spacing utilities  | `src/utilities/spacing/`              |
+| Add component          | `src/components/_name.scss`           |
+| Add theme color        | `src/maps_and_variables/_colors.scss` |
+| Add typography utility | `src/utilities/typography/`           |
+| Configure breakpoints  | `src/maps_and_variables/_config.scss` |
 
 ## Linting
 

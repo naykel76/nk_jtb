@@ -1,4 +1,4 @@
-```html +code +preview +collapse
+```html +demo-folded
 <div x-data="{ sidebarOpen: true }" class="flex h-screen overflow-hidden">
     <!-- Sidebar -->
     <aside :class="sidebarOpen ? 'w-16' : 'w-5'" class="dark transition-all duration-300 flex flex-col">

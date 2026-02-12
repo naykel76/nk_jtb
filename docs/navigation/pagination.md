@@ -1,6 +1,6 @@
 ## Button Based (JavaScript pagination, SPAs)
 
-```html +code +preview +collapse
+```html +demo-folded
 <nav class="flex items-center -space-x-px" aria-label="Pagination">
     <button type="button" class="txt-sm flex-centered min-wh-2.5 py-05 px-075 ends:rounded-lg gray state-gray bdr bdr-gray-200" aria-label="Previous page">
         <svg class="icon xs" aria-hidden="true"> <use href="/svg/icons.svg#chevron-left"></use> </svg>
@@ -16,10 +16,9 @@
 </nav>
 ```
 
-
 <hr>
 
-```html +code +preview +collapse
+```html +demo-folded
 <nav class="flex items-center gap-025" aria-label="Pagination">
     <button type="button" class="py-05 px-075 flex-centered gap-025 txt-sm rounded-lg txt-gray-800 hover:bg-gray-100" aria-label="Previous page">
         <svg class="icon xs" aria-hidden="true"> <use href="/svg/icons.svg#chevron-left"></use> </svg>
@@ -41,7 +40,7 @@
 
 ## Link Based (Server-side pagination, full page loads)
 
-```html +code +preview +collapse
+```html +demo-folded
 <div class="example-utils">
     <nav aria-label="Pagination">
         <ul class="flex items-center -space-x-px">
@@ -70,8 +69,6 @@
     </nav>
 </div>
 ```
-
-
 
 <nav class="flex items-center gap-025" aria-label="Pagination">
     <button type="button" class="btn primary gap-025" aria-label="Previous page">

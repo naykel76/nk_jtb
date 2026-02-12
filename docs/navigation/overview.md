@@ -29,7 +29,8 @@ adapts automatically—vertical in a sidebar, horizontal in a navbar, without
 changing the markup.
 
 Take a look at these two examples using the same menu structure:
-```html +code +preview +collapse class="bx my"
+
+```html +demo-folded class="bx my"
 <nav>
     <ul class="menu">
         <li><a href="#">Dashboard</a></li>
@@ -40,7 +41,8 @@ Take a look at these two examples using the same menu structure:
 ```
 
 Now add `.navbar` to the `<nav>` element:
-```html +code +preview +collapse class="bx my"
+
+```html +demo-folded class="bx my"
 <nav class="navbar">
     <ul class="menu">
         <li><a href="#">Dashboard</a></li>
@@ -59,7 +61,8 @@ JTB navigation can be built with the `.menu` component class or utility
 classes—the choice is yours.
 
 ### Component Class Approach
-```html +code +preview +collapse class="example-jtb w-20"
+
+```html +demo-folded class="example-jtb w-20"
 <nav class="bx">
     <ul class="menu">
         <li><a href="#">Dashboard</a></li>
@@ -71,7 +74,8 @@ classes—the choice is yours.
 Minimal classes. Automatic styling for links, buttons, icons, and states.
 
 ### Utility Class Approach
-```html +code +preview +collapse class="example-utils w-20"
+
+```html +demo-folded class="example-utils w-20"
 <nav class="bx">
     <ul class="flex-col txt-sm">
         <li>

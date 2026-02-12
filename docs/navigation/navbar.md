@@ -4,15 +4,14 @@ Container with layout for horizontal menus.
 
 - [Overview](#overview)
 - [Base Structure](#base-structure)
-    - [Alpine Hover](#alpine-hover)
-    - [Alpine Click](#alpine-click)
+  - [Alpine Hover](#alpine-hover)
+  - [Alpine Click](#alpine-click)
 
 ## Overview
 
-
 ## Base Structure
 
-```html +code +preview +collapse class="example-jtb"
+```html +demo-folded class="example-jtb"
 <nav class="navbar">
     <ul class="menu">
         <li><a href="#">Home</a></li>
@@ -24,7 +23,7 @@ Container with layout for horizontal menus.
 </nav>
 ```
 
-```html +code +preview +collapse class="example-utils"
+```html +demo-folded class="example-utils"
 <nav class="bg-white bdr bdr-blue">
     <ul class="flex va-c gap pxy">
         <li><a href="#">Home</a></li>
@@ -36,7 +35,7 @@ Container with layout for horizontal menus.
 </nav>
 ```
 
-```html +code +preview +collapse class="example-jtb"
+```html +demo-folded class="example-jtb"
 <nav class="navbar">
     <div class="font-bold txt-white">MyBrand</div>
     <ul class="menu">
@@ -82,8 +81,6 @@ Container with layout for horizontal menus.
     </ul>
 </nav>
 ```
-
-
 
 ### Alpine Hover
 

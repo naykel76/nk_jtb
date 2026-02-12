@@ -1,6 +1,6 @@
 # Menu
 
-<p class="lead">Vertical navigation lists for sidebars, dropdowns, and nested 
+<p class="lead">Vertical navigation lists for sidebars, dropdowns, and nested
 navigation. Context-aware—adapts layout based on where it's used.</p>
 
 > **New to JTB navigation?** See the [Navigation Overview](overview.md) to
@@ -35,7 +35,7 @@ Links and buttons inside `.menu` are styled automatically. No item classes requi
 
 > **Examples:** Pink borders indicate JTB component classes, blue borders indicate utility classes.
 
-```html +code +preview +collapse class="example-jtb w-24"
+```html +demo-folded class="example-jtb w-24"
 <nav class="bx">
     <ul class="menu">
         <li> 
@@ -68,7 +68,7 @@ Links and buttons inside `.menu` are styled automatically. No item classes requi
 </nav>
 ```
 
-```html +code +preview +collapse class="example-utils w-24"
+```html +demo-folded class="example-utils w-24"
 <nav class="bx">
     <ul class="txt-sm">
         <li>
@@ -111,7 +111,6 @@ Links and buttons inside `.menu` are styled automatically. No item classes requi
 </nav>
 ```
 
-
 ## Customising Menu Items
 
 ### Adding Icons
@@ -119,7 +118,7 @@ Links and buttons inside `.menu` are styled automatically. No item classes requi
 Icons work automatically, just add them inside links or buttons. Spacing and
 alignment are handled by the `.menu` class.
 
-```html +code +preview +collapse class="example-jtb w-20"
+```html +demo-folded class="example-jtb w-20"
 <nav class="bg-white">
     <ul class="menu">
         <li>
@@ -135,7 +134,7 @@ alignment are handled by the `.menu` class.
 </nav>
 ```
 
-```html +code +preview +collapse class="example-utils w-20"
+```html +demo-folded class="example-utils w-20"
 <nav class="bg-white">
     <ul class="txt-sm">
         <li>
@@ -155,7 +154,7 @@ dropdowns. Uses Alpine.js for toggle behavior.
 
 <!-- should we mention alpine -->
 
-```html +code +preview +collapse class="example-jtb"
+```html +demo-folded class="example-jtb"
 <nav class="bg-white">
     <ul class="menu">
         <li class="relative" x-data="{ open: false }" x-on:click.outside="open = false" x-on:keydown.escape="open = false">
@@ -184,7 +183,7 @@ dropdowns. Uses Alpine.js for toggle behavior.
 </nav>
 ```
 
-```html +code +preview +collapse class="example-utils"
+```html +demo-folded class="example-utils"
 <nav class="bg-white">
     <ul class="flex gap-05 txt-sm">
         <li class="relative" x-data="{ open: false }" x-on:click.outside="open = false" x-on:keydown.escape="open = false">
@@ -212,4 +211,3 @@ dropdowns. Uses Alpine.js for toggle behavior.
     </ul>
 </nav>
 ```
-
