@@ -26,7 +26,6 @@
 
 ---
 
-
 ## FAQ's
 
 **How can I exclude axis indicators when creating position based classes?**
@@ -35,10 +34,10 @@ For example, instead of generating a class like `bdr-xy` to represent both the x
 axes, I want to use just `bdr`. Similarly, I want to change `m-xy` to either `m` or `mxy`,
 removing the explicit axis notation.
 
-
 ## CSS Positional Properties Patterns
 
 **Split pattern** (`<property-start>-<position>-<property-end>`):
+
 ```css
 border-<top|right|bottom|left>-width
 border-<top|right|bottom|left>-style
@@ -47,6 +46,7 @@ border-<top-left|top-right|bottom-right|bottom-left>-radius
 ```
 
 **Suffix pattern** (`<property>-<position>`):
+
 ```css
 border-<top|right|bottom|left>
 padding-<top|right|bottom|left>
@@ -82,3 +82,21 @@ margin-<top|right|bottom|left>
 | 10       | 40  | 2.5rem   |
 | 64       | 256 | 16rem    |
 
+Here's the breakdown:
+Current framework: rotate-90, rotate-180, rotate-270, rotate--90, rotate--180
+Tailwind categories:
+
+1. rotate-none - reset to no rotation
+2. rotate-<number> - any degree value (15, 45, 60, etc.)
+3. -rotate-<number> - negative rotations
+4. rotate-x/y/z-<number> - 3D axis rotations
+
+Recommendations:
+
+| Priority     | Classes                                                                           | Use Case                           |
+| ------------ | --------------------------------------------------------------------------------- | ---------------------------------- |
+| Essential    | rotate-none, rotate-45, rotate-90, rotate-135, rotate-180, rotate-270, rotate-315 | Most common - icons, cards, labels |
+| Essential    | Same as above with - prefix                                                       | Negative rotations                 |
+| Nice-to-have | rotate-x-90, rotate-y-90, rotate-x-180, rotate-y-180                              | 3D flip effects                    |
+The 45° increments cover the most common use cases. Your current 90/180/270 is quite limited - icons at 45° are very common, and you may need -45° as well.
+Should I build these out now, or do you want different values?

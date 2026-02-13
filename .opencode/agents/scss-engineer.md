@@ -66,14 +66,18 @@ In `src/components/index.scss`:
 ### Using build-classes()
 
 ```scss
-@include build-classes((
+$margin-map: smart-merge($margin-variants, $margin-values);
+
+$props: (
     margin: (
-        prefix: 'm-',
-        values: (1, 2, 3),
+        prefix: 'm',
+        values: $margin-map,
         unit: 'rem',
         positions: $logical-position-map
-    )
-));
+    ),
+);
+
+@include build-classes($props, $responsive: true);
 ```
 
 ### Using make-single-property-class()
@@ -154,10 +158,10 @@ Modifiers require component context:
 
 | Task                   | Location                              |
 | ---------------------- | ------------------------------------- |
-| Add spacing utilities  | `src/utilities/spacing/`              |
+| Add spacing utilities  | `src/utilities/_spacing.scss`         |
 | Add component          | `src/components/_name.scss`           |
 | Add theme color        | `src/maps_and_variables/_colors.scss` |
-| Add typography utility | `src/utilities/typography/`           |
+| Add typography utility | `src/utilities/_typography.scss`      |
 | Configure breakpoints  | `src/maps_and_variables/_config.scss` |
 
 ## Linting

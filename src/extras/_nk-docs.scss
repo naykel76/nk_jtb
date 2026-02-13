@@ -1,9 +1,9 @@
 /* stylelint-disable selector-type-no-unknown */
-@use '../common-tools.scss' as *;
+@use '../functions/map-and-list-helpers' as *;
 @use '../mixins/backgrounds' as *;
 @use '../mixins/make-classes-old' as *;
 @use '../mixins/make-classes' as *;
-@use '../mixins/make-classes' as *;
+@use '../maps_and_variables/base' as *;
 @use '../maps_and_variables/colors' as *;
 @use 'sass:map';
 
@@ -12,17 +12,16 @@ $question-color: #c40c9a !default;
 // ============================================================================
 // -- Layouts --
 // ============================================================================
-
 .nk-docs {
     background-color: var(--bg-body);
     display: flex;
-
-    // min-height: 100vh;
 
     :is(.left-sidebar, .right-sidebar) {
         background-color: var(--bg-surface);
         padding: $base-padding;
         width: 16rem;
+        flex-shrink: 0;
+        /* Prevent sidebars from shrinking */
     }
 
     .left-sidebar {
@@ -38,14 +37,19 @@ $question-color: #c40c9a !default;
         border-left: 1px solid var(--border-color);
     }
 
+    /* Add this for your main content area */
+    .main-content {
+        /* or whatever class wraps your markdown */
+        min-width: 0;
+        /* This is the key fix! */
+        flex: 1;
+        /* Allow it to grow and fill space */
+    }
+
     .toc {
         font-size: 0.875rem;
         position: sticky;
         top: 1rem;
-
-        a {
-            // color: rgb(245 245 245);
-        }
     }
 }
 
@@ -104,25 +108,21 @@ $question-color: #c40c9a !default;
 
 .example {
     &-jtb {
-        background: repeating-linear-gradient(
-            135deg,
-            rgb(252 231 243 / 20%),
-            rgb(252 231 243 / 20%) 20px,
-            rgb(249 168 212 / 20%) 20px,
-            rgb(249 168 212 / 20%) 40px
-        );
+        background: repeating-linear-gradient(135deg,
+                rgb(252 231 243 / 20%),
+                rgb(252 231 243 / 20%) 20px,
+                rgb(249 168 212 / 20%) 20px,
+                rgb(249 168 212 / 20%) 40px);
         border-color: map.get($oklch-colors, 'pink-500');
         border-width: 3px;
     }
 
     &-utils {
-        background: repeating-linear-gradient(
-            135deg,
-            rgb(219 234 254 / 20%),
-            rgb(219 234 254 / 20%) 20px,
-            rgb(147 197 253 / 20%) 20px,
-            rgb(147 197 253 / 20%) 40px
-        );
+        background: repeating-linear-gradient(135deg,
+                rgb(219 234 254 / 20%),
+                rgb(219 234 254 / 20%) 20px,
+                rgb(147 197 253 / 20%) 20px,
+                rgb(147 197 253 / 20%) 40px);
         border-color: map.get($oklch-colors, 'blue-500');
         border-width: 3px;
 
@@ -223,7 +223,8 @@ pre code.torchlight {
     }
 
     details {
-        > summary {
+        >summary {
+
             &::marker,
             &::-webkit-details-marker {
                 display: none;
@@ -290,19 +291,19 @@ pre code.torchlight {
 }
 
 // prettier-ignore
-@include cq-make-on-breakpoint( ( visibility: hidden ), 'invisible', $responsive-variants );
+@include cq-make-on-breakpoint((visibility: hidden), 'invisible', $responsive-variants );
 
 // prettier-ignore
-@include cq-make-on-breakpoint( ( visibility: visible ), 'visible', $responsive-variants );
+@include cq-make-on-breakpoint((visibility: visible), 'visible', $responsive-variants );
 
 // prettier-ignore
-@include cq-make-from-breakpoint( ( visibility: hidden ), 'invisible', $responsive-variants );
+@include cq-make-from-breakpoint((visibility: hidden), 'invisible', $responsive-variants );
 
 // prettier-ignore
-@include cq-make-from-breakpoint( ( visibility: visible ), 'visible', $responsive-variants );
+@include cq-make-from-breakpoint((visibility: visible), 'visible', $responsive-variants );
 
 // prettier-ignore
-@include cq-make-to-breakpoint( ( visibility: hidden ), 'invisible', remove-from-list($responsive-variants, xxl) );
+@include cq-make-to-breakpoint((visibility: hidden), 'invisible', remove-from-list($responsive-variants, xxl));
 
 // prettier-ignore
-@include cq-make-to-breakpoint( ( visibility: visible ), 'visible', remove-from-list($responsive-variants, xxl) );
+@include cq-make-to-breakpoint((visibility: visible), 'visible', remove-from-list($responsive-variants, xxl));

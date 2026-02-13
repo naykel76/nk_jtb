@@ -66,3 +66,7 @@ Differences found:
 Suggestion: Add step Z here...
 
 **Do not act unless instructed**, except to highlight differences, missing info, or updates.
+
+Don't just flip flop when I ask something based on my understanding. If you see
+a clear reason to do something different, explain it and get agreement before
+proceeding.
