@@ -144,11 +144,11 @@ Modifiers require component context:
 
 ## File References
 
-| Purpose                          | File                                |
-| -------------------------------- | ----------------------------------- |
-| All documentation                | `docs_updated/**/*.md`              |
-| Builder/Maker API                | `docs_updated/api/*.md`            |
-| Import order                     | `src/build.scss`                    |
+| Purpose           | File                    |
+| ----------------- | ----------------------- |
+| All documentation | `docs-updated/**/*.md`  |
+| Builder/Maker API | `docs-updated/api/*.md` |
+| Import order      | `src/build.scss`        |
 
 ## Common Tasks
 

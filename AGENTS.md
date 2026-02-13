@@ -52,21 +52,21 @@ src/
 
 ### Source of Truth
 
-**`docs_updated/`** (symlink to external repository) is the source of truth for ALL documentation. This includes:
+**`docs-updated/`** (symlink to external repository) is the source of truth for ALL documentation. This includes:
 
 - `installation.md`
 - `components/*.md`
 - `utilities/*.md`
 - Any other documentation files
 
-**`docs/`** contains old documentation being reviewed. When creating new documentation (not reviewing existing docs), always use `docs_updated/`.
+**`docs/`** contains old documentation being reviewed. When creating new documentation (not reviewing existing docs), always use `docs-updated/`.
 
 ### Workflow
 
-1. **New documentation** → Create in `docs_updated/` (symlink location)
-2. **Reviewing old docs** → Edit files in `docs/`, then move to `docs_updated/` when ready
+1. **New documentation** → Create in `docs-updated/` (symlink location)
+2. **Reviewing old docs** → Edit files in `docs/`, then move to `docs-updated/` when ready
 
-When updating documentation, edit files in `docs_updated/` - these are synced to the external repository.
+When updating documentation, edit files in `docs-updated/` - these are synced to the external repository.
 
 ## Migration Notes
 
