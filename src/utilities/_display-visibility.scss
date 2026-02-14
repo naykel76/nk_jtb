@@ -19,7 +19,7 @@ $display-visibility-properties-map: (
 // ============================================================================
 // Builds
 // ============================================================================
-@include build-classes-new($display-visibility-properties-map, $responsive: true);
+// @include build-classes-new($display-visibility-properties-map, $responsive: true);
 
 // --------------------------------------------------------------------------
 // Additional responsive utilities

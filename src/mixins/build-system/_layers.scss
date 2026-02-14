@@ -1,6 +1,7 @@
+@use '../../functions/classes' as *;
+@use '../media-container-queries' as *;
 @use './make-classes' as *;
 @use './make-properties' as *;
-@use '../media-container-queries' as *;
 @use 'sass:map';
 
 

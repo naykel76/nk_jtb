@@ -1,6 +1,6 @@
-@use '../functions/classes' as *;
-@use '../functions/strings' as *;
-@use '../functions/resolvers' as *;
+@use '../../functions/classes' as *;
+@use '../../functions/strings' as *;
+@use '../../functions/resolvers' as *;
 @use 'sass:list';
 @use 'sass:map';
 
@@ -8,7 +8,7 @@
 // Normalises property configuration and pre-processes all values
 // Returns a map ready for layer builders to consume
 // ============================================================================
-@function normalise-property-config($property, $config, $responsive, $with-state) {
+@function normalise-config($property, $config, $responsive, $with-state) {
     $config-unit: map.get($config, 'unit');
     $config-positions: map.get($config, 'positions');
     $omit-axis-keys: map.get($config, 'omit-axis-keys');

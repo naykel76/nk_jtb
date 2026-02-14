@@ -1,25 +1,34 @@
-// @use './components/button' as *;
 @use './mixins/build-system/controllers' as *;
-@use 'sass:color';
-@use 'sass:list';
-@use 'sass:map';
-@use 'sass:string';
-@use 'sass:meta';
+@use './mixins/build-classes' as *; // this is the original working one
 
 // ============================================================================
-
+// This is the existing build system
+// ============================================================================
 $properties-map: (
-    color: (prefix: 'txt-', values: (red, blue), breakpoints: (md, lg))
+    // color: (
+    //     prefix: 'txt-', values: (red, blue), 
+    //     breakpoints: (md, lg)
+    // ),
+    margin: (
+        prefix: 'm', values: (0, 1), unit: 'rem', 
+        breakpoints: (md, lg),
+        positions: (x: (inline-start, inline-end), y: (block-start, block-end))
+    )
 );
 
+/* -- ORIGINAL: working god mode mixin -- */
+@include build-classes($properties-map, $responsive: true);
+
+
+// ============================================================================
+// NEW BUILD SYSTEM - In development
+// ============================================================================
+
 /* -- base only -- */
-// this should build just the base classes, ignoring states and responsive variants
-@include build-base-classes($properties-map);
+@include build-base-classes($properties-map, $responsive: false);
 
 /* -- responsive only -- */
-// this should build just the base classes and the responsive variants, ignoring states
 @include build-responsive-classes($properties-map, $responsive: true);
 
 /* -- grand unified -- */
-// this should build all classes, including states and responsive variants (if defined in the config)
-@include build-classes($properties-map, $responsive: true);
+@include build-classes-2($properties-map, $responsive: true);

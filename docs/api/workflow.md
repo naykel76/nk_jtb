@@ -27,18 +27,10 @@ OUTPUT CSS (4 Cascade Layers)
   Layer 4: .md:hover:block:hover (responsive + states - highest priority)
 ```
 
-
 // Base classes first - Lowest priority, establish defaults
 // Media queries (viewport-based) - Override base at screen sises
 // Container queries (component-based) - Override media queries in container contexts
 // Hover states last - Highest priority, always work regardless of sise
-
-
-
-
-
-
-
 
 ## Stage 1: Normalise
 
@@ -94,6 +86,7 @@ Structured config with pre-computed **variants map**:
 ```
 
 ### What It Does
+
 1. **Extracts** → Gets unit, positions, breakpoints, states
 2. **Resolves prefix** → Handles false/null → uses property name
 3. **Pre-processes values** → For each value:
@@ -105,18 +98,20 @@ Structured config with pre-computed **variants map**:
 5. **Returns** → Complete normalised structure
 
 ### Why It's Needed
+
 - **Builders don't care about raw format** — they expect `variants` map
 - **Separation of concerns** — normalisation logic isolated from class generation
 - **Reusability** — same normalised structure works for all 4 cascade layers
 - **Predictability** — standardised output means builders can loop safely
 
 ### In the Build Cycle
+
 ```
 Raw properties-map (user input)
     ↓
 @each property in properties-map
     ↓
-normalise-property-config() ← STAGE 1: One property at a time
+normalise-config() ← STAGE 1: One property at a time
     ↓
 build-base-layer() ← STAGE 3: Loops through variants map
     ↓

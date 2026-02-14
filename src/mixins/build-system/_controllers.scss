@@ -1,5 +1,5 @@
 @use './layers' as *;
-@use '../../functions/normalise-config' as *;
+@use './normalise-config' as *;
 @use 'sass:map';
 
 // ============================================================================
@@ -7,7 +7,7 @@
 // ============================================================================
 @mixin build-base-classes($properties-map, $responsive: false, $with-state: false) {
     @each $property, $config in $properties-map {
-        $normalised: normalise-property-config($property, $config, $responsive, $with-state);
+        $normalised: normalise-config($property, $config, $responsive, $with-state);
 
         // Layer 1: Base classes
         @include build-base-layer($normalised);
@@ -19,7 +19,7 @@
 // ============================================================================
 @mixin build-responsive-classes($properties-map, $responsive: true, $with-state: false) {
     @each $property, $config in $properties-map {
-        $normalised: normalise-property-config($property, $config, $responsive, $with-state);
+        $normalised: normalise-config($property, $config, $responsive, $with-state);
 
         // Layer 2: Responsive variants
         @if map.get($normalised, 'breakpoints') {
@@ -31,9 +31,9 @@
 // ============================================================================
 // Controller: Grand unified - Base + Responsive
 // ============================================================================
-@mixin build-classes($properties-map, $responsive: false, $with-state: false) {
+@mixin build-classes-2($properties-map, $responsive: false, $with-state: false) {
     @each $property, $config in $properties-map {
-        $normalised: normalise-property-config($property, $config, $responsive, $with-state);
+        $normalised: normalise-config($property, $config, $responsive, $with-state);
 
         // Layer 1: Base classes
         @include build-base-layer($normalised);

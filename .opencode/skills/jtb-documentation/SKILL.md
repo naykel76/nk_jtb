@@ -74,7 +74,7 @@ Use `+code` flag for SCSS examples:
 **Function signatures:** Keep on a single line, even if long.
 
 ```scss +code
-@function normalise-property-config($property, $config, $responsive, $with-state)
+@function normalise-config($property, $config, $responsive, $with-state)
 ```
 
 ## Formatting Rules
