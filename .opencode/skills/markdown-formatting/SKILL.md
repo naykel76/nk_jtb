@@ -47,7 +47,6 @@ Use the tag that matches the content, unless specified otherwise:
 | Directory trees, shell commands | ` ```bash +code `       |
 | Blade templates                 | ` ```html +code-blade ` |
 
-
 ## Horizontal
 
 Use 80 hyphens `-------------------------------------------------------------------------------` for horizontal rules.

@@ -5,9 +5,14 @@
 ## What to Use
 
 - **scss-engineer** - SCSS code and architecture
-- **documenting-utilities** - Writing documentation
+- **jtb-documentation** - Writing documentation
 - **markdown-formatting** - Formatting conventions
   
+## When Given a Task
+
+- **Ask first, execute second** - Don't spend 10 steps "understanding context" when a single question would clarify
+- **Start with the obvious** - If the task is straightforward, just do it. Don't overthink.
+
 ## Core Philosophy
 
 - **Structure without decoration** - Components provide structure, utilities add styling
@@ -50,11 +55,13 @@ src/
 
 Documentation lives in **`docs-updated/`** (symlink to external repository).
 
-**Setup (if symlink missing):**
+**If symlink is missing, STOP and prompt user to create it:**
 
 ```powershell
 New-Item -Path "docs-updated" -ItemType SymbolicLink -Value "C:\Users\natha\sites\naykel\resources\views\docs\jtb"
 ```
+
+Do NOT write to `docs/` - that's old documentation under review only.
 
 **Workflow:**
 
