@@ -32,8 +32,8 @@
             child-selector: $child-selector
         );
 
-        @include make-base-class($property, $class, $value, $positions, $options);
-    }
+    @include make-base-class($property, $class, $value, $positions, $options);
+}
 }
 
 // ============================================================================
@@ -226,7 +226,7 @@
     @each $property, $config in $properties-map {
         $config-unit: map.get($config, 'unit');
         $config-positions: map.get($config, 'positions');
-        $omit-axis-keys: map.get($config, 'omit-axis-keys'); 
+        $omit-axis-keys: map.get($config, 'omit-axis-keys');
         $child-selector: map.get($config, 'child-combinator');
 
         $prefix: resolve-prefix(map.get($config, 'prefix'), $property);
@@ -241,17 +241,17 @@
             $value: list.nth($item, 2);
 
             // Process the value and create class name components
-            $derived-unit: if(value-has-unit($value), null, ($config-unit)); 
-            $derived-value: #{handle-class-value($value, $derived-unit)}; 
-            $derived-suffix: #{$label}#{handle-class-unit($derived-unit, $property)}; 
+            $derived-unit: if(value-has-unit($value), null, ($config-unit));
+            $derived-value: #{handle-class-value($value, $derived-unit)};
+            $derived-suffix: #{$label}#{handle-class-unit($derived-unit, $property)};
 
             // then clean up any unwanted suffixes
             $derived-class: strip-class-suffixes(#{$prefix}#{$derived-suffix});
 
             @if $config-positions {
                 @include make-position-based-class($property, $derived-value, $config-positions, $prefix, $derived-suffix, $breakpoints, $states, $omit-axis-keys, $child-selector);
-            } @else{
-                @include make-single-property-class( $property, #{$derived-class}, #{$derived-value}, $breakpoints, $states, $child-selector );
+            } @else {
+                @include make-single-property-class($property, #{$derived-class}, #{$derived-value}, $breakpoints, $states, $child-selector );
             }
         }
     }

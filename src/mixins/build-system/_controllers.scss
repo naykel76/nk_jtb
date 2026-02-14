@@ -1,11 +1,10 @@
 @use './layers' as *;
 @use '../../functions/normalise-config' as *;
+@use 'sass:map';
 
-// CHECK: This will not use the responsive or with-state but they are still
-// required to normalise the config and generate the base classes. It may be
-// work making the responsive and with-state params optional in the normalise
-// function then they can be omitted here for clarity that we are only building
-// the base layer.
+// ============================================================================
+// Controller: Base classes only
+// ============================================================================
 @mixin build-base-classes($properties-map, $responsive: false, $with-state: false) {
     @each $property, $config in $properties-map {
         $normalised: normalise-property-config($property, $config, $responsive, $with-state);
@@ -15,3 +14,33 @@
     }
 }
 
+// ============================================================================
+// Controller: Responsive classes only
+// ============================================================================
+@mixin build-responsive-classes($properties-map, $responsive: true, $with-state: false) {
+    @each $property, $config in $properties-map {
+        $normalised: normalise-property-config($property, $config, $responsive, $with-state);
+
+        // Layer 2: Responsive variants
+        @if map.get($normalised, 'breakpoints') {
+            @include build-responsive-layer($normalised);
+        }
+    }
+}
+
+// ============================================================================
+// Controller: Grand unified - Base + Responsive
+// ============================================================================
+@mixin build-classes($properties-map, $responsive: false, $with-state: false) {
+    @each $property, $config in $properties-map {
+        $normalised: normalise-property-config($property, $config, $responsive, $with-state);
+
+        // Layer 1: Base classes
+        @include build-base-layer($normalised);
+
+        // Layer 2: Responsive variants
+        @if map.get($normalised, 'breakpoints') {
+            @include build-responsive-layer($normalised);
+        }
+    }
+}

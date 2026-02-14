@@ -1,8 +1,10 @@
 @use '../../functions/classes' as *;
 @use './helpers' as *;
 @use './make-properties' as *;
+@use '../media-container-queries' as *;
 @use 'sass:map';
 @use 'sass:meta';
+
 
 // ============================================================================
 // Layer 1: Base only
@@ -25,6 +27,71 @@
     } @else {
         #{build-selector($class, $child-selector)} {
             #{$property}: $value;
+        }
+    }
+}
+
+// ============================================================================
+// Layer 2: Responsive only (no base, no states)
+// ============================================================================
+@mixin make-responsive-class($property, $class, $value, $positions: null, $breakpoints, $options: ()) {
+    $child-selector: if(map.has-key($options, 'child-selector'), map.get($options, 'child-selector'), false);
+
+    @each $bp in $breakpoints {
+        $derived-class: #{$bp}\:#{$class};
+
+        #{build-selector($derived-class, $child-selector)} {
+            @if $bp == 'sm' {
+                @include from-sm {
+                    @if $positions {
+                        $props: build-property-map($property, $positions, $value, meta.get-function('get-position-property'));
+
+                        @include make-properties($props);
+                    } @else {
+                        #{$property}: $value;
+                    }
+                }
+            } @else if $bp == 'md' {
+                @include from-md {
+                    @if $positions {
+                        $props: build-property-map($property, $positions, $value, meta.get-function('get-position-property'));
+
+                        @include make-properties($props);
+                    } @else {
+                        #{$property}: $value;
+                    }
+                }
+            } @else if $bp == 'lg' {
+                @include from-lg {
+                    @if $positions {
+                        $props: build-property-map($property, $positions, $value, meta.get-function('get-position-property'));
+
+                        @include make-properties($props);
+                    } @else {
+                        #{$property}: $value;
+                    }
+                }
+            } @else if $bp == 'xl' {
+                @include from-xl {
+                    @if $positions {
+                        $props: build-property-map($property, $positions, $value, meta.get-function('get-position-property'));
+
+                        @include make-properties($props);
+                    } @else {
+                        #{$property}: $value;
+                    }
+                }
+            } @else if $bp == 'xxl' {
+                @include from-xxl {
+                    @if $positions {
+                        $props: build-property-map($property, $positions, $value, meta.get-function('get-position-property'));
+
+                        @include make-properties($props);
+                    } @else {
+                        #{$property}: $value;
+                    }
+                }
+            }
         }
     }
 }

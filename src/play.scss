@@ -9,8 +9,27 @@
 // ============================================================================
 
 $base-properties-map: (
-    color: (prefix: 'txt-', values: (red, blue)),
-    margin: (prefix: 'm', values: (0, 1, 2), unit: 'rem')
+    color: (prefix: 'txt-',
+        values: (red, blue))
 );
 
-@include build-base-classes($base-properties-map);
+$responsive-properties-map: (
+    color: (prefix: 'txt-',
+        values: (red, blue),
+        breakpoints: (md, lg))
+);
+
+$properties-map: (
+    color: (prefix: 'txt-',
+        values: (red, blue),
+        breakpoints: (md, lg))
+);
+
+/* -- base only -- */
+@include build-base-classes($base-properties-map, $responsive: false);
+
+/* -- responsive only -- */
+@include build-responsive-classes($responsive-properties-map, $responsive: true);
+
+/* -- grand unified -- */
+@include build-classes($properties-map, $responsive: true);

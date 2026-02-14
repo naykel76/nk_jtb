@@ -1,5 +1,6 @@
 @use './make-classes' as *;
 @use './make-properties' as *;
+@use '../media-container-queries' as *;
 @use 'sass:map';
 
 
@@ -26,5 +27,33 @@
         );
 
         @include make-base-class($property, $class, $value, $positions, $options);
+    }
+}
+
+// ============================================================================
+// Layer 2: Responsive classes (breakpoints only)
+// Generates responsive variants using from- breakpoints
+// ============================================================================
+@mixin build-responsive-layer($config) {
+    $property: map.get($config, 'property');
+    $positions: map.get($config, 'positions');
+    $child-selector: map.get($config, 'child-combinator');
+    $omit-axis-keys: map.get($config, 'omit-axis-keys');
+    $prefix: map.get($config, 'prefix');
+    $breakpoints: map.get($config, 'breakpoints');
+
+    @each $class, $data in map.get($config, 'variants') {
+        $value: map.get($data, 'value');
+        $suffix: map.get($data, 'suffix');
+
+        @if $positions {
+            @each $position-key, $position-list in $positions {
+                $position-class: build-position-class-name($prefix, $suffix, $position-key, $omit-axis-keys);
+
+                @include make-responsive-class($property, $position-class, $value, $position-list, $breakpoints, (child-selector: $child-selector));
+            }
+        } @else {
+            @include make-responsive-class($property, $class, $value, null, $breakpoints, (child-selector: $child-selector));
+        }
     }
 }
