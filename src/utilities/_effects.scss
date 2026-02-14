@@ -2,16 +2,8 @@
 @use 'sass:map';
 
 $effects-properties-map: (
-    opacity: (
-        prefix: 'opacity-',
-        values: $opacity-map
-    ),
-    box-shadow: (
-        prefix: 'shadow-',
-        values: $shadow-map
-    ),
-    // filter: ( prefix: 'blur-', values: $blur-variants, wrapper: 'blur' ),
-     // backdrop-filter: ( prefix: 'backdrop-blur-', values: $backdrop-blur-variants )
+    opacity: (prefix: 'opacity-', values: $opacity-map ),
+    box-shadow: (prefix: 'shadow-', values: $shadow-map )
 );
 
 // ============================================================================

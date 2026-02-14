@@ -11,59 +11,10 @@
 @use 'sass:string';
 
 // ============================================================================
-// Layer 1: Base classes (no breakpoints, no states)
-// Establishes defaults - lowest priority in cascade
+// LAYERS 1 & 2 moved to build-system/
+// build-base-layer
+// build-responsive-layer
 // ============================================================================
-@mixin build-base-layer($config) {
-    $property: map.get($config, 'property');
-    $positions: map.get($config, 'positions');
-    $child-selector: map.get($config, 'child-combinator');
-    $omit-axis-keys: map.get($config, 'omit-axis-keys');
-    $prefix: map.get($config, 'prefix');
-
-    @each $class, $data in map.get($config, 'variants') {
-        $value: map.get($data, 'value');
-        $suffix: map.get($data, 'suffix');
-
-        $options: (
-            prefix: $prefix,
-            variant: $suffix,
-            omit-axis-keys: $omit-axis-keys,
-            child-selector: $child-selector
-        );
-
-        @include make-base-class($property, $class, $value, $positions, $options);
-    }
-}
-
-// ============================================================================
-// Layer 2: Responsive variants (breakpoints only)
-// ============================================================================
-@mixin build-responsive-layer($config) {
-    $property: map.get($config, 'property');
-    $positions: map.get($config, 'positions');
-    $child-selector: map.get($config, 'child-combinator');
-    $omit-axis-keys: map.get($config, 'omit-axis-keys');
-    $prefix: map.get($config, 'prefix');
-    $breakpoints: map.get($config, 'breakpoints');
-
-    @each $class, $data in map.get($config, 'variants') {
-        $value: map.get($data, 'value');
-        $suffix: map.get($data, 'suffix');
-
-        @if $positions {
-            // Loop positions and build individual responsive classes for each
-            @each $position-key, $position-list in $positions {
-                $position-class: build-position-class-name($prefix, $suffix, $position-key, $omit-axis-keys);
-
-                @include make-responsive-class($property, $position-class, $value, $position-list, $breakpoints, (child-selector: $child-selector));
-            }
-        } @else {
-            // Simple responsive via maker
-            @include make-responsive-class($property, $class, $value, null, $breakpoints, (child-selector: $child-selector));
-        }
-    }
-}
 
 // // ============================================================================
 // // Layer 3: State variants (states only)
@@ -147,7 +98,6 @@
 //         }
 //     }
 // }
-// ````
 
 // ============================================================================
 // CONTROLLER: Orchestrates all layers for a properties map
@@ -219,20 +169,19 @@
 
 // prettier-ignore
 @mixin build-classes($properties-map, $responsive: false, $with-state: false, $debug: false) {
+    // NK?? add option to create different responsive builds. (on, from, to)
+    // - should this be done on a per-property basis?
+    // - should this be done on a global basis?
+
     @each $property, $config in $properties-map {
         $config-unit: map.get($config, 'unit');
         $config-positions: map.get($config, 'positions');
-        $omit-axis-keys: map.get($config, 'omit-axis-keys'); 
+        $omit-axis-keys: map.get($config, 'omit-axis-keys');
         $child-selector: map.get($config, 'child-combinator');
 
         $prefix: resolve-prefix(map.get($config, 'prefix'), $property);
         $breakpoints: resolve-breakpoints($responsive, map.get($config, 'breakpoints'));
         $states: resolve-states($with-state, map.get($config, 'states'));
-
-        
-        // lets out put something here to see the config coming through
-
-
 
         @each $key, $value in map.get($config, 'values') {
             // Normalise each key-value pair to ensure consistent variant label and value
@@ -242,17 +191,17 @@
             $value: list.nth($item, 2);
 
             // Process the value and create class name components
-            $derived-unit: if(value-has-unit($value), null, ($config-unit)); 
-            $derived-value: #{handle-class-value($value, $derived-unit)}; 
-            $derived-suffix: #{$label}#{handle-class-unit($derived-unit, $property)}; 
+            $derived-unit: if(value-has-unit($value), null, ($config-unit));
+            $derived-value: #{handle-class-value($value, $derived-unit)};
+            $derived-suffix: #{$label}#{handle-class-unit($derived-unit, $property)};
 
             // then clean up any unwanted suffixes
             $derived-class: strip-class-suffixes(#{$prefix}#{$derived-suffix});
 
             @if $config-positions {
                 @include make-position-based-class($property, $derived-value, $config-positions, $prefix, $derived-suffix, $breakpoints, $states, $omit-axis-keys, $child-selector);
-            } @else{
-                @include make-single-property-class( $property, #{$derived-class}, #{$derived-value}, $breakpoints, $states, $child-selector );
+            } @else {
+                @include make-single-property-class($property, #{$derived-class}, #{$derived-value}, $breakpoints, $states, $child-selector );
             }
         }
     }

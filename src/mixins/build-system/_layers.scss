@@ -26,8 +26,8 @@
             child-selector: $child-selector
         );
 
-        @include make-base-class($property, $class, $value, $positions, $options);
-    }
+    @include make-base-class($property, $class, $value, $positions, $options);
+}
 }
 
 // ============================================================================
@@ -48,9 +48,9 @@
 
         @if $positions {
             @each $position-key, $position-list in $positions {
-                $position-class: build-position-class-name($prefix, $suffix, $position-key, $omit-axis-keys);
+                $derived-class: build-position-class-name($prefix, $suffix, $position-key, $omit-axis-keys);
 
-                @include make-responsive-class($property, $position-class, $value, $position-list, $breakpoints, (child-selector: $child-selector));
+                @include make-responsive-class($property, $derived-class, $value, $position-list, $breakpoints, (child-selector: $child-selector));
             }
         } @else {
             @include make-responsive-class($property, $class, $value, null, $breakpoints, (child-selector: $child-selector));

@@ -8,28 +8,18 @@
 
 // ============================================================================
 
-$base-properties-map: (
-    color: (prefix: 'txt-',
-        values: (red, blue))
-);
-
-$responsive-properties-map: (
-    color: (prefix: 'txt-',
-        values: (red, blue),
-        breakpoints: (md, lg))
-);
-
 $properties-map: (
-    color: (prefix: 'txt-',
-        values: (red, blue),
-        breakpoints: (md, lg))
+    color: (prefix: 'txt-', values: (red, blue), breakpoints: (md, lg))
 );
 
 /* -- base only -- */
-@include build-base-classes($base-properties-map, $responsive: false);
+// this should build just the base classes, ignoring states and responsive variants
+@include build-base-classes($properties-map);
 
 /* -- responsive only -- */
-@include build-responsive-classes($responsive-properties-map, $responsive: true);
+// this should build just the base classes and the responsive variants, ignoring states
+@include build-responsive-classes($properties-map, $responsive: true);
 
 /* -- grand unified -- */
+// this should build all classes, including states and responsive variants (if defined in the config)
 @include build-classes($properties-map, $responsive: true);
