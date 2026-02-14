@@ -18,9 +18,10 @@ $question-color: #c40c9a !default;
 
     :is(.left-sidebar, .right-sidebar) {
         background-color: var(--bg-surface);
+        flex-shrink: 0;
         padding: $base-padding;
         width: 16rem;
-        flex-shrink: 0;
+
         /* Prevent sidebars from shrinking */
     }
 
@@ -39,10 +40,12 @@ $question-color: #c40c9a !default;
 
     /* Add this for your main content area */
     .main-content {
-        /* or whatever class wraps your markdown */
-        min-width: 0;
         /* This is the key fix! */
         flex: 1;
+
+        /* or whatever class wraps your markdown */
+        min-width: 0;
+
         /* Allow it to grow and fill space */
     }
 
@@ -224,7 +227,6 @@ pre code.torchlight {
 
     details {
         >summary {
-
             &::marker,
             &::-webkit-details-marker {
                 display: none;

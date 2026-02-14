@@ -1,0 +1,17 @@
+@use './layers' as *;
+@use '../../functions/normalise-config' as *;
+
+// CHECK: This will not use the responsive or with-state but they are still
+// required to normalise the config and generate the base classes. It may be
+// work making the responsive and with-state params optional in the normalise
+// function then they can be omitted here for clarity that we are only building
+// the base layer.
+@mixin build-base-classes($properties-map, $responsive: false, $with-state: false) {
+    @each $property, $config in $properties-map {
+        $normalised: normalise-property-config($property, $config, $responsive, $with-state);
+
+        // Layer 1: Base classes
+        @include build-base-layer($normalised);
+    }
+}
+

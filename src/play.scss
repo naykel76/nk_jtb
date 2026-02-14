@@ -1,43 +1,16 @@
-@use './components/button' as *;
-// @use './utilities/display-visibility' as *;
-@use './common-tools' as *;
-@use './functions/normalise-config' as *;
-@use './functions/resolvers' as *;
-@use './maps_and_variables/colors' as *;
-@use './mixins/build-magic-grid' as *;
-@use './mixins/make-classes-old' as *;
-@use './mixins/make-classes' as *;
-@use './mixins/build-classes' as *;
-@use './mixins/transition' as *;
+// @use './components/button' as *;
+@use './mixins/build-system/controllers' as *;
 @use 'sass:color';
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:string';
 @use 'sass:meta';
 
-// ===========================================================================
+// ============================================================================
 
-// prettier-ignore
-$properties-map: (
-    color: (
-        prefix: 'txt-',
-        values: ( red, blue ),
-        breakpoints: ( sm, md ) // ignores responsive settings
-    ),
-    margin: (
-        prefix: 'm',
-        values: (0, 1, 2),
-        unit: 'rem',
-        positions: (
-            xy: (block-start, block-end, inline-start, inline-end),
-            x: (inline-start, inline-end),
-            y: (block-start, block-end),
-            // t: block-start,
-            // b: block-end,
-            // l: inline-start,
-            // r: inline-end,
-        )
-    )
+$base-properties-map: (
+    color: (prefix: 'txt-', values: (red, blue)),
+    margin: (prefix: 'm', values: (0, 1, 2), unit: 'rem')
 );
 
-// @include build-classes-new($properties-map, $responsive: false);
+@include build-base-classes($base-properties-map);

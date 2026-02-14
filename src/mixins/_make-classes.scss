@@ -11,6 +11,8 @@
 @use 'sass:meta';
 
 // ============================================================================
+// Layer 2: Responsive only (no base, no states)
+// ============================================================================
 // Properties that use split pattern: border-{position}-{end} instead of
 // {property}-{position} Example: border-top-width instead of border-width-top
 // ============================================================================

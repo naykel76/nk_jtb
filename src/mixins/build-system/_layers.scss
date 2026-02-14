@@ -1,0 +1,30 @@
+@use './make-classes' as *;
+@use './make-properties' as *;
+@use 'sass:map';
+
+
+// ============================================================================
+// Layer 1: Base classes (no breakpoints, no states)
+// Establishes defaults - lowest priority in cascade
+// ============================================================================
+@mixin build-base-layer($config) {
+    $property: map.get($config, 'property');
+    $positions: map.get($config, 'positions');
+    $child-selector: map.get($config, 'child-combinator');
+    $omit-axis-keys: map.get($config, 'omit-axis-keys');
+    $prefix: map.get($config, 'prefix');
+
+    @each $class, $data in map.get($config, 'variants') {
+        $value: map.get($data, 'value');
+        $suffix: map.get($data, 'suffix');
+
+        $options: (
+            prefix: $prefix,
+            variant: $suffix,
+            omit-axis-keys: $omit-axis-keys,
+            child-selector: $child-selector
+        );
+
+        @include make-base-class($property, $class, $value, $positions, $options);
+    }
+}

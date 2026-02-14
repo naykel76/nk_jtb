@@ -1,0 +1,30 @@
+@use '../../functions/classes' as *;
+@use './helpers' as *;
+@use './make-properties' as *;
+@use 'sass:map';
+@use 'sass:meta';
+
+// ============================================================================
+// Layer 1: Base only
+// ============================================================================
+@mixin make-base-class($property, $class, $value, $positions: null, $options: ()) {
+    $child-selector: if(map.has-key($options, 'child-selector'), map.get($options, 'child-selector'), false);
+
+    @if $positions {
+        $prefix: map.get($options, 'prefix');
+        $variant: map.get($options, 'variant');
+        $omit-axis-keys: if(map.has-key($options, 'omit-axis-keys'), map.get($options, 'omit-axis-keys'), false);
+
+        @each $position-key, $position-list in $positions {
+            $derived-class: build-position-class-name($prefix, $variant, $position-key, $omit-axis-keys);
+            $props: build-property-map($property, $position-list, $value, meta.get-function('get-position-property'));
+            #{build-selector($derived-class, $child-selector)} {
+                @include make-properties($props);
+            }
+        }
+    } @else {
+        #{build-selector($class, $child-selector)} {
+            #{$property}: $value;
+        }
+    }
+}

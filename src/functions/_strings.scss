@@ -102,7 +102,7 @@
 $units: ('px', 'rem', 'em', 'vh', 'vw', 'vmin', 'vmax', '%');
 
 @function value-has-unit($value) {
-    $value: toString($value);
+    $value: to-string($value);
     @each $unit in $units {
         @if string.index($value, $unit) {
             @return true;

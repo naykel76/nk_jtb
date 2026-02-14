@@ -1,0 +1,25 @@
+// ============================================================================
+// Helper functions and variables for class generation
+// ============================================================================
+@use '../../functions/strings' as *;
+@use 'sass:list';
+
+// ============================================================================
+// Properties that use split pattern: border-{position}-{end} instead of
+// {property}-{position} Example: border-top-width instead of border-width-top
+// ============================================================================
+$split-properties: ('border-width', 'border-style', 'border-color', 'border-radius');
+
+// ============================================================================
+// Build position-aware property name based on pattern
+// ============================================================================
+@function get-position-property($property, $position) {
+    @if list.index($split-properties, $property) {
+        $property-start: str-first-segment($property);
+        $property-end: str-last-segment($property);
+
+        @return #{$property-start}-#{$position}-#{$property-end};
+    }
+
+    @return #{$property}-#{$position};
+}
