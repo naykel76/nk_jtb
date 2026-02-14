@@ -4,7 +4,7 @@
 // ============================================================================
 @use '../functions/classes' as *;
 @use '../mixins/media-container-queries' as *;
-@use '../mixins/make-properties' as *;
+@use '../mixins/build-system/make-properties' as *;
 @use 'sass:map';
 
 // ============================================================================
