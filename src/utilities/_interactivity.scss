@@ -1,4 +1,8 @@
-@use '../common-tools' as *;
+// Explicit dependencies
+@use '../maps_and_variables' as *;
+@use '../functions/classes' as *;
+@use '../functions/strings' as *;
+@use '../mixins/build-classes' as *;
 @use 'sass:map';
 
 // prettier-ignore

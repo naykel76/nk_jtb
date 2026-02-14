@@ -53,23 +53,24 @@ src/
 
 ## Documentation
 
-Documentation lives in **`docs-updated/`** (symlink to external repository).
+**Use jtb-documentation skill for all documentation work.**
 
-**If symlink is missing, STOP and prompt user to create it:**
+Documentation lives in `docs-updated/` (symlink to external repository).
+
+**If symlink missing:**
 
 ```powershell
 New-Item -Path "docs-updated" -ItemType SymbolicLink -Value "C:\Users\natha\sites\naykel\resources\views\docs\jtb"
 ```
 
-Do NOT write to `docs/` - that's old documentation under review only.
-
 **Workflow:**
 
-- New/updated docs → Edit in `docs-updated/`
-- Old docs under review → Edit in `docs/`, move to `docs-updated/` when ready
+- New/updated docs → `docs-updated/`
+- Reviewing old docs → Edit in `docs/`, move to `docs-updated/` when finalized
 
-**Formatting:** See `.opencode/skills/markdown-formatting/SKILL.md`  
-**Default flag:** Use `+demo-folded` for component examples
+## References
+
+- `JTB_TO_TAILWIND_CROSSREFERENCE.md` - Class mappings for migration
 
 ## References
 

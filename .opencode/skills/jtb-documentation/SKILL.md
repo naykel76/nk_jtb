@@ -71,9 +71,15 @@ Use `+code` flag for SCSS examples:
 }
 ```
 
+**Function signatures:** Keep on a single line, even if long.
+
+```scss +code
+@function normalise-property-config($property, $config, $responsive, $with-state)
+```
+
 ## Formatting Rules
 
-- **No horizontal rules** - Use headings and spacing
+- **No horizontal rules (`---`)** - Ever. Use headings and spacing
 - **Concise** - Get to the point
 - **Show code** - Examples over explanation
 - **Document the non-obvious** - Skip what's clear from context

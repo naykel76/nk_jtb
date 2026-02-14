@@ -1,8 +1,10 @@
+// Explicit dependencies
+@use '../maps_and_variables' as *;
+@use '../functions/classes' as *;
+@use '../mixins/build-classes' as *;
 @use '../mixins/build-magic-grid' as *;
-@use '../common-tools' as *;
+@use '../mixins/build-magic-classes' as *;
 @use 'sass:map';
-@use '../mixins/make-classes-old' as *; // remove
-@use '../mixins/make-classes' as *; // remove
 
 .grid {
     display: grid;

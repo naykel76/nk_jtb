@@ -1,4 +1,9 @@
-@use '../common-tools' as *;
+// Explicit dependencies
+@use '../maps_and_variables' as *;
+@use '../functions/map-and-list-helpers' as *;
+@use '../functions/classes' as *;
+@use '../functions/strings' as *;
+@use '../mixins/build-classes' as *;
 
 // ============================================================================
 // Common Value Patterns

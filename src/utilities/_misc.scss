@@ -1,5 +1,5 @@
-@use '../common-tools' as *;
-@use '../maps_and_variables/config' as *;
+// Explicit dependencies
+@use '../maps_and_variables' as *;
 @use 'sass:map';
 
 .ends\:rounded-lg:first-child {

@@ -1,6 +1,9 @@
-@use '../common-tools' as *;
+// Explicit dependencies
+@use '../maps_and_variables' as *;
+@use '../functions/classes' as *;
+@use '../functions/map-and-list-helpers' as *;
+@use '../mixins/build-classes' as *;
 @use '../mixins/make-classes-old' as *;
-@use '../mixins/make-classes' as *;
 
 $display-visibility-properties-map: (
     display: (

@@ -1,5 +1,9 @@
-@use '../common-tools' as *;
-@use '../maps_and_variables/property-maps' as *;
+// Explicit dependencies
+@use '../maps_and_variables' as *;
+@use '../functions/map-and-list-helpers' as *;
+@use '../functions/classes' as *;
+@use '../functions/strings' as *;
+@use '../mixins/build-classes' as *;
 @use 'sass:map';
 
 // ============================================================================

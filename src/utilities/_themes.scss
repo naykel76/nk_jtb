@@ -1,6 +1,6 @@
-@use '../common-tools' as *;
+// Explicit dependencies
+@use '../maps_and_variables' as *;
 @use '../functions/map-and-list-helpers' as *;
-@use '../maps_and_variables/' as *;
 @use '../mixins/themes' as *;
 @use 'sass:map';
 @use 'sass:color';
