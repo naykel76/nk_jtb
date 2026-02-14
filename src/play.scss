@@ -1,34 +1,45 @@
+// ============================================================================
+// Play file for testing the build system
+// ============================================================================
+
 @use './mixins/build-system/controllers' as *;
-@use './mixins/build-classes' as *; // this is the original working one
 
 // ============================================================================
-// This is the existing build system
+// Test config - with positions
 // ============================================================================
 $properties-map: (
-    // color: (
-    //     prefix: 'txt-', values: (red, blue), 
-    //     breakpoints: (md, lg)
-    // ),
     margin: (
-        prefix: 'm', values: (0, 1), unit: 'rem', 
+        prefix: 'm',
+        values: (0, 1),
+        unit: 'rem',
         breakpoints: (md, lg),
         positions: (x: (inline-start, inline-end), y: (block-start, block-end))
     )
 );
 
-/* -- ORIGINAL: working god mode mixin -- */
-@include build-classes($properties-map, $responsive: true);
-
+// ============================================================================
+// Test: All layers
+// ============================================================================
+@include build-classes($properties-map, $responsive: true, $with-state: true);
 
 // ============================================================================
-// NEW BUILD SYSTEM - In development
+// Test: States only
 // ============================================================================
+// $test-states: (
+//     display: (
+//         prefix: 'd',
+//         values: (block, none),
+//         states: (hover, focus)
+//     )
+// );
+// @include build-state-classes($test-states, $with-state: true);
 
-/* -- base only -- */
-@include build-base-classes($properties-map, $responsive: false);
-
-/* -- responsive only -- */
-@include build-responsive-classes($properties-map, $responsive: true);
-
-/* -- grand unified -- */
-@include build-classes-2($properties-map, $responsive: true);
+// ============================================================================
+// Test: Composite classes
+// ============================================================================
+// $composite: (
+//     'test-box': (
+//         props: (padding: 1rem, margin: 0.5rem)
+//     )
+// );
+// @include build-composite-classes($composite, $responsive: true);

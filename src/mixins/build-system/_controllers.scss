@@ -29,9 +29,23 @@
 }
 
 // ============================================================================
+// Controller: State classes only
+// ============================================================================
+@mixin build-state-classes($properties-map, $with-state: true) {
+    @each $property, $config in $properties-map {
+        $normalised: normalise-config($property, $config, false, $with-state);
+
+        // Layer 3: State variants
+        @if map.get($normalised, 'states') {
+            @include build-state-layer($normalised);
+        }
+    }
+}
+
+// ============================================================================
 // Controller: Grand unified - Base + Responsive
 // ============================================================================
-@mixin build-classes-2($properties-map, $responsive: false, $with-state: false) {
+@mixin build-classes($properties-map, $responsive: false, $with-state: false) {
     @each $property, $config in $properties-map {
         $normalised: normalise-config($property, $config, $responsive, $with-state);
 
@@ -42,5 +56,22 @@
         @if map.get($normalised, 'breakpoints') {
             @include build-responsive-layer($normalised);
         }
+        
+        // Layer 3: State variants
+        @if map.get($normalised, 'states') {
+            @include build-state-layer($normalised);
+        }
+        
+        // Layer 4: Responsive + State
+        @if map.get($normalised, 'breakpoints') and map.get($normalised, 'states') {
+            @include build-responsive-state-layer($normalised);
+        }
     }
+}
+
+// ============================================================================
+// Controller: Composite classes - multi-property utilities
+// ============================================================================
+@mixin build-composite-classes($properties-map, $responsive: false) {
+    @include build-composite-layer($properties-map, $responsive);
 }

@@ -2,7 +2,7 @@
 @use '../maps_and_variables' as *;
 @use '../functions/map-and-list-helpers' as *;
 @use '../functions/classes' as *;
-@use '../mixins/build-classes' as *;
+@use '../mixins/build-system/controllers' as *;
 @use 'sass:map';
 
 // Apply solid outline style to the base .outline class and outline width

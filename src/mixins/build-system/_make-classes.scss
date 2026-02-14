@@ -95,3 +95,103 @@
         }
     }
 }
+
+// ============================================================================
+// Layer 3: States only (no base, no responsive)
+// Generates: .hover:block:hover { display: block; }
+// ============================================================================
+@mixin make-state-class($property, $class, $value, $states, $options: ()) {
+    @each $state in $states {
+        .#{$state}\:#{$class}:#{$state} {
+            #{$property}: $value;
+        }
+    }
+}
+
+// ============================================================================
+// Layer 4: Responsive + State (no base, no solo variants)
+// Generates: .md:hover:block:hover { @media (min-width: 768px) { display: block; } }
+// ============================================================================
+@mixin make-responsive-state-class($property, $class, $value, $breakpoints, $states, $options: ()) {
+    $child-selector: if(map.has-key($options, 'child-selector'), map.get($options, 'child-selector'), false);
+
+    @each $bp in $breakpoints {
+        @each $state in $states {
+            $derived-class: #{$bp}\:#{$state}\:#{$class};
+
+            #{build-selector($derived-class, $child-selector)} {
+                @if $bp == 'sm' {
+                    @include from-sm {
+                        &:#{$state} {
+                            #{$property}: $value;
+                        }
+                    }
+                } @else if $bp == 'md' {
+                    @include from-md {
+                        &:#{$state} {
+                            #{$property}: $value;
+                        }
+                    }
+                } @else if $bp == 'lg' {
+                    @include from-lg {
+                        &:#{$state} {
+                            #{$property}: $value;
+                        }
+                    }
+                } @else if $bp == 'xl' {
+                    @include from-xl {
+                        &:#{$state} {
+                            #{$property}: $value;
+                        }
+                    }
+                } @else if $bp == 'xxl' {
+                    @include from-xxl {
+                        &:#{$state} {
+                            #{$property}: $value;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ============================================================================
+// Composite classes - multi-property utilities
+// Generates: .p-ctrl { padding-block: ...; padding-inline: ...; }
+// ============================================================================
+@mixin make-composite-class($class, $props, $breakpoints: null, $child-selector: false) {
+    #{build-selector($class, $child-selector)} {
+        @include make-properties($props);
+    }
+
+    @if $breakpoints {
+        @each $bp in $breakpoints {
+            $derived-class: #{$bp}\:#{$class};
+
+            #{build-selector($derived-class, $child-selector)} {
+                @if $bp == 'sm' {
+                    @include from-sm {
+                        @include make-properties($props);
+                    }
+                } @else if $bp == 'md' {
+                    @include from-md {
+                        @include make-properties($props);
+                    }
+                } @else if $bp == 'lg' {
+                    @include from-lg {
+                        @include make-properties($props);
+                    }
+                } @else if $bp == 'xl' {
+                    @include from-xl {
+                        @include make-properties($props);
+                    }
+                } @else if $bp == 'xxl' {
+                    @include from-xxl {
+                        @include make-properties($props);
+                    }
+                }
+            }
+        }
+    }
+}

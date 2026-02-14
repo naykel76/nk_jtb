@@ -1,7 +1,7 @@
 // Explicit dependencies
 @use '../maps_and_variables' as *;
 @use '../functions/classes' as *;
-@use '../mixins/build-classes' as *;
+@use '../mixins/build-system/controllers' as *;
 @use '../mixins/build-magic-grid' as *;
 @use '../mixins/build-magic-classes' as *;
 @use 'sass:map';

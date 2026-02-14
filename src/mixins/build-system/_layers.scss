@@ -1,4 +1,5 @@
 @use '../../functions/classes' as *;
+@use '../../functions/resolvers' as *;
 @use '../media-container-queries' as *;
 @use './make-classes' as *;
 @use './make-properties' as *;
@@ -56,5 +57,76 @@
         } @else {
             @include make-responsive-class($property, $class, $value, null, $breakpoints, (child-selector: $child-selector));
         }
+    }
+}
+
+// ============================================================================
+// Layer 3: State variants (states only, no base, no responsive)
+// ============================================================================
+@mixin build-state-layer($config) {
+    $property: map.get($config, 'property');
+    $positions: map.get($config, 'positions');
+    $child-selector: map.get($config, 'child-combinator');
+    $omit-axis-keys: map.get($config, 'omit-axis-keys');
+    $prefix: map.get($config, 'prefix');
+    $states: map.get($config, 'states');
+
+    @each $class, $data in map.get($config, 'variants') {
+        $value: map.get($data, 'value');
+        $suffix: map.get($data, 'suffix');
+
+        @if $positions {
+            @each $position-key, $position-list in $positions {
+                $derived-class: build-position-class-name($prefix, $suffix, $position-key, $omit-axis-keys);
+                
+                @include make-state-class($property, $derived-class, $value, $states, (child-selector: $child-selector));
+            }
+        } @else {
+            @include make-state-class($property, $class, $value, $states, (child-selector: $child-selector));
+        }
+    }
+}
+
+// ============================================================================
+// Layer 4: Responsive + State variants (no base, no solo variants)
+// ============================================================================
+@mixin build-responsive-state-layer($config) {
+    $property: map.get($config, 'property');
+    $positions: map.get($config, 'positions');
+    $child-selector: map.get($config, 'child-combinator');
+    $omit-axis-keys: map.get($config, 'omit-axis-keys');
+    $prefix: map.get($config, 'prefix');
+    $breakpoints: map.get($config, 'breakpoints');
+    $states: map.get($config, 'states');
+
+    @each $class, $data in map.get($config, 'variants') {
+        $value: map.get($data, 'value');
+        $suffix: map.get($data, 'suffix');
+
+        @if $positions {
+            @each $position-key, $position-list in $positions {
+                $derived-class: build-position-class-name($prefix, $suffix, $position-key, $omit-axis-keys);
+
+                @include make-responsive-state-class($property, $derived-class, $value, $breakpoints, $states, (child-selector: $child-selector));
+            }
+        } @else {
+            @include make-responsive-state-class($property, $class, $value, $breakpoints, $states, (child-selector: $child-selector));
+        }
+    }
+}
+
+// ============================================================================
+// Composite classes - multi-property utilities
+// Config format: ('class-name': (props: (prop: value, ...)), breakpoints: (...))
+// ============================================================================
+@mixin build-composite-layer($properties-map, $responsive: false) {
+    @each $class, $map in $properties-map {
+        $props: map.get($map, 'props');
+        $map-breakpoints: map.get($map, 'breakpoints');
+        $child-selector: map.get($map, 'child-combinator');
+        
+        $breakpoints: if($responsive, get-breakpoints($map-breakpoints), $map-breakpoints);
+
+        @include make-composite-class($class, $props, $breakpoints, $child-selector);
     }
 }
