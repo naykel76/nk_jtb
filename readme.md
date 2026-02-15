@@ -37,11 +37,3 @@
 | 10       | 40  | 2.5rem   |
 | 64       | 256 | 16rem    |
 
--------------------------------------------------------------------------------
-
-```bash +code
-# documentation symlink
-New-Item -Path "docs-updated" -ItemType SymbolicLink -Value "C:\Users\natha\sites\naykel\resources\views\docs\jtb"
-```
-
--------------------------------------------------------------------------------

@@ -10,13 +10,20 @@
   
 ## When Given a Task
 
-- **Ask first, execute second** - Don't spend 10 steps "understanding context" when a single question would clarify
-- **Start with the obvious** - If the task is straightforward, just do it. Don't overthink.
+- **Ask first, execute second** - Don't spend 10 steps "understanding context"
+  when a single question would clarify
+- **Start with the obvious** - If the task is straightforward, just do it. Don't
+  overthink.
+- **Create reference files proactively** - When I ask for reports, analysis, or
+  similar documents, create the file in the root directory automatically without
+  being asked
 
 ## Core Philosophy
 
-- **Structure without decoration** - Components provide structure, utilities add styling
-- **Context-aware modifiers** - `.primary` adapts to whatever component it's applied to
+- **Structure without decoration** - Components provide structure, utilities add
+  styling
+- **Context-aware modifiers** - `.primary` adapts to whatever component it's
+  applied to
 - **Predictable naming** - Numbers map directly to rem values: `m-1` = 1rem
 - **Override-friendly** - Base → Components → Utilities (highest priority)
 
@@ -47,7 +54,8 @@ src/
 ## Prohibited Patterns
 
 - `@import` (use `@use`/`@forward`)
-- Component-specific modifiers like `.btn-primary` (use `<button class="btn primary">`)
+- Component-specific modifiers like `.btn-primary` (use `<button class="btn
+  primary">`)
 - Hardcoded values (use variables)
 - Deep nesting (>3 levels)
 
@@ -67,10 +75,6 @@ New-Item -Path "docs-updated" -ItemType SymbolicLink -Value "C:\Users\natha\site
 
 - New/updated docs → `docs-updated/`
 - Reviewing old docs → Edit in `docs/`, move to `docs-updated/` when finalized
-
-## References
-
-- `JTB_TO_TAILWIND_CROSSREFERENCE.md` - Class mappings for migration
 
 ## References
 
