@@ -79,6 +79,7 @@
             $sm-value: list.nth($list, -2);
             $md-value: if($num-breakpoints >= 3, list.nth($list, -3), null);
             $lg-value: if($num-breakpoints >= 4, list.nth($list, -4), null);
+            $xl-value: if($num-breakpoints >= 5, list.nth($list, -5), null);
             $derived-class: derived-class($identifier, $list, $is-parent);
 
             // DO NOT use else-if statements when building the classes.
@@ -104,7 +105,7 @@
 
                 @if $num-breakpoints >= 5 {
                     @include from-xl {
-                        @include handle-magic-properties($property, $xlValue, $positions);
+                        @include handle-magic-properties($property, $xl-value, $positions);
                     }
                 }
             }

@@ -3,7 +3,7 @@
 // These are needed by _display-visibility.scss
 // ============================================================================
 @use '../functions/classes' as *;
-@use '../mixins/media-container-queries' as *;
+@use '../mixins/build-system/breakpoint-handlers' as *;
 @use '../mixins/build-system/make-properties' as *;
 @use 'sass:map';
 
@@ -14,26 +14,8 @@
     @each $bp in $breakpoints {
         $derived-class: on-#{$bp}\:#{$identifier};
         .#{$derived-class} {
-            @if $bp == 'sm' {
-                @include on-sm {
-                    @include make-properties($props);
-                }
-            } @else if $bp == 'md' {
-                @include on-md {
-                    @include make-properties($props);
-                }
-            } @else if $bp == 'lg' {
-                @include on-lg {
-                    @include make-properties($props);
-                }
-            } @else if $bp == 'xl' {
-                @include on-xl {
-                    @include make-properties($props);
-                }
-            } @else if $bp == 'xxl' {
-                @include on-xxl {
-                    @include make-properties($props);
-                }
+            @include on-breakpoint($bp) {
+                @include make-properties($props);
             }
         }
     }
@@ -46,24 +28,8 @@
     @each $bp in $breakpoints {
         $derived-class: to-#{$bp}\:#{$identifier};
         .#{$derived-class} {
-            @if $bp == 'sm' {
-                @include to-sm {
-                    @include make-properties($props);
-                }
-            } @else if $bp == 'md' {
-                @include to-md {
-                    @include make-properties($props);
-                }
-            } @else if $bp == 'lg' {
-                @include to-lg {
-                    @include make-properties($props);
-                }
-            } @else if $bp == 'xl' {
-                @include to-xl {
-                    @include make-properties($props);
-                }
-            } @else {
-                @error 'The device '#{$bp}' is not available for this mixin, you need to remove it from the args list.';
+            @include to-breakpoint($bp) {
+                @include make-properties($props);
             }
         }
     }
@@ -76,26 +42,8 @@
     @each $bp in $breakpoints {
         $derived-class: cq-#{$bp}\:#{$identifier};
         .#{$derived-class} {
-            @if $bp == 'sm' {
-                @include cq-from-sm {
-                    @include make-properties($props);
-                }
-            } @else if $bp == 'md' {
-                @include cq-from-md {
-                    @include make-properties($props);
-                }
-            } @else if $bp == 'lg' {
-                @include cq-from-lg {
-                    @include make-properties($props);
-                }
-            } @else if $bp == 'xl' {
-                @include cq-from-xl {
-                    @include make-properties($props);
-                }
-            } @else if $bp == 'xxl' {
-                @include cq-from-xxl {
-                    @include make-properties($props);
-                }
+            @include cq-from-breakpoint($bp) {
+                @include make-properties($props);
             }
         }
     }
@@ -105,26 +53,8 @@
     @each $bp in $breakpoints {
         $derived-class: cq-on-#{$bp}\:#{$identifier};
         .#{$derived-class} {
-            @if $bp == 'sm' {
-                @include cq-on-sm {
-                    @include make-properties($props);
-                }
-            } @else if $bp == 'md' {
-                @include cq-on-md {
-                    @include make-properties($props);
-                }
-            } @else if $bp == 'lg' {
-                @include cq-on-lg {
-                    @include make-properties($props);
-                }
-            } @else if $bp == 'xl' {
-                @include cq-on-xl {
-                    @include make-properties($props);
-                }
-            } @else if $bp == 'xxl' {
-                @include cq-on-xxl {
-                    @include make-properties($props);
-                }
+            @include cq-on-breakpoint($bp) {
+                @include make-properties($props);
             }
         }
     }
@@ -134,24 +64,8 @@
     @each $bp in $breakpoints {
         $derived-class: cq-to-#{$bp}\:#{$identifier};
         .#{$derived-class} {
-            @if $bp == 'sm' {
-                @include cq-to-sm {
-                    @include make-properties($props);
-                }
-            } @else if $bp == 'md' {
-                @include cq-to-md {
-                    @include make-properties($props);
-                }
-            } @else if $bp == 'lg' {
-                @include cq-to-lg {
-                    @include make-properties($props);
-                }
-            } @else if $bp == 'xl' {
-                @include cq-to-xl {
-                    @include make-properties($props);
-                }
-            } @else {
-                @error 'The device '#{$bp}' is not available for this mixin, you need to remove it from the args list.';
+            @include cq-to-breakpoint($bp) {
+                @include make-properties($props);
             }
         }
     }

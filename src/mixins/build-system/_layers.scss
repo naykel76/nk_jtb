@@ -29,7 +29,7 @@
         );
 
     @include make-base-class($property, $class, $value, $positions, $options);
-}
+    }
 }
 
 // ============================================================================

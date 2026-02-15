@@ -1,0 +1,106 @@
+// ============================================================================
+// Centralized Breakpoint Mixins
+// ============================================================================
+// Single source of truth for all breakpoint handling.
+// Add new breakpoints here to keep system consistent.
+// ============================================================================
+
+@use '../media-container-queries' as *;
+
+// ============================================================================
+// from-breakpoint: Mobile-first (min-width)
+// ============================================================================
+@mixin from-breakpoint($bp) {
+    @if $bp == 'sm' {
+        @include from-sm { @content; }
+    } @else if $bp == 'md' {
+        @include from-md { @content; }
+    } @else if $bp == 'lg' {
+        @include from-lg { @content; }
+    } @else if $bp == 'xl' {
+        @include from-xl { @content; }
+    } @else if $bp == 'xxl' {
+        @include from-xxl { @content; }
+    }
+}
+
+// ============================================================================
+// to-breakpoint: Desktop-first (max-width)
+// ============================================================================
+@mixin to-breakpoint($bp) {
+    @if $bp == 'sm' {
+        @include to-sm { @content; }
+    } @else if $bp == 'md' {
+        @include to-md { @content; }
+    } @else if $bp == 'lg' {
+        @include to-lg { @content; }
+    } @else if $bp == 'xl' {
+        @include to-xl { @content; }
+    }
+}
+
+// ============================================================================
+// on-breakpoint: Only at specific breakpoint (exact range)
+// ============================================================================
+@mixin on-breakpoint($bp) {
+    @if $bp == 'sm' {
+        @include on-sm { @content; }
+    } @else if $bp == 'md' {
+        @include on-md { @content; }
+    } @else if $bp == 'lg' {
+        @include on-lg { @content; }
+    } @else if $bp == 'xl' {
+        @include on-xl { @content; }
+    } @else if $bp == 'xxl' {
+        @include on-xxl { @content; }
+    }
+}
+
+// ============================================================================
+// cq-from-breakpoint: Container query (min-width)
+// ============================================================================
+@mixin cq-from-breakpoint($bp) {
+    @if $bp == 'sm' {
+        @include cq-from-sm { @content; }
+    } @else if $bp == 'md' {
+        @include cq-from-md { @content; }
+    } @else if $bp == 'lg' {
+        @include cq-from-lg { @content; }
+    } @else if $bp == 'xl' {
+        @include cq-from-xl { @content; }
+    } @else if $bp == 'xxl' {
+        @include cq-from-xxl { @content; }
+    }
+}
+
+// ============================================================================
+// cq-to-breakpoint: Container query (max-width)
+// ============================================================================
+@mixin cq-to-breakpoint($bp) {
+    @if $bp == 'sm' {
+        @include cq-to-sm { @content; }
+    } @else if $bp == 'md' {
+        @include cq-to-md { @content; }
+    } @else if $bp == 'lg' {
+        @include cq-to-lg { @content; }
+    } @else if $bp == 'xl' {
+        @include cq-to-xl { @content; }
+    }
+}
+
+// ============================================================================
+// cq-on-breakpoint: Container query (exact range)
+// ============================================================================
+@mixin cq-on-breakpoint($bp) {
+    @if $bp == 'sm' {
+        @include cq-on-sm { @content; }
+    } @else if $bp == 'md' {
+        @include cq-on-md { @content; }
+    } @else if $bp == 'lg' {
+        @include cq-on-lg { @content; }
+    } @else if $bp == 'xl' {
+        @include cq-on-xl { @content; }
+    } @else if $bp == 'xxl' {
+        @include cq-on-xxl { @content; }
+    }
+}

@@ -1,7 +1,7 @@
 @use '../../functions/classes' as *;
 @use './helpers' as *;
 @use './make-properties' as *;
-@use '../media-container-queries' as *;
+@use './breakpoint-handlers' as *;
 @use 'sass:map';
 @use 'sass:meta';
 
@@ -41,55 +41,12 @@
         $derived-class: #{$bp}\:#{$class};
 
         #{build-selector($derived-class, $child-selector)} {
-            @if $bp == 'sm' {
-                @include from-sm {
-                    @if $positions {
-                        $props: build-property-map($property, $positions, $value, meta.get-function('get-position-property'));
-
-                        @include make-properties($props);
-                    } @else {
-                        #{$property}: $value;
-                    }
-                }
-            } @else if $bp == 'md' {
-                @include from-md {
-                    @if $positions {
-                        $props: build-property-map($property, $positions, $value, meta.get-function('get-position-property'));
-
-                        @include make-properties($props);
-                    } @else {
-                        #{$property}: $value;
-                    }
-                }
-            } @else if $bp == 'lg' {
-                @include from-lg {
-                    @if $positions {
-                        $props: build-property-map($property, $positions, $value, meta.get-function('get-position-property'));
-
-                        @include make-properties($props);
-                    } @else {
-                        #{$property}: $value;
-                    }
-                }
-            } @else if $bp == 'xl' {
-                @include from-xl {
-                    @if $positions {
-                        $props: build-property-map($property, $positions, $value, meta.get-function('get-position-property'));
-
-                        @include make-properties($props);
-                    } @else {
-                        #{$property}: $value;
-                    }
-                }
-            } @else if $bp == 'xxl' {
-                @include from-xxl {
-                    @if $positions {
-                        $props: build-property-map($property, $positions, $value, meta.get-function('get-position-property'));
-
-                        @include make-properties($props);
-                    } @else {
-                        #{$property}: $value;
-                    }
+            @include from-breakpoint($bp) {
+                @if $positions {
+                    $props: build-property-map($property, $positions, $value, meta.get-function('get-position-property'));
+                    @include make-properties($props);
+                } @else {
+                    #{$property}: $value;
                 }
             }
         }
@@ -120,35 +77,9 @@
             $derived-class: #{$bp}\:#{$state}\:#{$class};
 
             #{build-selector($derived-class, $child-selector)} {
-                @if $bp == 'sm' {
-                    @include from-sm {
-                        &:#{$state} {
-                            #{$property}: $value;
-                        }
-                    }
-                } @else if $bp == 'md' {
-                    @include from-md {
-                        &:#{$state} {
-                            #{$property}: $value;
-                        }
-                    }
-                } @else if $bp == 'lg' {
-                    @include from-lg {
-                        &:#{$state} {
-                            #{$property}: $value;
-                        }
-                    }
-                } @else if $bp == 'xl' {
-                    @include from-xl {
-                        &:#{$state} {
-                            #{$property}: $value;
-                        }
-                    }
-                } @else if $bp == 'xxl' {
-                    @include from-xxl {
-                        &:#{$state} {
-                            #{$property}: $value;
-                        }
+                @include from-breakpoint($bp) {
+                    &:#{$state} {
+                        #{$property}: $value;
                     }
                 }
             }
@@ -170,26 +101,8 @@
             $derived-class: #{$bp}\:#{$class};
 
             #{build-selector($derived-class, $child-selector)} {
-                @if $bp == 'sm' {
-                    @include from-sm {
-                        @include make-properties($props);
-                    }
-                } @else if $bp == 'md' {
-                    @include from-md {
-                        @include make-properties($props);
-                    }
-                } @else if $bp == 'lg' {
-                    @include from-lg {
-                        @include make-properties($props);
-                    }
-                } @else if $bp == 'xl' {
-                    @include from-xl {
-                        @include make-properties($props);
-                    }
-                } @else if $bp == 'xxl' {
-                    @include from-xxl {
-                        @include make-properties($props);
-                    }
+                @include from-breakpoint($bp) {
+                    @include make-properties($props);
                 }
             }
         }
