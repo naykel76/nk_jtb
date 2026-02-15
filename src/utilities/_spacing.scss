@@ -2,7 +2,6 @@
 @use '../functions/map-and-list-helpers' as *;
 @use '../maps_and_variables' as *;
 @use '../mixins/build-system/controllers' as *;
-@use '../mixins/build-magic-classes' as *;
 @use 'sass:map';
 
 // ============================================================================
@@ -75,7 +74,3 @@ $compound-spacing: (
         child-combinator: true,
     ),
 ), $responsive: false);
-
-// magic classes
-@include build-magic-classes('padding', $padding-magic-y, 'py', $position-or-axis: y);
-@include build-magic-classes('margin', $margin-magic-y, 'my', $position-or-axis: y);

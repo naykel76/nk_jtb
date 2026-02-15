@@ -6,6 +6,24 @@
 @use 'sass:map';
 
 // ============================================================================
+// Physical Position Map DEPRECATED
+// ============================================================================
+// Maps position keys to physical CSS properties (top, left, etc.).
+// Used for absolute/fixed positioning utilities that don't need logical properties.
+// ============================================================================
+// prettier-ignore
+$axis-position-map: (
+    xy: (top, bottom, left, right),
+    x: (left, right),
+    y: (top, bottom),
+    t: top,
+    b: bottom,
+    l: left,
+    r: right
+) !default;
+
+
+// ============================================================================
 // Property handler for value and position combinations
 // ============================================================================
 // If `$positions` is empty or falsey, applies a single property.

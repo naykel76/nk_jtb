@@ -1,0 +1,30 @@
+// ============================================================================
+// MAGIC CLASSES
+// ============================================================================
+// Consolidates all "magic" responsive classes that generate values per breakpoint.
+// These create classes that adapt to breakpoints without explicit media queries.
+// ============================================================================
+
+@use '../maps_and_variables/value-maps' as *;
+@use '../mixins/build-magic-classes' as *;
+@use '../mixins/build-magic-grid' as *;
+
+// ============================================================================
+// SPACING MAGIC CLASSES
+// ============================================================================
+
+// py-* classes: padding-y responsive
+@include build-magic-classes('padding', $padding-magic-y, 'py', $position-or-axis: y);
+
+// my-* classes: margin-y responsive
+@include build-magic-classes('margin', $margin-magic-y, 'my', $position-or-axis: y);
+
+// ============================================================================
+// GRID MAGIC CLASSES
+// ============================================================================
+
+// gap-* classes: gap responsive
+@include build-magic-classes(gap, ($magic-gap-patterns), 'gap');
+
+// cols-* classes: grid-template-columns responsive
+@include build-magic-grid($magic-grid-patterns);

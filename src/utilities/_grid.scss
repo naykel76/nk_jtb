@@ -1,9 +1,6 @@
-// Explicit dependencies
 @use '../maps_and_variables' as *;
 @use '../functions/classes' as *;
 @use '../mixins/build-system/controllers' as *;
-@use '../mixins/build-magic-grid' as *;
-@use '../mixins/build-magic-classes' as *;
 @use 'sass:map';
 
 .grid {
@@ -35,7 +32,3 @@ $grid-properties-map: (
 // BUILDS
 // ============================================================================
 @include build-classes($grid-properties-map, $responsive: true);
-
-// -- Magic Classes --
-@include build-magic-classes(gap, ($magic-gap-patterns), 'gap');
-@include build-magic-grid($magic-grid-patterns);

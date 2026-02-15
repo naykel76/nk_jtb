@@ -50,14 +50,11 @@ $list-prefix: 'lst' !default;
 $table-prefix: 'tbl-' !default;
 
 // ============================================================================
-// Logical Position Map
+// Logical Properties
 // ============================================================================
-// Maps position keys to logical CSS properties for internationalization support.
-//
-// Uses individual longhand properties (margin-block-start, etc.) instead of
-// shorthand (margin-block) to allow fine-grained overrides of individual edges.
-// ============================================================================
-// prettier-ignore
+
+// Maps directional keys (t, l, x, etc.) to logical CSS properties for 
+// internationalization support. Works with margin, padding, inset, etc.
 $logical-position-map: (
     // Full axes
     xy: (block-start, block-end, inline-start, inline-end),
@@ -71,33 +68,10 @@ $logical-position-map: (
     r: inline-end,
 ) !default;
 
-$logical-edges-map: map.remove($logical-position-map, 'xy', 'x', 'y') !default; // Individual edges only
-// ============================================================================
-// Physical Position Map
-// ============================================================================
-// Maps position keys to physical CSS properties (top, left, etc.).
-// Used for absolute/fixed positioning utilities that don't need logical properties.
-// ============================================================================
-// prettier-ignore
-$axis-position-map: (
-    xy: (top, bottom, left, right),
-    x: (left, right),
-    y: (top, bottom),
-    t: top,
-    b: bottom,
-    l: left,
-    r: right
-) !default;
+// Individual edges only (removes composite x, y, xy)
+$logical-edges-map: map.remove($logical-position-map, 'xy', 'x', 'y') !default;
 
-// Subsets for specific use cases
-$tblr-positions-map: map.remove($axis-position-map, 'x', 'y') !default; // Individual edges only
-$xy-positions-map: map.remove($axis-position-map, 't', 'b', 'l', 'r') !default; // Axes only
-
-// ============================================================================
-// Border Radius Corners Map
-// ============================================================================
-// Maps corner keys to border-radius properties for corner-specific utilities.
-// ============================================================================
+// Maps corner/side keys to logical border-radius properties
 // prettier-ignore
 $border-radius-corners-map: (
     t: (top-left-radius, top-right-radius),
