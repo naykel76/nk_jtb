@@ -1,85 +1,52 @@
-@use '../mixins/media-container-queries' as *;
-@use "sass:list";
+@use 'sass:list';
 @use 'sass:map';
-
-@function derived-class($list) {
-    $num-breakpoints: list.length($list);
-    $base-value: list.nth($list, -1);
-    $sm-value: list.nth($list, -2);
-    $md-value: if($num-breakpoints >= 3, list.nth($list, -3), null);
-    $lg-value: if($num-breakpoints >= 4, list.nth($list, -4), null);
-    $xl-value: if($num-breakpoints >= 5, list.nth($list, -5), null);
-    $xxl-value: if($num-breakpoints >= 6, list.nth($list, -6), null);
-
-    @if $num-breakpoints == 2 {
-        @return #{$sm-value}-#{$base-value};
-    } @else if $num-breakpoints == 3 {
-        @return #{$md-value}-#{$sm-value}-#{$base-value};
-    } @else if $num-breakpoints == 4 {
-        @return #{$lg-value}-#{$md-value}-#{$sm-value}-#{$base-value};
-    } @else if $num-breakpoints == 5 {
-        @return #{$xl-value}-#{$lg-value}-#{$md-value}-#{$sm-value}-#{$base-value};
-    } @else if $num-breakpoints == 6 {
-        @return #{$xxl-value}-#{$xl-value}-#{$lg-value}-#{$md-value}-#{$sm-value}-#{$base-value};
-    }
-}
+@use '../mixins/media-container-queries' as *;
+@use '../mixins/magic-shared' as *;
 
 // ============================================================================
 // Grid Column Utilities
-// --------------------------------------------------------------------------
+// ============================================================================
 // Builds responsive grid-template-columns classes like:
 //   .cols-3-2-1 → 1fr 1fr 1fr at base, 2fr at sm, 3fr at md
 // Each list must contain at least 2 values.
 // ============================================================================
 @mixin build-magic-grid($listsOfValues) {
-    $identifier: cols;
+    $identifier: 'cols';
 
     @each $list in $listsOfValues {
-        // exclude empty list when creating single list
         @if $list != () {
+            $bp-values: get-breakpoint-values($list);
             $num-breakpoints: list.length($list);
+            $derived-class: derived-class($list, $identifier);
 
-            // set the value of the BP based on position using negative
-            // numbers. This makes sure the position is always the same
-            $base-value: list.nth($list, -1);
-            $sm-value: list.nth($list, -2);
-            $md-value: if($num-breakpoints >= 3, list.nth($list, -3), null);
-            $lg-value: if($num-breakpoints >= 4, list.nth($list, -4), null);
-            $xl-value: if($num-breakpoints >= 5, list.nth($list, -5), null);
-            $xxl-value: if($num-breakpoints >= 6, list.nth($list, -6), null);
-            $derived-class: derived-class($list);
-
-            // You want ALL classes to have the opportunity to build
-            // so DO NOT use else-if statements
-            .#{$identifier}-#{$derived-class} {
-                grid-template-columns: repeat(list.nth($list, -1), 1fr);
+            .#{$derived-class} {
+                grid-template-columns: repeat(map.get($bp-values, base), 1fr);
 
                 @include from-sm {
-                    // grid-template-columns: list.nth(map.get($fr-conversion-map, $sm-value), 1) list.nth(map.get($fr-conversion-map, $sm-value), 2);
-                    grid-template-columns: repeat(list.nth($list, -2), 1fr);
+                    grid-template-columns: repeat(map.get($bp-values, sm), 1fr);
                 }
 
                 @if $num-breakpoints >= 3 {
                     @include from-md {
-                        grid-template-columns: repeat(list.nth($list, -3), 1fr);
+                        grid-template-columns: repeat(map.get($bp-values, md), 1fr);
                     }
                 }
 
                 @if $num-breakpoints >= 4 {
                     @include from-lg {
-                        grid-template-columns: repeat(list.nth($list, -4), 1fr);
+                        grid-template-columns: repeat(map.get($bp-values, lg), 1fr);
                     }
                 }
 
                 @if $num-breakpoints >= 5 {
                     @include from-xl {
-                        grid-template-columns: repeat(list.nth($list, -5), 1fr);
+                        grid-template-columns: repeat(map.get($bp-values, xl), 1fr);
                     }
                 }
 
                 @if $num-breakpoints >= 6 {
                     @include from-xxl {
-                        grid-template-columns: repeat(list.nth($list, -6), 1fr);
+                        grid-template-columns: repeat(map.get($bp-values, xxl), 1fr);
                     }
                 }
             }

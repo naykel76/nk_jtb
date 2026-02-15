@@ -5,15 +5,13 @@
 // consistent data access.
 // =========================================================================
 
-@function get-breakpoints($breakpoints) {
-    $default-breakpoints: ('sm', 'md', 'lg', 'xl');
+@use '../maps_and_variables/config' as *;
 
+@function get-breakpoints($breakpoints) {
     @return if($breakpoints == null, $default-breakpoints, $breakpoints);
 }
 
 @function get-states($states) {
-    $default-states: ('hover', 'focus', 'active');
-
     @return if($states == null, $default-states, $states);
 }
 

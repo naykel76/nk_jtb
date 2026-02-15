@@ -1,12 +1,11 @@
-// stylelint-disable at-rule-empty-line-before
-// stylelint-disable scss/at-mixin-pattern
+@use 'sass:map';
+@use 'sass:list';
 @use '../maps_and_variables/base' as *;
 
 // ============================================================================
 // Responsive Query Mixins
 // ============================================================================
-// Unified mixins for both media queries and container queries with separate
-// naming conventions to avoid confusion.
+// Unified mixins for both media queries and container queries.
 //
 // Media queries support all patterns:
 // - on-{size}: Target specific breakpoint range only
@@ -26,175 +25,92 @@
 // ============================================================================
 // Internal Core Query Logic - Single Source of Truth
 // ============================================================================
-// These mixins contain the actual query logic and accept a $type parameter
-// to switch between 'media' and 'container' queries.
-// ============================================================================
 
-// FROM pattern mixins (breakpoint and larger)
-@mixin _from-sm($type) {
+@mixin _from($breakpoint, $type) {
+    $bp: map.get($breakpoints, $breakpoint);
     @if $type == 'container' {
-        @container (width >= #{$sm}) { @content; }
+        @if $breakpoint == 'xxl' {
+            @container (width >= calc(#{$bp} - 50px)) { @content; }
+        } @else {
+            @container (width >= #{$bp}) { @content; }
+        }
     } @else {
-        @media (width >= #{$sm}) { @content; }
+        @media (width >= #{$bp}) { @content; }
     }
 }
 
-@mixin _from-md($type) {
-    @if $type == 'container' {
-        @container (width >= #{$md}) { @content; }
+@mixin _on($breakpoint, $type) {
+    $bp: map.get($breakpoints, $breakpoint);
+    $breakpoint-names: ('sm', 'md', 'lg', 'xl', 'xxl');
+    $current-index: list.index($breakpoint-names, $breakpoint);
+    $next-bp: null;
+
+    @if $current-index and $current-index < list.length($breakpoint-names) {
+        $next-bp: map.get($breakpoints, list.nth($breakpoint-names, $current-index + 1));
+    }
+
+    @if $next-bp != null {
+        @if $type == 'container' {
+            @container (#{$bp} <= width < #{$next-bp}) { @content; }
+        } @else {
+            @media (#{$bp} <= width < #{$next-bp}) { @content; }
+        }
     } @else {
-        @media (width >= #{$md}) { @content; }
+        @if $type == 'container' {
+            @container (width >= #{$bp}) { @content; }
+        } @else {
+            @media (width >= #{$bp}) { @content; }
+        }
     }
 }
 
-@mixin _from-lg($type) {
+@mixin _to($breakpoint, $type) {
+    $bp: map.get($breakpoints, $breakpoint);
     @if $type == 'container' {
-        @container (width >= #{$lg}) { @content; }
+        @container (width < #{$bp}) { @content; }
     } @else {
-        @media (width >= #{$lg}) { @content; }
-    }
-}
-
-@mixin _from-xl($type) {
-    @if $type == 'container' {
-        @container (width >= #{$xl}) { @content; }
-    } @else {
-        @media (width >= #{$xl}) { @content; }
-    }
-}
-
-@mixin _from-xxl($type) {
-    @if $type == 'container' {
-        @container (width >= calc(#{$xxl} - 50px)) { @content; }
-    } @else {
-        @media (width >= #{$xxl}) { @content; }
-    }
-}
-
-// ON pattern mixins (specific breakpoint range only)
-@mixin _on-sm($type) {
-    @if $type == 'container' {
-        @container (#{$sm} <= width < #{$md}) { @content; }
-    } @else {
-        @media (#{$sm} <= width < #{$md}) { @content; }
-    }
-}
-
-@mixin _on-md($type) {
-    @if $type == 'container' {
-        @container (#{$md} <= width < #{$lg}) { @content; }
-    } @else {
-        @media (#{$md} <= width < #{$lg}) { @content; }
-    }
-}
-
-@mixin _on-lg($type) {
-    @if $type == 'container' {
-        @container (#{$lg} <= width < #{$xl}) { @content; }
-    } @else {
-        @media (#{$lg} <= width < #{$xl}) { @content; }
-    }
-}
-
-@mixin _on-xl($type) {
-    @if $type == 'container' {
-        @container (#{$xl} <= width < #{$xxl}) { @content; }
-    } @else {
-        @media (#{$xl} <= width < #{$xxl}) { @content; }
-    }
-}
-
-@mixin _on-xxl($type) {
-    @if $type == 'container' {
-        @container (width >= #{$xxl}) { @content; }
-    } @else {
-        @media (width >= #{$xxl}) { @content; }
-    }
-}
-
-// TO pattern mixins (up to but not including breakpoint)
-@mixin _to-sm($type) {
-    @if $type == 'container' {
-        @container (width < #{$sm}) { @content; }
-    } @else {
-        @media (width < #{$sm}) { @content; }
-    }
-}
-
-@mixin _to-md($type) {
-    @if $type == 'container' {
-        @container (width < #{$md}) { @content; }
-    } @else {
-        @media (width < #{$md}) { @content; }
-    }
-}
-
-@mixin _to-lg($type) {
-    @if $type == 'container' {
-        @container (width < #{$lg}) { @content; }
-    } @else {
-        @media (width < #{$lg}) { @content; }
-    }
-}
-
-@mixin _to-xl($type) {
-    @if $type == 'container' {
-        @container (width < #{$xl}) { @content; }
-    } @else {
-        @media (width < #{$xl}) { @content; }
+        @media (width < #{$bp}) { @content; }
     }
 }
 
 // ============================================================================
 // Public API - Media Query Mixins
 // ============================================================================
-// These are the mixins developers use directly. They call the internal
-// core mixins with 'media' as the type parameter.
-// ============================================================================
 
-// FROM pattern - breakpoint and larger
-@mixin from-sm { @include _from-sm('media') { @content; } }
-@mixin from-md { @include _from-md('media') { @content; } }
-@mixin from-lg { @include _from-lg('media') { @content; } }
-@mixin from-xl { @include _from-xl('media') { @content; } }
-@mixin from-xxl { @include _from-xxl('media') { @content; } }
+@mixin from-sm { @include _from('sm', 'media') { @content; } }
+@mixin from-md { @include _from('md', 'media') { @content; } }
+@mixin from-lg { @include _from('lg', 'media') { @content; } }
+@mixin from-xl { @include _from('xl', 'media') { @content; } }
+@mixin from-xxl { @include _from('xxl', 'media') { @content; } }
 
-// ON pattern - specific breakpoint range only
-@mixin on-sm { @include _on-sm('media') { @content; } }
-@mixin on-md { @include _on-md('media') { @content; } }
-@mixin on-lg { @include _on-lg('media') { @content; } }
-@mixin on-xl { @include _on-xl('media') { @content; } }
-@mixin on-xxl { @include _on-xxl('media') { @content; } }
+@mixin on-sm { @include _on('sm', 'media') { @content; } }
+@mixin on-md { @include _on('md', 'media') { @content; } }
+@mixin on-lg { @include _on('lg', 'media') { @content; } }
+@mixin on-xl { @include _on('xl', 'media') { @content; } }
+@mixin on-xxl { @include _on('xxl', 'media') { @content; } }
 
-// TO pattern - up to but not including breakpoint
-@mixin to-sm { @include _to-sm('media') { @content; } }
-@mixin to-md { @include _to-md('media') { @content; } }
-@mixin to-lg { @include _to-lg('media') { @content; } }
-@mixin to-xl { @include _to-xl('media') { @content; } }
+@mixin to-sm { @include _to('sm', 'media') { @content; } }
+@mixin to-md { @include _to('md', 'media') { @content; } }
+@mixin to-lg { @include _to('lg', 'media') { @content; } }
+@mixin to-xl { @include _to('xl', 'media') { @content; } }
 
 // ============================================================================
 // Public API - Container Query Mixins
 // ============================================================================
-// These are the container query equivalents. They call the same internal
-// core mixins but with 'container' as the type parameter.
-// ============================================================================
 
-// FROM pattern - container width and larger
-@mixin cq-from-sm { @include _from-sm('container') { @content; } }
-@mixin cq-from-md { @include _from-md('container') { @content; } }
-@mixin cq-from-lg { @include _from-lg('container') { @content; } }
-@mixin cq-from-xl { @include _from-xl('container') { @content; } }
-@mixin cq-from-xxl { @include _from-xxl('container') { @content; } }
+@mixin cq-from-sm { @include _from('sm', 'container') { @content; } }
+@mixin cq-from-md { @include _from('md', 'container') { @content; } }
+@mixin cq-from-lg { @include _from('lg', 'container') { @content; } }
+@mixin cq-from-xl { @include _from('xl', 'container') { @content; } }
+@mixin cq-from-xxl { @include _from('xxl', 'container') { @content; } }
 
-// ON pattern - specific container width range only
-@mixin cq-on-sm { @include _on-sm('container') { @content; } }
-@mixin cq-on-md { @include _on-md('container') { @content; } }
-@mixin cq-on-lg { @include _on-lg('container') { @content; } }
-@mixin cq-on-xl { @include _on-xl('container') { @content; } }
-@mixin cq-on-xxl { @include _on-xxl('container') { @content; } }
+@mixin cq-on-sm { @include _on('sm', 'container') { @content; } }
+@mixin cq-on-md { @include _on('md', 'container') { @content; } }
+@mixin cq-on-lg { @include _on('lg', 'container') { @content; } }
+@mixin cq-on-xl { @include _on('xl', 'container') { @content; } }
+@mixin cq-on-xxl { @include _on('xxl', 'container') { @content; } }
 
-// TO pattern - up to but not including container width
-@mixin cq-to-sm { @include _to-sm('container') { @content; } }
-@mixin cq-to-md { @include _to-md('container') { @content; } }
-@mixin cq-to-lg { @include _to-lg('container') { @content; } }
-@mixin cq-to-xl { @include _to-xl('container') { @content; } }
+@mixin cq-to-sm { @include _to('sm', 'container') { @content; } }
+@mixin cq-to-md { @include _to('md', 'container') { @content; } }
+@mixin cq-to-lg { @include _to('lg', 'container') { @content; } }
+@mixin cq-to-xl { @include _to('xl', 'container') { @content; } }

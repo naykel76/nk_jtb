@@ -1,7 +1,8 @@
+@use 'sass:list';
 @use '../maps_and_variables/config' as *;
 @use '../mixins/media-container-queries' as *;
 @use '../mixins/build-system/make-properties' as *;
-@use 'sass:list';
+@use '../mixins/magic-shared' as *;
 @use 'sass:map';
 
 // ============================================================================
@@ -17,31 +18,6 @@
     } @else {
         @include make-position-properties($property, $value, $positions);
     }
-}
-
-// ============================================================================
-// Generate a responsive class name from a value list
-// ============================================================================
-// Builds a compound class name using each item in `$list`, preserving order.
-// If `$is-parent` is true, adds `c-` prefix and appends `> *` selector.
-// Used for creating utility class names with breakpoint suffixes.
-// ----------------------------------------------------------------------------
-@function derived-class($identifier, $list, $is-parent) {
-    $num-breakpoints: list.length($list);
-    $class: null;
-
-    @for $i from $num-breakpoints through 1 {
-        $class: if($class == null, list.nth($list, -$i), #{$class}-#{list.nth($list, -$i)});
-    }
-
-    // if the class is a parent class, add the prefix
-    @if $is-parent {
-        $class: 'c-#{$identifier}-#{$class} > *';
-    } @else {
-        $class: '#{$identifier}-#{$class}';
-    }
-
-    @return $class;
 }
 
 // ============================================================================
@@ -64,48 +40,64 @@
     $position-or-axis: '',
     $is-parent: false
 ) {
-    // get the positions required to build up the class
-    // (x:(left, right), y:(top, bottom) ... etc)
     $positions: map.get($axis-position-map, $position-or-axis);
 
     @each $list in $values-list {
-        // exclude empty list when creating single list
         @if $list != () {
+            $bp-values: get-breakpoint-values($list);
             $num-breakpoints: list.length($list);
+            $class-base: derived-class($list, $identifier);
 
-            // set the value of the BP based on position using negative
-            // numbers. This makes sure the position is always the same
-            $base-value: list.nth($list, -1);
-            $sm-value: list.nth($list, -2);
-            $md-value: if($num-breakpoints >= 3, list.nth($list, -3), null);
-            $lg-value: if($num-breakpoints >= 4, list.nth($list, -4), null);
-            $xl-value: if($num-breakpoints >= 5, list.nth($list, -5), null);
-            $derived-class: derived-class($identifier, $list, $is-parent);
+            @if $is-parent {
+                .c-#{$class-base} > * {
+                    @include handle-magic-properties($property, map.get($bp-values, base), $positions);
 
-            // DO NOT use else-if statements when building the classes.
-            // You want to give all classes to the opportunity to build.
-            .#{$derived-class} {
-                @include handle-magic-properties($property, $base-value, $positions);
+                    @include from-sm {
+                        @include handle-magic-properties($property, map.get($bp-values, sm), $positions);
+                    }
 
-                @include from-sm {
-                    @include handle-magic-properties($property, $sm-value, $positions);
-                }
+                    @if $num-breakpoints >= 3 {
+                        @include from-md {
+                            @include handle-magic-properties($property, map.get($bp-values, md), $positions);
+                        }
+                    }
 
-                @if $num-breakpoints >= 3 {
-                    @include from-md {
-                        @include handle-magic-properties($property, $md-value, $positions);
+                    @if $num-breakpoints >= 4 {
+                        @include from-lg {
+                            @include handle-magic-properties($property, map.get($bp-values, lg), $positions);
+                        }
+                    }
+
+                    @if $num-breakpoints >= 5 {
+                        @include from-xl {
+                            @include handle-magic-properties($property, map.get($bp-values, xl), $positions);
+                        }
                     }
                 }
+            } @else {
+                .#{$class-base} {
+                    @include handle-magic-properties($property, map.get($bp-values, base), $positions);
 
-                @if $num-breakpoints >= 4 {
-                    @include from-lg {
-                        @include handle-magic-properties($property, $lg-value, $positions);
+                    @include from-sm {
+                        @include handle-magic-properties($property, map.get($bp-values, sm), $positions);
                     }
-                }
 
-                @if $num-breakpoints >= 5 {
-                    @include from-xl {
-                        @include handle-magic-properties($property, $xl-value, $positions);
+                    @if $num-breakpoints >= 3 {
+                        @include from-md {
+                            @include handle-magic-properties($property, map.get($bp-values, md), $positions);
+                        }
+                    }
+
+                    @if $num-breakpoints >= 4 {
+                        @include from-lg {
+                            @include handle-magic-properties($property, map.get($bp-values, lg), $positions);
+                        }
+                    }
+
+                    @if $num-breakpoints >= 5 {
+                        @include from-xl {
+                            @include handle-magic-properties($property, map.get($bp-values, xl), $positions);
+                        }
                     }
                 }
             }

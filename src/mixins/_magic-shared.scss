@@ -1,0 +1,54 @@
+@use 'sass:list';
+
+// ============================================================================
+// Shared utilities for magic class generation
+// ============================================================================
+
+// ============================================================================
+// Generate a responsive class name from a value list
+// ============================================================================
+// Builds a compound class name using each item in `$list`, preserving order.
+// If `$identifier` is provided, prepends it to the class name.
+// If `$suffix` is provided, appends it to the class name.
+// ----------------------------------------------------------------------------
+@function derived-class($list, $identifier: '', $suffix: '') {
+    $num-items: list.length($list);
+    $class: '';
+
+    @for $i from $num-items through 1 {
+        @if $class == '' {
+            $class: #{list.nth($list, $i)};
+        } @else {
+            $class: #{$class}-#{list.nth($list, $i)};
+        }
+    }
+
+    @if $identifier != '' {
+        $class: '#{$identifier}-#{$class}';
+    }
+
+    @if $suffix != '' {
+        $class: '#{$class}-#{$suffix}';
+    }
+
+    @return $class;
+}
+
+// ============================================================================
+// Extract breakpoint values from a value list
+// ============================================================================
+// Returns a map with values for each breakpoint tier: base, sm, md, lg, xl, xxl
+// Uses negative indices to always get values in order: base is last, etc.
+// ----------------------------------------------------------------------------
+@function get-breakpoint-values($list) {
+    $num-breakpoints: list.length($list);
+
+    @return (
+        base: list.nth($list, -1),
+        sm: list.nth($list, -2),
+        md: if($num-breakpoints >= 3, list.nth($list, -3), null),
+        lg: if($num-breakpoints >= 4, list.nth($list, -4), null),
+        xl: if($num-breakpoints >= 5, list.nth($list, -5), null),
+        xxl: if($num-breakpoints >= 6, list.nth($list, -6), null)
+    );
+}

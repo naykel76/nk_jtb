@@ -2,13 +2,8 @@
 // Helper functions and variables for class generation
 // ============================================================================
 @use '../../functions/strings' as *;
+@use '../../maps_and_variables/config' as *;
 @use 'sass:list';
-
-// ============================================================================
-// Properties that use split pattern: border-{position}-{end} instead of
-// {property}-{position} Example: border-top-width instead of border-width-top
-// ============================================================================
-$split-properties: ('border-width', 'border-style', 'border-color', 'border-radius');
 
 // ============================================================================
 // Build position-aware property name based on pattern
