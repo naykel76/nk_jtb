@@ -1,4 +1,4 @@
-@use '../maps_and_variables/components' as *;
+@use '../maps_and_variables/base' as *;
 
 table {
     border: $table-border-width solid $table-border-color;

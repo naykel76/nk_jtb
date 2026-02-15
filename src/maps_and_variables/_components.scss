@@ -8,15 +8,7 @@
 // ============================================================================
 // -- Table --
 // ============================================================================
-$table-border-color: $border-color !default; // Reuse base border color
-$table-border-width: 1px !default;
-$table-font-size: 0.875rem !default; // Smaller text for dense tables
-$table-header-bg: rgb(0 0 0 / 2%) !default; // Very subtle background
-$table-header-font-weight: 500 !default; // Medium weight for emphasis
-$table-header-letter-spacing: 0.05em !default; // Slight letter spacing
-$table-header-text-transform: uppercase !default; // UPPERCASE headers
-$table-padding-x: 0.75rem !default; // Horizontal cell padding
-$table-padding-y: 0.75rem !default; // Vertical cell padding
+// Now defined in _base.scss (table is a base element)
 
 // ============================================================================
 // -- Layout Components --

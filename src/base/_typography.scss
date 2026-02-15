@@ -81,7 +81,7 @@ pre {
 :is(a) {
     color: var(--text-link, $link-color);
     cursor: pointer;
-    text-decoration: inherit;
+    text-decoration: none;
 
     &:hover {
         color: var(--text-link-hover, $link-hover-color);

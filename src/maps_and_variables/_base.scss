@@ -40,9 +40,22 @@ $base-gap: 1.25rem !default; // Default gap between content blocks (flexbox, gri
 $base-padding: 1.25rem !default; // Default padding inside content containers
 
 // -- Border Defaults --
-// ============================================================================
 $border-color: oklch(92.8% 0.006 264.531deg) !default; // (gray-200 equivalent)
 $border: 1px solid $border-color !default;
+
+// -- Form Defaults --
+$placeholder-color: #c5c5c5 !default;
+
+// -- Table --
+$table-border-color: $border-color !default;
+$table-border-width: 1px !default;
+$table-font-size: 0.875rem !default;
+$table-header-bg: rgb(0 0 0 / 2%) !default;
+$table-header-font-weight: 500 !default;
+$table-header-letter-spacing: 0.05em !default;
+$table-header-text-transform: uppercase !default;
+$table-padding-x: 0.75rem !default;
+$table-padding-y: 0.75rem !default;
 
 // -- Miscellaneous --
 // ============================================================================
