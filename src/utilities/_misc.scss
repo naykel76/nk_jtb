@@ -1,4 +1,5 @@
-@use '../maps_and_variables' as *;
+@use '../maps_and_variables/base' as *;
+@use '../maps_and_variables/colors' as *;
 @use 'sass:map';
 
 .ends\:rounded-lg:first-child {
@@ -9,6 +10,12 @@
 .ends\:rounded-lg:last-child {
     border-end-end-radius: 0.5rem;
     border-start-end-radius: 0.5rem;
+}
+
+$zebra-alt-bg: hsl(0deg 0% 96%) !default;
+
+.zebra > *:nth-child(2n + 2):not(.primary, .secondary) {
+    background: $zebra-alt-bg;
 }
 
 // ============================================================================
@@ -91,4 +98,3 @@
         cursor: pointer;
     }
 }
-

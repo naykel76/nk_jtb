@@ -9,6 +9,7 @@
 // ----------------------------------------------------------------------------
 @function escape-decimal($int) {
     $escaped: '#{$int}';
+
     @return str-replace($escaped, '.', '\\.');
 }
 
@@ -103,11 +104,13 @@ $units: ('px', 'rem', 'em', 'vh', 'vw', 'vmin', 'vmax', '%');
 
 @function value-has-unit($value) {
     $value: to-string($value);
+
     @each $unit in $units {
         @if string.index($value, $unit) {
             @return true;
         }
     }
+
     @return false;
 }
 
@@ -160,5 +163,3 @@ $units: ('px', 'rem', 'em', 'vh', 'vw', 'vmin', 'vmax', '%');
 
     @return false;
 }
-
-

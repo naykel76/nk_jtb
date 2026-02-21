@@ -1,7 +1,6 @@
-@use '../maps_and_variables' as *;
-@use '../functions/classes' as *;
-@use '../functions/map-and-list-helpers' as *;
+@use '../maps_and_variables/property-maps' as *;
 @use '../mixins/breakpoint-utilities' as *;
+@use '../mixins/build-system/controllers' as *;
 
 $display-visibility-properties-map: (
     display: (
@@ -17,6 +16,7 @@ $display-visibility-properties-map: (
 // ============================================================================
 // Builds
 // ============================================================================
+@include build-classes($display-visibility-properties-map, $responsive: true);
 
 // --------------------------------------------------------------------------
 // Additional responsive utilities

@@ -53,19 +53,18 @@ $table-prefix: 'tbl-' !default;
 // Logical Properties
 // ============================================================================
 
-// Maps directional keys (t, l, x, etc.) to logical CSS properties for 
+// Maps directional keys (t, l, x, etc.) to logical CSS properties for
 // internationalization support. Works with margin, padding, inset, etc.
 $logical-position-map: (
     // Full axes
     xy: (block-start, block-end, inline-start, inline-end),
     x: (inline-start, inline-end),
     y: (block-start, block-end),
-
     // Individual directions
     t: block-start,
     b: block-end,
     l: inline-start,
-    r: inline-end,
+    r: inline-end
 ) !default;
 
 // Individual edges only (removes composite x, y, xy)
@@ -82,4 +81,29 @@ $border-radius-corners-map: (
     tr: top-right-radius,
     bl: bottom-left-radius,
     br: bottom-right-radius
+) !default;
+
+// to replace $border-radius-corners-map
+
+$border-radius-corners-map-logical: (
+    t: (
+        start-start-radius,
+        start-end-radius
+    ),
+    b: (
+        end-start-radius,
+        end-end-radius
+    ),
+    l: (
+        start-start-radius,
+        end-start-radius
+    ),
+    r: (
+        start-end-radius,
+        end-end-radius
+    ),
+    tl: start-start-radius,
+    tr: start-end-radius,
+    bl: end-start-radius,
+    br: end-end-radius
 ) !default;

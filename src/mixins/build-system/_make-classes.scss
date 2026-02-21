@@ -44,6 +44,7 @@
             @include from-breakpoint($bp) {
                 @if $positions {
                     $props: build-property-map($property, $positions, $value, meta.get-function('get-position-property'));
+
                     @include make-properties($props);
                 } @else {
                     #{$property}: $value;

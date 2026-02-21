@@ -1,3 +1,4 @@
+@use '../maps_and_variables/base' as *;
 
 // ============================================================================
 // -- LAYOUT ELEMENTS --
@@ -15,21 +16,12 @@ body {
 }
 
 :where(.nk-footer) {
-    background-color: $footer-bg;
+    // background-color: $footer-bg;
     color: #ccc;
     margin-top: auto; // force footer to the bottom
 }
 
-.copyright {
-    background-color: $copyright-bg;
-    border: 0; 
-    color: $copyright-text-color;
-    font-size: 0.9rem;
-    margin-top: 0;
-    padding: 0.5rem;
-    text-align: center;
-    width: 100%;
-}
+
 
 // ============================================================================
 // -- NAYKEL ADMIN STYLES --
@@ -60,23 +52,3 @@ body {
 }
 
 
-[x-cloak] {
-    display: none !important;
-}
-
-:where(*) > .ck-editor:not(:first-child) {
-    margin-block-start: 0 !important;
-}
-
-.ck-rounded-corners .ck.ck-editor__editable:not(.ck-editor__nested-editable),
-.ck.ck-editor__editable.ck-rounded-corners:not(.ck-editor__nested-editable) {
-    --ck-border-radius: 0.375rem;
-}
-
-.filepond--root {
-    margin-bottom: 0 !important;
-}
-
-.filepond--credits {
-    display: none;
-}

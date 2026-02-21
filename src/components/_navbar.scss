@@ -1,16 +1,14 @@
 @use '../maps_and_variables/components' as *;
 
 .navbar {
-    background: var(--navbar-bg);
-    padding: var(--navbar-padding-y) var(--navbar-padding-x);
+    background: $navbar-bg;
+    padding: $navbar-padding-y $navbar-padding-x;
 }
 
 .navbar,
 .navbar > .container {
     align-items: center;
     display: flex;
-
-    // font-weight: 500; // leave for no and work out override for menu
     justify-content: space-between;
 
     > ul > li {

@@ -78,7 +78,3 @@ src/
 
 - Draft/work → `docs-for-review/`
 - Finalized → move to `docs/`
-
-## References
-
-- `JTB_TO_TAILWIND_CROSSREFERENCE.md` - Class mappings for migration

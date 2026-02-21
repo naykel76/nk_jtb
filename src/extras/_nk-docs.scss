@@ -1,10 +1,9 @@
 /* stylelint-disable selector-type-no-unknown */
 @use '../functions/map-and-list-helpers' as *;
-@use '../mixins/backgrounds' as *;
-@use '../mixins/make-classes-old' as *;
-@use '../mixins/make-classes' as *;
 @use '../maps_and_variables/base' as *;
 @use '../maps_and_variables/colors' as *;
+@use '../mixins/backgrounds' as *;
+@use '../mixins/build-system/controllers' as *;
 @use 'sass:map';
 
 $question-color: #c40c9a !default;
@@ -16,13 +15,26 @@ $question-color: #c40c9a !default;
     background-color: var(--bg-body);
     display: flex;
 
+    h2 {
+        color: var(--primary);
+        font-size: 1.25rem;
+        margin-block-start: 4rem;
+    }
+
+    h2 + p {
+        margin-block-start: 0.5rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        margin-block-start: 1rem;
+    }
+
     :is(.left-sidebar, .right-sidebar) {
         background-color: var(--bg-surface);
         flex-shrink: 0;
         padding: $base-padding;
         width: 16rem;
-
-        /* Prevent sidebars from shrinking */
     }
 
     .left-sidebar {
@@ -56,47 +68,6 @@ $question-color: #c40c9a !default;
     }
 }
 
-// .docs-layout {
-//     background-color: var(--bg-body);
-//     display: grid;
-//     min-height: 100vh;
-
-//     .left-sidebar {
-//         background-color: var(--bg-surface);
-//         color: rgb(245 245 245);
-//         padding: $base-padding;
-//     }
-
-//     .toc {
-//         background-color: map.get($oklch-colors, 'slate-700');
-//         color: rgb(245 245 245);
-//         font-size: 0.75rem;
-
-//         // max-height: 100vh;
-//         // overflow-y: auto;
-//         padding: $base-padding;
-//         position: sticky;
-//         top: 0;
-
-//         a {
-//             color: rgb(245 245 245);
-//         }
-//     }
-
-//     // the container queries are used for the resizable container demo
-//     @include cq-from-sm {
-//         grid-template-columns: 250px 1fr 200px;
-//     }
-
-//     @include from-md {
-//         grid-template-columns: 250px 1fr 200px;
-//     }
-// }
-
-// :root {
-//     --question-color: #c40c9a;
-// }
-
 :is(h1, h2, h3, h4, h5, h6, question) {
     code {
         font-size: inherit;
@@ -111,21 +82,25 @@ $question-color: #c40c9a !default;
 
 .example {
     &-jtb {
-        background: repeating-linear-gradient(135deg,
+        background: repeating-linear-gradient(
+135deg,
                 rgb(252 231 243 / 20%),
                 rgb(252 231 243 / 20%) 20px,
                 rgb(249 168 212 / 20%) 20px,
-                rgb(249 168 212 / 20%) 40px);
+                rgb(249 168 212 / 20%) 40px
+);
         border-color: map.get($oklch-colors, 'pink-500');
         border-width: 3px;
     }
 
     &-utils {
-        background: repeating-linear-gradient(135deg,
+        background: repeating-linear-gradient(
+135deg,
                 rgb(219 234 254 / 20%),
                 rgb(219 234 254 / 20%) 20px,
                 rgb(147 197 253 / 20%) 20px,
-                rgb(147 197 253 / 20%) 40px);
+                rgb(147 197 253 / 20%) 40px
+);
         border-color: map.get($oklch-colors, 'blue-500');
         border-width: 3px;
 
@@ -171,23 +146,6 @@ discuss {
     padding: 1.25rem;
 }
 
-// Warm/Attention-grabbing:
-
-// bg-amber-50 border-amber-400 - soft amber glow
-// bg-orange-50 border-orange-400 - gentle orange highlight
-// bg-yellow-50 border-yellow-400 - classic highlight yellow
-
-// Cool/Professional:
-
-// bg-blue-50 border-blue-400 - calm, trustworthy
-// bg-sky-50 border-sky-400 - lighter, airier blue
-// bg-cyan-50 border-cyan-300 - modern, fresh
-
-// Bold/High contrast:
-
-// bg-purple-50 border-purple-500 - distinctive
-// bg-pink-50 border-pink-400 - energetic
-
 // ============================================================================
 // -- Torchlight Code Highlighting --
 // ============================================================================
@@ -226,7 +184,7 @@ pre code.torchlight {
     }
 
     details {
-        >summary {
+        > summary {
             &::marker,
             &::-webkit-details-marker {
                 display: none;

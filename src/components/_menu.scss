@@ -15,7 +15,7 @@
     color: inherit;
     display: flex;
     font-size: 0.875rem;
-    gap: 0.25rem; // space between icon and text ???
+    gap: 0.75rem;
     padding: $menu-padding-y $menu-padding-x;
     width: 100%; // buttons need this, doesn't hurt links
 
@@ -55,11 +55,13 @@
         margin-inline-start: calc($menu-icon-size + $menu-padding-x);
     }
 
-    // Icons container
+    // Icon and text wrapper - aligns icon with text, adds gap between them.
+    // Typically used in parent menu items that have a submenu (and thus a
+    // chevron icon).
     :where(.menu-icon, span:has(> svg)) {
         align-items: center;
         display: flex;
-        gap: 2rem;
+        gap: 0.75rem;
     }
 
     :where(svg) {
