@@ -5,8 +5,9 @@
 
 *Sensible defaults without over-styling.*
 
-> JTB is a Sass framework that gives you structure without dictating style. Build with
-> composable classes, override anything, and keep your markup readable.
+> JTB is a Sass framework that gives you structure without dictating style.
+> Build with composable classes, override anything, and keep your markup
+> readable.
 
 -------------------------------------------------------------------------------
 
@@ -17,23 +18,29 @@
 
 -------------------------------------------------------------------------------
 
-## Spacing Scale
+## To Do's
 
-| tailwind | px  | rem      |
-| -------- | --- | -------- |
-| 1        | 4   | 0.25rem  |
-| 1.5      | 6   | 0.375rem |
-| 2        | 8   | 0.5rem   |
-| 2.5      | 10  | 0.625rem |
-| 3        | 12  | 0.75rem  |
-| 3.5      | 14  | 0.875rem |
-| 4        | 16  | 1rem     |
-| 5        | 20  | 1.25rem  |
-| 6        | 24  | 1.5rem   |
-| 7        | 28  | 1.75rem  |
-| 8        | 32  | 2rem     |
-| 9        | 36  | 2.25rem  |
-| 9.5      | 38  | 2.375rem |
-| 10       | 40  | 2.5rem   |
-| 64       | 256 | 16rem    |
+- Take a look at the inset and border radius maps.They have been updated to
+  logical properties but the class names haven't been updated yet.
 
+- Review tailwind cross-referencing to make sure its accurate. Add this to
+  rules?
+
+- Look at display-visibility, add back media queries.
+
+- Create a reference table listing the classes and there layers. this will be
+  the high level overview .
+
+-------------------------------------------------------------------------------
+
+## Changes to consider
+
+| Pattern        | Tailwind  | JTB        |
+| -------------- | --------- | ---------- |
+| Text transform | uppercase | text-upper |
+
+-------------------------------------------------------------------------------
+
+## FAQ's
+
+How do i override the default styles?

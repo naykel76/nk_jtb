@@ -1,11 +1,5 @@
 # Page Layouts and Structures
 
-- [Main-Sidebar Layout (responsive grid)](#main-sidebar-layout-responsive-grid)
-- [Sidebar with Main Layout (responsive)](#sidebar-with-main-layout-responsive)
-- [Holly Grail](#holly-grail)
-- [Split Screen](#split-screen)
-- [Magazine](#magazine)
-
 ## Main-Sidebar Layout (responsive grid)
 
 <p class="txt-red">RESIZE NOT WORKING. ADD CONTAINER QUERIES FOR GRID</p>

@@ -1,6 +1,12 @@
 # NK JTB SCSS Framework
 
-**NEVER RECOMMEND USING !important**
+> **Important:** JTB is a Tailwind-like framework. The core principles are the
+> same, but there are subtle differences, mainly around naming conventions and
+> logical properties. Always refer to the JTB documentation for proper scales,
+> breakpoints, and logical properties before mapping anything. Tailwind values
+> are references for intent only, not direct mappings.
+
+**Read the Introduction and Conventions & Architecture Rules before using.**
 
 ## What to Use
 
@@ -63,18 +69,15 @@ src/
 
 **Use jtb-documentation skill for all documentation work.**
 
-Documentation lives in `docs-updated/` (symlink to external repository).
+**Directories:**
 
-**If symlink missing:**
-
-```powershell
-New-Item -Path "docs-updated" -ItemType SymbolicLink -Value "C:\Users\natha\sites\naykel\resources\views\docs\jtb"
-```
+- `docs/` - Finalized documentation
+- `docs-for-review/` - Work in progress
 
 **Workflow:**
 
-- New/updated docs → `docs-updated/`
-- Reviewing old docs → Edit in `docs/`, move to `docs-updated/` when finalized
+- Draft/work → `docs-for-review/`
+- Finalized → move to `docs/`
 
 ## References
 

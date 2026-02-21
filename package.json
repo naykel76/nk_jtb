@@ -13,9 +13,10 @@
         "debug": "vite --debug",
         "dev": "concurrently \"vite --open\" \"npm run watch\"",
         "play": "concurrently \"sass --watch --no-source-map ./src/play.scss:dist/css/play.css\" \"code dist/css/play.css\" \"code src/play.scss\"",
+        "utils": "concurrently \"sass --watch --no-source-map ./src/utilities.scss:dist/css/utilities.css\" \"code dist/css/utilities.css\" \"code src/utilities.scss\"",
         "watch": "sass --watch --no-source-map ./src/build.scss:dist/css/build.css",
         "lint": "stylelint **/*.scss --fix",
-        "lint:base": "stylelint **/base/*.scss --fix"
+        "lint:report": "stylelint \"**/*.scss\""
     },
     "devDependencies": {
         "autoprefixer": "^10.4.21",

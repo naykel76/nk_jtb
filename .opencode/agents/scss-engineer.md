@@ -112,26 +112,15 @@ $property-variants: (auto: auto, base: 1rem) !default;
 $property-map: smart-merge($property-variants, $property-values);
 ```
 
-## Documentation Style
+## Documentation
 
-Use existing docs as templates (border.md, display-and-visibility.md):
+See `jtb-documentation` skill for detailed documentation patterns.
 
-- **Format:** `+demo-folded` with visual examples
-- **Progressive complexity:** Base → variants → values
-- **Minimal prose:** Show, don't explain
-- **Grid layouts** for comparing variants
+**Key principles:**
+
 - **Only document what exists** (verify in SCSS first)
-
-```html +demo-folded
-<div class="grid gap lg:cols-3 tac">
-    <div class="bdr">
-        <code>bdr</code><br> Default
-    </div>
-    <div class="bdr-2">
-        <code>bdr-2</code><br> 2px
-    </div>
-</div>
-```
+- **Utilities:** Progressive complexity with `+demo-folded` and grid layouts
+- **Minimal prose:** Show code, don't explain
 
 ## Context-Aware Modifiers
 
@@ -148,11 +137,12 @@ Modifiers require component context:
 
 ## File References
 
-| Purpose           | File                    |
-| ----------------- | ----------------------- |
-| All documentation | `docs-updated/**/*.md`  |
-| Builder/Maker API | `docs-updated/api/*.md` |
-| Import order      | `src/build.scss`        |
+| Purpose           | File                      |
+| ----------------- | ------------------------- |
+| Work in progress  | `docs-for-review/**/*.md` |
+| Finalized docs    | `docs/**/*.md`            |
+| Builder/Maker API | `docs-for-review/api/*.md`|
+| Import order      | `src/build.scss`          |
 
 ## Common Tasks
 

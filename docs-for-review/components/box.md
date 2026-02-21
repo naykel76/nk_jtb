@@ -227,34 +227,3 @@ elements inside boxes automatically receive consistent vertical spacing:
     <p>The auto-spacing system handles margins, so you don't need utility classes for basic content flow.</p>
 </div>
 ```
-
--------------------------------------------------------------------------------
-
-## Accessibility Considerations
-
-- Use semantic HTML inside boxes (`<header>`, `<main>`, `<footer>` if
-  appropriate)
-- Ensure sufficient color contrast with themed boxes
-- The `.bx-title` class provides appropriate heading hierarchy
-- Keyboard navigation works naturally with focusable elements inside boxes
-
--------------------------------------------------------------------------------
-
-## Best Practices
-
-1. **Structure**: Use `.bx-header`, `.bx-content`, and `.bx-footer` for clear
-   organization
-2. **Spacing**: Let the auto-spacing system handle content gaps, use utilities
-   for specific needs
-3. **Theming**: Apply theme classes (`.primary`, `.teal`, etc.) to the `.bx`
-   element, not children
-4. **Responsiveness**: Combine with utility classes for responsive behavior
-5. **Nesting**: Keep nesting shallow - avoid boxes inside boxes inside boxes
-
--------------------------------------------------------------------------------
-
-## Related Components
-
-- **Cards**: Similar to boxes but with more opinionated styling
-- **Panels**: For collapsible content sections
-- **Modals**: Overlays that often use box styling internally
