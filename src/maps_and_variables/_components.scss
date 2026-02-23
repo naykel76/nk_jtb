@@ -1,7 +1,7 @@
 @use '../functions/color-functions' as *;
-@use './base' as *;
-@use './typography' as *;
-@use './colors' as *;
+@use '../maps_and_variables/base' as *;
+@use '../maps_and_variables/typography' as *;
+@use '../maps_and_variables/colors' as *;
 @use 'sass:color';
 @use 'sass:map';
 
@@ -68,11 +68,14 @@ $icon-sizes: (
 $menu-bg: $primary !default;
 $menu-padding-x: 0.75rem !default;
 $menu-padding-y: 0.5rem !default;
+$menu-icon-size: 1.25rem !default;
 
 $menu-hover-bg: map.get($oklch-colors, gray-100) !default;
-$menu-icon-size: 1.25rem !default;
-$menu-link-hover-color: map.get($oklch-colors, gray-900) !default;
 
+$menu-link-hover-color: inherit !default;
+$menu-link-underline-color: $primary !default;
+
+// $menu-link-hover-color: map.get($oklch-colors, gray-900) !default;
 
 // ============================================================================
 // -- navbar --

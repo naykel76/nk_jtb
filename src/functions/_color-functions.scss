@@ -1,4 +1,3 @@
-//
 @use 'sass:color';
 
 // ============================================================================
@@ -8,7 +7,6 @@
 // them is causing "already loaded" errors in the build process.
 $light-text: #fff !default;
 $dark-text: #333 !default;
-$text-color: $dark-text !default;
 
 // Shared threshold for consistency across all lightness calculations
 // for OKLCH (0-100 scale), for RGB (0-255 scale)
@@ -43,13 +41,12 @@ $lightness-threshold-rgb: 153 !default;
 // ============================================================================
 @function rgb-is-light($color, $threshold: $lightness-threshold-rgb) {
     $rgb-color: color.to-space($color, rgb);
-    
+
     // Calculate relative luminance using WCAG formula for perceived brightness
     // Human eyes are most sensitive to green (71.52%), red (21.26%), blue (7.22%)
-    $brightness: 0.2126 * color.channel($rgb-color, 'red') +
-        0.7152 * color.channel($rgb-color, 'green') +
-        0.0722 * color.channel($rgb-color, 'blue');
-    
+    $brightness: 0.2126 * color.channel($rgb-color, 'red') + 0.7152 * color.channel($rgb-color, 'green') + 0.0722 *
+        color.channel($rgb-color, 'blue');
+
     @return $brightness > $threshold;
 }
 
