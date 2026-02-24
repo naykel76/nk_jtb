@@ -3,6 +3,7 @@
 @use '../maps_and_variables/base' as *;
 @use '../maps_and_variables/colors' as *;
 @use '../mixins/backgrounds' as *;
+@use '../mixins/breakpoint-utilities' as *;
 @use '../mixins/build-system/controllers' as *;
 @use 'sass:map';
 
@@ -83,24 +84,24 @@ $question-color: #c40c9a !default;
 .example {
     &-jtb {
         background: repeating-linear-gradient(
-135deg,
-                rgb(252 231 243 / 20%),
-                rgb(252 231 243 / 20%) 20px,
-                rgb(249 168 212 / 20%) 20px,
-                rgb(249 168 212 / 20%) 40px
-);
+            135deg,
+            rgb(252 231 243 / 20%),
+            rgb(252 231 243 / 20%) 20px,
+            rgb(249 168 212 / 20%) 20px,
+            rgb(249 168 212 / 20%) 40px
+        );
         border-color: map.get($oklch-colors, 'pink-500');
         border-width: 3px;
     }
 
     &-utils {
         background: repeating-linear-gradient(
-135deg,
-                rgb(219 234 254 / 20%),
-                rgb(219 234 254 / 20%) 20px,
-                rgb(147 197 253 / 20%) 20px,
-                rgb(147 197 253 / 20%) 40px
-);
+            135deg,
+            rgb(219 234 254 / 20%),
+            rgb(219 234 254 / 20%) 20px,
+            rgb(147 197 253 / 20%) 20px,
+            rgb(147 197 253 / 20%) 40px
+        );
         border-color: map.get($oklch-colors, 'blue-500');
         border-width: 3px;
 

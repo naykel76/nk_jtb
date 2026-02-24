@@ -1,11 +1,25 @@
-// ============================================================================
-// Additional breakpoint utilities that aren't in the new system yet
-// These are needed by _display-visibility.scss
-// ============================================================================
 @use '../functions/classes' as *;
 @use '../mixins/build-system/breakpoint-handlers' as *;
 @use '../mixins/build-system/make-properties' as *;
 @use 'sass:map';
+
+// ============================================================================
+// Additional breakpoint utilities for responsive visibility classes
+// ============================================================================
+
+// ============================================================================
+// Generate responsive classes that apply FROM the specified breakpoints upward (mobile-first)
+// ============================================================================
+@mixin make-from-breakpoint($props, $identifier, $breakpoints, $child-selector: false) {
+    @each $bp in $breakpoints {
+        $derived-class: #{$bp}\:#{$identifier};
+        .#{$derived-class} {
+            @include from-breakpoint($bp) {
+                @include make-properties($props);
+            }
+        }
+    }
+}
 
 // ============================================================================
 // Generate responsive classes that apply ON the specified breakpoints

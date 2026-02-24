@@ -34,7 +34,8 @@ Finalized docs move to `docs/`.
 ### Rules
 
 - **Lead paragraph is the introduction** — no separate `## Introduction` section
-  ever
+  ever, except for conceptual overview documents that introduce foundational
+  framework concepts
 - **Lead introduces the class** — not just a vague description. Name the class,
   say what it does.
 - **Structure section always comes before Basic Usage** — shows the minimal

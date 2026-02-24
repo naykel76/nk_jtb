@@ -1,6 +1,8 @@
-@use 'sass:map';
-@use 'sass:list';
+// stylelint-disable at-rule-empty-line-before
+// stylelint-disable scss/at-mixin-pattern
 @use '../maps_and_variables/base' as *;
+@use 'sass:list';
+@use 'sass:map';
 
 // ============================================================================
 // Responsive Query Mixins
@@ -28,6 +30,7 @@
 
 @mixin _from($breakpoint, $type) {
     $bp: map.get($breakpoints, $breakpoint);
+
     @if $type == 'container' {
         @if $breakpoint == 'xxl' {
             @container (width >= calc(#{$bp} - 50px)) { @content; }
@@ -49,7 +52,7 @@
         $next-bp: map.get($breakpoints, list.nth($breakpoint-names, $current-index + 1));
     }
 
-    @if $next-bp != null {
+    @if $next-bp {
         @if $type == 'container' {
             @container (#{$bp} <= width < #{$next-bp}) { @content; }
         } @else {
@@ -66,6 +69,7 @@
 
 @mixin _to($breakpoint, $type) {
     $bp: map.get($breakpoints, $breakpoint);
+
     @if $type == 'container' {
         @container (width < #{$bp}) { @content; }
     } @else {
