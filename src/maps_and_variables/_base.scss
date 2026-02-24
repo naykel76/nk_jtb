@@ -44,6 +44,14 @@ $base-padding: 1.25rem !default; // Default padding inside content containers
 $border-color: oklch(92.8% 0.006 264.531deg) !default; // (gray-200 equivalent)
 $border: 1px solid $border-color !default;
 
+// -- Border Radius --
+$radius-sm: 0.25rem !default;
+$radius-base: 0.375rem !default;
+$radius-lg: 0.5rem !default;
+$radius-xl: 0.75rem !default;
+$radius-xxl: 1rem !default;
+$radius-full: 9999px !default;
+
 // -- Form Defaults --
 $placeholder-color: #c5c5c5 !default;
 

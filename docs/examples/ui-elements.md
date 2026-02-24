@@ -24,3 +24,25 @@
     </div>
 </div>
 ```
+
+## Buttons & Inputs
+
+```html +demo-folded
+<div class="space-y">
+    <div class="space-x-05">
+        <button class="btn primary xs">XS Button</button> <input class="xs" type="text" placeholder="XS input" />
+    </div>
+    <div class="space-x-05">
+        <button class="btn primary sm">SM Button</button><input class="sm" type="text" placeholder="SM input" />
+    </div>
+    <div class="space-x-05">
+        <button class="btn primary md">MD Button</button><input class="md" type="text" placeholder="MD input" />
+    </div>
+    <div class="space-x-05">
+        <button class="btn primary lg">LG Button</button><input class="lg" type="text" placeholder="LG input" />
+    </div>
+    <div class="space-x-05">
+        <button class="btn primary xl">XL Button</button><input class="xl" type="text" placeholder="XL input" />
+    </div>
+</div>
+```

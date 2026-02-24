@@ -1,30 +1,38 @@
 @use '../functions/color-functions' as *;
+@use '../maps_and_variables/base' as *;
 
 // ============================================================================
 // FORM VARIABLES
 // ============================================================================
 // Form control styling: input, select, textarea. Uses ctrl- prefix.
 // ============================================================================
-
 $ctrl-border-radius: 0.375rem !default;
 $ctrl-border: 1px solid rgb(0 0 0 / 15%) !default;
+$ctrl-line-height: 1.5 !default;
 
 $ctrl-bg-color: #fff !default;
 $ctrl-color: text-color($ctrl-bg-color) !default;
 
-$ctrl-font-size-xs: 0.625rem !default;
-$ctrl-font-size-sm: 0.75rem !default;
+$ctrl-font-size-xs: 0.75rem !default;
+$ctrl-font-size-sm: 0.875rem !default;
 $ctrl-font-size: 0.875rem !default;
-$ctrl-font-size-lg: 1.125rem !default;
+$ctrl-font-size-lg: 1rem !default;
+$ctrl-font-size-xl: 1.125rem !default;
 
-$ctrl-padding-y-xs: 0.25rem !default;
-$ctrl-padding-y-sm: 0.375rem !default;
-$ctrl-padding-y: 0.5rem !default; // base
-$ctrl-padding-y-lg: 0.75rem !default;
+$ctrl-padding-y-xs: 0.125rem !default;
+$ctrl-padding-y-sm: 0.255rem !default;
+$ctrl-padding-y: 0.375rem !default;
+$ctrl-padding-y-lg: 0.5rem !default;
+$ctrl-padding-y-xl: 0.625rem !default;
 
-$ctrl-padding-x-xs: 0.5rem !default;
+$ctrl-padding-x-xs: 0.625rem !default;
 $ctrl-padding-x-sm: 0.75rem !default;
-$ctrl-padding-x: 0.75rem !default; // base
-$ctrl-padding-x-lg: 1.5rem !default;
+$ctrl-padding-x: 0.875rem !default;
+$ctrl-padding-x-lg: 1rem !default;
+$ctrl-padding-x-xl: 1.25rem !default;
 
-$ctrl-line-height: 1.5 !default;
+$ctrl-radius-xs: $radius-sm !default;
+$ctrl-radius-sm: $radius-sm !default;
+$ctrl-radius: $radius-base !default;
+$ctrl-radius-lg: $radius-base !default;
+$ctrl-radius-xl: $radius-lg !default;

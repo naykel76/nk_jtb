@@ -21,6 +21,7 @@
     font-weight: 600;
     gap: 0.5rem; // spacing for icons
     justify-content: center;
+    padding-inline: 1.25rem;
     text-align: center;
     text-transform: $btn-text-transform;
     white-space: nowrap;
@@ -40,7 +41,23 @@
     > i {
         flex-shrink: 0; // prevent the icon from shrinking when button resizes or text wraps
         height: var(--icon-size, 1em); // match the icon height to the button's font-size for automatic scaling
-        width: var(--icon-size, 1em);  // match the icon width to the button's font-size for consistent sizing
+        width: var(--icon-size, 1em); // match the icon width to the button's font-size for consistent sizing
+    }
+
+    &.xs {
+        padding-inline: 0.625rem;
+    }
+
+    &.sm {
+        padding-inline: 0.875rem;
+    }
+
+    &.lg {
+        padding-inline: 1.5rem;
+    }
+
+    &.xl {
+        padding-inline: 2rem;
     }
 
     // ICON-ONLY BUTTON

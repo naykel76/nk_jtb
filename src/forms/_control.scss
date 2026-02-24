@@ -4,7 +4,7 @@
 // ============================================================================
 // -- CONTROL BASE PLACEHOLDER --
 // ============================================================================
-// Common structure for inputs, selects, textareas, and buttons.
+// Common structure for input, select, textarea, and buttons.
 // 1. Ensures consistent height/spacing across components
 // 2. Supports size modifiers
 
@@ -28,6 +28,7 @@
     position: relative;
 
     &.xs {
+        border-radius: $ctrl-radius-xs;
         font-size: $ctrl-font-size-xs;
         line-height: $ctrl-line-height;
         padding-block: $ctrl-padding-y-xs;
@@ -35,6 +36,7 @@
     }
 
     &.sm {
+        border-radius: $ctrl-radius-sm;
         font-size: $ctrl-font-size-sm;
         line-height: $ctrl-line-height;
         padding-block: $ctrl-padding-y-sm;
@@ -42,9 +44,18 @@
     }
 
     &.lg {
+        border-radius: $ctrl-radius-lg;
         font-size: $ctrl-font-size-lg;
-        line-height: 1.5rem;
+        line-height: $ctrl-line-height;
         padding-block: $ctrl-padding-y-lg;
         padding-inline: $ctrl-padding-x-lg;
+    }
+
+    &.xl {
+        border-radius: $ctrl-radius-xl;
+        font-size: $ctrl-font-size-xl;
+        line-height: $ctrl-line-height;
+        padding-block: $ctrl-padding-y-xl;
+        padding-inline: $ctrl-padding-x-xl;
     }
 }
