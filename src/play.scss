@@ -1,45 +1,25 @@
-// ============================================================================
-// Play file for testing the build system
-// ============================================================================
-
+@use './functions/map-and-list-helpers' as *;
+@use './maps_and_variables/base' as *;
+@use './maps_and_variables/colors' as *;
+@use './mixins/backgrounds' as *;
+@use './mixins/breakpoint-utilities' as *;
 @use './mixins/build-system/controllers' as *;
+@use 'sass:map';
 
-// ============================================================================
-// Test config - with positions
-// ============================================================================
-$properties-map: (
-    margin: (
-        prefix: 'm',
-        values: (0, 1),
-        unit: 'rem',
-        breakpoints: (md, lg),
-        positions: (x: (inline-start, inline-end), y: (block-start, block-end))
-    )
-);
+// prettier-ignore
+@include cq-make-on-breakpoint((visibility: hidden), 'invisible', $responsive-variants );
 
-// ============================================================================
-// Test: All layers
-// ============================================================================
-@include build-classes($properties-map, $responsive: true, $with-state: true);
+// prettier-ignore
+@include cq-make-on-breakpoint((visibility: visible), 'visible', $responsive-variants );
 
-// ============================================================================
-// Test: States only
-// ============================================================================
-// $test-states: (
-//     display: (
-//         prefix: 'd',
-//         values: (block, none),
-//         states: (hover, focus)
-//     )
-// );
-// @include build-state-classes($test-states, $with-state: true);
+// prettier-ignore
+@include cq-make-from-breakpoint((visibility: hidden), 'invisible', $responsive-variants );
 
-// ============================================================================
-// Test: Composite classes
-// ============================================================================
-// $composite: (
-//     'test-box': (
-//         props: (padding: 1rem, margin: 0.5rem)
-//     )
-// );
-// @include build-composite-classes($composite, $responsive: true);
+// prettier-ignore
+@include cq-make-from-breakpoint((visibility: visible), 'visible', $responsive-variants );
+
+// prettier-ignore
+@include cq-make-to-breakpoint((visibility: hidden), 'invisible', remove-from-list($responsive-variants, xxl));
+
+// prettier-ignore
+@include cq-make-to-breakpoint((visibility: visible), 'visible', remove-from-list($responsive-variants, xxl));

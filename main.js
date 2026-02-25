@@ -1,4 +1,6 @@
 import './src/build.scss'
+import './src/extras/_nk-docs.scss'
+import './src/extras/_nk-app.scss'
 import 'highlight.js/styles/github-dark.css'
 
 import Alpine from 'alpinejs'

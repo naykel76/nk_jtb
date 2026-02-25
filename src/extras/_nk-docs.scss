@@ -229,13 +229,11 @@ pre code.torchlight {
 // -- Container Queries --
 // ============================================================================
 .resizable-container {
-    border: 2px dashed var(--gray-300);
     border-radius: 0.5rem;
     container-name: demo-container;
     container-type: inline-size;
     max-width: 100%;
     overflow: auto;
-    padding: 1rem;
     position: relative;
     resize: horizontal;
     width: 100%;
