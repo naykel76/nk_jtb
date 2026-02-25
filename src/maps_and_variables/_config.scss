@@ -70,21 +70,6 @@ $logical-position-map: (
 // Individual edges only (removes composite x, y, xy)
 $logical-edges-map: map.remove($logical-position-map, 'xy', 'x', 'y') !default;
 
-// Maps corner/side keys to logical border-radius properties
-// prettier-ignore
-$border-radius-corners-map: (
-    t: (top-left-radius, top-right-radius),
-    b: (bottom-left-radius, bottom-right-radius),
-    l: (top-left-radius, bottom-left-radius),
-    r: (top-right-radius, bottom-right-radius),
-    tl: top-left-radius,
-    tr: top-right-radius,
-    bl: bottom-left-radius,
-    br: bottom-right-radius
-) !default;
-
-// to replace $border-radius-corners-map
-
 $border-radius-corners-map-logical: (
     t: (
         start-start-radius,

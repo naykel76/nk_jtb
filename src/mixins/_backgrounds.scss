@@ -1,22 +1,20 @@
-
 @use '../maps_and_variables/colors' as *;
+@use 'sass:color';
 @use 'sass:map';
 
 // ============================================================================
 // Stripe Background Mixin
 // ============================================================================
-// Creates diagonal striped backgrounds using Tailwind color scales.
+// Creates diagonal striped backgrounds using OKLCH color scales.
+// Colors are converted to sRGB at compile time for browser compatibility.
 //
-// Uses $tailwind-colors (hex values) instead of OKLCH because CSS gradients
-// work more reliably with hex/RGB values across all browsers.
-//
-// @param {String} $color-name - Name from $color-names (e.g., 'blue')
-// @param {Number} $stripe-width - Width of each stripe (default: 10px)
-// @param {Number} $angle - Angle of the stripes (default: 45deg)
+// @param {String} $color-name - Color name from $oklch-colors (e.g., 'blue')
+// @param {Number} $stripe-width - Width of each stripe (default: 3px)
+// @param {Number} $angle - Angle of the stripes (default: 135deg)
 // ---------------------------------------------------------------------------
 @mixin bg-stripes($color-name, $stripe-width: 3px, $angle: 135deg) {
-    $light: map.get($tailwind-colors, $color-name, '100');
-    $dark: map.get($tailwind-colors, $color-name, '300');
+    $light: color.to-space(map.get($oklch-colors, #{$color-name}-100), srgb);
+    $dark: color.to-space(map.get($oklch-colors, #{$color-name}-300), srgb);
 
     background: repeating-linear-gradient(
         $angle,

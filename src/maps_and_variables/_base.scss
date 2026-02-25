@@ -1,7 +1,8 @@
 // ============================================================================
-// BASE VARIABLES
+// FOUNDATION & RESET VARIABLES
 // ============================================================================
-// Foundation tokens: brand colors, fonts, spacing scale, breakpoints.
+// Tokens for brand colors, fonts, spacing scale, breakpoints, and base HTML
+// element resets (table, form etc.).
 // Component-specific variables belong in _components.scss.
 // ============================================================================
 @use 'sass:color';

@@ -14,19 +14,50 @@
 $heading-sizes: 2.25em, 1.75em, 1.5em, 1.25em, 1.125em, 1em !default;
 
 // -- Letter Spacing --
-$letter-spacing: ( tighter: -0.1em, tight: -0.05em, normal: 0em, wide: 0.05em, wider: 0.1em, widest: 0.25em) !default;
+$letter-spacing: (
+    tighter: -0.1em,
+    tight: -0.05em,
+    normal: 0em,
+    wide: 0.05em,
+    wider: 0.1em,
+    widest: 0.25em
+) !default;
 
-$text-base-variants: map.remove($theme-colors, 'danger', 'dark', 'info', 'light', 'success', 'warning') !default;
-$text-base-values: $base-colors !default;
-$text-base-map: smart-merge( $text-base-variants, $text-base-values) !default;
+
+// CHECK: i dont think these are being used????
+
+// -- Text Colors --
+$text-color-variants: (
+    'primary': $primary,
+    'secondary': $secondary,
+    'accent': $accent,
+    'muted': #6d767e,
+    'white': #fff
+) !default;
+$text-color-values: $base-colors !default;
+$text-color-map: smart-merge($text-color-variants, $text-color-values) !default;
 
 // -- Font Sizes --
 $font-size-map: list-to-map((1, 1.5, 2, 2.5, 3, 4)) !default;
 
 // -- Font Weights --
-$font-weight-map: ( thin: 100, extralight: 200, light: 300, normal: 400, medium: 500, semibold: 600, bold: 700, extrabold: 800, 'black': 900 ) !default;
+$font-weight-map: (
+    thin: 100,
+    extralight: 200,
+    light: 300,
+    normal: 400,
+    medium: 500,
+    semibold: 600,
+    bold: 700,
+    extrabold: 800,
+    'black': 900
+) !default;
 
 // -- Line Heights --
-$line-height-map: ( none: 1, tight: 1.25, normal: $line-height, relaxed: 1.75, loose: 2 ) !default;
-
-
+$line-height-map: (
+    none: 1,
+    tight: 1.25,
+    normal: $line-height,
+    relaxed: 1.75,
+    loose: 2
+) !default;

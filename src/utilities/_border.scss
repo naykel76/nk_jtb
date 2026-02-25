@@ -19,7 +19,7 @@ $border-properties-map: (
     border-color: ( prefix: #{$border-prefix}, values: smart-merge($theme-colors, $base-colors, $oklch-colors) ),
     border-radius: ( prefix: 'rounded-', values: $border-radius-map, unit: "rem" ),
     border-style: ( prefix: #{$border-prefix}, values: $border-styles, positions: $logical-position-map, omit-axis-keys: (xy) ),
-    border: ( prefix: 'rounded-', values: $border-radius-map, unit: 'rem', positions: $border-radius-corners-map ),
+    border: ( prefix: 'rounded-', values: $border-radius-map, unit: 'rem', positions: $border-radius-corners-map-logical ),
     outline-color: ( prefix: 'outline-', values: smart-merge($theme-colors, $base-colors, $oklch-colors) ),
     outline-offset: ( values: $outline-width-map, unit: 'px' ), // do not use prefix so it uses the property name
     outline-style: ( prefix: 'outline-', values: $outline-styles ),
