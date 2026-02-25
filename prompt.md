@@ -1,34 +1,335 @@
-# What are the goals of the new build system?
+## Issues & Actionable Tasks
 
-From what I understand:
-Where we are:
+---
 
-- The framework has an "old" build system in _build-classes.scss with a lot of functionality
-- We've started creating a new "build-system" in src/mixins/build-system/ with:
-  - _controllers.scss - orchestration (build-base-classes, build-responsive-classes, build-classes)
-  - _layers.scss - layer implementations (build-base-layer, build-responsive-layer)
-  - _make-classes.scss - the actual make mixins (make-base-class, make-responsive-class)
-  - _make-properties.scss - property generation
-  - _helpers.scss - helper functions/variables
-  
-Short term goals:
+### 🔴 Critical
 
-1. Get the new build-system to produce the same output as the old system
+**1. `_color-functions.scss` has a hardcoded hack that will bite you**
 
-Long term goals:
+```scss
+// NKTD: review this, I have hardcoded the text colors here
+$text-light: #fff !default;
+$text-dark: #333 !default;
+```
 
-1. Replace the old _build-classes.scss entirely with the new build-system
-2. Have a cleaner, more modular architecture
-3. Delete the old files once migration is complete
+The "already loaded" circular dependency is caused by your import graph.
+`_components.scss` uses `color-functions`, which needs colors from `_base.scss`,
+but your barrel file (`index.scss`) likely creates a cycle.
 
-4. Get parity - new system produces same output as old (class names, units, etc.)
-5. Add missing patterns - to:, on:, cq-: responsive patterns
-6. Migrate utilities - one by one, switch utilities to use new build-system Long Term Goals
-7. Replace old - delete _build-classes.scss and old files entirely
-8. Clean architecture - smaller, targeted files that are easier to maintain Does this match your understanding? Am I missing anything?
+**Fix:** Create a dedicated `_tokens.scss` that holds only raw color primitives
+(`$text-light`, `$text-dark`, threshold values) with zero dependencies, then
+`@use` it in both `_color-functions.scss` and `_base.scss`. This breaks the
+cycle properly.
 
------------------------------------------
+---
 
-## Create API docs for functions
+**2. `_state.scss` mixin calls `smart-adjust()` which doesn't exist in your
+codebase**
 
-Should this be one file or function,REA
+```scss
+// In _state.scss
+$hover-bg: if($bg, $bg, smart-adjust($base-color, $amount));
+```
+
+`smart-adjust()` is not defined anywhere in the files provided. This would cause
+a build error. You likely meant `color.adjust()` or have an unmigrated function.
+
+**Fix:** Define `smart-adjust()` in `_color-functions.scss` or replace with
+`color.adjust($base-color, $lightness: $amount)`.
+
+---
+
+**3. `_border.scss` has a config collision — `border-radius` is defined twice**
+
+```scss
+border-radius: ( prefix: 'rounded-', values: $border-radius-map, unit: "rem" ),
+border: ( prefix: 'rounded-', values: $border-radius-map, unit: 'rem', positions: $border-radius-corners-map-logical ),
+```
+
+Using `border` as a property key to generate `rounded-` corner classes is
+semantically wrong — `border` is a real CSS shorthand and this will produce
+broken CSS (e.g., `border: 0.25rem` instead of `border-radius`). The `positions`
+map is also using `border-radius-corners-map-logical` but the property is
+`border`, so `get-position-property()` will produce `border-tl`, `border-br`
+etc. rather than `border-radius-tl`.
+
+**Fix:** Use a dedicated key and specify the actual property:
+
+```scss
+border-radius-corners: (
+    property: 'border-radius',  // or handle via the positions mechanism
+    prefix: 'rounded-',
+    values: $border-radius-map,
+    unit: 'rem',
+    positions: $border-radius-corners-map-logical
+),
+```
+
+Or better — the build system needs a `property` override key in the config so
+the map key and the CSS property can differ.
+
+---
+
+### 🟡 Significant
+
+**4. The build system has no `property` override in config**
+
+Currently the map key in `$properties-map` *is* the CSS property. This forces
+the border-radius issue above, and makes it impossible to generate two different
+utility sets for the same property (e.g., two `background-color` configs with
+different prefixes without merging them first).
+
+**Fix:** Add optional `property` key support in `normalise-config()`:
+
+```scss
+$css-property: if(map.has-key($config, 'property'), map.get($config, 'property'), $property);
+```
+
+You already have this documented in a commented-out section of `_resolvers.scss`
+— finish implementing it.
+
+---
+
+**5. `_misc.scss` is a dumping ground that needs to be broken up**
+
+It contains: border radius utilities, zebra striping, aspect ratios, dividers, a
+sticky utility (which duplicates what `_layout.scss` generates for `position:
+sticky`), and a close button component. These belong in separate files or should
+be absorbed into the build system.
+
+**Actionable tasks:**
+
+- Move `.aspect-*` into `_sizing.scss` via the build system
+- Move `.divide-y` into `_border.scss`
+- Move `.sticky` — it's already generated by `_layout.scss`, so either remove
+  the duplicate or check if they conflict
+- Move `.close` into a `_components/` folder
+- Move `.c-py-*` and `.zebra` into appropriate files or document them as
+  intentional one-offs
+
+---
+
+**6. `_build-magic-classes.scss` has a deprecated map with a comment but no
+migration path**
+
+```scss
+// ============================================================================
+// Physical Position Map DEPRECATED
+// ============================================================================
+$axis-position-map: (...)
+```
+
+It's marked deprecated but is still actively used in `build-magic-classes()` via
+`map.get($axis-position-map, $position-or-axis)`. The magic classes system uses
+physical properties (`top`, `left`) while your main build system uses logical
+properties. This is an inconsistency that will cause RTL/i18n bugs.
+
+**Fix:** Migrate `build-magic-classes` to use `$logical-position-map` from
+`_config.scss` and delete the local `$axis-position-map`.
+
+---
+
+**7. Layer 3/4 (states) in `_make-classes.scss` doesn't support positional
+properties**
+
+```scss
+@mixin make-state-class($property, $class, $value, $states, $options: ()) {
+    @each $state in $states {
+        .#{$state}\:#{$class}:#{$state} {
+            #{$property}: $value;  // no position handling
+        }
+    }
+}
+```
+
+Compare to Layer 1 which handles `$positions` via `build-property-map()`. If you
+add state variants to a positional utility (e.g., `hover:m-x-2`), it will output
+a single `margin: value` instead of the correct `margin-inline-start/end`.
+
+**Fix:** Mirror the positional branching from `build-state-layer()` into
+`make-state-class()` — it already passes `$positions` in the layer mixin, the
+`make-*` function just ignores it.
+
+---
+
+**8. `_spacing.scss` has hardcoded `p-ctrl-*` composite classes that belong in
+`_forms.scss`**
+
+```scss
+$compound-spacing: (
+    'p-ctrl-sm': ( props: ( padding-block: $ctrl-padding-y-sm, padding-inline: $ctrl-padding-x-sm ) ),
+    ...
+```
+
+These depend on `$ctrl-*` variables from `_forms.scss` but live in
+`_spacing.scss`. This is a layering violation.
+
+**Fix:** Move `$compound-spacing` to `_forms.scss` or a dedicated
+`_form-utilities.scss`, keeping the build call there.
+
+---
+
+**9. `_gradients.scss` utility and `_gradients.scss` mixin are both named
+`gradients` — confusing**
+
+`src/mixins/_gradients.scss` contains reusable gradient mixins.
+`src/utilities/_gradients.scss` generates utility classes. The utility file uses
+neither the `@include gradient()` mixin nor the `@include gradient-to-r()`
+helpers — it reimplements the same logic inline with CSS custom properties
+instead.
+
+**Fix:** Either use the mixins in the utility file or document clearly that the
+mixin-based approach (`@include gradient-to-r($from, $to)`) is for
+component-level SCSS while the utility file is for HTML-class usage. The current
+state looks like two parallel implementations that weren't reconciled.
+
+---
+
+**10. `_animation.scss` has a massive block of commented-out code**
+
+Multiple full component implementations are commented out. This is dead weight
+in a production codebase.
+
+**Fix:** Delete commented-out blocks or move them to a `_experimental.scss`
+scratch file. Use version control for history, not comments.
+
+---
+
+### 🟢 Improvements
+
+**11. No `@layer` declarations**
+
+For a utility framework, cascade layers would give you clean specificity
+management (reset → base → components → utilities) without relying on source
+order.
+
+**Fix:**
+
+```scss
+@layer reset, base, components, utilities;
+@layer utilities { /* all build-system output */ }
+```
+
+**12. `_backgrounds.scss` builds state variants (`$with-state: true`) but other
+color utilities (`color` in `_typography.scss`) also build state variants
+separately**
+
+Both generate `:hover` state classes for colors. For background this includes
+the full `$oklch-colors` scale — that's potentially thousands of `.hover:bg-*`
+classes.
+
+**Fix:** Consider a `$hover-colors` subset map for state variants rather than
+the full OKLCH scale.
+
+**13. The `$exclude-units` list in `_classes.scss` mixes types**
+
+```scss
+$exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
+```
+
+`0` is a number, everything else is a string. `list.index()` uses `==` which in
+Sass is type-sensitive — `list.index($exclude-units, '0')` would return `null`.
+This may work coincidentally because values come in as numbers, but it's
+fragile.
+
+**Fix:** Be consistent — either `(auto, %, 0, fit-content, max-content,
+min-content)` (all unquoted) or test the behavior explicitly.
+
+**14. `_magic-shared.scss` `get-breakpoint-values()` uses negative list indices
+but doesn't validate minimum length**
+
+If someone passes a single-item list to `build-magic-classes()`,
+`list.nth($list, -2)` will throw a cryptic Sass error.
+
+**Fix:** Add a `@if list.length($list) < 2 { @error '...'; }` guard.
+
+**15. The `_normalise-config.scss` function name is British-spelled but the
+codebase uses American spelling elsewhere**
+
+Minor, but `normalise` vs `normalize` — pick one. More importantly, the file is
+`_normalise-config.scss` but the function is `normalise-config()` and the
+controller imports it as `normalise-config` — that's internally consistent at
+least.
+
+---
+
+## Class Summary
+
+Here's what your framework generates:
+
+**Colors & Theming** All `$oklch-colors` (22 hues × 11 steps = 242),
+`$base-colors` (22), `$theme-colors` (11) as: `.bg-{color}`, `.txt-{color}`,
+`.{color}` (full theme), `.{color}-outline`. Plus hover/focus states for color
+and background.
+
+**Spacing** — `.m-{axis}-{value}`, `.p-{axis}-{value}`, `.space-{x|y}-{value}`
+(child combinator), `.gap-{value}`. Magic responsive: `.py-{2-3-5}`,
+`.my-{3-5}`, `.gap-{2-3-5}`. Axes: xy, x, y, t, b, l, r.
+
+**Typography** — `.txt-{size}`, `.txt-{xs|sm|base|lg|xl|2xl}`, `.lead`,
+`.font-{weight}`, `.font-{serif|sans|mono}`, `.lh-{value}`,
+`.tac/.tal/.tar/.taj`, `.txt-{italic|bold|underline|upper|lower}`,
+`.whitespace-{value}`
+
+**Layout** — `.flex-col`, `.flex-row`, `.flex-centered`, `.flex-vac`,
+`.flex-hac`, `.flex-{1|2|auto|none}`, `.flex-{wrap|nowrap}`, `.fg-{0|1}`,
+`.fs-{0|1}`, `.order-{1-8}`, `.grid`, `.cols-{1-12}`, `.col-span-{1-12}`,
+`.gap-{value}`, `.justify-{value}`, `.items-{value}`, `.content-{value}`,
+`.self-{value}`, `.va-{t|c|b}`, `.ha-{l|c|r}`
+
+**Sizing** — `.w-{value}`, `.h-{value}`, `.min-w-`, `.max-w-`, `.min-h-`,
+`.max-h-`, `.wh-{value}`, `.min-wh-{value}`, `.aspect-{square|video|photo|auto}`
+
+**Borders** — `.bdr-{1-16}`, `.bdr-{t|b|l|r}-{value}`,
+`.rounded-{sm|base|lg|xl|xxl|full}`, `.rounded-{0.25|0.5...}`,
+`.rounded-{tl|tr|bl|br}-{value}`, `.bdr-{color}`, `.bdr-{solid|dashed|dotted}`,
+`.outline-{1-16}`, `.outline-{color}`, `.outline-offset-{value}`
+
+**Display/Visibility** — `.block`, `.flex`, `.hidden`, `.inline`,
+`.inline-flex`, `.table`, `.visible`, `.invisible` + responsive: `.sm:block`,
+`.on-sm:hidden`, `.to-md:flex` etc.
+
+**Effects** — `.shadow-{xs|sm|md|lg|xl|xxl|inner|none}`, `.opacity-{0-100}`
+
+**Positioning** — `.static`, `.absolute`, `.fixed`, `.relative`, `.sticky`,
+`.z-{auto|0|above|high|higher|highest}`, `.top-{value}`, `.bottom-`, `.left-`,
+`.right-`, `.inset-`
+
+**Transforms** — `.translate-{x|y}-{full|0|1-2}`, `.-translate-`,
+`.rotate-{90|180|270|-90|-180}`
+
+**Transitions** — `.transition`, `.transition-colors`, `.transition-opacity`,
+`.transition-shadow`, `.transition-transform`, `.transition-none`
+
+**Animations** —
+`.animate-{bounce|pulse|spin|pulse-ring|ping|checkmark|circle|none}`
+
+**Containers** — `.container`, `.container-{sm|md|lg|xl|xxl}`
+
+**Gradients** — `.bg-linear-to-{r|b|l|t|br|bl|tr|tl}`, `.from-{color}`,
+`.to-{color}`, `.bg-stripes-{color}`, `.bg-stripes-wide-{color}`
+
+**Responsive prefix pattern** applies to most utilities: `.sm:`, `.md:`, `.lg:`,
+`.xl:` (from), `.on-sm:` (exact range), `.to-sm:` (max-width). State prefixes:
+`.hover:`, `.focus:`, `.active:`.
+
+---
+
+## Prioritized Task List
+
+| Priority | Task                                                                                |
+| -------- | ----------------------------------------------------------------------------------- |
+| 🔴        | Fix `smart-adjust()` undefined function — likely build-breaking                     |
+| 🔴        | Fix `border` key collision generating wrong CSS for corner radius                   |
+| 🔴        | Resolve `_color-functions.scss` circular dep with a `_tokens.scss` primitive file   |
+| 🟡        | Add `property` override key to `normalise-config()`                                 |
+| 🟡        | Migrate magic classes to logical properties, delete deprecated `$axis-position-map` |
+| 🟡        | Fix state variants not supporting positional properties in `make-state-class()`     |
+| 🟡        | Move `p-ctrl-*` composite classes to `_forms.scss`                                  |
+| 🟡        | Clean up `_misc.scss` — distribute its contents to appropriate files                |
+| 🟡        | Reconcile dual gradient implementations (mixin vs utility)                          |
+| 🟢        | Add `@layer` declarations for cascade management                                    |
+| 🟢        | Limit state variant generation to a `$hover-colors` subset                          |
+| 🟢        | Fix `$exclude-units` type inconsistency                                             |
+| 🟢        | Add guard to `get-breakpoint-values()` for single-item lists                        |
+| 🟢        | Delete commented-out code blocks in `_animation.scss`                               |

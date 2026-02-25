@@ -70,25 +70,35 @@ $logical-position-map: (
 // Individual edges only (removes composite x, y, xy)
 $logical-edges-map: map.remove($logical-position-map, 'xy', 'x', 'y') !default;
 
+
+// Do not include 'radius' in logical property keys—only the direction (e.g.,
+// 'start-start'). Including '-radius' will generate incorrect properties like
+// 'border-start-start-radius-radius'.
 $border-radius-corners-map-logical: (
+    xy: (
+        start-start,
+        start-end,
+        end-start,
+        end-end
+    ),
     t: (
-        start-start-radius,
-        start-end-radius
+        start-start,
+        start-end
     ),
     b: (
-        end-start-radius,
-        end-end-radius
+        end-start,
+        end-end
     ),
     l: (
-        start-start-radius,
-        end-start-radius
+        start-start,
+        end-start
     ),
     r: (
-        start-end-radius,
-        end-end-radius
+        start-end,
+        end-end
     ),
-    tl: start-start-radius,
-    tr: start-end-radius,
-    bl: end-start-radius,
-    br: end-end-radius
+    tl: start-start,
+    tr: start-end,
+    bl: end-start,
+    br: end-end
 ) !default;

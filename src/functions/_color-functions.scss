@@ -1,12 +1,5 @@
+@use '../maps_and_variables/base' as *;
 @use 'sass:color';
-
-// ============================================================================
-// CONFIGURATION
-// ============================================================================
-// NKTD: review this, I have hardcoded the text colors here, because importing
-// them is causing "already loaded" errors in the build process.
-$light-text: #fff !default;
-$dark-text: #333 !default;
 
 // Shared threshold for consistency across all lightness calculations
 // for OKLCH (0-100 scale), for RGB (0-255 scale)
@@ -59,7 +52,7 @@ $lightness-threshold-rgb: 153 !default;
 // - All other colors (RGB, HSL, etc.) use RGB brightness calculation
 //
 // @param {Color} $bg-color - The background color to evaluate
-// @return {Color} - Either $dark-text or $light-text for optimal contrast
+// @return {Color} - Either $text-dark or $text-light for optimal contrast
 // ----------------------------------------------------------------------------
 @function text-color($bg-color) {
     // Detect which color space the background color is using
@@ -76,10 +69,10 @@ $lightness-threshold-rgb: 153 !default;
 
     // Return dark text for light backgrounds, light text for dark backgrounds
     @if $is-light {
-        @return $dark-text;
+        @return $text-dark;
     }
 
-    @return $light-text;
+    @return $text-light;
 }
 
 // ============================================================================
