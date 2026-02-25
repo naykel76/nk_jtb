@@ -19,7 +19,11 @@
 // Skips unit if value is 'auto' or 0
 // ============================================================================
 @mixin make-position-property($property, $value, $position, $unit: 'rem') {
-    $derived-unit: if(($value == 'auto' or $value == 0), null, $unit);
+    $derived-unit: $unit;
+
+    @if $value == 'auto' or $value == 0 {
+        $derived-unit: null;
+    }
 
     #{$property}-#{$position}: #{$value}#{$derived-unit};
 }

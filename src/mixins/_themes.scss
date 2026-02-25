@@ -15,15 +15,11 @@
     color: $font-color;
 }
 
-@mixin make-outline-theme(
-    $color,
-    $border-width: 1px
-) {
+@mixin make-outline-theme($color, $border-width: 1px) {
     background-color: transparent;
     border: $border-width solid $color;
     color: $color;
 }
-
 
 // ============================================================================
 // THEME SYSTEM - Builder Mixins
@@ -31,9 +27,16 @@
 
 @mixin build-basic-theme($class, $map) {
     $base: map.get($map, 'base');
+    $color: text-color($base);
+    $border-color: border-contrast($base);
 
-    $color: if(map.get($map, 'color'), map.get($map, 'color'), text-color($base));
-    $border-color: if(map.get($map, 'border-color'), map.get($map, 'border-color'), border-contrast($base));
+    @if map.get($map, 'color') {
+        $color: map.get($map, 'color');
+    }
+
+    @if map.get($map, 'border-color') {
+        $border-color: map.get($map, 'border-color');
+    }
 
     .#{$class} {
         @include make-basic-theme($base, $border-color, $color);
@@ -43,7 +46,7 @@
 @mixin build-outline-theme($class, $color, $border-width: 1px) {
     .#{$class} {
         @include make-outline-theme($color, $border-width);
-        
+
         &:hover:not(:disabled, .disabled) {
             background-color: $color;
             color: text-color($color);

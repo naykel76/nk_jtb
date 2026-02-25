@@ -76,7 +76,11 @@
 $exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
 
 @function handle-class-value($value, $unit) {
-    $derived-unit: if(list.index($exclude-units, $value), null, $unit);
+    $derived-unit: null;
+
+    @if not list.index($exclude-units, $value) {
+        $derived-unit: $unit;
+    }
 
     @return $value + $derived-unit;
 }
@@ -96,7 +100,11 @@ $exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
         @return '';
     }
 
-    @return if($unit != 'rem', $unit, '');
+    @if $unit != 'rem' {
+        @return $unit;
+    }
+
+    @return '';
 }
 
 // ============================================================================
@@ -113,7 +121,10 @@ $exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
 
 @function normalise-variant-value($key, $value) {
     $variant: sanitize-class-name($key);
-    $value: if($value, $value, $key);
+
+    @if not $value {
+        $value: $key;
+    }
 
     @if meta.type-of($key) == list {
         $variant: list.nth($key, 1);
@@ -233,8 +244,11 @@ $exclude-units: ('auto', '%', 0, 'fit-content', 'max-content', 'min-content');
         @return '.#{$class}';
     }
 
-    // If true, use default combinator
-    $combinator: if($child-selector == true, '> *:not(:first-child)', $child-selector);
+    $combinator: $child-selector;
+
+    @if $child-selector == true {
+        $combinator: '> *:not(:first-child)';
+    }
 
     @return ':where(.#{$class} #{$combinator})';
 }

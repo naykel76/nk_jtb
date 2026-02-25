@@ -8,11 +8,19 @@
 @use '../maps_and_variables/config' as *;
 
 @function get-breakpoints($breakpoints) {
-    @return if($breakpoints == null, $default-breakpoints, $breakpoints);
+    @if $breakpoints == null {
+        @return $default-breakpoints;
+    }
+
+    @return $breakpoints;
 }
 
 @function get-states($states) {
-    @return if($states == null, $default-states, $states);
+    @if $states == null {
+        @return $default-states;
+    }
+
+    @return $states;
 }
 
 // =========================================================================
@@ -24,23 +32,39 @@
 // =========================================================================
 
 @function resolve-breakpoints($responsive, $breakpoints) {
-    @return if($responsive, get-breakpoints($breakpoints), $breakpoints);
+    @if $responsive {
+        @return get-breakpoints($breakpoints);
+    }
+
+    @return $breakpoints;
 }
 
 @function resolve-states($with-state, $map-states) {
-    @return if($with-state, get-states($map-states), $map-states);
+    @if $with-state {
+        @return get-states($map-states);
+    }
+
+    @return $map-states;
 }
 
 @function resolve-prefix($prefix, $property) {
-    @return if($prefix == false, '', if($prefix == null, $property + '-', $prefix));
+    @if $prefix == false {
+        @return '';
+    } @else if $prefix == null {
+        @return $property + '-';
+    }
+
+    @return $prefix;
 }
 
 // @function resolve-prefix($raw-prefix, $fallback-name) {
-//     @return if($raw-prefix, $raw-prefix, $fallback-name);
+//     @if $raw-prefix { @return $raw-prefix; }
+//     @return $fallback-name;
 // }
 
 // @function resolve-unit($value, $fallback-unit) {
-//     @return if(value-has-unit($value), null, $fallback-unit);
+//     @if value-has-unit($value) { @return null; }
+//     @return $fallback-unit;
 // }
 
 // @function resolve-class-suffix($label, $unit) {

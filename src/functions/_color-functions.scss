@@ -66,10 +66,20 @@ $lightness-threshold-rgb: 153 !default;
     $color-space: color.space($bg-color);
 
     // Choose appropriate lightness calculation based on color space
-    $is-light: if($color-space == oklch, oklch-is-light($bg-color), rgb-is-light($bg-color));
+    $is-light: null;
+
+    @if $color-space == oklch {
+        $is-light: oklch-is-light($bg-color);
+    } @else {
+        $is-light: rgb-is-light($bg-color);
+    }
 
     // Return dark text for light backgrounds, light text for dark backgrounds
-    @return if($is-light, $dark-text, $light-text);
+    @if $is-light {
+        @return $dark-text;
+    }
+
+    @return $light-text;
 }
 
 // ============================================================================

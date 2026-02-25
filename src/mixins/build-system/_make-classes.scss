@@ -10,12 +10,20 @@
 // Layer 1: Base only
 // ============================================================================
 @mixin make-base-class($property, $class, $value, $positions: null, $options: ()) {
-    $child-selector: if(map.has-key($options, 'child-selector'), map.get($options, 'child-selector'), false);
+    $child-selector: false;
+
+    @if map.has-key($options, 'child-selector') {
+        $child-selector: map.get($options, 'child-selector');
+    }
 
     @if $positions {
         $prefix: map.get($options, 'prefix');
         $variant: map.get($options, 'variant');
-        $omit-axis-keys: if(map.has-key($options, 'omit-axis-keys'), map.get($options, 'omit-axis-keys'), false);
+        $omit-axis-keys: false;
+
+        @if map.has-key($options, 'omit-axis-keys') {
+            $omit-axis-keys: map.get($options, 'omit-axis-keys');
+        }
 
         @each $position-key, $position-list in $positions {
             $derived-class: build-position-class-name($prefix, $variant, $position-key, $omit-axis-keys);
@@ -35,7 +43,11 @@
 // Layer 2: Responsive only (no base, no states)
 // ============================================================================
 @mixin make-responsive-class($property, $class, $value, $positions: null, $breakpoints, $options: ()) {
-    $child-selector: if(map.has-key($options, 'child-selector'), map.get($options, 'child-selector'), false);
+    $child-selector: false;
+
+    @if map.has-key($options, 'child-selector') {
+        $child-selector: map.get($options, 'child-selector');
+    }
 
     @each $bp in $breakpoints {
         $derived-class: #{$bp}\:#{$class};
@@ -71,7 +83,11 @@
 // Generates: .md:hover:block:hover { @media (min-width: 768px) { display: block; } }
 // ============================================================================
 @mixin make-responsive-state-class($property, $class, $value, $breakpoints, $states, $options: ()) {
-    $child-selector: if(map.has-key($options, 'child-selector'), map.get($options, 'child-selector'), false);
+    $child-selector: false;
+
+    @if map.has-key($options, 'child-selector') {
+        $child-selector: map.get($options, 'child-selector');
+    }
 
     @each $bp in $breakpoints {
         @each $state in $states {

@@ -34,13 +34,22 @@
         $transitions: ();
 
         @each $prop in $properties {
-            $prop-duration: if($duration, $duration, get-transition-duration($prop));
+            $prop-duration: get-transition-duration($prop);
+
+            @if $duration {
+                $prop-duration: $duration;
+            }
+
             $transitions: list.append($transitions, #{$prop} $prop-duration $timing $delay, $separator: comma);
         }
 
         transition: $transitions;
     } @else {
-        $final-duration: if($duration, $duration, get-transition-duration($properties));
+        $final-duration: get-transition-duration($properties);
+
+        @if $duration {
+            $final-duration: $duration;
+        }
 
         transition: $properties $final-duration $timing $delay;
     }

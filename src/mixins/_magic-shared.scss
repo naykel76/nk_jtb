@@ -43,12 +43,22 @@
 @function get-breakpoint-values($list) {
     $num-breakpoints: list.length($list);
 
+    $md: null;
+    $lg: null;
+    $xl: null;
+    $xxl: null;
+
+    @if $num-breakpoints >= 3 { $md: list.nth($list, -3); }
+    @if $num-breakpoints >= 4 { $lg: list.nth($list, -4); }
+    @if $num-breakpoints >= 5 { $xl: list.nth($list, -5); }
+    @if $num-breakpoints >= 6 { $xxl: list.nth($list, -6); }
+
     @return (
         base: list.nth($list, -1),
         sm: list.nth($list, -2),
-        md: if($num-breakpoints >= 3, list.nth($list, -3), null),
-        lg: if($num-breakpoints >= 4, list.nth($list, -4), null),
-        xl: if($num-breakpoints >= 5, list.nth($list, -5), null),
-        xxl: if($num-breakpoints >= 6, list.nth($list, -6), null)
+        md: $md,
+        lg: $lg,
+        xl: $xl,
+        xxl: $xxl
     );
 }

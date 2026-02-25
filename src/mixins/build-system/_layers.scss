@@ -124,8 +124,12 @@
         $props: map.get($map, 'props');
         $map-breakpoints: map.get($map, 'breakpoints');
         $child-selector: map.get($map, 'child-combinator');
-        
-        $breakpoints: if($responsive, get-breakpoints($map-breakpoints), $map-breakpoints);
+
+        $breakpoints: $map-breakpoints;
+
+        @if $responsive {
+            $breakpoints: get-breakpoints($map-breakpoints);
+        }
 
         @include make-composite-class($class, $props, $breakpoints, $child-selector);
     }

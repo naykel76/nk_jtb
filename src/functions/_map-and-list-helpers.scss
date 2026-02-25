@@ -92,7 +92,11 @@
     $result: ();
 
     @each $key, $value in $map {
-        $new-key: if($prefix == '', $key, '#{$prefix}-#{$key}');
+        $new-key: $key;
+
+        @if $prefix != '' {
+            $new-key: '#{$prefix}-#{$key}';
+        }
 
         @if meta.type-of($value) == 'map' {
             $nested: flatten-map($value, $new-key);
