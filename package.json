@@ -19,6 +19,7 @@
         "lint:report": "stylelint \"**/*.scss\""
     },
     "devDependencies": {
+        "@fullhuman/postcss-purgecss": "^8.0.0",
         "autoprefixer": "^10.4.24",
         "concurrently": "^9.2.1",
         "postcss": "^8.5.6",

@@ -32,6 +32,38 @@
     @extend %menu-link;
 }
 
+// Sliding underline variant — replaces hover background with an animated
+// underline that grows from left to right on hover/active/focus.
+// Usage: add .menu-link--underline alongside .menu-link, or apply to .menu
+// directly via :where(a, li a, button).
+.link-underline {
+    :where(a, button) {
+        &::after {
+            background-color: $menu-link-underline-color;
+            bottom: 0;
+            content: '';
+            height: 2px;
+            left: 0;
+            position: absolute;
+            width: 0;
+
+            @include transition(width);
+        }
+
+        &:is(.active, :hover, :focus-visible):not(.disabled, :disabled) {
+            background-color: transparent;
+
+            // color: $menu-link-hover-color;
+
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+}
+
+// 
+
 .menu {
     display: flex;
     flex-direction: column;
