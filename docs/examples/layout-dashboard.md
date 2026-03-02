@@ -1,5 +1,6 @@
+<!-- markdownlint-disable MD041-->
 ```html +demo-folded
-<div x-data="{ sidebarOpen: true }" class="flex h-screen overflow-hidden">
+<div x-data="{ sidebarOpen: true }" class="flex min-h-screen overflow-hidden">
     <!-- Sidebar -->
     <aside :class="sidebarOpen ? 'w-16' : 'w-5'" class="dark transition-all duration-300 flex flex-col">
         <!-- Logo Area -->
@@ -135,7 +136,9 @@
         </header>
         <!-- Main Content -->
         <main class="flex-1 overflow-y-auto bg-gray-50">
-            <!--  -->
+            <div class="container-md py">
+                <p class="txt-xl">Scroll down to see code and copy buttons</p>
+            </div>
         </main>
     </div>
 </div>

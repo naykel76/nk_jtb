@@ -9,8 +9,13 @@
 // classes such as outline-color or outline-offset. This ensures that outlines
 // are visible by default and you do not need to add an outline-style class.
 .outline,
-[class^='outline-'] {
+[class*='outline-'] {
     outline-style: solid;
+}
+
+.bdr,
+[class*='bdr-'] {
+    border-color: $border-color;
 }
 
 // prettier-ignore
