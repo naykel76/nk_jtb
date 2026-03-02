@@ -49,8 +49,11 @@
     $xxl: null;
 
     @if $num-breakpoints >= 3 { $md: list.nth($list, -3); }
+
     @if $num-breakpoints >= 4 { $lg: list.nth($list, -4); }
+
     @if $num-breakpoints >= 5 { $xl: list.nth($list, -5); }
+
     @if $num-breakpoints >= 6 { $xxl: list.nth($list, -6); }
 
     @return (
