@@ -7,6 +7,17 @@
 > are references for intent only, not direct mappings.
 
 **Read the Introduction and Conventions & Architecture Rules before using.**
+**For any responsive/layout conversion, read `docs/responsive-design.md` and
+`docs/layer-system.md` first.**
+
+## Source of Truth
+
+- **`AGENTS.md` is the primary source of truth for framework usage in this
+  repo.**
+- Rules in this file are mandatory and apply to all tasks.
+- `scss-engineer` is for **building/extending framework internals** (utilities,
+  maps, mixins, architecture) and must not conflict with this file.
+- If there is ever a conflict, follow `AGENTS.md`.
 
 ## What to Use
 
@@ -32,6 +43,24 @@
   applied to
 - **Predictable naming** - Numbers map directly to rem values: `m-1` = 1rem
 - **Override-friendly** - Base → Components → Utilities (highest priority)
+
+## Responsive and Conversion Rules
+
+- Follow framework docs as source of truth:
+  - `docs/responsive-design.md`
+  - `docs/conventions-and-architecture-rules.md`
+  - `docs/layer-system.md`
+- Do not infer behavior from Tailwind when docs differ.
+- Use `{bp}:` primarily for progressive styling/layout changes.
+- Use `to-` / `on-` primarily for visibility windows (show/hide behavior).
+- Prefer visibility patterns in this order:
+  1. Hide Pattern
+  2. Hide/Hide Pattern
+  3. Hide/Display Pattern
+- In the same layout shell, keep visibility logic consistent (avoid mixing
+  conflicting patterns unless clearly required).
+- For layout replications, match visual intent using documented JTB classes.
+- Record unsupported/missing utilities in a root-level notes file.
 
 ## Import Order (build.scss)
 

@@ -37,5 +37,3 @@ Import only what you need:
 @use 'nk_jtb/src/utilities/spacing';
 @use 'nk_jtb/src/utilities/flexbox';
 ```
-
-See [Naming Conventions](conventions.md) for available modules.

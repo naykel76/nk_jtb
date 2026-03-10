@@ -70,6 +70,25 @@ alignment are handled by the `.menu` class.
 </nav>
 ```
 
+### Section titles (`.menu-title`)
+
+Use `.menu-title` for non-clickable labels that group menu items (e.g. “Account”, “Settings”). Place it inside the same `<ul class="menu">` as a sibling to `<li>` elements.
+
+```html
+<ul class="menu">
+    <li class="menu-title">Section</li>
+    <li><a href="#">Item</a></li>
+</ul>
+```
+
+### Underline variant (`.link-underline`)
+
+Add `.link-underline` to the menu element to replace the hover background with a sliding left-to-right underline on links and buttons. Use with `.menu`: e.g. `<ul class="menu link-underline">`.
+
+### Chevron rotation (`.chevron` / `.chevron.open`)
+
+For parent items that expand/collapse, add `.chevron` to the icon (e.g. the caret SVG). Toggle the `.open` class when the submenu is open so the chevron rotates 180°.
+
 ### Parent Items
 
 Parent items use buttons to toggle child menus. Works for nested navigation or

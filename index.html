@@ -5,11 +5,194 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
-    <title>NayKel JTB</title>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <title>Student Dashboard | Lacta-Edu</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Outfit:wght@300;400;600&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --brand-primary: #7c0442;
+            --brand-secondary: #f4e4eb;
+            --brand-neutral-bg: #f8f5f2;
+        }
+
+        body {
+            background-color: var(--brand-neutral-bg);
+            font-family: Outfit, sans-serif;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: Fraunces, serif;
+        }
+
+        .u-brand-bg {
+            background-color: var(--brand-primary) !important;
+        }
+
+        .u-brand-text {
+            color: var(--brand-primary) !important;
+        }
+
+        .u-brand-secondary-bg {
+            background-color: var(--brand-secondary) !important;
+        }
+
+        .u-brand-hover:hover {
+            background-color: var(--brand-secondary) !important;
+            color: var(--brand-primary) !important;
+        }
+
+        .u-tracking-tight {
+            letter-spacing: -0.04em;
+        }
+
+        .u-tracking-wide {
+            letter-spacing: 0.2em;
+        }
+
+        .u-text-3xl {
+            font-size: 1.875rem;
+            line-height: 1.2;
+        }
+
+        .u-text-xl {
+            font-size: 1.25rem;
+            line-height: 1.4;
+        }
+
+        .u-text-lg {
+            font-size: 1.125rem;
+            line-height: 1.5;
+        }
+
+        .u-sidebar-link {
+            transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .u-sidebar-link:hover {
+            background-color: var(--brand-secondary);
+            color: var(--brand-primary);
+        }
+
+        .u-progress-track {
+            background: rgb(255 255 255 / 20%);
+            border-radius: 0.25rem;
+            height: 8px;
+            overflow: hidden;
+        }
+
+        .u-progress-fill {
+            background: #fff;
+            height: 100%;
+            transition: width 500ms ease-out;
+        }
+
+        @media (min-width: 768px) {
+            .u-md-w-2-3 {
+                width: 66.666667%;
+            }
+        }
+
+        .u-shape-offset {
+            bottom: -2.5rem;
+            right: -2.5rem;
+        }
+    </style>
 </head>
 
 <body>
+
+
+    <!-- class="flex min-h-screen" -->
+    <aside class="w-16 bg-white bdr-r hidden md:flex flex-col">
+        <div class="p-1.5 bdr-b">
+            <div class="font-bold txt-lg txt-upper u-tracking-tight u-brand-text">Lacta-Edu</div>
+        </div>
+        <nav class="flex-1 p-1 space-y-0.5">
+            <a href="#"
+                class="flex items-center space-x-0.75 p-0.75 rounded-xl u-brand-secondary-bg u-brand-text font-bold">
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="flex items-center space-x-0.75 p-0.75 rounded-xl u-sidebar-link txt-gray-600">
+                <span>My Courses</span>
+            </a>
+            <a href="#" class="flex items-center space-x-0.75 p-0.75 rounded-xl u-sidebar-link txt-gray-600">
+                <span>Certificates</span>
+            </a>
+            <a href="#" class="flex items-center space-x-0.75 p-0.75 rounded-xl u-sidebar-link txt-gray-600">
+                <span>Resources</span>
+            </a>
+        </nav>
+        <div class="p-1 bdr-t">
+            <div class="flex items-center space-x-0.75 p-0.5">
+                <div class="w-2 h-2 rounded-full u-brand-bg txt-white flex-centered txt-xs">JS</div>
+                <div class="txt-sm font-bold">Jane Student</div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="flex-1 overflow-y-auto p-2">
+        <header class="mb-2.5 flex justify-between items-end">
+            <div>
+                <h1 class="u-text-3xl font-bold">Welcome back, Jane!</h1>
+                <p class="txt-gray-500">You have completed 65% of your certification track.</p>
+            </div>
+            <div class="hidden md:flex space-x-1">
+                <div class="bg-white px-1.5 py-0.75 rounded-xxl bdr tac">
+                    <div class="txt-xs txt-upper txt-gray-400 font-bold">CERPs Earned</div>
+                    <div class="u-text-xl font-bold u-brand-text">12.5 / 75</div>
+                </div>
+            </div>
+        </header>
+
+        <div
+            class="u-brand-bg rounded-1.5 p-2 txt-white mb-2.5 flex-col md:flex-row justify-between items-center relative overflow-hidden">
+            <div class="relative z-above u-md-w-2-3">
+                <span class="txt-xs font-bold txt-upper u-tracking-wide opacity-80">Currently Learning</span>
+                <h2 class="txt-xl font-bold mt-0.5 mb-1">Module 4: Pharmacology and the Breastfeeding Dyad</h2>
+                <div class="u-progress-track mb-1.5">
+                    <div class="u-progress-fill" style="width: 45%"></div>
+                </div>
+                <button
+                    class="btn bg-white u-brand-text rounded-xl font-bold txt-normal-case hover:bg-gray-100 transition-colors">
+                    Resume Lesson 4.2
+                </button>
+            </div>
+            <div class="hidden md:block opacity-20 absolute u-shape-offset">
+                <svg width="200" height="200" viewBox="0 0 100 100" fill="currentColor">
+                    <circle cx="50" cy="50" r="40" />
+                </svg>
+            </div>
+        </div>
+
+        <h3 class="u-text-xl font-bold mb-1.5">Your Courses</h3>
+        <div class="grid cols-1 lg:cols-2 gap-1.5">
+            <div class="bg-white p-1.5 rounded-xxl bdr flex space-x-1">
+                <div class="w-5 h-5 bg-gray-100 rounded-xl fs0 flex-centered txt-gray-400">[Img]</div>
+                <div class="flex-1">
+                    <h4 class="font-bold">IBLCE Prep: Advanced Anatomy</h4>
+                    <p class="txt-xs txt-gray-500 mb-1">Expires Dec 2026</p>
+                    <div class="flex items-center justify-between txt-sm">
+                        <span class="u-brand-text font-bold">100% Complete</span>
+                        <a href="#" class="txt-underline txt-gray-400">Review</a>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-1.5 rounded-xxl bdr flex space-x-1">
+                <div class="w-5 h-5 bg-gray-100 rounded-xl fs0 flex-centered txt-gray-400">[Img]</div>
+                <div class="flex-1">
+                    <h4 class="font-bold">Ethics for Lactation Consultants</h4>
+                    <p class="txt-xs txt-gray-500 mb-1">Not started</p>
+                    <div class="flex items-center justify-between txt-sm">
+                        <span class="txt-gray-400 font-bold">0% Complete</span>
+                        <a href="#" class="u-brand-text font-bold">Start Now →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <script type="module" src="/main.js"></script>
 </body>

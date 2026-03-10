@@ -13,9 +13,7 @@ $flex-properties-map: (
     flex-direction: (
         prefix: 'flex-',
         values: (
-            // `flex-col` and `flex-row` are handled in the
-            // flex.scss utility file to include the display
-            // property as well.
+            // `flex-col` and `flex-row` are defined as composite classes, so we exclude them here
             column-reverse,
             row-reverse
         )

@@ -2,43 +2,38 @@
 
 <p class="lead">Three prefix types control when utilities apply across screen sizes.</p>
 
-## Introduction
+## Core Model
 
-JTB provides three responsive prefix types.
+JTB is mobile-first by default.
 
-**`{breakpoint}:`** — from breakpoint upward (mobile-first cascade) Applies at
-this breakpoint and above.
+Unprefixed classes are your base (mobile) styles. Breakpoint-prefixed classes
+(`sm:`, `md:`, `lg:`, `xl:`, `xxl:`) apply from that breakpoint upward
+(min-width) and override base styles where needed.
 
-```html +code
-<!-- Hidden on mobile, visible from md and up -->
-<div class="hidden md:block">...</div>
+For progressive styling, mobile-first works well.
 
-<!-- Visible on mobile, hidden from lg and up -->
-<div class="block lg:hidden">...</div>
-```
+For visibility/show-hide behavior, JTB prefers visibility-window patterns
+(`to-`, `on-`) because they describe where an element exists directly.
 
-**`on-{breakpoint}:`** — only within breakpoint range (non-cascading) Applies
-only within the defined breakpoint range. Styles do not cascade.
+## Prefix Reference
 
-```html +code
-<!-- Visible only at sm (576px–767px) -->
-<div class="hidden on-sm:block">...</div>
-
-<!-- Hidden only at md -->
-<div class="on-md:hidden">...</div>
-```
-
-**`to-{breakpoint}:`** — up to breakpoint (mobile-only styles) Applies to all
-sizes smaller than the specified breakpoint. Useful for mobile-only styles or
-explicit visibility windows.
+**`{breakpoint}:`** — from breakpoint upward (mobile-first cascade).
 
 ```html +code
-<!-- Visible only below md -->
-<div class="to-md:block">...</div>
-
-<!-- Mobile only (explicit window) -->
-<div class="block md:hidden">...</div>
+<!-- Mobile base, then scale up -->
+<div class="p-1 md:p-2 lg:p-3">...</div>
 ```
+
+**`on-{breakpoint}:`** — only within breakpoint range (non-cascading). Applies
+only within the defined breakpoint range.
+
+**`to-{breakpoint}:`** — up to breakpoint. Applies to all sizes smaller than the
+specified breakpoint.
+
+`on-` and `to-` are first-class responsive tools in JTB and are generated via
+the framework's responsive utility system.
+
+See [Visibility Patterns](#visibility-patterns) below for examples.
 
 ## Breakpoint System
 
@@ -47,41 +42,67 @@ explicit visibility windows.
 | `sm`       | Large phones    | 576px     | 576px–767px   |
 | `md`       | Tablets         | 768px     | 768px–991px   |
 | `lg`       | Small laptops   | 992px     | 992px–1199px  |
-| `xl`       | Desktops        | 1200px    | 1200px–1399px |
+| `xl`       | Desktops        | 1200px    | 1200px–1599px |
 | `xxl`      | Wide screens    | 1600px    | 1600px+       |
 
-## Responsive Design Patterns
+## Decision Guide
 
-**this section needs work**
+| Goal                                   | Preferred Prefix Pattern           | Why                                      |
+| -------------------------------------- | ---------------------------------- | ---------------------------------------- |
+| Progressive style changes across sizes | `{bp}:`                            | Mobile-first cascade and clean overrides |
+| Show/hide below a breakpoint           | `to-{bp}:hidden` / `to-{bp}:block` | Explicit visibility window               |
+| Show/hide only at one breakpoint range | `on-{bp}:hidden` / `on-{bp}:block` | Exact-range targeting                    |
+| Simple base + reveal at larger sizes   | `hidden {bp}:block`                | Still valid when it is clearer           |
 
-These examples use container queries so breakpoint behaviour can be observed
-without resizing the browser window. `invisible` is used for demonstration so
-elements retain layout space. In production, use `hidden` to remove them from
-the flow.
+## Visibility Patterns
 
-## Show/Hide Pattern
+Use this section for responsive visibility recipes.
 
-The Show/Hide pattern displays one element while hiding another based on screen
-or container width.
+### Hide/Display Pattern
 
-A common example is navigation: the full menu appears on larger screens, while a
-burger icon appears on smaller screens.
+```html +code
+<!-- Hidden by default, shown from breakpoint -->
+<div class="hidden md:block">...</div>
+```
 
-By combining `from` and `to` prefixes, you define explicit visibility ranges
-instead of relying on default state overrides. Each element clearly states where
-it exists.
+### Hide Pattern
+
+```html +code
+<!-- Hidden below md, visible above md -->
+<aside class="to-md:hidden">...</aside>
+```
+
+### Hide/Hide Pattern
+
+```html +code
+<!-- Desktop element -->
+<aside class="to-md:hidden">...</aside>
+
+<!-- Mobile element -->
+<button class="md:hidden">☰</button>
+```
+
+Recommended order:
+
+1. **Hide Pattern** for single-element visibility windows.
+2. **Hide/Hide Pattern** for role-switching pairs (desktop element + mobile element).
+3. **Hide/Display Pattern** only when base-hidden then reveal-at-breakpoint is clearly simpler.
+
+## Container Query Parity
+
+Container query versions follow the same intent with `cq-` prefixes:
 
 ### Container Query Example
 
 <div class="resizable-container bx bdr-3 bdr-dashed bdr-gray-500">
     <div class="grid gap cols-2 tac -space-x-px">
         <div class="bdr-2 bdr-teal-700">
-            <div class="py px-025 teal cq-to-md:invisible">
+            <div class="py px-025 teal cq-to-md:hidden">
                 <code class="txt-white">NAV</code>
             </div>
         </div>
         <div class="bdr-2 bdr-blue-700">
-            <div class="py px-025 blue cq-md:invisible">
+            <div class="py px-025 blue cq-md:hidden">
                 <code class="txt-white">BURGER</code>
             </div>
         </div>

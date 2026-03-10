@@ -2,6 +2,14 @@
 
 Specializes in JTB framework development, component architecture, and utility generation.
 
+## Scope and Authority
+
+- This agent is for **building/extending JTB internals** (SCSS architecture,
+  maps, mixins, utility generation, components).
+- For **framework usage rules** (responsive semantics, conversion behavior,
+  class mapping contract), follow `AGENTS.md`.
+- This file extends `AGENTS.md` and must not override it.
+
 ## Key Conventions
 
 - **Numbers = rem values:** `m-1` = 1rem, `m-05` = 0.5rem (leading zero dropped)

@@ -228,12 +228,12 @@ pre code.torchlight {
 // ============================================================================
 // -- Container Queries --
 // ============================================================================
+
 :where(.resizable-container) {
     border: 2px dashed var(--primary);
     border-radius: 0.5rem;
     container-name: demo-container;
     container-type: inline-size;
-    margin: 1rem 2rem;
     max-width: 100%;
     overflow: auto;
     padding: 1rem;
@@ -251,20 +251,13 @@ pre code.torchlight {
     }
 }
 
-// prettier-ignore
-@include cq-make-on-breakpoint((visibility: hidden), 'invisible', $responsive-variants );
+// these are quality of life utilities for the docs to make it easier to
+// demonstrate responsive designs.
 
-// prettier-ignore
-@include cq-make-on-breakpoint((visibility: visible), 'visible', $responsive-variants );
+// AT specific breakpoint only (exact range)
+@include cq-make-on-breakpoint((display: flex), "flex", $responsive-variants);
+@include cq-make-on-breakpoint((display: none), "hidden", $responsive-variants);
 
-// prettier-ignore
-@include cq-make-from-breakpoint((visibility: hidden), 'invisible', $responsive-variants );
-
-// prettier-ignore
-@include cq-make-from-breakpoint((visibility: visible), 'visible', $responsive-variants );
-
-// prettier-ignore
-@include cq-make-to-breakpoint((visibility: hidden), 'invisible', remove-from-list($responsive-variants, xxl));
-
-// prettier-ignore
-@include cq-make-to-breakpoint((visibility: visible), 'visible', remove-from-list($responsive-variants, xxl));
+// UP TO breakpoint (max-width, desktop-first)
+@include cq-make-to-breakpoint((display: flex), "flex", remove-from-list($responsive-variants, xxl));
+@include cq-make-to-breakpoint((display: none), "hidden", remove-from-list($responsive-variants, xxl));
