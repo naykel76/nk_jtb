@@ -24,7 +24,7 @@ $typography-properties-map: (
     ),
     font-family: (
         prefix: 'font-',
-        values: $font-families
+        values: $font-families-map
     ),
     font-size: (
         prefix: '#{$text-prefix}',
@@ -33,7 +33,7 @@ $typography-properties-map: (
     ),
     font-style: (
         prefix: '#{$text-prefix}',
-        values: $font-styles,
+        values: $font-styles-map,
         breakpoints: ()
     ),
     font-weight: (
@@ -46,16 +46,16 @@ $typography-properties-map: (
     ),
     list-style-type: (
         prefix: 'list-',
-        values: $list-style-types,
+        values: $list-style-types-map,
         breakpoints: ()
     ),
     text-align: (
         prefix: '#{$text-align-prefix}',
-        values: $text-aligns
+        values: $text-aligns-map
     ),
     text-decoration: (
         prefix: '#{$text-prefix}',
-        values: $text-decorations,
+        values: $text-decorations-map,
         states: (
             'hover',
             'focus'
@@ -64,16 +64,16 @@ $typography-properties-map: (
     ),
     text-transform: (
         prefix: '#{$text-prefix}',
-        values: $text-transforms,
+        values: $text-transforms-map,
         breakpoints: ()
     ),
     text-wrap: (
         prefix: '#{$text-prefix}',
-        values: $text-wraps
+        values: $text-wraps-map
     ),
     white-space: (
         prefix: 'whitespace-',
-        values: $white-spaces
+        values: $white-spaces-map
     )
 );
 

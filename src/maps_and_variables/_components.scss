@@ -41,7 +41,7 @@ $btn-bg: rgb(240 240 240) !default;
 $btn-color: text-color($btn-bg) !default;
 $btn-link-color: $link-color !default;
 $btn-link-hover-color: $link-hover-color !default;
-$btn-text-transform: capitalize;
+$btn-text-transform: capitalize !default;
 
 // ============================================================================
 // -- Icon Sizes --
@@ -54,7 +54,7 @@ $icon-size-lg: 2rem !default; // 32px - large buttons, headers
 $icon-size-xl: 2.5rem !default; // 40px - hero sections, features
 
 // Icon size map for iteration
-$icon-sizes: (
+$icon-size-map: (
     'xs': $icon-size-xs,
     'sm': $icon-size-sm,
     'md': $icon-size-md,

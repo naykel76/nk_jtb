@@ -45,8 +45,6 @@
 $color-scale-names: ('red', 'orange', 'amber', 'yellow', 'lime', 'green', 'emerald', 'teal', 'cyan', 'sky', 'blue', 'indigo', 'violet', 'purple', 'fuchsia', 'pink', 'rose', 'slate', 'gray', 'zinc', 'neutral', 'stone') !default;
 
 $theme-colors: (
-    'primary': base.$primary,
-    'secondary': base.$secondary,
     'accent': base.$accent,
     'light': #fafafa,
     'dark': #212121,
@@ -60,6 +58,8 @@ $theme-colors: (
 
 // based on Tailwind 500 series colors
 $base-colors: (
+    'primary': base.$primary,
+    'secondary': base.$secondary,
     'red': oklch(63.7% 0.237 25.331deg),
     'orange': oklch(70.5% 0.213 47.604deg),
     'amber': oklch(76.9% 0.188 70.08deg),

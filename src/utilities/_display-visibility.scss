@@ -7,11 +7,11 @@
 $display-visibility-properties-map: (
     display: (
         prefix: false,
-        values: $display
+        values: $display-map
     ),
     visibility: (
         prefix: false,
-        values: $visibility
+        values: $visibility-map
     )
 );
 

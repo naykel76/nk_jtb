@@ -7,7 +7,7 @@
     height: $icon-size;
     width: $icon-size;
 
-    @each $key, $value in $icon-sizes {
+    @each $key, $value in $icon-size-map {
         &.#{$key} {
             height: $value;
             width: $value;
