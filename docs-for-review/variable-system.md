@@ -92,7 +92,7 @@ $logical-position-map: (
 ## Theming & Color Maps
 
 - Centralized in `_colors.scss`—theme tokens, OKLCH system, Tailwind refs
-- `map.merge()` creates `$color-map` for unified access
+- Utilities that need both roles and hues (for example, themed buttons) locally call `map.merge($theme-colors, $base-colors)` instead of using a global `$color-map`.
 
 ## Dangerous Patterns
 

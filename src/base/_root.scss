@@ -4,17 +4,13 @@
 @use '../maps_and_variables/typography' as *;
 
 :root {
-    // create css variables
-    @each $color, $value in $color-map {
+    // create css variables including brand colors
+    @each $color, $value in $base-colors {
         --#{$color}: #{$value};
     }
 
     @each $name, $value in $oklch-colors {
         --#{$name}: #{$value};
-    }
-
-    @each $name, $value in $font-weight-map {
-        --font-#{$name}: #{$value};
     }
 
     // ========================================================================

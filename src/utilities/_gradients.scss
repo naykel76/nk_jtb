@@ -54,6 +54,6 @@
 }
 
 // -- Generate --from and --to CSS variable classes --
-@include make-css-var-class('from', 'from-', smart-merge($theme-colors, $base-colors, $oklch-colors));
-@include make-css-var-class('to', 'to-', smart-merge($theme-colors, $base-colors, $oklch-colors));
+@include make-css-var-class('from', 'from-', smart-merge($base-colors, $oklch-colors));
+@include make-css-var-class('to', 'to-', smart-merge($base-colors, $oklch-colors));
 

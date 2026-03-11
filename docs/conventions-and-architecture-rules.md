@@ -40,7 +40,12 @@ gap-lg        // gap with 'lg' variant
 ```scss +code
 mxy-3         // margin x/y with value 3
 gap-1.5       // gap with value 1.5
+gap-05        // gap with value 0.5 — sub-1 values drop the leading zero and decimal point
 ```
+
+> **Sub-1 naming rule:** Values less than 1 are written without a leading zero or
+> decimal point. `0.5` becomes `05`, `0.25` becomes `025`. So `gap-0.5` is
+> **wrong** — write `gap-05`.
 
 ### With prefixes
 
@@ -170,7 +175,7 @@ $margin-variants: (auto: auto) !default;
 Merge **variants first, values second** for correct CSS cascade:
 
 ```scss +code
-$border-width-map: smart-merge($border-width-variants, $border-width-values);
+$border-width-map: smart-merge($border-width-variants, $border-width-values) !default;
 ```
 
 * Base/semantic variants generate first (lower priority)

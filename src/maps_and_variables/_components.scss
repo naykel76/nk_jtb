@@ -72,10 +72,8 @@ $menu-icon-size: 1.25rem !default;
 
 $menu-hover-bg: map.get($oklch-colors, gray-100) !default;
 
-$menu-link-hover-color: inherit !default;
+$menu-link-hover-color: $primary !default;
 $menu-link-underline-color: $primary !default;
-
-// $menu-link-hover-color: map.get($oklch-colors, gray-900) !default;
 
 // ============================================================================
 // -- navbar --

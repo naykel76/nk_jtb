@@ -26,7 +26,7 @@
 // ============================================================================
 
 // Border Width
-$border-width-variants: (base: 1px) !default;
+$border-width-variants: (base: $border-width-base) !default;
 $border-width-values: (1, 2, 3, 4, 5, 8, 12, 16) !default; // px units
 $border-width-map: smart-merge($border-width-variants, $border-width-values) !default;
 
@@ -63,7 +63,7 @@ $padding-variants: (base: $base-padding) !default;
 $padding-map: smart-merge($padding-variants, $spacing-values) !default;
 
 // Gap
-$gap-variants: (sm: 0.75rem, base: 1.25rem, lg: 2rem) !default;
+$gap-variants: (sm: $gap-sm, base: $gap-base, lg: $gap-lg) !default;
 $gap-values: (0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 2, 3, 4, 5) !default;
 $gap-map: smart-merge($gap-variants, $gap-values) !default;
 
@@ -80,7 +80,7 @@ $base-container-size: 1200px !default;
 $container-map: (base: $base-container-size, sm: $sm, md: $md, lg: $lg, xl: $xl, xxl: $xxl) !default;
 
 // Z-Index
-$z-index-map: ( auto: auto, 0: 0, above: 10, high: 100, higher: 200, highest: 999 ) !default;
+$z-index-map: (auto: auto, 0: 0, above: $z-above, high: $z-high, higher: $z-higher, highest: $z-highest) !default;
 
 // Flex & Grid
 $order-map: (1, 2, 3, 4, 5, 6, 7, 8) !default;

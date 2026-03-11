@@ -33,7 +33,7 @@ $advanced-themes: (
 $themes-map: ();
 
 // Add each color as a theme with 'base' property
-@each $color, $value in $color-map {
+@each $color, $value in $base-colors {
     // prettier-ignore
     $themes-map: map.set( $themes-map, $color, ( 'base': $value ) );
 }
@@ -48,6 +48,6 @@ $themes-map: ();
 // ============================================================================
 // Transparent background with colored border/text, fills on hover
 
-@each $color-name, $color-value in $color-map {
+@each $color-name, $color-value in $base-colors {
     @include build-outline-theme('#{$color-name}-outline', $color-value);
 }

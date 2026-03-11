@@ -12,7 +12,7 @@ Also load:
 - `AGENTS.md` — intended source of truth, but flag any contradictions with the
   above.
 
-## Review Goals
+## Goals
 
 1. Validate what exists — is documentation correct, consistent, and
    rule-compliant?

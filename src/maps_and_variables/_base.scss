@@ -42,11 +42,18 @@ $base-list-spacing: 0.25em !default; // Spacing within list items (em-based for 
 $base-gap: 1.25rem !default; // Default gap between content blocks (flexbox, grid)
 $base-padding: 1.25rem !default; // Default padding inside content containers
 
+// Gap scale (used by $gap-variants in value-maps)
+$gap-sm: 0.75rem !default;
+$gap-base: $base-gap !default;
+$gap-lg: 2rem !default;
+
 // -- Border Defaults --
 $border-color: oklch(92.8% 0.006 264.531deg) !default; // (gray-200 equivalent)
+$border-width-base: 1px !default;
 $border: 1px solid $border-color !default;
 
 // -- Border Radius --
+// Used by $border-radius-variants in value-maps.
 $radius-sm: 0.25rem !default;
 $radius-base: 0.375rem !default;
 $radius-lg: 0.5rem !default;
@@ -80,12 +87,19 @@ $transition-default-timing: cubic-bezier(0.4, 0, 0.2, 1) !default;
 
 // -- Breakpoint Sizes --
 // ============================================================================
+// Base variables feed the breakpoints map; override a single breakpoint by setting its variable.
+$breakpoint-sm: 576px !default;
+$breakpoint-md: 768px !default;
+$breakpoint-lg: 992px !default;
+$breakpoint-xl: 1200px !default;
+$breakpoint-xxl: 1600px !default;
+
 $breakpoints: (
-    sm: 576px,
-    md: 768px,
-    lg: 992px,
-    xl: 1200px,
-    xxl: 1600px
+    sm: $breakpoint-sm,
+    md: $breakpoint-md,
+    lg: $breakpoint-lg,
+    xl: $breakpoint-xl,
+    xxl: $breakpoint-xxl
 ) !default;
 
 $sm: map.get($breakpoints, sm) !default;
@@ -95,3 +109,11 @@ $xl: map.get($breakpoints, xl) !default;
 $xxl: map.get($breakpoints, xxl) !default;
 
 $responsive-variants: map.keys($breakpoints) !default;
+
+// -- Z-Index Scale --
+// ============================================================================
+// Base variables feed $z-index-map in value-maps.
+$z-above: 10 !default;
+$z-high: 100 !default;
+$z-higher: 200 !default;
+$z-highest: 999 !default;

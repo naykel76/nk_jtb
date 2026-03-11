@@ -6,6 +6,7 @@
 @use '../maps_and_variables/forms' as *;
 @use '../utilities/transition' as *;
 @use 'sass:color';
+@use 'sass:map';
 
 // ============================================================================
 // -- BASE BUTTON --
@@ -101,7 +102,7 @@
     }
 }
 
-@each $key, $color in $color-map {
+@each $key, $color in map.merge($theme-colors, $base-colors) {
     .#{$button-prefix}.#{$key} {
         @include hover($color);
         @include active($color);

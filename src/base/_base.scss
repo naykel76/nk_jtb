@@ -28,8 +28,8 @@ html {
 }
 
 body {
-    background-color: $bg-body;
-    color: $text-color;
+    background-color: var(--bg-body, #{$bg-body});
+    color: var(--text-color, #{$text-color});
     line-height: inherit;
 }
 
@@ -67,7 +67,7 @@ progress {
 // ============================================================================
 
 blockquote {
-    border-inline-start: 5px solid $primary;
+    border-inline-start: 5px solid var(--primary, #{$primary});
     padding: 0.4rem;
     padding-inline-start: 1rem;
 }
