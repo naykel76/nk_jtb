@@ -20,7 +20,6 @@ src/maps_and_variables/
 ├── _base.scss          # Foundation tokens (colors, spacing, breakpoints)
 ├── _colors.scss        # Theme/base colors, OKLCH, Tailwind refs
 ├── _value-maps.scss    # Numeric & semantic utility maps (spacing, sizing, grid, etc)
-├── _property-maps.scss # CSS property enums (display, border, typography)
 ├── _typography.scss    # Font sizes, weights, line heights, text color maps
 ├── _config.scss        # Build system config, prefixes, logical prop maps
 ├── _forms.scss         # Form control variables (input/select/textarea)

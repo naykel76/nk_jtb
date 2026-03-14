@@ -30,19 +30,8 @@ $letter-spacing-map: (
     widest: $letter-spacing-widest
 ) !default;
 
-
-// CHECK: i dont think these are being used????
-
 // -- Text Colors --
-$text-color-variants: (
-    'primary': $primary,
-    'secondary': $secondary,
-    'accent': $accent,
-    'muted': #6d767e,
-    'white': #fff
-) !default;
-$text-color-values: $base-colors !default;
-$text-color-map: smart-merge($text-color-variants, $text-color-values) !default;
+$text-color-map: smart-merge($base-colors, $oklch-colors) !default;
 
 // -- Font Sizes --
 $font-size-map: list-to-map((1, 1.5, 2, 2.5, 3, 4)) !default;

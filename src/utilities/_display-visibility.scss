@@ -1,5 +1,4 @@
 @use '../maps_and_variables/base' as *;
-@use '../maps_and_variables/property-maps' as *;
 @use '../functions/map-and-list-helpers' as *;
 @use '../mixins/breakpoint-utilities' as *;
 @use '../mixins/build-system/controllers' as *;
@@ -7,11 +6,11 @@
 $display-visibility-properties-map: (
     display: (
         prefix: false,
-        values: $display-map
+        values: (( hidden: none ), block, flex, inline, inline-block, inline-flex, table, table-cell)
     ),
     visibility: (
         prefix: false,
-        values: $visibility-map
+        values: ((invisible: hidden ), collapse, visible)
     )
 );
 

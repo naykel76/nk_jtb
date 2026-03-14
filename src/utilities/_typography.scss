@@ -16,15 +16,16 @@
 $typography-properties-map: (
     color: (
         prefix: '#{$text-prefix}',
-        values: smart-merge($base-colors, $oklch-colors),
-        states: (
-            'hover',
-            'focus'
-        )
+        values: $text-color-map,
+        states: ('hover', 'focus')
     ),
     font-family: (
         prefix: 'font-',
-        values: $font-families-map
+        values: (
+            serif: ( "ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif" ),
+            sans: ( "ui-sans-serif", "system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" ),
+            mono: ( "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace" ),
+        )
     ),
     font-size: (
         prefix: '#{$text-prefix}',
@@ -33,7 +34,7 @@ $typography-properties-map: (
     ),
     font-style: (
         prefix: '#{$text-prefix}',
-        values: $font-styles-map,
+        values: (italic, normal),
         breakpoints: ()
     ),
     font-weight: (
@@ -44,86 +45,80 @@ $typography-properties-map: (
         prefix: '#{$line-height-prefix}',
         values: $line-height-map
     ),
+    letter-spacing: (
+        prefix: '#{$letter-spacing-prefix}',
+        values: $letter-spacing-map
+    ),
     list-style-type: (
         prefix: 'list-',
-        values: $list-style-types-map,
+        values: (none, disc, decimal, circle, square ),
         breakpoints: ()
     ),
     text-align: (
         prefix: '#{$text-align-prefix}',
-        values: $text-aligns-map
+        values: (l: left, r: right, c: center, j: justify )
     ),
     text-decoration: (
         prefix: '#{$text-prefix}',
-        values: $text-decorations-map,
-        states: (
-            'hover',
-            'focus'
-        ),
+        values: (strike: line-through, underline: underline, overline: overline, underline-overline: underline overline ),
+        states: ('hover', 'focus' ),
         breakpoints: ()
     ),
     text-transform: (
-        prefix: '#{$text-prefix}',
-        values: $text-transforms-map,
+        prefix: false,
+        values: (uppercase, lowercase, capitalize, (normal-case: none)),
         breakpoints: ()
     ),
     text-wrap: (
         prefix: '#{$text-prefix}',
-        values: $text-wraps-map
+        values: (wrap, balance, nowrap, pretty )
     ),
     white-space: (
         prefix: 'whitespace-',
-        values: $white-spaces-map
+        values: (normal, nowrap, pre, pre-line, pre-wrap )
     )
 );
 
 $text-classes-map: (
     txt-xs: (
         props: (
-            font-size: 0.75rem,
-            // 12px
+            font-size: 0.75rem, // 12px
             line-height: 1.5
         )
     ),
     txt-sm: (
         props: (
-            font-size: 0.875rem,
-            // 14px
+            font-size: 0.875rem, // 14px
             line-height: 1.5
         )
     ),
     txt-base: (
         props: (
-            font-size: 1rem,
-            // 16px
+            font-size: 1rem, // 16px
             line-height: 1.5
         )
     ),
     txt-lg: (
         props: (
-            font-size: 1.25rem,
-            // 20px (25% jump)
+            font-size: 1.25rem, // 20px (25% jump)
             line-height: 1.5
         )
     ),
     txt-xl: (
         props: (
-            font-size: 1.5rem,
-            // 24px (25% jump)
+            font-size: 1.5rem, // 24px (25% jump)
             line-height: 1.4 // tighter for display text
         )
     ),
     txt-2xl: (
         props: (
-            font-size: 2rem,
-            // 32px
+            font-size: 2rem, // 32px
             line-height: 1.25 // even tighter for headings
         )
     ),
     lead: (
         props: (
-            font-size: 1.125rem,
-            // 18px
+            font-size: 1.125rem, // 18px
             line-height: 1.75 // extra relaxed for readability
         )
     )

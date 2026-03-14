@@ -4,6 +4,10 @@
 @use '../mixins/build-system/controllers' as *;
 @use 'sass:map';
 
+$border-styles-map: ( solid, dashed, dotted, double, hidden, none ) !default;
+
+$outline-styles-map: $border-styles-map !default;
+
 // Apply solid outline style to the base .outline class and outline width
 // utilities like .outline-1, .outline-2, etc. Does not affect other outline-*
 // classes such as outline-color or outline-offset. This ensures that outlines
