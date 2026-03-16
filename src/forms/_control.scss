@@ -27,7 +27,7 @@
     padding-inline: $ctrl-padding-x;
     position: relative;
 
-    &.xs {
+    &:where(.xs) {
         border-radius: $ctrl-radius-xs;
         font-size: $ctrl-font-size-xs;
         line-height: $ctrl-line-height;
@@ -35,7 +35,7 @@
         padding-inline: $ctrl-padding-x-xs;
     }
 
-    &.sm {
+    &:where(.sm) {
         border-radius: $ctrl-radius-sm;
         font-size: $ctrl-font-size-sm;
         line-height: $ctrl-line-height;
@@ -43,7 +43,7 @@
         padding-inline: $ctrl-padding-x-sm;
     }
 
-    &.lg {
+    &:where(.lg) {
         border-radius: $ctrl-radius-lg;
         font-size: $ctrl-font-size-lg;
         line-height: $ctrl-line-height;
@@ -51,7 +51,7 @@
         padding-inline: $ctrl-padding-x-lg;
     }
 
-    &.xl {
+    &:where(.xl) {
         border-radius: $ctrl-radius-xl;
         font-size: $ctrl-font-size-xl;
         line-height: $ctrl-line-height;

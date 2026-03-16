@@ -120,7 +120,7 @@
     <div class="flex-1 flex flex-col overflow-hidden">
         <!-- Top Header -->
         <header class="bg-white bdr-b bdr-gray-200 flex items-center justify-between pxy-1">
-            <h1 class="txt-2xl font-semibold txt-gray-800">Dashboard</h1>
+            <h1 class="txt-xxl font-semibold txt-gray-800">Dashboard</h1>
             <div class="flex items-center space-x">
                 <button class="rounded-full hover:bg-gray-100">
                     <svg class="wh-1 txt-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">

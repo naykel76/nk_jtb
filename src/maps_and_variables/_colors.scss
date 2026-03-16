@@ -4,32 +4,30 @@
 // ============================================================================
 // COLOR ARCHITECTURE
 // ============================================================================
-// This file defines three distinct color maps. They serve different purposes
-// and operate in completely separate namespaces — they never compete.
+// This file defines the framework color sources used by both utilities and
+// context-aware theme classes.
 //
 // 1. $oklch-colors  — Full perceptual color scale (50–950 per hue).
 //                     Source of truth for all color values.
 //                     Used for: explicit scale utilities e.g. .bg-blue-500
 //
-// 2. $base-colors   — Single midpoint (500) per hue. A named shorthand index
-//                     into $oklch-colors.
-//                     Used for: shorthand utilities e.g. .bg-blue
-//                     (.bg-blue and .bg-blue-500 are identical in output)
+// 2. $base-colors   — The shared named color map used by color utilities and
+//                     by default theme generation. This includes brand colors,
+//                     common neutrals, and hue colors.
 //
 // 3. $theme-colors  — Semantic role tokens (primary, danger, accent etc.).
-//                     Used for: context-aware component theming e.g. .blue
-//                     Triggers full theme derivation: text, border, hover
-//                     colors are all calculated automatically from the token.
+//                     These are also context-aware themes and are merged with
+//                     $base-colors during theme generation.
 //
 // The difference in practice:
 //
 //   <div class="bx bg-blue-500">  — explicit scale step ($oklch-colors)
-//   <div class="bx bg-blue">      — shorthand for 500  ($base-colors)
-//   <div class="bx blue">         — full theme context  ($theme-colors)
+//   <div class="bx bg-blue">      — named utility color ($base-colors)
+//   <div class="bx blue">         — context-aware theme class
+//   <div class="bx danger">       — semantic context-aware theme class
 //
-// $color-map merges $base-colors and $theme-colors for utility generation.
-// Key collisions are not possible — base keys are hue names ('blue', 'red')
-// and theme keys are role names ('primary', 'danger', 'accent').
+// Utility generators use $base-colors and $oklch-colors. Theme generators use
+// both $base-colors and $theme-colors.
 // ============================================================================
 
 // ============================================================================

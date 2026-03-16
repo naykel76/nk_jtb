@@ -83,13 +83,13 @@ $text-classes-map: (
     txt-xs: (
         props: (
             font-size: 0.75rem, // 12px
-            line-height: 1.5
+            line-height: 1.4
         )
     ),
     txt-sm: (
         props: (
             font-size: 0.875rem, // 14px
-            line-height: 1.5
+            line-height: 1.4
         )
     ),
     txt-base: (
@@ -100,26 +100,26 @@ $text-classes-map: (
     ),
     txt-lg: (
         props: (
-            font-size: 1.25rem, // 20px (25% jump)
+            font-size: 1.125rem, // 18px
             line-height: 1.5
         )
     ),
     txt-xl: (
         props: (
-            font-size: 1.5rem, // 24px (25% jump)
+            font-size: 1.25rem, // 20px
             line-height: 1.4 // tighter for display text
         )
     ),
-    txt-2xl: (
+    txt-xxl: (
         props: (
-            font-size: 2rem, // 32px
-            line-height: 1.25 // even tighter for headings
+            font-size: 1.5rem, // 24px
+            line-height: 1.3 // even tighter for headings
         )
     ),
     lead: (
         props: (
             font-size: 1.125rem, // 18px
-            line-height: 1.75 // extra relaxed for readability
+            line-height: 1.7 // extra relaxed for readability
         )
     )
 );

@@ -32,9 +32,8 @@ $advanced-themes: (
 
 $themes-map: ();
 
-// Add each color as a theme with 'base' property
-@each $color, $value in $base-colors {
-    // prettier-ignore
+// Build theme classes from both shared base colors and dedicated theme colors.
+@each $color, $value in map.merge($base-colors, $theme-colors) {
     $themes-map: map.set( $themes-map, $color, ( 'base': $value ) );
 }
 
@@ -46,8 +45,8 @@ $themes-map: ();
 // ============================================================================
 // OUTLINE THEMES
 // ============================================================================
-// Transparent background with colored border/text, fills on hover
+// Transparent background with colored border/text, fills on hover.
 
-@each $color-name, $color-value in $base-colors {
-    @include build-outline-theme('#{$color-name}-outline', $color-value);
+@each $color, $value in map.merge($base-colors, $theme-colors) {
+    @include build-outline-theme('#{$color}-outline', $value);
 }

@@ -1,6 +1,7 @@
 @use '../functions/color-functions' as *;
 @use '../maps_and_variables/base' as *;
 @use '../maps_and_variables/components' as *;
+@use '../maps_and_variables/typography' as *;
 @use '../mixins/transition' as *;
 
 // ============================================================================
@@ -12,6 +13,7 @@
 
 %menu-link {
     align-items: center;
+    border-radius: .375rem;
     color: inherit;
     display: flex;
     font-size: 0.875rem;
@@ -22,9 +24,14 @@
 
     @include transition(background-color color);
 
-    &:is(.active, :hover, :focus-visible):not(.disabled, :disabled) {
-        background-color: $menu-hover-bg;
-        color: $menu-link-hover-color;
+    &:is(:hover, :focus-visible):not(.disabled, :disabled) {
+        background-color: var(--menu-hover-bg, $menu-hover-bg);
+        color: var(--menu-link-hover-color, $menu-link-hover-color);
+    }
+
+    &:is(.active) {
+        color: var(--menu-link-hover-color, $menu-link-hover-color);
+        font-weight: $font-semibold;
     }
 }
 
@@ -34,8 +41,7 @@
 
 // Sliding underline variant — replaces hover background with an animated
 // underline that grows from left to right on hover/active/focus.
-// Usage: add .menu-link--underline alongside .menu-link, or apply to .menu
-// directly via :where(a, li a, button).
+// Usage: add .link-underline to the same element as .menu (e.g. <ul class="menu link-underline">).
 .link-underline {
     :where(a, button) {
         &::after {
@@ -61,8 +67,6 @@
         }
     }
 }
-
-// 
 
 .menu {
     display: flex;

@@ -14,12 +14,12 @@
 $heading-sizes: 2.25em, 1.75em, 1.5em, 1.25em, 1.125em, 1em !default;
 
 // -- Letter Spacing --
-$letter-spacing-tighter: -0.1em !default;
-$letter-spacing-tight: -0.05em !default;
+$letter-spacing-tighter: -0.05em !default;
+$letter-spacing-tight: -0.025em !default;
 $letter-spacing-normal: 0em !default;
-$letter-spacing-wide: 0.05em !default;
-$letter-spacing-wider: 0.1em !default;
-$letter-spacing-widest: 0.25em !default;
+$letter-spacing-wide: 0.025em !default;
+$letter-spacing-wider: 0.05em !default;
+$letter-spacing-widest: 0.1em !default;
 
 $letter-spacing-map: (
     tighter: $letter-spacing-tighter,
@@ -34,7 +34,7 @@ $letter-spacing-map: (
 $text-color-map: smart-merge($base-colors, $oklch-colors) !default;
 
 // -- Font Sizes --
-$font-size-map: list-to-map((1, 1.5, 2, 2.5, 3, 4)) !default;
+$font-size-map: list-to-map((1, 1.5, 2, 2.25, 2.5, 3, 3.75, 4)) !default;
 
 // -- Font Weights --
 $font-thin: 100 !default;

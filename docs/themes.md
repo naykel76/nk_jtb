@@ -1,20 +1,13 @@
 # Color and Themes
 
-## Consistent Theming Across Components
+All JTB theme classes are context-aware. Apply the same theme class to a
+button, box, input, badge, or another component and it adapts to that
+component's styling rules.
 
-One of JTB's key features is unified theming. Components share the same theme
-classes, creating visual consistency with minimal cognitive overhead.
+This is why JTB uses separate classes such as `btn primary` instead of
+component-specific variants like `btn-primary`.
 
-<!-- I want to explain here that certain classes work across all components e.g.
-primary, secondary, success, warning, sky, rose are all theme classes and they
-work the same when applied to any component e.g. button, box, input etc
-
-we no longer need special classes like btn-primary, box-primary, we split and
-add `btn` and `primary` so they can be used together or separately -->
-
-
-
-```html +code +preview class="grid cols-2"
+```html +code +preview
 <div class="bx primary">
     This is a primary themed box.
 </div>
@@ -28,12 +21,14 @@ add `btn` and `primary` so they can be used together or separately -->
 <button class="btn teal">Teal Button</button>
 ```
 
-The same theme classes work across all components apply `.primary` to a button,
-box, or badge and get consistent branding throughout your interface.
+`primary` and `teal` are both theme classes. The difference is only in naming:
 
+- semantic theme names such as `primary`, `danger`, and `success`
+- direct color theme names such as `teal`, `rose`, and `slate`
 
+Both work the same way when applied to components.
 
-## Theme Colors
+## Semantic Themes
 
 <div class="flex flex-wrap gap-025">
     <div class="primary w-6 h-4 flex-centered font-mono">primary</div>
@@ -49,7 +44,10 @@ box, or badge and get consistent branding throughout your interface.
     <div class="white w-6 h-4 flex-centered font-mono">white</div>
 </div>
 
-## Base Colors
+These names are useful when you want themes that express purpose or brand
+meaning instead of a specific hue.
+
+## Hue Themes
 
 <div class="flex flex-wrap gap-025">
     <div class="red w-6 h-4 flex-centered font-mono">red</div>
@@ -76,7 +74,23 @@ box, or badge and get consistent branding throughout your interface.
     <div class="neutral w-6 h-4 flex-centered font-mono">neutral</div>
 </div>
 
-## Button Themes
+These are still full theme classes. They are also the source used by color
+utilities such as `bg-teal`, `txt-rose`, and `bdr-slate`.
+
+## Theme Utilities
+
+Base color utilities and theme classes are related, but they are not the same
+thing:
+
+- `teal` applies a context-aware theme to a component
+- `bg-teal` applies only a background color
+- `txt-teal` applies only a text color
+- `bdr-teal` applies only a border color
+
+Semantic theme names may also exist as utilities when they are present in the
+shared base color map, for example `bg-primary` or `txt-secondary`.
+
+## Button Examples
 
 <div class="flex flex-wrap gap-025">
     <button class="btn w-6 red">red</button>

@@ -45,19 +45,19 @@
         width: var(--icon-size, 1em); // match the icon width to the button's font-size for consistent sizing
     }
 
-    &.xs {
+    &:where(.xs) {
         padding-inline: 0.625rem;
     }
 
-    &.sm {
+    &:where(.sm) {
         padding-inline: 0.875rem;
     }
 
-    &.lg {
+    &:where(.lg) {
         padding-inline: 1.5rem;
     }
 
-    &.xl {
+    &:where(.xl) {
         padding-inline: 2rem;
     }
 
@@ -67,15 +67,15 @@
         padding-inline: $ctrl-padding-y; // make horizontal = vertical for square
     }
 
-    &.xs.icon-only {
+    &:where(.xs.icon-only) {
         padding-inline: $ctrl-padding-y-xs;
     }
 
-    &.sm.icon-only {
+    &:where(.sm.icon-only) {
         padding-inline: $ctrl-padding-y-sm;
     }
 
-    &.lg.icon-only {
+    &:where(.lg.icon-only) {
         padding-inline: $ctrl-padding-y-lg;
     }
 }
@@ -102,7 +102,7 @@
     }
 }
 
-@each $key, $color in map.merge($theme-colors, $base-colors) {
+@each $key, $color in map.merge($base-colors, $theme-colors) {
     .#{$button-prefix}.#{$key} {
         @include hover($color);
         @include active($color);

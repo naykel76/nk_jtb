@@ -18,7 +18,7 @@
                 <circle class="animate-circle" cx="26" cy="26" r="25" fill="none" stroke="#10b981" stroke-width="2" />
                 <path class="animate-checkmark" fill="none" stroke="#10b981" stroke-width="3" d="M14 27l7 7 16-16" />
             </svg>
-            <h3 class="text-2xl font-bold text-gray-800 mb-2">Message Sent!</h3>
+            <h3 class="text-xxl font-bold text-gray-800 mb-2">Message Sent!</h3>
             <p class="text-gray-600 text-center">Thank you for reaching out. We'll respond within 24 hours.</p>
         </div>
     </div>
@@ -49,7 +49,6 @@
 </form>
 </div>
 
-
 <form>
 <div class="flex items-center">
     <button type="submit" class="btn primary mr">
@@ -73,9 +72,6 @@
 </div>
 </form>
 
-
-
-
 <body class="bg-gray-50 p-8">
 <div class="max-w-6xl mx-auto space-y-8">
     <h1 class="text-3xl font-bold text-gray-800 mb-8">Form Submission with Loading States</h1>
@@ -95,7 +91,7 @@
                     <circle class="animate-circle" cx="26" cy="26" r="25" fill="none" stroke="#10b981" stroke-width="2" />
                     <path class="animate-checkmark" fill="none" stroke="#10b981" stroke-width="3" d="M14 27l7 7 16-16" />
                 </svg>
-                <h3 class="text-2xl font-bold text-gray-800 mb-2">Message Sent!</h3>
+                <h3 class="text-xxl font-bold text-gray-800 mb-2">Message Sent!</h3>
                 <p class="text-gray-600 text-center">Thank you for reaching out. We'll respond within 24 hours.</p>
             </div>
         </div>
@@ -146,7 +142,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Thank you!</h3>
+                    <h3 class="text-xxl font-bold text-gray-800 mb-2">Thank you!</h3>
                     <p class="text-gray-600 mb-4">Your message has been successfully sent.</p>
                     <div class="flex items-center text-sm text-gray-500">
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -207,7 +203,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                     </svg>
                 </div>
-                <h3 class="text-2xl font-bold text-gray-800 mb-2">All Done!</h3>
+                <h3 class="text-xxl font-bold text-gray-800 mb-2">All Done!</h3>
                 <p class="text-gray-600 text-center mb-6">Your message has been sent successfully.</p>
                 <button onclick="closeOverlay()" class="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition">
                     Close
