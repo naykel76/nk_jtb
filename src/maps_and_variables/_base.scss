@@ -48,7 +48,8 @@ $gap-base: $base-gap !default;
 $gap-lg: 2rem !default;
 
 // -- Border Defaults --
-$border-color: oklch(92.8% 0.006 264.531deg) !default; // (gray-200 equivalent)
+$border-color: oklch(96.7% 0.003 264.542deg) !default; // (gray-100 equivalent)
+// $border-color: oklch(92.8% 0.006 264.531deg) !default; // (gray-200 equivalent)
 $border-width-base: 1px !default;
 $border: 1px solid $border-color !default;
 

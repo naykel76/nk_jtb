@@ -1,9 +1,11 @@
-/* stylelint-disable selector-type-no-unknown */
+// stylelint-disable selector-class-pattern
+// stylelint-disable selector-type-no-unknown
 @use '../functions/map-and-list-helpers' as *;
 @use '../maps_and_variables/base' as *;
 @use '../maps_and_variables/colors' as *;
 @use '../mixins/backgrounds' as *;
 @use '../mixins/breakpoint-utilities' as *;
+@use '../mixins/media-container-queries' as *;
 @use '../mixins/build-system/controllers' as *;
 @use 'sass:map';
 
@@ -18,17 +20,20 @@ $question-color: #c40c9a !default;
 
     h2 {
         color: var(--primary);
-        font-size: 1.25rem;
+        font-size: 1rem;
         margin-block-start: 4rem;
     }
 
-    h2 + p {
+    h2 + p, h3 + p {
         margin-block-start: 0.5rem;
     }
 
     h3 {
-        font-size: 1.5rem;
-        margin-block-start: 1rem;
+        font-size: 1.25rem;
+    }
+    
+    .bx + h3{
+        margin-block-start: 3rem;
     }
 
     :is(.left-sidebar, .right-sidebar) {
@@ -248,6 +253,22 @@ pre code.torchlight {
         pointer-events: none;
         position: absolute;
         right: 0.5rem;
+    }
+
+    // Docs-only preview overrides.
+    // The demo wrapper is narrower than a real page, so this adjusts the preview
+    // behavior without changing the example code that users copy.
+    &.with-docs-only-overrides{
+        .min-h-screen{
+            min-height: 200px;
+        }
+
+        @container (width < 476px) {
+            .to-md\:hidden {
+                // background-color: #c40c9a;
+                display: none;
+            }
+        }
     }
 }
 

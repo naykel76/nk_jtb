@@ -19,7 +19,7 @@ description: Documentation patterns for the NK JTB SCSS framework.
 
 Choose the document shape based on what is being documented.
 
-### Utility Documentation (review)
+### Utility Documentation
 
 Use for class-based APIs such as spacing, sizing, border, position, transforms,
 and typography helpers.
@@ -28,17 +28,31 @@ Default structure:
 
 1. Title
 2. One-line lead
-3. Demo sections grouped by behaviour
-4. Available values at the end
+3. Major utility groups as `##` headings when the page covers more than one
+   family
+4. Example groups within those sections as `###` headings when needed
+5. Optional compact table of available properties or value groups
+6. Available values at the end, when useful
 
 Rules:
 
 - Let the examples do most of the work.
 - Keep prose short.
+- Use `##` for major utility families such as `Border` and `Outline` when the
+  page covers multiple related groups.
+- Use `###` for example groups within those families such as `Width`, `Color`,
+  `Style`, or `Offset`.
+- Keep utility heading levels parallel. Do not mix levels unevenly when the
+  groups are peers.
+- Use a compact table near the top when it helps scan the utility API quickly.
 - Only add notes when behaviour is non-obvious.
 - Keep review notes, implementation commentary, and TODOs out of the main doc.
 - Group examples by usage, not by SCSS implementation detail.
 - Use `+demo-folded class="bx"` for interactive examples.
+- Use `preview-class="..."` for preview-only layout or styling so copied code
+  stays clean.
+- Use `class="..."` for the outer demo wrapper when the preview needs a
+  container such as `bx`.
 - Add `(review)` to new headings by default when creating new documentation or
   repo-local skills, or when migrating/reworking documents from an older review
   state into the current documentation set.
@@ -190,6 +204,17 @@ Use `+code` flag for SCSS examples:
 ```scss +code
 @function normalise-config($property, $config, $responsive, $with-state)
 ```
+
+## Code Block Attributes (review)
+
+Use these with fenced demo blocks:
+
+- `class="..."` → outer demo wrapper class
+- `preview-class="..."` → class applied to the preview container
+- `+demo` / `+demo-folded` → render preview and code together
+
+Prefer `preview-class` when the layout is only for the preview. That keeps the
+example code cleaner when copied.
 
 ## Formatting Rules (review)
 

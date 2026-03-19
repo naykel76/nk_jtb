@@ -56,7 +56,7 @@ $base-colors: (
     'primary': base.$primary,
     'secondary': base.$secondary,
     'accent': base.$accent,
-    'muted': #6b7280,
+    'muted': oklch(70.7% 0.022 261.325deg),
     'white': #fff,
     'red': oklch(63.7% 0.237 25.331deg),
     'orange': oklch(70.5% 0.213 47.604deg),
