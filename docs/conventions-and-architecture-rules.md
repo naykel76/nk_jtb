@@ -1,10 +1,10 @@
-# JTB Conventions & Architecture Rules
+# JTB Conventions & Architecture Rules (review)
 
 This document defines naming conventions and architectural patterns for JTB
 utility classes and SCSS variables. Understanding these patterns helps predict
 class names and use the framework effectively.
 
-## Class Name Structure
+## Class Name Structure (review)
 
 All utility classes follow this pattern:
 
@@ -47,7 +47,7 @@ gap-05        // gap with value 0.5 — sub-1 values drop the leading zero and d
 > decimal point. `0.5` becomes `05`, `0.25` becomes `025`. So `gap-0.5` is
 > **wrong** — write `gap-05`.
 
-### With prefixes
+### With prefixes (review)
 
 ```scss +code
 md:mxy-sm           // medium screens: margin x/y small variant
@@ -58,7 +58,7 @@ hover:md:mxy-1.5    // hover state on medium screens: margin x/y 1.5
 For more on responsive breakpoints and pseudo-class prefixes, see [Responsive
 Design](responsive-design.md).
 
-## Property (Prefix)
+## Property (Prefix) (review)
 
 ```scss +code
 gap      // gap property
@@ -66,7 +66,7 @@ bg       // background
 txt      // text properties
 ```
 
-## Value and Variant
+## Value and Variant (review)
 
 **Variant** - semantic keyword:
 
@@ -83,7 +83,7 @@ gap-1.5  // 1.5rem
 hidden   // keyword
 ```
 
-## Directional Conventions
+## Directional Conventions (review)
 
 Suffixes map to logical properties internally. Familiar abbreviations like `ml-`
 or `mt-` can be used.
@@ -104,7 +104,7 @@ px-1.5      // horizontal padding → padding-inline
 rounded-t-1 // top corners
 ```
 
-## Logical Properties Implementation
+## Logical Properties Implementation (review)
 
 * JTB uses **logical properties exclusively**.
 * Physical properties (`top`, `left`, `margin-left`) are never used.
@@ -115,7 +115,7 @@ rounded-t-1 // top corners
 | padding-top | padding-block-start |
 | top         | inset-block-start   |
 
-## Unit Convention
+## Unit Convention (review)
 
 * Default: `rem` units
 * Borders/outlines: `px` for whole-pixel consistency
@@ -125,9 +125,9 @@ bdr-1   // 1px
 bdr-2   // 2px
 ```
 
-## SCSS Variable Conventions
+## SCSS Variable Conventions (review)
 
-### File Structure
+### File Structure (review)
 
 Organized in `src/maps_and_variables/`:
 
@@ -136,7 +136,7 @@ Organized in `src/maps_and_variables/`:
 * **Domain:** `_typography.scss`, `_forms.scss`, `_components.scss`
 * **System:** `_config.scss`, `_property-maps.scss`, `_value-maps.scss`
 
-### Naming Convention
+### Naming Convention (review)
 
 **Three-map pattern** (scales + semantic variants):
 
@@ -170,7 +170,7 @@ $spacing-values: (0, 0.25, 0.5, 1) !default;
 $margin-variants: (auto: auto) !default;
 ```
 
-### Map Merging Order
+### Map Merging Order (review)
 
 Merge **variants first, values second** for correct CSS cascade:
 
@@ -180,3 +180,4 @@ $border-width-map: smart-merge($border-width-variants, $border-width-values) !de
 
 * Base/semantic variants generate first (lower priority)
 * Numeric/specific values generate last (higher priority)
+

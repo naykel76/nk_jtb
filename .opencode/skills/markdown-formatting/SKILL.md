@@ -5,17 +5,17 @@ description: >-
   and markdown-lint rules. Activates when creating or editing markdown files.
 ---
 
-# Markdown Formatting
+# Markdown Formatting (review)
 
 **Activate this skill when:**
 
 Activate when writing or editing any markdown files.
 
-## General Guidelines
+## General Guidelines (review)
 
 - Do not include table of contents unless specifically requested.
 
-## Code Blocks
+## Code Blocks (review)
 
 All code blocks must include a language tag and a flag for syntax highlighting
 and preview features.
@@ -29,7 +29,7 @@ and preview features.
 Other Flags: `+preview`, `+collapse` and `output` exist but are less common and
 only to be used when requested.
 
-### Demo-Folded Wrapper Class
+### Demo-Folded Wrapper Class (review)
 
 When using `+demo-folded`, add `class="bx"` to wrap the example in a box component:
 
@@ -38,7 +38,7 @@ When using `+demo-folded`, add `class="bx"` to wrap the example in a box compone
 <div class="example">Content here</div>
 ```
 
-### Language Tags
+### Language Tags (review)
 
 Use the tag that matches the content, unless specified otherwise:
 
@@ -47,17 +47,17 @@ Use the tag that matches the content, unless specified otherwise:
 | Directory trees, shell commands | ` ```bash +code `       |
 | Blade templates                 | ` ```html +code-blade ` |
 
-## Horizontal
+## Horizontal (review)
 
 Use 80 hyphens `-------------------------------------------------------------------------------` for horizontal rules.
 
-## Lists
+## Lists (review)
 
 - Use hyphens `-` for unordered lists
 - Use numbers `1.` `2.` for ordered steps
 - Consistent indentation (4 spaces)
 
-## Tables
+## Tables (review)
 
 Standard GitHub Flavored Markdown:
 
@@ -68,6 +68,7 @@ Standard GitHub Flavored Markdown:
 
 - Keep separators aligned
 
-## Linting
+## Linting (review)
 
 - Blank line before and after
+

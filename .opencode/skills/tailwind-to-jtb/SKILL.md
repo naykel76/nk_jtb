@@ -1,0 +1,52 @@
+---
+name: tailwind-to-jtb
+description: Convert Tailwind-oriented HTML and class usage to NK JTB framework classes and documented patterns. Use when updating markup that currently uses Tailwind classes, arbitrary values, or Tailwind-style responsive/layout conventions and the goal is to express the same intent with JTB.
+---
+
+Read `AGENTS.md` first. For responsive or layout conversion, read:
+
+- `docs/responsive-design.md`
+- `docs/conventions-and-architecture-rules.md`
+- `docs/layer-system.md`
+
+## Conversion Order (review)
+
+1. Replace Tailwind classes with documented JTB utilities or components.
+2. When the source uses arbitrary/custom values, snap to the closest existing
+   JTB token or utility instead of preserving the exact Tailwind value.
+3. Do not create new classes as a conversion shortcut.
+4. If something appears to need a class, consider whether it should become a
+   real framework component, utility, or documented pattern.
+5. Record any imperfect token match or missing framework support in a root-level
+   notes file for review.
+6. Only add local CSS when JTB cannot express the requirement.
+
+## Rules (review)
+
+- Treat Tailwind classes as intent references, not direct mappings.
+- Prefer documented JTB scales, breakpoints, and logical-property utilities.
+- When replacing `max-w-* mx-auto px-*` wrappers, check whether a `container-*`
+  utility already expresses the same intent without extra horizontal padding.
+- Prefer framework components when the structure already matches what they
+  provide. Common examples include `navbar`, `bx`, `bx-header`, `bx-content`,
+  `bx-footer`, and `divide-y`.
+- Remove no-op or default classes that do not materially change the layout or
+  styling.
+- Prefer semantic utility tokens such as `txt-muted` when they match the intent,
+  instead of repeatedly assembling the same low-level token combination.
+- Use `{bp}:` for progressive changes.
+- Use `to-` / `on-` for visibility windows.
+- Keep visibility logic consistent within the same layout shell.
+- Do not create new classes just to make a single conversion easier.
+
+## Review Checklist (review)
+
+- Remove Tailwind-only syntax such as arbitrary value classes where a JTB
+  utility exists.
+- Check whether an existing component expresses the structure more cleanly than
+  rebuilding it with low-level utilities.
+- Remove classes that only restate the default behavior.
+- Check whether a nearby JTB token is acceptable before creating custom CSS.
+- Document missing utilities or unsupported patterns in a root-level notes file.
+- Flag framework gaps that should become docs or utilities later.
+

@@ -1,4 +1,4 @@
-# Button
+# Button (review)
 
 Buttons work with all themes just like other components. Apply `.primary`,
 `.secondary`, or any other theme class to get consistent branding throughout
@@ -54,13 +54,13 @@ your interface.
     <button class="btn w-6 neutral-outline">neutral</button>
 </div>
 
-## Basic Button
+## Basic Button (review)
 
 ```html +demo-folded class="bx"
 <button class="btn">Default Button</button>
 ```
 
-## Button Themes
+## Button Themes (review)
 
 Apply theme modifiers for different colors:
 
@@ -74,7 +74,7 @@ Apply theme modifiers for different colors:
 </div>
 ```
 
-## Button Sizes
+## Button Sizes (review)
 
 ```html +demo-folded class="bx"
 <div class="flex flex-wrap gap-1 items-center">
@@ -84,3 +84,4 @@ Apply theme modifiers for different colors:
     <button class="btn lg">Large</button>
 </div>
 ```
+

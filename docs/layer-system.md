@@ -1,10 +1,10 @@
-# Layer System
+# Layer System (review)
 
 The layer system organizes and structures CSS styles for easier maintenance and
 scalability. It solves the problem of specificity and conflicts by creating a
 hierarchy that can be overridden in a controlled manner.
 
-## The Problem
+## The Problem (review)
 
 CSS cascade matters. Without layers:
 
@@ -16,7 +16,7 @@ CSS cascade matters. Without layers:
 Which one wins? The second - because it appears later and has higher
 specificity.
 
-## The Solution
+## The Solution (review)
 
 Generate classes in order so more specific overrides less specific:
 
@@ -27,9 +27,9 @@ Generate classes in order so more specific overrides less specific:
 | 3. State              | `.hover:flex`    | On hover          | Medium   |
 | 4. Responsive + State | `.md:hover:flex` | Medium + hover    | Highest  |
 
-## Layer Breakdown
+## Layer Breakdown (review)
 
-### Layer 1: Base
+### Layer 1: Base (review)
 
 Just the property, no modifiers.
 
@@ -38,7 +38,7 @@ Just the property, no modifiers.
 .block { display: block; }
 ```
 
-### Layer 2: Responsive
+### Layer 2: Responsive (review)
 
 Adds breakpoint modifiers (mobile-first, from breakpoint).
 
@@ -48,7 +48,7 @@ Adds breakpoint modifiers (mobile-first, from breakpoint).
 }
 ```
 
-### Layer 3: State
+### Layer 3: State (review)
 
 Adds pseudo-classes.
 
@@ -57,7 +57,7 @@ Adds pseudo-classes.
 .focus\:block:focus { display: block; }
 ```
 
-### Layer 4: Responsive + State
+### Layer 4: Responsive + State (review)
 
 Both together - highest priority.
 
@@ -67,7 +67,7 @@ Both together - highest priority.
 }
 ```
 
-## Why This Matters
+## Why This Matters (review)
 
 Users can stack modifiers naturally:
 
@@ -79,7 +79,7 @@ Users can stack modifiers naturally:
 The system generates all combinations in the right order, avoiding specificity
 conflicts.
 
-## Configuration
+## Configuration (review)
 
 Each utility defines which layers it needs:
 
@@ -96,3 +96,4 @@ $properties-map: (
 
 Setting `$responsive: true` generates layers 1, 2, and 4. States are added
 per-utility when needed.
+

@@ -23,7 +23,10 @@
 
 - **scss-engineer** - SCSS code and architecture
 - **jtb-documentation** - Writing documentation
+- **jtb-layout** - Layout strategy using documented JTB layout primitives and patterns
 - **markdown-formatting** - Formatting conventions
+- **tailwind-to-jtb** - Converting Tailwind-oriented markup to documented JTB
+  classes
   
 ## When Given a Task
 
@@ -51,6 +54,9 @@
   - `docs/conventions-and-architecture-rules.md`
   - `docs/layer-system.md`
 - Do not infer behavior from Tailwind when docs differ.
+- Use the `tailwind-to-jtb` skill for Tailwind-to-JTB conversion work.
+- Use the `jtb-layout` skill for layout restructuring, grid/flex decisions, and
+  alternatives to custom grid-template reproduction.
 - Use `{bp}:` primarily for progressive styling/layout changes.
 - Use `to-` / `on-` primarily for visibility windows (show/hide behavior).
 - Prefer visibility patterns in this order:
@@ -96,14 +102,7 @@ src/
 
 ## Documentation
 
-**Use jtb-documentation skill for all documentation work.**
-
-**Directories:**
-
-- `docs/` - Finalized documentation
-- `docs-for-review/` - Work in progress
-
-**Workflow:**
-
-- Draft/work → `docs-for-review/`
-- Finalized → move to `docs/`
+- Use the `jtb-documentation` skill for all documentation work.
+- Use `docs/` as the single documentation location.
+- Track in-progress documentation with `(review)` headings until the content is
+  confirmed and cleaned up.

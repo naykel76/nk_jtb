@@ -6,194 +6,205 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
     <title>Student Dashboard | Lacta-Edu</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Outfit:wght@300;400;600&display=swap"
-        rel="stylesheet" />
+    <link rel="stylesheet" href="/src/build.scss" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet" />
     <style>
-        :root {
-            --brand-primary: #7c0442;
-            --brand-secondary: #f4e4eb;
-            --brand-neutral-bg: #f8f5f2;
-        }
-
         body {
-            background-color: var(--brand-neutral-bg);
-            font-family: Outfit, sans-serif;
+            font-family: "Outfit", ui-sans-serif, system-ui, sans-serif;
         }
 
-        h1,
-        h2,
-        h3 {
-            font-family: Fraunces, serif;
+        .fit-cover {
+            object-fit: cover;
         }
 
-        .u-brand-bg {
-            background-color: var(--brand-primary) !important;
-        }
-
-        .u-brand-text {
-            color: var(--brand-primary) !important;
-        }
-
-        .u-brand-secondary-bg {
-            background-color: var(--brand-secondary) !important;
-        }
-
-        .u-brand-hover:hover {
-            background-color: var(--brand-secondary) !important;
-            color: var(--brand-primary) !important;
-        }
-
-        .u-tracking-tight {
-            letter-spacing: -0.04em;
-        }
-
-        .u-tracking-wide {
-            letter-spacing: 0.2em;
-        }
-
-        .u-text-3xl {
-            font-size: 1.875rem;
-            line-height: 1.2;
-        }
-
-        .u-text-xl {
-            font-size: 1.25rem;
-            line-height: 1.4;
-        }
-
-        .u-text-lg {
-            font-size: 1.125rem;
-            line-height: 1.5;
-        }
-
-        .u-sidebar-link {
-            transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .u-sidebar-link:hover {
-            background-color: var(--brand-secondary);
-            color: var(--brand-primary);
-        }
-
-        .u-progress-track {
-            background: rgb(255 255 255 / 20%);
-            border-radius: 0.25rem;
-            height: 8px;
+        .truncate-1 {
+            min-inline-size: 0;
             overflow: hidden;
-        }
-
-        .u-progress-fill {
-            background: #fff;
-            height: 100%;
-            transition: width 500ms ease-out;
-        }
-
-        @media (min-width: 768px) {
-            .u-md-w-2-3 {
-                width: 66.666667%;
-            }
-        }
-
-        .u-shape-offset {
-            bottom: -2.5rem;
-            right: -2.5rem;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
     </style>
 </head>
 
-<body>
+<!-- automatic spacing, margins are not typically required (with caveats) -->
 
 
-    <!-- class="flex min-h-screen" -->
-    <aside class="w-16 bg-white bdr-r hidden md:flex flex-col">
-        <div class="p-1.5 bdr-b">
-            <div class="font-bold txt-lg txt-upper u-tracking-tight u-brand-text">Lacta-Edu</div>
-        </div>
-        <nav class="flex-1 p-1 space-y-0.5">
-            <a href="#"
-                class="flex items-center space-x-0.75 p-0.75 rounded-xl u-brand-secondary-bg u-brand-text font-bold">
-                <span>Dashboard</span>
-            </a>
-            <a href="#" class="flex items-center space-x-0.75 p-0.75 rounded-xl u-sidebar-link txt-gray-600">
-                <span>My Courses</span>
-            </a>
-            <a href="#" class="flex items-center space-x-0.75 p-0.75 rounded-xl u-sidebar-link txt-gray-600">
-                <span>Certificates</span>
-            </a>
-            <a href="#" class="flex items-center space-x-0.75 p-0.75 rounded-xl u-sidebar-link txt-gray-600">
-                <span>Resources</span>
-            </a>
-        </nav>
-        <div class="p-1 bdr-t">
-            <div class="flex items-center space-x-0.75 p-0.5">
-                <div class="w-2 h-2 rounded-full u-brand-bg txt-white flex-centered txt-xs">JS</div>
-                <div class="txt-sm font-bold">Jane Student</div>
-            </div>
-        </div>
-    </aside>
 
-    <main class="flex-1 overflow-y-auto p-2">
-        <header class="mb-2.5 flex justify-between items-end">
-            <div>
-                <h1 class="u-text-3xl font-bold">Welcome back, Jane!</h1>
-                <p class="txt-gray-500">You have completed 65% of your certification track.</p>
-            </div>
-            <div class="hidden md:flex space-x-1">
-                <div class="bg-white px-1.5 py-0.75 rounded-xxl bdr tac">
-                    <div class="txt-xs txt-upper txt-gray-400 font-bold">CERPs Earned</div>
-                    <div class="u-text-xl font-bold u-brand-text">12.5 / 75</div>
+<body class="bg-gray-50 txt-gray-900 min-h-screen">
+
+    <div class="bg-gray-50 min-h-screen">
+        <header class="navbar bg-white">
+            <div class="container-lg flex va-c justify-between">
+                <a href="#" class="flex va-c gap-05 txt-gray-900">
+                    <div class="badge square bg-gray-900 txt-white">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                            <path d="M2 3h10M2 7h7M2 11h5" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <span class="txt-lg" style="font-family: 'Fraunces', ui-serif, Georgia, serif;">Meridian</span>
+                </a>
+
+                <!-- Cart Dropdown -->
+                <div x-data="{ open: false }" class="relative">
+                    <button x-on:click="open = !open" x-on:keydown.escape="open = false" class="flex va-c gap-05 txt-sm hover:txt-gray-400 transition-colors">
+                        <div class="relative">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M2.5 3h1.667l2.5 8.333h8.333l1.667-6.25H5.833" />
+                                <circle cx="8" cy="15.5" r="1" fill="currentColor" stroke="none" />
+                                <circle cx="14" cy="15.5" r="1" fill="currentColor" stroke="none" />
+                            </svg>
+                            <span class="badge sm wh-1 absolute top-0 right-0 dark" style="transform: translate(50%, -50%);">2</span>
+                        </div>
+                        <span class="badge">$220.00 AUD</span>
+                        <svg width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="1.5" :class="open ? 'rotate-180' : ''" class="transition-transform">
+                            <path d="M1.5 3.5l4 4 4-4" />
+                        </svg>
+                    </button>
+   
+
+                    <div x-show="open" x-on:click.outside="open = false" x-transition x-cloak class="absolute right-0 top-full mt-1 w-20 z-highest">
+                        <div class="bx rounded-xxl shadow-lg">
+                            <div class="bx-header bdr-b flex justify-between txt-xs txt-muted">
+                                <span class="uppercase tracking-wider font-medium">Cart</span>
+                                <span>2 items</span>
+                            </div>
+                            <div class="bx-content space-y-075">
+                                <div class="flex va-c gap-075">
+                                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=80&h=80&fit=crop" class="wh-2.5 rounded-lg fit-cover" />
+                                    <div class="flex-1 truncate-1">
+                                        <p class="txt-sm truncate-1">Foundational Governing Principles</p>
+                                        <p class="txt-xs txt-muted">Course</p>
+                                    </div>
+                                    <span class="txt-sm font-medium fs-0">$110.00</span>
+                                </div>
+                                <div class="flex va-c gap-075">
+                                    <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=80&h=80&fit=crop" class="wh-2.5 rounded-lg fit-cover" />
+                                    <div class="flex-1 truncate-1">
+                                        <p class="txt-sm truncate-1">Infant Ingenuity: Anatomy &amp; Physiology</p>
+                                        <p class="txt-xs txt-muted">Course</p>
+                                    </div>
+                                    <span class="txt-sm font-medium fs-0">$110.00</span>
+                                </div>
+                            </div>
+                            <div class="bx-footer bdr-t flex justify-between txt-sm">
+                                <span class="txt-gray-500">Total</span>
+                                <span class="font-medium">$220.00 AUD</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </header>
 
-        <div
-            class="u-brand-bg rounded-1.5 p-2 txt-white mb-2.5 flex-col md:flex-row justify-between items-center relative overflow-hidden">
-            <div class="relative z-above u-md-w-2-3">
-                <span class="txt-xs font-bold txt-upper u-tracking-wide opacity-80">Currently Learning</span>
-                <h2 class="txt-xl font-bold mt-0.5 mb-1">Module 4: Pharmacology and the Breastfeeding Dyad</h2>
-                <div class="u-progress-track mb-1.5">
-                    <div class="u-progress-fill" style="width: 45%"></div>
-                </div>
-                <button
-                    class="btn bg-white u-brand-text rounded-xl font-bold txt-normal-case hover:bg-gray-100 transition-colors">
-                    Resume Lesson 4.2
-                </button>
-            </div>
-            <div class="hidden md:block opacity-20 absolute u-shape-offset">
-                <svg width="200" height="200" viewBox="0 0 100 100" fill="currentColor">
-                    <circle cx="50" cy="50" r="40" />
-                </svg>
-            </div>
-        </div>
+        <div class="container-lg py-5">
+            <h1 class="txt-3 mb-4" style="font-family: 'Fraunces', ui-serif, Georgia, serif;">Checkout</h1>
 
-        <h3 class="u-text-xl font-bold mb-1.5">Your Courses</h3>
-        <div class="grid cols-1 lg:cols-2 gap-1.5">
-            <div class="bg-white p-1.5 rounded-xxl bdr flex space-x-1">
-                <div class="w-5 h-5 bg-gray-100 rounded-xl fs0 flex-centered txt-gray-400">[Img]</div>
-                <div class="flex-1">
-                    <h4 class="font-bold">IBLCE Prep: Advanced Anatomy</h4>
-                    <p class="txt-xs txt-gray-500 mb-1">Expires Dec 2026</p>
-                    <div class="flex items-center justify-between txt-sm">
-                        <span class="u-brand-text font-bold">100% Complete</span>
-                        <a href="#" class="txt-underline txt-gray-400">Review</a>
+            <!-- no need for cols-1, add to skill. why items-start -->
+            <div class="grid lg:cols-3 gap-1.5">
+                <div class="space-y-1 lg:col-span-2 overflow-hidden">
+                    <!-- notice the bx component, i think this should bne on skill. why overflow-hidden? -->
+                    <div class="bx rounded-xxl divide-y">
+                        <div class="flex va-c gap-1 py">
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=120&h=120&fit=crop" class="wh-4 rounded-xl fit-cover fs-0" />
+                            <div class="flex-1 truncate-1">
+                                <p class="txt-sm font-medium">Foundational Governing Principles</p>
+                                <p class="txt-xs txt-muted mt-05">Course</p>
+                            </div>
+                            <div class="ta-r fs-0">
+                                <p class="txt-sm font-medium">$110.00</p>
+                                <a href="#" class="txt-xs txt-gray-300 hover:txt-red-400 transition-colors">remove</a>
+                            </div>
+                        </div>
+                        <div class="flex va-c gap-1 py">
+                            <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=120&h=120&fit=crop" class="wh-4 rounded-xl fit-cover fs-0" />
+                            <div class="flex-1 truncate-1">
+                                <p class="txt-sm font-medium">Infant Ingenuity: Infant Anatomy &amp; Physiology</p>
+                                <p class="txt-xs txt-muted mt-05">Course</p>
+                            </div>
+                            <div class="ta-r fs-0">
+                                <p class="txt-sm font-medium">$110.00</p>
+                                <a href="#" class="txt-xs txt-gray-300 hover:txt-red-400 transition-colors">remove</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- another use case for box component and sections -->
+                    <div class="bx rounded-xxl">
+                        <div class="bx-header">
+                            <p class="txt-xs font-medium uppercase tracking-widest txt-muted">Payment method</p>
+                        </div>
+
+                        <label class="flex va-c gap-075 px-1.25 py-075 cursor-pointer hover:bg-gray-50 transition-colors">
+                            <input type="radio" name="payment" value="paypal" />
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M7.5 21H4.5L7 3h8c3.3 0 5.5 1.7 5 5-0.4 2.7-2.8 4.3-5.5 4.3H12l-1 6H7.5z" fill="#003087" />
+                                <path d="M10.5 12.3H14c2.7 0 5.1-1.6 5.5-4.3.1-.5.1-1 0-1.4C18.5 8.4 16.5 9.5 14.2 9.5H10.5l-1 5.8" fill="#009CDE" />
+                            </svg>
+                            <span class="txt-sm">PayPal</span>
+                        </label>
+                        <label class="flex va-c gap-075 px-1.25 pt-075 pb-1.25 cursor-pointer hover:bg-gray-50 transition-colors bdr-t bdr-gray-100">
+                            <input type="radio" name="payment" value="card" />
+                            <svg width="20" height="14" viewBox="0 0 20 14" fill="none">
+                                <rect x="0.5" y="0.5" width="19" height="13" rx="2.5" stroke="#d1d5db" />
+                                <rect y="3" width="20" height="3" fill="#e5e7eb" />
+                                <rect x="2" y="8.5" width="5" height="1.5" rx="0.75" fill="#d1d5db" />
+                            </svg>
+                            <span class="txt-sm">Credit / Debit Card</span>
+                        </label>
+                    </div>
+
+                    <div class="bg-white bdr bdr-gray-100 rounded-xxl px-1.25 py-1.25 space-y-1">
+                        <label class="flex items-start gap-075 cursor-pointer">
+                            <input type="checkbox" class="mt-05 fs-0" />
+                            <span class="txt-xs txt-gray-500 lh-relaxed">
+                                I have read and agree to the
+                                <a href="#" class="txt-gray-900 txt-underline">Terms &amp; Conditions</a>
+                                and
+                                <a href="#" class="txt-gray-900 txt-underline">Privacy Policy</a>.
+                            </span>
+                        </label>
+
+                        <button class="w-full bg-gray-900 txt-white txt-sm font-medium py-1 rounded-xl hover:bg-gray-700 transition-colors">
+                            Process Payment
+                        </button>
+
+                        <p class="ta-c txt-xs txt-muted flex-hac va-c gap-05">
+                            <svg width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="1.5" y="4.5" width="8" height="5.5" rx="1" />
+                                <path d="M3.5 4.5V3a2 2 0 014 0v1.5" />
+                            </svg>
+                            Secured by Stripe · 30-day money-back guarantee
+                        </p>
                     </div>
                 </div>
-            </div>
-            <div class="bg-white p-1.5 rounded-xxl bdr flex space-x-1">
-                <div class="w-5 h-5 bg-gray-100 rounded-xl fs0 flex-centered txt-gray-400">[Img]</div>
-                <div class="flex-1">
-                    <h4 class="font-bold">Ethics for Lactation Consultants</h4>
-                    <p class="txt-xs txt-gray-500 mb-1">Not started</p>
-                    <div class="flex items-center justify-between txt-sm">
-                        <span class="txt-gray-400 font-bold">0% Complete</span>
-                        <a href="#" class="u-brand-text font-bold">Start Now →</a>
+
+                <!-- removed sticky, not wanted and source of z-index problem -->
+                <aside class="lg:col-span-1">
+                    <div class="bg-white bdr bdr-gray-100 rounded-xxl px-1.25 py-1.25">
+                        <div class="flex items-baseline justify-between mb-025">
+                            <span class="txt-sm font-medium">Total</span>
+                            <span class="txt-2" style="font-family: 'Fraunces', ui-serif, Georgia, serif;">$220.00</span>
+                        </div>
+                        <p class="txt-xs txt-muted ta-r mb-1">AUD</p>
+                        <div class="bdr-t bdr-gray-100 pt-1 space-y-05">
+                            <div class="flex justify-between txt-xs gap-05">
+                                <span class="txt-muted flex-1 truncate-1">Foundational Governing Principles</span>
+                                <span class="font-medium fs-0">$110.00</span>
+                            </div>
+                            <div class="flex justify-between txt-xs gap-05">
+                                <span class="txt-muted flex-1 truncate-1">Infant Ingenuity: Anatomy &amp; Physiology</span>
+                                <span class="font-medium fs-0">$110.00</span>
+                            </div>
+                        </div>
+                        <div class="bdr-t bdr-gray-100 mt-1 pt-075 flex justify-between txt-xs txt-muted">
+                            <span>GST included</span>
+                            <span>$20.00</span>
+                        </div>
                     </div>
-                </div>
+                </aside>
             </div>
         </div>
-    </main>
-
+    </div>
     <script type="module" src="/main.js"></script>
 </body>
 

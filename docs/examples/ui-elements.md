@@ -1,6 +1,6 @@
-# UI Elements
+# UI Elements (review)
 
-## Dropdowns
+## Dropdowns (review)
 
 ```html +demo-folded
 <div x-data="{ open: false }" x-on:click.outside="open = false" x-on:keydown.escape="open = false" class="relative">
@@ -25,7 +25,7 @@
 </div>
 ```
 
-## Buttons & Inputs
+## Buttons & Inputs (review)
 
 ```html +demo-folded
 <div class="space-y">
@@ -47,7 +47,7 @@
 </div>
 ```
 
-## Navbar
+## Navbar (review)
 
 ```html +demo-folded
 
@@ -103,3 +103,4 @@
     </div>
 </nav>
 ```
+

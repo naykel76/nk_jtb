@@ -1,10 +1,10 @@
-# JTB – Just the Basics
+# JTB – Just the Basics (review)
 
 JTB is a Sass framework focused on sensible defaults without over-styling. It
 provides a solid foundation through base styles, minimal components, and a
 utility system—all designed to be easily overridden.
 
-## Philosophy
+## Philosophy (review)
 
 * **Defaults only where it matters** – Base styles provide a functional
   foundation.
@@ -14,7 +14,7 @@ utility system—all designed to be easily overridden.
 * **No unnecessary abstractions** – Maps, mixins, and variables are readable.
 * **Build-time logic only** – No runtime styling or complex theme engines.
 
-## Structure & Override Priority
+## Structure & Override Priority (review)
 
 JTB is split into three areas with clear override hierarchy:
 
@@ -30,7 +30,7 @@ JTB is split into three areas with clear override hierarchy:
 - **Maps & Variables** – Colors, spacing, breakpoints, component settings.
 - **Mixins** – Build-time generators for utility classes from maps.
 
-## Context-Aware Modifiers
+## Context-Aware Modifiers (review)
 
 Classes like `.primary`, `.xs`, or `.rounded` work on any component. No need for
 `.btn-primary`, `.input-xs`, or `.card-rounded`.
@@ -38,7 +38,7 @@ Classes like `.primary`, `.xs`, or `.rounded` work on any component. No need for
 These modifiers automatically adapt their styling to the component they're
 applied to.
 
-### Predictable Naming
+### Predictable Naming (review)
 
 Values and modifiers in JTB are meaningful—they’re not arbitrary. You can
 usually guess the class you need without checking a reference. For example:
@@ -52,7 +52,7 @@ Directional letters like `t`, `b`, `l`, `r`, `x`, `y` indicate sides or axes.
 You don’t need to think about internal logical properties—they’re handled under
 the hood.
 
-### Theming
+### Theming (review)
 
 Theming is SCSS-driven at build time. No runtime theming engine.
 
@@ -72,7 +72,7 @@ Theming is SCSS-driven at build time. No runtime theming engine.
 
 A single `.primary` class handles theming for all components.
 
-## Comparing Approaches
+## Comparing Approaches (review)
 
 Consider this Tailwind button:
 
@@ -125,3 +125,4 @@ The `.btn` class handles structure, padding, transitions, and states. The
 when you need to override the defaults.
 
 See [Installation](installation.md) to get started.
+

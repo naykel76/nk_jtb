@@ -1,12 +1,12 @@
-# Customisation
+# Customisation (review)
 
 <p class="lead">JTB has two customisation paths. Use SCSS variables to control
 what gets generated. Use CSS custom properties to tweak values without touching
 the build.</p>
 
-## How It Works
+## How It Works (review)
 
-### Override SCSS Variables
+### Override SCSS Variables (review)
 
 Every variable uses `!default` — override before the build runs and JTB picks
 them up everywhere.
@@ -29,7 +29,7 @@ the module directly as well.
 }
 ```
 
-### CSS Custom Properties
+### CSS Custom Properties (review)
 
 A subset of tokens are exposed as custom properties in `:root` for lightweight
 overrides.
@@ -41,3 +41,4 @@ overrides.
     --bg-body:    #ffffff;
 }
 ```
+

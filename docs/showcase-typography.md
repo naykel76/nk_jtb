@@ -1,4 +1,4 @@
-# JTB Typography Showcase
+# JTB Typography Showcase (review)
 
 Issues encountered while building `typography-showcase.html`:
 
@@ -7,7 +7,7 @@ Issues encountered while building `typography-showcase.html`:
 - Text transform utilities are unprefixed (`uppercase`, `lowercase`, `capitalize`, `normal-case`) while most typography utilities use a typography prefix such as `txt-` or `tracking-`.
 - Vite was only configured to emit the default `index.html` entry, so the new showcase page needed an explicit multi-page build input before it would appear in `dist/`.
 
-## Headings and Basic Text
+## Headings and Basic Text (review)
 
 <!-- space y -not working?? -->
 <div class="bx space-y-1">
@@ -19,7 +19,7 @@ Issues encountered while building `typography-showcase.html`:
     <h6>Heading 6</h6>
 </div>
 
-## Text Variants
+## Text Variants (review)
 
 <div class="bx">
     <div class="space-y-05">
@@ -39,13 +39,13 @@ Issues encountered while building `typography-showcase.html`:
     </div>
 </div>
 
-## Text Colors
+## Text Colors (review)
 
 <div class="bx space-y-05 flex">
     <div id="base-color-showcase"></div>
 </div>
 
-## Font Families
+## Font Families (review)
 
 <div class="bx space-y-05">
     <p class="font-sans">font-sans: The quick brown fox jumps over the lazy dog.</p>
@@ -53,7 +53,7 @@ Issues encountered while building `typography-showcase.html`:
     <p class="font-mono">font-mono: The quick brown fox jumps over the lazy dog.</p>
 </div>
 
-## Font Size (Variants)
+## Font Size (Variants) (review)
 
 <div class="bx space-y-05">
     <p class="txt-xs">txt-xs - The quick brown fox jumps over the lazy dog</p>
@@ -65,14 +65,14 @@ Issues encountered while building `typography-showcase.html`:
     <p class="lead">lead - The quick brown fox jumps over the lazy dog</p>
 </div>
 
-## Font Style
+## Font Style (review)
 
 <div class="bx space-y-05">
     <p class="txt-normal">txt-normal - The quick brown fox jumps over the lazy dog</p>
     <p class="txt-italic">txt-italic - The quick brown fox jumps over the lazy dog</p>  
 </div>
 
-## Font Weight (variants)
+## Font Weight (variants) (review)
 
 <div class="bx space-y-05">
     <p class="font-thin">font-thin</p>
@@ -86,7 +86,7 @@ Issues encountered while building `typography-showcase.html`:
     <p class="font-black">font-black</p>
 </div>
 
-## Line Height
+## Line Height (review)
 
 <div class="bx">
     <div class="space-y-05">
@@ -102,7 +102,7 @@ Issues encountered while building `typography-showcase.html`:
     </div>
 </div>
 
-## Letter Spacing
+## Letter Spacing (review)
 
 <div class="bx space-y-05 uppercase">
     <p class="tracking-tighter">tracking-tighter</p>
@@ -113,7 +113,7 @@ Issues encountered while building `typography-showcase.html`:
     <p class="tracking-widest">tracking-widest</p>
 </div>
 
-## Alignment and Text Formatting
+## Alignment and Text Formatting (review)
 
 <div class="bx space-y-05">
     <h3 class="txt-lg font-semibold mt-2">Text Align</h3>
@@ -160,7 +160,7 @@ line two with more content to force wrapping.</pre>
     </div>
 </div>
 
-## List Styles
+## List Styles (review)
 
 <div class="bx space-y-05">
     <div class="mt-2">
@@ -233,3 +233,4 @@ baseColorShowcase.appendChild(makeGroup('Base and Semantic Colors', baseColorCla
 //     baseColorShowcase.appendChild(makeGroup(`${hue} Scale`, classes));
 // });
 </script>
+

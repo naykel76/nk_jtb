@@ -1,19 +1,6 @@
-# Border and Outline Utilities
+# Border and Outline Utilities (review)
 
-<!-- 
-
-Examples
-<div class="bdr">Default $border-color</div> (already have this)
-<div class="bdr-r">Default $border-color</div>
-<div class="bdr-1">Inherited or browser default color</div>
-<div class="bdr bdr-red">Override default with red border</div>
-<div class="bdr-r bdr-red">Override default with red border</div>
-
- -->
-
-TODO: Need to update to correct border color.
-
-## Border Width
+## Border Width (review)
 
 Border widths use pixel values for consistent rendering across all screen sizes.
 
@@ -31,7 +18,7 @@ Border widths use pixel values for consistent rendering across all screen sizes.
 </div>
 ```
 
-### Positional Border Widths
+### Positional Border Widths (review)
 
 Apply different widths to specific sides:
 
@@ -59,10 +46,9 @@ Apply different widths to specific sides:
 </div>
 ```
 
-## Border Color
+## Border Color (review)
 
-By default, the border color automatically inherits the text color of the
-element.
+By default, the border color automatically inherits the text color of the element.
 
 ```html +demo-folded
 <div class="grid gap lg:cols-3 tac c-pxy-1">
@@ -96,7 +82,7 @@ Override this by applying explicit border-color classes:
 
 Border colors apply to all sides that have a width set.
 
-## Border Style
+## Border Style (review)
 
 Change the border style for all sides or specific positions:
 
@@ -117,7 +103,7 @@ Change the border style for all sides or specific positions:
 </div>
 ```
 
-### Positional Border Styles
+### Positional Border Styles (review)
 
 Apply different styles to specific sides for dividers or mixed borders:
 
@@ -132,10 +118,9 @@ Apply different styles to specific sides for dividers or mixed borders:
 </div>
 ```
 
-## Border Radius
+## Border Radius (review)
 
-Control the roundness of element corners. Supports all sides, individual sides,
-and specific corners.
+Control the roundness of element corners. Supports all sides, individual sides, and specific corners.
 
 ```html +demo-folded
 <div class="grid gap lg:cols-3 tac c-pxy-1">
@@ -151,7 +136,7 @@ and specific corners.
 </div>
 ```
 
-### Positional Radius
+### Positional Radius (review)
 
 Round specific sides for tabs, modals, or connected elements:
 
@@ -168,3 +153,76 @@ Round specific sides for tabs, modals, or connected elements:
     </div>
 </div>
 ```
+
+## Outlines (review)
+
+Outlines are visual indicators that sit outside the element's border box. Like borders,
+outline widths use pixels.
+
+```html +demo-folded
+<div class="grid gap md:cols-2 tac c-pxy-1">
+    <div class="outline-3 outline-solid">
+        <code>outline-3 outline-solid</code><br> Solid outline
+    </div>
+    <div class="outline-3 outline-dashed">
+        <code>outline-3 outline-dashed</code><br> Dashed outline
+    </div>
+    <div class="outline-3 outline-dotted">
+        <code>outline-3 outline-dotted</code><br> Dotted outline
+    </div>
+    <div class="outline-3 outline-double">
+        <code>outline-3 outline-double</code><br> Double outline
+    </div>
+</div>
+```
+
+### Outline Offset (review)
+
+Control the space between the element and its outline. Offset values use pixels for precision.
+
+```html +demo-folded
+<div class="grid gap md:cols-2 tac c-pxy-1">
+    <div class="bx outline-offset-5 outline-3 outline-solid">
+        <code>outline-3 outline-solid</code><br> Solid outline
+    </div>
+    <div class="bx outline-offset-5 outline-3 outline-dashed">
+        <code>outline-3 outline-dashed</code><br> Dashed outline
+    </div>
+    <div class="bx outline-offset-5 outline-3 outline-dotted">
+        <code>outline-3 outline-dotted</code><br> Dotted outline
+    </div>
+    <div class="bx outline-offset-5 outline-3 outline-double">
+        <code>outline-3 outline-double</code><br> Double outline
+    </div>
+</div>
+```
+
+### Outline Color (review)
+
+Outlines inherit text color by default, or use explicit color classes:
+
+```html +demo-folded
+<div class="grid gap lg:cols-3 tac c-pxy-1">
+    <div class="bx outline outline-3 txt-red">
+        <code>outline-3 txt-red</code><br> Inherits red from text
+    </div>
+    <div class="bx outline outline-3 txt-green">
+        <code>outline-3 txt-green</code><br> Inherits green from text
+    </div>
+    <div class="bx outline outline-3 txt-blue">
+        <code>outline-3 txt-blue</code><br> Inherits blue from text
+    </div>
+</div>
+```
+
+## Responsive Borders (review)
+
+All border utilities support responsive breakpoints for layout-dependent styling:
+
+```html +demo-folded
+<div class="bdr-t md:bdr md:rounded lg:bdr-l-4 pxy">
+    <code>bdr-t md:bdr md:rounded lg:bdr-l-4</code><br>
+    Top border on mobile, full border on medium screens, thick left accent on large
+</div>
+```
+

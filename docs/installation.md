@@ -1,20 +1,20 @@
-# Installation
+# Installation (review)
 
 <p class="lead">Get started with JTB in minutes.</p>
 
-## Install
+## Install (review)
 
 ```bash +code
 npm install nk_jtb
 ```
 
-## Import
+## Import (review)
 
 ```scss +code
 @use 'nk_jtb/src/build' as *;
 ```
 
-## Configure
+## Configure (review)
 
 Override variables before importing. See [Customisation](customisation.md) for
 details.
@@ -28,7 +28,7 @@ details.
 @use 'nk_jtb/src/build' as *;
 ```
 
-## Selective Import
+## Selective Import (review)
 
 Import only the layers you need:
 
@@ -37,3 +37,4 @@ Import only the layers you need:
 @use 'nk_jtb/src/utilities/spacing' as *;
 @use 'nk_jtb/src/utilities/flexbox' as *;
 ```
+

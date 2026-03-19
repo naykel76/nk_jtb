@@ -5,53 +5,136 @@ description: Documentation patterns for the NK JTB SCSS framework.
 
 **Activate this skill when:** Asked to create or update framework documentation.
 
-## Documentation Locations
+## Documentation Locations (review)
 
-- **Utilities** → `docs-for-review/utilities/`
-- **API/Functions** → `docs-for-review/api/`
-- **Components** → `docs-for-review/components/`
+- **All documentation** → `docs/`
 
-Finalized docs move to `docs/`.
+## Workflow (review)
 
-## Component Documentation
+- Create new documentation directly in `docs/`.
+- Keep in-progress documentation in `docs/` and mark active headings with
+  `(review)` until the content is confirmed.
 
-### Structure
+## Documentation Types (review)
 
-```markdown
-# Component Name
+Choose the document shape based on what is being documented.
 
-<p class="lead">One sentence. Introduces the component class and what it does.</p>
+### Utility Documentation (review)
 
-## Structure
-(Always second. +code block, always visible. One line of prose before the code explaining the container vs component separation. Follow with a blockquote explaining why the separation matters.)
+Use for class-based APIs such as spacing, sizing, border, position, transforms,
+and typography helpers.
 
-## Basic Usage
-(First live demo. No prose unless something is non-obvious.)
+Default structure:
 
-## [Further sections as needed]
-```
+1. Title
+2. One-line lead
+3. Demo sections grouped by behaviour
+4. Available values at the end
 
-### Rules
+Rules:
 
-- **Lead paragraph is the introduction** — no separate `## Introduction` section
-  ever, except for conceptual overview documents that introduce foundational
-  framework concepts
-- **Lead introduces the class** — not just a vague description. Name the class,
-  say what it does.
-- **Structure section always comes before Basic Usage** — shows the minimal
-  markup with `+code` (always visible)
-- **Progressive complexity** — basic → features → complete examples
-- **Never invent examples** — only document what exists in the SCSS
+- Let the examples do most of the work.
+- Keep prose short.
+- Only add notes when behaviour is non-obvious.
+- Keep review notes, implementation commentary, and TODOs out of the main doc.
+- Group examples by usage, not by SCSS implementation detail.
+- Use `+demo-folded class="bx"` for interactive examples.
+- Add `(review)` to new headings by default when creating new documentation or
+  repo-local skills, or when migrating/reworking documents from an older review
+  state into the current documentation set.
+- Keep the tag until the user confirms that the heading, section, or file is
+  final.
+- Remove confirmed `(review)` tags as part of the cleanup pass.
 
-### Prose vs Code
+### Component Documentation (review)
+
+Use for named structural classes such as `navbar`, `menu`, `bx`, or form
+controls.
+
+Default structure:
+
+1. Title
+2. One-line lead
+3. `## Structure`
+4. `## Basic Usage`
+5. Additional sections as needed
+
+Rules:
+
+- Lead paragraph is the introduction. Do not add a separate `## Introduction`
+  section unless the doc is a conceptual overview.
+- Name the component clearly in the lead.
+- Show the minimum working structure early with `+code`.
+- Use prose where structure or context-aware behaviour needs explanation.
+- Move from simple usage to fuller examples.
+- Add `(review)` to new headings by default when creating new documentation or
+  repo-local skills, or when migrating/reworking documents from an older review
+  state into the current documentation set.
+- Keep the tag until the user confirms that the heading, section, or file is
+  final.
+- Remove confirmed `(review)` tags as part of the cleanup pass.
+
+### Concept Documentation (review)
+
+Use for framework ideas such as layouts, responsive behaviour, layering,
+conventions, or naming rules.
+
+Default structure:
+
+1. Title
+2. One-line lead
+3. Short explanation sections
+4. Examples where useful
+
+Rules:
+
+- Explain the idea plainly.
+- Use examples to support the explanation, not replace it.
+- Write docs as JTB-first guidance.
+- Avoid Tailwind references in general framework docs. Only mention Tailwind in
+  explicit conversion or comparison documents.
+- Avoid process notes written for a specific review conversation.
+- Add `(review)` to new headings by default when creating new documentation or
+  repo-local skills, or when migrating/reworking documents from an older review
+  state into the current documentation set.
+- Keep the tag until the user confirms that the heading, section, or file is
+  final.
+- Remove confirmed `(review)` tags as part of the cleanup pass.
+
+### API Documentation (review)
+
+Use for SCSS functions, mixins, and other code-level references.
+
+Default structure:
+
+1. Title
+2. Brief description
+3. Signature
+4. Example usage
+5. Notes only if needed
+
+Rules:
+
+- Keep them reference-first.
+- Do not explain what the signature or example already makes obvious.
+- Add parameter or return detail only when the API needs it.
+- Keep function signatures on one line, even if long.
+- Add `(review)` to new headings by default when creating new documentation or
+  repo-local skills, or when migrating/reworking documents from an older review
+  state into the current documentation set.
+- Keep the tag until the user confirms that the heading, section, or file is
+  final.
+- Remove confirmed `(review)` tags as part of the cleanup pass.
+
+## Prose vs Code (review)
 
 Default to code-first. Add prose only when:
 
-- **Context-aware behaviour** needs explanation
-- **Non-obvious structure** requires a note
-- **Foundational patterns** apply across multiple examples
+- Context-aware behaviour needs explanation
+- Non-obvious structure requires a note
+- Foundational patterns apply across multiple examples
 
-### Optional Content
+## Optional Content (review)
 
 Include as needed, case-by-case:
 
@@ -59,37 +142,21 @@ Include as needed, case-by-case:
 - Responsive patterns
 - Theming examples
 
-## Utility Documentation
+## API/Function Documentation (review)
 
-### Demo Blocks
-
-Use `+demo-folded class="bx"` for interactive examples:
-
-```html +demo-folded class="bx"
-<div class="example">Demo content</div>
-```
-
-### Structure
-
-1. Title and brief description
-2. Visual demo + code example
-3. Available values/variants at end
-
-## API/Function Documentation
-
-### File Convention
+### File Convention (review)
 
 **One API document per source file.**
 
 Documentation mirrors the source file structure:
 
 - `src/functions/_normalise-config.scss` →
-  `docs-for-review/api/normalise-config.md`
-- `src/functions/_helpers.scss` → `docs-for-review/api/helpers.md`
+  `docs/api/normalise-config.md`
+- `src/functions/_helpers.scss` → `docs/api/helpers.md`
 
 Document all functions contained in that source file.
 
-### Structure
+### Structure (review)
 
 Scale detail to complexity:
 
@@ -108,7 +175,7 @@ Scale detail to complexity:
 5. Example usage
 6. Notes (only if there are gotchas or important context)
 
-### Code Blocks
+### Code Blocks (review)
 
 Use `+code` flag for SCSS examples:
 
@@ -124,15 +191,17 @@ Use `+code` flag for SCSS examples:
 @function normalise-config($property, $config, $responsive, $with-state)
 ```
 
-## Formatting Rules
+## Formatting Rules (review)
 
 - **No horizontal rules (`---`)** - Ever. Use headings and spacing
 - **Concise** - Get to the point
 - **Show code** - Examples over explanation
 - **Document the non-obvious** - Skip what's clear from context
+- **Call out outstanding review tags** - When closing documentation work, say
+  which headings, docs, or repo-local skills still carry `(review)` tags
 
-## Reference
+## Reference (review)
 
 Components: `docs/components/navbar.md`, `docs/components/menu.md`
 Utilities: `border.md`, `position.md`, `sizing.md`
-API: Check existing files in `docs-for-review/api/`
+API: Check existing files in `docs/api/`

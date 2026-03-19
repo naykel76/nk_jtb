@@ -1,11 +1,11 @@
-# Page Layouts and Structures
+# Page Layouts and Structures (review)
 
 Note: These examples are using a container query class to make it easy to
 demonstrate responsive layouts without needing to add multiple classes for
 different breakpoints. In production you simply remove the `cq-` prefix and use
 the appropriate breakpoint classes as needed.
 
-## Sidebar with Main Layout (Dashboard)
+## Sidebar with Main Layout (Dashboard) (review)
 
 ```html +demo-folded class="resizable-container"
 <div class="flex">
@@ -63,7 +63,7 @@ the appropriate breakpoint classes as needed.
         </div>
     </div>
 
-## Holly Grail
+## Holly Grail (review)
 
 ```html +demo-folded
 <div class="min-h-screen">
@@ -93,7 +93,7 @@ the appropriate breakpoint classes as needed.
 </div>
 ```
 
-## Split Screen
+## Split Screen (review)
 
 ```html +demo-folded class="bdr bdr-gray-300"
 <div class="min-h-screen">
@@ -110,3 +110,4 @@ the appropriate breakpoint classes as needed.
     </div>
 </div>
 ```
+

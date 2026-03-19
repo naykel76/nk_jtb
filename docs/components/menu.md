@@ -1,8 +1,8 @@
-# Menu
+# Menu (review)
 
 <p class="lead">The <code>.menu</code> class creates vertical navigation lists with automatic styling for links, buttons, icons, and states. No item classes required, just add links to the list.</p>
 
-## Structure
+## Structure (review)
 
 Apply `.menu` to a `<ul>` element. The `<nav>` is just a container, the menu
 itself is the list.
@@ -20,7 +20,7 @@ itself is the list.
 > vertical and horizontal layouts, nest menus, and use the menu component
 > anywhere—sidebars, dropdowns, or navbars.
 
-## Basic Usage
+## Basic Usage (review)
 
 ```html +demo-folded
 <nav class="bx">
@@ -52,7 +52,7 @@ itself is the list.
 </nav>
 ```
 
-### Adding Icons
+### Adding Icons (review)
 
 Icons work automatically, just add them inside links or buttons. Spacing and
 alignment are handled by the `.menu` class.
@@ -70,7 +70,7 @@ alignment are handled by the `.menu` class.
 </nav>
 ```
 
-### Section titles (`.menu-title`)
+### Section titles (`.menu-title`) (review)
 
 Use `.menu-title` for non-clickable labels that group menu items (e.g. “Account”, “Settings”). Place it inside the same `<ul class="menu">` as a sibling to `<li>` elements.
 
@@ -81,15 +81,15 @@ Use `.menu-title` for non-clickable labels that group menu items (e.g. “Accoun
 </ul>
 ```
 
-### Underline variant (`.link-underline`)
+### Underline variant (`.link-underline`) (review)
 
 Add `.link-underline` to the menu element to replace the hover background with a sliding left-to-right underline on links and buttons. Use with `.menu`: e.g. `<ul class="menu link-underline">`.
 
-### Chevron rotation (`.chevron` / `.chevron.open`)
+### Chevron rotation (`.chevron` / `.chevron.open`) (review)
 
 For parent items that expand/collapse, add `.chevron` to the icon (e.g. the caret SVG). Toggle the `.open` class when the submenu is open so the chevron rotates 180°.
 
-### Parent Items
+### Parent Items (review)
 
 Parent items use buttons to toggle child menus. Works for nested navigation or
 dropdowns. Uses Alpine.js for toggle behavior.
@@ -123,7 +123,7 @@ dropdowns. Uses Alpine.js for toggle behavior.
 </nav>
 ```
 
-## Utility Examples
+## Utility Examples (review)
 
 ```html +demo-folded
 <nav class="bx">
@@ -162,3 +162,4 @@ dropdowns. Uses Alpine.js for toggle behavior.
     </ul>
 </nav>
 ```
+

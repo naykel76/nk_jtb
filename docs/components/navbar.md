@@ -1,10 +1,10 @@
-# Navbar
+# Navbar (review)
 
 <p class="lead">Horizontal navigation container that provides layout for navigation menus. Works with the <a href="menu.md">menu component</a> to create responsive navigation bars.</p>
 
-## Using Component Classes
+## Using Component Classes (review)
 
-### Basic Navbar
+### Basic Navbar (review)
 
 - Make sure the `navbar` class is on the parent element. Why? The `navbar` class
   sets the background color, padding, and flex layout for the entire navigation
@@ -37,7 +37,7 @@
 </div>
 ```
 
-### With Brand
+### With Brand (review)
 
 ```html +demo-folded class="example-jtb"
 <nav class="navbar">
@@ -50,7 +50,7 @@
 </nav>
 ```
 
-### With Brand and Actions
+### With Brand and Actions (review)
 
 ```html +demo-folded class="example-jtb"
 <nav class="navbar">
@@ -64,7 +64,7 @@
 </nav>
 ```
 
-### With Dropdown Menu
+### With Dropdown Menu (review)
 
 ```html +demo-folded class="example-jtb"
 <nav class="navbar">
@@ -92,9 +92,9 @@
 </nav>
 ```
 
-## Using Utility Classes
+## Using Utility Classes (review)
 
-### Basic Navbar
+### Basic Navbar (review)
 
 ```html +demo-folded class="example-utils"
 <nav class="flex items-center justify-between pxy">
@@ -107,7 +107,7 @@
 </nav>
 ```
 
-### With Brand
+### With Brand (review)
 
 ```html +demo-folded class="example-utils"
 <nav class="flex items-center justify-between pxy">
@@ -120,7 +120,7 @@
 </nav>
 ```
 
-### With Brand and Actions
+### With Brand and Actions (review)
 
 ```html +demo-folded class="example-utils"
 <nav class="flex items-center justify-between pxy">
@@ -134,7 +134,7 @@
 </nav>
 ```
 
-### With Dropdown Menu
+### With Dropdown Menu (review)
 
 ```html +demo-folded class="example-utils"
 <nav class="flex items-center justify-between pxy">
@@ -161,3 +161,4 @@
     </ul>
 </nav>
 ```
+

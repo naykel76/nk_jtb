@@ -1,11 +1,11 @@
-# Responsive Design Patterns
+# Responsive Design Patterns (review)
 
 These examples use container queries so you can see responsive breakpoints in
 action without resizing your browser window. We use invisible rather than hidden
 so elements retain their space as the container shrinks — in a real project
 you'd use hidden to remove them from the flow entirely.
 
-## Show/Hide Pattern
+## Show/Hide Pattern (review)
 
 The Show/Hide pattern displays one element while hiding another based on screen
 or container width.
@@ -17,7 +17,7 @@ it exists.
 A common example is navigation: the full menu appears on larger screens, while a
 burger icon appears on smaller screens.
 
-### Hide/Hide Pattern
+### Hide/Hide Pattern (review)
 
 ```html +code
 <!-- Visible only below md -->
@@ -66,3 +66,4 @@ burger icon appears on smaller screens.
 <!-- Mobile only (explicit window) -->
 <div class="block md:hidden">...</div>
 ```
+

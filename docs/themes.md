@@ -1,4 +1,4 @@
-# Color and Themes
+# Color and Themes (review)
 
 All JTB theme classes are context-aware. Apply the same theme class to a
 button, box, input, badge, or another component and it adapts to that
@@ -28,7 +28,7 @@ component-specific variants like `btn-primary`.
 
 Both work the same way when applied to components.
 
-## Semantic Themes
+## Semantic Themes (review)
 
 <div class="flex flex-wrap gap-025">
     <div class="primary w-6 h-4 flex-centered font-mono">primary</div>
@@ -47,7 +47,7 @@ Both work the same way when applied to components.
 These names are useful when you want themes that express purpose or brand
 meaning instead of a specific hue.
 
-## Hue Themes
+## Hue Themes (review)
 
 <div class="flex flex-wrap gap-025">
     <div class="red w-6 h-4 flex-centered font-mono">red</div>
@@ -77,7 +77,7 @@ meaning instead of a specific hue.
 These are still full theme classes. They are also the source used by color
 utilities such as `bg-teal`, `txt-rose`, and `bdr-slate`.
 
-## Theme Utilities
+## Theme Utilities (review)
 
 Base color utilities and theme classes are related, but they are not the same
 thing:
@@ -90,7 +90,7 @@ thing:
 Semantic theme names may also exist as utilities when they are present in the
 shared base color map, for example `bg-primary` or `txt-secondary`.
 
-## Button Examples
+## Button Examples (review)
 
 <div class="flex flex-wrap gap-025">
     <button class="btn w-6 red">red</button>
@@ -116,3 +116,4 @@ shared base color map, for example `bg-primary` or `txt-secondary`.
     <button class="btn w-6 stone">stone</button>
     <button class="btn w-6 neutral">neutral</button>
 </div>
+
