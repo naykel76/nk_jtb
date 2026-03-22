@@ -30,10 +30,25 @@ Read `AGENTS.md` first. For responsive or layout conversion, read:
 - Prefer framework components when the structure already matches what they
   provide. Common examples include `navbar`, `bx`, `bx-header`, `bx-content`,
   `bx-footer`, and `divide-y`.
+- Before finalizing a conversion, check whether repeated card-like shells such
+  as `bg-white` + border + radius combinations should be expressed as `bx`
+  instead.
+- Check whether small badge-like UI should use existing `badge` variants before
+  rebuilding the same shape with low-level utilities.
+- Check whether button-like controls should use the `btn` component before
+  rebuilding pill/button shells with low-level utilities.
 - Remove no-op or default classes that do not materially change the layout or
   styling.
 - Prefer semantic utility tokens such as `txt-muted` when they match the intent,
   instead of repeatedly assembling the same low-level token combination.
+- If JTB cannot express a requirement, prefer a small reusable local helper
+  class over repeating the same inline styles across multiple elements.
+- When Tailwind transition syntax depends on unsupported `duration-*`, easing,
+  or delay utilities, simplify to the closest supported JTB transition pattern
+  and record the missing utility coverage.
+- Keep Alpine `x-data` scoped to the element that directly owns or uses the
+  state. Do not move it to a broader parent unless multiple descendants
+  genuinely share the same state.
 - Use `{bp}:` for progressive changes.
 - Use `to-` / `on-` for visibility windows.
 - Keep visibility logic consistent within the same layout shell.
@@ -45,6 +60,10 @@ Read `AGENTS.md` first. For responsive or layout conversion, read:
   utility exists.
 - Check whether an existing component expresses the structure more cleanly than
   rebuilding it with low-level utilities.
+- Check whether button-like controls are better expressed with `btn` plus theme
+  or utility overrides.
+- Check whether repeated inline styles should be turned into a small reusable
+  local helper instead.
 - Remove classes that only restate the default behavior.
 - Check whether a nearby JTB token is acceptable before creating custom CSS.
 - Document missing utilities or unsupported patterns in a root-level notes file.

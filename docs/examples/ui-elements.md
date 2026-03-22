@@ -47,6 +47,19 @@
 </div>
 ```
 
+## Dividers
+
+```html +demo-folded class="bx"
+<div class="flex va-c gap-05">
+    <button class="btn rounded-full">$220.00 AUD</button>
+    <div class="h-1.5 bdr-l bdr-gray-300"></div>
+    <div class="flex gap-05">
+        <button class="btn rounded-full">Login</button>
+        <button class="btn rounded-full primary">Register</button>
+    </div>
+</div>
+```
+
 ## Navbar (review)
 
 ```html +demo-folded

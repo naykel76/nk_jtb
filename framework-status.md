@@ -214,8 +214,15 @@
 
 ## Skills
 
-| File                | Area                   | Status | Notes                              |
-| ------------------- | ---------------------- | ------ | ---------------------------------- |
-| `jtb-documentation` | Documentation workflow | Review | Still contains `(review)` headings |
-| `jtb-layout`        | Layout strategy        | Review | Still contains `(review)` headings |
-| `tailwind-to-jtb`   | Conversion workflow    | Review | Still contains `(review)` headings |
+| File                  | Area                   | Status     | Notes                              |
+| --------------------- | ---------------------- | ---------- | ---------------------------------- |
+| `markdown-formatting` | Markdown formatting    | ✅ Complete |                                    |
+| `jtb-documentation`   | Documentation workflow | Review     | Still contains `(review)` headings |
+| `jtb-layout`          | Layout strategy        | Review     | Still contains `(review)` headings |
+| `tailwind-to-jtb`     | Conversion workflow    | Review     | Still contains `(review)` headings |
+
+## Docs
+
+| File                       | Area                     | Status     | Notes |
+| -------------------------- | ------------------------ | ---------- | ----- |
+| `layouts-and-structures`   | Layouts and structures   | ✅ Complete |       |

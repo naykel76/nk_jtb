@@ -258,15 +258,37 @@ pre code.torchlight {
     // Docs-only preview overrides.
     // The demo wrapper is narrower than a real page, so this adjusts the preview
     // behavior without changing the example code that users copy.
-    &.with-docs-only-overrides{
-        .min-h-screen{
+    &.with-docs-only-overrides {
+        .min-h-screen {
             min-height: 200px;
+        }
+
+        .lg\:cols-3 {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+
+        .lg\:col-span-1,
+        .lg\:col-span-2 {
+            grid-column: auto;
         }
 
         @container (width < 476px) {
             .to-md\:hidden {
-                // background-color: #c40c9a;
                 display: none;
+            }
+        }
+
+        @container (width >= 640px) {
+            .lg\:cols-3 {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .lg\:col-span-1 {
+                grid-column: span 1 / span 1;
+            }
+
+            .lg\:col-span-2 {
+                grid-column: span 2 / span 2;
             }
         }
     }

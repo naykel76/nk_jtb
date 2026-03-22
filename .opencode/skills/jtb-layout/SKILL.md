@@ -8,7 +8,6 @@ Read `AGENTS.md` first. For layout or responsive work, read:
 - `docs/responsive-design.md`
 - `docs/conventions-and-architecture-rules.md`
 - `docs/layer-system.md`
-- `docs/examples/layouts-and-structures.md`
 - `docs/layouts-and-structures.md`
 
 ## Scope (review)
@@ -16,7 +15,8 @@ Read `AGENTS.md` first. For layout or responsive work, read:
 Use this skill for structural layout decisions:
 
 - page shells
-- sidebar/content layouts
+- layout patterns
+- reusable internal structures
 - split layouts
 - grid vs flex choices
 - container and width strategy
@@ -33,13 +33,16 @@ Do not use this skill for general documentation or for framework-internals work.
    - `flex`, `flex-col`, `flex-1`, width utilities
    - `container-*`
    - spacing, alignment, and visibility utilities
-3. Prefer established layout patterns over custom structure:
+3. Classify the problem correctly before choosing classes:
    - sidebar + main
+   - reusable structures such as `thirds-2-1`
+4. Prefer established layout patterns and structures over ad hoc reproduction:
    - stacked mobile, split desktop
    - fixed-width aside + flexible content using flex or width utilities
-4. If a Tailwind layout uses arbitrary grid templates, first ask whether the
+   - proportional grid splits when the relationship is clearer as columns
+5. If a Tailwind layout uses arbitrary grid templates, first ask whether the
    same result can be achieved by restructuring with documented JTB classes.
-5. Only treat it as a framework gap when the documented primitives cannot
+6. Only treat it as a framework gap when the documented primitives cannot
    express the layout cleanly.
 
 ## Rules (review)
@@ -50,8 +53,10 @@ Do not use this skill for general documentation or for framework-internals work.
 - Treat `container-*` as a layout primitive with built-in inline gutter. Do not
   add extra horizontal padding on the same element unless there is a clear
   reason.
-- For `thirds-2-1` style structures, prefer documented grid spans or flex
-  relationships before considering custom templates.
+- Distinguish between page-level layouts and reusable structures before
+  deciding on implementation.
+- For `thirds-2-1`, prefer a simple documented grid split such as `lg:cols-3`
+  with `lg:col-span-2` / `lg:col-span-1` before considering custom templates.
 - When solving dropdown or overlay layering, put z-index on the positioned
   overlay element before trying to solve it on inner children.
 - Use `{bp}:` for progressive layout changes.
@@ -66,6 +71,10 @@ Do not use this skill for general documentation or for framework-internals work.
   - `flex` + fixed-width aside + `flex-1`
   - `grid` with documented `cols-*` plus child width constraints
   - stacked mobile layout with a desktop split at `lg:`
+
+- Instead of inventing a new page layout name for a proportional split:
+  - keep the page layout and the reusable structure separate
+  - document the structure directly when the example is really about the split
 
 - Instead of reproducing exact sidebar widths from Tailwind:
   - use the nearest documented width token first

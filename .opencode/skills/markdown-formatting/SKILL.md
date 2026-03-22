@@ -5,17 +5,17 @@ description: >-
   and markdown-lint rules. Activates when creating or editing markdown files.
 ---
 
-# Markdown Formatting (review)
+# Markdown Formatting
 
 **Activate this skill when:**
 
 Activate when writing or editing any markdown files.
 
-## General Guidelines (review)
+## General Guidelines
 
 - Do not include table of contents unless specifically requested.
 
-## Code Blocks (review)
+## Code Blocks
 
 All code blocks must include a language tag and a flag for syntax highlighting
 and preview features.
@@ -29,16 +29,19 @@ and preview features.
 Other Flags: `+preview`, `+collapse` and `output` exist but are less common and
 only to be used when requested.
 
-### Demo-Folded Wrapper Class (review)
+### Demo-Folded Wrapper Class
 
-When using `+demo-folded`, add `class="bx"` to wrap the example in a box component:
+When using `+demo-folded`, use demo attributes intentionally:
+
+- `class="..."` for the outer demo wrapper
+- `preview-class="..."` for preview-only layout or styling
 
 ```markdown
-```html +demo-folded class="bx"
+```html +demo-folded class="bx" preview-class="grid gap lg:cols-3"
 <div class="example">Content here</div>
 ```
 
-### Language Tags (review)
+### Language Tags
 
 Use the tag that matches the content, unless specified otherwise:
 
@@ -47,17 +50,19 @@ Use the tag that matches the content, unless specified otherwise:
 | Directory trees, shell commands | ` ```bash +code `       |
 | Blade templates                 | ` ```html +code-blade ` |
 
-## Horizontal (review)
+## Horizontal
 
-Use 80 hyphens `-------------------------------------------------------------------------------` for horizontal rules.
+When required, use 80 hyphens
+`-------------------------------------------------------------------------------`
+for horizontal rules.
 
-## Lists (review)
+## Lists
 
 - Use hyphens `-` for unordered lists
 - Use numbers `1.` `2.` for ordered steps
 - Consistent indentation (4 spaces)
 
-## Tables (review)
+## Tables
 
 Standard GitHub Flavored Markdown:
 
@@ -68,7 +73,7 @@ Standard GitHub Flavored Markdown:
 
 - Keep separators aligned
 
-## Linting (review)
+## Linting
 
 - Blank line before and after
 

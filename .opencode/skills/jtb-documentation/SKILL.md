@@ -9,11 +9,20 @@ description: Documentation patterns for the NK JTB SCSS framework.
 
 - **All documentation** → `docs/`
 
-## Workflow (review)
+## Workflow
 
 - Create new documentation directly in `docs/`.
 - Keep in-progress documentation in `docs/` and mark active headings with
   `(review)` until the content is confirmed.
+- Remove `(review)` from a heading as soon as that specific section is
+  confirmed.
+- Leave `(review)` on any headings that are still unresolved.
+- After working on any section or document that still carries `(review)`,
+  explicitly check whether it is now final before moving on.
+- Only mark the whole document or repo-local skill as complete in
+  `framework-status.md` when its remaining review tags are gone.
+- When a document or repo-local skill reaches that point, update
+  `framework-status.md` in the same pass.
 
 ## Documentation Types (review)
 
@@ -108,6 +117,9 @@ Rules:
 - Avoid Tailwind references in general framework docs. Only mention Tailwind in
   explicit conversion or comparison documents.
 - Avoid process notes written for a specific review conversation.
+- For layout or responsive examples, prefer
+  `class="resizable-container with-docs-only-overrides"` when the preview needs
+  docs-only wrapper behavior to demonstrate the example cleanly.
 - Add `(review)` to new headings by default when creating new documentation or
   repo-local skills, or when migrating/reworking documents from an older review
   state into the current documentation set.
@@ -215,6 +227,10 @@ Use these with fenced demo blocks:
 
 Prefer `preview-class` when the layout is only for the preview. That keeps the
 example code cleaner when copied.
+
+For layout/responsive docs, the outer demo wrapper can use
+`class="resizable-container with-docs-only-overrides"` so the example preview
+can respond inside the docs without changing the copied markup.
 
 ## Formatting Rules (review)
 
