@@ -1,137 +1,98 @@
-# Magic Classes (review)
+# Magic Responsive Classes
 
-- [Overview](#overview)
-- [How they work](#how-they-work)
-- [Syntax](#syntax)
-    - [Shorthand Behaviour](#shorthand-behaviour)
-    - [Examples](#examples)
-- [Creating Magic Classes](#creating-magic-classes)
-    - [Mixin Signature](#mixin-signature)
-    - [Parameters](#parameters)
-    - [Examples](#examples-1)
+<p class="lead">Curated responsive utility patterns that let one class describe a whole spacing or layout rhythm.</p>
 
-
-## Overview (review)
-
-Magic classes define multiple responsive values in a single class. They reduce
-repetition, improve clarity, and offer a consistent, compressible pattern for
-responsive utility values like padding, margin, grid columns, font size, and
-more.
+Magic classes are best used as a developer tool. They are not a free-form value
+syntax. Each class maps to a small set of approved responsive patterns defined
+in the framework.
 
 Instead of writing:
 
-```css +code
-lg:py-5 md:py-4 sm:py-3 py-2
+```html +code
+lg:py-5 md:py-3 py-2
 ```
 
 You can use:
 
-```css +code
-py-5-4-3-2
+```html +code
+py-5-3-2
 ```
 
----
+## Concept
 
-## How they work (review)
+Magic classes compress a known responsive pattern into one utility.
 
-Magic classes use a sequence of values to represent styles at different
-breakpoints, from largest to smallest screen size. This approach lets you write
-one class instead of repeating similar classes for each breakpoint.
+They are useful when:
 
-## Syntax (review)
+- the same responsive rhythm appears often
+- the pattern matters more than the individual breakpoint utilities
+- you want to avoid repeating the same breakpoint sequence across many sections
 
-```css +code
-{identifier}-{lg}-{md}-{sm}-{base}
+They are less useful when:
+
+- you only need one fixed value
+- the pattern is one-off
+- the class name would be harder to understand than the explicit utilities
+
+## Syntax
+
+Magic classes are written from largest to smallest.
+
+```html +code
+{utility}-{lg}-{md}-{sm}-{base}
 ```
 
-Where:
+The number of values determines which breakpoints are targeted.
 
-* `{identifier}` is the utility type (e.g. `py`, `fs`, `cols`)
-* Each number corresponds to a breakpoint:
+Examples:
 
-  * `lg` - large screens
-  * `md` - medium screens
-  * `sm` - small screens
-  * `base` - default (mobile-first)
-
-### Shorthand Behaviour (review)
-
-* `py-2` - sets padding-y to 2 at all breakpoints
-* `py-4-2` - 2 for base, 4 for md and up
-* `py-5-4-3-2` - 2 for base, 3 for sm, 4 for md, 5 for lg
-
-### Examples (review)
-
-```css +code
-py-5-4-3-2
-→ lg:py-5 md:py-4 sm:py-3 py-2
-
+```html +code
+py-5-3-2
+py-5-3-2-2
+gap-4-2
 cols-3-2-1
-→ md:cols-3 sm:cols-2 cols-1
-
-fs-4-3-2-1
-→ lg:fs-4 md:fs-3 sm:fs-2 fs-1
 ```
 
----
+That means:
 
-## Creating Magic Classes (review)
+- `py-5-3-2`
+  - `lg`: `py-5`
+  - `md`: `py-3`
+  - base: `py-2`
+- `gap-4-2`
+  - `md`: `gap-4`
+  - base: `gap-2`
 
-Use the `build-magic-classes` mixin to generate magic classes for your utilities.
+The pattern is still mobile-first in the generated CSS. The class name is
+written in descending breakpoint order because that makes the intended rhythm
+easier to read.
 
-### Mixin Signature (review)
+## How It Works
 
-```scss +code
-@include build-magic-classes(
-    $property,           // CSS property to apply (e.g., padding, margin, gap)
-    $values-list,        // List of value sequences for different patterns
-    $identifier,         // Class identifier (e.g., py, fs, cols)
-    $unit: 'rem',        // Unit to append to values
-    $position-or-axis: '',  // Optional axis (x, y) for directional properties
-    $is-parent: false    // Whether to apply to child elements
-)
+The patterns are generated from approved lists in the framework source. You
+cannot assume every value combination exists.
+
+## Section Spacing Example
+
+```html +demo-folded class="bx"
+<section class="py-5-3-2">
+    <div class="container">
+        <div class="bx">Section content</div>
+    </div>
+</section>
 ```
 
-### Parameters (review)
+Use this when the section should feel tighter on small screens and more
+generous on larger screens.
 
-- **`$property`** - The CSS property the magic class will control
-- **`$values-list`** - A list of value sequences. Each sequence creates one magic class pattern
-- **`$identifier`** - The prefix for the generated class names
-- **`$unit`** - Unit appended to values (default: `'rem'`)
-- **`$position-or-axis`** - Use `'x'` or `'y'` for directional properties like padding/margin
-- **`$is-parent`** - When `true`, generates parent classes that apply to children (e.g., `c-gap-*`)
+## Gap Example
 
-### Examples (review)
-
-**Padding Y-axis:**
-
-```scss +code
-$padding-magic-y: (
-    (4, 3, 2, 1),    // Generates: py-1-2-3-4
-    (3, 2, 1),       // Generates: py-1-2-3
-    (2, 1)           // Generates: py-1-2
-);
-
-@include build-magic-classes('padding', $padding-magic-y, 'py', $position-or-axis: y);
+```html +demo-folded class="bx"
+<div class="grid cols-3-2-1 gap-5-3-2">
+    <div class="bx">Item</div>
+    <div class="bx">Item</div>
+    <div class="bx">Item</div>
+</div>
 ```
 
-**Grid Gap:**
-
-```scss +code
-$magic-gap-patterns: (
-    (3, 2, 1),
-    (2, 1)
-);
-
-@include build-magic-classes('gap', $magic-gap-patterns, 'gap');
-```
-
-**Result:**
-
-```css +code
-/* py-1-2-3-4 outputs: */
-.py-1-2-3-4 { padding-block: 1rem; }
-@media (min-width: 576px) { .py-1-2-3-4 { padding-block: 2rem; } }
-@media (min-width: 768px) { .py-1-2-3-4 { padding-block: 3rem; } }
-@media (min-width: 992px) { .py-1-2-3-4 { padding-block: 4rem; } }
-```
+Use this when the layout and its spacing should scale together.

@@ -27,6 +27,11 @@ Read `AGENTS.md` first. For responsive or layout conversion, read:
 - Prefer documented JTB scales, breakpoints, and logical-property utilities.
 - When replacing `max-w-* mx-auto px-*` wrappers, check whether a `container-*`
   utility already expresses the same intent without extra horizontal padding.
+- For normal page sections, prefer `container` first.
+- Only step up to a `container-*` variant when the page type or reading width
+  clearly calls for it.
+- Keep padding ownership on the section or component where possible. Use the
+  container for width, not as the default home for reusable section spacing.
 - Prefer framework components when the structure already matches what they
   provide. Common examples include `navbar`, `bx`, `bx-header`, `bx-content`,
   `bx-footer`, and `divide-y`.

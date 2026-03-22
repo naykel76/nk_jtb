@@ -53,6 +53,11 @@ Do not use this skill for general documentation or for framework-internals work.
 - Treat `container-*` as a layout primitive with built-in inline gutter. Do not
   add extra horizontal padding on the same element unless there is a clear
   reason.
+- For standard page sections, prefer `container` as the default wrapper.
+- Use `container-*` variants only when the page type or reading width clearly
+  calls for them, such as narrower documentation/content pages.
+- Let the section or component own its internal padding. Use the container for
+  width and placement, not as the main holder of reusable section spacing.
 - Distinguish between page-level layouts and reusable structures before
   deciding on implementation.
 - For `thirds-2-1`, prefer a simple documented grid split such as `lg:cols-3`

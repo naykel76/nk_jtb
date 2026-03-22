@@ -42,6 +42,8 @@
 
 - **Structure without decoration** - Components provide structure, utilities add
   styling
+- **Ownership matters** - Containers control width and placement; components
+  and sections should own their internal padding
 - **Context-aware modifiers** - `.primary` adapts to whatever component it's
   applied to
 - **Predictable naming** - Numbers map directly to rem values: `m-1` = 1rem

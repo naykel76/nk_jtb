@@ -116,6 +116,7 @@ Rules:
 - Write docs as JTB-first guidance.
 - Avoid Tailwind references in general framework docs. Only mention Tailwind in
   explicit conversion or comparison documents.
+- Do not include local filesystem paths in framework docs.
 - Avoid process notes written for a specific review conversation.
 - For layout or responsive examples, prefer
   `class="resizable-container with-docs-only-overrides"` when the preview needs

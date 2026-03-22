@@ -226,3 +226,4 @@
 | File                       | Area                     | Status     | Notes |
 | -------------------------- | ------------------------ | ---------- | ----- |
 | `layouts-and-structures`   | Layouts and structures   | ✅ Complete |       |
+| `magic-classes`            | Magic responsive classes | ✅ Complete |       |
