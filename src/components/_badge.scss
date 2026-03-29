@@ -1,0 +1,29 @@
+@use '../maps_and_variables/base' as *;
+@use '../maps_and_variables/components' as *;
+
+.badge {
+    align-items: center;
+    border-radius: $radius-full;
+    display: inline-flex;
+    font-size: $badge-font-size;
+    justify-content: center;
+    line-height: 1;
+    min-block-size: $badge-min-size;
+    min-inline-size: $badge-min-size;
+    padding-inline: $badge-padding-inline;
+    white-space: nowrap;
+
+    &.sm {
+        font-size: $badge-font-size-sm;
+        min-block-size: $badge-min-size-sm;
+        min-inline-size: $badge-min-size-sm;
+        padding-inline: $badge-padding-inline-sm;
+    }
+
+    &.square {
+        block-size: $badge-square-size;
+        border-radius: $radius-base;
+        inline-size: $badge-square-size;
+        padding-inline: 0;
+    }
+}

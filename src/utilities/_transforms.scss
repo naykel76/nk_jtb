@@ -9,20 +9,20 @@
 // ============================================================================
 
 $translate-values: (
-    0: translateX(0) translateY(0),
-    x-0: translateX(0),
-    x-full: translateX(100%),
-    x-1-2: translateX(50%),
-    y-0: translateY(0),
-    y-full: translateY(100%),
-    y-1-2: translateY(50%),
+    0: (x: 0, y: 0),
+    x-0: (x: 0),
+    x-full: (x: 100%),
+    x-1-2: (x: 50%),
+    y-0: (y: 0),
+    y-full: (y: 100%),
+    y-1-2: (y: 50%),
 ) !default;
 
 $translate-negative-values: (
-    x-full: translateX(-100vw),
-    y-full: translateY(-100vh),
-    x-1-2: translateX(-50%),
-    y-1-2: translateY(-50%),
+    x-full: (x: -100%),
+    y-full: (y: -100%),
+    x-1-2: (x: -50%),
+    y-1-2: (y: -50%),
 ) !default;
 
 $rotate-values: (
@@ -37,29 +37,38 @@ $rotate-values: (
 // TRANSFORM BUILDS
 // ============================================================================
 
-// Positive translate classes
-@include build-classes((
-    transform: (
-        prefix: 'translate-',
-        values: $translate-values,
-        unit: ''
-    ),
-), $responsive: true);
+$translate-composite-classes: ();
 
-// Negative translate classes
-@include build-classes((
-    transform: (
-        prefix: '-translate-',
-        values: $translate-negative-values,
-        unit: ''
-    ),
-), $responsive: true);
+@each $prefix, $values in (
+    'translate-': $translate-values,
+    '-translate-': $translate-negative-values
+) {
+    @each $key, $axes in $values {
+        $class-name: #{$prefix}#{$key};
+        $props: (
+            'translate': var(--jtb-translate-x, 0) var(--jtb-translate-y, 0)
+        );
+
+        @if map.has-key($axes, x) {
+            $props: map.merge($props, (
+                '--jtb-translate-x': map.get($axes, x)
+            ));
+        }
+
+        @if map.has-key($axes, y) {
+            $props: map.merge($props, (
+                '--jtb-translate-y': map.get($axes, y)
+            ));
+        }
+
+        $translate-composite-classes: map.merge($translate-composite-classes, (
+            #{$class-name}: (props: $props)
+        ));
+    }
+}
+
+// Translate classes
+@include build-composite-classes($translate-composite-classes, $responsive: true);
 
 // Rotation classes
-@include build-classes((
-    rotate: (
-        prefix: 'rotate-',
-        values: $rotate-values,
-        unit: ''
-    ),
-), $responsive: true);
+@include build-classes(( rotate: ( prefix: 'rotate-', values: $rotate-values, unit: '' ), ), $responsive: true);

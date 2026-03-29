@@ -32,6 +32,9 @@ Read `AGENTS.md` first. For responsive or layout conversion, read:
   clearly calls for it.
 - Keep padding ownership on the section or component where possible. Use the
   container for width, not as the default home for reusable section spacing.
+- When a section uses a common responsive rhythm, prefer the documented magic
+  class pattern such as `py-4-3-2` or `py-5-3-2` instead of expanding the same
+  breakpoint sequence by hand.
 - Prefer framework components when the structure already matches what they
   provide. Common examples include `navbar`, `bx`, `bx-header`, `bx-content`,
   `bx-footer`, and `divide-y`.

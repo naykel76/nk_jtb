@@ -10,6 +10,13 @@
 
 Layouts describe the overall shape of a page or major page region.
 
+### Defaults
+
+- use `container` for standard page sections
+- let the section or component own its internal padding
+- use `py-4-3-2` as a standard section rhythm
+- use `py-5-3-2` for more prominent sections
+
 ### Sidebar + Main
 
 A layout with a persistent sidebar for navigation and a main area for the

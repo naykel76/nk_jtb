@@ -58,6 +58,9 @@ Do not use this skill for general documentation or for framework-internals work.
   calls for them, such as narrower documentation/content pages.
 - Let the section or component own its internal padding. Use the container for
   width and placement, not as the main holder of reusable section spacing.
+- Default section rhythm:
+  - `py-4-3-2` for standard sections
+  - `py-5-3-2` for more prominent sections
 - Distinguish between page-level layouts and reusable structures before
   deciding on implementation.
 - For `thirds-2-1`, prefer a simple documented grid split such as `lg:cols-3`

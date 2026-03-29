@@ -15,7 +15,7 @@
     $num-items: list.length($list);
     $class: '';
 
-    @for $i from $num-items through 1 {
+    @for $i from 1 through $num-items {
         @if $class == '' {
             $class: #{list.nth($list, $i)};
         } @else {

@@ -7,7 +7,7 @@
 // Grid Column Utilities
 // ============================================================================
 // Builds responsive grid-template-columns classes like:
-//   .cols-3-2-1 → 1fr 1fr 1fr at base, 2fr at sm, 3fr at md
+//   .cols-3-2-1 → 1fr at base, 2fr at sm, 3fr at md
 // Each list must contain at least 2 values.
 // ============================================================================
 @mixin build-magic-grid($listsOfValues) {

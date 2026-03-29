@@ -37,11 +37,22 @@ $bx-padding: $base-padding !default;
 // ============================================================================
 // -- button --
 // ============================================================================
-$btn-bg: rgb(240 240 240) !default;
-$btn-color: text-color($btn-bg) !default;
+$btn-bg: transparent !default;
+$btn-color: inherit !default;
 $btn-link-color: $link-color !default;
 $btn-link-hover-color: $link-hover-color !default;
 $btn-text-transform: capitalize !default;
+
+// ============================================================================
+// -- badge --
+// ============================================================================
+$badge-font-size-sm: 0.5625rem !default;
+$badge-font-size: 0.6875rem !default;
+$badge-min-size-sm: 1rem !default;
+$badge-min-size: 1.25rem !default;
+$badge-padding-inline-sm: 0.25rem !default;
+$badge-padding-inline: 0.375rem !default;
+$badge-square-size: 1.75rem !default;
 
 // ============================================================================
 // -- Icon Sizes --
