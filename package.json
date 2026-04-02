@@ -16,7 +16,8 @@
         "utils": "concurrently \"sass --watch --no-source-map ./src/utilities.scss:dist/css/utilities.css\" \"code dist/css/utilities.css\" \"code src/utilities.scss\"",
         "watch": "sass --watch --no-source-map ./src/build.scss:dist/css/build.css",
         "lint": "stylelint **/*.scss --fix",
-        "lint:report": "stylelint \"**/*.scss\""
+        "lint:report": "stylelint \"**/*.scss\"",
+        "nuke:ai": "rm -rf .agents && rm -rf .claude"
     },
     "devDependencies": {
         "@fullhuman/postcss-purgecss": "^8.0.0",

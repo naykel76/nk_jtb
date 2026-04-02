@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "skills": {
+    "markdown-formatting": {
+      "source": "naykel76/skills-and-guidelines",
+      "sourceType": "github",
+      "computedHash": "249272329315851fe162d663ad1a3f76d91f56d7dbc5ee7f8ee802fb0f043d02"
+    },
+    "skill-creation": {
+      "source": "naykel76/skills-and-guidelines",
+      "sourceType": "github",
+      "computedHash": "bf958d3e6c430c235afc4401ff9bf0553721d6e303954b1014364e71c6ad2a02"
+    }
+  }
+}

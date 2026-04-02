@@ -21,6 +21,7 @@
 
 import fs from "fs";
 import path from "path";
+import { execSync } from "child_process";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -101,10 +102,52 @@ function wipeAndCopy(src, relDest, label) {
     console.log(`     ${label.padEnd(10)} → ${relDest}`);
 }
 
+function mergeAndCopy(src, relDest, label) {
+    if (!fs.existsSync(src)) {
+        console.log(`     ⚠  ${label} source not found — skipping`);
+        return;
+    }
+    const dest = path.join(ROOT, relDest);
+    copyDirSync(src, dest);
+    console.log(`     ${label.padEnd(10)} → ${relDest} (merged)`);
+}
+
+function reinstallSharedSkills() {
+    const lockPath = path.join(ROOT, "skills-lock.json");
+
+    if (!fs.existsSync(lockPath)) {
+        console.log("  ⚠  skills-lock.json not found — skipping shared skills reinstall");
+        return;
+    }
+
+    const lock = JSON.parse(fs.readFileSync(lockPath, "utf-8"));
+    const skills = lock.skills || {};
+
+    if (Object.keys(skills).length === 0) {
+        console.log("  ⚠  No shared skills in skills-lock.json — skipping");
+        return;
+    }
+
+    console.log("  Reinstalling shared skills\n");
+    for (const [name, entry] of Object.entries(skills)) {
+        const skillPath = `${entry.source}/${name}`;
+        console.log(`     → ${skillPath}`);
+        try {
+            execSync(`npx skills@latest add ${skillPath} --copy --yes`, {
+                cwd: ROOT,
+                stdio: "pipe",
+            });
+        } catch (err) {
+            console.error(`  ❌  Failed to reinstall ${skillPath}`);
+            console.error(err.stderr?.toString() ?? err.message);
+        }
+    }
+}
+
 function compileGuidelines() {
     if (!fs.existsSync(GUIDELINES)) {
-        console.error(`❌  .ai/guidelines/ not found`);
-        process.exit(1);
+        console.warn(`  ⚠  .ai/guidelines/ not found — skipping guidelines`);
+        return "";
     }
 
     const files = fs
@@ -113,7 +156,7 @@ function compileGuidelines() {
         .sort(); // prefix files with 01-, 02- etc. to control order
 
     if (files.length === 0) {
-        console.warn(`⚠️  No .md files found in .ai/guidelines/`);
+        console.warn(`  ⚠  .ai/guidelines/ is empty — skipping guidelines`);
         return "";
     }
 
@@ -131,7 +174,10 @@ function compileGuidelines() {
 // ---------------------------------------------------------------------------
 
 console.log("\n🔄  ai-sync\n");
-console.log("  Source: .ai/guidelines/  .ai/skills/  .ai/agents/\n");
+
+reinstallSharedSkills();
+
+console.log("\n  Source: .ai/guidelines/  .ai/skills/  .ai/agents/\n");
 
 const compiled = compileGuidelines();
 const notice = `<!-- ⚠️  GENERATED — do not edit directly. Source: .ai/ | Script: scripts/ai-sync.js -->\n\n`;
@@ -154,20 +200,11 @@ for (const agent of AGENTS) {
         console.log(`     rules      → ${agent.output} (shared with previous agent)`);
     }
 
-    // Skills
-    if (agent.skills) wipeAndCopy(SKILLS_SRC, agent.skills, "skills");
+    // Skills — merge so npx-installed skills are preserved, .ai/ overrides on conflict
+    if (agent.skills) mergeAndCopy(SKILLS_SRC, agent.skills, "skills");
 
-    // Agents/subagents
+    // Agents — wipe and replace, fully managed by .ai/
     if (agent.agents) wipeAndCopy(AGENTS_SRC, agent.agents, "agents");
 }
 
-console.log(`
-✅  Done.
-
-Add to .gitignore:
-  CLAUDE.md
-  AGENTS.md
-  .claude/
-  .opencode/
-  .agents/
-`);
+console.log(`\n✅  Done.\n`);

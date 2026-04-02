@@ -1,147 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
     <title>NayKel JTB</title>
-    <style>
-        .hero-pattern {
-            background-image: radial-gradient(var(--primary) 1px, transparent 1px);
-            background-size: 20px 20px;
-        }
-    </style>
 </head>
 
+<body class="bg-stone-50 txt-slate-800">
 
-<body>
-    <div class="bg-stone-50 txt-gray-700">
+    <!-- how do i use a svg for a background and cover the lot -->
 
-        <header class="bg-white overflow-hidden">
-            <div class="container grid gap-5-3-2 md:cols-2 va-c py-5-3-2">
-                <div>
-                    <span class="txt-primary font-bold tracking-widest txt-xs uppercase">Empowering Providers &amp; Parents</span>
-                    <h1 class="font-serif txt-4 lg:txt-5 font-bold lh-tight mt-1 mb-1">
-                        Expert Lactation <span class="txt-primary">Education</span> for Every Stage.
-                    </h1>
-                    <p class="txt-lg txt-gray-500 mb-2 max-w-lg">
-                        Evidence-based courses for healthcare professionals seeking IBLCE certification and parents looking
-                        for foundational support.
-                    </p>
-                    <div class="flex wrap gap-1">
-                        <button class="btn primary rounded-full shadow-lg">View Programs</button>
-                        <button class="btn rounded-full bg-secondary txt-primary">Free Resources</button>
-                    </div>
-                </div>
-                <div>
-                    <div class="relative overflow-hidden rounded-xxl bg-gray-200 bdr-4 bdr-white shadow-lg h-18 flex-centered">
-                        <div class="absolute inset-0 opacity-10 hero-pattern"></div>
-                        <span class="txt-gray-400 font-medium">[Educational Hero Image]</span>
-                    </div>
-                </div>
+    <div class="container">
+        <div class="grid cols-3">
+            <div class="relative">
+                <svg class="absolute top-0 " xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 1280 720">
+                    <path fill="#fff" d="M1280 0H0v720h1280V0Z" />
+                    <path fill="#4D1434" d="M436 48H47v10h389V48Z" />
+                    <path fill="#969FA7" d="M1233 48H844v10h389V48Z" />
+                    <path fill="#903163" d="M834 48H445v10h389V48Z" />
+                    <mask id="a" width="1280" height="720" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha">
+                        <path fill="#fff" d="M1280 0H0v720h1280V0Z" />
+                    </mask>
+                    <g mask="url(#a)">
+                        <path fill="#903163" fill-rule="evenodd" d="M1086.5 63c48.88 0 88.5-39.849 88.5-89H998c0 49.151 39.62 89 88.5 89Z" clip-rule="evenodd" />
+                        <path fill="#F6DEEC" fill-rule="evenodd" d="M1292 390c0 113.219-92.01 205-205.5 205C973.005 595 881 503.219 881 390c0-113.218 92.005-205 205.5-205 113.49 0 205.5 91.782 205.5 205Z" clip-rule="evenodd" />
+                    </g>
+                </svg>
+
+                Some Course Title
             </div>
-        </header>
-
-        <section id="courses" class="bg-gray-50 py-5-3-2" x-data="{ tab: 'certification' }">
-            <div class="container">
-                <div class="tac mb-16">
-                    <h2 class="font-serif txt-3 font-bold mb-1">Our Education Tracks</h2>
-                    <div class="flex justify-center mt-2 gap-05 p-025 bg-white inline-flex rounded-full shadow-sm bdr bdr-gray-200">
-                        <button @click="tab = 'certification'" :class="tab === 'certification' ? 'primary txt-white' : 'txt-gray-500'" class="btn sm rounded-full">IBLCE Certification</button>
-                        <button @click="tab = 'short'" :class="tab === 'short' ? 'primary txt-white' : 'txt-gray-500'" class="btn sm rounded-full">Short Courses</button>
-                        <button @click="tab = 'resources'" :class="tab === 'resources' ? 'primary txt-white' : 'txt-gray-500'" class="btn sm rounded-full">Resources</button>
-                    </div>
-                </div>
-
-                <div x-show="tab === 'certification'" class="grid md:cols-3 gap-2">
-                    <template x-for="i in 3">
-                        <div class="bx p-0 overflow-hidden transition-shadow hover:shadow-md">
-                            <div class="h-12 bg-gray-200 flex-centered txt-xs txt-gray-400 uppercase tracking-widest">
-                                [Course Thumbnail]</div>
-                            <div class="pxy-1">
-                                <span class="txt-primary txt-xs font-bold uppercase">Program</span>
-                                <h3 class="font-serif txt-lg font-bold mt-05 mb-075">IBLCE Comprehensive Exam Prep</h3>
-                                <p class="txt-gray-500 txt-sm mb-1">Complete 90-hour lactation education requirement
-                                    including ethics and communication.</p>
-                                <div class="flex justify-between va-c bdr-t bdr-gray-100 pt-1">
-                                    <span class="font-bold txt-lg">$899</span>
-                                    <a href="#" class="txt-primary font-bold txt-sm">View Details →</a>
-                                </div>
-                            </div>
-                        </div>
-                    </template>
-                </div>
-
-                <div x-show="tab === 'short'" class="grid md:cols-2 gap-2">
-                    <div class="bx flex va-c gap-1">
-                        <div class="wh-6 bg-secondary rounded-lg fs-0"></div>
-                        <div>
-                            <h3 class="font-serif font-bold txt-lg">Mastitis Management 2026</h3>
-                            <p class="txt-sm txt-gray-500">2 CERPs • $45.00</p>
-                        </div>
-                    </div>
-                    <div class="bx flex va-c gap-1">
-                        <div class="wh-6 bg-secondary rounded-lg fs-0"></div>
-                        <div>
-                            <h3 class="font-serif font-bold txt-lg">Ankyloglossia Assessment</h3>
-                            <p class="txt-sm txt-gray-500">3 CERPs • $55.00</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="certification" class="bg-primary txt-white py-3">
-            <div class="container grid gap-1 md:cols-2 va-c">
-                <div>
-                    <h2 class="font-serif txt-xxl font-bold mb-025">Need to Re-Certify?</h2>
-                    <p class="opacity-80">We offer specialized CERP bundles for IBLCE re-certification.</p>
-                </div>
-                <div class="md:tar">
-                    <button class="btn bg-white txt-primary rounded-full">
-                        Explore CERP Bundles
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <footer class="bg-white bdr-t bdr-gray-200 pt-4 pb-2">
-            <div class="container grid cols-2 md:cols-4 gap-2 mb-3">
-                <div class="col-span-2 md:col-span-1">
-                    <div class="font-bold txt-lg uppercase tracking-tight txt-primary mb-1">Lacta-Edu</div>
-                    <p class="txt-sm txt-gray-500">Leading the way in evidence-based lactation support education since
-                        2010.</p>
-                </div>
-                <div>
-                    <h4 class="font-bold txt-sm uppercase mb-1">Courses</h4>
-                    <ul class="space-y-05 txt-sm txt-gray-600">
-                        <li><a href="#" class="hover:txt-primary">Certification</a></li>
-                        <li><a href="#" class="hover:txt-primary">CERP Bundles</a></li>
-                        <li><a href="#" class="hover:txt-primary">Parent Education</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold txt-sm uppercase mb-1">Company</h4>
-                    <ul class="space-y-05 txt-sm txt-gray-600">
-                        <li><a href="#" class="hover:txt-primary">About Us</a></li>
-                        <li><a href="#" class="hover:txt-primary">Contact</a></li>
-                        <li><a href="#" class="hover:txt-primary">Instructor Portal</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold txt-sm uppercase mb-1">Newsletter</h4>
-                    <input type="email" placeholder="Email address" class="w-full bg-gray-50 bdr bdr-gray-200 rounded-lg px-1 py-075 txt-sm">
-                    <button class="mt-05 w-full btn primary rounded-lg">Subscribe</button>
-                </div>
-            </div>
-            <div class="container bdr-t bdr-gray-100 pt-2 tac txt-xs txt-gray-400">
-                &copy; 2026 Lactation Education Site. All rights reserved.
-            </div>
-        </footer>
-
+        </div>
     </div>
+
+    <section>
+        <div class="container flex justify-between">
+            <div class="w-24">
+                <div class="flex items-center gap-05 uppercase tracking-widest txt-xs font-medium txt-primary-700">
+                    <span class="w-2 h-05 bg-primary-700"></span>
+                    IBLCE Certification Program
+                </div>
+
+                <h1 class="font-serif txt-2 lg:txt-3 lh-tight txt-slate-900">
+                    Lactation Consultant
+                    <span class="txt-primary-700 txt-italic">Exam Preparation</span>
+                </h1>
+
+                <p class="txt-base lh-relaxed font-light txt-slate-600 max-w-24">
+                    A comprehensive, evidence-based program designed for healthcare professionals ready to sit the IBLCE exam. Complete your full 90-hour lactation education requirement - online, at your pace.
+                </p>
+
+                <div class="grid gap-05 sm:cols-2 lg:cols-4 mt-2">
+                    <div class="bx pxy-075">
+                        <div class="font-serif txt-xl txt-slate-900">90 hrs</div>
+                        <div class="txt-xs uppercase tracking-wider txt-slate-500">Lactation ed.</div>
+                    </div>
+                    <div class="bx pxy-075">
+                        <div class="font-serif txt-xl txt-slate-900">Self-paced</div>
+                        <div class="txt-xs uppercase tracking-wider txt-slate-500">Delivery</div>
+                    </div>
+                    <div class="bx pxy-075">
+                        <div class="font-serif txt-xl txt-slate-900">12 months</div>
+                        <div class="txt-xs uppercase tracking-wider txt-slate-500">Access</div>
+                    </div>
+                    <div class="bx pxy-075">
+                        <div class="font-serif txt-xl txt-slate-900">IBLCE</div>
+                        <div class="txt-xs uppercase tracking-wider txt-slate-500">Accredited</div>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="bx w-24">
+                <div>
+                    <div class="txt-xs uppercase tracking-wider txt-slate-500">Program Fee</div>
+                    <div class="font-serif txt-2 txt-slate-900">
+                        $899 <span class="txt-base font-light txt-slate-500">AUD</span>
+                    </div>
+                    <div class="txt-sm txt-slate-500">One-time payment · Instant access</div>
+                </div>
+
+                <button class="btn primary w-full mt-1">Enrol Now</button>
+
+                <div class="bdr-t bdr-stone-200 pt-1 mt-1">
+                    <div class="txt-xs uppercase tracking-wider txt-slate-500">What's included</div>
+                    <ul class="mxy-0 space-y-05 txt-sm txt-slate-700">
+                        <li class="flex items-start gap-05"><span class="wh-05 rounded-full bg-primary-700 mt-05"></span>90 hours of accredited lactation content</li>
+                        <li class="flex items-start gap-05"><span class="wh-05 rounded-full bg-primary-700 mt-05"></span>Ethics &amp; professional communication modules</li>
+                        <li class="flex items-start gap-05"><span class="wh-05 rounded-full bg-primary-700 mt-05"></span>Practice exam questions &amp; self-assessments</li>
+                        <li class="flex items-start gap-05"><span class="wh-05 rounded-full bg-primary-700 mt-05"></span>Certificate of completion</li>
+                        <li class="flex items-start gap-05"><span class="wh-05 rounded-full bg-primary-700 mt-05"></span>12 months full access</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </section>
 
     <script type="module" src="/main.js"></script>
 </body>
