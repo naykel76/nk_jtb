@@ -17,7 +17,8 @@
         "watch": "sass --watch --no-source-map ./src/build.scss:dist/css/build.css",
         "lint": "stylelint **/*.scss --fix",
         "lint:report": "stylelint \"**/*.scss\"",
-        "nuke:ai": "rm -rf .agents && rm -rf .claude"
+        "nuke:ai": "rm -rf .agents && rm -rf .claude",
+        "ai:sync": "node scripts/ai-sync.js"
     },
     "devDependencies": {
         "@fullhuman/postcss-purgecss": "^8.0.0",
