@@ -32,15 +32,3 @@
   the high level overview .
 
 -------------------------------------------------------------------------------
-
-## Changes to consider
-
-| Pattern        | Tailwind  | JTB        |
-| -------------- | --------- | ---------- |
-| Text transform | uppercase | text-upper |
-
--------------------------------------------------------------------------------
-
-## FAQ's
-
-How do i override the default styles?

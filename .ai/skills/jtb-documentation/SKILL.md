@@ -2,6 +2,8 @@
 name: jtb-documentation
 description: >-
   Use this skill whenever creating or updating NK JTB framework documentation.
+  Do not wait for an explicit request — if documentation is being created or
+  updated, this skill applies.
 ---
 
 ## Documentation Locations

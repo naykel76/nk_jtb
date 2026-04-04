@@ -1,9 +1,10 @@
 ---
 name: jtb-layout
 description: >-
-  Use this skill when making layout decisions, choosing between grid and flex,
-  building or converting page structure, or finding documented JTB alternatives
-  to Tailwind layout patterns.
+  Use this skill whenever making layout decisions, choosing between grid and
+  flex, building or converting page structure, or finding documented JTB
+  alternatives to Tailwind layout patterns. Do not wait for an explicit
+  request — if layout decisions are being made, this skill applies.
 ---
 
 For layout or responsive work, read:

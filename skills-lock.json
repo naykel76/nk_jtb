@@ -1,6 +1,11 @@
 {
   "version": 1,
   "skills": {
+    "grill-me": {
+      "source": "naykel76/skills-and-guidelines",
+      "sourceType": "github",
+      "computedHash": "a162d4310b96ef579c0334018dcd283117be84c8d2c7f4762b14742eaef25d22"
+    },
     "markdown-formatting": {
       "source": "naykel76/skills-and-guidelines",
       "sourceType": "github",
