@@ -11,11 +11,14 @@ export default defineConfig({
             input: {
                 index: resolve(__dirname, 'index.html'),
                 dev: resolve(__dirname, 'dev.html'),
-                // typographyShowcase: resolve(__dirname, 'typography-showcase.html')
+                docs: resolve(__dirname, 'docs.html'),
             },
             output: {
                 manualChunks: (id) => {
                     if (id.includes('node_modules')) {
+                        if (id.includes('highlight.js')) {
+                            return 'highlight';
+                        }
                         return 'vendor';
                     }
                 }

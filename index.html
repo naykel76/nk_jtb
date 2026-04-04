@@ -8,93 +8,308 @@
     <title>NayKel JTB</title>
 </head>
 
-<body class="bg-stone-50 txt-slate-800">
+<body>
 
-    <!-- how do i use a svg for a background and cover the lot -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap');
 
-    <div class="container">
-        <div class="grid cols-3">
-            <div class="relative">
-                <svg class="absolute top-0 " xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 1280 720">
+        .fol-tag {
+            display: inline-block;
+            background: #EFD9C8;
+            color: #6B1E3A;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 5px 12px;
+            line-height: 1;
+        }
+
+        .fol-check {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #EFD9C8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* here!!! */
+        .fol-h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            line-height: 1.12;
+            font-weight: 700;
+            color: #1C1210;
+            margin: 0 0 20px;
+        }
+
+        .fol-h1 em {
+            color: #6B1E3A;
+            font-style: italic;
+        }
+        .fol-check svg {
+            width: 10px;
+            height: 10px;
+        }
+    </style>
+
+    <div>
+        <nav class="navbar shadow-sm bg-white bdr-b bdr-gray-200">
+            <div class="container">
+                <!-- Logo and Menu-->
+                <div class="flex items-center">
+                    <div class="font-bold txt-2">MyBrand</div>
+                    <ul class="menu mx-2 to-md:hidden">
+                        <li class="mt-0"> <a href="#"> Home </a> </li>
+                        <li class="mt-0"> <a href="#"> About </a> </li>
+                        <li class="mt-0 relative" x-data="{ open: false }" x-on:click.outside="open = false" x-on:keydown.escape="open = false">
+                            <button x-on:click="open = ! open">
+                                <span> Products </span>
+                                <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                    <path x-show="open" x-transition d="m6 15 6-6 6 6" />
+                                    <path x-show="!open" x-transition d="m6 9 6 6 6-6" />
+                                </svg>
+                            </button>
+                            <div x-show="open" x-transition class="dropdown">
+                                <ul class="mxy-0">
+                                    <li><a href="#" class="menu-item">Electronics</a></li>
+                                    <li><a href="#" class="menu-item">Clothing</a></li>
+                                    <li><a href="#" class="menu-item">Books</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- User Dropdown -->
+                <div x-data="{ open: false }" x-on:click.outside="open = false" x-on:keydown.escape="open = false" class="relative">
+                    <button x-on:click="open = ! open" class="flex items-center space-x-075 focus:outline-none">
+                        <span class="hidden md:block txt-sm font-medium txt-gray-700">John Doe</span>
+                        <div class="wh-2.5 rounded-full bg-blue-600 flex-centered txt-white font-semibold">
+                            JD
+                        </div>
+                        <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path x-show="open" x-transition d="m6 15 6-6 6 6" />
+                            <path x-show="!open" x-transition d="m6 9 6 6 6-6" />
+                        </svg>
+                    </button>
+                    <div x-show="open" x-transition class="dropdown">
+                        <ul class="menu">
+                            <li class="txt-gray-700"><a href="#">Your Profile</a></li>
+                            <li class="txt-gray-700"><a href="#">Account Settings</a></li>
+                            <li class="txt-gray-700"><a href="#">Billing</a></li>
+                            <li class="bdr-t bdr-gray-200"><a href="#" class="txt-red-600">Sign out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="container flex justify-between gap-4 py-4">
+            <div>
+                <div class="fol-tag rounded-full mb-1.25">IBLCE Exam Preparation</div>
+                <h1 class="fol-h1">Become a certified<br><em>Lactation Consultant</em></h1>
+                <p class="w-480px">A comprehensive online program combining evidence-based learning, flexible self-paced study, and practical exam-focused content — for first-time candidates and recertifying IBCLCs alike.</p>
+                <div class="flex gap-075 mt-2">
+                    <button class="btn primary rounded-full font-sans lg">Enrol now</button>
+                    <button class="btn primary-outline rounded-full font-sans lg">View curriculum</button>
+                </div>
+            </div>
+            <div class="bx pxy-2 rounded-xxl w-384px">
+                <div class="txt-xs uppercase tracking-widest txt-stone-500 mb">Program fee</div>
+                <div class="txt-3 font-bold fol-price-amount"><sup>$</sup>1200 <span>AUD</span></div>
+                <div class="fol-price-sub">One-time payment · Instant access</div>
+                <button class="btn primary w-full rounded-full lg">Enrol now</button>
+                <hr class="my bdr-t-1">
+
+                <style>
+                    .fol-price-amount {
+                        font-family: 'Playfair Display', serif;
+                        color: #1C1210;
+                        line-height: 1;
+                    }
+
+                    .fol-price-amount sup {
+                        font-size: 22px;
+                        vertical-align: super;
+                    }
+
+                    .fol-price-amount span {
+                        font-size: 16px;
+                        font-weight: 400;
+                        color: #9E857A;
+                        font-family: 'DM Sans', sans-serif;
+                    }
+
+                    .fol-price-sub {
+                        font-size: 13px;
+                        color: #9E857A;
+                        margin: 6px 0 24px;
+                    }
+
+                    .fol-includes li {
+                        display: flex;
+                        align-items: flex-start;
+                        color: #3A2820;
+                    }
+                </style>
+
+
+                <div class="txt-xs uppercase tracking-widest txt-stone-500 mb-075">What's included</div>
+                <div class="fol-includes">
+                    <ul class="mxy-0 space-y-05">
+                        <li>
+                            <div class="fol-check"><svg viewBox="0 0 10 8" fill="none">
+                                    <path d="M1 4l2.5 2.5L9 1" stroke="#6B1E3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg></div>
+                            13 courses aligned to the IBLCE® DCO
+                        </li>
+                        <li>
+                            <div class="fol-check"><svg viewBox="0 0 10 8" fill="none">
+                                    <path d="M1 4l2.5 2.5L9 1" stroke="#6B1E3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg></div>
+                            135 hours of exam preparation content
+                        </li>
+                        <li>
+                            <div class="fol-check"><svg viewBox="0 0 10 8" fill="none">
+                                    <path d="M1 4l2.5 2.5L9 1" stroke="#6B1E3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg></div>
+                            12 months access from enrolment
+                        </li>
+                        <li>
+                            <div class="fol-check"><svg viewBox="0 0 10 8" fill="none">
+                                    <path d="M1 4l2.5 2.5L9 1" stroke="#6B1E3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg></div>
+                            Flexible online, self-paced delivery
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="fol-stats">
+            <div class="fol-stats-inner">
+                <div class="fol-stat">
+                    <div class="fol-stat-num">135 hrs</div>
+                    <div class="fol-stat-desc">Full IBLCE education requirement</div>
+                </div>
+                <div class="fol-stat">
+                    <div class="fol-stat-num">4,200+</div>
+                    <div class="fol-stat-desc">Graduates worldwide</div>
+                </div>
+                <div class="fol-stat">
+                    <div class="fol-stat-num">100%</div>
+                    <div class="fol-stat-desc">Online & self-paced delivery</div>
+                </div>
+                <div class="fol-stat">
+                    <div class="fol-stat-num">12 mo</div>
+                    <div class="fol-stat-desc">Course access from enrolment</div>
+                </div>
+            </div>
+        </div>
+
+     
+    </div>
+    <style>
+        .bg-1 {
+            background-image:
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='96' viewBox='0 0 60 96'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%231a1a2e' fill-opacity='0.14'%3E%3Cpath d='M36 10a6 6 0 0 1 12 0v12a6 6 0 0 1-6 6 6 6 0 0 0-6 6 6 6 0 0 1-12 0 6 6 0 0 0-6-6 6 6 0 0 1-6-6V10a6 6 0 1 1 12 0 6 6 0 0 0 12 0zm24 78a6 6 0 0 1-6-6 6 6 0 0 0-6-6 6 6 0 0 1-6-6V58a6 6 0 1 1 12 0 6 6 0 0 0 6 6v24zM0 88V64a6 6 0 0 0 6-6 6 6 0 0 1 12 0v12a6 6 0 0 1-6 6 6 6 0 0 0-6 6 6 6 0 0 1-6 6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+                linear-gradient(90deg, #1A1A2E 0%, #4D1434 100%);
+            background-repeat: repeat, no-repeat;
+            background-size: auto, cover;
+        }
+    </style>
+
+    <section class="py bg-1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="4" height="4" viewBox="0 0 4 4">
+            <path fill="#000000" d="M1 3h1v1H1V3zm2-2h1v1H3V1z"></path>
+        </svg>
+        <div class="container grid cols-4 py-3 txt-white">
+            <div class="flex flex-col bdr-r bdr-stone-500">
+                <span class="font-serif txt-xxl font-bold">135 hrs</span>
+                <span class="txt-stone-400 txt-sm">Full IBLCE education requirement</span>
+            </div>
+            <div class="flex flex-col bdr-r bdr-stone-500">
+                <span class="font-serif txt-xxl font-bold">4,200+</span>
+                <span class="txt-stone-400 txt-sm">Graduates worldwide</span>
+            </div>
+
+            <div class="flex flex-col bdr-r bdr-stone-500">
+                <span class="font-serif txt-xxl font-bold">100%</span>
+                <span class="txt-stone-400 txt-sm">Online &amp; self-paced delivery</span>
+            </div>
+            <div class="flex flex-col">
+                <span class="font-serif txt-xxl font-bold">12 mo</span>
+                <span class="txt-stone-400 txt-sm">Course access from enrolment</span>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="container grid cols-3 py">
+        <div class="relative aspect-video">
+            <svg class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid slice">
+                <path fill="#fff" d="M1280 0H0v720h1280V0Z" />
+                <path fill="#4D1434" d="M436 48H47v10h389V48Z" />
+                <path fill="#969FA7" d="M1233 48H844v10h389V48Z" />
+                <path fill="#903163" d="M834 48H445v10h389V48Z" />
+                <mask id="a" width="1280" height="720" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha">
                     <path fill="#fff" d="M1280 0H0v720h1280V0Z" />
-                    <path fill="#4D1434" d="M436 48H47v10h389V48Z" />
-                    <path fill="#969FA7" d="M1233 48H844v10h389V48Z" />
-                    <path fill="#903163" d="M834 48H445v10h389V48Z" />
-                    <mask id="a" width="1280" height="720" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha">
-                        <path fill="#fff" d="M1280 0H0v720h1280V0Z" />
-                    </mask>
-                    <g mask="url(#a)">
-                        <path fill="#903163" fill-rule="evenodd" d="M1086.5 63c48.88 0 88.5-39.849 88.5-89H998c0 49.151 39.62 89 88.5 89Z" clip-rule="evenodd" />
-                        <path fill="#F6DEEC" fill-rule="evenodd" d="M1292 390c0 113.219-92.01 205-205.5 205C973.005 595 881 503.219 881 390c0-113.218 92.005-205 205.5-205 113.49 0 205.5 91.782 205.5 205Z" clip-rule="evenodd" />
-                    </g>
-                </svg>
+                </mask>
+                <g mask="url(#a)">
+                    <path fill="#903163" fill-rule="evenodd" d="M1086.5 63c48.88 0 88.5-39.849 88.5-89H998c0 49.151 39.62 89 88.5 89Z" clip-rule="evenodd" />
+                    <path fill="#F6DEEC" fill-rule="evenodd" d="M1292 390c0 113.219-92.01 205-205.5 205C973.005 595 881 503.219 881 390c0-113.218 92.005-205 205.5-205 113.49 0 205.5 91.782 205.5 205Z" clip-rule="evenodd" />
+                </g>
+            </svg>
+            <div class="absolute inset-0 flex items-center">
+                <div class="w-full h-6 flex va-c opacity-90 px" style="background: linear-gradient( 90deg, #a4a08f 0%, #b2af97 18%, #bebca0 40%, #d0cfb0 68%, #e4e2be 88%, #efedc7 100% );">
+                    <h2 class="txt-lg font-serif">Some Course Title</h2>
+                </div>
+            </div>
+        </div>
 
-                Some Course Title
+        <div class="relative aspect-video overflow-hidden" style="container-type:size;">
+            <svg class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid slice">
+                <path fill="#fff" d="M1280 0H0v720h1280V0Z" />
+                <path fill="#4D1434" d="M436 48H47v10h389V48Z" />
+                <path fill="#969FA7" d="M1233 48H844v10h389V48Z" />
+                <path fill="#903163" d="M834 48H445v10h389V48Z" />
+                <mask id="b" width="1280" height="720" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha">
+                    <path fill="#fff" d="M1280 0H0v720h1280V0Z" />
+                </mask>
+                <g mask="url(#b)">
+                    <path fill="#903163" fill-rule="evenodd" d="M1086.5 63c48.88 0 88.5-39.849 88.5-89H998c0 49.151 39.62 89 88.5 89Z" clip-rule="evenodd" />
+                    <path fill="#F6DEEC" fill-rule="evenodd" d="M1292 390c0 113.219-92.01 205-205.5 205C973.005 595 881 503.219 881 390c0-113.218 92.005-205 205.5-205 113.49 0 205.5 91.782 205.5 205Z" clip-rule="evenodd" />
+                </g>
+            </svg>
+
+            <!-- Left panel -->
+            <div class="absolute" style="top:0; left:0; bottom:0; width:40%;">
+                <div class="absolute" style="top:0; left:0; right:0; height:72%; background:#C67B94;"></div>
+                <div class="absolute" style="bottom:0; left:0; right:0; height:28%; background:#8A8966;"></div>
+                <svg class="absolute" style="top:5%; left:5%; width:32%;" viewBox="0 0 120 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 15 Q20 5 35 15 Q50 25 65 15 Q80 5 95 15 Q110 25 118 15" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round" />
+                    <path d="M5 32 Q20 22 35 32 Q50 42 65 32 Q80 22 95 32 Q110 42 118 32" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round" />
+                    <path d="M5 49 Q20 39 35 49 Q50 59 65 49 Q80 39 95 49 Q110 59 118 49" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round" />
+                    <path d="M5 66 Q20 56 35 66 Q50 76 65 66 Q80 56 95 66 Q110 76 118 66" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round" />
+                </svg>
+                <img src="/images/photo.jpg" alt="" class="absolute" style="width:74%; aspect-ratio:1/1; border-radius:50%; object-fit:cover; left:50%; top:68%; transform:translate(-50%,-50%);" />
+            </div>
+
+            <!-- Gradient band (right side, centered vertically) -->
+            <div class="absolute" style="left:40%; right:0; top:28%; height:50%; display:flex; align-items:center; padding-inline:4cqw; background:linear-gradient(90deg, #a4a08f 0%, #b2af97 18%, #bebca0 40%, #d0cfb0 68%, #e4e2be 88%, #efedc7 100%); opacity:0.9;">
+                <h2 class="font-serif" style="font-size:10cqh; line-height:1.25;">IV. Pharmacology<br>&amp; Toxicology</h2>
+            </div>
+
+            <!-- Subtitle -->
+            <div class="absolute" style="left:40%; right:0; bottom:8%; padding-inline:4cqw;">
+                <p style="font-size:3cqh;">5 Lactation education hours</p>
             </div>
         </div>
     </div>
 
-    <section>
-        <div class="container flex justify-between">
-            <div class="w-24">
-                <div class="flex items-center gap-05 uppercase tracking-widest txt-xs font-medium txt-primary-700">
-                    <span class="w-2 h-05 bg-primary-700"></span>
-                    IBLCE Certification Program
-                </div>
-
-                <h1 class="font-serif txt-2 lg:txt-3 lh-tight txt-slate-900">
-                    Lactation Consultant
-                    <span class="txt-primary-700 txt-italic">Exam Preparation</span>
-                </h1>
-
-                <p class="txt-base lh-relaxed font-light txt-slate-600 max-w-24">
-                    A comprehensive, evidence-based program designed for healthcare professionals ready to sit the IBLCE exam. Complete your full 90-hour lactation education requirement - online, at your pace.
-                </p>
-
-                <div class="grid gap-05 sm:cols-2 lg:cols-4 mt-2">
-                    <div class="bx pxy-075">
-                        <div class="font-serif txt-xl txt-slate-900">90 hrs</div>
-                        <div class="txt-xs uppercase tracking-wider txt-slate-500">Lactation ed.</div>
-                    </div>
-                    <div class="bx pxy-075">
-                        <div class="font-serif txt-xl txt-slate-900">Self-paced</div>
-                        <div class="txt-xs uppercase tracking-wider txt-slate-500">Delivery</div>
-                    </div>
-                    <div class="bx pxy-075">
-                        <div class="font-serif txt-xl txt-slate-900">12 months</div>
-                        <div class="txt-xs uppercase tracking-wider txt-slate-500">Access</div>
-                    </div>
-                    <div class="bx pxy-075">
-                        <div class="font-serif txt-xl txt-slate-900">IBLCE</div>
-                        <div class="txt-xs uppercase tracking-wider txt-slate-500">Accredited</div>
-                    </div>
-                </div>
-            </div>
-
-            <aside class="bx w-24">
-                <div>
-                    <div class="txt-xs uppercase tracking-wider txt-slate-500">Program Fee</div>
-                    <div class="font-serif txt-2 txt-slate-900">
-                        $899 <span class="txt-base font-light txt-slate-500">AUD</span>
-                    </div>
-                    <div class="txt-sm txt-slate-500">One-time payment · Instant access</div>
-                </div>
-
-                <button class="btn primary w-full mt-1">Enrol Now</button>
-
-                <div class="bdr-t bdr-stone-200 pt-1 mt-1">
-                    <div class="txt-xs uppercase tracking-wider txt-slate-500">What's included</div>
-                    <ul class="mxy-0 space-y-05 txt-sm txt-slate-700">
-                        <li class="flex items-start gap-05"><span class="wh-05 rounded-full bg-primary-700 mt-05"></span>90 hours of accredited lactation content</li>
-                        <li class="flex items-start gap-05"><span class="wh-05 rounded-full bg-primary-700 mt-05"></span>Ethics &amp; professional communication modules</li>
-                        <li class="flex items-start gap-05"><span class="wh-05 rounded-full bg-primary-700 mt-05"></span>Practice exam questions &amp; self-assessments</li>
-                        <li class="flex items-start gap-05"><span class="wh-05 rounded-full bg-primary-700 mt-05"></span>Certificate of completion</li>
-                        <li class="flex items-start gap-05"><span class="wh-05 rounded-full bg-primary-700 mt-05"></span>12 months full access</li>
-                    </ul>
-                </div>
-            </aside>
-        </div>
-    </section>
 
     <script type="module" src="/main.js"></script>
 </body>

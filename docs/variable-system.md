@@ -88,6 +88,32 @@ $logical-position-map: (
 - Default responsive variants via `$responsive-variants: map.keys($breakpoints)
   !default;`
 
+## CSS Custom Properties (review)
+
+JTB compiles SCSS variables into CSS custom properties at `:root`. This is a
+convenience layer — it does not replace the SCSS variable system, but it enables
+runtime overrides without a rebuild.
+
+What gets emitted as CSS vars:
+
+- All base and OKLCH colors (`--primary`, `--gray-200`, etc.)
+- Brand tokens (`--primary`, `--secondary`, `--accent`)
+- Base tokens (`--text-color`, `--link-color`, `--bg-body`)
+- Component tokens (`--box-padding`, `--box-border-radius`, `--bg-toggle-on`,
+  etc.)
+
+The SCSS variables remain the primary configuration path. CSS custom properties
+are generated from them automatically. To change a value at compile time, update
+the SCSS variable. To override at runtime (e.g. via JS or a user stylesheet),
+override the CSS custom property.
+
+```css +code
+/* Runtime override — no rebuild needed */
+:root {
+    --primary: oklch(55% 0.2 250);
+}
+```
+
 ## Theming & Color Maps (review)
 
 - Centralized in `_colors.scss`—theme tokens, OKLCH system, Tailwind refs

@@ -1,6 +1,22 @@
 <!-- markdownlint-disable MD060-->
 # Framework Status
 
+Tracks the state of all utilities, documentation files, and skills. Update when
+a doc is confirmed accurate or a utility is completed.
+
+## Status Key
+
+| Symbol / Label | Meaning |
+|----------------|---------|
+| `✅` | Complete and confirmed |
+| `Review` | Exists but not checked against current code |
+| `partial` | Has known gaps or explicit TODOs |
+| `stub` | Minimal content, needs writing |
+| `audit` | Needs checking against source before review can begin |
+| `❌` | Not available / not done |
+
+---
+
 ## Utilities
 
 ### Border
@@ -53,12 +69,12 @@
 
 ### Display and Visibility (review)
 
-| Utility           | Framework | Docs   | Notes                                                    |
-| ----------------- | --------- | ------ | -------------------------------------------------------- |
-| `display`         | Review    | Review | Includes `hidden`, `block`, `flex`, `inline-*`, `table*` |
-| `visibility`      | Review    | Review | `visible`, `invisible`, `collapse`                       |
-| `on-{breakpoint}` | Review    | Review | Exact breakpoint visibility/display                      |
-| `to-{breakpoint}` | Review    | Review | Up-to breakpoint visibility/display                      |
+| Utility           | Framework | Docs   | Notes                                                     |
+| ----------------- | --------- | ------ | --------------------------------------------------------- |
+| `display`         | Review    | Review | Includes `hidden`, `block`, `flex`, `inline-*`, `table*`  |
+| `visibility`      | Review    | Review | `visible`, `invisible`, `collapse`                        |
+| `on-{breakpoint}` | Review    | Review | Exact breakpoint visibility/display                       |
+| `to-{breakpoint}` | Review    | Review | Up-to breakpoint visibility/display                       |
 
 ### Effects (review)
 
@@ -197,33 +213,111 @@
 
 | Utility           | Framework | Docs | Notes                            |
 | ----------------- | --------- | ---- | -------------------------------- |
-| `color`           | Review    | ❌    | `txt-*` colors                   |
-| `font-family`     | Review    | ❌    | `font-*`                         |
-| `font-size`       | Review    | ❌    | `txt-*` sizes                    |
-| `font-style`      | Review    | ❌    |                                  |
-| `font-weight`     | Review    | ❌    |                                  |
-| `line-height`     | Review    | ❌    | `lh-*`                           |
-| `letter-spacing`  | Review    | ❌    |                                  |
-| `list-style-type` | Review    | ❌    | `list-*`                         |
-| `text-align`      | Review    | ❌    |                                  |
-| `text-decoration` | Review    | ❌    |                                  |
-| `text-transform`  | Review    | ❌    |                                  |
-| `text-wrap`       | Review    | ❌    |                                  |
-| `white-space`     | Review    | ❌    |                                  |
-| `text-composites` | Review    | ❌    | `txt-xs`, `txt-sm`, `lead`, etc. |
+| `color`           | Review    | Review | `txt-*` colors                   |
+| `font-family`     | Review    | Review | `font-*`                         |
+| `font-size`       | Review    | Review | `txt-*` sizes                    |
+| `font-style`      | Review    | Review |                                  |
+| `font-weight`     | Review    | Review |                                  |
+| `line-height`     | Review    | Review | `lh-*`                           |
+| `letter-spacing`  | Review    | Review |                                  |
+| `list-style-type` | Review    | Review | `list-*`                         |
+| `text-align`      | Review    | Review |                                  |
+| `text-decoration` | Review    | Review |                                  |
+| `text-transform`  | Review    | Review |                                  |
+| `text-wrap`       | Review    | Review |                                  |
+| `white-space`     | Review    | Review |                                  |
+| `text-composites` | Review    | Review | `txt-xs`, `txt-sm`, `lead`, etc. |
+
+---
+
+## Documentation Files
+
+### Root Docs
+
+| File | Status | Notes |
+|------|--------|-------|
+| `introduction.md` | review | |
+| `installation.md` | review | |
+| `conventions-and-architecture-rules.md` | review | |
+| `core-architecture.md` | review | |
+| `layer-system.md` | review | |
+| `design-decisions.md` | review | |
+| `responsive-design.md` | review | |
+| `developer-responsive-class-generation.md` | review | |
+| `magic-classes.md` | ✅ | |
+| `display-and-visibility.md` | review | |
+| `automatic-spacing.md` | review | |
+| `layouts-and-structures.md` | ✅ | |
+| `margin-padding-spacing.md` | partial | TODOs: Spacing Sizes, Negative Values, Dividers |
+| `variable-system.md` | partial | CSS custom properties section needs updating — vars are a runtime fallback convenience |
+| `customisation.md` | review | |
+| `themes.md` | review | |
+| `state-management.md` | review | |
+| `resolvers.md` | review | |
+| `animation.md` | review | |
+| `aria.md` | review | |
+| `responsive-testing.md` | review | |
+| `showcase-typography.md` | partial | Known issues: font-weight prefix inconsistency, sizing split, unprefixed text-transform |
+
+### API
+
+| File | Status | Notes |
+|------|--------|-------|
+| `api/makers.md` | stub | 16 lines, one example only |
+| `api/architecture-naming.md` | stub | Skeleton, naming section empty |
+| `api/workflow.md` | audit | TODO notes something is "not correct" |
+| `api/build-classes.md` | audit | |
+| `api/make-from-breakpoint.md` | audit | |
+| `api/make-on-breakpoint.md` | audit | |
+| `api/make-to-breakpoint.md` | audit | |
+| `api/make-position-based-class.md` | audit | |
+| `api/make-single-property-class.md` | audit | |
+| `api/make-themes.md` | audit | |
+| `api/variables.md` | review | |
+
+### Components
+
+| File | Status | Notes |
+|------|--------|-------|
+| `components/overview.md` | review | |
+| `components/button.md` | review | |
+| `components/box.md` | review | |
+| `components/accordion.md` | review | |
+| `components/forms.md` | review | |
+| `components/menu.md` | review | |
+| `components/navbar.md` | review | |
+| `components/pagination.md` | review | |
+| `components/table.md` | review | |
+| `components/example-navigations.md` | stub | Bare HTML, no explanation |
+
+### Utilities
+
+| File | Status | Notes |
+|------|--------|-------|
+| `utilities/border.md` | ✅ | |
+| `utilities/typography.md` | review | New — needs review pass |
+| `utilities/animation.md` | review | |
+| `utilities/display-and-visibility.md` | review | |
+| `utilities/effects.md` | review | |
+| `utilities/position.md` | review | |
+| `utilities/transforms.md` | review | |
+
+### Examples
+
+| File | Status | Notes |
+|------|--------|-------|
+| `examples/layout-dashboard.md` | ✅ | |
+| `examples/form-examples.md` | review | |
+| `examples/responsive-design-patterns.md` | review | |
+| `examples/ui-elements.md` | review | |
+
+---
 
 ## Skills
 
-| File                  | Area                   | Status     | Notes                              |
-| --------------------- | ---------------------- | ---------- | ---------------------------------- |
-| `markdown-formatting` | Markdown formatting    | ✅ Complete |                                    |
-| `jtb-documentation`   | Documentation workflow | Review     | Still contains `(review)` headings |
-| `jtb-layout`          | Layout strategy        | Review     | Still contains `(review)` headings |
-| `tailwind-to-jtb`     | Conversion workflow    | Review     | Still contains `(review)` headings |
-
-## Docs
-
-| File                       | Area                     | Status     | Notes |
-| -------------------------- | ------------------------ | ---------- | ----- |
-| `layouts-and-structures`   | Layouts and structures   | ✅ Complete |       |
-| `magic-classes`            | Magic responsive classes | ✅ Complete |       |
+| File | Area | Status | Notes |
+| ---- | ---- | ------ | ----- |
+| `markdown-formatting` | Markdown formatting | ✅ | |
+| `jtb-documentation` | Documentation workflow | review | Still contains `(review)` headings |
+| `jtb-layout` | Layout strategy | review | Still contains `(review)` headings |
+| `tailwind-to-jtb` | Conversion workflow | review | Still contains `(review)` headings |

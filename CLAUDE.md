@@ -130,3 +130,8 @@ follow the direction.
 - Show the approach before executing when the task has meaningful scope
 - If something is taking a different shape than expected, surface it early
   rather than finishing and explaining after
+
+## Off-Limits Directories
+
+- **`/tmp`** — Nathan's personal scratch space. Never read, modify, delete, or
+  reference files here unless explicitly asked.. abc
