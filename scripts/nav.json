@@ -55,14 +55,14 @@
             }
         ]
     },
-    "Examples": {
+    "Reference": {
         "links": [
             {
-                "name": "Showcase",
-                "route_name": "jtb.showcase"
+                "name": "Quick Reference",
+                "route_name": "jtb.quick-reference"
             },
             {
-                "name": "Typography",
+                "name": "Typography Showcase",
                 "route_name": "jtb.showcase-typography"
             }
         ]

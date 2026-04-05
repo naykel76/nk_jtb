@@ -31,7 +31,7 @@
 .bx-header,
 .bx-footer {
     margin-inline: -$bx-padding;
-    padding: 0.75rem var(--box-padding);
+    padding: 0.75rem $bx-padding;
 }
 
 .bx-header {

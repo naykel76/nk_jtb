@@ -88,6 +88,20 @@ $logical-position-map: (
 - Default responsive variants via `$responsive-variants: map.keys($breakpoints)
   !default;`
 
+## SCSS Variables vs CSS Custom Properties (review)
+
+Use SCSS variables for structural values that are needed at compile time —
+spacing used in calculations, negative margins, anything a mixin depends on.
+These cannot be CSS custom properties because they are resolved before the
+browser sees them.
+
+Use CSS custom properties for anything that needs to be overridable at runtime
+— colours, border radius, typography. These are defined in `:root` and can be
+overridden by modifiers, utilities, or developer stylesheets without a rebuild.
+
+A value should not exist as both — pick one based on whether it needs to be
+overridable at runtime.
+
 ## CSS Custom Properties (review)
 
 JTB compiles SCSS variables into CSS custom properties at `:root`. This is a
@@ -99,8 +113,6 @@ What gets emitted as CSS vars:
 - All base and OKLCH colors (`--primary`, `--gray-200`, etc.)
 - Brand tokens (`--primary`, `--secondary`, `--accent`)
 - Base tokens (`--text-color`, `--link-color`, `--bg-body`)
-- Component tokens (`--box-padding`, `--box-border-radius`, `--bg-toggle-on`,
-  etc.)
 
 The SCSS variables remain the primary configuration path. CSS custom properties
 are generated from them automatically. To change a value at compile time, update
@@ -144,4 +156,3 @@ override the CSS custom property.
 
 - See each category file for detailed variable lists and comments
 - Follow add/modify examples to maintain override-friendly, scalable config.
-

@@ -60,6 +60,7 @@ use `gap` instead.
   primary">`
 - Hardcoded values — use variables
 - Deep nesting — maximum 3 levels
+- `!important` — never use
 
 ---
 
@@ -131,7 +132,13 @@ follow the direction.
 - If something is taking a different shape than expected, surface it early
   rather than finishing and explaining after
 
+## Skills
+
+When a skill's trigger condition matches the current task, invoke it via the
+`Skill` tool before proceeding. Do not read SKILL.md files directly as a
+substitute for invocation — reading is not the same as invoking.
+
 ## Off-Limits Directories
 
 - **`/tmp`** — Nathan's personal scratch space. Never read, modify, delete, or
-  reference files here unless explicitly asked.. abc
+  reference files here unless explicitly asked.

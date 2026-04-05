@@ -52,3 +52,4 @@ use `gap` instead.
   primary">`
 - Hardcoded values — use variables
 - Deep nesting — maximum 3 levels
+- `!important` — never use
