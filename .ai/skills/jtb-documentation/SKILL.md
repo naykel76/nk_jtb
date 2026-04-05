@@ -16,9 +16,8 @@ description: >-
 - Mark active headings with `(review)` until the content is confirmed.
 - Remove `(review)` from a heading as soon as that specific section is confirmed.
 - Leave `(review)` on any headings that are still unresolved.
-- After working on any section that still carries `(review)`, explicitly check whether it is now final before moving on.
-- Only mark a document complete in `framework-status.md` when its remaining review tags are gone.
-- When a document reaches that point, update `framework-status.md` in the same pass.
+- Any time you update a section carrying `(review)`, ask: "[Section name] has been updated. Is this section complete?" Remove the tag only on confirmation.
+- When no `(review)` tags remain in a document, it is complete. Update `framework-status.md` in the same pass.
 
 ## Documentation Types
 
@@ -68,9 +67,11 @@ Rules:
 
 - Lead paragraph is the introduction. Do not add a separate `## Introduction` section unless the doc is a conceptual overview.
 - Name the component clearly in the lead.
+- The lead describes what the component is and does — not its current implementation details. Do not mention specific CSS properties like padding, border, or shadow. Those may change; the component's purpose does not.
 - Show the minimum working structure early with `+code`.
 - Use prose where structure or context-aware behaviour needs explanation.
 - Move from simple usage to fuller examples.
+- Wrap all interactive examples in `class="bx"` on the demo block so they are visually presented in context.
 
 ### Concept Documentation (review)
 
