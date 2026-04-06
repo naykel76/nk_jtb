@@ -1,29 +1,29 @@
 @use '../maps_and_variables/components' as *;
+@use '../functions/strings' as *;
+
+@function checklist-icon($bg, $check) {
+    $bg-enc: str-replace('#{$bg}', '#', '%23');
+    $check-enc: str-replace('#{$check}', '#', '%23');
+
+    @return url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><circle cx='10' cy='10' r='10' fill='#{$bg-enc}'/><path d='M5 10.5l3 3L15 7' fill='none' stroke='#{$check-enc}' stroke-width='1.750' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+}
 
 // ============================================================================
-// -- TICK ICON LIST --
+// -- CHECKLIST --
 // ============================================================================
-//
+// Generates a circle-and-checkmark icon via ::before.
+// Color modifiers set the icon background and check stroke.
+// ============================================================================
 
-.icon-list {
-    ul {
-        margin-inline-start: 0;
-    }
+.checklist {
+    list-style: none;
+    margin-inline-start: 0;
 
-    :where(svg) {
-        margin-inline-end: 1rem;
-    }
-
-    & li {
-        align-items: center;
+    li {
+        background-image: checklist-icon($checklist-icon-bg, $checklist-icon-color);
         background-position: left center;
         background-repeat: no-repeat;
-        display: flex;
-        padding-block: 0.25rem;
-    }
-
-    &.tick-svg li {
-        background-image: $icon-tick;
-        padding-inline-start: 2rem;
+        background-size: $checklist-icon-size;
+        padding-inline-start: 1.75rem;
     }
 }

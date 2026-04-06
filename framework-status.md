@@ -282,6 +282,7 @@ a doc is confirmed accurate or a utility is completed.
 | `components/overview.md`            | review |                           |
 | `components/button.md`              | review |                           |
 | `components/box.md`                 | partial | CSS Custom Properties section needs locking down |
+| `components/list.md`                | ✅      |                                                            |
 | `components/accordion.md`           | review |                           |
 | `components/forms.md`               | review |                           |
 | `components/menu.md`                | review |                           |

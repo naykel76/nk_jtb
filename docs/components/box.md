@@ -1,7 +1,10 @@
 # Box
-The `.bx` component is a structured content container. Add `.bx-header` and `.bx-footer` for sections that bleed to the box edges.
+
+The `.bx` component is a structured content container. Add `.bx-header` and
+`.bx-footer` for sections that bleed to the box edges.
 
 ## Structure
+
 ```html +code class="bx"
 <div class="bx">
     <div class="bx-header">
@@ -16,9 +19,12 @@ The `.bx` component is a structured content container. Add `.bx-header` and `.bx
 </div>
 ```
 
-The header and footer are optional. Use `.bx-content` when pairing content with a `.bx-header` — the `:where(.bx-header + .bx-content)` selector applies edge-to-edge layout to that pairing automatically.
+The header and footer are optional. Use `.bx-content` when pairing content with
+a `.bx-header` — the `:where(.bx-header + .bx-content)` selector applies
+edge-to-edge layout to that pairing automatically.
 
 ## Basic Usage
+
 ```html +demo-folded class="bx"
 <div class="bx">
     <p>A basic box with default padding, border, and shadow.</p>
@@ -26,7 +32,9 @@ The header and footer are optional. Use `.bx-content` when pairing content with 
 ```
 
 ## With Header
-`.bx-header` bleeds to the box edges using negative inline margins. Use `.bx-title` inside for the styled title text.
+
+`.bx-header` bleeds to the box edges using negative inline margins. Use
+`.bx-title` inside for the styled title text.
 
 ```html +demo-folded class="bx"
 <div class="bx">
@@ -40,6 +48,7 @@ The header and footer are optional. Use `.bx-content` when pairing content with 
 ```
 
 ## With Footer
+
 `.bx-footer` follows the same edge-bleed pattern as the header.
 
 ```html +demo-folded class="bx"
@@ -53,6 +62,7 @@ The header and footer are optional. Use `.bx-content` when pairing content with 
 ```
 
 ## Header and Footer
+
 ```html +demo-folded class="bx"
 <div class="bx">
     <div class="bx-header flex justify-between items-center">
@@ -70,6 +80,7 @@ The header and footer are optional. Use `.bx-content` when pairing content with 
 ```
 
 ## Themes
+
 Apply context-aware theme modifiers directly to `.bx`:
 
 ```html +demo-folded class="bx" preview-class="grid cols-2 gap-2"
@@ -92,7 +103,10 @@ Apply context-aware theme modifiers directly to `.bx`:
 ```
 
 ## Auto Spacing
-Content inside `.bx` follows the auto-spacing system. The first direct child (excluding `.bx-header` and `.bx-footer`) has its `margin-block-start` reset to prevent a double gap at the top.
+
+Content inside `.bx` follows the auto-spacing system. The first direct child
+(excluding `.bx-header` and `.bx-footer`) has its `margin-block-start` reset to
+prevent a double gap at the top.
 
 ```html +demo-folded class="bx"
 <div class="bx">
@@ -106,6 +120,7 @@ Content inside `.bx` follows the auto-spacing system. The first direct child (ex
 ```
 
 ## CSS Custom Properties (review)
+
 | Property                    | Controls                |
 | --------------------------- | ----------------------- |
 | `--box-border-color`        | Border color            |
