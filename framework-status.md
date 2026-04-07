@@ -318,8 +318,19 @@ a doc is confirmed accurate or a utility is completed.
 
 | File                  | Area                   | Status | Notes                              |
 | --------------------- | ---------------------- | ------ | ---------------------------------- |
-| `markdown-formatting` | Markdown formatting    | ✅      |                                    |
+| `markdown-formatting` | Markdown formatting    | review |                                    |
 | `jtb-documentation`   | Documentation workflow | review | Still contains `(review)` headings |
-| `jtb-layout`          | Layout strategy        | review | Still contains `(review)` headings |
+| `jtb-layouts-and-structures` | Layout strategy   | ✅     | Renamed from `jtb-layout`          |
 | `jtb-conversion`      | Conversion workflow    | review | Still contains `(review)` headings |
 | `scss-engineer`       | SCSS engineering       | review |                                    |
+
+## Prompts
+
+| File                          | Status  | Notes                                    |
+| ----------------------------- | ------- | ---------------------------------------- |
+| `create-component.md`         | review  | Scoped to framework development only     |
+| `create-documentation.md`     | review  |                                          |
+| `jtb-code-review.md`          | review  |                                          |
+| `jtb-review-component.md`     | review  |                                          |
+| `jtb-review-documentation.md` | review  |                                          |
+| `create-component` (consuming project) | planned | Skill + prompt for building UI in consuming projects |

@@ -138,6 +138,22 @@ When a skill's trigger condition matches the current task, invoke it via the
 `Skill` tool before proceeding. Do not read SKILL.md files directly as a
 substitute for invocation — reading is not the same as invoking.
 
+## Task Tracking
+
+`tasks.md` in the project root is a memory aid — it keeps work on track and
+preserves important context across sessions. Create the file if it doesn't
+exist.
+
+Update it proactively: when something comes up mid-conversation that isn't
+being acted on immediately, add it before the topic changes. Do not wait to
+be asked.
+
+Three buckets:
+
+- **Planned** — decided, not started
+- **Parked** — discussed but no decision yet
+- **Context** — decisions made, important context, things to remember
+
 ## Off-Limits Directories
 
 - **`/tmp`** — Nathan's personal scratch space. Never read, modify, delete, or

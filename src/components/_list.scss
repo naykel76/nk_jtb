@@ -27,5 +27,9 @@
         background-repeat: no-repeat;
         background-size: $checklist-icon-size;
         padding-inline-start: 1.75rem;
+
+        &:not(:first-child) {
+            margin-block-start: 0.5rem;
+        }
     }
 }
