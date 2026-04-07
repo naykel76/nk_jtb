@@ -124,6 +124,9 @@ Rules:
 - Include an SCSS Variables table when the component exposes overridable
   variables. Link to `/docs/jtb/variable-system` for override instructions
   rather than explaining inline.
+- Include a `## Utility Examples` section when a utility-based approach to the
+  same pattern is viable. This lives in the component doc — not a separate
+  file. It shows the utility-built version alongside the component class.
 
 ## Prose vs Code
 

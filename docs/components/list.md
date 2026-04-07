@@ -72,3 +72,28 @@ compile time.
 Icon colors are baked into the SVG at compile time. See [Variable
 System](/docs/jtb/variable-system) for how to override SCSS variables in your
 project.
+
+## Utility Examples
+
+```html +demo-folded class="bx"
+<ul class="space-y-05 txt-sm">
+    <li class="flex gap-05">
+        <svg class="wh-1.25 rounded-full bg-orange-100 txt-primary pxy-025" fill="none" viewBox="0 0 10 8" stroke="currentColor" stroke-width="1.5">
+            <path d="M1 4l2.5 2.5L9 1" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        12 months access from enrolment
+    </li>
+    <li class="flex gap-05">
+        <svg class="wh-1.25 rounded-full bg-orange-100 txt-primary pxy-025" fill="none" viewBox="0 0 10 8" stroke="currentColor" stroke-width="1.5">
+            <path d="M1 4l2.5 2.5L9 1" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        Downloadable resources included
+    </li>
+    <li class="flex gap-05">
+        <svg class="wh-1.25 rounded-full bg-orange-100 txt-primary pxy-025" fill="none" viewBox="0 0 10 8" stroke="currentColor" stroke-width="1.5">
+            <path d="M1 4l2.5 2.5L9 1" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        Certificate on completion
+    </li>
+</ul>
+```
