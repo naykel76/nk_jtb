@@ -16,7 +16,9 @@ description: >-
 - Mark every new heading with `(review)` until its content is confirmed.
 - When you update a section carrying `(review)`, ask: "[Section name] has been
   updated. Is this section complete?"
-- On confirmation: remove the `(review)` tag. If the confirmed section is in a documentation file (not a skill), ask: "Do you want this added to a showcase?"
+- On confirmation: remove the `(review)` tag. If the confirmed section is in a
+  component or utility doc (not a skill, reference doc, or api doc), ask: "Do
+  you want this added to a showcase?"
 - If yes, add it to the appropriate showcase file before moving on.
 - Leave `(review)` on any headings that are still unresolved.
 
@@ -37,15 +39,20 @@ Two reasons something belongs in a showcase:
 2. **Existence reminder** — a single component worth flagging so it doesn't get
    overlooked (checklist)
 
-Showcase entries have no explanation — just enough to jog memory. Format depends on content type:
+Showcase entries have no explanation — just enough to jog memory. Format depends
+on content type:
 
-- **UI components** (`showcase-ui.md`) — use `+demo-folded` so markup is visible and copyable
-- **Typography/syntax** (`showcase-typography.md`) — use raw HTML pairing `<code>` class names with output
+- **UI components** (`showcase-ui.md`) — use `+demo-folded` so markup is visible
+  and copyable
+- **Typography/syntax** (`showcase-typography.md`) — use raw HTML pairing
+  `<code>` class names with output
 - **Layouts** (`showcase-layouts.md`) — case by case
 
-Group entries by component family under `##` headings (e.g. `## Lists`, `## Buttons`). Individual variants sit under `###` within that group.
+Group entries by component family under `##` headings (e.g. `## Lists`, `##
+Buttons`). Individual variants sit under `###` within that group.
 
-Do not create a new showcase file for a single component — if it doesn't fit the three above, discuss with the user.
+Do not create a new showcase file for a single component — if it doesn't fit the
+three above, discuss with the user.
 
 ## Documentation Types
 
@@ -91,7 +98,8 @@ Rules:
 Use for named structural classes such as `navbar`, `menu`, `bx`, or form
 controls.
 
-Every component doc must communicate four things — heading names can flex to suit the content:
+Every component doc must communicate four things — heading names can flex to
+suit the content:
 
 1. **What it is** — a one-line lead describing purpose, not implementation
 2. **How to use it** — minimum working markup shown early with `+code`
@@ -100,14 +108,22 @@ Every component doc must communicate four things — heading names can flex to s
 
 Rules:
 
-- Do not add a separate `## Introduction` heading — the lead is the introduction.
-- The lead describes what the component is and does — not implementation details. Do not mention specific CSS properties. Those may change; the component's purpose does not.
-- Heading names should match the content. A single component might use `## Structure` and `## Basic Usage`. A page covering base styles and variants might use `## Base` and `## Variants`. Use whatever is clearest.
+- Do not add a separate `## Introduction` heading — the lead is the
+  introduction.
+- The lead describes what the component is and does — not implementation
+  details. Do not mention specific CSS properties. Those may change; the
+  component's purpose does not.
+- Heading names should match the content. A single component might use `##
+  Structure` and `## Basic Usage`. A page covering base styles and variants
+  might use `## Base` and `## Variants`. Use whatever is clearest.
 - Show the minimum working structure early with `+code`.
 - Use prose where structure or context-aware behaviour needs explanation.
 - Move from simple usage to fuller examples.
-- Wrap all interactive examples in `class="bx"` on the demo block so they are visually presented in context.
-- Include an SCSS Variables table when the component exposes overridable variables. Link to `/docs/jtb/variable-system` for override instructions rather than explaining inline.
+- Wrap all interactive examples in `class="bx"` on the demo block so they are
+  visually presented in context.
+- Include an SCSS Variables table when the component exposes overridable
+  variables. Link to `/docs/jtb/variable-system` for override instructions
+  rather than explaining inline.
 
 ## Prose vs Code
 
