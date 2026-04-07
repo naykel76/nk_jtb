@@ -47,10 +47,19 @@ A `ul` variant that renders a circle-and-checkmark icon against each item. No
 SVG in the markup — the icon is generated from the component variables at
 compile time.
 
+`.checklist` can be placed directly on a `ul`, or on a wrapper element when the
+`ul` is generated and the markup is not directly accessible.
+
 ```html +code
 <ul class="checklist">
     <li>List item</li>
 </ul>
+```
+
+```html +code
+<div class="checklist">
+    <!-- ul rendered by CMS or template -->
+</div>
 ```
 
 ```html +demo-folded class="bx"

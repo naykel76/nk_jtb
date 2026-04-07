@@ -16,8 +16,10 @@
 // ============================================================================
 
 .checklist {
-    list-style: none;
-    margin-inline-start: 0;
+    &, ul {
+        list-style: none;
+        margin-inline-start: 0;
+    }
 
     li {
         background-image: checklist-icon($checklist-icon-bg, $checklist-icon-color);

@@ -1,14 +1,3 @@
-@forward './maps_and_variables/base' with (
-    $primary: #7c0442,
-    $secondary: #f4e4eb,
-    $bg-body: #f8f5f2,
-    $border-color: #e0d8d0
-);
-
-// @use 'nk_jtb/src/maps_and_variables/base' as *;
-// @use 'nk_jtb/src/maps_and_variables/components' as * with (
-//     $icon-list-color: hsl(329, 29%, 37%)
-// );
 @use './base';
 
 // Load components before utility classes to allow for easier overrides
