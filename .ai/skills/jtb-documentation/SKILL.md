@@ -88,8 +88,8 @@ Rules:
 - Keep review notes, implementation commentary, and TODOs out of the main doc.
 - Group examples by usage, not by SCSS implementation detail.
 - Use `+demo-folded class="bx"` for interactive examples.
-- Use `preview-class="..."` for preview-only layout or styling so copied code
-  stays clean.
+- Use `preview-class="..."` for visual aids in the docs so they do not affect
+  the code being copied.
 - Use `class="..."` for the outer demo wrapper when the preview needs a
   container such as `bx`.
 

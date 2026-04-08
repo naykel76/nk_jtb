@@ -145,16 +145,17 @@ a doc is confirmed accurate or a utility is completed.
 
 ### Misc (review)
 
-| Utility             | Framework | Docs | Notes                         |
-| ------------------- | --------- | ---- | ----------------------------- |
-| `ends:rounded-lg`   | Review    | ❌    | Child edge rounding helper    |
-| `zebra`             | Review    | ❌    | Alternating child backgrounds |
-| `child-padding-y`   | Review    | ❌    | `c-py-*` utilities            |
-| `aspect-ratio`      | Review    | ❌    | `aspect-*` utilities          |
-| `divide-y`          | Review    | ❌    | Child divider utility         |
-| `divide-y-gradient` | Review    | ❌    | Gradient divider variant      |
-| `sticky`            | Review    | ❌    | Sticky helper class           |
-| `close`             | Review    | ❌    | Close-action helper           |
+| Utility             | Framework | Docs   | Notes                         |
+| ------------------- | --------- | ------ | ----------------------------- |
+| `ends:rounded-lg`   | Review    | ❌      | Child edge rounding helper    |
+| `zebra`             | Review    | ❌      | Alternating child backgrounds |
+| `child-padding-y`   | Review    | ❌      | `c-py-*` utilities            |
+| `aspect-ratio`      | Review    | ❌      | `aspect-*` utilities          |
+| `divide-y`          | ✅         | ✅    | Child divider utility         |
+| `divide-x`          | ✅         | ✅    | Column divider utility        |
+| `divide-y-gradient` | ✅         | Review | Gradient divider variant      |
+| `sticky`            | Review    | ❌      | Sticky helper class           |
+| `close`             | Review    | ❌      | Close-action helper           |
 
 ### Sizing (review)
 
@@ -248,7 +249,7 @@ a doc is confirmed accurate or a utility is completed.
 | `display-and-visibility.md`                | review  |                                                                                        |
 | `automatic-spacing.md`                     | review  |                                                                                        |
 | `layouts-and-structures.md`                | ✅       |                                                                                        |
-| `margin-padding-spacing.md`                | partial | TODOs: Spacing Sizes, Negative Values, Dividers                                        |
+| `margin-padding-spacing.md`                | partial | TODOs: Spacing Sizes, Negative Values                                                  |
 | `variable-system.md`                       | partial | CSS custom properties section needs updating — vars are a runtime fallback convenience |
 | `customisation.md`                         | review  |                                                                                        |
 | `themes.md`                                | review  |                                                                                        |
@@ -277,31 +278,31 @@ a doc is confirmed accurate or a utility is completed.
 
 ### Components
 
-| File                                | Status | Notes                     |
-| ----------------------------------- | ------ | ------------------------- |
-| `components/overview.md`            | review |                           |
-| `components/button.md`              | review |                           |
+| File                                | Status  | Notes                                            |
+| ----------------------------------- | ------- | ------------------------------------------------ |
+| `components/overview.md`            | review  |                                                  |
+| `components/button.md`              | review  |                                                  |
 | `components/box.md`                 | partial | CSS Custom Properties section needs locking down |
-| `components/list.md`                | ✅      |                                                            |
-| `components/accordion.md`           | review |                           |
-| `components/forms.md`               | review |                           |
-| `components/menu.md`                | review |                           |
-| `components/navbar.md`              | review |                           |
-| `components/pagination.md`          | review |                           |
-| `components/table.md`               | review |                           |
-| `components/example-navigations.md` | stub   | Bare HTML, no explanation |
+| `components/list.md`                | ✅       |                                                  |
+| `components/accordion.md`           | review  |                                                  |
+| `components/forms.md`               | review  |                                                  |
+| `components/menu.md`                | review  |                                                  |
+| `components/navbar.md`              | review  |                                                  |
+| `components/pagination.md`          | review  |                                                  |
+| `components/table.md`               | review  |                                                  |
+| `components/example-navigations.md` | stub    | Bare HTML, no explanation                        |
 
 ### Utilities
 
-| File                                  | Status | Notes                   |
-| ------------------------------------- | ------ | ----------------------- |
-| `utilities/border.md`                 | ✅      |                         |
-| `utilities/typography.md`             | review | New — needs review pass |
-| `utilities/animation.md`              | review |                         |
-| `utilities/display-and-visibility.md` | review |                         |
-| `utilities/effects.md`                | review |                         |
-| `utilities/position.md`               | review |                         |
-| `utilities/transforms.md`             | review |                         |
+| File                                  | Status | Notes                                               |
+| ------------------------------------- | ------ | --------------------------------------------------- |
+| `utilities/border.md`                 | review | Border, outline, and divider utilities              |
+| `utilities/typography.md`             | review | New — needs review pass                             |
+| `utilities/animation.md`              | review |                                                     |
+| `utilities/display-and-visibility.md` | review |                                                     |
+| `utilities/effects.md`                | review |                                                     |
+| `utilities/position.md`               | review |                                                     |
+| `utilities/transforms.md`             | review |                                                     |
 
 ### Examples
 
@@ -316,21 +317,27 @@ a doc is confirmed accurate or a utility is completed.
 
 ## Skills
 
-| File                  | Area                   | Status | Notes                              |
-| --------------------- | ---------------------- | ------ | ---------------------------------- |
-| `markdown-formatting` | Markdown formatting    | review |                                    |
-| `jtb-documentation`   | Documentation workflow | review | Still contains `(review)` headings |
-| `jtb-layouts-and-structures` | Layout strategy   | ✅     | Renamed from `jtb-layout`          |
-| `jtb-conversion`      | Conversion workflow    | review | Still contains `(review)` headings |
-| `scss-engineer`       | SCSS engineering       | review |                                    |
+| File                         | Area                   | Status | Notes                              |
+| ---------------------------- | ---------------------- | ------ | ---------------------------------- |
+| `markdown-formatting`        | Markdown formatting    | review |                                    |
+| `jtb-documentation`          | Documentation workflow | review | Still contains `(review)` headings |
+| `jtb-layouts-and-structures` | Layout strategy        | ✅      | Renamed from `jtb-layout`          |
+| `jtb-conversion`             | Conversion workflow    | review | Still contains `(review)` headings |
+| `scss-engineer`              | SCSS engineering       | review | Utility workflow added             |
 
 ## Prompts
 
-| File                          | Status  | Notes                                    |
-| ----------------------------- | ------- | ---------------------------------------- |
-| `create-component.md`         | ✅      | Utility-first, framework development only |
-| `create-documentation.md`     | review  |                                          |
-| `jtb-code-review.md`          | review  |                                          |
-| `jtb-review-component.md`     | review  |                                          |
-| `jtb-review-documentation.md` | review  |                                          |
+| File                                   | Status  | Notes                                                |
+| -------------------------------------- | ------- | ---------------------------------------------------- |
+| `create-component.md`                  | ✅       | Utility-first, framework development only            |
+| `create-utility.md`                    | ✅       | Framework utility authoring prompt                   |
+| `create-documentation.md`              | review  |                                                      |
+| `jtb-code-review.md`                   | review  |                                                      |
+| `jtb-review-component.md`              | review  |                                                      |
+| `jtb-review-documentation.md`          | review  |                                                      |
 | `create-component` (consuming project) | planned | Skill + prompt for building UI in consuming projects |
+
+## Feature Requests
+
+| Feature | Notes |
+| ------- | ----- |

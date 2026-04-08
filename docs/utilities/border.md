@@ -93,32 +93,49 @@ Apply different styles to specific sides.
 </div>
 ```
 
-### Dividers (review)
+## Dividers (review)
 
 Divider utilities add borders between direct children without placing classes on
 each child. They use the framework border color by default.
 
-```html +demo-folded class="bx"
+> Divider color and width controls still need refinement. The current examples
+> show the base utilities only.
+
+### Divide Y
+
+```html +demo-folded class="bx" preview-class="bdr-2 bdr-dashed bdr-stone-400"
 <div class="divide-y">
-    <div class="p-1">First item</div>
-    <div class="p-1">Second item</div>
-    <div class="p-1">Third item</div>
+    <div class="pxy">First item</div>
+    <div class="pxy">Second item</div>
+    <div class="pxy">Third item</div>
 </div>
 ```
 
-```html +demo-folded class="bx" preview-class="flex"
-<div class="divide-x flex">
-    <div class="px-2">Column one</div>
-    <div class="px-2">Column two</div>
-    <div class="px-2">Column three</div>
+### Divide X
+
+```html +demo-folded class="bx"  preview-class="bdr-2 bdr-dashed bdr-stone-400"
+<div class="divide-x flex py">
+    <div class="px">Column one</div>
+    <div class="px">Column two</div>
+    <div class="px">Column three</div>
 </div>
 ```
 
-```html +demo-folded class="bx"
+### Color (review)
+
+```html +demo-folded class="bx" preview-class="bdr-2 bdr-dashed bdr-stone-400"
 <div class="grid md:cols-3 md:divide-x tac" style="--border-color: var(--primary);">
-    <div class="p-1">North</div>
-    <div class="p-1">Central</div>
-    <div class="p-1">South</div>
+    <div class="pxy">North</div>
+    <div class="pxy">Central</div>
+    <div class="pxy">South</div>
+</div>
+```
+
+```html +demo-folded class="bx" preview-class="bdr-2 bdr-dashed bdr-stone-400"
+<div class="grid md:cols-3 md:divide-x tac">
+    <div class="pxy bdr-red">North</div>
+    <div class="pxy bdr-red">Central</div>
+    <div class="pxy bdr-red">South</div>
 </div>
 ```
 
@@ -128,9 +145,9 @@ each child. They use the framework border color by default.
 
 ```html +demo-folded class="bx"
 <div class="divide-y-gradient">
-    <div class="p-1">First item</div>
-    <div class="p-1">Second item</div>
-    <div class="p-1">Third item</div>
+    <div class="pxy">First item</div>
+    <div class="pxy">Second item</div>
+    <div class="pxy">Third item</div>
 </div>
 ```
 

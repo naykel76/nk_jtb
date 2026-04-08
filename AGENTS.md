@@ -62,6 +62,13 @@ use `gap` instead.
 - Deep nesting — maximum 3 levels
 - `!important` — never use
 
+## Common Pitfalls
+
+- Use JTB class names only.
+- Positional spacing utilities use `pxy` / `mxy`, not `p` / `m`.
+- If a class name is not confirmed in JTB docs or source, stop and check
+  before using it.
+
 ---
 
 === working-with-nathan ===

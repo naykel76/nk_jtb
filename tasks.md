@@ -6,10 +6,11 @@ now, it goes here before the topic changes.
 
 ## Planned
 
-- **`create-utility.md` prompt + skill** — for adding new utilities to the framework. `scss-engineer` is the right skill for this. Divider x/y is the first candidate.
-
 ## Parked
 
 - **Consuming-project skill + prompt** — agreed it's needed, no decisions made yet.
 
 ## Context
+
+- **JTB nav is authored in `nk_jtb`** — keep the nav file updated there as the
+  source of truth, then copy it into the Laravel docs app when needed.

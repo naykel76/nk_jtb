@@ -1,10 +1,11 @@
 import { loadMarkdown } from './markdown-loader.js'
-import navData from './nav.json'
+import navData from './jtb-nav.json'
 
 // Function to convert route name to file path
 function routeToFile(routeName) {
-    // Remove 'jtb.' prefix, replace dots with slashes, and add .md extension
-    return routeName.replace('jtb.', '').replace(/\./g, '/') + '.md'
+    // Support Laravel-style docs routes like `docs.jtb.utilities.border`
+    // and convert them into local markdown paths like `utilities/border.md`.
+    return routeName.replace(/^docs\.jtb\./, '').replace(/^jtb\./, '').replace(/\./g, '/') + '.md'
 }
 
 // Function to load and process navigation from JSON
