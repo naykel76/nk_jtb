@@ -34,7 +34,38 @@ $border-properties-map: (
     outline-width: ( prefix: 'outline-', values: $outline-width-map, unit: 'px' ),
 );
 
+$divider-properties-map: (
+    'divide-x': (
+        props: (
+            border-inline-start-width: $border-width-base,
+            border-color: var(--border-color, #{$border-color})
+        ),
+        child-combinator: '> *:not(:first-child)'
+    ),
+    'divide-y': (
+        props: (
+            border-block-start-width: $border-width-base,
+            border-color: var(--border-color, #{$border-color})
+        ),
+        child-combinator: '> *:not(:first-child)'
+    )
+) !default;
+
+.divide-y-gradient > :not(:last-child) {
+    border-block-end-width: 3px;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(
+        90deg,
+        transparent,
+        map.get($oklch-colors, red-200) 35%,
+        map.get($oklch-colors, red-300) 50%,
+        map.get($oklch-colors, red-200) 65%,
+        transparent
+    );
+}
+
 // ============================================================================
 // Builds
 // ============================================================================
 @include build-classes($border-properties-map, $responsive: true);
+@include build-composite-classes($divider-properties-map, $responsive: true);

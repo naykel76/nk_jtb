@@ -93,6 +93,47 @@ Apply different styles to specific sides.
 </div>
 ```
 
+### Dividers (review)
+
+Divider utilities add borders between direct children without placing classes on
+each child. They use the framework border color by default.
+
+```html +demo-folded class="bx"
+<div class="divide-y">
+    <div class="p-1">First item</div>
+    <div class="p-1">Second item</div>
+    <div class="p-1">Third item</div>
+</div>
+```
+
+```html +demo-folded class="bx" preview-class="flex"
+<div class="divide-x flex">
+    <div class="px-2">Column one</div>
+    <div class="px-2">Column two</div>
+    <div class="px-2">Column three</div>
+</div>
+```
+
+```html +demo-folded class="bx"
+<div class="grid md:cols-3 md:divide-x tac" style="--border-color: var(--primary);">
+    <div class="p-1">North</div>
+    <div class="p-1">Central</div>
+    <div class="p-1">South</div>
+</div>
+```
+
+### Gradient Divider (review)
+
+`divide-y-gradient` is a styled variant of `divide-y` with a gradient border effect.
+
+```html +demo-folded class="bx"
+<div class="divide-y-gradient">
+    <div class="p-1">First item</div>
+    <div class="p-1">Second item</div>
+    <div class="p-1">Third item</div>
+</div>
+```
+
 ### Radius
 
 Control the roundness of element corners.

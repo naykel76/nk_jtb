@@ -1,6 +1,4 @@
 @use '../maps_and_variables/base' as *;
-@use '../maps_and_variables/colors' as *;
-@use 'sass:map';
 
 .ends\:rounded-lg:first-child {
     border-end-start-radius: 0.5rem;
@@ -53,27 +51,6 @@ $zebra-alt-bg: hsl(0deg 0% 96%) !default;
 
 .aspect-auto {
     aspect-ratio: auto;
-}
-
-// ============================================================================
-// Dividers
-// ============================================================================
-.divide-y > :not(:last-child) {
-    border-block-end-width: 1px;
-    border-color: var(--border-color, $border-color);
-}
-
-.divide-y-gradient > :not(:last-child) {
-    border-block-end-width: 3px;
-    border-image-slice: 1;
-    border-image-source: linear-gradient(
-        90deg,
-        transparent,
-        map.get($oklch-colors, red-200) 35%,
-        map.get($oklch-colors, red-300) 50%,
-        map.get($oklch-colors, red-200) 65%,
-        transparent
-    );
 }
 
 .sticky {

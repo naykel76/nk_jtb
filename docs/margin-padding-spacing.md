@@ -2,13 +2,6 @@
 
 <p class="lead">Collection of margin, padding and other utilities for controlling element spacing.</p>
 
-- [Add margin or padding to all sides](#add-margin-or-padding-to-all-sides)
-- [Add vertical or horizontal margin or padding](#add-vertical-or-horizontal-margin-or-padding)
-- [Add to a single side](#add-to-a-single-side)
-- [Spacing Sizes (TBD)](#spacing-sizes-tbd)
-- [Negative Values (TBD)](#negative-values-tbd)
-- [Dividers and Space (TBD)](#dividers-and-space-tbd)
-
 ## Add margin or padding to all sides (review)
 
 <!-- NK?? Consider changing to just `m` and just `y` a good reason to keep is it will
@@ -54,7 +47,6 @@ Use `mxy-<number>` and `pxy-<number>` utilities to control the margin on all sid
 <!-- Use pt-<number>, pr-<number>, pb-<number>, and pl-<number> utilities like pt-6
 and pr-4 to control the padding on one side of an element: -->
 
-
 <div class="flex gap justify-between items-start font-mono lh-1 tac">
     <div class="bg-stripes-blue bdr-blue">
         <div class="w-4 pink mt-3 pxy-025">mt-3</div>
@@ -83,4 +75,9 @@ Now let's look at padding examples:
 
 ## Negative Values (TBD) (review)
 
-## Dividers and Space (TBD) (review)
+## Dividers (review)
+
+Child divider utilities live in
+[`/docs/jtb/utilities/border`](/docs/jtb/utilities/border). Use `divide-x`
+and `divide-y` when you need borders between direct children instead of spacing
+between them.
