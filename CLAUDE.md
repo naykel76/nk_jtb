@@ -166,24 +166,18 @@ in place of missing information.
 `tasks.md` in the project root is a memory aid — it keeps work on track and
 preserves important context across sessions.
 
-Create or update it only when the task is multi-step, spans sessions, or new
-durable context would otherwise be lost. Do not create or modify it for small,
-self-contained requests.
+**What belongs:** specific findings or decisions from a conversation that would
+otherwise be lost. These are things often identified when going off on tangents
+or having multiple topics on the go at once.
+
+**What does not belong:** status of active work, things Nathan obviously knows,
+vague reminders, obvious next steps.
 
 Three buckets:
 
 - **Planned** — specific actionable items not being worked on right now
 - **Parked** — discussed but no decision yet
-- **Context** — decisions that a future session needs to know
-
-**What belongs:** specific findings or decisions from a conversation that would
-otherwise be lost. Things not currently being acted on.
-
-**What does not belong:** status of active work, things Nathan obviously knows,
-vague reminders, obvious next steps.
-
-**Tangents:** when a tangent interrupts ongoing work, note the original topic
-so it can be resumed once the tangent is resolved.
+- **Context** — decisions and information worth remembering
 
 ## Off-Limits Directories
 

@@ -38,6 +38,10 @@ Do not use this skill for general documentation or for framework-internals work.
 4. Only escalate to custom solutions when documented primitives cannot express
    the need cleanly.
 
+## Markup
+
+- Do not add `data-*` attributes unless explicitly requested.
+
 ## Rules
 
 - Prefer mobile-first base layouts with responsive enhancement.

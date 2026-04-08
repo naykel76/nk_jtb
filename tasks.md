@@ -6,9 +6,7 @@ now, it goes here before the topic changes.
 
 ## Planned
 
-- **`jtb-layouts-and-structures`** — add stronger guidance on layout primitive
-  choices. `grid cols-*` with `bdr-*` on items is the right pattern for
-  equal-column structures. Not flex with separate divider elements.
+- **`create-utility.md` prompt + skill** — for adding new utilities to the framework. `scss-engineer` is the right skill for this. Divider x/y is the first candidate.
 
 ## Parked
 

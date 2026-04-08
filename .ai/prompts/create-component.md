@@ -19,7 +19,13 @@ already has content, ask whether to add to it or create a new file.
 
 [Optional: if you have a specific markup structure in mind.]
 
-## Feedback
+## Post-Build Report
 
-If any part of the build can't be expressed cleanly with existing JTB utilities,
-log it in `jtb-conversion-notes.md` rather than working around it.
+After building, report only actionable items:
+
+- **Issues** — anything that couldn't be expressed cleanly. State the problem
+  and what workaround was used.
+- **Recommendations** — patterns or utilities that would have made the build
+  cleaner. Flag as candidates worth considering.
+
+Do not report clean decisions or resolved choices.
