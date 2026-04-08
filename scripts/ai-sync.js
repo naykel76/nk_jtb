@@ -55,7 +55,7 @@ const AGENTS = [
     {
         name: "Codex",
         output: "AGENTS.md",
-        header: null,
+        header: "# AGENTS.md\n\nThis file provides guidance to Codex when working with code in this repository.\n",
         skills: ".agents/skills",
         agents: ".agents/agents",
     },

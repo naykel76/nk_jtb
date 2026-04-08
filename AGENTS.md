@@ -1,8 +1,8 @@
 <!-- ⚠️  GENERATED — do not edit directly. Source: .ai/ | Script: scripts/ai-sync.js -->
 
-# CLAUDE.md
+# AGENTS.md
 
-This file provides guidance to Claude Code when working with code in this repository.
+This file provides guidance to Codex when working with code in this repository.
 
 === jtb-framework ===
 

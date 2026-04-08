@@ -328,7 +328,7 @@ a doc is confirmed accurate or a utility is completed.
 
 | File                          | Status  | Notes                                    |
 | ----------------------------- | ------- | ---------------------------------------- |
-| `create-component.md`         | review  | Scoped to framework development only     |
+| `create-component.md`         | ✅      | Utility-first, framework development only |
 | `create-documentation.md`     | review  |                                          |
 | `jtb-code-review.md`          | review  |                                          |
 | `jtb-review-component.md`     | review  |                                          |
