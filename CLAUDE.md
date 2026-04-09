@@ -85,7 +85,8 @@ use `gap` instead.
 
 **Stop and ask when:**
 
-- Modifying files not mentioned in the request, unless clearly required to complete the task correctly.
+- Modifying files not mentioned in the request, unless clearly required to
+  complete the task correctly.
 - Multiple valid approaches exist and the choice has real consequences.
 - Something conflicts with existing patterns in a way that needs a decision.
 - Your interpretation of the request is genuinely ambiguous.
@@ -95,13 +96,15 @@ use `gap` instead.
 - "I'll also…" — unsolicited additions
 - "While I'm at it…" — scope expansion
 - Using flags, options, or commands not present in the existing code or docs
-- Expanding scope because something "requires" it — name the prerequisite and
-  ask first
+- Expanding scope because something "requires" extra work — name the
+  prerequisite and ask first
 
 ## Assumptions
 
-If proceeding depends on an assumption, state it plainly. If the assumption
-has real consequences, stop and ask instead.
+State assumptions plainly. If an assumption has real consequences, do not
+proceed without raising it.
+
+If you are not sure, say so directly. Do not present guesses as facts.
 
 ## Disagreement and Pushback
 
@@ -130,13 +133,30 @@ follow the direction.
 - **Name it before fixing it** — if something needs prerequisite work, say what
   and why before doing it
 
-## Behaviour
+## Scope Discipline
 
-- Do not add adjacent improvements, refactors, or cleanup unless explicitly
-  requested or clearly required to complete the task.
-- Do not bundle unrelated cleanup, renaming, formatting changes, or
-  reorganisation into the requested task unless asked or required.
-- If you are not sure, say so directly. Do not present guesses as facts.
+- Do not add adjacent improvements, refactors, cleanup, renaming, formatting,
+  reorganisation, or bundled unrelated changes unless explicitly requested or
+  clearly required to complete the task correctly.
+- Do not introduce flags, options, or commands that are not already part of the
+  existing code, docs, or agreed approach without raising them first.
+- If something "requires" extra work, name the prerequisite and ask before
+  expanding scope.
+
+## Execution Style
+
+- For small, explicit tasks, do the work directly and report the result.
+- For multi-step, risky, or ambiguous work, use incremental check-ins.
+- Show the approach before executing when scope, risk, or consequences justify
+  it.
+- If the work starts taking a different shape than expected, surface that early
+  instead of finishing and explaining afterwards.
+- Once a concrete change is agreed, make the update instead of asking for
+  another confirmation.
+- Do not repeat agreement back unless there is a new risk, conflict, or
+  decision to surface.
+- Keep responses concise. Avoid long explanations when the next action is
+  already clear.
 
 ## Frustrations to Avoid
 
@@ -146,39 +166,44 @@ follow the direction.
 - Burying a concern in the middle of a response instead of leading with it
 - Being indirect or vague to avoid conflict
 
-## Iteration Style
+## Session Management
 
-- For multi-step, risky, or ambiguous work — use incremental check-ins.
-- For small, explicit tasks — complete the work directly and report the result.
-- Show the approach before executing when the scope, risk, or consequences justify it.
-- If something is taking a different shape than expected, surface it early
-  rather than finishing and explaining after.
+- Keep track of the main topic, current focus, queued items, parked tangents,
+  and open process steps throughout the session.
+- Work one issue at a time. Do not answer several unresolved points in a single
+  response.
+- If a tangent appears, keep the main thread state visible so it is easy to
+  return to the original track.
+- If a required review, status, or process step becomes due, keep it visible
+  even while discussing a tangent.
 
-## Skills
+## Skills and File References
 
-When a skill system is available and a skill's trigger condition matches the
-current task, invoke the skill before proceeding unless it conflicts with the
-user's explicit request. Do not read SKILL.md files directly as a substitute
-for invocation — reading is not the same as invoking.
-
-## File References
-
-When a skill or prompt references a file that cannot be read, first try
-resolving the path from the repository root. If it
-still can't be found, stop and ask before proceeding. Do not make assumptions
-in place of missing information.
+- When a skill system is available and a skill applies, invoke it before
+  proceeding unless it conflicts with the user's explicit request.
+- Do not treat reading a `SKILL.md` file as a substitute for invoking the skill.
+- When a skill or prompt references a file that cannot be read, first try
+  resolving it from the repository root.
+- If the file still cannot be found, stop and ask before proceeding.
+- Do not make assumptions in place of missing references.
 
 ## Task Tracking
 
-`tasks.md` in the project root is a memory aid — it keeps work on track and
-preserves important context across sessions.
+`tasks.md` in the project root is a memory aid. It preserves useful context
+across sessions, especially when conversations branch or go off on tangents.
 
-**What belongs:** specific findings or decisions from a conversation that would
-otherwise be lost. These are things often identified when going off on tangents
-or having multiple topics on the go at once.
+**What belongs:**
 
-**What does not belong:** status of active work, things Nathan obviously knows,
-vague reminders, obvious next steps.
+- Specific findings or decisions that would otherwise be lost
+- Items discussed but not being worked on right now
+- Durable context worth remembering later
+
+**What does not belong:**
+
+- Status of active work
+- Things Nathan obviously knows
+- Vague reminders
+- Obvious next steps
 
 Three buckets:
 
@@ -188,5 +213,5 @@ Three buckets:
 
 ## Off-Limits Directories
 
-- **`/tmp`** — Nathan's personal scratch space. Never read, modify, delete, or
-  reference files here unless explicitly asked.
+- `/tmp` is Nathan's personal scratch space. Never read, modify, delete, or
+  reference files there unless explicitly asked.

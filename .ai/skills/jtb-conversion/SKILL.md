@@ -1,13 +1,18 @@
 ---
 name: jtb-conversion
 description: >-
-  Use this skill whenever applying or converting to NK JTB classes and
-  components, regardless of the source — Tailwind, custom CSS, plain HTML,
-  PHP, JS, or any other context. Do not wait for an explicit request — if JTB
-  classes or components are being applied or converted, this skill applies.
+  Use this skill whenever translating an existing implementation into NK JTB
+  classes and components — for example from Tailwind, custom CSS, plain HTML,
+  PHP, JS, or another framework. Do not wait for an explicit request — if
+  there is a source implementation that needs to be converted into JTB, this
+  skill applies.
 ---
 
-For layout decisions during conversion, invoke the `jtb-layout` skill.
+Do not use this skill for greenfield JTB component builds, design-to-code work
+from screenshots/mockups, or general component composition from scratch.
+
+For layout decisions during conversion, invoke the
+`jtb-layouts-and-structures` skill.
 
 If the output file is not specified, ask before proceeding.
 
