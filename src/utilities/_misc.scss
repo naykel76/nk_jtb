@@ -41,12 +41,16 @@ $zebra-alt-bg: hsl(0deg 0% 96%) !default;
     aspect-ratio: 1 / 1;
 }
 
-.aspect-video {
+.aspect-16\:9 {
     aspect-ratio: 16 / 9;
 }
 
-.aspect-photo {
+.aspect-4\:3 {
     aspect-ratio: 4 / 3;
+}
+
+.aspect-3\:2 {
+    aspect-ratio: 3 / 2;
 }
 
 .aspect-auto {
