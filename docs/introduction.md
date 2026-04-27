@@ -124,5 +124,5 @@ The `.btn` class handles structure, padding, transitions, and states. The
 `.primary` theme handles colors for all states and dark mode. Add utilities only
 when you need to override the defaults.
 
-See [Installation](installation.md) to get started.
+See [Installation](/docs/jtb/installation) to get started.
 

@@ -1,23 +1,20 @@
 Review the documentation for the JTB framework.
 
-Invoke the `jtb-documentation` skill before starting. Read these in full first
-— these define what is correct:
+Invoke the `jtb-documentation` skill before starting. Read these in full first — they define what is correct:
 
 - `introduction.md`
 - `docs/conventions-and-architecture-rules.md`
 
 ## Goals
 
-1. Validate what exists — is documentation correct, consistent, and
-   rule-compliant?
-2. Identify what's missing — what is absent but expected?
+1. Validate what exists — correct, consistent, and rule-compliant?
+2. Identify what's missing — absent but expected?
 
 ## Process
 
-This review runs in three passes:
+Three passes:
 
-1. **Identify** — surface contradictions and gaps. Incomplete docs are expected;
-   flag them without treating incompleteness as a failure.
+1. **Identify** — surface contradictions and gaps. Flag incompleteness without treating it as failure.
 2. **Triage** — decide what's worth pursuing before any work happens.
 3. **Sweep** — act only on approved items.
 
@@ -30,64 +27,40 @@ Review only:
 
 Do not review:
 
-- `src/mixins/` — build system internals
-- `src/functions/` — build system internals
-- `src/base/` — output layer
+- `src/mixins/`, `src/functions/`, `src/base/` — build system internals and output layer
 
 ## Review Questions
 
 ### Validation
 
-1. Do the variable files in `src/maps_and_variables/` match what the
-   conventions doc describes?
+1. Do variable files in `src/maps_and_variables/` match what the conventions doc describes?
 2. Do all final maps follow the `-map` suffix rule?
-3. Is the three-map pattern applied consistently across all variable files?
+3. Is the three-map pattern applied consistently?
 4. Is `smart-merge` order correct — variants first, values second?
-5. Are `!default` flags present where the conventions require them?
-6. Do the breakpoint values in `_base.scss` match what `responsive-design.md`
-   describes?
+5. Are `!default` flags present where required?
+6. Do breakpoint values in `_base.scss` match `responsive-design.md`?
 7. Does `index.scss` forward all expected files?
 
-### Gap Identification
+### Gaps
 
 1. Are there variable files with no corresponding documentation?
-2. Are there conventions described in the docs with no implementation in
-   `src/maps_and_variables/`?
+2. Are there conventions with no implementation in `src/maps_and_variables/`?
 
-## Priority Definitions
+## Priorities
 
-- `critical` — contradicts a source of truth or produces incorrect guidance.
-  Must fix.
-- `high` — likely causes confusion, inconsistency, or future breakage. Should
-  fix.
-- `low` — style, preference, or minor improvement. Fix if you want.
+- `critical` — contradicts a source of truth. Must fix.
+- `high` — likely causes confusion or future breakage. Should fix.
+- `low` — minor improvement. Fix if you want.
 - `missing` — expected content that isn't there.
 
-## Output Requirements
+## Output
 
-- Be direct and critical.
-- Do not praise unnecessarily.
-- Separate findings by type clearly.
-- Suggest improvements with trade-offs.
-- If something is unclear or inconsistent, call it out explicitly.
+Be direct. Do not praise. Call out anything unclear or inconsistent.
 
-Write results to `review-docs-run1.md` in the project root.
+Write results to `review-docs.md` in the project root using these sections:
 
-Use these sections in order:
-
-- **Confirmed Issues** — rule violations, bugs, mismatches
-- **Gaps** — missing docs, tests, examples, or conventions
-- **Findings** — observations that don't rise to issues
-- **Pass** — if no confirmed issues: `No blocking issues found.`
-
-For every confirmed issue use this format:
-
+**Confirmed Issues** — rule violations, bugs, mismatches
 **Issue title** · `critical/high/low`
 `file:line`
 Rule: brief quote
-Fix: one line
-
-For every gap use this format:
-
-**Gap title** · `missing`
-What's absent and where it's expected.
+Fix: on

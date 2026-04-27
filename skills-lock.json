@@ -1,20 +1,30 @@
 {
   "version": 1,
   "skills": {
+    "code-review": {
+      "source": "naykel76/skills-and-guidelines",
+      "sourceType": "github",
+      "computedHash": "fde0c22891f619226b0936b3726ea37c0fcf654dca7d8987be6489dbdbe79a35"
+    },
     "grill-me": {
       "source": "naykel76/skills-and-guidelines",
       "sourceType": "github",
-      "computedHash": "a162d4310b96ef579c0334018dcd283117be84c8d2c7f4762b14742eaef25d22"
+      "computedHash": "a67c3c03254a7bffec8dafb41e8b2d28cd3e78c3f2ce063f234f03200fa14d4a"
     },
     "markdown-formatting": {
       "source": "naykel76/skills-and-guidelines",
       "sourceType": "github",
       "computedHash": "564173cfa2edb3cbe3fdf4142e22c21a7cdb7c4c28ef7d9a7207c647ca66d2c8"
     },
+    "nk-documentation-best-practices": {
+      "source": "naykel76/skills-and-guidelines",
+      "sourceType": "github",
+      "computedHash": "ba3237364f6aac95b43c792df0a363e2b83fb9f4c0c4a3cc68b83071e793a600"
+    },
     "skill-creation": {
       "source": "naykel76/skills-and-guidelines",
       "sourceType": "github",
-      "computedHash": "bf958d3e6c430c235afc4401ff9bf0553721d6e303954b1014364e71c6ad2a02"
+      "computedHash": "1c6df2427d653bc77b27450f6a1def6173f8f494ec324ed660a68f313a02b616"
     }
   }
 }

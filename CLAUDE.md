@@ -133,6 +133,12 @@ follow the direction.
 - **Name it before fixing it** — if something needs prerequisite work, say what
   and why before doing it
 
+## Consistency First
+
+- Check what the codebase already does before applying any rule or pattern.
+- Validate existing patterns against applicable skills and guidelines.
+- If a pattern conflicts with a rule, surface it — do not silently follow the wrong pattern.
+
 ## Scope Discipline
 
 - Do not add adjacent improvements, refactors, cleanup, renaming, formatting,
@@ -142,6 +148,7 @@ follow the direction.
   existing code, docs, or agreed approach without raising them first.
 - If something "requires" extra work, name the prerequisite and ask before
   expanding scope.
+- Never remove a non-obviously-wrong comment without explicit approval.
 
 ## Execution Style
 
@@ -157,6 +164,9 @@ follow the direction.
   decision to surface.
 - Keep responses concise. Avoid long explanations when the next action is
   already clear.
+- Do not summarise completed work. The result speaks for itself.
+- Do not add filler at the end of responses ("let me know if you need
+  anything", "hope that helps", etc.).
 
 ## Frustrations to Avoid
 
@@ -168,24 +178,41 @@ follow the direction.
 
 ## Session Management
 
-- Keep track of the main topic, current focus, queued items, parked tangents,
-  and open process steps throughout the session.
 - Work one issue at a time. Do not answer several unresolved points in a single
   response.
-- If a tangent appears, keep the main thread state visible so it is easy to
-  return to the original track.
-- If a required review, status, or process step becomes due, keep it visible
-  even while discussing a tangent.
+- When multiple threads are in play, name the open threads explicitly — at the
+  top of the response, not buried at the end.
+- If a tangent appears, state what the main thread was before engaging with it
+  so it is easy to return.
+- If a required review, status, or process step becomes due, surface it before
+  moving on.
+
+## Naykel Conventions
+
+- When reviewing guidelines, skills, or conventions in a Naykel project, assume
+  they apply across all Naykel projects unless explicitly marked as
+  project-specific. Do not treat them as local decisions without evidence.
 
 ## Skills and File References
 
 - When a skill system is available and a skill applies, invoke it before
   proceeding unless it conflicts with the user's explicit request.
 - Do not treat reading a `SKILL.md` file as a substitute for invoking the skill.
+- When updating prompts, guidelines, or skills, first identify the project's
+  source-of-truth file before editing.
+- Files under `.ai/` may be symlinks into a shared prompts/guidelines repo. If
+  so, update the symlink target.
+- Do not update matching copies in parallel or alternate locations unless they
+  are the confirmed source of truth or the user explicitly asks.
+- After changing project guidelines or adding/updating skills, run
+  `php artisan boost:update` in the project so the changes take effect.
 - When a skill or prompt references a file that cannot be read, first try
   resolving it from the repository root.
 - If the file still cannot be found, stop and ask before proceeding.
 - Do not make assumptions in place of missing references.
+- Reference files and code locations using markdown links:
+  `[filename.md](path/to/file.md)` or `[file.php:42](path/file.php#L42)`.
+  Never use plain text paths.
 
 ## Task Tracking
 
@@ -204,6 +231,9 @@ across sessions, especially when conversations branch or go off on tangents.
 - Things Nathan obviously knows
 - Vague reminders
 - Obvious next steps
+
+Write to `tasks.md` when a decision, finding, or parked item would otherwise
+be lost at the end of the session. Do not wait to be asked.
 
 Three buckets:
 

@@ -1,7 +1,20 @@
-Create documentation for the `[component].scss` component, following the conventions and architecture rules defined in the JTB documentation.
+Create documentation for `[component]`.
 
-Invoke the `jtb-documentation` skill before starting. Read these in full first
-— these define what is correct:
+Invoke the `jtb-documentation` skill before starting.
 
-- `introduction.md`
-- `docs/conventions-and-architecture-rules.md`
+## Type
+
+[Component / Utility]
+
+## What it does
+
+[One or two sentences describing purpose — not implementation.]
+
+## Cover
+
+[List specific sections or aspects to document, e.g. basic usage, modifiers,
+SCSS variables, utility examples.]
+
+## Notes
+
+[Optional: existing markup, decisions already made, related components.]

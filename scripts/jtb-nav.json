@@ -1,19 +1,14 @@
 {
-    "getting-started": {
+    "Getting Started": {
         "links": [
             {
-                "name": "Introduction",
+                "name": "Introduction (wip)",
                 "route_name": "docs.jtb.introduction",
                 "icon": "book-open"
             },
             {
-                "name": "Installation",
+                "name": "Installation (wip)",
                 "route_name": "docs.jtb.installation",
-                "icon": "book-open"
-            },
-            {
-                "name": "Customisation",
-                "route_name": "docs.jtb.customisation",
                 "icon": "book-open"
             }
         ]
@@ -21,100 +16,26 @@
     "Core Concepts": {
         "links": [
             {
-                "name": "Conventions & Architecture Rules",
-                "route_name": "docs.jtb.conventions-and-architecture-rules",
-                "icon": "book-open"
-            },
-            {
-                "name": "Responsive Design",
-                "route_name": "docs.jtb.responsive-design",
-                "icon": "book-open"
-            },
-            {
                 "name": "Layout & Structures",
                 "route_name": "docs.jtb.layouts-and-structures",
                 "icon": "book-open"
             },
             {
-                "name": "Themes",
-                "route_name": "docs.jtb.themes",
-                "icon": "book-open"
-            },
-            {
                 "name": "Variable System",
-                "route_name": "docs.jtb.variable-system",
-                "icon": "book-open"
+                "route_name": "docs.jtb.variable-system"
             }
         ]
     },
     "Components": {
         "links": [
             {
-                "name": "Accordion",
-                "route_name": "docs.jtb.components.accordion"
-            },
-            {
-                "name": "Box",
-                "route_name": "docs.jtb.components.box"
-            },
-            {
-                "name": "Button",
-                "route_name": "docs.jtb.components.button"
-            },
-            {
-                "name": "Forms",
-                "route_name": "docs.jtb.components.forms"
-            },
-            {
                 "name": "List",
                 "route_name": "docs.jtb.components.list"
-            },
-            {
-                "name": "Menu",
-                "route_name": "docs.jtb.components.menu"
-            },
-            {
-                "name": "Navbar",
-                "route_name": "docs.jtb.components.navbar"
-            },
-            {
-                "name": "Table",
-                "route_name": "docs.jtb.components.table"
-            }
-        ]
-    },
-    "Utilities": {
-        "links": [
-            {
-                "name": "Border",
-                "route_name": "docs.jtb.utilities.border"
-            },
-            {
-                "name": "Sizing",
-                "route_name": "docs.jtb.utilities.sizing"
-            },
-            {
-                "name": "Transforms",
-                "route_name": "docs.jtb.utilities.transforms"
             }
         ]
     },
     "Examples": {
         "links": [
-            {
-                "name": "UI Examples",
-                "route_name": "docs.jtb.examples.ui-elements"
-            },
-            {
-                "name": "Layouts and Structures",
-                "route_name": "docs.jtb.examples.layouts-and-structures",
-                "layout": "layouts.md-simple"
-            },
-            {
-                "name": "Responsive Design Patterns",
-                "route_name": "docs.jtb.examples.responsive-design-patterns",
-                "layout": "layouts.md-simple"
-            },
             {
                 "name": "Dashboard Layout",
                 "route_name": "docs.jtb.examples.layout-dashboard",
@@ -127,10 +48,6 @@
             {
                 "name": "Typography",
                 "route_name": "docs.jtb.showcase-typography"
-            },
-            {
-                "name": "UI Elements",
-                "route_name": "docs.jtb.showcase-ui"
             }
         ]
     }

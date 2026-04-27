@@ -1,6 +1,6 @@
 Review the code changes for the NK JTB SCSS framework.
 
-Invoke the `jtb-documentation` skill before starting.
+Invoke the `scss-engineer` and `jtb-documentation` skills before starting.
 
 ## Guidelines
 

@@ -16,7 +16,7 @@ npm install nk_jtb
 
 ## Configure (review)
 
-Override variables before importing. See [Customisation](customisation.md) for
+Override variables before importing. See [Variable System](/docs/jtb/variable-system) for
 details.
 
 ```scss +code
