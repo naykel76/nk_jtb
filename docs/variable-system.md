@@ -39,13 +39,14 @@ works.
 
 ## CSS Custom Properties
 
-Select components expose CSS custom properties alongside their SCSS variables.
-This is a deliberate design decision — not every component needs it, only those
-with a high likelihood of needing per-context variation.
+JTB uses CSS custom properties in two different ways:
 
-Where SCSS variables set the global default at build time, CSS custom properties
-provide a surface for overriding individual instances directly in markup or
-scoped CSS — without touching the build.
+- selected component-level overrides such as `--box-border-color`
+- semantic runtime theme tokens for `primary`, `secondary`, and `accent`
+
+SCSS variables still set the framework defaults at build time. CSS custom
+properties provide the runtime override surface when you need to test or swap a
+theme without recompiling.
 
 ```html +code
 <div class="bx" style="--box-border-color: var(--primary); --box-title-font-size: 1.25rem;">
@@ -53,6 +54,36 @@ scoped CSS — without touching the build.
 </div>
 ```
 
+Semantic theme classes and utilities for `primary`, `secondary`, and `accent`
+now read from CSS custom properties. That includes:
+
+- `primary` and `primary-outline`
+- `bg-primary`, `txt-primary`, `bdr-primary`, and `outline-primary`
+- the matching `secondary` and `accent` variants
+
+By default, JTB defines runtime tokens such as `--primary`, `--primary-hover`,
+`--primary-active`, `--primary-border`, and `--on-primary` in `:root`. Hover
+and active defaults are derived from the base token with `color-mix()`. Text
+and border contrast tokens still need explicit overrides when you change the
+base color significantly.
+
+```scss +code
+[data-theme='layout-b'] {
+    --primary: oklch(62% 0.19 275deg);
+    --primary-border: rgb(255 255 255 / 0.2);
+    --on-primary: white;
+}
+```
+
+```html +code
+<section data-theme="layout-b">
+    <button class="btn primary">Primary action</button>
+    <div class="bx primary">Primary surface</div>
+    <p class="txt-primary">Semantic text utility</p>
+</section>
+```
+
 Not all variables are exposed this way. Structural values used in SCSS
-calculations remain SCSS-only. Each component doc lists which CSS custom
-properties are available.
+calculations remain SCSS-only, and hue-scale classes such as `bg-blue-500` or
+`teal` remain compile-time values. Each component doc lists which component
+custom properties are available.

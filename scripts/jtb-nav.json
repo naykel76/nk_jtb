@@ -48,6 +48,10 @@
             {
                 "name": "Typography",
                 "route_name": "docs.jtb.showcase-typography"
+            },
+            {
+                "name": "UI (wip)",
+                "route_name": "docs.jtb.showcase-ui"
             }
         ]
     }
