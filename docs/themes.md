@@ -26,7 +26,8 @@ component-specific variants like `btn-primary`.
 - semantic theme names such as `primary`, `danger`, and `success`
 - direct color theme names such as `teal`, `rose`, and `slate`
 
-Both work the same way when applied to components.
+Both work the same way when applied to components, but only `primary`,
+`secondary`, and `accent` are wired to runtime CSS variables.
 
 ## Semantic Themes (review)
 
@@ -46,6 +47,29 @@ Both work the same way when applied to components.
 
 These names are useful when you want themes that express purpose or brand
 meaning instead of a specific hue.
+
+`primary`, `secondary`, and `accent` are the runtime semantic themes. Override
+their CSS variables in a scoped container when you want to test a layout
+variant without recompiling JTB.
+
+```scss +code
+[data-theme='variant-b'] {
+    --primary: oklch(70% 0.16 215deg);
+    --primary-border: rgb(0 0 0 / 0.15);
+    --on-primary: #111827;
+}
+```
+
+```html +code
+<section data-theme="variant-b">
+    <button class="btn primary">Primary Button</button>
+    <div class="bx primary">Primary box</div>
+</section>
+```
+
+Hover and active states use `--primary-hover` and `--primary-active`. JTB
+defines defaults for those tokens, so you only need to override them when the
+automatic `color-mix()` result is not what you want.
 
 ## Hue Themes (review)
 
@@ -89,6 +113,13 @@ thing:
 
 Semantic theme names may also exist as utilities when they are present in the
 shared base color map, for example `bg-primary` or `txt-secondary`.
+
+For `primary`, `secondary`, and `accent`, those utilities are runtime-linked as
+well. If you override `--primary`, classes such as `bg-primary`,
+`txt-primary`, `bdr-primary`, and `outline-primary` update with it.
+
+Hue utilities such as `bg-teal`, `txt-rose`, and `bdr-slate` stay compile-time
+values.
 
 ## Button Examples (review)
 

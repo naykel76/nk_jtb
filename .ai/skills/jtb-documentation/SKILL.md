@@ -31,32 +31,30 @@ Add a new entry to the appropriate group when a doc is confirmed complete.
 
 - Create new documentation directly in `docs/`.
 - On section confirmation: if the section is in a component or utility doc (not
-  a skill, reference doc, or api doc), ask: "Do you want this added to a
-  showcase?"
-- If yes, add it to the appropriate showcase file before moving on.
+  a skill, reference doc, or api doc), ask: "Do you want this added to an
+  examples file?"
+- If yes, add it to the appropriate examples file before moving on.
 
-## Showcases
+## Examples Files
 
-Showcases are quick visual references — not comprehensive docs. Three files:
+Quick visual references — not comprehensive docs. Two files:
 
-- `docs/showcase-typography.md` — font sizes, weights, families, text utilities
-- `docs/showcase-ui.md` — components and UI elements: buttons, badges, checklist, box etc.
-- `docs/showcase-layouts.md` — grid, flex patterns, page structures
+- `docs/examples/showcase-typography.md` — font sizes, weights, families, text utilities
+- `docs/examples/showcase-ui.md` — components and UI elements: buttons, badges, checklist, box etc.
 
-Two reasons something belongs in a showcase:
+Two reasons something belongs in an examples file:
 
 1. **Syntax reminder** — enough variations exist that you forget the class names
 2. **Existence reminder** — a single component worth flagging so it doesn't get overlooked
 
 Format depends on content type:
 
-- **UI components** (`showcase-ui.md`) — use `+demo-folded` so markup is visible and copyable
+- **UI components** (`showcase-ui.md`) — use `+demo-folded class="bx"` so markup is visible and copyable
 - **Typography/syntax** (`showcase-typography.md`) — raw HTML pairing `<code>` class names with output
-- **Layouts** (`showcase-layouts.md`) — case by case
 
 Group by component family under `##` headings. Variants sit under `###` within that group.
 
-Do not create a new showcase file for a single component — if it doesn't fit the three above, discuss with the user.
+Do not create a new examples file for a single component — if it doesn't fit the two above, discuss with the user.
 
 ## Documentation Types
 

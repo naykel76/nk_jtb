@@ -29,6 +29,10 @@
     "Components": {
         "links": [
             {
+                "name": "Box (wip)",
+                "route_name": "docs.jtb.components.box"
+            },
+            {
                 "name": "List",
                 "route_name": "docs.jtb.components.list"
             }
@@ -40,18 +44,14 @@
                 "name": "Dashboard Layout",
                 "route_name": "docs.jtb.examples.layout-dashboard",
                 "layout": "layouts.md-fullpage"
-            }
-        ]
-    },
-    "Showcase": {
-        "links": [
+            },
             {
                 "name": "Typography",
-                "route_name": "docs.jtb.showcase-typography"
+                "route_name": "docs.jtb.examples.showcase-typography"
             },
             {
                 "name": "UI (wip)",
-                "route_name": "docs.jtb.showcase-ui"
+                "route_name": "docs.jtb.examples.showcase-ui"
             }
         ]
     }

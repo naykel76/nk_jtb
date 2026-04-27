@@ -239,27 +239,32 @@ a doc is confirmed accurate or a utility is completed.
 | ------------------------------------------ | ------- | -------------------------------------------------------------------------------------- |
 | `introduction.md`                          | review  |                                                                                        |
 | `installation.md`                          | review  |                                                                                        |
-| `conventions-and-architecture-rules.md`    | review  |                                                                                        |
-| `core-architecture.md`                     | review  |                                                                                        |
-| `layer-system.md`                          | review  |                                                                                        |
-| `design-decisions.md`                      | review  |                                                                                        |
-| `responsive-design.md`                     | review  |                                                                                        |
-| `developer-responsive-class-generation.md` | review  |                                                                                        |
-| `magic-classes.md`                         | ✅       |                                                                                        |
-| `display-and-visibility.md`                | review  |                                                                                        |
-| `automatic-spacing.md`                     | review  |                                                                                        |
 | `layouts-and-structures.md`                | ✅       |                                                                                        |
-| `margin-padding-spacing.md`                | partial | TODOs: Spacing Sizes, Negative Values                                                  |
-| `variable-system.md`                       | ✅       |                                                                                              |
+| `responsive-design-patterns.md`            | review  |                                                                                        |
+| `responsive-design.md`                     | review  |                                                                                        |
+| `automatic-spacing.md`                     | review  |                                                                                        |
+| `conventions-and-architecture-rules.md`    | review  |                                                                                        |
+| `magic-classes.md`                         | ✅       |                                                                                        |
 | `themes.md`                                | review  |                                                                                        |
 | `state-management.md`                      | review  |                                                                                        |
-| `resolvers.md`                             | review  |                                                                                        |
-| `animation.md`                             | review  |                                                                                        |
-| `aria.md`                                  | review  |                                                                                        |
-| `responsive-testing.md`                    | review  |                                                                                        |
-| `showcase-typography.md`                   | ✅       |                                                                                        |
-| `showcase-ui.md`                           | review  |                                                                                        |
-| `showcase-layouts.md`                      | review  |                                                                                        |
+| `variable-system.md`                       | ✅       |                                                                                        |
+
+### Review
+
+Files parked in `docs/review/` — purpose or audience unclear.
+
+| File                                       | Status | Notes |
+| ------------------------------------------ | ------ | ----- |
+| `review/animation.md`                              | review |                               |
+| `review/aria.md`                                   | review |                               |
+| `review/core-architecture.md`                      | review |                               |
+| `review/design-decisions.md`                       | review |                               |
+| `review/developer-responsive-class-generation.md`  | review |                               |
+| `review/display-and-visibility.md`                 | review |                               |
+| `review/layer-system.md`                           | review |                               |
+| `review/margin-padding-spacing.md`                 | partial | TODOs: Spacing Sizes, Negative Values |
+| `review/resolvers.md`                              | review |                               |
+| `review/responsive-testing.md`                     | review |                               |
 
 ### API
 
@@ -310,8 +315,9 @@ a doc is confirmed accurate or a utility is completed.
 | ---------------------------------------- | ------ | ----- |
 | `examples/layout-dashboard.md`           | ✅      |       |
 | `examples/form-examples.md`              | review |       |
-| `examples/responsive-design-patterns.md` | review |       |
 | `examples/ui-elements.md`                | review |       |
+| `examples/showcase-typography.md`        | ✅      |       |
+| `examples/showcase-ui.md`               | review |       |
 
 ---
 

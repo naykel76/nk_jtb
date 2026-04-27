@@ -1,11 +1,10 @@
 # Box
 
-The `.bx` component is a structured content container. Add `.bx-header` and
-`.bx-footer` for sections that bleed to the box edges.
+<p class="lead">A flexible content container with optional header, content, and footer regions that bleed to the box edges.</p>
 
-## Structure
+## Basic Usage
 
-```html +code class="bx"
+```html +code
 <div class="bx">
     <div class="bx-header">
         <h3 class="bx-title">Title</h3>
@@ -20,10 +19,7 @@ The `.bx` component is a structured content container. Add `.bx-header` and
 ```
 
 The header and footer are optional. Use `.bx-content` when pairing content with
-a `.bx-header` — the `:where(.bx-header + .bx-content)` selector applies
-edge-to-edge layout to that pairing automatically.
-
-## Basic Usage
+a `.bx-header` so it sits flush against it.
 
 ```html +demo-folded class="bx"
 <div class="bx">
@@ -119,6 +115,15 @@ prevent a double gap at the top.
 </div>
 ```
 
+## SCSS Variables
+
+| Variable      | Default          | Controls              |
+| ------------- | ---------------- | --------------------- |
+| `$bx-bg`      | `#fff`           | Background color      |
+| `$bx-padding` | `$base-padding`  | Padding and edge bleed |
+
+See [Variable System](/docs/jtb/variable-system) for override instructions.
+
 ## CSS Custom Properties (review)
 
 | Property                    | Controls                |
@@ -131,7 +136,7 @@ prevent a double gap at the top.
 
 Override scoped to a parent element to customise a specific group of boxes:
 
-```scss +code class="bx"
+```scss +code
 .my-section {
     --box-border-radius: 1rem;
     --box-border-color: #ddd;

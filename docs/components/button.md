@@ -74,6 +74,10 @@ Apply theme modifiers for different colors:
 </div>
 ```
 
+`primary`, `secondary`, and `accent` follow the runtime semantic theme tokens
+documented in [/docs/jtb/variable-system](/docs/jtb/variable-system). Use that
+layer when you want to test brand variations without rebuilding the CSS.
+
 ## Button Sizes (review)
 
 ```html +demo-folded class="bx"
