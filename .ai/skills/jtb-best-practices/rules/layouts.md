@@ -1,36 +1,8 @@
----
-name: jtb-layouts-and-structures
-description: >-
-  Use this skill whenever making layout or structural decisions — choosing
-  between grid and flex, building page shells, or structuring internal
-  component layouts. Do not wait for an explicit request — if layout or
-  structural decisions are being made, this skill applies.
----
-
-For layout or responsive work, read:
-
-- `docs/responsive-design.md`
-- `docs/layouts-and-structures.md`
-- `docs/magic-classes.md`
-
-## Scope
-
-Use this skill for structural layout decisions:
-
-- page shells
-- layout patterns
-- reusable internal structures
-- split layouts
-- grid vs flex choices
-- container and width strategy
-- responsive visibility strategy
-
-Do not use this skill for general documentation or for framework-internals work.
+# Layouts & Structures
 
 ## Decision Order
 
-1. Classify the problem first — page-level layout or internal component
-   structure?
+1. Classify the problem first — page-level layout or internal component structure?
 2. Choose the right primitive:
    - `grid` with `cols-*` for column-based structures
    - `flex` for linear, single-axis arrangements
@@ -42,13 +14,9 @@ Do not use this skill for general documentation or for framework-internals work.
 5. Only escalate to custom solutions when documented primitives cannot express
    the need cleanly.
 
-## Markup
-
-- Do not add `data-*` attributes unless explicitly requested.
-
 ## Rules
 
-- Prefer mobile-first base layouts with responsive enhancement.
+- Do not add `data-*` attributes unless explicitly requested.
 - Default to the fewest structural elements that cleanly express the layout.
 - Combine width, rhythm, and internal layout on the same element when they do
   not need isolation.
@@ -66,5 +34,3 @@ Do not use this skill for general documentation or for framework-internals work.
 - Prefer approved magic/composite classes when they express an established
   responsive pattern more clearly than explicit breakpoint chains. Common
   examples include `py-*`, `gap-*`, and `cols-*` patterns.
-- Use `{bp}:` for progressive layout changes.
-- Use `to-` and `on-` primarily for visibility windows, not layout progression.

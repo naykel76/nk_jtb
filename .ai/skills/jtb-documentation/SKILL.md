@@ -6,7 +6,7 @@ description: >-
   updated, this skill applies.
 ---
 
-Extends `nk-documentation-best-practices` — apply both, this skill takes
+Apply both this skill and `nk-documentation-best-practices`. This skill takes
 precedence where they conflict.
 
 ## Nav Management
@@ -30,9 +30,7 @@ Add a new entry to the appropriate group when a doc is confirmed complete.
 ## Workflow
 
 - Create new documentation directly in `docs/`.
-- On section confirmation: if the section is in a component or utility doc (not
-  a skill, reference doc, or api doc), ask: "Do you want this added to an
-  examples file?"
+- When a section of a component or utility doc is complete, ask: "Do you want this added to an examples file?" Do not ask for skill, reference, or api docs.
 - If yes, add it to the appropriate examples file before moving on.
 
 ## Examples Files
