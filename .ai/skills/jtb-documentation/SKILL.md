@@ -9,29 +9,61 @@ description: >-
 Apply both this skill and `nk-documentation-best-practices`. This skill takes
 precedence where they conflict.
 
-## Nav Management
+## Documentation Types
 
-Nav lives in `scripts/jtb-nav.json`. Route names follow `docs.jtb.{path}`:
+### Component Documentation
 
-- `docs/components/list.md` → `docs.jtb.components.list`
-- `docs/variable-system.md` → `docs.jtb.variable-system`
+Use for named structural classes such as `navbar`, `menu`, `bx`, or form controls.
 
-Add a new entry to the appropriate group when a doc is confirmed complete.
+**Structure:**
 
-## Completion Follow-Through
+1. One-line lead
+2. `## Basic Usage` — minimum working markup
+3. Additional examples — simple to fuller usage
+4. `## SCSS Variables` — if the component exposes overridable variables
+5. `## Utility Examples` — if a utility-based approach is viable, always last
 
-- Add confirmed doc to `scripts/jtb-nav.json`.
-- Update the relevant row in `docs/jtb-status.md`.
+**Rules:**
 
-## Documentation Locations
+- The lead describes purpose, not implementation. Do not mention specific CSS properties.
+- Open `## Basic Usage` with `Apply the [component class] to...` — directive, not descriptive.
+- Component class examples use `class="bx example-jtb"`.
+- Utility examples use `class="bx example-utils"`.
+- Place the SCSS Variables table directly after the class examples, before `## Utility Examples`.
+- Link to `/docs/jtb/variable-system` for override instructions rather than explaining inline.
+- `## Utility Examples` is always last. Lives in the component doc — not a separate file.
 
-- **All documentation** → `docs/`
+### Utility Documentation
 
-## Workflow
+Use for class-based APIs such as spacing, sizing, border, position, transforms,
+and typography helpers.
 
-- Create new documentation directly in `docs/`.
-- When a section of a component or utility doc is complete, ask: "Do you want this added to an examples file?" Do not ask for skill, reference, or api docs.
-- If yes, add it to the appropriate examples file before moving on.
+**Structure:**
+
+1. Major utility groups as `##` headings when the page covers more than one family
+2. Example groups within those sections as `###` headings when needed
+3. Optional compact table of available properties or value groups
+4. Available values at the end, when useful
+
+**Rules:**
+
+- Keep utility heading levels parallel.
+- Use a compact table near the top when it helps scan the utility API quickly.
+- Only add notes when behaviour is non-obvious.
+- Group examples by usage, not by SCSS implementation detail.
+- Use `+demo-folded class="bx"` for interactive examples.
+
+## Code Block Attributes
+
+- `class="..."` → outer demo wrapper class
+- `preview-class="..."` → class applied to the preview container only, keeps copied code clean
+- `+demo` / `+demo-folded` → render preview and code together
+
+For layout/responsive docs, use:
+
+```md
++demo-folded class="resizable-container with-docs-only-overrides"
+```
 
 ## Examples Files
 
@@ -52,56 +84,27 @@ Format depends on content type:
 
 Group by component family under `##` headings. Variants sit under `###` within that group.
 
-Do not create a new examples file for a single component — if it doesn't fit the two above, discuss with the user.
+Do not create a new examples file for a single component. If it does not fit the two above, discuss with the user.
 
-## Documentation Types
+When a section of a component or utility doc is complete, ask:
 
-### Utility Documentation
+> Do you want this added to an examples file?
 
-Use for class-based APIs such as spacing, sizing, border, position, transforms, and typography helpers.
+Do not ask this for skill, reference, or API docs.
 
-Structure:
+## Nav & Completion
 
-1. Major utility groups as `##` headings when the page covers more than one family
-2. Example groups within those sections as `###` headings when needed
-3. Optional compact table of available properties or value groups
-4. Available values at the end, when useful
+Nav lives in `scripts/jtb-nav.json`. Route names follow `docs.jtb.{path}`:
 
-Rules:
+- `docs/components/list.md` → `docs.jtb.components.list`
+- `docs/variable-system.md` → `docs.jtb.variable-system`
 
-- Keep utility heading levels parallel.
-- Use a compact table near the top when it helps scan the utility API quickly.
-- Only add notes when behaviour is non-obvious.
-- Group examples by usage, not by SCSS implementation detail.
-- Use `+demo-folded class="bx"` for interactive examples.
-- Use `preview-class="..."` for preview-only layout so copied code stays clean.
-- Use `class="..."` for the outer demo wrapper when the preview needs a container such as `bx`.
+All documentation lives in `docs/`. Create new documentation directly in `docs/`.
 
-### Component Documentation
+When a doc is confirmed complete:
 
-Use for named structural classes such as `navbar`, `menu`, `bx`, or form controls.
-
-Every component doc must cover:
-
-1. What it is — one-line lead
-2. Minimum working markup — shown early with `+code`
-3. Examples — simple to fuller usage
-4. Customisation — variables, modifiers, or overrides
-
-Rules:
-
-- The lead describes purpose, not implementation. Do not mention specific CSS properties.
-- Wrap all interactive examples in `class="bx"`.
-- Include an SCSS Variables table when the component exposes overridable variables. Link to `/docs/jtb/variable-system` for override instructions rather than explaining inline.
-- Include a `## Utility Examples` section when a utility-based approach is viable. Lives in the component doc — not a separate file.
-
-## Code Block Attributes
-
-- `class="..."` → outer demo wrapper class
-- `preview-class="..."` → class applied to the preview container
-- `+demo` / `+demo-folded` → render preview and code together
-
-For layout/responsive docs, use `class="resizable-container with-docs-only-overrides"`.
+- Add it to `scripts/jtb-nav.json`.
+- Update the relevant row in `docs/jtb-status.md`.
 
 ## Links
 

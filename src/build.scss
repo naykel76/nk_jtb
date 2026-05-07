@@ -4,7 +4,11 @@
 @forward './components';
 @forward './forms';
 
-//
+// Extras
+@forward './extras/nk-docs';
+@forward './extras/nk-app';
+
+// Utility classes
 @forward './utilities/alignment';
 @forward './utilities/backgrounds';
 @forward './utilities/border';
@@ -25,3 +29,4 @@
 @forward './utilities/transforms';
 @forward './utilities/transition';
 @forward './utilities/typography';
+

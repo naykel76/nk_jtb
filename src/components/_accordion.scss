@@ -87,7 +87,7 @@ $accordion-hover-bg: color.adjust($accordion-title-bg, $lightness: -5%) !default
 
             ~ .accordion-content {
                 max-height: 100vh;
-                padding: 1rem;
+                padding: $accordion-padding;
             }
         }
     }
