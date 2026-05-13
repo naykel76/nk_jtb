@@ -39,6 +39,22 @@
             {
                 "name": "List",
                 "route_name": "docs.jtb.components.list"
+            },
+            {
+                "name": "Loaders and Spinners (wip)",
+                "route_name": "docs.jtb.components.loaders-and-spinners"
+            }
+        ]
+    },
+    "Utilities": {
+        "links": [
+            {
+                "name": "Animation (wip)",
+                "route_name": "docs.jtb.utilities.animation"
+            },
+            {
+                "name": "Border (wip)",
+                "route_name": "docs.jtb.utilities.border"
             }
         ]
     },

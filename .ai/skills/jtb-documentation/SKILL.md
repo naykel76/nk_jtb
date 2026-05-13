@@ -15,23 +15,26 @@ precedence where they conflict.
 
 Use for named structural classes such as `navbar`, `menu`, `bx`, or form controls.
 
-**Structure:**
+A class-based component has a named CSS class (e.g. `.spinner`, `.accordion`) that drives its core structure. A utility-based pattern achieves a similar result through composition of utility classes with no dedicated component class.
+
+**Single-component page structure:**
 
 1. One-line lead
 2. `## Basic Usage` — minimum working markup
-3. Additional examples — simple to fuller usage
+3. Additional `##` sections — simple to fuller usage
 4. `## SCSS Variables` — if the component exposes overridable variables
-5. `## Utility Examples` — if a utility-based approach is viable, always last
+5. `## Utility Examples` — utility-based alternatives, always last
+
+**Multi-component page:** repeat the same structure for each component, shifted down one heading level. The page title (`#`) becomes the group, each component becomes `##`, and its sections become `###`. A page with many components just repeats this pattern as many times as needed.
 
 **Rules:**
 
 - The lead describes purpose, not implementation. Do not mention specific CSS properties.
-- Open `## Basic Usage` with `Apply the [component class] to...` — directive, not descriptive.
+- Open Basic Usage with `Apply the [component class] to...` — directive, not descriptive.
 - Component class examples use `class="bx example-jtb"`.
 - Utility examples use `class="bx example-utils"`.
-- Place the SCSS Variables table directly after the class examples, before `## Utility Examples`.
+- Place SCSS Variables directly before Utility Examples.
 - Link to `/docs/jtb/variable-system` for override instructions rather than explaining inline.
-- `## Utility Examples` is always last. Lives in the component doc — not a separate file.
 
 ### Utility Documentation
 

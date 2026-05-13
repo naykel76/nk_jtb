@@ -90,10 +90,10 @@ $question-color: #c40c9a !default;
     &-jtb {
         background: repeating-linear-gradient(
             135deg,
-            rgb(252 231 243 / 20%),
-            rgb(252 231 243 / 20%) 20px,
-            rgb(249 168 212 / 20%) 20px,
-            rgb(249 168 212 / 20%) 40px
+            rgb(252 231 243 / 5%),
+            rgb(252 231 243 / 5%) 20px,
+            rgb(249 168 212 / 5%) 20px,
+            rgb(249 168 212 / 5%) 40px
         );
         border-color: map.get($oklch-colors, 'pink-500');
         border-width: 3px;
@@ -102,10 +102,10 @@ $question-color: #c40c9a !default;
     &-utils {
         background: repeating-linear-gradient(
             135deg,
-            rgb(219 234 254 / 20%),
-            rgb(219 234 254 / 20%) 20px,
-            rgb(147 197 253 / 20%) 20px,
-            rgb(147 197 253 / 20%) 40px
+            rgb(219 234 254 / 5%),
+            rgb(219 234 254 / 5%) 20px,
+            rgb(147 197 253 / 5%) 20px,
+            rgb(147 197 253 / 5%) 40px
         );
         border-color: map.get($oklch-colors, 'blue-500');
         border-width: 3px;

@@ -295,6 +295,7 @@ Files parked in `docs/review/` — purpose or audience unclear.
 | `components/menu.md`                | review  |                                                  |
 | `components/navbar.md`              | review  |                                                  |
 | `components/table.md`               | review  |                                                  |
+| `components/loaders-and-spinners.md` | review  | New — split from animation.md                    |
 | `components/example-navigations.md` | stub    | Bare HTML, no explanation                        |
 
 ### Utilities
@@ -303,7 +304,7 @@ Files parked in `docs/review/` — purpose or audience unclear.
 | ------------------------------------- | ------ | --------------------------------------------------- |
 | `utilities/border.md`                 | review | Border, outline, and divider utilities              |
 | `utilities/typography.md`             | review | New — needs review pass                             |
-| `utilities/animation.md`              | review |                                                     |
+| `utilities/animation.md`              | review | Rewritten — loader/spinner content moved to components/loaders-and-spinners.md |
 | `utilities/display-and-visibility.md` | review |                                                     |
 | `utilities/effects.md`                | review |                                                     |
 | `utilities/position.md`               | review |                                                     |
