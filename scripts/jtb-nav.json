@@ -29,7 +29,7 @@
     "Components": {
         "links": [
             {
-                "name": "Accordion (wip)",
+                "name": "Accordion",
                 "route_name": "docs.jtb.components.accordion"
             },
             {

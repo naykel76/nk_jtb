@@ -1,16 +1,14 @@
 # Accordion
 
-The accordion component shows and hides content sections. It works with
-Alpine.js for JS-driven behaviour or as a pure CSS implementation using hidden
-inputs.
+The accordion component groups expandable content sections for CSS-only or
+Alpine-managed disclosure patterns.
 
-## Basic Usage (review)
+## Basic Usage
 
 Apply the `.accordion` class to the wrapper and add `data-accordion-toggle` to
-the input. This attribute hides the input and uses a CSS sibling selector to
-wire up the open/close transitions. Because each checkbox is independent,
-multiple accordions can be open at the same time — use the radio method to
-restrict this.
+the input. The component visually hides the input while keeping it focusable,
+then uses the checked state to show the content panel. Because each checkbox is
+independent, multiple accordions can be open at the same time.
 
 ```html +demo-folded class="bx example-jtb"
 <div class="accordion">
@@ -27,7 +25,7 @@ restrict this.
 </div>
 ```
 
-### Group (review)
+### Group
 
 The radio method limits the group to one open accordion at a time. Use a shared
 `name` attribute across all inputs in the group.
@@ -59,13 +57,13 @@ The radio method limits the group to one open accordion at a time. Use a shared
 </div>
 ```
 
-## Alpine Accordion (review)
+## Alpine Accordion
 
-Use Alpine.js for JS-driven behaviour. The `.accordion` class provides all
-structural styles; Alpine manages open/closed state. Examples use `x-collapse`,
-which requires the [Alpine Collapse plugin](https://alpinejs.dev/plugins/collapse).
+Use Alpine.js when you need JS-managed open and closed state. Examples use
+`x-collapse`, which requires the
+[Alpine Collapse plugin](https://alpinejs.dev/plugins/collapse).
 
-### Single (review)
+### Single
 
 ```html +demo-folded class="bx example-jtb"
 <div x-data="{ open: false }" class="accordion">
@@ -81,7 +79,7 @@ which requires the [Alpine Collapse plugin](https://alpinejs.dev/plugins/collaps
 </div>
 ```
 
-### Multiple Open (review)
+### Multiple Open
 
 Each accordion manages its own state independently.
 
@@ -112,7 +110,7 @@ Each accordion manages its own state independently.
 </div>
 ```
 
-### One Open at a Time (review)
+### One Open at a Time
 
 Wrap all accordions in a shared `x-data` scope using `activeItem`.
 
@@ -143,7 +141,7 @@ Wrap all accordions in a shared `x-data` scope using `activeItem`.
 </div>
 ```
 
-## SCSS Variables (review)
+## SCSS Variables
 
 | Variable                 | Default                                              | Description                 |
 | ------------------------ | ---------------------------------------------------- | --------------------------- |
@@ -158,17 +156,17 @@ Wrap all accordions in a shared `x-data` scope using `activeItem`.
 
 See [Variable System](/docs/jtb/variable-system) for override instructions.
 
-## Utility Examples (review)
+## Utility Examples
 
 Build an accordion from utility classes when you need a custom look without the
 `.accordion` component styles.
 
-### Single (review)
+### Single
 
 ```html +demo-folded class="bx example-utils"
 <div x-data="{ open: false }" class="bx">
     <button x-on:click="open = !open" class="w-full flex items-center justify-between hover:bg-gray-50">
-        <span class="fw-semibold">Single Accordion</span>
+        <span class="font-semibold">Single Accordion</span>
         <svg class="wh-1" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
         </svg>
@@ -179,13 +177,13 @@ Build an accordion from utility classes when you need a custom look without the
 </div>
 ```
 
-### Multiple Open (review)
+### Multiple Open
 
 ```html +demo-folded class="bx example-utils"
 <div class="space-y-05">
     <div x-data="{ open: false }" class="bx">
         <button x-on:click="open = !open" class="w-full flex items-center justify-between hover:bg-gray-50">
-            <span class="fw-semibold">Accordion One</span>
+            <span class="font-semibold">Accordion One</span>
             <svg class="wh-1" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
@@ -196,7 +194,7 @@ Build an accordion from utility classes when you need a custom look without the
     </div>
     <div x-data="{ open: false }" class="bx">
         <button x-on:click="open = !open" class="w-full flex items-center justify-between hover:bg-gray-50">
-            <span class="fw-semibold">Accordion Two</span>
+            <span class="font-semibold">Accordion Two</span>
             <svg class="wh-1" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
@@ -208,13 +206,13 @@ Build an accordion from utility classes when you need a custom look without the
 </div>
 ```
 
-### One Open at a Time (review)
+### One Open at a Time
 
 ```html +demo-folded class="bx example-utils"
 <div class="space-y-05" x-data="{ activeItem: null }">
     <div class="bx">
         <button x-on:click="activeItem = activeItem === 1 ? null : 1" class="w-full flex items-center justify-between hover:bg-gray-50">
-            <span class="fw-semibold">Accordion One</span>
+            <span class="font-semibold">Accordion One</span>
             <svg class="wh-1" :class="{ 'rotate-180': activeItem === 1 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
@@ -225,7 +223,7 @@ Build an accordion from utility classes when you need a custom look without the
     </div>
     <div class="bx">
         <button x-on:click="activeItem = activeItem === 2 ? null : 2" class="w-full flex items-center justify-between hover:bg-gray-50">
-            <span class="fw-semibold">Accordion Two</span>
+            <span class="font-semibold">Accordion Two</span>
             <svg class="wh-1" :class="{ 'rotate-180': activeItem === 2 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>

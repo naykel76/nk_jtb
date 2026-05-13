@@ -200,8 +200,10 @@ follow the direction.
 - Do not treat reading a `SKILL.md` file as a substitute for invoking the skill.
 - When updating prompts, guidelines, or skills, first identify the project's
   source-of-truth file before editing.
-- Files under `.ai/` may be symlinks into a shared prompts/guidelines repo. If
-  so, update the symlink target.
+- Skills and guidelines are always edited via `.ai/` — never agent-managed
+  directories (`.claude/`, `.cursor/`, `.windsurf/`, etc.) directly.
+- Check whether the `.ai/` entry is a local file or a symlink before editing.
+  If it is a symlink, follow it to the target and edit there.
 - Do not update matching copies in parallel or alternate locations unless they
   are the confirmed source of truth or the user explicitly asks.
 - After changing project guidelines or adding/updating skills, run

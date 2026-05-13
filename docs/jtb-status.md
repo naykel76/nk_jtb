@@ -290,7 +290,7 @@ Files parked in `docs/review/` — purpose or audience unclear.
 | `components/button.md`              | review  |                                                  |
 | `components/box.md`                 | partial | CSS Custom Properties section needs locking down |
 | `components/list.md`                | ✅       |                                                  |
-| `components/accordion.md`           | review  |                                                  |
+| `components/accordion.md`           | ✅       |                                                  |
 | `components/forms.md`               | review  |                                                  |
 | `components/menu.md`                | review  |                                                  |
 | `components/navbar.md`              | review  |                                                  |
