@@ -37,13 +37,6 @@
         opacity: 0.5;
     }
 
-    // ICON SUPPORT
-    > svg,
-    > i {
-        flex-shrink: 0; // prevent the icon from shrinking when button resizes or text wraps
-        height: var(--icon-size, 1em); // match the icon height to the button's font-size for automatic scaling
-        width: var(--icon-size, 1em); // match the icon width to the button's font-size for consistent sizing
-    }
 
     &:where(.xs) {
         padding-inline: 0.625rem;
@@ -78,6 +71,14 @@
     &:where(.lg.icon-only) {
         padding-inline: $ctrl-padding-y-lg;
     }
+}
+
+// ICON SUPPORT — :where() gives zero specificity so wh-* utilities can override
+:where(.#{$button-prefix}) > svg,
+:where(.#{$button-prefix}) > i {
+    flex-shrink: 0;
+    height: var(--icon-size, 1em);
+    width: var(--icon-size, 1em);
 }
 
 // ============================================================================

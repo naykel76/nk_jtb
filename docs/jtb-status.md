@@ -295,7 +295,7 @@ Files parked in `docs/review/` — purpose or audience unclear.
 | `components/menu.md`                | review  |                                                  |
 | `components/navbar.md`              | review  |                                                  |
 | `components/table.md`               | review  |                                                  |
-| `components/loaders-and-spinners.md` | review  | New — split from animation.md                    |
+| `components/loaders-and-spinners.md` | partial | Spinners section confirmed (SVG Arc utility approach). Loader Container still pending. |
 | `components/example-navigations.md` | stub    | Bare HTML, no explanation                        |
 
 ### Utilities
