@@ -10,6 +10,349 @@
 
 <body>
 
+    <style>
+        /* ============================================================
+       Local helpers — JTB gaps documented in jtb-conversion-notes.md
+       ============================================================ */
+
+
+
+        /* Bar equalizer — @keyframes grow not in JTB */
+        @keyframes grow {
+
+            0%,
+            100% {
+                transform: scaleY(0.4);
+            }
+
+            50% {
+                transform: scaleY(1);
+            }
+        }
+
+        .bar-row {
+            align-items: flex-end;
+        }
+
+        .bar {
+            width: 4px;
+            animation: grow 0.9s ease-in-out infinite;
+        }
+
+        .bar:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+
+        .bar:nth-child(3) {
+            animation-delay: 0.30s;
+        }
+
+        .bar:nth-child(4) {
+            animation-delay: 0.45s;
+        }
+
+        .bar:nth-child(5) {
+            animation-delay: 0.60s;
+        }
+
+        /* Pulse / bounce dot stagger — nth-child animation delays */
+        .dot-pulse:nth-child(2) {
+            animation-delay: 0.20s;
+        }
+
+        .dot-pulse:nth-child(3) {
+            animation-delay: 0.40s;
+        }
+
+        .dot-bounce:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+
+        .dot-bounce:nth-child(3) {
+            animation-delay: 0.30s;
+        }
+
+        /* Ripple — @keyframes ripple differs from animate-ping (starts from scale 0) */
+        @keyframes ripple {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(2.5);
+                opacity: 0;
+            }
+        }
+
+        .ripple {
+            animation: ripple 1.6s ease-out infinite;
+        }
+
+        .ripple:nth-child(2) {
+            animation-delay: 0.8s;
+        }
+
+        .ripple-core {
+            inset: 30%;
+        }
+
+        /* Skeleton — @keyframes skeleton not in JTB */
+        @keyframes skeleton {
+            0% {
+                background-position: 200% 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        .skeleton {
+            background: linear-gradient(90deg, oklch(93% 0 0) 25%, oklch(88% 0 0) 50%, oklch(93% 0 0) 75%);
+            background-size: 200% 100%;
+            animation: skeleton 1.6s linear infinite;
+        }
+
+        .skel-w-55 {
+            width: 55%;
+        }
+
+        .skel-w-65 {
+            width: 65%;
+        }
+
+        .skel-w-80 {
+            width: 80%;
+        }
+
+        /* Progress — @keyframes progress-indeterminate not in JTB */
+        @keyframes progress-indeterminate {
+            0% {
+                left: -40%;
+                width: 40%;
+            }
+
+            100% {
+                left: 100%;
+                width: 40%;
+            }
+        }
+
+        .progress-track {
+            height: 4px;
+        }
+
+        .progress-fill {
+            position: absolute;
+            inset-block-start: 0;
+            height: 100%;
+            border-radius: 2px;
+            animation: progress-indeterminate 1.4s ease-in-out infinite;
+        }
+
+        .progress-fill-65 {
+            width: 65%;
+        }
+
+
+        /* Icon-only button — btn has no square/icon variant */
+        .btn-icon {
+            min-width: 0;
+            width: 2.25rem;
+            height: 2.25rem;
+            padding: 0;
+        }
+
+        /* Skeleton avatar — flex-shrink: 0 not available as JTB utility */
+        .skel-avatar {
+            flex-shrink: 0;
+        }
+    </style>
+
+    <div class="py-1.5 container-md">
+     <style>
+
+/*SVG arc — @keyframes dash not in JTB animation utilities*/
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 150;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -35;
+    }
+
+    100% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -124;
+    }
+}
+
+.arc circle {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    animation: dash 1.4s ease-in-out infinite;
+}
+</style>
+
+<div class="mb-2.5">
+    <h2>SVG arc spinner</h2>
+    <div class="bx flex-vac flex-wrap gap-1.5">
+        <div class="flex-col flex-vac gap-05">
+            <svg class="animate-spin arc wh-2.5 txt-blue-500" viewBox="0 0 36 36">
+                <circle cx="18" cy="18" r="14" stroke="currentColor" />
+            </svg>
+            <span class="txt-xs txt-muted">smooth arc</span>
+        </div>
+        <div class="flex-col flex-vac gap-05">
+            <svg class="animate-spin arc wh-3 txt-emerald-500" viewBox="0 0 48 48">
+                <circle cx="24" cy="24" r="18" stroke="currentColor" />
+            </svg>
+            <span class="txt-xs txt-muted">teal / lg</span>
+        </div>
+    </div>
+</div>
+
+        <div class="mb-2.5">
+            <h2>Dot indicators</h2>
+            <div class="bx flex-vac flex-wrap gap-1.5">
+                <div class="flex-col flex-vac gap-05">
+                    <div class="flex-vac gap-025">
+                        <div class="wh-05 rounded-full bg-gray-400 animate-pulse dot-pulse"></div>
+                        <div class="wh-05 rounded-full bg-gray-400 animate-pulse dot-pulse"></div>
+                        <div class="wh-05 rounded-full bg-gray-400 animate-pulse dot-pulse"></div>
+                    </div>
+                    <span class="txt-xs txt-muted">pulse</span>
+                </div>
+                <div class="flex-col flex-vac gap-05">
+                    <div class="flex-vac gap-025">
+                        <div class="wh-05 rounded-full bg-blue-500 animate-pulse dot-pulse"></div>
+                        <div class="wh-05 rounded-full bg-violet-500 animate-pulse dot-pulse"></div>
+                        <div class="wh-05 rounded-full bg-emerald-500 animate-pulse dot-pulse"></div>
+                    </div>
+                    <span class="txt-xs txt-muted">multicolour</span>
+                </div>
+                <div class="flex-col flex-vac gap-05">
+                    <div class="flex-vac gap-025">
+                        <div class="wh-05 rounded-full bg-blue-500 animate-bounce dot-bounce"></div>
+                        <div class="wh-05 rounded-full bg-blue-500 animate-bounce dot-bounce"></div>
+                        <div class="wh-05 rounded-full bg-blue-500 animate-bounce dot-bounce"></div>
+                    </div>
+                    <span class="txt-xs txt-muted">bounce</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-2.5">
+            <h2>Bar equaliser</h2>
+            <div class="bx flex-vac flex-wrap gap-1.5">
+                <div class="flex-col flex-vac gap-05">
+                    <div class="flex bar-row gap-025">
+                        <div class="bar h-1.25 rounded-sm bg-blue-500"></div>
+                        <div class="bar h-1.25 rounded-sm bg-blue-500"></div>
+                        <div class="bar h-1.25 rounded-sm bg-blue-500"></div>
+                        <div class="bar h-1.25 rounded-sm bg-blue-500"></div>
+                        <div class="bar h-1.25 rounded-sm bg-blue-500"></div>
+                    </div>
+                    <span class="txt-xs txt-muted">bars</span>
+                </div>
+                <div class="flex-col flex-vac gap-05">
+                    <div class="flex bar-row gap-025">
+                        <div class="bar h-1.25 rounded-sm bg-violet-500"></div>
+                        <div class="bar h-1.25 rounded-sm bg-violet-500"></div>
+                        <div class="bar h-1.25 rounded-sm bg-violet-500"></div>
+                        <div class="bar h-1.25 rounded-sm bg-violet-500"></div>
+                        <div class="bar h-1.25 rounded-sm bg-violet-500"></div>
+                    </div>
+                    <span class="txt-xs txt-muted">purple</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-2.5">
+            <h2>Ripple</h2>
+            <div class="bx flex-vac flex-wrap gap-1.5">
+                <div class="flex-col flex-vac gap-05">
+                    <div class="relative wh-2.5">
+                        <div class="absolute inset-0 rounded-full bg-blue-400 ripple"></div>
+                        <div class="absolute inset-0 rounded-full bg-blue-400 ripple"></div>
+                        <div class="absolute rounded-full bg-blue-500 ripple-core"></div>
+                    </div>
+                    <span class="txt-xs txt-muted">ripple pulse</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-2.5">
+            <h2>Progress bar</h2>
+            <div class="bx flex-vac flex-wrap gap-1.5">
+                <div class="flex-col flex-vac gap-05">
+                    <div class="relative overflow-hidden w-12 rounded-sm bg-gray-200 progress-track">
+                        <div class="bg-blue-500 progress-fill"></div>
+                    </div>
+                    <span class="txt-xs txt-muted">indeterminate</span>
+                </div>
+                <div class="flex-col flex-vac gap-05">
+                    <div class="relative overflow-hidden w-12 rounded-sm bg-gray-200 progress-track">
+                        <div class="bg-blue-500 rounded-sm progress-fill progress-fill-65"></div>
+                    </div>
+                    <span class="txt-xs txt-muted">determinate 65%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-2.5">
+            <h2>Button spinners</h2>
+            <div class="bx flex-vac flex-wrap gap-1.5">
+                <button class="btn flex-vac gap-05">
+                    <div class="spinner btn-spinner"></div>
+                    Loading
+                </button>
+                <button class="btn primary flex-vac gap-05">
+                    <div class="spinner btn-spinner btn-spinner-light"></div>
+                    Saving
+                </button>
+                <button class="btn blue flex-vac gap-05">
+                    <div class="spinner btn-spinner btn-spinner-light"></div>
+                    Uploading
+                </button>
+                <button class="btn btn-icon">
+                    <div class="spinner btn-spinner"></div>
+                </button>
+            </div>
+        </div>
+
+        <div class="mb-2.5">
+            <h2>Skeleton loader</h2>
+            <div class="bx flex-vac gap-1">
+                <div class="skeleton rounded-full wh-3 skel-avatar"></div>
+                <div class="flex-col fg-1 gap-05">
+                    <div class="skeleton rounded h-05 skel-w-55"></div>
+                    <div class="skeleton rounded h-05 skel-w-80"></div>
+                    <div class="skeleton rounded h-05 skel-w-65"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-2.5">
+            <h2>Page loader</h2>
+            <div class="bx flex-col flex-centered gap-1">
+                <svg class="animate-spin arc wh-3 txt-blue-500" viewBox="0 0 44 44">
+                    <circle cx="22" cy="22" r="16" stroke="currentColor" />
+                </svg>
+                <p class="txt-sm txt-muted">Loading your workspace…</p>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
     <script type="module" src="/main.js"></script>
 </body>
 
