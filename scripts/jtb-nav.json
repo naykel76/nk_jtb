@@ -49,7 +49,7 @@
     "Utilities": {
         "links": [
             {
-                "name": "Animation (wip)",
+                "name": "Animation",
                 "route_name": "docs.jtb.utilities.animation"
             },
             {

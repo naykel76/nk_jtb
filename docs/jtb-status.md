@@ -52,7 +52,7 @@ a doc is confirmed accurate or a utility is completed.
 
 | Utility     | Framework | Docs   | Notes                 |
 | ----------- | --------- | ------ | --------------------- |
-| `animation` | review    | Review | `animate-*` utilities |
+| `animation` | ✅         | ✅      | `animate-*` utilities |
 
 ### Backgrounds (review)
 
@@ -295,7 +295,7 @@ Files parked in `docs/review/` — purpose or audience unclear.
 | `components/menu.md`                | review  |                                                  |
 | `components/navbar.md`              | review  |                                                  |
 | `components/table.md`               | review  |                                                  |
-| `components/loaders-and-spinners.md` | partial | Spinners section confirmed (SVG Arc utility approach). Loader Container still pending. |
+| `components/loaders-and-spinners.md` | partial | SVG Border, SVG Arc, Page Loader confirmed. Dots section still under review. |
 | `components/example-navigations.md` | stub    | Bare HTML, no explanation                        |
 
 ### Utilities
@@ -304,7 +304,7 @@ Files parked in `docs/review/` — purpose or audience unclear.
 | ------------------------------------- | ------ | --------------------------------------------------- |
 | `utilities/border.md`                 | review | Border, outline, and divider utilities              |
 | `utilities/typography.md`             | review | New — needs review pass                             |
-| `utilities/animation.md`              | review | Rewritten — loader/spinner content moved to components/loaders-and-spinners.md |
+| `utilities/animation.md`              | ✅      |                                                                                 |
 | `utilities/display-and-visibility.md` | review |                                                     |
 | `utilities/effects.md`                | review |                                                     |
 | `utilities/position.md`               | review |                                                     |

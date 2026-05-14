@@ -15,15 +15,15 @@ Utility classes for applying CSS animations.
 | `animate-circle`     | SVG stroke draw-in      |
 | `animate-none`       | Removes animation       |
 
-## Spin (review)
+## Spin
 
-Rotates an element continuously. Commonly used for loading indicators.
+Rotates an element continuously.
 
-```html +demo-folded class="bx"
-<div class="animate-spin wh-3 bdr-4 bdr-gray-200 bdr-t-blue-500 rounded-full"></div>
+```html +demo-folded class="bx" preview-class="flex-centered"
+<div class="animate-spin wh-3 bdr-4 bdr-blue-500 rounded-full"></div>
 ```
 
-## Bounce (review)
+## Bounce
 
 Applies a vertical bounce. Stagger `animation-delay` across sibling elements for
 a sequential effect.
@@ -34,16 +34,15 @@ a sequential effect.
 <div class="wh-1 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.2s;"></div>
 ```
 
-## Pulse (review)
+## Pulse
 
-Fades an element's opacity in and out. Use for skeleton loaders or ambient
-status indicators.
+Fades an element's opacity in and out.
 
 ```html +demo-folded class="bx"
 <div class="wh-4 bg-teal-500 rounded-full animate-pulse"></div>
 ```
 
-## Pulse Ring (review)
+## Pulse Ring
 
 Scales and fades an element outward to create an expanding ring effect. Use
 `relative` positioning with overlapping siblings for layered rings.
@@ -56,7 +55,7 @@ Scales and fades an element outward to create an expanding ring effect. Use
 </div>
 ```
 
-## Ping (review)
+## Ping
 
 Scales an element to twice its size while fading it out — a one-shot burst
 effect. Commonly used as a notification indicator layered over a badge or dot.
@@ -68,21 +67,20 @@ effect. Commonly used as a notification indicator layered over a badge or dot.
 </div>
 ```
 
-## Dots (review)
+## Dots
 
 Animates a `::after` pseudo-element to cycle through an ellipsis sequence.
-Commonly used alongside loading text.
 
 ```html +demo-folded class="bx" preview-class="flex-centered"
 <span>Loading<span class="animate-dots"></span></span>
 ```
 
-## SVG Animations (review)
+## SVG Animations
 
-### Dash (review)
+### Dash
 
-Rotates an SVG and morphs its child circle's `stroke-dasharray` for a breathing
-arc spinner. A single class handles both effects.
+Rotates an SVG while morphing its child circle's `stroke-dasharray`. A single
+class handles both the rotation and the stroke animation.
 
 ```html +demo-folded class="bx" preview-class="flex-centered"
 <svg class="animate-dash wh-4 txt-blue-500" viewBox="0 0 44 44">
@@ -90,7 +88,7 @@ arc spinner. A single class handles both effects.
 </svg>
 ```
 
-### Draw-in (review)
+### Draw-in
 
 `animate-circle` draws a circular stroke in from nothing to full.
 `animate-checkmark` does the same for a path. Both set `stroke-dasharray`

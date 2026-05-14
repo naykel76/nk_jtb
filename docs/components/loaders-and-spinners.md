@@ -73,6 +73,26 @@ Use `txt-*` utilities to control colour.
 </svg>
 ```
 
+### Dots (review)
+
+Eight dots arranged in a circle, fading in sequence. Use `wh-*` to control size
+and `txt-*` to control colour.
+
+```html +demo-folded class="bx example-jtb" preview-class="flex-centered vac gap-2"
+<div class="spinner-dots wh-2 txt-primary">
+    <div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div>
+</div>
+<div class="spinner-dots wh-3 txt-primary">
+    <div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div>
+</div>
+<div class="spinner-dots wh-4 txt-primary">
+    <div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div>
+</div>
+```
+
 ## Page Loader
 
 Compose a page loader with utilities. Use `flex flex-col flex-centered` to

@@ -1,0 +1,24 @@
+.spinner-dots {
+    position: relative;
+
+    > div {
+        animation: ball-spin 1s ease-in-out infinite;
+        background-color: currentColor;
+        border-radius: 50%;
+        height: 25%;
+        margin-left: -12.5%;
+        margin-top: -12.5%;
+        position: absolute;
+        width: 25%;
+    }
+
+    // prettier-ignore
+    > div:nth-child(1) { top:  5%;    left: 50%;    animation-delay: -1.125s; }
+    > div:nth-child(2) { top: 18.18%; left: 81.82%; animation-delay: -1.25s;  }
+    > div:nth-child(3) { top: 50%;    left: 95%;    animation-delay: -1.375s; }
+    > div:nth-child(4) { top: 81.82%; left: 81.82%; animation-delay: -1.5s;   }
+    > div:nth-child(5) { top: 95%;    left: 50%;    animation-delay: -1.625s; }
+    > div:nth-child(6) { top: 81.82%; left: 18.18%; animation-delay: -1.75s;  }
+    > div:nth-child(7) { top: 50%;    left:  5%;    animation-delay: -1.875s; }
+    > div:nth-child(8) { top: 18.18%; left: 18.18%; animation-delay: -2s;     }
+}
