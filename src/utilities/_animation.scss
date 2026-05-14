@@ -73,11 +73,30 @@
     75% { content: '...'; }
 }
 
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 150;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -35;
+    }
+
+    100% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -124;
+    }
+}
+
 // ============================================================================
 // -- Animations --
 // ============================================================================
 :root {
     --animate-bounce: bounce 1s infinite;
+    --animate-dash: dash 1.4s ease-in-out infinite;
+    --animate-dots: dots 1.5s steps(4, end) infinite;
     --animate-ping: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
     --animate-pulse-ring: pulse-ring 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
@@ -106,6 +125,28 @@
 
 .animate-spin {
     animation: var(--animate-spin);
+}
+
+.animate-dash {
+    animation: var(--animate-spin);
+
+    > circle {
+        animation: var(--animate-dash);
+        fill: none;
+        stroke-linecap: round;
+        stroke-width: 3;
+    }
+}
+
+.animate-dots {
+    display: inline-block;
+    text-align: left;
+    width: 20px;
+
+    &::after {
+        animation: var(--animate-dots);
+        content: '';
+    }
 }
 
 .animate-checkmark {

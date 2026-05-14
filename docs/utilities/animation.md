@@ -2,16 +2,18 @@
 
 Utility classes for applying CSS animations.
 
-| Class                 | Animation           |
-| --------------------- | ------------------- |
-| `animate-spin`        | Continuous rotation |
-| `animate-bounce`      | Vertical bounce     |
-| `animate-pulse`       | Opacity fade        |
-| `animate-pulse-ring`  | Expanding ring      |
-| `animate-ping`        | Scale and fade out  |
-| `animate-checkmark`   | SVG stroke draw-in  |
-| `animate-circle`      | SVG stroke draw-in  |
-| `animate-none`        | Removes animation   |
+| Class                | Animation               |
+| -------------------- | ----------------------- |
+| `animate-spin`       | Continuous rotation     |
+| `animate-bounce`     | Vertical bounce         |
+| `animate-pulse`      | Opacity fade            |
+| `animate-pulse-ring` | Expanding ring          |
+| `animate-ping`       | Scale and fade out      |
+| `animate-dash`       | SVG stroke arc morphing |
+| `animate-dots`       | Animated ellipsis       |
+| `animate-checkmark`  | SVG stroke draw-in      |
+| `animate-circle`     | SVG stroke draw-in      |
+| `animate-none`       | Removes animation       |
 
 ## Spin (review)
 
@@ -66,14 +68,36 @@ effect. Commonly used as a notification indicator layered over a badge or dot.
 </div>
 ```
 
+## Dots (review)
+
+Animates a `::after` pseudo-element to cycle through an ellipsis sequence.
+Commonly used alongside loading text.
+
+```html +demo-folded class="bx" preview-class="flex-centered"
+<span>Loading<span class="animate-dots"></span></span>
+```
+
 ## SVG Animations (review)
 
+### Dash (review)
+
+Rotates an SVG and morphs its child circle's `stroke-dasharray` for a breathing
+arc spinner. A single class handles both effects.
+
+```html +demo-folded class="bx" preview-class="flex-centered"
+<svg class="animate-dash wh-4 txt-blue-500" viewBox="0 0 44 44">
+    <circle cx="22" cy="22" r="16" stroke="currentColor" />
+</svg>
+```
+
+### Draw-in (review)
+
 `animate-circle` draws a circular stroke in from nothing to full.
-`animate-checkmark` does the same for a path. Both classes set `stroke-dasharray`
+`animate-checkmark` does the same for a path. Both set `stroke-dasharray`
 and animate `stroke-dashoffset`. The SVG path or circle length must be no greater
 than the class's `stroke-dasharray` value (166 for circle, 100 for checkmark).
 
-```html +demo-folded class="bx"
+```html +demo-folded class="bx" preview-class="flex-centered"
 <svg viewBox="0 0 52 52" class="wh-4 txt-green-600" fill="none">
     <circle cx="26" cy="26" r="25" stroke="currentColor" stroke-width="2" class="animate-circle" />
     <path d="M14 27l8 8 16-16" stroke="currentColor" stroke-width="2" class="animate-checkmark" />
