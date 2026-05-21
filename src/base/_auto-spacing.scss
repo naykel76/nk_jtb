@@ -18,6 +18,16 @@ $inline-exclusions: svg, span;
     margin-block-start: $base-gap;
 }
 
+// Headings connect to text content below — tighter gap than $base-gap
+// Block components (.bx etc) fall back to $base-gap via the general rule
+:where(h1) + :where(p, ul, ol, blockquote) {
+    margin-block-start: 1rem;
+}
+
+:where(h2, h3, h4, h5, h6) + :where(p, ul, ol, blockquote) {
+    margin-block-start: 0.75rem;
+}
+
 // Reverse pattern - layout elements followed by content elements
 // Catches cases like div + p, section + h1, article + table, etc.
 // We can't add div/section/article to $spacing-targets because that would also
