@@ -1,47 +1,14 @@
-# Auto Spacing System (review)
+# Auto Spacing
 
 <p class="lead">Automatic vertical spacing between block elements without
-requiring margin utilities on every element. Content flows naturally with
-consistent gaps.</p>
+requiring margin utilities on every element.</p>
 
-- **Relationship-Based** - Spacing determined by what elements follow each other
-- **Semantic-Aware** - Distinguishes between content and layout wrappers
 - **Flex/Grid Safe** - Automatically opts out when using gap-based layouts
 - **Low Specificity** - Uses `:where()` for easy overrides
 
-## How It Works (review)
+## Examples
 
-Two rules apply `margin-top: $base-gap` based on element relationships. Spacing
-targets (`p`, `h1-h6`, `table`, `ul`, etc.) add spacing when followed by other
-elements. Layout wrappers (`div`, `section`, `article`) only add spacing when
-followed by content—not other wrappers.
-
-## The Rules (review)
-
-### Rule 1: Spacing Targets (review)
-
-Content elements followed by any block element.
-
-```scss +code
-:where(#{$spacing-targets}, #{$common-classes}) + :where(*:not(#{$inline-exclusions})) {
-    margin-block-start: $base-gap;
-}
-```
-
-### Rule 2: Layout to Content (review)
-
-Layout wrappers followed by content elements. This prevents `div + div` spacing
-while catching `div + p`.
-
-```scss +code
-:where(div, section, article) + :where(#{$spacing-targets}) {
-    margin-block-start: $base-gap;
-}
-```
-
-## Visual Tests (review)
-
-### Should Space (review)
+### Should Space
 
 <div class="bx bg-stripes-pink">
     <h2 class="pxy-075 warning-light rounded-05">Heading 2</h2>
@@ -55,7 +22,7 @@ while catching `div + p`.
     <pre class="pxy-075 warning-light rounded-05">Pre</pre>
 </div>
 
-### Should NOT Space (review)
+### Should NOT Space
 
 <div class="bx bg-stripes-blue">
     <div class="pxy-075 info-light rounded-05">Div</div>
@@ -66,15 +33,9 @@ while catching `div + p`.
     <footer class="pxy-075 info-light rounded-05">Footer</footer>
 </div>
 
-## Flex and Grid (review)
+### Flex and Grid
 
 Elements inside flex or grid containers have margins reset—these layouts use `gap` instead.
-
-```scss +code
-:where([class*='flex'], [class*='grid']) > * {
-    margin: 0;
-}
-```
 
 <div class="grid cols-2 gap-1">
     <div>
@@ -95,3 +56,17 @@ Elements inside flex or grid containers have margins reset—these layouts use `
         </div>
     </div>
 </div>
+
+## How It Works
+
+Spacing is applied by element relationship, not position. Two categories determine behaviour:
+
+**Spacing targets** — `p`, headings, `ul`, `table`, `form`, `blockquote`, `pre` — add
+`margin-block-start` to whatever follows them.
+
+**Layout wrappers** — `div`, `section`, `article` — only add spacing when followed by
+content, not other wrappers. This prevents `div + div` from being spaced while
+still catching `div + p`.
+
+Elements inside flex or grid containers are exempt — margins reset to zero and
+`gap` handles spacing instead.

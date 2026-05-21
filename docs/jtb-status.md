@@ -242,7 +242,7 @@ a doc is confirmed accurate or a utility is completed.
 | `layouts-and-structures.md`                | ✅       |                                                                                        |
 | `responsive-design-patterns.md`            | review  |                                                                                        |
 | `responsive-design.md`                     | review  |                                                                                        |
-| `automatic-spacing.md`                     | review  |                                                                                        |
+| `automatic-spacing.md`                     | ✅       |                                                                                        |
 | `conventions-and-architecture-rules.md`    | review  |                                                                                        |
 | `magic-classes.md`                         | ✅       |                                                                                        |
 | `themes.md`                                | review  |                                                                                        |

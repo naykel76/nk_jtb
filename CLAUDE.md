@@ -198,16 +198,26 @@ follow the direction.
 - When a skill system is available and a skill applies, invoke it before
   proceeding unless it conflicts with the user's explicit request.
 - Do not treat reading a `SKILL.md` file as a substitute for invoking the skill.
-- When updating prompts, guidelines, or skills, first identify the project's
-  source-of-truth file before editing.
 - Skills and guidelines are always edited via `.ai/` — never agent-managed
-  directories (`.claude/`, `.cursor/`, `.windsurf/`, etc.) directly.
-- Check whether the `.ai/` entry is a local file or a symlink before editing.
-  If it is a symlink, follow it to the target and edit there.
+  directories (`.claude/`, `.cursor/`, `.windsurf/`, etc.) directly. The path
+  you read from when a skill is invoked is never the path you edit.
+- Before editing any skill or guideline, run `ls -la .ai/skills/` or
+  `ls -la .ai/guidelines/` to confirm the correct source path. Do this every
+  time — do not skip it, do not rely on Glob, do not edit the path you read from.
+- Glob does not follow or reveal symlinks and will return misleading results.
+  Always use `ls -la` to locate files in `.ai/`.
+- If the file cannot be found after checking with `ls -la`, stop and ask.
+  Do not assume it does not exist, do not fall back to agent-managed
+  directories, and do not proceed without knowing the correct location.
+- Check whether the `.ai/` entry is a local file or a symlink. If it is a
+  symlink, follow it to the target and edit there.
 - Do not update matching copies in parallel or alternate locations unless they
   are the confirmed source of truth or the user explicitly asks.
-- After changing project guidelines or adding/updating skills, run
-  `php artisan boost:update` in the project so the changes take effect.
+- After changing project guidelines or adding/updating skills, run the
+  project's sync command to propagate changes to agent-managed directories.
+  Check `package.json` for an `ai:sync` script or equivalent. If no sync
+  command is available, note that the change will not propagate until the next
+  sync.
 - When a skill or prompt references a file that cannot be read, first try
   resolving it from the repository root.
 - If the file still cannot be found, stop and ask before proceeding.

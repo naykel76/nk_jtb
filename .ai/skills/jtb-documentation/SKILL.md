@@ -51,6 +51,8 @@ and typography helpers.
 - `preview-class="..."` → class applied to the preview container only, keeps copied code clean
 - `+demo` / `+demo-folded` → render preview and code together
 
+Use raw HTML (no demo attribute) when the block is purely visual demonstration and the markup is scaffold — showing the code would add noise rather than value.
+
 For layout/responsive docs, use:
 
 ```md
@@ -59,7 +61,9 @@ For layout/responsive docs, use:
 
 ## Examples Files
 
-Quick visual references — not comprehensive docs. Two files:
+Quick visual references — not comprehensive docs.
+
+**Default files:**
 
 - `docs/examples/showcase-typography.md` — font sizes, weights, families, text utilities
 - `docs/examples/showcase-ui.md` — components and UI elements: buttons, badges, checklist, box etc.
@@ -75,8 +79,6 @@ Format depends on content type:
 - **Typography/syntax** (`showcase-typography.md`) — raw HTML pairing `<code>` class names with output
 
 Group by component family under `##` headings. Variants sit under `###` within that group.
-
-Do not create a new examples file for a single component. If it does not fit the two above, discuss with the user.
 
 When a section of a component or utility doc is complete, ask:
 

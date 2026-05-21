@@ -16,6 +16,10 @@
     "Core Concepts": {
         "links": [
             {
+                "name": "Auto Spacing",
+                "route_name": "docs.jtb.automatic-spacing"
+            },
+            {
                 "name": "Layout & Structures",
                 "route_name": "docs.jtb.layouts-and-structures",
                 "icon": "book-open"

@@ -33,7 +33,7 @@ $inline-exclusions: svg, span;
 }
 
 // opt out for `flex` and `grid` element and use `gap` instead
-:where([class*='flex'], [class*='grid']) > * {
+:where([class~='flex'], [class~='flex-col'], [class~='flex-row'], [class~='flex-centered'], [class~='flex-vac'], [class~='flex-hac'], [class*='grid']) > * {
     margin: 0;
 }
 
