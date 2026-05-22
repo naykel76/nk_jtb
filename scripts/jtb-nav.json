@@ -59,6 +59,10 @@
             {
                 "name": "Border (wip)",
                 "route_name": "docs.jtb.utilities.border"
+            },
+            {
+                "name": "Position (wip)",
+                "route_name": "docs.jtb.utilities.position"
             }
         ]
     },

@@ -121,6 +121,8 @@ $inset-map: (auto: auto, full: 100%) !default;
 $positional-values: (0, 0.25, 0.5, 1, 1.5, 2, 3, 4) !default;
 $positional-map: smart-merge($inset-map, $positional-values) !default;
 
+$negative-positional-map: ( -1, -1.5, -2, -3, -4, ) !default;
+
 // ============================================================================
 // SIZING
 // ============================================================================

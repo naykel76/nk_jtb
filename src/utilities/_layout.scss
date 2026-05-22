@@ -11,14 +11,23 @@ $layout-properties-map: (
     overflow-y: ( values: (auto, clip, hidden, scroll, visible) ),
     position: ( prefix: false, values: (static, absolute, fixed, relative, sticky) ),
     z-index: ( prefix: "z-", values: ($z-index-map) ),
-    top: ( values: $positional-map, unit: 'rem' ),
-    bottom: ( values: $positional-map, unit: 'rem' ),
-    left: ( values: $positional-map, unit: 'rem' ),
-    right: ( values: $positional-map, unit: 'rem' ),
+    inset-block-start:  ( prefix: 'top-',    values: $positional-map, unit: 'rem' ),
+    inset-block-end:    ( prefix: 'bottom-', values: $positional-map, unit: 'rem' ),
+    inset-inline-start: ( prefix: 'left-',   values: $positional-map, unit: 'rem' ),
+    inset-inline-end:   ( prefix: 'right-',  values: $positional-map, unit: 'rem' ),
     inset: ( values: $positional-map, unit: 'rem' ),
+);
+
+// prettier-ignore
+$negative-layout-properties-map: (
+    inset-block-start:  ( prefix: '-top',    values: $negative-positional-map, unit: 'rem' ),
+    inset-block-end:    ( prefix: '-bottom', values: $negative-positional-map, unit: 'rem' ),
+    inset-inline-start: ( prefix: '-left',   values: $negative-positional-map, unit: 'rem' ),
+    inset-inline-end:   ( prefix: '-right',  values: $negative-positional-map, unit: 'rem' ),
 );
 
 // ============================================================================
 // Builds
 // ============================================================================
 @include build-classes($layout-properties-map, $responsive: true);
+@include build-classes($negative-layout-properties-map, $responsive: true);

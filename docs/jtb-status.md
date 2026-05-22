@@ -128,11 +128,15 @@ a doc is confirmed accurate or a utility is completed.
 | `overflow-y` | review    | ❌      |                  |
 | `position`   | review    | Review |                  |
 | `z-index`    | review    | Review |                  |
-| `top`        | review    | Review | Offset utilities |
-| `bottom`     | review    | Review | Offset utilities |
-| `left`       | review    | Review | Offset utilities |
-| `right`      | review    | Review | Offset utilities |
-| `inset`      | review    | Review |                  |
+| `top`          | review    | Review | Offset utilities          |
+| `bottom`       | review    | Review | Offset utilities          |
+| `left`         | review    | Review | Offset utilities          |
+| `right`        | review    | Review | Offset utilities          |
+| `inset`        | review    | Review |                           |
+| `-top-*`       | ✅         | Review | Negative offset utilities |
+| `-bottom-*`    | ✅         | Review | Negative offset utilities |
+| `-left-*`      | ✅         | Review | Negative offset utilities |
+| `-right-*`     | ✅         | Review | Negative offset utilities |
 
 ### Magic Classes (review)
 
