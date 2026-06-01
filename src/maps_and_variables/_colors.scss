@@ -1,48 +1,44 @@
 @use './base';
-@use 'sass:map';
+@use '../functions/map-and-list-helpers' as *;
 
 // ============================================================================
 // COLOR ARCHITECTURE
 // ============================================================================
-// This file defines the framework color sources used by both utilities and
-// context-aware theme classes.
 //
-// 1. $oklch-colors  — Full perceptual color scale (50–950 per hue).
-//                     Source of truth for all color values.
-//                     Used for: explicit scale utilities e.g. .bg-blue-500
+// Four maps. Each has a distinct role and feeds different parts of the system.
 //
-// 2. $base-colors   — The shared named color map used by color utilities and
-//                     by default theme generation. This includes brand colors,
-//                     common neutrals, and hue colors.
+// $oklch-colors
+//   Full 50–950 scale for every hue. Source of truth for all color values.
+//   Used by: scale utilities (bg-blue-500), stripe backgrounds, text colors.
 //
-// 3. $theme-colors  — Semantic role tokens (primary, danger, accent etc.).
-//                     These are also context-aware themes and are merged with
-//                     $base-colors during theme generation.
+// $base-colors
+//   Single representative value per hue, plus muted and white.
+//   Used by: named utilities (bg-blue, txt-teal), hue theme class generation,
+//            outline theme generation, gradient utilities.
 //
-// The difference in practice:
+// $semantic-colors
+//   Intent-driven colors: danger, success, warning, info, light, dark.
+//   Fixed at compile time. Merged with $base-colors for theme generation.
+//   Used by: semantic theme classes, outline variants.
 //
-//   <div class="bx bg-blue-500">  — explicit scale step ($oklch-colors)
-//   <div class="bx bg-blue">      — named utility color ($base-colors)
-//   <div class="bx blue">         — context-aware theme class
-//   <div class="bx danger">       — semantic context-aware theme class
+// $brand-colors
+//   Brand identity colors: primary, secondary, accent.
+//   Compile-time values from $primary, $secondary, $accent config variables.
+//   CSS custom properties (--primary etc.) are set in :root for runtime override.
+//   Used by: brand theme classes, brand utilities (bg-primary, txt-primary,
+//            bdr-primary), button hover/active states.
 //
-// Utility generators use $base-colors and $oklch-colors. Theme generators use
-// both $base-colors and $theme-colors.
+// In practice:
+//
+//   .bg-blue-500   — explicit scale step     ($oklch-colors)
+//   .bg-blue       — named hue utility       ($base-colors)
+//   .blue          — hue theme class         ($base-colors)
+//   .danger        — semantic theme class    ($semantic-colors)
+//   .primary       — brand theme class       ($brand-colors → CSS vars)
+//
 // ============================================================================
 
-// ============================================================================
-// COLOR VARIABLES (JTB Framework)
-// ============================================================================
-// Color tokens and scales: theme colors, base colors, and OKLCH color scales.
-// OKLCH used for perceptual uniformity and better color interpolation.
-// All variables use !default for overridability.
-// ============================================================================
-
-// -- Color Name Scale (from Tailwind, for reference) --
-// prettier-ignore
-$color-scale-names: ('red', 'orange', 'amber', 'yellow', 'lime', 'green', 'emerald', 'teal', 'cyan', 'sky', 'blue', 'indigo', 'violet', 'purple', 'fuchsia', 'pink', 'rose', 'slate', 'gray', 'zinc', 'neutral', 'stone') !default;
-
-$theme-colors: (
+$semantic-colors: (
     'light': #fafafa,
     'dark': #212121,
     'danger': #dc3848,
@@ -51,11 +47,16 @@ $theme-colors: (
     'warning': #ffdd57
 ) !default;
 
-// based on Tailwind 500 series colors
-$base-colors: (
+// Brand colors. Kept separate from $base-colors so utility and theme
+// generation loops do not need to filter them out.
+$brand-colors: (
     'primary': base.$primary,
     'secondary': base.$secondary,
-    'accent': base.$accent,
+    'accent': base.$accent
+) !default;
+
+// based on Tailwind 500 series colors
+$base-colors: (
     'muted': oklch(70.7% 0.022 261.325deg),
     'white': #fff,
     'red': oklch(63.7% 0.237 25.331deg),
@@ -82,6 +83,13 @@ $base-colors: (
     'stone': oklch(55.3% 0.013 58.071deg)
 ) !default;
 
+// Combined map of base and semantic colors.
+// Use this for loops that should not include brand colors.
+$base-semantic-colors: merge-maps($base-colors, $semantic-colors) !default;
+
+// Combined map of all named, semantic, and brand colors.
+// Use this wherever all three maps are needed together.
+$base-brand-semantic-colors: merge-maps($base-colors, $semantic-colors, $brand-colors) !default;
 
 $oklch-colors: (
     red-50: oklch(97.1% 0.013 17.38deg),

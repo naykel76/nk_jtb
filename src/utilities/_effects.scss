@@ -9,6 +9,12 @@ $effects-properties-map: (
     box-shadow: (prefix: 'shadow-', values: $shadow-map )
 );
 
+// Organic blob shape — use with rounded-full for circular blobs or alone for
+// irregular shapes.
+.blob {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+
 // ============================================================================
 // BUILDS
 // ============================================================================

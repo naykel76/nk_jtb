@@ -9,8 +9,8 @@
 // -- Mixin to resolve color value from name --
 @function resolve-gradient-color($color-name) {
     // Check theme colors first
-    @if map.has-key($theme-colors, $color-name) {
-        @return map.get($theme-colors, $color-name);
+    @if map.has-key($semantic-colors, $color-name) {
+        @return map.get($semantic-colors, $color-name);
     }
     
     // Check base colors

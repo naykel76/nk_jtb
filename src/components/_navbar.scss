@@ -11,7 +11,8 @@
     display: flex;
     justify-content: space-between;
 
-    > ul > li {
+    > ul > li,
+    > * {
         margin-block-start: 0;
     }
 

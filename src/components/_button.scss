@@ -103,9 +103,25 @@
     }
 }
 
-@each $key, $color in map.merge($base-colors, $theme-colors) {
+@each $key, $color in $base-semantic-colors {
     .#{$button-prefix}.#{$key} {
         @include hover($color);
         @include active($color);
+    }
+}
+
+@each $theme-name, $color in $brand-colors {
+    .#{$button-prefix}.#{$theme-name} {
+        &:hover {
+            background-color: color-mix(in srgb, var(--#{$theme-name}), white 10%);
+            border-color: var(--#{$theme-name}-border);
+            color: var(--on-#{$theme-name});
+        }
+
+        &:active {
+            background-color: color-mix(in srgb, var(--#{$theme-name}), black 8%);
+            border-color: var(--#{$theme-name}-border);
+            color: var(--on-#{$theme-name});
+        }
     }
 }
