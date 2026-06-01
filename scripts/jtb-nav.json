@@ -30,6 +30,14 @@
             }
         ]
     },
+    "Colors and Themes": {
+        "links": [
+            {
+                "name": "Colors & Themes",
+                "route_name": "docs.jtb.colors-and-themes"
+            }
+        ]
+    },
     "Components": {
         "links": [
             {

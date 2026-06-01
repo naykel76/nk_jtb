@@ -39,14 +39,14 @@ works.
 
 ## CSS Custom Properties
 
-JTB uses CSS custom properties in two different ways:
+JTB exposes two categories of CSS custom properties at runtime:
 
-- selected component-level overrides such as `--box-border-color`
-- semantic runtime theme tokens for `primary`, `secondary`, and `accent`
+- **Brand theme tokens** — `primary`, `secondary`, and `accent` colors and their derived values
+- **Component tokens** — per-component overrides such as `--box-border-color`
 
-SCSS variables still set the framework defaults at build time. CSS custom
-properties provide the runtime override surface when you need to test or swap a
-theme without recompiling.
+SCSS variables set the framework defaults at build time. CSS custom properties
+provide the override surface when you need to swap a brand color without
+recompiling.
 
 ```html +code
 <div class="bx" style="--box-border-color: var(--primary); --box-title-font-size: 1.25rem;">
@@ -54,36 +54,44 @@ theme without recompiling.
 </div>
 ```
 
-Semantic theme classes and utilities for `primary`, `secondary`, and `accent`
-now read from CSS custom properties. That includes:
+### Brand Theme Tokens
 
-- `primary` and `primary-outline`
-- `bg-primary`, `txt-primary`, `bdr-primary`, and `outline-primary`
+JTB generates three CSS custom properties per brand color in `:root`:
+
+| Token              | Description                         |
+| ------------------ | ----------------------------------- |
+| `--primary`        | Background color                    |
+| `--primary-border` | Border color, derived at build time |
+| `--on-primary`     | Text color, derived at build time   |
+
+The same set is generated for `--secondary` and `--accent`.
+
+These tokens drive all brand theme classes and utilities:
+
+- `.primary` and `.primary-outline`
+- `.bg-primary`, `.txt-primary`, `.bdr-primary`, `.outline-primary`
 - the matching `secondary` and `accent` variants
 
-By default, JTB defines runtime tokens such as `--primary`, `--primary-hover`,
-`--primary-active`, `--primary-border`, and `--on-primary` in `:root`. Hover
-and active defaults are derived from the base token with `color-mix()`. Text
-and border contrast tokens still need explicit overrides when you change the
-base color significantly.
+### Overriding at Runtime
+
+To swap a brand color without recompiling, override the tokens in `:root`:
 
 ```scss +code
-[data-theme='layout-b'] {
+:root {
     --primary: oklch(62% 0.19 275deg);
-    --primary-border: rgb(255 255 255 / 0.2);
-    --on-primary: white;
+    --primary-border: oklch(50% 0.19 275deg);
+    --on-primary: #fff;
 }
 ```
 
-```html +code
-<section data-theme="layout-b">
-    <button class="btn primary">Primary action</button>
-    <div class="bx primary">Primary surface</div>
-    <p class="txt-primary">Semantic text utility</p>
-</section>
-```
+`--primary-border` and `--on-primary` are computed from the original `$primary`
+value at build time and will not update automatically when `--primary` changes.
+If your new color is in a similar lightness range, the original derived values
+may still be acceptable. If you change the color significantly, override all
+three.
 
-Not all variables are exposed this way. Structural values used in SCSS
-calculations remain SCSS-only, and hue-scale classes such as `bg-blue-500` or
-`teal` remain compile-time values. Each component doc lists which component
-custom properties are available.
+### What Does Not Respond to Runtime Override
+
+Hue-scale classes (`bg-blue-500`, `teal`), semantic theme classes (`danger`,
+`success`), and structural values used in SCSS calculations are compiled to
+fixed values and cannot be changed at runtime.

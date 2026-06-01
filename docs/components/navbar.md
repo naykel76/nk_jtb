@@ -1,17 +1,12 @@
 # Navbar (review)
 
-<p class="lead">Horizontal navigation container that provides layout for navigation menus. Works with the <a href="menu.md">menu component</a> to create responsive navigation bars.</p>
+<p class="lead">Horizontal navigation container with layout for navigation menus. Works with the <a href="/docs/jtb/components/menu">menu component</a> to create navigation bars.</p>
 
-## Using Component Classes (review)
+## Basic Usage
 
-### Basic Navbar (review)
+Apply the `navbar` class to a `<nav>` or wrapping element to create a horizontal navigation bar.
 
-- Make sure the `navbar` class is on the parent element. Why? The `navbar` class
-  sets the background color, padding, and flex layout for the entire navigation
-  bar. The `menu` class is just for the list of links.
-
-<!-- i am just putting a fex example to work out what i want, then some will be removed -->
-```html +preview
+```html +demo-folded class="bx example-jtb"
 <nav class="navbar">
     <ul class="menu">
         <li><a href="#">Home</a></li>
@@ -22,24 +17,9 @@
 </nav>
 ```
 
-```html +preview
-<div class="navbar">
-    <div class="container-sm">
-        <nav>
-            <ul class="menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
-</div>
-```
+## With Brand
 
-### With Brand (review)
-
-```html +demo-folded class="example-jtb"
+```html +demo-folded class="bx example-jtb"
 <nav class="navbar">
     <div class="font-bold">MyBrand</div>
     <ul class="menu">
@@ -50,9 +30,9 @@
 </nav>
 ```
 
-### With Brand and Actions (review)
+## With Brand and Actions
 
-```html +demo-folded class="example-jtb"
+```html +demo-folded class="bx example-jtb"
 <nav class="navbar">
     <div class="font-bold">MyBrand</div>
     <ul class="menu">
@@ -64,9 +44,9 @@
 </nav>
 ```
 
-### With Dropdown Menu (review)
+## With Dropdown
 
-```html +demo-folded class="example-jtb"
+```html +demo-folded class="bx example-jtb"
 <nav class="navbar">
     <div class="font-bold">MyBrand</div>
     <ul class="menu">
@@ -92,11 +72,21 @@
 </nav>
 ```
 
-## Using Utility Classes (review)
+## SCSS Variables
 
-### Basic Navbar (review)
+| Variable            | Default    | Controls         |
+| ------------------- | ---------- | ---------------- |
+| `$navbar-bg`        | `$primary` | Background color |
+| `$navbar-padding-x` | `1rem`     | Horizontal padding |
+| `$navbar-padding-y` | `0.75em`   | Vertical padding |
 
-```html +demo-folded class="example-utils"
+See [Variable System](/docs/jtb/variable-system) for override instructions.
+
+## Utility Examples
+
+### Basic
+
+```html +demo-folded class="bx example-utils"
 <nav class="flex items-center justify-between pxy">
     <ul class="flex gap-05">
         <li><a href="#">Home</a></li>
@@ -107,9 +97,9 @@
 </nav>
 ```
 
-### With Brand (review)
+### With Brand
 
-```html +demo-folded class="example-utils"
+```html +demo-folded class="bx example-utils"
 <nav class="flex items-center justify-between pxy">
     <div class="font-bold">MyBrand</div>
     <ul class="flex gap-05">
@@ -120,9 +110,9 @@
 </nav>
 ```
 
-### With Brand and Actions (review)
+### With Brand and Actions
 
-```html +demo-folded class="example-utils"
+```html +demo-folded class="bx example-utils"
 <nav class="flex items-center justify-between pxy">
     <div class="font-bold">MyBrand</div>
     <ul class="flex gap-05">
@@ -134,9 +124,9 @@
 </nav>
 ```
 
-### With Dropdown Menu (review)
+### With Dropdown
 
-```html +demo-folded class="example-utils"
+```html +demo-folded class="bx example-utils"
 <nav class="flex items-center justify-between pxy">
     <div class="font-bold">MyBrand</div>
     <ul class="flex gap-05">
@@ -151,14 +141,13 @@
                 </svg>
             </button>
             <div x-show="open" x-transition class="dropdown">
-                <ul class="flex flex-col gap-0">
-                    <li><a href="#" class="block px-075 py-05 hover:bg-gray-100">Electronics</a></li>
-                    <li><a href="#" class="block px-075 py-05 hover:bg-gray-100">Clothing</a></li>
-                    <li><a href="#" class="block px-075 py-05 hover:bg-gray-100">Books</a></li>
+                <ul class="menu">
+                    <li><a href="#">Electronics</a></li>
+                    <li><a href="#">Clothing</a></li>
+                    <li><a href="#">Books</a></li>
                 </ul>
             </div>
         </li>
     </ul>
 </nav>
 ```
-

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <title>Home — Aurora</title>
+</head>
+
+<body>
+
+    <style>
+        :root {
+            --primary: oklch(60.6% 0.25 292.717deg);
+        }
+    </style>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         EXAMPLE 1: AURORA
+         Dark gradient hero with floating blob shapes and swirl decoration
+         ═══════════════════════════════════════════════════════════════ -->
+
+    <nav class="navbar bg-slate-900">
+        <div class="container">
+            <a href="#" class="flex items-center gap-1">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                    <circle cx="14" cy="14" r="14" fill="oklch(60.6% 0.25 292.717deg)" />
+                    <path d="M8 20 L14 8 L20 20 M10.5 16 H17.5" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span class="txt-white font-bold tracking-tight">Luminary</span>
+            </a>
+            <ul class="menu">
+                <li><a href="#" class="txt-gray-400">Features</a></li>
+                <li><a href="#" class="txt-gray-400">Pricing</a></li>
+                <li><a href="#" class="txt-gray-400">Docs</a></li>
+                <li><a href="#" class="txt-gray-400">Blog</a></li>
+            </ul>
+            <div class="flex gap-1">
+                <button class="btn sm">Sign in</button>
+                <button class="btn sm primary">Get Started</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="ex-hero bg-linear-to-br from-violet-950 to-indigo-900 relative overflow-hidden flex flex-col items-center justify-center pxy-4">
+
+        <!-- Blob shapes — organic border-radius via local helper -->
+        <div class="blob shape-tl absolute wh-30 bg-violet-500 opacity-20"></div>
+        <div class="blob-2 shape-br absolute wh-24 bg-indigo-400 opacity-20"></div>
+        <div class="rounded-full shape-mid-r absolute wh-16 bg-fuchsia-500 opacity-10"></div>
+        <div class="rounded-full shape-mid-l absolute wh-10 bg-sky-400 opacity-10"></div>
+
+        <!-- SVG swirl -->
+        <svg class="swirl-deco absolute opacity-10" width="600" height="600" viewBox="0 0 600 600" fill="none" aria-hidden="true">
+            <path d="M300 300 C300 200, 450 200, 450 300 C450 400, 300 400, 300 300 C300 150, 500 150, 500 300 C500 450, 250 500, 200 350 C150 200, 350 100, 450 200" stroke="white" stroke-width="1.5" fill="none" />
+            <path d="M300 300 C250 250, 200 300, 200 350 C200 420, 280 450, 350 420 C420 390, 460 320, 430 250 C400 180, 320 160, 260 200 C180 250, 160 360, 220 420 C280 480, 400 460, 450 380" stroke="white" stroke-width="1" fill="none" opacity="0.6" />
+        </svg>
+
+        <!-- Content -->
+        <div class="relative tac ex-hero-content">
+            <span class="txt-violet-300 txt-sm font-semibold tracking-widest uppercase">Platform &middot; 2025</span>
+            <h1 class="txt-white font-black lh-tight txt-4">Build beyond<br>ordinary limits</h1>
+            <p class="txt-indigo-200 lead">The design framework that lets you move fast without breaking things. Clean utilities, beautiful defaults, zero compromise.</p>
+            <div class="flex justify-center gap-1">
+                <button class="btn lg primary">Start for free</button>
+                <button class="btn lg">See the docs</button>
+            </div>
+        </div>
+
+        <!-- Bottom fade -->
+        <div class="absolute bottom-0 left-0 w-full ex-fade-bottom"></div>
+    </div>
+
+    <div class="ex-spacer bg-slate-900"></div>
+
+    <script type="module" src="/main.js"></script>
+
+    <style>
+        /* --- Hero sizing ------------------------------------------ */
+        .ex-hero {
+            min-height: 88vh;
+            padding-block: 6rem 4rem;
+        }
+
+        .ex-spacer {
+            height: 2rem;
+        }
+
+        /* --- Content max-widths ------------------------------------ */
+        .ex-hero-content {
+            max-width: 44rem;
+        }
+
+        /* --- Bottom fade overlay ----------------------------------- */
+        .ex-fade-bottom {
+            height: 6rem;
+            background: linear-gradient(to bottom, transparent, rgb(15 10 40 / 60%));
+        }
+
+        /* --- Blob border-radius ------------------------------------ */
+        .blob {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+
+        .blob-2 {
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        }
+
+        /* --- Blob positions --------------------------------------- */
+        .shape-tl {
+            top: -8rem;
+            inset-inline-start: -8rem;
+        }
+
+        .shape-br {
+            bottom: -10rem;
+            inset-inline-end: -6rem;
+        }
+
+        .shape-mid-r {
+            top: 25%;
+            inset-inline-end: 6%;
+        }
+
+        .shape-mid-l {
+            bottom: 20%;
+            inset-inline-start: 8%;
+        }
+
+        /* SVG swirl position */
+        .swirl-deco {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        /* --- gap-05 fallback (sub-1 rem class name) --------------- */
+        .gap-05 {
+            gap: 0.5rem;
+        }
+    </style>
+
+</body>
+
+</html>

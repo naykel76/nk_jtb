@@ -249,7 +249,8 @@ a doc is confirmed accurate or a utility is completed.
 | `automatic-spacing.md`                     | ✅       |                                                                                        |
 | `conventions-and-architecture-rules.md`    | review  |                                                                                        |
 | `magic-classes.md`                         | ✅       |                                                                                        |
-| `themes.md`                                | review  |                                                                                        |
+| `colors-and-themes.md`                     | ✅       | Merged from color-system.md + themes.md                                                |
+| `customizing-themes.md`                    | stub    |                                                                                        |
 | `state-management.md`                      | review  |                                                                                        |
 | `variable-system.md`                       | ✅       |                                                                                        |
 
@@ -306,6 +307,7 @@ Files parked in `docs/review/` — purpose or audience unclear.
 
 | File                                  | Status | Notes                                               |
 | ------------------------------------- | ------ | --------------------------------------------------- |
+| `utilities/colors.md`                 | stub   |                                                     |
 | `utilities/border.md`                 | review | Border, outline, and divider utilities              |
 | `utilities/typography.md`             | review | New — needs review pass                             |
 | `utilities/animation.md`              | ✅      |                                                                                 |

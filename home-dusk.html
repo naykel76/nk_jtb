@@ -10,12 +10,20 @@
 
 <body>
 
+    <style>
+        :root {
+            --primary: oklch(60.6% 0.25 292.717deg);
+        }
+    </style>
+
     <!-- ═══════════════════════════════════════════════════════════════
+         EXAMPLE 3: DUSK
          Cinematic dark image hero with frosted glass nav and wave divider
          ═══════════════════════════════════════════════════════════════ -->
 
     <div class="relative">
-        <nav class="navbar glass absolute top-0 left-0 w-full z-above">
+        <!-- Nav sits inside hero to overlay it -->
+        <nav class="navbar-glass navbar absolute top-0 left-0 w-full z-above">
             <div class="container">
                 <a href="#" class="flex items-center gap-1">
                     <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
@@ -31,18 +39,20 @@
                     <li><a href="#" class="txt-white opacity-80">Journal</a></li>
                     <li><a href="#" class="txt-white opacity-80">Contact</a></li>
                 </ul>
-                <button class="btn sm glass">Login</button>
+                <button class="btn sm" style="background: rgb(255 255 255 / 15%); border-color: rgb(255 255 255 / 30%); color: white;">
+                    Start a project
+                </button>
             </div>
         </nav>
 
         <!-- Hero — gradient stands in for background image -->
-        <div class="hero">
+        <div class="ex-hero-dusk bg-linear-to-br from-slate-900 to-indigo-950 relative overflow-hidden">
 
             <!-- "Photo" texture shapes -->
             <div class="absolute inset-0 overflow-hidden">
-                <div class="rounded-full hero-blob hero-blob-1 bg-primary opacity-30"></div>
-                <div class="rounded-full hero-blob hero-blob-2 bg-primary opacity-40"></div>
-                <div class="blob hero-blob hero-blob-3 bg-primary opacity-20"></div>
+                <div class="rounded-full absolute photo-blob-1 bg-violet-800 opacity-30"></div>
+                <div class="rounded-full absolute photo-blob-2 bg-blue-900 opacity-40"></div>
+                <div class="blob absolute photo-blob-3 bg-indigo-800 opacity-20"></div>
             </div>
 
             <!-- Light streaks SVG -->
@@ -63,14 +73,14 @@
             </svg>
 
             <!-- Content -->
-            <div class="container hero-content">
-                <div class="hero-text">
-                    <span class="txt-sm font-semibold tracking-widest uppercase" style="color: var(--primary-light);">Creative Studio</span>
-                    <h1 class="txt-white font-black lh-tight txt-4">We craft digital<br>experiences that<br><em style="color: var(--primary-light);">endure.</em></h1>
-                    <p class="lead" style="color: var(--primary-light);">Award-winning design and engineering for brands that refuse to be ordinary.</p>
+            <div class="container ex-dusk-content relative">
+                <div class="ex-dusk-text">
+                    <span class="txt-indigo-300 txt-sm font-semibold tracking-widest uppercase">Creative Studio</span>
+                    <h1 class="txt-white font-black lh-tight txt-4">We craft digital<br>experiences that<br><em class="txt-violet-300">endure.</em></h1>
+                    <p class="txt-indigo-200 lead">Award-winning design and engineering for brands that refuse to be ordinary.</p>
                     <div class="flex gap-1">
                         <button class="btn lg primary">View our work</button>
-                        <button class="btn lg glass">
+                        <button class="btn lg" style="background: rgb(255 255 255 / 10%); border-color: rgb(255 255 255 / 20%); color: white;">
                             Our process
                         </button>
                     </div>
@@ -81,21 +91,39 @@
             <svg class="wave-bottom" viewBox="0 0 1440 100" fill="none" preserveAspectRatio="none" aria-hidden="true">
                 <path d="M0 100 L0 60 Q200 20 400 50 Q600 80 800 40 Q1000 0 1200 30 Q1320 50 1440 20 L1440 100Z" fill="white" opacity="0.05" />
                 <path d="M0 100 L0 70 Q300 30 600 60 Q900 90 1200 50 Q1320 35 1440 40 L1440 100Z" fill="white" opacity="0.05" />
-                <path d="M0 100 L0 85 Q360 55 720 75 Q1080 95 1440 65 L1440 100Z" style="fill: var(--primary-dark);" />
+                <path d="M0 100 L0 85 Q360 55 720 75 Q1080 95 1440 65 L1440 100Z" fill="rgb(15 23 42)" />
             </svg>
         </div>
     </div>
 
+    <div class="ex-spacer bg-slate-950"></div>
 
     <script type="module" src="/main.js"></script>
 
     <style>
-        /* --- Hero background ------------------------------------------ */
-        .hero {
-            background: linear-gradient(to bottom right, var(--primary-dark), var(--primary));
+        /* --- Hero sizing ------------------------------------------ */
+        .ex-hero-dusk {
+            min-height: 90vh;
+            padding-block: 6rem 5rem;
         }
 
+        .ex-spacer {
+            height: 2rem;
+        }
 
+        /* --- Content max-widths ------------------------------------ */
+        .ex-dusk-text {
+            max-width: 36rem;
+        }
+
+        .ex-dusk-content {
+            padding-block: 8rem 6rem;
+        }
+
+        /* --- Blob border-radius ------------------------------------ */
+        .blob {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
 
         /* SVG swirl position */
         .swirl-dusk {
@@ -105,7 +133,40 @@
             pointer-events: none;
         }
 
+        /* --- Photo blobs ------------------------------------------ */
+        .photo-blob-1 {
+            width: 40rem;
+            height: 40rem;
+            top: -10rem;
+            right: -8rem;
+        }
 
+        .photo-blob-2 {
+            width: 30rem;
+            height: 30rem;
+            bottom: -5rem;
+            left: -5rem;
+        }
+
+        .photo-blob-3 {
+            width: 20rem;
+            height: 20rem;
+            top: 30%;
+            right: 20%;
+        }
+
+        /* --- Frosted glass navbar ---------------------------------- */
+        .navbar-glass {
+            background: rgb(255 255 255 / 8%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgb(255 255 255 / 10%);
+        }
+
+        /* Override .navbar component background for glass variant */
+        nav.navbar.navbar-glass {
+            background: rgb(255 255 255 / 8%);
+        }
 
         /* --- Wave divider ----------------------------------------- */
         .wave-bottom {
@@ -114,6 +175,11 @@
             left: 0;
             width: 100%;
             height: 100px;
+        }
+
+        /* --- gap-05 fallback (sub-1 rem class name) --------------- */
+        .gap-05 {
+            gap: 0.5rem;
         }
     </style>
 

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <title>Home — Clarity</title>
+</head>
+
+<body>
+
+    <style>
+        :root {
+            --primary: oklch(60.6% 0.25 292.717deg);
+        }
+    </style>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         EXAMPLE 2: CLARITY
+         Light split hero with geometric shapes on the right
+         ═══════════════════════════════════════════════════════════════ -->
+
+    <nav class="navbar bg-white shadow-sm">
+        <div class="container">
+            <a href="#" class="flex items-center gap-1">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <rect x="2" y="2" width="9" height="9" rx="2" fill="oklch(62.3% 0.214 259.815deg)" />
+                    <rect x="13" y="2" width="9" height="9" rx="2" fill="oklch(70.2% 0.183 293.541deg)" opacity="0.6" />
+                    <rect x="2" y="13" width="9" height="9" rx="2" fill="oklch(70.2% 0.183 293.541deg)" opacity="0.6" />
+                    <rect x="13" y="13" width="9" height="9" rx="2" fill="oklch(62.3% 0.214 259.815deg)" />
+                </svg>
+                <span class="txt-slate-900 font-bold">Nexus</span>
+            </a>
+            <ul class="menu">
+                <li><a href="#" class="txt-gray-600">Product</a></li>
+                <li><a href="#" class="txt-gray-600">Solutions</a></li>
+                <li><a href="#" class="txt-gray-600">Enterprise</a></li>
+                <li><a href="#" class="txt-gray-600">Pricing</a></li>
+            </ul>
+            <div class="flex gap-1 items-center">
+                <a href="#" class="txt-gray-600 txt-sm">Log in</a>
+                <button class="btn sm primary">Book a demo</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="ex-hero bg-gray-50 relative overflow-hidden flex items-center">
+        <div class="container">
+            <div class="grid cols-2 items-center ex-hero-grid-gap">
+
+                <!-- Left: content -->
+                <div>
+                    <div class="flex items-center gap-05 ex-badge-row">
+                        <span class="badge primary">New</span>
+                        <span class="txt-sm txt-gray-600">v3.0 is here — <a href="#" class="txt-primary">read the changelog</a></span>
+                    </div>
+                    <h1 class="txt-slate-900 font-black lh-tight txt-3">The platform teams<br>actually love using</h1>
+                    <p class="lead txt-gray-600">Ship faster with infrastructure that gets out of your way. Built for teams who care about developer experience.</p>
+                    <div class="flex gap-1 items-center">
+                        <button class="btn lg primary">Get started free</button>
+                        <a href="#" class="flex items-center gap-05 txt-gray-600 txt-sm">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <circle cx="8" cy="8" r="7.5" stroke="currentColor" stroke-width="1" />
+                                <path d="M6 5.5 L10.5 8 L6 10.5Z" fill="currentColor" />
+                            </svg>
+                            Watch 2 min demo
+                        </a>
+                    </div>
+                    <p class="txt-xs txt-muted">No credit card required &middot; 14-day free trial &middot; Cancel anytime</p>
+                </div>
+
+                <!-- Right: geometric decoration -->
+                <div class="relative ex-shapes-panel">
+                    <!-- Background ring -->
+                    <div class="rounded-full absolute geo-ring bg-blue-50 bdr bdr-blue-200"></div>
+                    <div class="rounded-full absolute geo-ring-inner bdr-2 bdr-blue-100" style="border-style: dashed;"></div>
+
+                    <!-- Floating cards -->
+                    <div class="bx shadow-lg absolute geo-card-1 ex-geo-card">
+                        <div class="flex items-center gap-05">
+                            <div class="rounded-full wh-2 bg-green-500"></div>
+                            <span class="txt-sm font-semibold txt-slate-900">Deploy successful</span>
+                        </div>
+                        <p class="txt-xs txt-muted">production &middot; 2s ago</p>
+                    </div>
+
+                    <div class="bx shadow-lg absolute geo-card-2 ex-geo-card">
+                        <span class="txt-xs txt-muted uppercase tracking-wider font-semibold">Uptime</span>
+                        <div class="flex items-center gap-05">
+                            <span class="txt-2 font-black txt-slate-900">99.9%</span>
+                        </div>
+                    </div>
+
+                    <div class="bx shadow-lg absolute geo-card-3 ex-geo-card">
+                        <span class="txt-xs txt-muted uppercase tracking-wider font-semibold">Team members</span>
+                        <div class="flex items-center">
+                            <div class="rounded-full wh-2 bg-violet-400 bdr-2 bdr-white" style="margin-inline-start: -0.25rem;"></div>
+                            <div class="rounded-full wh-2 bg-sky-400 bdr-2 bdr-white" style="margin-inline-start: -0.25rem;"></div>
+                            <div class="rounded-full wh-2 bg-emerald-400 bdr-2 bdr-white" style="margin-inline-start: -0.25rem;"></div>
+                            <div class="rounded-full wh-2 bg-rose-400 bdr-2 bdr-white" style="margin-inline-start: -0.25rem;"></div>
+                            <span class="txt-xs txt-muted mx-0.5">+14 more</span>
+                        </div>
+                    </div>
+
+                    <!-- Central shape -->
+                    <div class="geo-center rounded-xl bg-linear-to-br from-blue-500 to-violet-600 shadow-xl flex flex-col items-center justify-center absolute tac pxy-3">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                            <path d="M24 4 L44 24 L24 44 L4 24Z" fill="white" opacity="0.2" />
+                            <path d="M24 12 L36 24 L24 36 L12 24Z" fill="white" opacity="0.4" />
+                            <circle cx="24" cy="24" r="6" fill="white" />
+                        </svg>
+                        <span class="txt-white font-bold txt-sm">Nexus Core</span>
+                    </div>
+
+                    <!-- Swirl SVG -->
+                    <svg class="geo-swirl absolute opacity-20" width="300" height="300" viewBox="0 0 300 300" fill="none" aria-hidden="true">
+                        <path d="M150 150 Q200 100 250 150 Q200 200 150 150 Q100 100 50 150 Q100 200 150 150" stroke="oklch(62.3% 0.214 259.815deg)" stroke-width="2" fill="none" />
+                        <path d="M150 150 Q220 80 290 150 Q220 220 150 150 Q80 80 10 150 Q80 220 150 150" stroke="oklch(62.3% 0.214 259.815deg)" stroke-width="1.5" fill="none" opacity="0.6" />
+                        <path d="M150 150 Q230 60 310 150" stroke="oklch(70.2% 0.183 293.541deg)" stroke-width="1" fill="none" opacity="0.5" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom wave -->
+        <svg class="wave-bottom" viewBox="0 0 1440 80" fill="none" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 80 L0 40 Q360 0 720 40 Q1080 80 1440 40 L1440 80Z" fill="white" />
+        </svg>
+    </div>
+
+    <div class="ex-spacer bg-white"></div>
+
+    <script type="module" src="/main.js"></script>
+
+    <style>
+        /* --- Hero sizing ------------------------------------------ */
+        .ex-hero {
+            min-height: 88vh;
+            padding-block: 6rem 4rem;
+        }
+
+        .ex-spacer {
+            height: 2rem;
+        }
+
+        /* --- Shapes panel ----------------------------------------- */
+        .ex-hero-grid-gap {
+            gap: 4rem;
+            min-height: 85vh;
+            padding-block: 6rem 3rem;
+        }
+
+        .ex-shapes-panel {
+            height: 32rem;
+        }
+
+        .geo-ring {
+            width: 28rem;
+            height: 28rem;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .geo-ring-inner {
+            width: 20rem;
+            height: 20rem;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .geo-center {
+            width: 10rem;
+            height: 10rem;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .ex-geo-card {
+            min-width: 11rem;
+        }
+
+        .geo-card-1 {
+            top: 10%;
+            left: -2rem;
+        }
+
+        .geo-card-2 {
+            bottom: 15%;
+            left: 2rem;
+        }
+
+        .geo-card-3 {
+            top: 15%;
+            right: -1rem;
+        }
+
+        .geo-swirl {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        /* --- Wave divider ----------------------------------------- */
+        .wave-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+        }
+
+        /* --- gap-05 fallback (sub-1 rem class name) --------------- */
+        .gap-05 {
+            gap: 0.5rem;
+        }
+
+        .mx-0\.5 {
+            margin-inline: 0.25rem;
+        }
+    </style>
+
+</body>
+
+</html>
