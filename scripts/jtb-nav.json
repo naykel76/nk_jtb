@@ -20,7 +20,7 @@
                 "route_name": "docs.jtb.automatic-spacing"
             },
             {
-                "name": "Layout & Structures",
+                "name": "Layouts & Structures Overview",
                 "route_name": "docs.jtb.layouts-and-structures",
                 "icon": "book-open"
             },
@@ -53,6 +53,10 @@
                 "route_name": "docs.jtb.components.list"
             },
             {
+                "name": "Menu (wip)",
+                "route_name": "docs.jtb.components.menu"
+            },
+            {
                 "name": "Loaders and Spinners (wip)",
                 "route_name": "docs.jtb.components.loaders-and-spinners"
             }
@@ -71,6 +75,14 @@
             {
                 "name": "Position (wip)",
                 "route_name": "docs.jtb.utilities.position"
+            }
+        ]
+    },
+    "Layouts": {
+        "links": [
+            {
+                "name": "Sidebar + Main (wip)",
+                "route_name": "docs.jtb.layouts.layout-sidebar-main"
             }
         ]
     },

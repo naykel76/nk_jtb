@@ -1,10 +1,12 @@
 # Menu (review)
 
-<p class="lead">The <code>.menu</code> class creates vertical navigation lists with automatic styling for links, buttons, icons, and states. No item classes required, just add links to the list.</p>
+The `.menu` class creates vertical navigation lists with automatic styling for
+links, buttons, icons, and states. No item classes required — just add links to
+the list.
 
 ## Structure (review)
 
-Apply `.menu` to a `<ul>` element. The `<nav>` is just a container, the menu
+Apply `.menu` to a `<ul>` element. The `<nav>` is just a container; the menu
 itself is the list.
 
 ```html +code
@@ -15,15 +17,10 @@ itself is the list.
 </nav>
 ```
 
-> **This structure is important:** Keeping the container (`<nav>`) separate from
-> the component (`<ul class="menu">`) gives you flexibility to switch between
-> vertical and horizontal layouts, nest menus, and use the menu component
-> anywhere—sidebars, dropdowns, or navbars.
-
 ## Basic Usage (review)
 
-```html +demo-folded
-<nav class="bx">
+```html +demo-folded class="bx example-jtb"
+<nav>
     <ul class="menu">
         <li> 
             <a href="#"> <svg class="svg-icon-pink"></svg> Item </a> 
@@ -54,11 +51,11 @@ itself is the list.
 
 ### Adding Icons (review)
 
-Icons work automatically, just add them inside links or buttons. Spacing and
+Icons work automatically — just add them inside links or buttons. Spacing and
 alignment are handled by the `.menu` class.
 
-```html +demo-folded class="bx"
-<nav class="bg-white">
+```html +demo-folded class="bx example-jtb"
+<nav>
     <ul class="menu">
         <li>
             <a href="#"> 
@@ -72,9 +69,10 @@ alignment are handled by the `.menu` class.
 
 ### Section titles (`.menu-title`) (review)
 
-Use `.menu-title` for non-clickable labels that group menu items (e.g. “Account”, “Settings”). Place it inside the same `<ul class="menu">` as a sibling to `<li>` elements.
+Use `.menu-title` for non-clickable labels that group menu items. Place it
+inside the same `<ul class="menu">` as a sibling to `<li>` elements.
 
-```html
+```html +code
 <ul class="menu">
     <li class="menu-title">Section</li>
     <li><a href="#">Item</a></li>
@@ -83,19 +81,31 @@ Use `.menu-title` for non-clickable labels that group menu items (e.g. “Accoun
 
 ### Underline variant (`.link-underline`) (review)
 
-Add `.link-underline` to the menu element to replace the hover background with a sliding left-to-right underline on links and buttons. Use with `.menu`: e.g. `<ul class="menu link-underline">`.
+Add `.link-underline` to the menu element to replace the hover background with
+a sliding left-to-right underline on links and buttons.
 
-### Chevron rotation (`.chevron` / `.chevron.open`) (review)
+```html +code
+<ul class="menu link-underline">
+    <li><a href="#">Item</a></li>
+</ul>
+```
 
-For parent items that expand/collapse, add `.chevron` to the icon (e.g. the caret SVG). Toggle the `.open` class when the submenu is open so the chevron rotates 180°.
+### Chevron rotation (`.chevron`) (review)
+
+Add `.chevron` to a toggle icon. Toggle `.open` on it when the submenu is open
+to rotate the icon 180°.
+
+```html +code
+<svg class="chevron" :class="{ open: open }">...</svg>
+```
 
 ### Parent Items (review)
 
-Parent items use buttons to toggle child menus. Works for nested navigation or
-dropdowns. Uses Alpine.js for toggle behavior.
+Parent items use buttons to toggle child menus. Uses Alpine.js for toggle
+behaviour.
 
-```html +demo-folded class="bx"
-<nav class="bg-white">
+```html +demo-folded class="bx example-jtb"
+<nav>
     <ul class="menu">
         <li class="relative" x-data="{ open: false }" x-on:click.outside="open = false" x-on:keydown.escape="open = false">
             <button x-on:click="open = ! open">
@@ -123,10 +133,23 @@ dropdowns. Uses Alpine.js for toggle behavior.
 </nav>
 ```
 
+## SCSS Variables (review)
+
+| Variable                      | Default                                    | Description                  |
+| ----------------------------- | ------------------------------------------ | ---------------------------- |
+| `$menu-padding-x`             | `0.75rem`                                  | Horizontal item padding      |
+| `$menu-padding-y`             | `0.5rem`                                   | Vertical item padding        |
+| `$menu-icon-size`             | `1.25rem`                                  | Icon width and height        |
+| `$menu-hover-bg`              | `gray-100`                                 | Item hover background        |
+| `$menu-link-hover-color`      | `$primary`                                 | Item hover and active colour |
+| `$menu-link-underline-color`  | `$primary`                                 | Underline variant colour     |
+
+See [Variable System](/docs/jtb/variable-system) for override instructions.
+
 ## Utility Examples (review)
 
-```html +demo-folded
-<nav class="bx">
+```html +demo-folded class="bx example-utils"
+<nav>
     <ul class="txt-sm">
         <li>
             <a href="#" class="flex items-center gap-075 px-075 py-05 rounded-lg txt-gray-600 hover:bg-gray-100">
@@ -162,4 +185,3 @@ dropdowns. Uses Alpine.js for toggle behavior.
     </ul>
 </nav>
 ```
-

@@ -39,14 +39,14 @@ works.
 
 ## CSS Custom Properties
 
-JTB exposes two categories of CSS custom properties at runtime:
+JTB exposes CSS custom properties for direct CSS use:
 
-- **Brand theme tokens** — `primary`, `secondary`, and `accent` colors and their derived values
+- **Brand helper tokens** — `primary`, `secondary`, and `accent` colors and their derived values
 - **Component tokens** — per-component overrides such as `--box-border-color`
 
-SCSS variables set the framework defaults at build time. CSS custom properties
-provide the override surface when you need to swap a brand color without
-recompiling.
+SCSS variables and maps generate the framework classes at build time. CSS custom
+properties are a runtime convenience layer for components or custom CSS that
+read those variables directly.
 
 ```html +code
 <div class="bx" style="--box-border-color: var(--primary); --box-title-font-size: 1.25rem;">
@@ -54,44 +54,42 @@ recompiling.
 </div>
 ```
 
-### Brand Theme Tokens
+### Brand Helper Tokens
 
-JTB generates three CSS custom properties per brand color in `:root`:
+JTB exposes brand CSS custom properties in `:root`:
 
 | Token              | Description                         |
 | ------------------ | ----------------------------------- |
 | `--primary`        | Background color                    |
-| `--primary-border` | Border color, derived at build time |
+| `--primary-border` | Border color, derived from `--primary` |
 | `--on-primary`     | Text color, derived at build time   |
 
-The same set is generated for `--secondary` and `--accent`.
+The same pattern is available for `--secondary` and `--accent`, with additional
+derived helpers such as `--primary-surface` for custom CSS.
 
-These tokens drive all brand theme classes and utilities:
+Brand classes and utilities are generated from Sass maps at build time:
 
 - `.primary` and `.primary-outline`
 - `.bg-primary`, `.txt-primary`, `.bdr-primary`, `.outline-primary`
 - the matching `secondary` and `accent` variants
 
-### Overriding at Runtime
+### Overriding Brand Colors
 
-To swap a brand color without recompiling, override the tokens in `:root`:
+To change brand colors across generated classes, override the Sass variables
+before build:
 
 ```scss +code
-:root {
-    --primary: oklch(62% 0.19 275deg);
-    --primary-border: oklch(50% 0.19 275deg);
-    --on-primary: #fff;
-}
+@forward 'jtb/src/maps_and_variables/index' with (
+    $primary: oklch(62% 0.19 275deg)
+);
 ```
 
-`--primary-border` and `--on-primary` are computed from the original `$primary`
-value at build time and will not update automatically when `--primary` changes.
-If your new color is in a similar lightness range, the original derived values
-may still be acceptable. If you change the color significantly, override all
-three.
+Overriding `--primary` in CSS only affects custom CSS or components that read
+`var(--primary)` directly. It does not regenerate `.primary`, `.bg-primary`, or
+other compiled classes.
 
 ### What Does Not Respond to Runtime Override
 
 Hue-scale classes (`bg-blue-500`, `teal`), semantic theme classes (`danger`,
-`success`), and structural values used in SCSS calculations are compiled to
-fixed values and cannot be changed at runtime.
+`success`), brand theme classes (`primary`), and structural values used in SCSS
+calculations are compiled to fixed values and cannot be changed at runtime.
