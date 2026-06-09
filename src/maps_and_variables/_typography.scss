@@ -31,7 +31,7 @@ $letter-spacing-map: (
 ) !default;
 
 // -- Text Colors --
-$text-color-map: smart-merge($base-colors, $oklch-colors) !default;
+$text-color-map: smart-merge($base-brand-semantic-colors, $oklch-colors) !default;
 
 // -- Font Sizes --
 $font-size-map: list-to-map((1, 1.5, 2, 2.25, 2.5, 3, 3.75, 4)) !default;

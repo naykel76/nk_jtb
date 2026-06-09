@@ -5,118 +5,59 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
-    <title>Home — Dusk</title>
+    <title>Home</title>
 </head>
 
 <body>
 
-    <!-- ═══════════════════════════════════════════════════════════════
-         Cinematic dark image hero with frosted glass nav and wave divider
-         ═══════════════════════════════════════════════════════════════ -->
+    <p class="txt-primary">Lorem ipsum dolor sit amet consectetur adipisicing elit. In incidunt quos, sint totam reprehenderit quis, assumenda velit optio nisi distinctio adipisci! Facilis, laborum perferendis? Necessitatibus reiciendis alias maiores et vitae!</p>
+    <p class="txt-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. In incidunt quos, sint totam reprehenderit quis, assumenda velit optio nisi distinctio adipisci! Facilis, laborum perferendis? Necessitatibus reiciendis alias maiores et vitae!</p>
+    <p class="txt-accent">Lorem ipsum dolor sit amet consectetur adipisicing elit. In incidunt quos, sint totam reprehenderit quis, assumenda velit optio nisi distinctio adipisci! Facilis, laborum perferendis? Necessitatibus reiciendis alias maiores et vitae!</p>
+    <div class="flex h-screen overflow-hidden">
+        <aside class="w-16 fs-0 flex-col bg-slate-900">
+            <header class="pxy-075 bdr-b bdr-slate-700">
+                <div class="h-2 bg-slate-600 rounded"></div>
+            </header>
 
-    <div class="relative">
-        <nav class="navbar glass absolute top-0 left-0 w-full z-above">
-            <div class="container">
-                <a href="#" class="flex items-center gap-1">
-                    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
-                        <circle cx="13" cy="13" r="13" fill="white" opacity="0.15" />
-                        <path d="M7 13 Q13 5 19 13 Q13 21 7 13Z" fill="white" opacity="0.8" />
-                        <circle cx="13" cy="13" r="3" fill="white" />
-                    </svg>
-                    <span class="txt-white font-bold tracking-tight">Arcadia</span>
-                </a>
-                <ul class="menu">
-                    <li><a href="#" class="txt-white opacity-80">Work</a></li>
-                    <li><a href="#" class="txt-white opacity-80">Studio</a></li>
-                    <li><a href="#" class="txt-white opacity-80">Journal</a></li>
-                    <li><a href="#" class="txt-white opacity-80">Contact</a></li>
-                </ul>
-                <button class="btn sm glass">Login</button>
-            </div>
-        </nav>
-
-        <!-- Hero — gradient stands in for background image -->
-        <div class="hero">
-
-            <!-- "Photo" texture shapes -->
-            <div class="absolute inset-0 overflow-hidden">
-                <div class="rounded-full hero-blob hero-blob-1 bg-primary opacity-30"></div>
-                <div class="rounded-full hero-blob hero-blob-2 bg-primary opacity-40"></div>
-                <div class="blob hero-blob hero-blob-3 bg-primary opacity-20"></div>
+            <div class="flex-1 overflow-y-auto pxy-075 space-y">
+                <div class="h-24 bg-slate-700 rounded"></div>
+                <div class="h-24 bg-slate-700 rounded"></div>
+                <div class="h-24 bg-slate-700 rounded"></div>
             </div>
 
-            <!-- Light streaks SVG -->
-            <svg class="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
-                <line x1="0" y1="700" x2="600" y2="0" stroke="white" stroke-width="1.5" />
-                <line x1="200" y1="700" x2="800" y2="0" stroke="white" stroke-width="0.75" />
-                <line x1="600" y1="700" x2="1100" y2="0" stroke="white" stroke-width="1" />
-                <line x1="900" y1="700" x2="1400" y2="100" stroke="white" stroke-width="0.5" />
-                <ellipse cx="700" cy="200" rx="300" ry="150" stroke="white" stroke-width="0.5" />
-            </svg>
+            <footer class="pxy-075 bdr-t bdr-slate-700">
+                <div class="h-2 bg-slate-600 rounded"></div>
+            </footer>
+        </aside>
 
-            <!-- Swirl overlay -->
-            <svg class="absolute swirl-dusk opacity-10" width="800" height="800" viewBox="0 0 800 800" fill="none" aria-hidden="true">
-                <path d="M400 400 C400 200, 650 200, 650 400 C650 600, 400 600, 400 400 C400 100, 750 100, 750 400 C750 700, 300 750, 200 500 C100 250, 450 100, 600 250" stroke="white" stroke-width="2" fill="none" />
-                <path d="M400 400 C350 350, 250 400, 250 500 C250 620, 370 660, 500 620 C630 580, 680 470, 640 350 C600 230, 470 200, 370 270 C250 360, 220 520, 320 620" stroke="white" stroke-width="1.2" fill="none" opacity="0.5" />
-                <circle cx="400" cy="400" r="180" stroke="white" stroke-width="0.5" opacity="0.3" />
-                <circle cx="400" cy="400" r="280" stroke="white" stroke-width="0.5" opacity="0.2" />
-            </svg>
+        <main class="flex-1 flex-col bg-gray-200">
+            <header class="pxy-1 bdr-b bdr-gray-300 bg-white">
+                <div class="h-2 bg-gray-300 rounded"></div>
+            </header>
 
-            <!-- Content -->
-            <div class="container hero-content">
-                <div class="hero-text">
-                    <span class="txt-sm font-semibold tracking-widest uppercase" style="color: var(--primary-light);">Creative Studio</span>
-                    <h1 class="txt-white font-black lh-tight txt-4">We craft digital<br>experiences that<br><em style="color: var(--primary-light);">endure.</em></h1>
-                    <p class="lead" style="color: var(--primary-light);">Award-winning design and engineering for brands that refuse to be ordinary.</p>
-                    <div class="flex gap-1">
-                        <button class="btn lg primary">View our work</button>
-                        <button class="btn lg glass">
-                            Our process
-                        </button>
-                    </div>
+            <div class="flex-1 overflow-y-auto">
+                <div class="container-md py space-y">
+                    <div class="bx h-10"></div>
+                    <div class="bx h-10"></div>
+                    <div class="bx h-10"></div>
+                    <div class="bx h-10"></div>
+                    <div class="bx h-10"></div>
+                    <div class="bx h-10"></div>
+                    <div class="bx h-10"></div>
+                    <div class="bx h-10"></div>
+                    <div class="bx h-10"></div>
+                    <div class="bx h-10"></div>
+                    <div class="bx h-10"></div>
                 </div>
             </div>
 
-            <!-- Wave divider -->
-            <svg class="wave-bottom" viewBox="0 0 1440 100" fill="none" preserveAspectRatio="none" aria-hidden="true">
-                <path d="M0 100 L0 60 Q200 20 400 50 Q600 80 800 40 Q1000 0 1200 30 Q1320 50 1440 20 L1440 100Z" fill="white" opacity="0.05" />
-                <path d="M0 100 L0 70 Q300 30 600 60 Q900 90 1200 50 Q1320 35 1440 40 L1440 100Z" fill="white" opacity="0.05" />
-                <path d="M0 100 L0 85 Q360 55 720 75 Q1080 95 1440 65 L1440 100Z" style="fill: var(--primary-dark);" />
-            </svg>
-        </div>
+            <footer class="pxy-1 bdr-t bdr-gray-300 bg-white">
+                <div class="h-2 bg-gray-300 rounded"></div>
+            </footer>
+        </main>
     </div>
 
-
     <script type="module" src="/main.js"></script>
-
-    <style>
-        /* --- Hero background ------------------------------------------ */
-        .hero {
-            background: linear-gradient(to bottom right, var(--primary-dark), var(--primary));
-        }
-
-
-
-        /* SVG swirl position */
-        .swirl-dusk {
-            top: 50%;
-            right: -10%;
-            transform: translateY(-50%);
-            pointer-events: none;
-        }
-
-
-
-        /* --- Wave divider ----------------------------------------- */
-        .wave-bottom {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100px;
-        }
-    </style>
-
 </body>
 
 </html>

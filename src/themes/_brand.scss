@@ -1,12 +1,13 @@
 @use '../maps_and_variables' as *;
-@use '../mixins/build-system/controllers' as *;
 @use '../functions/color-functions' as *;
-@use 'sass:map';
 
 // ============================================================================
 // BRAND CSS CUSTOM PROPERTIES
 // ============================================================================
-// --{name}                base color — override this to switch brand color
+// Runtime helper tokens for direct CSS use. Generated theme and utility classes
+// still come from the Sass color maps at build time.
+//
+// --{name}                base color, set in base/_root.scss
 // --{name}-border         auto-derived from base via CSS relative color
 // --on-{name}             text color for use on base, compile-time
 // --{name}-dark           very dark tint, for hero backgrounds
@@ -26,68 +27,3 @@
         --#{$theme-name}-on-surface: oklch(from var(--#{$theme-name}) 0.20 calc(c * 0.6) h);
     }
 }
-
-// Build a map of brand color CSS var references for use in utility generation.
-$brand-var-colors: ();
-
-@each $name, $color in $brand-colors {
-    $brand-var-colors: map.set($brand-var-colors, $name, var(--#{$name}));
-}
-
-// ============================================================================
-// BRAND THEMES
-// ============================================================================
-// Brand theme classes reference CSS custom properties so colors can be
-// overridden at runtime without recompiling.
-//
-// Default vars are set in :root (see base/_root.scss):
-//   --primary, --primary-border, --on-primary
-//   --secondary, --secondary-border, --on-secondary
-//   --accent, --accent-border, --on-accent
-//
-// To override at runtime:
-//   :root {
-//       --primary: oklch(...);
-//   }
-
-// ----------------------------------------------------------------------------
-// Theme classes
-// ----------------------------------------------------------------------------
-@each $theme-name, $color in $brand-colors {
-    .#{$theme-name} {
-        background-color: var(--#{$theme-name});
-        border: 1px solid var(--#{$theme-name}-border);
-        color: var(--on-#{$theme-name});
-    }
-
-    .#{$theme-name}-outline {
-        background-color: transparent;
-        border: 1px solid var(--#{$theme-name});
-        color: var(--#{$theme-name});
-
-        &:hover:not(:disabled, .disabled) {
-            background-color: var(--#{$theme-name});
-            color: var(--on-#{$theme-name});
-        }
-    }
-}
-
-// ----------------------------------------------------------------------------
-// Utilities — bg-primary, txt-primary, bdr-primary, outline-primary, etc.
-// ----------------------------------------------------------------------------
-$brand-background-properties: (
-    background-color: ( prefix: 'bg-', values: $brand-var-colors )
-);
-
-$brand-border-properties: (
-    border-color: ( prefix: #{$border-prefix}, values: $brand-var-colors ),
-    outline-color: ( prefix: 'outline-', values: $brand-var-colors )
-);
-
-$brand-text-properties: (
-    color: ( prefix: '#{$text-prefix}', values: $brand-var-colors, states: ('hover', 'focus') )
-);
-
-@include build-classes($brand-background-properties, $responsive: false, $with-state: true);
-@include build-classes($brand-border-properties, $responsive: true);
-@include build-classes($brand-text-properties, $responsive: true);

@@ -24,9 +24,9 @@
 // $brand-colors
 //   Brand identity colors: primary, secondary, accent.
 //   Compile-time values from $primary, $secondary, $accent config variables.
-//   CSS custom properties (--primary etc.) are set in :root for runtime override.
-//   Used by: brand theme classes, brand utilities (bg-primary, txt-primary,
-//            bdr-primary), button hover/active states.
+//   Merged with base and semantic colors for normal utility/theme generation.
+//   CSS custom properties (--primary etc.) are exposed for direct CSS use.
+//   Used by: brand theme classes, brand utilities, button hover/active states.
 //
 // In practice:
 //
@@ -34,7 +34,7 @@
 //   .bg-blue       — named hue utility       ($base-colors)
 //   .blue          — hue theme class         ($base-colors)
 //   .danger        — semantic theme class    ($semantic-colors)
-//   .primary       — brand theme class       ($brand-colors → CSS vars)
+//   .primary       — brand theme class       ($brand-colors)
 //
 // ============================================================================
 
@@ -47,8 +47,8 @@ $semantic-colors: (
     'warning': #ffdd57
 ) !default;
 
-// Brand colors. Kept separate from $base-colors so utility and theme
-// generation loops do not need to filter them out.
+// Brand colors. Kept separate for configuration, then merged into
+// $base-brand-semantic-colors for public utility and theme generation.
 $brand-colors: (
     'primary': base.$primary,
     'secondary': base.$secondary,

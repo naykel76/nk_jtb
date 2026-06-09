@@ -74,9 +74,10 @@ Apply theme modifiers for different colors:
 </div>
 ```
 
-`primary`, `secondary`, and `accent` follow the runtime semantic theme tokens
-documented in [/docs/jtb/variable-system](/docs/jtb/variable-system). Use that
-layer when you want to test brand variations without rebuilding the CSS.
+`primary`, `secondary`, and `accent` are brand theme names generated from the
+same Sass color maps as the other button themes. Override the brand variables
+before build to change them project-wide. See
+[Variable System](/docs/jtb/variable-system).
 
 ## Button Sizes (review)
 

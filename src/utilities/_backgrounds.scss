@@ -20,7 +20,7 @@
 $background-color-properties: (
     background-color: (
         prefix: 'bg-',
-        values: smart-merge($base-colors, $oklch-colors)
+        values: smart-merge($base-brand-semantic-colors, $oklch-colors)
     )
 );
 

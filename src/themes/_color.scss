@@ -31,9 +31,8 @@ $advanced-themes: (
 
 $themes-map: ();
 
-// Build theme classes from base and semantic colors.
-// Brand themes are generated separately in _brand.scss.
-@each $color, $value in $base-semantic-colors {
+// Build theme classes from base, brand, and semantic colors.
+@each $color, $value in $base-brand-semantic-colors {
     $themes-map: map.set( $themes-map, $color, ( 'base': $value ) );
 }
 
@@ -47,7 +46,6 @@ $themes-map: ();
 // ============================================================================
 // Transparent background with colored border/text, fills on hover.
 
-// Brand outline themes are generated separately in _brand.scss.
-@each $color, $value in $base-semantic-colors {
+@each $color, $value in $base-brand-semantic-colors {
     @include build-outline-theme('#{$color}-outline', $value);
 }

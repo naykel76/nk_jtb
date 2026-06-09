@@ -287,6 +287,12 @@ Files parked in `docs/review/` — purpose or audience unclear.
 | `api/make-themes.md`                | audit  |                                       |
 | `api/variables.md`                  | ✅     |                                       |
 
+### Layouts
+
+| File                                  | Status  | Notes                                              |
+| ------------------------------------- | ------- | -------------------------------------------------- |
+| `layouts/layout-sidebar-main.md`      | partial | Base structure and independent scrolling confirmed |
+
 ### Components
 
 | File                                | Status  | Notes                                            |
