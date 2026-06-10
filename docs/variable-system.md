@@ -49,23 +49,29 @@ CSS custom properties are a separate runtime layer for custom CSS, component
 overrides, and development previews.
 
 ```html +code
-<div class="bx" style="--box-border-color: var(--primary); --box-title-font-size: 1.25rem;">
+<div class="bx" style="--box-border-color: var(--brand-primary); --box-title-font-size: 1.25rem;">
     ...
 </div>
 ```
 
-### Brand Helper Tokens
+### Brand Tokens
 
-JTB exposes brand CSS custom properties in `:root`:
+JTB exposes namespaced brand CSS custom properties in `:root`:
 
-| Token              | Description                         |
-| ------------------ | ----------------------------------- |
-| `--primary`        | Background color                    |
-| `--primary-border` | Border color, derived from `--primary` |
-| `--on-primary`     | Text color, derived at build time   |
+| Token                            | Description                        |
+| -------------------------------- | ---------------------------------- |
+| `--brand-primary`                | Base brand color                   |
+| `--brand-primary-border`         | Border color, derived from base    |
+| `--brand-primary-on`             | Text color for use on base         |
+| `--brand-primary-surface`        | Soft brand surface                 |
+| `--brand-primary-surface-border` | Border color for the soft surface  |
+| `--brand-primary-on-surface`     | Text color for use on soft surface |
 
-The same pattern is available for `--secondary` and `--accent`, with additional
-derived helpers such as `--primary-surface` for custom CSS.
+The same pattern is available for `secondary` and `accent`.
+
+The shorter `--primary`, `--primary-surface`, and `--on-primary` aliases remain
+available for existing custom CSS, but new custom composition should prefer the
+`--brand-*` tokens.
 
 Brand classes and utilities are generated from Sass maps:
 
@@ -87,14 +93,13 @@ For custom CSS or development previews, override the CSS variables:
 
 ```scss +code
 :root {
-    --primary: #7c0442;
-    --on-primary: #fff;
+    --brand-primary: #7c0442;
+    --brand-primary-on: #fff;
 }
 ```
 
 Runtime overrides affect only CSS that reads those variables directly. They do
-not change generated utility or theme classes unless those classes are designed
-to use the variables.
+not change generated utility or theme classes.
 
 ### What Does Not Respond to Runtime Override
 

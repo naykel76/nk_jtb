@@ -3,19 +3,19 @@
 ## Boxes
 
 ```html +demo-folded
-<div class="bx relative overflow-hidden max-w-384px" style="background-color: var(--primary-surface); border-color: var(--primary-surface-border);">
-    <svg class="absolute -top-1.5 -right-1.5 opacity-10" width="120" height="120" viewBox="0 0 120 120" style="color: var(--primary)">
+<div class="bx relative overflow-hidden max-w-384px" style="background-color: var(--brand-primary-surface); border-color: var(--brand-primary-surface-border);">
+    <svg class="absolute -top-1.5 -right-1.5 opacity-10" width="120" height="120" viewBox="0 0 120 120" style="color: var(--brand-primary)">
         <circle cx="60" cy="60" r="50" fill="currentColor"/>
         <circle cx="60" cy="60" r="35" fill="none" stroke="currentColor" stroke-width="2"/>
         <circle cx="60" cy="60" r="20" fill="none" stroke="currentColor" stroke-width="2"/>
     </svg>
-    <svg class="absolute -bottom-1 -left-1 opacity-10" width="80" height="80" viewBox="0 0 80 80" style="color: var(--primary)">
+    <svg class="absolute -bottom-1 -left-1 opacity-10" width="80" height="80" viewBox="0 0 80 80" style="color: var(--brand-primary)">
         <circle cx="40" cy="40" r="35" fill="currentColor"/>
     </svg>
-    <p class="txt-xs font-medium uppercase tracking-widest opacity-70" style="color: var(--primary)">Also available as</p>
-    <p class="font-serif txt-base font-medium" style="color: var(--primary-on-surface)">Part of a program</p>
-    <p class="txt-sm" style="color: var(--primary-on-surface)">Save with a bundle discount when you enrol in the full program.</p>
-    <a href="#" class="txt-sm font-medium inline-flex items-center gap-025" style="color: var(--primary)">View program →</a>
+    <p class="txt-xs font-medium uppercase tracking-widest opacity-70" style="color: var(--brand-primary)">Also available as</p>
+    <p class="font-serif txt-base font-medium" style="color: var(--brand-primary-on-surface)">Part of a program</p>
+    <p class="txt-sm" style="color: var(--brand-primary-on-surface)">Save with a bundle discount when you enrol in the full program.</p>
+    <a href="#" class="txt-sm font-medium inline-flex items-center gap-025" style="color: var(--brand-primary)">View program →</a>
 </div>
 ```
 
@@ -52,18 +52,18 @@
 ## diagonal shape bleed
 
 ```html +demo-folded
-<div class="bx relative overflow-hidden max-w-384px" style="background-color: var(--primary-surface); border-color: var(--primary-surface-border);">
-    <svg class="absolute top-0 right-0" width="120" height="120" viewBox="0 0 120 120" style="color: var(--primary)">
+<div class="bx relative overflow-hidden max-w-384px" style="background-color: var(--brand-primary-surface); border-color: var(--brand-primary-surface-border);">
+    <svg class="absolute top-0 right-0" width="120" height="120" viewBox="0 0 120 120" style="color: var(--brand-primary)">
         <polygon points="120,0 120,120 0,0" fill="currentColor" opacity="0.08"/>
         <polygon points="120,0 120,80 40,0" fill="currentColor" opacity="0.08"/>
     </svg>
-    <svg class="absolute bottom-0 left-0" width="70" height="70" viewBox="0 0 70 70" style="color: var(--primary)">
+    <svg class="absolute bottom-0 left-0" width="70" height="70" viewBox="0 0 70 70" style="color: var(--brand-primary)">
         <polygon points="0,70 70,70 0,0" fill="currentColor" opacity="0.06"/>
     </svg>
-    <p class="txt-xs font-medium uppercase tracking-widest opacity-70" style="color: var(--primary)">Also available as</p>
-    <p class="font-serif txt-base font-medium" style="color: var(--primary-on-surface)">Part of a program</p>
-    <p class="txt-sm" style="color: var(--primary-on-surface)">Save with a bundle discount when you enrol in the full program.</p>
-    <a href="#" class="txt-sm font-medium inline-flex items-center gap-025" style="color: var(--primary)">View program →</a>
+    <p class="txt-xs font-medium uppercase tracking-widest opacity-70" style="color: var(--brand-primary)">Also available as</p>
+    <p class="font-serif txt-base font-medium" style="color: var(--brand-primary-on-surface)">Part of a program</p>
+    <p class="txt-sm" style="color: var(--brand-primary-on-surface)">Save with a bundle discount when you enrol in the full program.</p>
+    <a href="#" class="txt-sm font-medium inline-flex items-center gap-025" style="color: var(--brand-primary)">View program →</a>
 </div>
 ```
 

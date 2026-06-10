@@ -10,51 +10,59 @@
 
 <body>
 
-    <p class="txt-primary">Lorem ipsum dolor sit amet consectetur adipisicing elit. In incidunt quos, sint totam reprehenderit quis, assumenda velit optio nisi distinctio adipisci! Facilis, laborum perferendis? Necessitatibus reiciendis alias maiores et vitae!</p>
-    <p class="txt-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. In incidunt quos, sint totam reprehenderit quis, assumenda velit optio nisi distinctio adipisci! Facilis, laborum perferendis? Necessitatibus reiciendis alias maiores et vitae!</p>
-    <p class="txt-accent">Lorem ipsum dolor sit amet consectetur adipisicing elit. In incidunt quos, sint totam reprehenderit quis, assumenda velit optio nisi distinctio adipisci! Facilis, laborum perferendis? Necessitatibus reiciendis alias maiores et vitae!</p>
-    <div class="flex h-screen overflow-hidden">
-        <aside class="w-16 fs-0 flex-col bg-slate-900">
-            <header class="pxy-075 bdr-b bdr-slate-700">
-                <div class="h-2 bg-slate-600 rounded"></div>
-            </header>
+    <div class="container py-5">
 
-            <div class="flex-1 overflow-y-auto pxy-075 space-y">
-                <div class="h-24 bg-slate-700 rounded"></div>
-                <div class="h-24 bg-slate-700 rounded"></div>
-                <div class="h-24 bg-slate-700 rounded"></div>
-            </div>
+        <div>
+            <p class="txt-xs font-medium uppercase tracking-widest txt-gray-400 mb-075">Option 3 — Event ticket card</p>
+            <div class="flex overflow-hidden rounded-xl bdr bdr-gray-200 bg-white" style="--primary: #7C1544">
 
-            <footer class="pxy-075 bdr-t bdr-slate-700">
-                <div class="h-2 bg-slate-600 rounded"></div>
-            </footer>
-        </aside>
+                <!-- Left accent bar -->
+                <div class="w-05 fs-0 bg-primary"></div>
 
-        <main class="flex-1 flex-col bg-gray-200">
-            <header class="pxy-1 bdr-b bdr-gray-300 bg-white">
-                <div class="h-2 bg-gray-300 rounded"></div>
-            </header>
+                <div class="flex-col flex-1 pxy-1.75">
 
-            <div class="flex-1 overflow-y-auto">
-                <div class="container-md py space-y">
-                    <div class="bx h-10"></div>
-                    <div class="bx h-10"></div>
-                    <div class="bx h-10"></div>
-                    <div class="bx h-10"></div>
-                    <div class="bx h-10"></div>
-                    <div class="bx h-10"></div>
-                    <div class="bx h-10"></div>
-                    <div class="bx h-10"></div>
-                    <div class="bx h-10"></div>
-                    <div class="bx h-10"></div>
-                    <div class="bx h-10"></div>
+                    <div class="flex flex-wrap items-start justify-between gap-1">
+
+                        <!-- Left: txt -->
+                        <div class="flex-1" style="min-width: 200px">
+                            <p class="mb-025 txt-xs font-medium uppercase tracking-widest txt-primary">Live event</p>
+                            <h2 class="mb-05 txt-lg font-medium txt-gray-900">Exam Cram Webinar: Ace Your Exam!</h2>
+                            <p class="txt-sm leading-relaxed txt-gray-500">A 6-hour live Zoom revision session condensed from the Detailed Content Outline. Interactive, facilitator-led.</p>
+                        </div>
+
+                        <!-- Right: date card -->
+                        <div class="fs-0 rounded-lg bg-gray-100 px-1.25 py-1 tac" style="min-width: 140px">
+                            <p class="mb-025 txt-xs font-medium uppercase tracking-wider txt-gray-400">Date</p>
+                            <p class="txt-xl font-medium leading-none txt-primary">08 Aug</p>
+                            <p class="mt-0125 txt-xs txt-gray-400">2026</p>
+                            <hr class="my-0625 bdr-gray-200" />
+                            <p class="txt-xs txt-gray-400">8:00 am – 3:30 pm</p>
+                        </div>
+
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="mt-1.25 flex items-center gap-075">
+                        <a href="#" class="btn primary">Book your position</a>
+                        <span class="txt-xs txt-gray-400">Exam: 1–10 September</span>
+                    </div>
+
                 </div>
-            </div>
 
-            <footer class="pxy-1 bdr-t bdr-gray-300 bg-white">
-                <div class="h-2 bg-gray-300 rounded"></div>
-            </footer>
-        </main>
+            </div>
+        </div>
+
+        <div class="pxy bdr-l-3 bdr-primary">
+            dfg
+        </div>
+
+
+        <div class="bx max-w-384px bdr-l-3 bdr-l-primary">
+            <p class="txt-xs font-medium uppercase tracking-widest opacity-70">Also available as</p>
+            <p class="font-serif txt-base font-medium">Part of a program</p>
+            <p class="txt-sm txt-muted">Save with a bundle discount when you enrol in the full program.</p>
+            <a href="#" class="txt-sm font-medium inline-flex items-center gap-025" style="color: var(--primary)">View program →</a>
+        </div>
     </div>
 
     <script type="module" src="/main.js"></script>

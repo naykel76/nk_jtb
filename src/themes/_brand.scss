@@ -7,23 +7,36 @@
 // Runtime helper tokens for direct CSS use. Generated theme and utility classes
 // are handled by the Sass color maps.
 //
-// --{name}                base color, set in base/_root.scss
-// --{name}-border         auto-derived from base via CSS relative color
-// --on-{name}             text color for use on base, compile-time
-// --{name}-dark           very dark tint, for hero backgrounds
-// --{name}-light          light tint, for text/accents on dark backgrounds
-// --{name}-surface        very light tint, for soft backgrounds
-// --{name}-surface-border light border for soft backgrounds
-// --{name}-on-surface     dark text for use on surface
+// Preferred token API:
+// --brand-{name}                base brand token, defaults to --{name}
+// --brand-{name}-border         border for base brand token
+// --brand-{name}-on             text for use on base brand token
+// --brand-{name}-dark           very dark tint, for hero backgrounds
+// --brand-{name}-light          light tint, for text/accents on dark backgrounds
+// --brand-{name}-surface        very light tint, for soft backgrounds
+// --brand-{name}-surface-border light border for soft backgrounds
+// --brand-{name}-on-surface     dark text for use on surface
+//
+// Legacy aliases are kept for existing custom CSS: --primary-surface,
+// --primary-border, --on-primary, etc.
 
 :root {
     @each $theme-name, $color in $brand-colors {
-        --#{$theme-name}-border: oklch(from var(--#{$theme-name}) calc(l - 0.1) c h);
-        --on-#{$theme-name}: #{text-color($color)};
-        --#{$theme-name}-dark: oklch(from var(--#{$theme-name}) 0.08 calc(c * 0.3) h);
-        --#{$theme-name}-light: oklch(from var(--#{$theme-name}) calc(l + 0.4) calc(c * 0.6) h);
-        --#{$theme-name}-surface: oklch(from var(--#{$theme-name}) 0.97 calc(c * 0.1) h);
-        --#{$theme-name}-surface-border: oklch(from var(--#{$theme-name}) 0.88 calc(c * 0.3) h);
-        --#{$theme-name}-on-surface: oklch(from var(--#{$theme-name}) 0.20 calc(c * 0.6) h);
+        --brand-#{$theme-name}: var(--#{$theme-name});
+        --brand-#{$theme-name}-border: oklch(from var(--brand-#{$theme-name}) calc(l - 0.1) c h);
+        --brand-#{$theme-name}-on: #{text-color($color)};
+        --brand-#{$theme-name}-dark: oklch(from var(--brand-#{$theme-name}) 0.08 calc(c * 0.3) h);
+        --brand-#{$theme-name}-light: oklch(from var(--brand-#{$theme-name}) calc(l + 0.4) calc(c * 0.6) h);
+        --brand-#{$theme-name}-surface: oklch(from var(--brand-#{$theme-name}) 0.97 calc(c * 0.1) h);
+        --brand-#{$theme-name}-surface-border: oklch(from var(--brand-#{$theme-name}) 0.88 calc(c * 0.3) h);
+        --brand-#{$theme-name}-on-surface: oklch(from var(--brand-#{$theme-name}) 0.20 calc(c * 0.6) h);
+
+        --#{$theme-name}-border: var(--brand-#{$theme-name}-border);
+        --on-#{$theme-name}: var(--brand-#{$theme-name}-on);
+        --#{$theme-name}-dark: var(--brand-#{$theme-name}-dark);
+        --#{$theme-name}-light: var(--brand-#{$theme-name}-light);
+        --#{$theme-name}-surface: var(--brand-#{$theme-name}-surface);
+        --#{$theme-name}-surface-border: var(--brand-#{$theme-name}-surface-border);
+        --#{$theme-name}-on-surface: var(--brand-#{$theme-name}-on-surface);
     }
 }
