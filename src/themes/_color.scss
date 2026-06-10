@@ -2,7 +2,6 @@
 @use '../functions/map-and-list-helpers' as *;
 @use '../mixins/themes' as *;
 @use 'sass:map';
-@use 'sass:color';
 
 // ============================================================================
 // BASIC THEMING SYSTEM
@@ -32,8 +31,8 @@ $advanced-themes: (
 
 $themes-map: ();
 
-// Build theme classes from both shared base colors and dedicated theme colors.
-@each $color, $value in map.merge($base-colors, $theme-colors) {
+// Build theme classes from base, brand, and semantic colors.
+@each $color, $value in $base-brand-semantic-colors {
     $themes-map: map.set( $themes-map, $color, ( 'base': $value ) );
 }
 
@@ -47,6 +46,6 @@ $themes-map: ();
 // ============================================================================
 // Transparent background with colored border/text, fills on hover.
 
-@each $color, $value in map.merge($base-colors, $theme-colors) {
+@each $color, $value in $base-brand-semantic-colors {
     @include build-outline-theme('#{$color}-outline', $value);
 }

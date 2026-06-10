@@ -384,8 +384,7 @@ All JTB theme classes are context-aware. Apply the same class to a button, box, 
 
 Beyond hue themes, JTB provides semantic themes for communicating intent and
 brand themes (`primary`, `secondary`, `accent`) for project identity. Brand
-themes are Sass-configured named colors generated through the same theme system
-as hue and semantic themes.
+themes are generated from the same Sass color maps as hue and semantic themes.
 
 <div class="grid cols-8 gap-025">
     <div class="primary rounded-05 h-4 flex-centered font-mono">primary</div>
@@ -412,9 +411,8 @@ border and text, filling on hover.
 
 ## Customizing
 
-Override brand themes (`primary`, `secondary`, `accent`) with Sass variables
-before the build. See [Variable System](/docs/jtb/variable-system) for the full
-reference.
+Override brand colors with Sass variables before the build. See
+[Variable System](/docs/jtb/variable-system) for the full reference.
 
 ## Examples
 

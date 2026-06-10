@@ -5,20 +5,22 @@
 @use 'sass:list';
 @use 'sass:map';
 
-@each $color-name in $color-scale-names {
-    .bg-stripes-#{$color-name} {
-        @include bg-stripes($color-name);
-    }
+@each $color-name, $value in $base-colors {
+    @if map.has-key($oklch-colors, '#{$color-name}-100') {
+        .bg-stripes-#{$color-name} {
+            @include bg-stripes($color-name);
+        }
 
-    .bg-stripes-wide-#{$color-name} {
-        @include bg-stripes($color-name, $stripe-width: 15px);
+        .bg-stripes-wide-#{$color-name} {
+            @include bg-stripes($color-name, $stripe-width: 15px);
+        }
     }
 }
 
 $background-color-properties: (
     background-color: (
         prefix: 'bg-',
-        values: smart-merge($base-colors, $oklch-colors)
+        values: smart-merge($base-brand-semantic-colors, $oklch-colors)
     )
 );
 

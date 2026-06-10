@@ -75,8 +75,7 @@ Apply theme modifiers for different colors:
 ```
 
 `primary`, `secondary`, and `accent` are brand theme names generated from the
-same Sass color maps as the other button themes. Override the brand variables
-before build to change them project-wide. See
+same Sass color maps as other button themes. See
 [Variable System](/docs/jtb/variable-system).
 
 ## Button Sizes (review)

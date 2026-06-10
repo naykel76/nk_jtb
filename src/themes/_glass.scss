@@ -1,0 +1,39 @@
+@use '../maps_and_variables' as *;
+
+// ============================================================================
+// GLASS THEME
+// ============================================================================
+// A context-aware theme modifier for frosted glass surfaces.
+// Usage: <nav class="navbar glass">, <div class="bx glass">, <button class="btn glass">
+//
+// Override vars per context:
+//   .my-element {
+//       --glass-bg: rgb(0 0 0 / 20%);
+//       --glass-border: rgb(255 255 255 / 5%);
+//   }
+
+.glass {
+    background: var(--glass-bg, rgb(255 255 255 / 8%));
+    backdrop-filter: blur(var(--glass-blur, 12px));
+    -webkit-backdrop-filter: blur(var(--glass-blur, 12px));
+    border-color: var(--glass-border, rgb(255 255 255 / 10%));
+}
+
+// ----------------------------------------------------------------------------
+// Button context — more visible bg and border, white text
+// ----------------------------------------------------------------------------
+.#{$button-prefix}.glass {
+    background: rgb(255 255 255 / 15%);
+    border-color: rgb(255 255 255 / 30%);
+    color: white;
+
+    &:hover:not(:disabled, .disabled) {
+        background: rgb(255 255 255 / 25%);
+        border-color: rgb(255 255 255 / 40%);
+        color: white;
+    }
+
+    &:active {
+        background: rgb(255 255 255 / 10%);
+    }
+}

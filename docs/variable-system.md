@@ -39,14 +39,14 @@ works.
 
 ## CSS Custom Properties
 
-JTB exposes CSS custom properties for direct CSS use:
+JTB exposes CSS custom properties for brand colors and component overrides:
 
 - **Brand helper tokens** — `primary`, `secondary`, and `accent` colors and their derived values
 - **Component tokens** — per-component overrides such as `--box-border-color`
 
-SCSS variables and maps generate the framework classes at build time. CSS custom
-properties are a runtime convenience layer for components or custom CSS that
-read those variables directly.
+SCSS variables provide the brand values used by generated framework classes.
+CSS custom properties are a separate runtime layer for custom CSS, component
+overrides, and development previews.
 
 ```html +code
 <div class="bx" style="--box-border-color: var(--primary); --box-title-font-size: 1.25rem;">
@@ -67,7 +67,7 @@ JTB exposes brand CSS custom properties in `:root`:
 The same pattern is available for `--secondary` and `--accent`, with additional
 derived helpers such as `--primary-surface` for custom CSS.
 
-Brand classes and utilities are generated from Sass maps at build time:
+Brand classes and utilities are generated from Sass maps:
 
 - `.primary` and `.primary-outline`
 - `.bg-primary`, `.txt-primary`, `.bdr-primary`, `.outline-primary`
@@ -75,8 +75,7 @@ Brand classes and utilities are generated from Sass maps at build time:
 
 ### Overriding Brand Colors
 
-To change brand colors across generated classes, override the Sass variables
-before build:
+To change the default brand colors, override the Sass variables before build:
 
 ```scss +code
 @forward 'jtb/src/maps_and_variables/index' with (
@@ -84,9 +83,18 @@ before build:
 );
 ```
 
-Overriding `--primary` in CSS only affects custom CSS or components that read
-`var(--primary)` directly. It does not regenerate `.primary`, `.bg-primary`, or
-other compiled classes.
+For custom CSS or development previews, override the CSS variables:
+
+```scss +code
+:root {
+    --primary: #7c0442;
+    --on-primary: #fff;
+}
+```
+
+Runtime overrides affect only CSS that reads those variables directly. They do
+not change generated utility or theme classes unless those classes are designed
+to use the variables.
 
 ### What Does Not Respond to Runtime Override
 
