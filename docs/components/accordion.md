@@ -6,8 +6,8 @@ Alpine-managed disclosure patterns.
 ## Basic Usage
 
 Apply the `.accordion` class to the wrapper and add `data-accordion-toggle` to
-the input. The component visually hides the input while keeping it focusable,
-then uses the checked state to show the content panel. Because each checkbox is
+the input. The input itself is hidden and the label acts as the trigger, with
+the checked state revealing the content panel. Because each checkbox is
 independent, multiple accordions can be open at the same time.
 
 ```html +demo-folded class="bx example-jtb"
@@ -157,9 +157,6 @@ Wrap all accordions in a shared `x-data` scope using `activeItem`.
 See [Variable System](/docs/jtb/variable-system) for override instructions.
 
 ## Utility Examples
-
-Build an accordion from utility classes when you need a custom look without the
-`.accordion` component styles.
 
 ### Single
 

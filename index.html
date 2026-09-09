@@ -10,59 +10,58 @@
 
 <body>
 
-    <div class="container py-5">
+    <header class="sticky top-0 z-high light pxy-075">Sticky header (sticky top-0 z-high)</header>
 
-        <div>
-            <p class="txt-xs font-medium uppercase tracking-widest txt-gray-400 mb-075">Option 3 — Event ticket card</p>
-            <div class="flex overflow-hidden rounded-xl bdr bdr-gray-200 bg-white" style="--primary: #7C1544">
+    <div x-data="{ open: false }" x-on:keydown.escape.window="open = false">
 
-                <!-- Left accent bar -->
-                <div class="w-05 fs-0 bg-primary"></div>
+        <div class="pxy-075">
+            <button type="button" class="btn" x-on:click="open = true">Menu</button>
+        </div>
 
-                <div class="flex-col flex-1 pxy-1.75">
+        <div x-cloak x-show="open" x-on:click="open = false" class="overlay"></div>
 
-                    <div class="flex flex-wrap items-start justify-between gap-1">
+        <aside class="fixed top-0 left-0 h-screen w-16 flex-col light z-highest transition"
+            :class="open ? 'translate-x-0' : '-translate-x-full'">
 
-                        <!-- Left: txt -->
-                        <div class="flex-1" style="min-width: 200px">
-                            <p class="mb-025 txt-xs font-medium uppercase tracking-widest txt-primary">Live event</p>
-                            <h2 class="mb-05 txt-lg font-medium txt-gray-900">Exam Cram Webinar: Ace Your Exam!</h2>
-                            <p class="txt-sm leading-relaxed txt-gray-500">A 6-hour live Zoom revision session condensed from the Detailed Content Outline. Interactive, facilitator-led.</p>
-                        </div>
+            <header class="flex justify-between va-c pxy-075 bdr-b">
+                <span class="txt-muted">Menu</span>
+                <button type="button" class="btn light sm" x-on:click="open = false">Close</button>
+            </header>
 
-                        <!-- Right: date card -->
-                        <div class="fs-0 rounded-lg bg-gray-100 px-1.25 py-1 tac" style="min-width: 140px">
-                            <p class="mb-025 txt-xs font-medium uppercase tracking-wider txt-gray-400">Date</p>
-                            <p class="txt-xl font-medium leading-none txt-primary">08 Aug</p>
-                            <p class="mt-0125 txt-xs txt-gray-400">2026</p>
-                            <hr class="my-0625 bdr-gray-200" />
-                            <p class="txt-xs txt-gray-400">8:00 am – 3:30 pm</p>
-                        </div>
-
-                    </div>
-
-                    <!-- Actions -->
-                    <div class="mt-1.25 flex items-center gap-075">
-                        <a href="#" class="btn primary">Book your position</a>
-                        <span class="txt-xs txt-gray-400">Exam: 1–10 September</span>
-                    </div>
-
-                </div>
-
+            <div class="flex-1 overflow-y-auto pxy-075">
+                <ul class="menu">
+                    <li><a href="#" class="active">Dashboard</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Lessons</a></li>
+                    <li><a href="#">Students</a></li>
+                    <li><a href="#">Settings</a></li>
+                </ul>
             </div>
-        </div>
 
-        <div class="pxy bdr-l-3 bdr-primary">
-            dfg
-        </div>
+            <footer class="pxy-075 bdr-t txt-muted">Signed in as Nathan</footer>
 
+        </aside>
 
-        <div class="bx max-w-384px bdr-l-3 bdr-l-primary">
-            <p class="txt-xs font-medium uppercase tracking-widest opacity-70">Also available as</p>
-            <p class="font-serif txt-base font-medium">Part of a program</p>
-            <p class="txt-sm txt-muted">Save with a bundle discount when you enrol in the full program.</p>
-            <a href="#" class="txt-sm font-medium inline-flex items-center gap-025" style="color: var(--primary)">View program →</a>
-        </div>
+    </div>
+
+    <div class="grid cols-3">
+
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 480 270">
+            <g clip-path="url(#card-1-16-9__a)">
+                <path fill="#fff" d="M0 0h480v270H0z" />
+                <path fill="#969FA7" d="M462.375 18H316.5v3.75h145.875z" />
+                <path fill="#903163" d="M312.75 18H166.875v3.75H312.75z" />
+                <path fill="#4D1434" d="M163.5 18H17.625v3.75H163.5z" />
+                <path fill="#903163" fill-rule="evenodd" d="M407.438 24.375c18.329 0 33.187-14.943 33.187-33.375H374.25c0 18.432 14.858 33.375 33.188 33.375" />
+                <path fill="#F6DEEC" fill-rule="evenodd" d="M484.5 147c0 42.457-34.504 76.875-77.062 76.875-42.561 0-77.063-34.418-77.063-76.875s34.502-76.875 77.063-76.875c42.558 0 77.062 34.418 77.062 76.875" />
+            </g>
+            <defs>
+                <clipPath id="card-1-16-9__a">
+                    <path fill="#fff" d="M0 0h480v270H0z" />
+                </clipPath>
+            </defs>
+        </svg>
+
     </div>
 
     <script type="module" src="/main.js"></script>

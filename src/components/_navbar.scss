@@ -1,7 +1,9 @@
+@use '../functions/color-functions' as *;
 @use '../maps_and_variables/components' as *;
 
 .navbar {
     background: $navbar-bg;
+    color: text-color($navbar-bg);
     padding: $navbar-padding-y $navbar-padding-x;
 }
 

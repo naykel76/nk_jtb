@@ -57,8 +57,16 @@
                 "route_name": "docs.jtb.components.menu"
             },
             {
+                "name": "Navbar",
+                "route_name": "docs.jtb.components.navbar"
+            },
+            {
                 "name": "Loaders and Spinners (wip)",
                 "route_name": "docs.jtb.components.loaders-and-spinners"
+            },
+            {
+                "name": "Table (wip)",
+                "route_name": "docs.jtb.components.table"
             }
         ]
     },

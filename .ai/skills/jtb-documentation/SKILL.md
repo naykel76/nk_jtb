@@ -16,6 +16,43 @@ precedence where they conflict.
 Follow the shared component-doc rules in `nk-documentation-best-practices` first.
 Then apply these JTB-specific additions.
 
+**Section Order:**
+
+Every section is conditional — include only the ones the component needs. When
+present, they appear in this order:
+
+1. Title and lead
+2. `## Basic Usage` — minimum working example using the component class
+3. One section for whatever must be understood before use — named case by case
+4. `## Responsive` — behaviour across viewports
+5. `## Examples` — component class recipes, one `###` each
+6. `## SCSS Variables`
+7. `## Utility Examples` — the same component built from utilities
+
+Slot three has no fixed heading. It carries whatever the reader has to
+understand before using the component — a required HTML shape in `menu.md`
+(`## Structure`, where the `<nav>` is only a container), or how the component
+treats its children in `navbar.md` (`## How It Works`, where the number of
+children drives the layout). Name it for what it actually covers, and omit it
+when there is nothing to explain. This is a case-by-case call, not a section
+every doc needs.
+
+A `##` answers a different question about the component; a `###` is a variation
+within one of those answers. `### With Brand and Actions` is a variation of the
+navbar above it, so it nests. `## Responsive` asks how the component behaves
+across viewports — a different question, so its own `##`. Never use sibling
+`##` sections for variations of one another.
+
+`## Examples` and `## Utility Examples` are not mirrors. Utility examples come
+first in a component's life and are maintained while the class matures, so the
+two sets overlap only where they happen to. Do not add a class example purely to
+pair one that exists in utilities.
+
+Tag examples individually, not by section: `class="bx example-jtb"` for
+component class examples, `class="bx example-utils"` for utility examples. See
+`components/loaders-and-spinners.md` — every variant is `example-utils` except
+`Dots`, which uses `example-jtb` because `.spinner-dots` is a real class.
+
 **Rules:**
 
 - The lead describes purpose, not implementation. Do not mention specific CSS properties.
@@ -24,6 +61,11 @@ Then apply these JTB-specific additions.
 - Utility examples use `class="bx example-utils"`.
 - Place `## SCSS Variables` directly before `## Utility Examples`.
 - Link to `/docs/jtb/variable-system` for override instructions rather than explaining inline.
+- The component class is the primary API; utility examples are a convenience and go last.
+- In `## Utility Examples`, rebuild the component and the content central to its
+  purpose. Components that are incidental to the example keep their own classes —
+  a navbar example rebuilds the menu, since navigation is the navbar's purpose,
+  but leaves the `.btn` action alone.
 
 ### Utility Documentation
 
@@ -59,16 +101,27 @@ For layout/responsive docs, use:
 +demo-folded class="resizable-container with-docs-only-overrides"
 ```
 
-## Examples Files
+## Examples
 
-Quick visual references — not comprehensive docs.
+### In Component Docs
+
+Component docs that have a dedicated page carry a `## Examples` section. This
+replaces what would otherwise go in `showcase-ui.md` for that component.
+
+- Use `class="bx example-jtb"` for component class examples.
+- Use `class="bx example-utils"` for utility examples.
+
+### Showcase Files
+
+Quick visual references for components without a dedicated doc page, or
+utilities that span multiple docs (e.g. typography).
 
 **Default files:**
 
 - `docs/examples/showcase-typography.md` — font sizes, weights, families, text utilities
-- `docs/examples/showcase-ui.md` — components and UI elements: buttons, badges, checklist, box etc.
+- `docs/examples/showcase-ui.md` — components and UI elements without their own doc page
 
-Two reasons something belongs in an examples file:
+Two reasons something belongs in a showcase file:
 
 1. **Syntax reminder** — enough variations exist that you forget the class names
 2. **Existence reminder** — a single component worth flagging so it doesn't get overlooked
@@ -80,11 +133,7 @@ Format depends on content type:
 
 Group by component family under `##` headings. Variants sit under `###` within that group.
 
-When a section of a component or utility doc is complete, ask:
-
-> Do you want this added to an examples file?
-
-Do not ask this for skill, reference, or API docs.
+Do not ask whether to add something to a showcase file for skill, reference, or API docs.
 
 ## Nav & Completion
 

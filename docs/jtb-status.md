@@ -300,11 +300,11 @@ Files parked in `docs/review/` — purpose or audience unclear.
 | `components/overview.md`            | review  |                                                  |
 | `components/button.md`              | review  |                                                  |
 | `components/box.md`                 | partial | CSS Custom Properties section needs locking down |
-| `components/list.md`                | ✅       |                                                  |
+| `components/list.md`                | review  | `SCSS Variables` nested under `Variants` at wrong level |
 | `components/accordion.md`           | ✅       |                                                  |
 | `components/forms.md`               | review  |                                                  |
 | `components/menu.md`                | review  |                                                  |
-| `components/navbar.md`              | review  |                                                  |
+| `components/navbar.md`              | ✅       |                                                  |
 | `components/table.md`               | review  |                                                  |
 | `components/loaders-and-spinners.md` | partial | SVG Border, SVG Arc, Page Loader confirmed. Dots section still under review. |
 | `components/example-navigations.md` | stub    | Bare HTML, no explanation                        |

@@ -2,11 +2,11 @@
 
 <p class="lead">Tables provide structure for displaying tabular data with sensible defaults.</p>
 
-## Base table (review)
+## Basic Usage (review)
 
 Standard HTML table with no additional classes required.
 
-```html +demo-folded
+```html +demo-folded class="bx example-jtb"
 <table>
     <thead>
         <tr>
@@ -35,71 +35,7 @@ Standard HTML table with no additional classes required.
 </table>
 ```
 
-## Customization (review)
-
-Tables work with all standard utilities and themes - no special table-specific classes needed.
-
-Apply utilities to `<table>`, `<tr>`, `<th>`, or `<td>` - context handles the rest.
-
-```html +demo-folded
-<table>
-    <thead>
-        <tr>
-            <th>Status</th>
-            <th class="text-right">Quantity</th>
-            <th class="text-right">Price</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="success-light">
-            <td>In Stock</td>
-            <td class="text-right">12</td>
-            <td class="text-right">$799</td>
-        </tr>
-        <tr class="warning-light">
-            <td>Low Stock</td>
-            <td class="text-right">3</td>
-            <td class="text-right">$249</td>
-        </tr>
-        <tr class="danger-light">
-            <td>Out of Stock</td>
-            <td class="text-right">0</td>
-            <td class="text-right">$189</td>
-        </tr>
-    </tbody>
-</table>
-```
-
-```html +demo-folded
-<table>
-    <thead class="bg-blue-500 txt-white">
-        <tr>
-            <th>Product</th>
-            <th>Category</th>
-            <th>Price</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Acoustic Guitar</td>
-            <td>Instruments</td>
-            <td>$799</td>
-        </tr>
-        <tr>
-            <td class="bdr-red bdr-3">Studio Headphones</td>
-            <td>Audio Gear</td>
-            <td>$249</td>
-        </tr>
-        <tr>
-            <td>MIDI Keyboard</td>
-            <td  class="bg-blue-200">Controllers</td>
-            <td>$189</td>
-        </tr>
-    </tbody>
-</table>
-```
-
-## Configuration Variables (review)
+## SCSS Variables (review)
 
 ```scss +code
 // Border styling
@@ -117,14 +53,3 @@ $table-header-text-transform: uppercase !default;
 $table-padding-x: 0.75rem !default;
 $table-padding-y: 0.75rem !default;
 ```
-
-## Tips and Tricks (review)
-
-```scss +code
-// Remove all borders
-$table-border-color: transparent;
-
-// Borders match text color
-$table-border-color: currentColor;
-```
-
