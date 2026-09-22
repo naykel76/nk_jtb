@@ -9,154 +9,86 @@ description: >-
 Extends `nk-documentation-best-practices` — apply both, this skill takes
 precedence where they conflict.
 
-## Documentation Types
+## Migration System
 
-### Component Documentation
+Every doc lives in one of two places:
 
-Follow the shared component-doc rules in `nk-documentation-best-practices` first.
-Then apply these JTB-specific additions.
+- `docs-staging/` — not yet migrated
+- `docs/` — migrated
 
-**Section Order:**
+A file in `docs/` is **accurate, not necessarily complete**. Nothing in it is
+wrong; sections may still be missing.
 
-Every section is conditional — include only the ones the component needs. When
-present, they appear in this order:
+### Review Tags
 
-1. Title and lead
-2. `## Basic Usage` — minimum working example using the component class
-3. One section for whatever must be understood before use — named case by case
-4. `## Responsive` — behaviour across viewports
-5. `## Examples` — component class recipes, one `###` each
-6. `## SCSS Variables`
-7. `## Utility Examples` — the same component built from utilities
+`(review)` after a heading means that heading's own content is unconfirmed. It
+says nothing about the sections below it, and nothing about whether the page is
+finished.
 
-Slot three has no fixed heading. It carries whatever the reader has to
-understand before using the component — a required HTML shape in `menu.md`
-(`## Structure`, where the `<nav>` is only a container), or how the component
-treats its children in `navbar.md` (`## How It Works`, where the number of
-children drives the layout). Name it for what it actually covers, and omit it
-when there is nothing to explain. This is a case-by-case call, not a section
-every doc needs.
+- On the title, it covers the title and lead. Remove it once the lead states the
+  right scope — not once the page is complete, or it could never come off.
+- On a `##` or `###`, it covers that section only.
+- Add tags freely. **Never remove one.** If something looks confirmed, ask
+  Nathan and let him decide.
 
-A `##` answers a different question about the component; a `###` is a variation
-within one of those answers. `### With Brand and Actions` is a variation of the
-navbar above it, so it nests. `## Responsive` asks how the component behaves
-across viewports — a different question, so its own `##`. Never use sibling
-`##` sections for variations of one another.
+A file with no tags left is confirmed, not complete. Missing sections are
+signalled by their absence and by `docs/jtb-status.md` — never by a tag.
 
-`## Examples` and `## Utility Examples` are not mirrors. Utility examples come
-first in a component's life and are maintained while the class matures, so the
-two sets overlap only where they happen to. Do not add a class example purely to
-pair one that exists in utilities.
+### Migrating a File
 
-Tag examples individually, not by section: `class="bx example-jtb"` for
-component class examples, `class="bx example-utils"` for utility examples. See
-`components/loaders-and-spinners.md` — every variant is `example-utils` except
-`Dots`, which uses `example-jtb` because `.spinner-dots` is a real class.
+1. `git mv` it from `docs-staging/` to `docs/`.
+2. Fix what is wrong, confirmed against source or compiled CSS — never assumed.
+3. Add a plain entry to `scripts/jtb-nav.json`. No `(wip)` suffix in the label;
+   review state lives in the doc.
+4. Add or update its row in `docs/jtb-status.md`.
+5. Document any fact the fix depended on, in the same pass.
 
-**Rules:**
+### Scope of a Pass
 
-- The lead describes purpose, not implementation. Do not mention specific CSS properties.
-- Open Basic Usage with `Apply the [component class] to...` — directive, not descriptive.
-- Component class examples use `class="bx example-jtb"`.
-- Utility examples use `class="bx example-utils"`.
-- Place `## SCSS Variables` directly before `## Utility Examples`.
-- Link to `/docs/jtb/variable-system` for override instructions rather than explaining inline.
-- The component class is the primary API; utility examples are a convenience and go last.
-- In `## Utility Examples`, rebuild the component and the content central to its
-  purpose. Components that are incidental to the example keep their own classes —
-  a navbar example rebuilds the menu, since navigation is the navbar's purpose,
-  but leaves the `.btn` action alone.
+Document only the part in use, never the whole family. Confirming `fs0` while
+migrating a layout means documenting flex-shrink — not all of flexbox.
 
-### Utility Documentation
+Framework-wide conventions (class name structure, prefixes, hyphenation) belong
+in `conventions-and-architecture-rules.md`. Do not restate them in a utility doc.
 
-Use for class-based APIs such as spacing, sizing, border, position, transforms,
-and typography helpers.
+### `docs/jtb-status.md`
 
-**Structure:**
+The at-a-glance page. Keep it scannable:
 
-1. Major utility groups as `##` headings when the page covers more than one family
-2. Example groups within those sections as `###` headings when needed
-3. Optional compact table of available properties or value groups
-4. Available values at the end, when useful
+- Rows are **properties**, not individual classes.
+- `✅` confirmed against source, `review` documented but unconfirmed.
 
-**Rules:**
+## Nav & Links
 
-- Keep utility heading levels parallel.
-- Use a compact table near the top when it helps scan the utility API quickly.
-- Only add notes when behaviour is non-obvious.
-- Group examples by usage, not by SCSS implementation detail.
-- Use `+demo-folded class="bx"` for interactive examples.
+Nav lives in `scripts/jtb-nav.json`. Docs are served from a Laravel app, so
+always use app-rooted paths — never relative ones. Both the route name and the
+link path derive from the file path:
 
-## Code Block Attributes
+| File                       | Route name                   | Link                       |
+| -------------------------- | ---------------------------- | -------------------------- |
+| `docs/variable-system.md`  | `docs.jtb.variable-system`   | `/docs/jtb/variable-system` |
+| `docs/components/list.md`  | `docs.jtb.components.list`   | `/docs/jtb/components/list` |
 
-- `class="..."` → outer demo wrapper class
-- `preview-class="..."` → class applied to the preview container only, keeps copied code clean
-- `+demo` / `+demo-folded` → render preview and code together
+New documentation is created directly in `docs/`.
 
-Use raw HTML (no demo attribute) when the block is purely visual demonstration and the markup is scaffold — showing the code would add noise rather than value.
+## Quick Reference
 
-For layout/responsive docs, use:
+Read the relevant rule file before writing. Summaries below are for navigation
+only — the rule files take precedence.
 
-```md
-+demo-folded class="resizable-container with-docs-only-overrides"
-```
+### Component docs → `rules/component-docs.md`
 
-## Examples
+- Fixed section order, every section conditional
+- `example-jtb` for component class examples, `example-utils` for utility ones
+- `## SCSS Variables` sits directly before `## Utility Examples`
 
-### In Component Docs
+### Utility docs → `rules/utility-docs.md`
 
-Component docs that have a dedicated page carry a `## Examples` section. This
-replaces what would otherwise go in `showcase-ui.md` for that component.
+- One `##` per property, one table each — `Class`, `CSS`, `Description`
+- Describe every row; no prose under the table, no one-liner under the heading
+- Large value scales give the pattern once, not a row per class
 
-- Use `class="bx example-jtb"` for component class examples.
-- Use `class="bx example-utils"` for utility examples.
+### Code blocks and showcase files → `rules/code-blocks.md`
 
-### Showcase Files
-
-Quick visual references for components without a dedicated doc page, or
-utilities that span multiple docs (e.g. typography).
-
-**Default files:**
-
-- `docs/examples/showcase-typography.md` — font sizes, weights, families, text utilities
-- `docs/examples/showcase-ui.md` — components and UI elements without their own doc page
-
-Two reasons something belongs in a showcase file:
-
-1. **Syntax reminder** — enough variations exist that you forget the class names
-2. **Existence reminder** — a single component worth flagging so it doesn't get overlooked
-
-Format depends on content type:
-
-- **UI components** (`showcase-ui.md`) — use `+demo-folded class="bx"` so markup is visible and copyable
-- **Typography/syntax** (`showcase-typography.md`) — raw HTML pairing `<code>` class names with output
-
-Group by component family under `##` headings. Variants sit under `###` within that group.
-
-Do not ask whether to add something to a showcase file for skill, reference, or API docs.
-
-## Nav & Completion
-
-Nav lives in `scripts/jtb-nav.json`. Route names follow `docs.jtb.{path}`:
-
-- `docs/components/list.md` → `docs.jtb.components.list`
-- `docs/variable-system.md` → `docs.jtb.variable-system`
-
-All documentation lives in `docs/`. Create new documentation directly in `docs/`.
-
-When a doc is confirmed complete:
-
-- Add it to `scripts/jtb-nav.json`.
-- Update the relevant row in `docs/jtb-status.md`.
-
-## Links
-
-Docs are served from a Laravel app. Always use app-rooted paths:
-
-- `/docs/jtb/variable-system` ✅
-- `../variable-system.md` ❌
-
-Base path is `/docs/jtb/` + directory and filename without extension:
-
-- `docs/components/list.md` → `/docs/jtb/components/list`
-- `docs/variable-system.md` → `/docs/jtb/variable-system`
+- `+demo` / `+demo-folded`, `class=`, `preview-class=`
+- When something belongs in `showcase-ui.md` or `showcase-typography.md`

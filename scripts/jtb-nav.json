@@ -1,113 +1,25 @@
 {
-    "Getting Started": {
+    "Reference": {
         "links": [
             {
-                "name": "Introduction (wip)",
-                "route_name": "docs.jtb.introduction",
-                "icon": "book-open"
-            },
-            {
-                "name": "Installation (wip)",
-                "route_name": "docs.jtb.installation",
-                "icon": "book-open"
-            }
-        ]
-    },
-    "Core Concepts": {
-        "links": [
-            {
-                "name": "Auto Spacing",
-                "route_name": "docs.jtb.automatic-spacing"
-            },
-            {
-                "name": "Layouts & Structures Overview",
-                "route_name": "docs.jtb.layouts-and-structures",
-                "icon": "book-open"
-            },
-            {
-                "name": "Variable System",
-                "route_name": "docs.jtb.variable-system"
-            }
-        ]
-    },
-    "Colors and Themes": {
-        "links": [
-            {
-                "name": "Colors & Themes",
-                "route_name": "docs.jtb.colors-and-themes"
-            }
-        ]
-    },
-    "Components": {
-        "links": [
-            {
-                "name": "Accordion",
-                "route_name": "docs.jtb.components.accordion"
-            },
-            {
-                "name": "Box (wip)",
-                "route_name": "docs.jtb.components.box"
-            },
-            {
-                "name": "List",
-                "route_name": "docs.jtb.components.list"
-            },
-            {
-                "name": "Menu (wip)",
-                "route_name": "docs.jtb.components.menu"
-            },
-            {
-                "name": "Navbar",
-                "route_name": "docs.jtb.components.navbar"
-            },
-            {
-                "name": "Loaders and Spinners (wip)",
-                "route_name": "docs.jtb.components.loaders-and-spinners"
-            },
-            {
-                "name": "Table (wip)",
-                "route_name": "docs.jtb.components.table"
-            }
-        ]
-    },
-    "Utilities": {
-        "links": [
-            {
-                "name": "Animation",
-                "route_name": "docs.jtb.utilities.animation"
-            },
-            {
-                "name": "Border (wip)",
-                "route_name": "docs.jtb.utilities.border"
-            },
-            {
-                "name": "Position (wip)",
-                "route_name": "docs.jtb.utilities.position"
+                "name": "JTB Status",
+                "route_name": "docs.jtb.jtb-status"
             }
         ]
     },
     "Layouts": {
         "links": [
             {
-                "name": "Sidebar + Main (wip)",
+                "name": "Sidebar + Main",
                 "route_name": "docs.jtb.layouts.layout-sidebar-main"
             }
         ]
     },
-    "Examples": {
+    "Utilities": {
         "links": [
             {
-                "name": "Dashboard Layout",
-                "route_name": "docs.jtb.examples.layout-dashboard",
-                "layout": "layouts.md-fullpage"
-            },
-            {
-                "name": "Typography",
-                "route_name": "docs.jtb.examples.showcase-typography"
-            },
-            {
-                "name": "UI (wip)",
-                "route_name": "docs.jtb.examples.showcase-ui"
+                "name": "Flexbox",
+                "route_name": "docs.jtb.utilities.flexbox"
             }
         ]
     }
