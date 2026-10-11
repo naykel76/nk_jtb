@@ -193,65 +193,87 @@ follow the direction.
   they apply across all Naykel projects unless explicitly marked as
   project-specific. Do not treat them as local decisions without evidence.
 
-## Skills and File References
+## Skills
 
-- When a skill system is available and a skill applies, invoke it before
-  proceeding unless it conflicts with the user's explicit request.
-- Do not treat reading a `SKILL.md` file as a substitute for invoking the skill.
-- Skills and guidelines are always edited via `.ai/` — never agent-managed
-  directories (`.claude/`, `.cursor/`, `.windsurf/`, etc.) directly. The path
-  you read from when a skill is invoked is never the path you edit.
-- Before editing any skill or guideline, run `ls -la .ai/skills/` or
-  `ls -la .ai/guidelines/` to confirm the correct source path. Do this every
-  time — do not skip it, do not rely on Glob, do not edit the path you read from.
-- Glob does not follow or reveal symlinks and will return misleading results.
-  Always use `ls -la` to locate files in `.ai/`.
-- If the file cannot be found after checking with `ls -la`, stop and ask.
-  Do not assume it does not exist, do not fall back to agent-managed
-  directories, and do not proceed without knowing the correct location.
-- Check whether the `.ai/` entry is a local file or a symlink. If it is a
-  symlink, follow it to the target and edit there.
-- Do not update matching copies in parallel or alternate locations unless they
-  are the confirmed source of truth or the user explicitly asks.
-- After changing project guidelines or adding/updating skills, run the
-  project's sync command to propagate changes to agent-managed directories.
-  Check `package.json` for an `ai:sync` script or equivalent. If no sync
-  command is available, note that the change will not propagate until the next
+- When a skill applies, invoke it. Reading its `SKILL.md` is not a substitute.
+- If a request conflicts with the skill, say so before proceeding, then follow
+  the request. Never drop the skill silently.
+- `.ai/` is the only source. Everything the sync script writes is generated —
+  the root instruction files (`CLAUDE.md`, `AGENTS.md`) and every agent skills
+  directory (`.claude/`, `.agents/`, `.cursor/`, `.windsurf/`, and any target
+  added later). The sync script lists them; it is the authority, not this list.
+- Never edit a generated file, and never quote one as the rule. To answer what a
+  guideline or skill says, read it in `.ai/` — a generated copy is a build
+  artefact and arguing from its wording is arguing with the build.
+- Locate the source with `ls -la` every time — Glob does not reveal symlinks and
+  will mislead you. If it is not in `.ai/`, stop and ask rather than guessing or
+  falling back to a generated copy.
+- Run the project's sync command afterwards — `ai:sync` in `package.json`, or
+  equivalent. If there is none, say the change will not propagate until the next
   sync.
-- When a skill or prompt references a file that cannot be read, first try
-  resolving it from the repository root.
-- If the file still cannot be found, stop and ask before proceeding.
-- Do not make assumptions in place of missing references.
-- Reference files and code locations using markdown links:
+
+### Symlinked Skills and Guidelines
+
+Some `.ai/` entries belong to the project. Others are symlinks into
+`sites/skills-and-guidelines`, a **separate git repository**. `ls -la` tells you
+which.
+
+Editing a symlinked file is correct, but the change lands in that separate
+repository and never appears in this project's `git status` or diff.
+
+- After changing one, say the change is in the separate `skills-and-guidelines`
+  repository — not this project — and name the files. Every time, including when
+  Nathan asked for it.
+- If Nathan disputes the change, say that first, before conceding or arguing.
+
+## File References
+
+- If a referenced file cannot be read, try resolving it from the repository
+  root, then stop and ask. Never assume what a missing file contains.
+- Reference files and code locations as markdown links —
   `[filename.md](path/to/file.md)` or `[file.php:42](path/file.php#L42)`.
-  Never use plain text paths.
+  Never plain text paths.
 
 ## Task Tracking
 
-`tasks.md` in the project root is a memory aid. It preserves useful context
-across sessions, especially when conversations branch or go off on tangents.
+Three files at the project root, distinguished by how long a thing stays true
+and by who owns it.
 
-**What belongs:**
+### `_current-task.md`
 
-- Specific findings or decisions that would otherwise be lost
-- Items discussed but not being worked on right now
-- Durable context worth remembering later
+Working scratch for the job in hand. Empty at the start of each job. If
+something in it survives the job, it was never scratch — move it to
+`_project-context.md`.
 
-**What does not belong:**
+### `_project-context.md`
 
-- Status of active work
-- Things Nathan obviously knows
-- Vague reminders
-- Obvious next steps
+Memory, not a to-do list. Findings, open questions, and decisions with the
+reason behind them. Write to it without being asked; removal is part of doing
+the work, not a separate chore.
 
-Write to `tasks.md` when a decision, finding, or parked item would otherwise
-be lost at the end of the session. Do not wait to be asked.
+Two headings:
 
-Three buckets:
+- **Open** — known or discussed, no decision made
+- **Decided** — settled, and why
 
-- **Planned** — specific actionable items not being worked on right now
-- **Parked** — discussed but no decision yet
-- **Context** — decisions and information worth remembering
+Entries are one line. Add a file path or a specific value only where finding it
+again would cost real time. Cut the reasoning — if the finding holds it can be
+redone, and if it does not the reasoning was wrong too.
+
+Do not record status of active work, obvious next steps, or anything Nathan
+already knows.
+
+### `_todo.md`
+
+Jobs Nathan has agreed to do. Shared, but it is his file and reads like his
+file:
+
+- Delete an item when that work is finished in the session.
+- Never delete anything else — not stale-looking, not duplicated, not vague.
+- Add only what has been agreed. Not what seems like a good idea.
+- Keep entries as terse as his. No context paragraphs.
+- Impose no structure. Headings are whatever made sense at the time — priority
+  buckets, feature buckets, or a runbook.
 
 ## Off-Limits Directories
 
