@@ -1,17 +1,19 @@
 # Sidebar + Main
 
-<p class="lead">A two-column layout with a persistent sidebar and a main content area. Start with the base and layer characteristics on top as needed.</p>
+<p class="lead">A sidebar beside a main content area, with options for a responsive sidebar.</p>
 
-## Base (review)
+## Responsive with Hidden Sidebar
 
-A minimal shell: fixed-width sidebar, flex-fill main area.
+Below the breakpoint the sidebar hides and main takes the full width. Usually
+paired with a toggle to reopen it. Drag the demo narrower to see it.
 
 - `fs0` prevents the sidebar from shrinking
 - `flex-1` on main fills the remaining space
+- `to-md:hidden` hides the sidebar below `md` — change `md` to pick the breakpoint
 
 ```html +demo-folded class="resizable-container with-docs-only-overrides"
 <div class="flex min-h-screen">
-    <aside class="w-16 fs0 flex-col bg-slate-900">
+    <aside class="w-16 fs0 bg-slate-900 to-md:hidden">
     </aside>
 
     <main class="flex-1 bg-gray-200">
@@ -19,21 +21,20 @@ A minimal shell: fixed-width sidebar, flex-fill main area.
 </div>
 ```
 
-## Characteristics
+## Characteristics (review)
 
-### Independent Scrolling
+### Independent Scrolling (review)
 
-Each region scrolls on its own. The outer container needs a fixed height, not
-`min-h-screen`.
+Each region scrolls on its own, instead of the whole page scrolling together.
 
-- Add `overflow-hidden` to the outer container and use a fixed height, not `min-h-screen`
-- Use `h-screen` for a full app shell, or `h-full` inside another container
-- Add `overflow-y-auto` to the sidebar
-- Add `overflow-y-auto` to main
+- Replace `min-h-screen` with a fixed height and add `overflow-hidden` to the
+  outer container — `h-screen` for a full app shell, `h-full` inside another
+  container (the demo uses `h-20` to fit the page)
+- Add `overflow-y-auto` to the sidebar and to main
 
 ```html +demo-folded class="resizable-container with-docs-only-overrides"
 <div class="flex h-20 overflow-hidden">
-    <aside class="w-16 fs0 flex-col bg-slate-900 overflow-y-auto">
+    <aside class="w-16 fs0 flex-col bg-slate-900 overflow-y-auto to-md:hidden">
         <div class="pxy-075 space-y">
             <div class="h-6 bg-slate-700 rounded"></div>
             <div class="h-12 bg-slate-700 rounded"></div>
@@ -49,7 +50,7 @@ Each region scrolls on its own. The outer container needs a fixed height, not
 </div>
 ```
 
-### Sticky Sidebar Header and Footer
+### Sticky Sidebar Header and Footer (review)
 
 Scrolling moves from the `aside` to the content between the header and footer.
 

@@ -33,13 +33,13 @@
 
 ## Elements
 
-| Element   | Status |
-| --------- | ------ |
-| Navbar    |        |
-| Sidebar   |        |
-| Burger    |        |
-| Menu      |        |
-| Dropdown  |        |
-| Button    |        |
-| Box       |        |
-| Accordion |        |
+| Element        | Status |
+| -------------- | ------ |
+| Navbar         |        |
+| Sidebar        |        |
+| Sidebar Toggle |        |
+| Menu           |        |
+| Dropdown       |        |
+| Button         |        |
+| Box            |        |
+| Accordion      |        |

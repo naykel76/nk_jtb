@@ -31,6 +31,10 @@ only — the rule files take precedence.
 
 - Section order, and `example-jtb` / `example-utils` tagging
 
+### Layout docs → `rules/layout-docs.md`
+
+- Behaviour first — one responsive default, variations as goals
+
 ### Utility docs → `rules/utility-docs.md`
 
 - One `##` per property, one `Class` / `CSS` / `Description` table each
