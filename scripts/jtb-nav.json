@@ -1,12 +1,4 @@
 {
-    "Reference": {
-        "links": [
-            {
-                "name": "JTB Status",
-                "route_name": "docs.jtb.jtb-status"
-            }
-        ]
-    },
     "Layouts": {
         "links": [
             {

@@ -10,8 +10,6 @@
 | `✅`      | Confirmed against source and documented |
 | `review` | Documented, not yet confirmed           |
 
----
-
 ## Utilities
 
 ### Flexbox
@@ -21,10 +19,21 @@
 | `flex-shrink` | ✅      |
 | `flex-grow`   | ✅      |
 
----
-
 ## Layouts
 
 | Layout         | Status |
 | -------------- | ------ |
 | Sidebar + Main | review |
+
+## Elements
+
+| Element   | Status |
+| --------- | ------ |
+| Navbar    |        |
+| Sidebar   |        |
+| Burger    |        |
+| Menu      |        |
+| Dropdown  |        |
+| Button    |        |
+| Box       |        |
+| Accordion |        |

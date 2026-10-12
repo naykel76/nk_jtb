@@ -241,39 +241,38 @@ and by who owns it.
 
 ### `_current-task.md`
 
-Working scratch for the job in hand. Empty at the start of each job. If
-something in it survives the job, it was never scratch — move it to
-`_project-context.md`.
+The to-do list for the job in hand. Nathan's to use, ours to work with — he
+writes in it too.
+
+- Short-lived. Nathan may clear it at any time and move on. Never rely on it
+  to carry anything between sessions.
+- Help keep it current: when an item looks done, ask whether it should come
+  off. Never add or remove an item without Nathan's yes.
+- If something in it needs to outlast the job, raise it with Nathan.
 
 ### `_project-context.md`
 
-Memory, not a to-do list. Findings, open questions, and decisions with the
-reason behind them. Write to it without being asked; removal is part of doing
-the work, not a separate chore.
+Things we can't afford to forget. Ours to use — both of us.
 
-Two headings:
-
-- **Open** — known or discussed, no decision made
-- **Decided** — settled, and why
-
-Entries are one line. Add a file path or a specific value only where finding it
-again would cost real time. Cut the reasoning — if the finding holds it can be
-redone, and if it does not the reasoning was wrong too.
-
-Do not record status of active work, obvious next steps, or anything Nathan
-already knows.
+- Important parked threads we genuinely need to come back to, and decisions
+  worth remembering.
+- Not every deferred point. The test is whether it would hurt to lose it, not
+  whether it came up.
+- Never add or remove an entry without Nathan's yes.
+- Keep it under constant review. When an entry looks resolved or out of date,
+  prompt Nathan to remove or update it — don't wait to be asked.
+- Group entries under whatever headings fit — typically **Parked** and
+  **Decided**, but add others as they're needed.
 
 ### `_todo.md`
 
-Jobs Nathan has agreed to do. Shared, but it is his file and reads like his
-file:
+Nathan's reminder list — jobs to ask for when he is ready. Not a work queue:
+never action an item unless he asks.
 
-- Delete an item when that work is finished in the session.
-- Never delete anything else — not stale-looking, not duplicated, not vague.
-- Add only what has been agreed. Not what seems like a good idea.
-- Keep entries as terse as his. No context paragraphs.
-- Impose no structure. Headings are whatever made sense at the time — priority
-  buckets, feature buckets, or a runbook.
+- Never add or remove an item without Nathan's yes. When work on an item
+  finishes in the session, ask whether it should come off.
+- Match his style by default — terse entries, whatever headings made sense at
+  the time. Expand or restructure when he asks.
 
 ## Off-Limits Directories
 

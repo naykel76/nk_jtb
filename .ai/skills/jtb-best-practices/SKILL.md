@@ -17,7 +17,7 @@ classes in JTB — each scale is generated independently.
 
 If a class cannot be confirmed in the SCSS source or docs, stop and check before using it.
 
-## Quick Reference
+## Rule Files
 
 Read the relevant rule file before writing markup. Summaries below are for
 navigation only — the rule files take precedence.

@@ -18,6 +18,14 @@
 
 -------------------------------------------------------------------------------
 
+## Review System (review)
+
+| File            | Purpose                                                 |
+| --------------- | ------------------------------------------------------- |
+| `jtb-status.md` | Progress tracker — what's been reviewed and what's left |
+
+-------------------------------------------------------------------------------
+
 ## To Do's
 
 - Take a look at the inset and border radius maps.They have been updated to
