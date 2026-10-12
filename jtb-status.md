@@ -25,6 +25,12 @@
 | -------------- | ------ |
 | Sidebar + Main | review |
 
+## Structures
+
+| Structure              | Status |
+| ---------------------- | ------ |
+| Two-Thirds + One-Third | ✅      |
+
 ## Elements
 
 | Element   | Status |

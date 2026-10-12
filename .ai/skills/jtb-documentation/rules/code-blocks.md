@@ -2,8 +2,8 @@
 
 ## Block Attributes
 
-- Layout and responsive demos use
-  `+demo-folded class="resizable-container with-docs-only-overrides"`.
+- Use `+demo-folded class="resizable-container with-docs-only-overrides"` only
+  for responsive demos.
 - Use raw HTML with no demo when the markup is just scaffold — showing the code
   adds noise.
 

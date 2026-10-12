@@ -1,8 +1,8 @@
-# Sidebar + Main Layout (review)
+# Sidebar + Main
 
-A two-column layout with a persistent sidebar and a main content area. Start with the base structure and layer characteristics on top as needed.
+<p class="lead">A two-column layout with a persistent sidebar and a main content area. Start with the base and layer characteristics on top as needed.</p>
 
-## Base Structure (review)
+## Base (review)
 
 A minimal shell: fixed-width sidebar, flex-fill main area.
 
@@ -19,13 +19,15 @@ A minimal shell: fixed-width sidebar, flex-fill main area.
 </div>
 ```
 
-## Characteristics (review)
+## Characteristics
 
-### Independent Scrolling (review)
+### Independent Scrolling
 
-Each region scrolls independently within its own bounds. The outer container needs a fixed height — not a min-height — so both regions know where they end. The specific height depends on context (`h-screen` for a full app shell, `h-full` inside another container).
+Each region scrolls on its own. The outer container needs a fixed height, not
+`min-h-screen`.
 
 - Add `overflow-hidden` to the outer container and use a fixed height, not `min-h-screen`
+- Use `h-screen` for a full app shell, or `h-full` inside another container
 - Add `overflow-y-auto` to the sidebar
 - Add `overflow-y-auto` to main
 
@@ -47,9 +49,9 @@ Each region scrolls independently within its own bounds. The outer container nee
 </div>
 ```
 
-### Sticky Sidebar Header and Footer (review)
+### Sticky Sidebar Header and Footer
 
-When the sidebar needs a persistent header or footer, `overflow-y-auto` moves from the `aside` to an inner content region. The aside itself becomes the fixed frame; only the content between the header and footer scrolls.
+Scrolling moves from the `aside` to the content between the header and footer.
 
 - Remove `overflow-y-auto` from the `aside`
 - Add a `<header>` and `<footer>` as direct children of the `aside`

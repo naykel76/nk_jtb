@@ -2,8 +2,16 @@
     "Layouts": {
         "links": [
             {
-                "name": "Sidebar + Main",
-                "route_name": "docs.jtb.layouts.layout-sidebar-main"
+                "name": "Layouts",
+                "route_name": "docs.jtb.layouts.layouts"
+            },
+            {
+                "name": "Sidebar + Main (wip)",
+                "route_name": "docs.jtb.layouts.sidebar-main"
+            },
+            {
+                "name": "Structures",
+                "route_name": "docs.jtb.layouts.structures"
             }
         ]
     },

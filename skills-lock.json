@@ -23,13 +23,13 @@
       "source": "naykel76/skills-and-guidelines",
       "sourceType": "github",
       "skillPath": "nk-documentation-best-practices/SKILL.md",
-      "computedHash": "1f2d50ac6957f58238e028fcd89b5373b3996c98d09b33f74e81074974a67aca"
+      "computedHash": "9b9d054f9739db9c5acfbd6af79e492fb020121b8ac9c09a9e2cf082e459bc94"
     },
     "skill-creation": {
       "source": "naykel76/skills-and-guidelines",
       "sourceType": "github",
       "skillPath": "skill-creation/SKILL.md",
-      "computedHash": "c5058a774ab7b5145028d50e547ce80e7d420f3b43a5effe794cb0c9367307c7"
+      "computedHash": "8b903c34b48870fce812b084f0fd5b1c7f0ecc9e1698b5791e0b4ba19fc6bbcc"
     }
   }
 }
