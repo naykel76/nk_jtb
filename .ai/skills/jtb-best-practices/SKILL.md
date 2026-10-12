@@ -58,4 +58,3 @@ navigation only — the rule files take precedence.
 - `grid` with `cols-*` for column-based structures, `flex` for single-axis arrangements
 - Build mobile-first — add `{bp}:` utilities only when no higher-level pattern fits
 - Fewest structural elements that cleanly express the layout
-- Default section rhythm: `py-4-3-2` standard, `py-5-3-2` prominent

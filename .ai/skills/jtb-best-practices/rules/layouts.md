@@ -28,9 +28,6 @@
   add extra horizontal padding on the same element.
 - Let the component own its internal padding. Use the container for width and
   placement only.
-- Default section rhythm:
-  - `py-4-3-2` for standard sections
-  - `py-5-3-2` for more prominent sections
 - Prefer approved magic/composite classes when they express an established
   responsive pattern more clearly than explicit breakpoint chains. Common
   examples include `py-*`, `gap-*`, and `cols-*` patterns.
