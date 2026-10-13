@@ -9,7 +9,7 @@ paired with a toggle to reopen it. Drag the demo narrower to see it.
 
 - `fs0` prevents the sidebar from shrinking
 - `flex-1` on main fills the remaining space
-- `to-md:hidden` hides the sidebar below `md` — change `md` to pick the breakpoint
+- `to-md:hidden` hides the sidebar below `md`
 
 ```html +demo-folded class="resizable-container with-docs-only-overrides"
 <div class="flex min-h-screen">
@@ -28,7 +28,7 @@ paired with a toggle to reopen it. Drag the demo narrower to see it.
 Each region scrolls on its own, instead of the whole page scrolling together.
 
 - Replace `min-h-screen` with a fixed height and add `overflow-hidden` to the
-  outer container — `h-screen` for a full app shell, `h-full` inside another
+  outer container. Use `h-screen` for a full app shell, `h-full` inside another
   container (the demo uses `h-20` to fit the page)
 - Add `overflow-y-auto` to the sidebar and to main
 

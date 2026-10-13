@@ -9,6 +9,8 @@
 | -------- | --------------------------------------- |
 | `✅`      | Confirmed against source and documented |
 | `review` | Documented, not yet confirmed           |
+| `n/a`    | Not needed                              |
+| blank    | Not started                             |
 
 ## Utilities
 
@@ -33,13 +35,13 @@
 
 ## Elements
 
-| Element        | Status |
-| -------------- | ------ |
-| Navbar         |        |
-| Sidebar        |        |
-| Sidebar Toggle |        |
-| Menu           |        |
-| Dropdown       |        |
-| Button         |        |
-| Box            |        |
-| Accordion      |        |
+| Element        | Class | Utilities | Variables |
+| -------------- | ----- | --------- | --------- |
+| Navbar         | ✅     | ✅         | review    |
+| Sidebar        |       |           |           |
+| Sidebar Toggle |       |           |           |
+| Menu           |       |           |           |
+| Dropdown       |       |           |           |
+| Button         |       |           |           |
+| Box            |       |           |           |
+| Accordion      |       |           |           |

@@ -4,47 +4,13 @@
 
 ## Basic Usage
 
-Apply the `navbar` class to a `<nav>` or wrapping element to create a horizontal
-navigation bar.
+Apply the `navbar` class to a `<nav>`. Brand, menu and actions spread across
+the bar; below the breakpoint the menu hides. Drag the demo narrower to see it.
 
-```html +demo-folded class="bx example-jtb"
-<nav class="navbar">
-    <ul class="menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact</a></li>
-    </ul>
-</nav>
-```
+<!-- toggle to reopen the menu not built yet -->
 
-## How It Works
-
-`.navbar` spaces its direct children apart with `space-between`, so how many
-children it has changes the layout.
-
-- Two children sit at each edge
-- Three push the middle one to the centre
-
-```html +demo-folded class="bx example-jtb"
-<nav class="navbar">
-    <div class="bx w-8"></div>
-    <div class="bx w-8"></div>
-</nav>
-```
-
-```html +demo-folded class="bx example-jtb"
-<nav class="navbar">
-    <div class="bx w-8"></div>
-    <div class="bx w-8"></div>
-    <div class="bx w-8"></div>
-</nav>
-```
-
-## Responsive
-
-Hide the menu below `md` with `to-md:hidden`. The utility applies the same way
-whether the navbar is built with the component class or with utilities.
+- A `menu` inside a navbar lays out as a row instead of a column
+- `to-md:hidden` hides the menu below `md`
 
 ```html +demo-folded class="resizable-container with-docs-only-overrides example-jtb"
 <nav class="navbar">
@@ -54,26 +20,17 @@ whether the navbar is built with the component class or with utilities.
         <li><a href="#">About</a></li>
         <li><a href="#">Contact</a></li>
     </ul>
-</nav>
-```
-
-## Examples
-
-### With Brand and Actions
-
-```html +demo-folded class="bx example-jtb"
-<nav class="navbar">
-    <div class="font-bold">MyBrand</div>
-    <ul class="menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-    </ul>
     <button class="btn sm primary">Sign In</button>
 </nav>
 ```
 
-## SCSS Variables
+### How It Works
+
+- Children spread out with `space-between`. Two sit at each edge, three
+  spread evenly
+- A middle item is only centred when the outer two are the same width
+
+## SCSS Variables (review)
 
 | Variable            | Default    | Description        |
 | ------------------- | ---------- | ------------------ |

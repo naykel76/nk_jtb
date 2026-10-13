@@ -1,4 +1,12 @@
 {
+    "Components": {
+        "links": [
+            {
+                "name": "Navbar",
+                "route_name": "docs.jtb.components.navbar"
+            }
+        ]
+    },
     "Layouts": {
         "links": [
             {
