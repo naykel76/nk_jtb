@@ -72,11 +72,15 @@
     // Uses the real breakpoints, so classes switch at the same widths as on a
     // real page. Wrap a whole page in the container to resize it without
     // resizing the window.
-    &.with-page-overrides {
+    &.page {
         min-height: 100vh;
 
         &::after {
             bottom: 0.5rem;
+        }
+
+        .h-screen {
+            height: 80vh;
         }
 
         @include cq-to-md {

@@ -2,6 +2,7 @@
 @use '../functions/classes' as *;
 @use '../functions/strings' as *;
 @use '../mixins/build-system/controllers' as *;
+@use 'sass:map';
 
 // prettier-ignore
 $layout-properties-map: (
@@ -20,14 +21,14 @@ $layout-properties-map: (
 
 // prettier-ignore
 $negative-layout-properties-map: (
-    inset-block-start:  ( prefix: '-top',    values: $negative-positional-map, unit: 'rem' ),
-    inset-block-end:    ( prefix: '-bottom', values: $negative-positional-map, unit: 'rem' ),
-    inset-inline-start: ( prefix: '-left',   values: $negative-positional-map, unit: 'rem' ),
-    inset-inline-end:   ( prefix: '-right',  values: $negative-positional-map, unit: 'rem' ),
+    negative-inset-block-start:  ( property: inset-block-start,  prefix: '-top',    values: $negative-positional-map, unit: 'rem' ),
+    negative-inset-block-end:    ( property: inset-block-end,    prefix: '-bottom', values: $negative-positional-map, unit: 'rem' ),
+    negative-inset-inline-start: ( property: inset-inline-start, prefix: '-left',   values: $negative-positional-map, unit: 'rem' ),
+    negative-inset-inline-end:   ( property: inset-inline-end,   prefix: '-right',  values: $negative-positional-map, unit: 'rem' ),
 );
 
 // ============================================================================
 // Builds
 // ============================================================================
-@include build-classes($layout-properties-map, $responsive: true);
-@include build-classes($negative-layout-properties-map, $responsive: true);
+// One build, so negative and positive offsets share the same breakpoint order
+@include build-classes(map.merge($layout-properties-map, $negative-layout-properties-map), $responsive: true);

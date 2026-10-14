@@ -9,6 +9,12 @@
 // Returns a map ready for layer builders to consume
 // ============================================================================
 @function normalise-config($property, $config, $responsive, $with-state) {
+    // Optional 'property' key: lets two entries in one map target the same CSS
+    // property (e.g. positive and negative offsets), since map keys must be unique
+    @if map.has-key($config, 'property') {
+        $property: map.get($config, 'property');
+    }
+
     $config-unit: map.get($config, 'unit');
     $config-positions: map.get($config, 'positions');
     $omit-axis-keys: map.get($config, 'omit-axis-keys');

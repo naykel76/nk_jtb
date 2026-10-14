@@ -1,5 +1,7 @@
+@use '../../maps_and_variables/base' as *;
 @use './layers' as *;
 @use './normalise-config' as *;
+@use 'sass:list';
 @use 'sass:map';
 
 // ============================================================================
@@ -45,28 +47,63 @@
 // ============================================================================
 // Controller: Grand unified - Base + Responsive
 // ============================================================================
+// Output order is what makes mobile-first work: every base class first, then
+// the breakpoints one at a time from smallest to largest. A breakpoint class
+// then always beats a base class, and a larger breakpoint beats a smaller one.
 @mixin build-classes($properties-map, $responsive: false, $with-state: false) {
+    $configs: ();
+
     @each $property, $config in $properties-map {
-        $normalised: normalise-config($property, $config, $responsive, $with-state);
+        $configs: list.append($configs, normalise-config($property, $config, $responsive, $with-state), $separator: comma);
+    }
 
-        // Layer 1: Base classes
+    // Layer 1: Base classes
+    @each $normalised in $configs {
         @include build-base-layer($normalised);
+    }
 
-        // Layer 2: Responsive variants
-        @if map.get($normalised, 'breakpoints') {
-            @include build-responsive-layer($normalised);
+    // Layer 2: Responsive variants, one breakpoint at a time
+    @each $bp in ordered-breakpoints($configs) {
+        @each $normalised in $configs {
+            $breakpoints: map.get($normalised, 'breakpoints');
+
+            @if $breakpoints and list.index($breakpoints, $bp) {
+                @include build-responsive-layer(map.merge($normalised, (breakpoints: ($bp,))));
+            }
         }
-        
+    }
+
+    @each $normalised in $configs {
         // Layer 3: State variants
         @if map.get($normalised, 'states') {
             @include build-state-layer($normalised);
         }
-        
+
         // Layer 4: Responsive + State
         @if map.get($normalised, 'breakpoints') and map.get($normalised, 'states') {
             @include build-responsive-state-layer($normalised);
         }
     }
+}
+
+// Breakpoints in cascade order: the framework breakpoints smallest first, then
+// any others a config lists, so none are dropped
+@function ordered-breakpoints($configs) {
+    $ordered: $responsive-variants;
+
+    @each $normalised in $configs {
+        $breakpoints: map.get($normalised, 'breakpoints');
+
+        @if $breakpoints {
+            @each $bp in $breakpoints {
+                @if not list.index($ordered, $bp) {
+                    $ordered: list.append($ordered, $bp, $separator: comma);
+                }
+            }
+        }
+    }
+
+    @return $ordered;
 }
 
 // ============================================================================

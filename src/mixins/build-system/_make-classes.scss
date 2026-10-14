@@ -108,9 +108,11 @@
 // Composite classes - multi-property utilities
 // Generates: .p-ctrl { padding-block: ...; padding-inline: ...; }
 // ============================================================================
-@mixin make-composite-class($class, $props, $breakpoints: null, $child-selector: false) {
-    #{build-selector($class, $child-selector)} {
-        @include make-properties($props);
+@mixin make-composite-class($class, $props, $breakpoints: null, $child-selector: false, $include-base: true) {
+    @if $include-base {
+        #{build-selector($class, $child-selector)} {
+            @include make-properties($props);
+        }
     }
 
     @if $breakpoints {

@@ -3,6 +3,8 @@
 @use '../media-container-queries' as *;
 @use './make-classes' as *;
 @use './make-properties' as *;
+@use '../../maps_and_variables/base' as *;
+@use 'sass:list';
 @use 'sass:map';
 
 
@@ -119,18 +121,44 @@
 // Composite classes - multi-property utilities
 // Config format: ('class-name': (props: (prop: value, ...)), breakpoints: (...))
 // ============================================================================
+// Same output order as build-classes: every base class first, then the
+// breakpoints one at a time from smallest to largest.
 @mixin build-composite-layer($properties-map, $responsive: false) {
-    @each $class, $map in $properties-map {
-        $props: map.get($map, 'props');
-        $map-breakpoints: map.get($map, 'breakpoints');
-        $child-selector: map.get($map, 'child-combinator');
+    $resolved: ();
+    $ordered: $responsive-variants;
 
-        $breakpoints: $map-breakpoints;
+    @each $class, $map in $properties-map {
+        $breakpoints: map.get($map, 'breakpoints');
 
         @if $responsive {
-            $breakpoints: get-breakpoints($map-breakpoints);
+            $breakpoints: get-breakpoints($breakpoints);
         }
 
-        @include make-composite-class($class, $props, $breakpoints, $child-selector);
+        $resolved: map.merge($resolved, ($class: map.merge($map, (breakpoints: $breakpoints))));
+
+        // Keep any breakpoint outside the framework list, so none are dropped
+        @if $breakpoints {
+            @each $bp in $breakpoints {
+                @if not list.index($ordered, $bp) {
+                    $ordered: list.append($ordered, $bp, $separator: comma);
+                }
+            }
+        }
+    }
+
+    // Base classes
+    @each $class, $map in $resolved {
+        @include make-composite-class($class, map.get($map, 'props'), null, map.get($map, 'child-combinator'));
+    }
+
+    // Responsive variants, one breakpoint at a time
+    @each $bp in $ordered {
+        @each $class, $map in $resolved {
+            $breakpoints: map.get($map, 'breakpoints');
+
+            @if $breakpoints and list.index($breakpoints, $bp) {
+                @include make-composite-class($class, map.get($map, 'props'), ($bp,), map.get($map, 'child-combinator'), $include-base: false);
+            }
+        }
     }
 }

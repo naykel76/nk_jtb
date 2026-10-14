@@ -26,6 +26,18 @@ Read `docs/conventions-and-architecture-rules.md` before starting.
 - Add or extend variables/maps in `src/maps_and_variables/` only when the new
   API needs reusable configuration or scale values.
 
+## Cascade Order
+
+Mobile-first only works if the CSS is output in the right order.
+
+- Output every base class before any breakpoint class, then the breakpoints
+  one at a time from smallest to largest. `build-classes` and
+  `build-composite-classes` do this within a single call.
+- Build classes that set the same CSS property in one call. Order is only
+  guaranteed inside a call. When two map entries need the same property, give
+  one a different key and set `property` on it (see the negative offsets in
+  `src/utilities/_layout.scss`).
+
 ## Component Workflow
 
 1. Add variables to `src/maps_and_variables/_components.scss` only if the

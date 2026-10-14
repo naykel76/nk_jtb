@@ -2,6 +2,22 @@
 
 ## Parked
 
+- Rail labels: how users identify icons in the collapsed sidebar. Options:
+  `title` attribute, a new styled tooltip component, or nothing. Important,
+  undecided.
+- Sidebar collapsed state isn't remembered across page loads. Needs Alpine
+  `persist` (not installed) or `localStorage`. Left out for now.
+- Cross-file cascade conflicts: classes that set the same property but are
+  built in separate calls or files can still let a base class beat a
+  breakpoint class (about 456k pairs, almost all `color`: text colours vs
+  theme classes). The in-call order was fixed; this part needs its own design.
+- Turn the dashboard grilling into a reusable layout brief, possibly a form
+  Nathan fills in. Questions asked, in order: top bar span, what scrolls,
+  collapsed style, parent click in rail, toggle placement, brand in rail,
+  behaviour per breakpoint, how overlays close, rail labels, remembered state,
+  menu grouping, sidebar footer, animation, content scope.
+- Discuss how layout examples are managed: where they're stored, what we do
+  with them, and how they're described.
 - Discuss where examples and showcases fit — docs keep one default per
   component; many variants (e.g. several navbars) may belong in a showcase
   instead.
