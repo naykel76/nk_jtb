@@ -1,16 +1,26 @@
 # Component Documentation
 
-## Section Order
+## Document Sections
 
-Every section is optional. When present, they appear in this order:
+This is the usual shape of a component doc, generally in this order. Some
+components have more or fewer sections, and that's decided per component.
+Don't add or remove sections on your own.
 
 1. Title and lead
-2. `## Basic Usage` — one default example, responsive. Bullets explain each
-   class that makes it work. Add `### How It Works` when the underlying
-   mechanics aren't obvious from the example
-3. `## Examples` — only for class variations that need their own explanation
-4. `## SCSS Variables`
-5. `## Utility Examples`
+2. `## Basic Usage` — the typical use as one example. Include behaviour like
+   responsiveness when it belongs to the component, not to the layout around it
+3. `## Quick Reference` — pieces someone would come back to look up and copy,
+   like a parent item with its Alpine toggle
+4. `## Examples` — only for class variations that need their own explanation
+5. `## SCSS Variables`
+6. `## Utility Examples`
+
+## Other Sections
+
+Sections that sometimes appear. They're decided per component, so don't question
+them for not being in the list above.
+
+- `How It Works` — the technical side, so readers don't have to read the SCSS
 
 ## Rules
 

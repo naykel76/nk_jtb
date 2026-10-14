@@ -9,20 +9,24 @@
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="font-bold">MyBrand</div>
-        <ul class="menu">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
 
-    <main class="container py">
-        <h1>Page Title</h1>
-        <p class="lead">A short introduction to the page.</p>
-        <p>Body content goes here.</p>
-    </main>
+    <div class="resizable-container with-page-overrides">
+        <nav class="navbar">
+            <div class="font-bold">MyBrand</div>
+            <ul class="menu to-md:hidden">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <button class="btn sm primary">Sign In</button>
+        </nav>
+
+        <main class="container py">
+            <h1>Page Title</h1>
+            <p class="lead">A short introduction to the page.</p>
+            <p>Body content goes here.</p>
+        </main>
+    </div>
 
 
     <script type="module" src="/main.js"></script>

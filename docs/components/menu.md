@@ -1,36 +1,34 @@
-# Menu (review)
+# Menu
 
-The `.menu` class creates vertical navigation lists with automatic styling for
-links, buttons, icons, and states. No item classes required — just add links to
-the list.
+<p class="lead">A vertical navigation list that styles its links and buttons automatically. Inside a <a href="/docs/jtb/components/navbar">navbar</a> it lays out as a row.</p>
 
-## Structure (review)
+## Basic Usage
 
-Apply `.menu` to a `<ul>` element. The `<nav>` is just a container; the menu
-itself is the list.
-
-```html +code
-<nav>
-    <ul class="menu">
-        <li><a href="#">Link</a></li>
-    </ul>
-</nav>
-```
-
-## Basic Usage (review)
+- `menu` goes on the `<ul>`. The `<nav>` is only a wrapper
+- Links and buttons inside are styled automatically, so items need no classes
+- Icons inside links and buttons are sized and spaced automatically
+- `active` marks the current item
+- A parent is a `<button>` followed by a nested `<ul>`
+- The toggle uses Alpine.js
 
 ```html +demo-folded class="bx example-jtb"
 <nav>
     <ul class="menu">
-        <li> 
-            <a href="#"> <svg class="svg-icon-pink"></svg> Item </a> 
+        <li>
+            <a href="#">
+                <svg class="svg-icon-pink"></svg>
+                Item
+            </a>
         </li>
-        <li> 
-            <a href="#" class="active"> <svg class="svg-icon-pink"></svg> Active </a> 
+        <li>
+            <a href="#" class="active">
+                <svg class="svg-icon-pink"></svg>
+                Active
+            </a>
         </li>
         <li x-data="{ open: true }">
             <button x-on:click="open = !open">
-                <span>  
+                <span>
                     <svg class="svg-icon-pink"></svg>
                     Parent <span x-text="open ? '(opened)' : '(closed)'"></span>
                 </span>
@@ -44,65 +42,58 @@ itself is the list.
                     <a href="#">Child Item</a>
                 </li>
             </ul>
-        </li>        
+        </li>
     </ul>
 </nav>
 ```
 
-### Adding Icons (review)
+## Quick Reference
 
-Icons work automatically — just add them inside links or buttons. Spacing and
-alignment are handled by the `.menu` class.
+### Item With Icon
+
+Icons work automatically. Add them inside links or buttons, and the `.menu`
+class handles spacing and alignment.
 
 ```html +demo-folded class="bx example-jtb"
 <nav>
     <ul class="menu">
         <li>
-            <a href="#"> 
-                <svg class="svg-icon-pink"></svg> 
-                Item 
+            <a href="#">
+                <svg class="svg-icon-pink"></svg>
+                Item
             </a>
         </li>
     </ul>
 </nav>
 ```
 
-### Section titles (`.menu-title`) (review)
+### Collapsible Parent
 
-Use `.menu-title` for non-clickable labels that group menu items. Place it
-inside the same `<ul class="menu">` as a sibling to `<li>` elements.
-
-```html +code
-<ul class="menu">
-    <li class="menu-title">Section</li>
-    <li><a href="#">Item</a></li>
-</ul>
+```html +demo-folded class="bx example-jtb"
+<nav>
+    <ul class="menu">
+        <li x-data="{ open: true }">
+            <button x-on:click="open = !open">
+                <span>
+                    <svg class="svg-icon-pink"></svg>
+                    Parent <span x-text="open ? '(opened)' : '(closed)'"></span>
+                </span>
+                <svg class="wh-1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path x-show="open" d="m6 15 6-6 6 6" />
+                    <path x-show="!open" d="m6 9 6 6 6-6" />
+                </svg>
+            </button>
+            <ul x-show="open" x-collapse>
+                <li>
+                    <a href="#">Child Item</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>
 ```
 
-### Underline variant (`.link-underline`) (review)
-
-Add `.link-underline` to the menu element to replace the hover background with
-a sliding left-to-right underline on links and buttons.
-
-```html +code
-<ul class="menu link-underline">
-    <li><a href="#">Item</a></li>
-</ul>
-```
-
-### Chevron rotation (`.chevron`) (review)
-
-Add `.chevron` to a toggle icon. Toggle `.open` on it when the submenu is open
-to rotate the icon 180°.
-
-```html +code
-<svg class="chevron" :class="{ open: open }">...</svg>
-```
-
-### Parent Items (review)
-
-Parent items use buttons to toggle child menus. Uses Alpine.js for toggle
-behaviour.
+### Dropdown Parent
 
 ```html +demo-folded class="bx example-jtb"
 <nav>
@@ -133,6 +124,40 @@ behaviour.
 </nav>
 ```
 
+## Examples
+
+### Section Titles (`.menu-title`)
+
+Use `.menu-title` for non-clickable labels that group menu items. Place it
+inside the same `<ul class="menu">` as a sibling to `<li>` elements.
+
+```html +code
+<ul class="menu">
+    <li class="menu-title">Section</li>
+    <li><a href="#">Item</a></li>
+</ul>
+```
+
+### Underline Variant (`.link-underline`)
+
+Add `.link-underline` to the menu element to replace the hover background with
+a sliding left-to-right underline on links and buttons.
+
+```html +code
+<ul class="menu link-underline">
+    <li><a href="#">Item</a></li>
+</ul>
+```
+
+### Chevron Rotation (`.chevron`)
+
+Add `.chevron` to a toggle icon. Toggle `.open` on it when the submenu is open
+to rotate the icon 180°.
+
+```html +code
+<svg class="chevron" :class="{ open: open }">...</svg>
+```
+
 ## SCSS Variables (review)
 
 | Variable                      | Default                                    | Description                  |
@@ -146,7 +171,7 @@ behaviour.
 
 See [Variable System](/docs/jtb/variable-system) for override instructions.
 
-## Utility Examples (review)
+## Utility Examples
 
 ```html +demo-folded class="bx example-utils"
 <nav>
@@ -162,7 +187,7 @@ See [Variable System](/docs/jtb/variable-system) for override instructions.
                 <svg class="wh-1.25 svg-icon-blue"></svg>
                 Active
             </a>
-        </li>         
+        </li>
         <li x-data="{ open: true }">
             <button x-on:click="open = ! open" class="flex items-center justify-between w-full px-075 py-05 rounded-lg txt-gray-600 hover:bg-gray-100">
                 <span class="flex items-center gap-075">

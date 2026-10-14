@@ -35,13 +35,13 @@
 
 ## Elements
 
-| Element        | Class | Utilities | Variables |
-| -------------- | ----- | --------- | --------- |
-| Navbar         | ✅     | ✅         | review    |
-| Sidebar        |       |           |           |
-| Sidebar Toggle |       |           |           |
-| Menu           |       |           |           |
-| Dropdown       |       |           |           |
-| Button         |       |           |           |
-| Box            |       |           |           |
-| Accordion      |       |           |           |
+| Element        | Class  | Utilities | Variables |
+| -------------- | ------ | --------- | --------- |
+| Navbar         | ✅      | ✅         | review    |
+| Sidebar        |        |           |           |
+| Sidebar Toggle |        |           |           |
+| Menu           | ✅      | ✅         | review    |
+| Dropdown       |        |           |           |
+| Button         |        |           |           |
+| Box            |        |           |           |
+| Accordion      |        |           |           |

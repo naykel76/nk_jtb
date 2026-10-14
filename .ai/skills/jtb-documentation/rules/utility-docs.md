@@ -11,7 +11,7 @@
 - The lead states the whole subject the finished page will cover, not what is
   written today.
 - Keep descriptions to a few words. Mark browser defaults as `default`.
-- No one-line description under a `##` heading, and no prose under the table. If
-  it matters, it belongs in the `Description` column.
+- No one-line description under a `##` heading. If it matters, it belongs in
+  the `Description` column.
 - Where a property takes a scale rather than a handful of values, give the
   pattern and the scale once — not a row per class.

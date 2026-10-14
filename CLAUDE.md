@@ -208,9 +208,11 @@ follow the direction.
 - Locate the source with `ls -la` every time — Glob does not reveal symlinks and
   will mislead you. If it is not in `.ai/`, stop and ask rather than guessing or
   falling back to a generated copy.
-- Run the project's sync command afterwards — `ai:sync` in `package.json`, or
-  equivalent. If there is none, say the change will not propagate until the next
-  sync.
+- Don't sync after every change. Run the project's sync command (`ai:sync` in
+  `package.json`, or equivalent) only when Nathan asks, or when a batch of
+  changes is finished. Until then, generated copies are behind, so read rules
+  from `.ai/`. If there is no sync command, say the change will not propagate
+  until the next sync.
 
 ### Symlinked Skills and Guidelines
 

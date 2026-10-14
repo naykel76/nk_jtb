@@ -89,10 +89,9 @@ $menu-link-underline-color: $primary !default;
 // ============================================================================
 // -- navbar --
 // ============================================================================
-// Should the navbar contain any styling? or just leave it to the utilities?
 $navbar-bg: $primary !default;
 $navbar-padding-x: 1rem !default;
-$navbar-padding-y: 0.75em !default;
+$navbar-padding-y: 0.75rem !default;
 
 // $navbar-menu-hover-bg: color.adjust($navbar-bg, $lightness: 5%) !default;
 // $navbar-menu-hover-color: text-color($navbar-bg) !default;

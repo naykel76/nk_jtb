@@ -2,6 +2,10 @@
     "Components": {
         "links": [
             {
+                "name": "Menu",
+                "route_name": "docs.jtb.components.menu"
+            },
+            {
                 "name": "Navbar",
                 "route_name": "docs.jtb.components.navbar"
             }

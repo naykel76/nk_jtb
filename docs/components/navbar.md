@@ -36,7 +36,7 @@ the bar; below the breakpoint the menu hides. Drag the demo narrower to see it.
 | ------------------- | ---------- | ------------------ |
 | `$navbar-bg`        | `$primary` | Navbar background  |
 | `$navbar-padding-x` | `1rem`     | Horizontal padding |
-| `$navbar-padding-y` | `0.75em`   | Vertical padding   |
+| `$navbar-padding-y` | `0.75rem`  | Vertical padding   |
 
 See [Variable System](/docs/jtb/variable-system) for override instructions.
 

@@ -234,66 +234,6 @@ pre code.torchlight {
 // -- Container Queries --
 // ============================================================================
 
-:where(.resizable-container) {
-    border: 2px dashed var(--primary);
-    border-radius: 0.5rem;
-    container-name: demo-container;
-    container-type: inline-size;
-    max-width: 100%;
-    overflow: auto;
-    padding: 1rem;
-    position: relative;
-    resize: horizontal;
-
-    &::after {
-        bottom: 0.1125;
-        color: #667eea;
-        content: '← Drag to resize →';
-        font-size: 0.75rem;
-        pointer-events: none;
-        position: absolute;
-        right: 0.5rem;
-    }
-
-    // Docs-only preview overrides.
-    // The demo wrapper is narrower than a real page, so this adjusts the preview
-    // behavior without changing the example code that users copy.
-    &.with-docs-only-overrides {
-        .min-h-screen {
-            min-height: 200px;
-        }
-
-        .lg\:cols-3 {
-            grid-template-columns: repeat(1, minmax(0, 1fr));
-        }
-
-        .lg\:col-span-1,
-        .lg\:col-span-2 {
-            grid-column: auto;
-        }
-
-        @container (width < 476px) {
-            .to-md\:hidden {
-                display: none;
-            }
-        }
-
-        @container (width >= 640px) {
-            .lg\:cols-3 {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
-
-            .lg\:col-span-1 {
-                grid-column: span 1 / span 1;
-            }
-
-            .lg\:col-span-2 {
-                grid-column: span 2 / span 2;
-            }
-        }
-    }
-}
-
 // these are quality of life utilities for the docs to make it easier to
 // demonstrate responsive designs.
 

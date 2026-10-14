@@ -29,7 +29,7 @@ only — the rule files take precedence.
 
 ### Component docs → `rules/component-docs.md`
 
-- Section order, and `example-jtb` / `example-utils` tagging
+- Document sections, and `example-jtb` / `example-utils` tagging
 
 ### Layout docs → `rules/layout-docs.md`
 
