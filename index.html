@@ -6,45 +6,198 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
     <title>Home</title>
+    <style>
+        /* Page helper: translucent course title over the image. In Laravel, move to the app CSS. */
+        .course-title {
+            background-color: rgb(255 255 255 / 80%);
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- Dashboard with collapsible sidebar (in progress) -->
-    <div class="resizable-container page">
-        <div class="bdr bdr-sky">
-            <div x-data="{ collapsed: false, open: false }" x-on:keydown.escape.window="open = false" class="relative flex h-screen overflow-hidden">
-                <!-- Backdrop: phones only, while the sidebar is open -->
-                <div x-show="open" x-on:click="open = false" class="absolute inset-0 z-above bg-gray-900 opacity-50 md:hidden"></div>
 
-                <aside :class="[open ? 'translate-x-0' : '-translate-x-full', collapsed ? 'md:w-4' : 'md:w-16']" class="absolute top-0 bottom-0 left-0 z-high w-16 fs0 flex-col bg-white bdr-r transition-all md:relative md:translate-x-0">
-                    <button x-on:click="collapsed = !collapsed" class="absolute top-1 -right-1 wh-2 flex items-center justify-center rounded-full primary to-md:hidden">
-                        <svg :class="collapsed && 'rotate-180'" class="wh-1 transition-all" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                            <path d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5" />
-                        </svg>
-                    </button>
-                </aside>
 
-                <div class="flex-1 flex-col">
-                    <!-- Slim bar: phones only -->
-                    <div class="flex items-center pxy-05 bdr-b bg-white md:hidden">
-                        <button x-on:click="open = true" class="wh-2 flex items-center justify-center">
-                            <svg class="wh-1.5" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                                <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                            </svg>
-                        </button>
+    <div x-data="{ sidebarCollapsed: false, drawerOpen: false }" x-on:keydown.escape.window="drawerOpen = false" class="relative flex min-h-screen overflow-hidden">
+        <div x-show="drawerOpen" x-on:click="drawerOpen = false" class="overlay md:hidden"></div>
+
+        <aside :class="[drawerOpen ? 'translate-x-0' : '-translate-x-full', sidebarCollapsed ? 'md:w-4' : 'md:w-16']" class="absolute top-0 bottom-0 left-0 z-highest w-16 fs0 flex-col bg-white bdr-r transition-all md:relative md:translate-x-0">
+            <button x-on:click="sidebarCollapsed = !sidebarCollapsed" class="absolute top-1 -right-1 wh-2 flex items-center justify-center rounded-full primary to-md:hidden">
+                <svg :class="sidebarCollapsed && 'rotate-180'" class="wh-1 transition-all" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5" />
+                </svg>
+            </button>
+
+            <!-- brand -->
+            <header :class="sidebarCollapsed && 'md:hidden'" class="pxy-1 bdr-b">
+                <a href="/">
+                    <svg class="h-2 block" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 179 40">
+                        <path fill="#7C1544" d="M6.228 23.11c2.47.83 3.8 3.511 2.97 5.981a4.724 4.724 0 0 1-5.98 2.97 4.724 4.724 0 0 1-2.971-5.98c.83-2.47 3.51-3.8 5.98-2.97Zm3.851-11.431c2.47.83 3.8 3.51 2.97 5.98a4.724 4.724 0 0 1-5.981 2.971 4.724 4.724 0 0 1-2.97-5.98 4.723 4.723 0 0 1 5.98-2.971ZM13.92.247c2.47.83 3.8 3.51 2.97 5.98a4.724 4.724 0 0 1-5.981 2.971 4.724 4.724 0 0 1-2.97-5.98 4.724 4.724 0 0 1 5.98-2.971Zm7.59 15.273c2.47.83 3.8 3.51 2.97 5.98a4.724 4.724 0 0 1-5.98 2.97 4.724 4.724 0 0 1-2.97-5.98c.83-2.47 3.51-3.8 5.98-2.97Zm3.84-11.422a4.723 4.723 0 0 1 2.971 5.98 4.724 4.724 0 0 1-5.98 2.97 4.724 4.724 0 0 1-2.971-5.98c.83-2.47 3.51-3.8 5.98-2.97Zm3.741 26.704c-2.47-.83-5.15.5-5.98 2.97-.83 2.47.5 5.15 2.97 5.981 2.47.83 5.15-.5 5.98-2.97.83-2.47-.5-5.151-2.97-5.981Zm-2.42 7.2a2.883 2.883 0 0 1-1.81-3.64 2.87 2.87 0 0 1 3.64-1.8c1.5.5 2.31 2.13 1.81 3.64a2.883 2.883 0 0 1-3.64 1.81v-.01ZM17.66 26.951c-2.47-.83-5.151.5-5.981 2.97-.83 2.47.5 5.151 2.97 5.981 2.47.83 5.151-.5 5.981-2.97.83-2.47-.5-5.15-2.97-5.981Zm-2.42 7.201a2.883 2.883 0 0 1-1.811-3.64c.51-1.5 2.14-2.31 3.64-1.81 1.5.51 2.31 2.14 1.81 3.64a2.887 2.887 0 0 1-3.64 1.81ZM32.932 19.37c-2.47-.83-5.15.5-5.981 2.97-.83 2.47.5 5.151 2.97 5.981 2.47.83 5.151-.5 5.981-2.97.83-2.47-.5-5.151-2.97-5.981Zm-2.42 7.201a2.87 2.87 0 0 1-1.8-3.64c.51-1.5 2.13-2.31 3.64-1.81 1.5.51 2.31 2.13 1.81 3.64-.5 1.5-2.13 2.31-3.64 1.8l-.01.01Zm6.27-18.633c-2.47-.83-5.15.5-5.98 2.97a4.726 4.726 0 0 0 2.97 5.982c2.47.83 5.15-.5 5.981-2.97a4.725 4.725 0 0 0-2.97-5.982Zm-2.42 7.201a2.883 2.883 0 0 1-1.81-3.64c.51-1.5 2.13-2.31 3.64-1.81a2.87 2.87 0 0 1 1.8 3.64 2.883 2.883 0 0 1-3.64 1.81h.01Zm92.625 4.65c0-4.08-1.818-6.179-4.339-6.179-4.525 0-7.418 5.247-7.418 9.327s1.818 6.179 4.339 6.179c4.525 0 7.418-5.257 7.418-9.327Zm-7.418 8.463c-1.231 0-2.062-.862-2.062-2.961 0-2.256 1.603-10.808 5.141-10.808 1.231 0 2.062.863 2.062 2.962 0 2.256-1.603 10.808-5.141 10.808ZM107.871 13.61c-2.952 0-6.372 1.883-6.372 5.316 0 4.698 6.059 3.893 6.059 6.58 0 1.884-2.365 2.442-3.909 2.442-1.232 0-1.935-.274-1.935-.745 0-.588 1.749-.618 1.749-2.226 0-1.108-.743-1.795-1.935-1.795-1.476 0-2.248 1.206-2.248 2.413 0 1.883 1.574 3.52 4.682 3.52 3.997 0 7.173-2.226 7.173-5.619 0-4.384-6.245-3.893-6.245-6.336 0-1.422 1.329-2.5 3.049-2.5 1.046 0 1.574.215 1.574.588 0 .314-1.29.745-1.29 1.912 0 1.109.801 1.854 1.905 1.854 1.32 0 2.121-1.295 2.092-2.373-.029-1.668-1.603-3.03-4.339-3.03h-.01Zm-46.325.373h-2.952c.645-2.815 1.633-5.806 3.51-5.806.214 0 .341.088.341.216 0 .372-1.134.559-1.134 2.196 0 .864.675 1.609 1.603 1.609 1.388 0 2.219-1.265 2.219-2.472 0-1.078-.802-2.716-3.294-2.716-3.606 0-5.942 3.462-6.988 6.983H52.76l-.303 1.294h2.062l-3.323 14.054c-.772 3.305-2.12 4.482-2.805 4.482-.244 0-.342-.127-.342-.304 0-.304.772-.745.772-1.697 0-1.078-.674-1.794-1.788-1.794-1.359 0-2.033 1.137-2.033 2.344C45 34.068 46.358 35 47.834 35c3.235 0 6.832-3.58 8.22-9.915l2.247-9.788h2.893l.371-1.295-.019-.02ZM72.531 27.39c-.244 0-.4-.187-.4-.49 0-.275.156-.991.341-1.639l3.05-11.278h-4.027l-.528 2.07h-.058c-.186-1.237-1.046-2.443-2.649-2.443-4.398 0-7.574 5.316-7.574 10.16 0 2.629.89 5.346 3.997 5.346 2.033 0 3.137-1.795 3.997-3.217h.059c0 1.912 1.046 3.217 2.62 3.217 2.433 0 3.918-2.952 4.72-4.924h-1.114c-.704 1.52-1.613 3.198-2.444 3.198h.01Zm-6.86 0c-.832 0-1.174-.677-1.174-1.854 0-2.344 2.092-10.19 4.428-10.19.801 0 1.104.745 1.104 2.315 0 2.785-2.248 9.729-4.368 9.729h.01Zm29.299.186c-.342 0-.557-.245-.557-.677 0-.343.157-.99.274-1.48l2.736-10.132h2.805l.342-1.294h-2.795l1.232-4.63h-3.998l-1.202 4.63h-2.306l-.274 1.294h2.219l-1.847 6.914c-.343 1.236-.587 2.442-.587 3.649 0 1.726.802 3.275 3.02 3.275 2.62 0 4.095-2.785 4.828-4.923h-1.124c-.567 1.422-1.534 3.384-2.756 3.384l-.01-.01Zm77.101.245c-1.359 0-1.935-.922-1.935-2.903 0-.735.185-1.971.4-2.717 2.493-.127 4.398-.49 5.698-1.235 1.662-.961 2.766-2.53 2.766-4.267 0-1.912-1.534-3.089-3.753-3.089-3.694 0-8.923 4.011-8.923 9.268 0 3.491 2.062 6.238 5.258 6.238 3.382 0 5.6-3.58 6.245-5.689l-.958-.372c-.645 1.951-2.492 4.756-4.798 4.756v.01Zm2.775-12.907c.587 0 .89.462.89 1.207 0 2.383-1.847 4.511-4.867 4.786.703-2.717 2.218-5.992 3.968-5.992h.009Zm-7.476-.931h-2.952c.645-2.815 1.633-5.806 3.509-5.806.215 0 .342.088.342.216 0 .372-1.143.559-1.143 2.196 0 .864.674 1.609 1.602 1.609 1.388 0 2.219-1.265 2.219-2.472 0-1.078-.801-2.716-3.294-2.716-3.606 0-5.942 3.462-6.987 6.983h-2.092l-.303 1.294h2.062l-3.323 14.054c-.772 3.305-2.12 4.482-2.805 4.482-.244 0-.342-.127-.342-.304 0-.304.772-.745.772-1.697 0-1.078-.674-1.794-1.788-1.794-1.349 0-2.033 1.137-2.033 2.344 0 1.696 1.359 2.628 2.834 2.628 3.235 0 6.832-3.58 8.22-9.915l2.247-9.788h2.893l.372-1.295-.01-.02Zm-24.042 13.22c-.244 0-.401-.157-.401-.49 0-.53.274-1.393.616-2.629L148.068 7.5l-6.128.187-.303 1.108c1.32.059 1.691.304 1.691.96 0 1.393-3.939 13.81-3.939 16.281 0 1.697.772 3.09 2.463 3.09 2.483 0 4.085-3.031 4.857-4.924h-1.055c-.753 1.648-1.593 3.011-2.326 3.011v-.01Z" />
+                        <path fill="#7C1544" d="M140.122 9.07c0-1.08-.615-2.07-2.404-2.07-2.365 0-5.287 2.344-6.401 6.983h-2.307l-.244 1.05h2.248c-.968 5.266-.929 6.521-2.18 11.395-1.26 4.884-2.678 6.336-3.909 6.336-.528 0-.772-.186-.772-.343 0-.56 1.173-.618 1.173-1.883 0-.775-.675-1.295-1.417-1.295-.919 0-1.848.745-1.848 2.099 0 1.55 1.173 2.471 2.62 2.471 2.003 0 3.831-1.432 5.355-4.6 1.76-3.667 2.366-8.797 3.509-14.171h2.619l.245-1.05h-2.649c.528-3.51 2.336-5.933 3.753-5.933.244 0 .342.088.342.216 0 .343-.616.677-.616 1.667 0 .804.518 1.207 1.202 1.207 1.144 0 1.691-1.236 1.691-2.07l-.01-.01Zm13.927 3.52c1.603 0 2.434-1.48 2.434-2.844 0-1.177-.743-2.158-1.877-2.158-1.603 0-2.433 1.481-2.433 2.845 0 1.177.733 2.157 1.876 2.157Zm1.534 11.602h-1.143c-.577 1.216-1.437 2.825-2.101 2.825-.401 0-.46-.304-.46-.677 0-.559.274-1.422.558-2.413l2.922-9.944-6.128.186-.313 1.108c1.32.06 1.574.314 1.574.961 0 .648-2.434 7.386-2.434 9.484 0 1.913.587 3.394 2.619 3.394 2.483 0 4.027-2.835 4.906-4.924ZM86.419 13.61c-4.623 0-9.207 4.698-9.207 9.454 0 3.708 2.15 6.052 5.141 6.052 3.528 0 5.023-2.511 6.167-4.924h-1.192c-1.251 2.442-2.444 3.629-3.89 3.629-1.105 0-2.033-.745-2.033-2.776 0-4.354 2.434-10.13 5.356-10.13.4 0 .674.098.674.274 0 .128-.342.187-.704.402a1.905 1.905 0 0 0-.957 1.668c0 1.147.742 1.941 1.847 1.941 1.505 0 2.336-1.422 2.336-2.716 0-1.452-1.173-2.874-3.538-2.874Z" />
+                    </svg>
+                </a>
+            </header>
+
+            <!-- nav: choosing a link closes the phone overlay -->
+            <div x-on:click="if ($event.target.closest('a')) drawerOpen = false" class="flex-1 pxy-075 space-y">
+                <nav>
+                    <ul class="menu">
+                        <li>
+                            <a href="/user/dashboard" class="active">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                                </svg>
+                                <span :class="sidebarCollapsed && 'md:hidden'">Dashboard</span>
+                            </a>
+                        </li>
+                        <li x-data="{ expanded: true }">
+                            <!-- in the rail, opens the sidebar with this parent expanded -->
+                            <button x-on:click="sidebarCollapsed ? (sidebarCollapsed = false, expanded = true) : expanded = !expanded" :aria-expanded="expanded">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+                                    </svg>
+                                    <span :class="sidebarCollapsed && 'md:hidden'">Courses</span>
+                                </span>
+                                <svg :class="sidebarCollapsed && 'md:hidden'" class="wh-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                    <path x-show="expanded" d="m6 15 6-6 6 6" />
+                                    <path x-show="!expanded" d="m6 9 6 6 6-6" />
+                                </svg>
+                            </button>
+                            <ul x-show="expanded" x-collapse :class="sidebarCollapsed && 'md:hidden'">
+                                <li><a href="/user/courses/active">Active</a></li>
+                                <li><a href="/user/courses/pending">Pending</a></li>
+                                <li><a href="/user/courses/expired">Expired</a></li>
+                                <li><a href="/user/courses">All Courses</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/webinars">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 0 1-1.125-1.125M3.375 19.5h1.5C5.496 19.5 6 18.996 6 18.375m-3.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-1.5A1.125 1.125 0 0 1 18 18.375M20.625 4.5H3.375m17.25 0c.621 0 1.125.504 1.125 1.125M20.625 4.5h-1.5C18.504 4.5 18 5.004 18 5.625m3.75 0v1.5c0 .621-.504 1.125-1.125 1.125M3.375 4.5c-.621 0-1.125.504-1.125 1.125M3.375 4.5h1.5C5.496 4.5 6 5.004 6 5.625m-3.75 0v1.5c0 .621.504 1.125 1.125 1.125m0 0h1.5m-1.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m1.5-3.75C5.496 8.25 6 7.746 6 7.125v-1.5M4.875 8.25C5.496 8.25 6 8.754 6 9.375v1.5m0-5.25v5.25m0-5.25C6 5.004 6.504 4.5 7.125 4.5h9.75c.621 0 1.125.504 1.125 1.125m1.125 2.625h1.5m-1.5 0A1.125 1.125 0 0 1 18 7.125v-1.5m1.125 2.625c-.621 0-1.125.504-1.125 1.125v1.5m2.625-2.625c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125M18 5.625v5.25M7.125 12h9.75m-9.75 0A1.125 1.125 0 0 1 6 10.875M7.125 12C6.504 12 6 12.504 6 13.125m0-2.25C6 11.496 5.496 12 4.875 12M18 10.875c0 .621-.504 1.125-1.125 1.125M18 10.875c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125m-12 5.25v-5.25m0 5.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125m-12 0v-1.5c0-.621-.504-1.125-1.125-1.125M18 18.375v-5.25m0 5.25v-1.5c0-.621.504-1.125 1.125-1.125M18 13.125v1.5c0 .621.504 1.125 1.125 1.125M18 13.125c0-.621.504-1.125 1.125-1.125M6 13.125v1.5c0 .621-.504 1.125-1.125 1.125M6 13.125C6 12.504 5.496 12 4.875 12m-1.5 0h1.5m-1.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125M19.125 12h1.5m0 0c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h1.5m14.25 0h1.5" />
+                                </svg>
+                                <span :class="sidebarCollapsed && 'md:hidden'">Webinars</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/user/account">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                                </svg>
+                                <span :class="sidebarCollapsed && 'md:hidden'">My Account</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/user/edit-profile">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                                </svg>
+                                <span :class="sidebarCollapsed && 'md:hidden'">My Profile</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <ul class="menu">
+                    <li>
+                        <form method="POST" action="/logout">
+                            <button type="submit">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9" />
+                                </svg>
+                                <span :class="sidebarCollapsed && 'md:hidden'">Log Out</span>
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- footer: user -->
+            <footer class="flex items-center gap-075 pxy-075 bdr-t">
+                <div class="wh-2.5 fs0 flex-centered rounded-full primary font-semibold">NW</div>
+                <div :class="sidebarCollapsed && 'md:hidden'" class="txt-sm font-medium">Nathan Watts</div>
+            </footer>
+        </aside>
+
+        <div class="flex-1 flex-col">
+            <div class="flex items-center pxy-05 bdr-b bg-white md:hidden">
+                <button x-on:click="drawerOpen = true" class="wh-2 flex items-center justify-center">
+                    <svg class="wh-1.5" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- main content -->
+            <main class="flex-1">
+                <div class="container-md py">
+                    <h1 class="font-serif">User Dashboard</h1>
+
+                    <hr>
+
+                    <h2>Active and Open Courses</h2>
+                    <p class="max-w-sm">These are your active courses. You have 30 days to complete them, so be sure to monitor your completion progress and keep track of the expiry date.</p>
+                    <div class="grid md:cols-2">
+                        <p>You do not have any active courses.</p>
                     </div>
 
-                    <main class="flex-1 overflow-y-auto">
-                        <div class="container py">
-                            <h1>Dashboard</h1>
-                            <div class="bx h-20"></div>
-                            <div class="bx h-screen"></div>
+                    <hr>
+
+                    <h2>Courses Pending Activation</h2>
+                    <p>Click "Active" to start your course. Once started, you'll have 30 days to complete it.</p>
+                    <div class="grid md:cols-2">
+                        <p>No courses found.</p>
+                    </div>
+
+                    <hr>
+
+                    <h2>Expired Courses</h2>
+                    <div class="grid md:cols-2">
+                        <div class="bx">
+                            <div class="bx-header relative pxy-0">
+                                <img src="https://fol-bucket.s3.ap-southeast-2.amazonaws.com/courses/pexels-anna-shvets-v2.jpg" alt="BBB01" class="aspect-3:2 w-full">
+                                <div class="bx-title course-title absolute inset-0 flex-centered pxy tac">BBB01 - Back to Basics Breastfeeding</div>
+                            </div>
+                            <div class="bx-content">
+                                <div><strong>Enrolled:</strong> 03-03-2026</div>
+                                <div><strong>Started:</strong> 03-03-2026</div>
+                                <div><strong>Expired:</strong> 02-04-2026</div>
+                                <div><strong>Completed:</strong> 03-03-2026</div>
+                            </div>
+                            <a href="/download-certificate/1556" class="btn sm primary-outline w-full">Download Certificate</a>
                         </div>
-                    </main>
+
+                        <div class="bx">
+                            <div class="bx-header relative pxy-0">
+                                <img src="https://fol-bucket.s3.ap-southeast-2.amazonaws.com/courses/pexels-anna-shvets-v2.jpg" alt="BBB01" class="aspect-3:2 w-full">
+                                <div class="bx-title course-title absolute inset-0 flex-centered pxy tac">BBB01 - Back to Basics Breastfeeding</div>
+                            </div>
+                            <div class="bx-content">
+                                <div><strong>Enrolled:</strong> 11-06-2026</div>
+                                <div><strong>Started:</strong> 17-06-2026</div>
+                                <div><strong>Expired:</strong> 17-07-2026</div>
+                                <div><strong>Completed:</strong> 17-06-2026</div>
+                            </div>
+                            <a href="/download-certificate/1658" class="btn sm primary-outline w-full">Download Certificate</a>
+                        </div>
+
+                        <div class="bx">
+                            <div class="bx-header relative pxy-0">
+                                <img src="https://fol-bucket.s3.ap-southeast-2.amazonaws.com/courses/kpR02dhj178VSuICdz3pidS6obPAAaUFuiLylATl.jpg" alt="EP06" class="aspect-3:2 w-full">
+                                <div class="bx-title course-title absolute inset-0 flex-centered pxy tac">EP06 - Maternal Manifestations</div>
+                            </div>
+                            <div class="bx-content">
+                                <div><strong>Enrolled:</strong> 06-09-2026</div>
+                                <div><strong>Started:</strong> 06-09-2026</div>
+                                <div><strong>Expired:</strong> 06-10-2026</div>
+                                <div><strong>Completed:</strong> Not Completed</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </main>
         </div>
+    </div>
     </div>
 
     <div x-data="{ sidebarOpen: true }" class="flex min-h-screen overflow-hidden">

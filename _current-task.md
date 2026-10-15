@@ -8,6 +8,7 @@ Goal: create a dashboard with a collapsible sidebar.
 2. Skeleton: bare-bones structure only, built from documented layouts where
    they exist (done)
 3. Behaviour: add one behaviour at a time, and check it works before the next
+   (done, except the two that need the menu)
 4. Content: put documented elements in (menu, and so on)
 5. Polish: real icons and labels instead of placeholders
 6. Store: move it to its permanent page, and feed gaps back into the docs

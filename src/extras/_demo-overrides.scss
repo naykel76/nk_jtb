@@ -19,13 +19,19 @@
     resize: horizontal;
 
     &::after {
-        bottom: 0.1125;
+        bottom: 0;
         color: #667eea;
         content: '← Drag to resize →';
         font-size: 0.75rem;
         pointer-events: none;
         position: absolute;
         right: 0.5rem;
+    }
+
+    // An overlay is fixed to the window on a real page. Inside a demo box it
+    // covers only the demo.
+    .overlay {
+        position: absolute;
     }
 
     // Docs-only preview overrides.
@@ -38,6 +44,10 @@
             min-height: 200px;
         }
 
+        .h-screen {
+            height: 20rem;
+        }
+
         .lg\:cols-3 {
             grid-template-columns: repeat(1, minmax(0, 1fr));
         }
@@ -47,9 +57,55 @@
             grid-column: auto;
         }
 
+        // Collapsible sidebar (sidebar-main.md): reset each md: class to its
+        // below-md fallback, then switch it back on from the docs md width
+        .md\:hidden {
+            display: flex;
+        }
+
+        .md\:relative {
+            position: absolute;
+        }
+
+        .md\:w-16,
+        .md\:w-4 {
+            width: 16rem;
+        }
+
+        .md\:translate-x-0 {
+            --jtb-translate-x: -100%;
+        }
+
+        // Open overlay: the bound translate-x-0 has to win over the reset
+        .md\:translate-x-0.translate-x-0 {
+            --jtb-translate-x: 0;
+        }
+
         @container (width < 476px) {
             .to-md\:hidden {
                 display: none;
+            }
+        }
+
+        @container (width >= 476px) {
+            .md\:hidden {
+                display: none;
+            }
+
+            .md\:relative {
+                position: relative;
+            }
+
+            .md\:w-16 {
+                width: 16rem;
+            }
+
+            .md\:w-4 {
+                width: 4rem;
+            }
+
+            .md\:translate-x-0 {
+                --jtb-translate-x: 0;
             }
         }
 
