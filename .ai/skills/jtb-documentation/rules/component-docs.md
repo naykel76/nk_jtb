@@ -26,9 +26,7 @@ them for not being in the list above.
 
 - A new topic gets its own `##` (e.g. `## SCSS Variables`). Variations of one
   thing nest as `###` — never sibling `##` sections.
-- Tag each example: `class="bx example-jtb"` for class examples,
-  `class="bx example-utils"` for utility examples. Responsive demos replace
-  `bx` with `resizable-container with-docs-only-overrides` and keep the tag.
+- Demo boxes and tags follow `code-blocks.md`.
 - A component may have class examples, utility examples, or both. Utility
   examples usually come first; a class may follow later. Until a class exists,
   the Basic Usage example is a utility example. Never create one just to pair

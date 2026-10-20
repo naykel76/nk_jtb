@@ -1,13 +1,11 @@
-Build `[component]` using JTB utilities.
+Build `[example]` using JTB utilities.
 
-Invoke the `jtb-layouts-and-structures` skill before starting.
+Invoke `jtb-best-practices` and `jtb-documentation` before starting.
 
 ## Output
 
-Check `index.html`.
-
-- If it contains no meaningful content, write there.
-- If it already has content, ask whether to add to it or create a new file.
+Follow the development-workspace rule in `jtb-best-practices` and the example
+placement rules in `jtb-documentation`.
 
 ## Design Reference
 
@@ -29,7 +27,7 @@ After building, report only actionable items:
   problem and what workaround was used.
 - **Framework Gaps** — utilities, tokens, patterns, or primitives that seem
   missing, weak, or awkward.
-- **Guideline Gaps** — places where the component-creation guidance or JTB docs
+- **Guideline Gaps** — places where the example-creation guidance or JTB docs
   were unclear or insufficient.
 - **Skill Gaps** — places where the invoked skill was unclear, insufficient,
   misleading, or failed to help with a relevant decision.

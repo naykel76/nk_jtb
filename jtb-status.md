@@ -25,6 +25,7 @@
 
 | Layout         | Status |
 | -------------- | ------ |
+| Auto Spacing   | review |
 | Sidebar + Main | review |
 
 ## Structures
@@ -32,6 +33,7 @@
 | Structure              | Status |
 | ---------------------- | ------ |
 | Two-Thirds + One-Third | ✅      |
+| Header + Body + Footer | ✅      |
 
 ## Elements
 

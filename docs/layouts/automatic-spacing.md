@@ -1,4 +1,4 @@
-# Auto Spacing
+# Auto Spacing (review)
 
 <p class="lead">Automatic vertical spacing between block elements without
 requiring margin utilities on every element.</p>
@@ -6,9 +6,9 @@ requiring margin utilities on every element.</p>
 - **Flex/Grid Safe** - Automatically opts out when using gap-based layouts
 - **Low Specificity** - Uses `:where()` for easy overrides
 
-## Examples
+## Examples (review)
 
-### Should Space
+### Should Space (review)
 
 <div class="bx bg-stripes-pink">
     <h2 class="pxy-075 warning-light rounded-05">Heading 2</h2>
@@ -22,7 +22,7 @@ requiring margin utilities on every element.</p>
     <pre class="pxy-075 warning-light rounded-05">Pre</pre>
 </div>
 
-### Should NOT Space
+### Should NOT Space (review)
 
 <div class="bx bg-stripes-blue">
     <div class="pxy-075 info-light rounded-05">Div</div>
@@ -33,7 +33,7 @@ requiring margin utilities on every element.</p>
     <footer class="pxy-075 info-light rounded-05">Footer</footer>
 </div>
 
-### Flex and Grid
+### Flex and Grid (review)
 
 Elements inside flex or grid containers have margins reset—these layouts use `gap` instead.
 
@@ -57,7 +57,7 @@ Elements inside flex or grid containers have margins reset—these layouts use `
     </div>
 </div>
 
-## How It Works
+## How It Works (review)
 
 Spacing is applied by element relationship, not position. Two categories determine behaviour:
 

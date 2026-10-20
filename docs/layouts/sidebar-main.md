@@ -14,7 +14,7 @@ reopens it over the content. Drag the demo narrower to see it.
 - The burger bar (`md:hidden`) sets `drawerOpen`. The backdrop and Escape close it
 - `overflow-hidden` keeps the off-screen sidebar from showing outside the layout
 
-```html +demo-folded class="resizable-container with-docs-only-overrides"
+```html +demo-folded class="resizable-container with-docs-only-overrides example-utils"
 <div x-data="{ drawerOpen: false }" x-on:keydown.escape.window="drawerOpen = false" class="relative flex min-h-screen overflow-hidden">
     <div x-show="drawerOpen" x-on:click="drawerOpen = false" class="overlay md:hidden"></div>
 
@@ -36,7 +36,7 @@ reopens it over the content. Drag the demo narrower to see it.
 </div>
 ```
 
-### Collapsible Sidebar (review)
+### How do I collapse the sidebar to icons? (review)
 
 Adds an icon rail on larger screens. Phones work the same as above.
 
@@ -45,7 +45,7 @@ Adds an icon rail on larger screens. Phones work the same as above.
   and `md:w-4`
 - `to-md:hidden` hides the edge button on phones, where the burger takes over
 
-```html +demo-folded class="resizable-container with-docs-only-overrides"
+```html +demo-folded class="resizable-container with-docs-only-overrides example-utils"
 <div x-data="{ sidebarCollapsed: false, drawerOpen: false }" x-on:keydown.escape.window="drawerOpen = false" class="relative flex min-h-screen overflow-hidden">
     <div x-show="drawerOpen" x-on:click="drawerOpen = false" class="overlay md:hidden"></div>
 
@@ -76,9 +76,7 @@ Adds an icon rail on larger screens. Phones work the same as above.
 </div>
 ```
 
-## Characteristics (review)
-
-### Independent Scrolling (review)
+### How do I make the sidebar and main scroll separately? (review)
 
 Each region scrolls on its own, instead of the whole page scrolling together.
 
@@ -87,9 +85,9 @@ Each region scrolls on its own, instead of the whole page scrolling together.
   container
 - Add `overflow-y-auto` to the sidebar and to main
 
-```html +demo-folded class="resizable-container with-docs-only-overrides"
+```html +demo-folded class="resizable-container with-docs-only-overrides example-utils"
 <div class="flex h-screen overflow-hidden">
-    <aside class="w-16 fs0 flex-col bg-slate-900 overflow-y-auto to-md:hidden">
+    <aside class="w-16 fs0 hidden md:flex-col bg-slate-900 overflow-y-auto">
         <div class="pxy-075 space-y">
             <div class="h-6 bg-slate-700 rounded"></div>
             <div class="h-12 bg-slate-700 rounded"></div>
@@ -105,7 +103,7 @@ Each region scrolls on its own, instead of the whole page scrolling together.
 </div>
 ```
 
-### Sticky Sidebar Header and Footer (review)
+### How do I keep the sidebar header and footer in place? (review)
 
 Scrolling moves from the `aside` to the content between the header and footer.
 
@@ -113,7 +111,7 @@ Scrolling moves from the `aside` to the content between the header and footer.
 - Add a `<header>` and `<footer>` as direct children of the `aside`
 - Wrap the scrollable content in a `div` with `flex-1 overflow-y-auto`
 
-```html +demo-folded class="resizable-container with-docs-only-overrides"
+```html +demo-folded class="resizable-container with-docs-only-overrides example-utils"
 <div class="flex h-screen overflow-hidden">
     <aside class="w-16 fs0 flex-col bg-slate-900">
         <header class="pxy-075 bdr-b bdr-slate-700">

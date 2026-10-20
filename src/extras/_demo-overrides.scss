@@ -67,6 +67,11 @@
             position: absolute;
         }
 
+        // Paired with `hidden` (sidebar-main.md scrolling demo)
+        .md\:flex-col {
+            display: none;
+        }
+
         .md\:w-16,
         .md\:w-4 {
             width: 16rem;
@@ -94,6 +99,11 @@
 
             .md\:relative {
                 position: relative;
+            }
+
+            .md\:flex-col {
+                display: flex;
+                flex-direction: column;
             }
 
             .md\:w-16 {

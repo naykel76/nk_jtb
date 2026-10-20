@@ -1,23 +1,22 @@
-# Installation (review)
+# Installation
 
-<p class="lead">Get started with JTB in minutes.</p>
+<p class="lead">Install JTB and load its Sass, with optional configuration and selective imports.</p>
 
-## Install (review)
+## Install
 
 ```bash +code
 npm install nk_jtb
 ```
 
-## Import (review)
+## Import
 
 ```scss +code
 @use 'nk_jtb/src/build' as *;
 ```
 
-## Configure (review)
+## Configure
 
-Override variables before importing. See [Variable System](/docs/jtb/variable-system) for
-details.
+Override variables before loading the build:
 
 ```scss +code
 @forward 'nk_jtb/src/maps_and_variables/base' with (
@@ -28,7 +27,10 @@ details.
 @use 'nk_jtb/src/build' as *;
 ```
 
-## Selective Import (review)
+See [Variable System](/docs/jtb/variable-system) for configuration and runtime
+styling details.
+
+## Selective Import
 
 Import only the layers you need:
 

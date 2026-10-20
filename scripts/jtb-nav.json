@@ -1,4 +1,16 @@
 {
+    "Getting Started": {
+        "links": [
+            {
+                "name": "Installation",
+                "route_name": "docs.jtb.installation"
+            },
+            {
+                "name": "Variable System",
+                "route_name": "docs.jtb.variable-system"
+            }
+        ]
+    },
     "Components": {
         "links": [
             {
@@ -14,6 +26,10 @@
     "Layouts": {
         "links": [
             {
+                "name": "Auto Spacing (wip)",
+                "route_name": "docs.jtb.layouts.automatic-spacing"
+            },
+            {
                 "name": "Layouts",
                 "route_name": "docs.jtb.layouts.layouts"
             },
@@ -24,6 +40,26 @@
             {
                 "name": "Structures",
                 "route_name": "docs.jtb.layouts.structures"
+            }
+        ]
+    },
+    "Examples": {
+        "links": [
+            {
+                "name": "Boxes",
+                "route_name": "docs.jtb.examples.showcase-boxes"
+            },
+            {
+                "name": "Gradients and Backgrounds",
+                "route_name": "docs.jtb.examples.showcase-backgrounds"
+            }
+        ]
+    },
+    "API": {
+        "links": [
+            {
+                "name": "Variables",
+                "route_name": "docs.jtb.api.variables"
             }
         ]
     },

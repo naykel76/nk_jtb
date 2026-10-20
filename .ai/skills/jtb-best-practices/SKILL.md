@@ -9,6 +9,11 @@ description: >-
 
 # NK JTB Best Practices
 
+Building a UI example, including requests to create, develop or build a
+component, normally starts in `index.html`, the development workspace, unless
+Nathan specifies another location. This does not imply adding a Sass component
+to the framework. Leave examples there unless Nathan asks to move or remove them.
+
 ## Verify Before Using
 
 Never use a class without confirming it exists in JTB source or documentation.

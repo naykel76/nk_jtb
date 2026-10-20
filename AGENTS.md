@@ -198,35 +198,22 @@ follow the direction.
 - When a skill applies, invoke it. Reading its `SKILL.md` is not a substitute.
 - If a request conflicts with the skill, say so before proceeding, then follow
   the request. Never drop the skill silently.
-- `.ai/` is the only source. Everything the sync script writes is generated —
-  the root instruction files (`CLAUDE.md`, `AGENTS.md`) and every agent skills
-  directory (`.claude/`, `.agents/`, `.cursor/`, `.windsurf/`, and any target
-  added later). The sync script lists them; it is the authority, not this list.
-- Never edit a generated file, and never quote one as the rule. To answer what a
-  guideline or skill says, read it in `.ai/` — a generated copy is a build
-  artefact and arguing from its wording is arguing with the build.
-- Locate the source with `ls -la` every time — Glob does not reveal symlinks and
-  will mislead you. If it is not in `.ai/`, stop and ask rather than guessing or
-  falling back to a generated copy.
-- Don't sync after every change. Run the project's sync command (`ai:sync` in
-  `package.json`, or equivalent) only when Nathan asks, or when a batch of
-  changes is finished. Until then, generated copies are behind, so read rules
-  from `.ai/`. If there is no sync command, say the change will not propagate
-  until the next sync.
 
-### Symlinked Skills and Guidelines
+### Sources and Sync
 
-Some `.ai/` entries belong to the project. Others are symlinks into
-`sites/skills-and-guidelines`, a **separate git repository**. `ls -la` tells you
-which.
-
-Editing a symlinked file is correct, but the change lands in that separate
-repository and never appears in this project's `git status` or diff.
-
-- After changing one, say the change is in the separate `skills-and-guidelines`
-  repository — not this project — and name the files. Every time, including when
-  Nathan asked for it.
-- If Nathan disputes the change, say that first, before conceding or arguing.
+- Read, quote, and edit originals, never generated or installed copies.
+- Project sources live in `.ai/`. Inspect entries with `ls -la` (PowerShell:
+  `Get-ChildItem -Force` with `LinkType` and `Target`) and follow symlinks.
+- Installed skills may be copies, not symlinks. Use available installation
+  metadata or a documented source location to find the original. Ask only if
+  it cannot be found or read.
+- Changes to shared originals belong to the separate `skills-and-guidelines`
+  repository, not this project's diff. Always name that repository and the files
+  changed when reporting, including when Nathan asked for the change. If Nathan
+  disputes a change, state that location first.
+- Run the project's sync command only when Nathan asks or a batch is finished,
+  not after every edit. Until then, read originals because copies may be behind.
+  If no sync command exists, say propagation is pending.
 
 ## File References
 

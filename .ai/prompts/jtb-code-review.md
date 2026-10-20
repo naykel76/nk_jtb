@@ -21,8 +21,7 @@ Invoke the `scss-engineer` and `jtb-documentation` skills before starting.
 - **Override Order:** Confirm the import order: base → components → forms →
   utilities.
 - **Documentation:** All new or changed code must be documented using JTB
-  documentation conventions. Drafts go in `docs-for-review/`, finalized docs
-  in `docs/`.
+  documentation conventions.
 
 ## Review Checklist
 
